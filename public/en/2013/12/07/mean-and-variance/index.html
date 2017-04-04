@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>Mean, Variance and Something about Sample - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Mean, Variance and Something about Sample - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> Home </a></li>
+    
+    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    
+    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    
+    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Mean, Variance and Something about Sample
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2013/12/07</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Mean%2C&#43;Variance&#43;and&#43;Something&#43;about&#43;Sample&#43;http%3A%2F%2Fyufree.cn%2Fen%2F2013%2F12%2F07%2Fmean-and-variance%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Mean%2C&#43;Variance&#43;and&#43;Something&#43;about&#43;Sample&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fen%2F2013%2F12%2F07%2Fmean-and-variance%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2013-12-07-mean-variance-and-something-about-sample.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+
+
+
+<p>OK，I must clear the concepts of those terms because this is the third time I review my notes.</p>
+<div id="description-of-data" class="section level2">
+<h2>Description of Data</h2>
+<p>If one wants to descript a collection of data, the Mode, Median and Mean are the first three terms to be learned. They are used to show the whole data in one parameter. And yes, one value is enough and the most important property of a dataset is the center. So where do the center come from? Here, our formula could be written as a distance between a parameter and the every values in the dataset.</p>
+<p>So the Mode could be written as</p>
+<p><span class="math display">\[ 
+\sum_{}^{}(M_{para} - x_{i})^0 
+\]</span></p>
+<p>And the Median could be written as</p>
+<p><span class="math display">\[
+\sum_{}^{}(M_{para} - x_{i})^1 
+\]</span></p>
+<p>Then the Mean could be written as</p>
+<p><span class="math display">\[
+\sum_{}^{}(M_{para} - x_{i})^2 
+\]</span></p>
+<p>Eh, I think the solution of the formula will show the Mean which make the distance smallest and yes, just make a diff. So here the description of the data is finished or just begin. Change the uppercase as you like. The origin idea came from <a href="http://www.johnmyleswhite.com/notebook/2013/03/22/modes-medians-and-means-an-unifying-perspective/">John Myles White</a>.</p>
+</div>
+<div id="mean" class="section level2">
+<h2>Mean</h2>
+<p>Here we get Mean to show the center of dataset. And mean of discrete random variable X could be wright in the following formula:</p>
+<p><span class="math display">\[
+E[X] = \sum_x xp(x) 
+\]</span></p>
+<p>For a continuous random variable,</p>
+<p><span class="math display">\[
+E[X] = \int_{-\infty}^\infty t f(t)dt 
+\]</span></p>
+<p>Mean tell us the center of the distribution because we just use the smallest distance. Now we want to known the spread of the data. So we use variance.</p>
+</div>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<p>Here, we need to talk about moment in another view. The mean or the expected values is the first raw moment and the second central moment is variance. The <a href="http://en.wikipedia.org/wiki/Moment_(mathematics)">moment</a> is another discription method of the distribution. Here we only use the formula of variance:</p>
+<p><span class="math display">\[
+Var(X) = E[(X - \mu)^2] 
+\]</span></p>
+<p>And the variance could be written as:</p>
+<p><span class="math display">\[
+Var(X) = E[X^2] - E[X]^2 
+\]</span></p>
+<p>So how to understand the variance in probability?</p>
+<div id="chebyshevs-inequality" class="section level3">
+<h3>Chebyshev’s inequality</h3>
+<p><span class="math display">\[
+P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2} 
+\]</span></p>
+<p>Here we found the variance actually show the probaliblity of a observation in a distribution. That is just a description of spread of the distribution.</p>
+<p>Ok, we talk enough about the distribution itself. Next we will see the sample.</p>
+</div>
+</div>
+<div id="sample" class="section level2">
+<h2>Sample</h2>
+<p>The independent and identically distributed random variables are the default model for random samples. Under iid, we could use the probaliblity to give out the description of sample. So if the values of variables is uncorrelated, then the variance of the sum is the sum of the variances.</p>
+<p><span class="math display">\[
+Var\left(\sum_{i=1}^n X_i \right) = \sum_{i=1}^n Var(X_i) 
+\]</span></p>
+<p>So we will get the variance of the mean of the sample:</p>
+<p><span class="math display">\[
+\begin{align}
+Var(\bar X) &amp; = Var \left( \frac{1}{n}\sum_{i=1}^n X_i \right)\\ 
+    &amp; =  \frac{1}{n^2} Var\left(\sum_{i=1}^n X_i \right)\\ 
+    &amp; =  \frac{1}{n^2} \sum_{i=1}^n Var(X_i) \\ 
+    &amp; =  \frac{1}{n^2} \times n\sigma^2 \\ 
+    &amp; =  \frac{\sigma^2}{n} 
+\end{align}
+\]</span></p>
+<p>We also get the standard error of the sample mean: <span class="math inline">\(\sigma/\sqrt{n}\)</span>,the sample mean has to be less variable than a single observation, therefore its standard deviation is divided.</p>
+<p>For the sample mean which is the unbiased estimator of the population, nothing could be discussed. But for the sample variance need more attentions:</p>
+<p><span class="math display">\[
+S^2 =   \frac{\sum_{i=1}^n (X_i - \bar X)^2}{n-1} 
+\]</span></p>
+<p>We proof it:</p>
+<p><span class="math display">\[
+\begin{align}
+E\left[\sum_{i=1}^n (X_i - \bar X)^2\right] &amp; = \sum_{i=1}^n E\left[X_i^2\right] - n E\left[\bar X^2\right] \\ \\
+    &amp; = \sum_{i=1}^n \left\{Var(X_i) + \mu^2\right\} - n \left\{Var(\bar X) + \mu^2\right\} \\ \\
+    &amp; = \sum_{i=1}^n \left\{\sigma^2 + \mu^2\right\} - n \left\{\sigma^2 / n + \mu^2\right\} \\ \\
+    &amp; = n \sigma^2 + n \mu ^ 2 - \sigma^2 - n \mu^2 \\ \\
+    &amp; = (n - 1) \sigma^2
+\end{align}
+\]</span></p>
+<p>For the estimator <span class="math inline">\(S^2\)</span> of <span class="math inline">\(\sigma^2\)</span> is unbiased, the calculation of sample variance <span class="math inline">\(S^2\)</span> involves dividing by <span class="math inline">\(n-1\)</span>. And <span class="math inline">\(S / \sqrt{n}\)</span> is called the sample standard error of the mean.</p>
+</div>
+<div id="mean-again" class="section level2">
+<h2>Mean Again</h2>
+<p>If I want to descript a collection of samples, the mean is esay to get. But if we want to know the population behind the samples, we will use S as a description of the spread. But if we only care the mean, the <span class="math inline">\(S / \sqrt{n}\)</span> will show the description of the error when we calculate the mean. When the n is large enough, we will get a precise mean with small error. But this error have no effect of S, which is the description of the spread behind the sample. If you want an interval estimation of the sample mean instead of a point estimation, you may need to consider that t-value multiply the standard error.</p>
+<p>Ok, finally I sort out those terms. I cite the work done by <a href="https://github.com/bcaffo/Caffo-Coursera">Professor Brian Caffo</a>, thank you very much.</p>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../en/2013/12/04/my-first-paper/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure</div>
+    </a>
+    
+
+    
+    <a href="../../../../../en/2014/03/23/intro-of-shiny/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">A very brief intro of shiny <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/en\/2013\/12\/04\/my-first-paper\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/en\/2014\/03\/23\/intro-of-shiny\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

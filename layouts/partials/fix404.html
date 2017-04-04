@@ -1,0 +1,5 @@
+{{ if eq .Type "404" }}
+<script>
+if (location.pathname !== '/404.html') location.pathname = '/404.html';
+</script>
+{{ end }}

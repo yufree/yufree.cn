@@ -1,0 +1,109 @@
+baseurl: "/"
+relativeurls: true
+languageCode: "en-us"
+title: "Miao Yu | 于淼 "
+theme: "hugo-lithium-theme"
+googleAnalytics: "UA-43118729-1"
+disqusShortname: "yufree"
+ignoreFiles: ["\\.Rmd$", "_files$", "_cache$"]
+enableEmoji: true
+footnotereturnlinkcontents: "↩"
+
+permalinks:
+  cn: "/cn/:year/:month/:day/:slug/"
+  en: "/en/:year/:month/:day/:slug/"
+
+menu:
+  main:
+    - name: "About"
+      url: "/en/about/"
+      weight: 0
+    - name: "Blog"
+      url: "/en/"
+      weight: 1
+    - name: "关于"
+      url: "/cn/about/"
+      weight: 2
+    - name: "博客"
+      url: "/cn/"
+      weight: 3
+    - name: "app"
+      url: "/app/"
+      weight: 4
+  en:
+    - name: "Home"
+      url: "/"
+      weight: 0
+    - name: "About"
+      url: "/en/about/"
+      weight: 1
+    - name: "Blog"
+      url: "/en/"
+      weight: 2
+    - name: "Vitae"
+      url: "/en/vitae/"
+      weight: 3
+    - name: "中文"
+      url: "/cn/"
+      weight: 4
+  cn:
+    - name: "首页"
+      url: "/"
+      weight: 0
+    - name: "关于"
+      url: "/cn/about/"
+      weight: 1
+    - name: "博客"
+      url: "/cn/"
+      weight: 2
+    - name: "简历"
+      url: "/cn/vitae/"
+      weight: 3
+    - name: "English"
+      url: "/en/"
+      weight: 4
+  app:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "English"
+      url: "/en/"
+      weight: 2
+    - name: "博客"
+      url: "/cn/"
+      weight: 3
+
+params:
+  description: "Personal website of Miao Yu; 于淼的个人网站"
+  disqusURL: "http://yufree.cn"
+  fullURL: "http://yufree.cn"
+  dateFormat: "2006/01/02"
+  customCSS: ["css/custom.css"]
+  customJS: ["js/center-img.js", "js/right-quote.js", "js/no-highlight.js", "js/fix-footnote.js"]
+  githubContentURL: "https://github.com/yufree/yufree.cn/edit/master/content/"
+
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion: "9.9.0"
+  highlightjsLang: ["r", "yaml", "tex"]
+  highlightjsTheme: "github"
+
+  social:
+    twitter: "yu_free"
+    weibo: "贫道yufree"
+    weibo_url: "yufreecas"
+    github: "yufree"
+
+  logo:
+    url: "fish.png"
+    width: 50
+    height: 50
+    alt: "Yufree"
+
+  author:
+    en: "Miao Yu"
+    cn: "于淼"
+
+  lang:
+    edit:
+      en: "Suggest an edit of this page"
+      cn: "编辑本页"

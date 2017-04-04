@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>Using rcdk package for QSPR - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Using rcdk package for QSPR - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css'>
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> Home </a></li>
+    
+    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    
+    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    
+    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Using rcdk package for QSPR
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2014/05/30</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Using&#43;rcdk&#43;package&#43;for&#43;QSPR&#43;http%3A%2F%2Fyufree.cn%2Fen%2F2014%2F05%2F30%2Fqspr-rcdk%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Using&#43;rcdk&#43;package&#43;for&#43;QSPR&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fen%2F2014%2F05%2F30%2Fqspr-rcdk%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2014-05-30-qspr-rcdk.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+
+
+
+<p><code>R</code> is a handy tool for modeling, so there must be some packages for Quantitative structure–activity relationship(QSPR) in Chemistry. Recently I wanted to summarize some papers for a presentation, then I found rcdk package, which is a useful tool for QSPR. However, little posts about this topic for beginner. As an absolutely beginner, I make this post as a note for the whole process and add comments for someone else to reproduce a QSPR model by their own.</p>
+<p>First,you need the following knowledge:</p>
+<ul>
+<li><p>Chemistry Development Kit(CDK) is powerful, we will use their function to read in the molecular and calculate some descriptor via <code>rcdk</code> package and no need to install CDK and their function has been included in the package</p></li>
+<li><p>Just <code>install.packages(c('rJava','rcdk'))</code> is enough for a R user</p></li>
+<li><p>Copy the smiles files or the sdf files to your work directory or just use a demo data <code>bpdata</code></p></li>
+<li><p>Then we begin</p></li>
+</ul>
+<pre><code>library(rcdk)
+data(bpdata)</code></pre>
+<p>The first column is the SMILES vector of the molecular structures so we use parse.smiles to read it</p>
+<pre><code>mols &lt;- parse.smiles(bpdata[, 1])</code></pre>
+<p>So rcdk will convert the smiles into a java object this object could be used to get the milecular descriptor. Also you need to know the class of mols is a list. rcdk has five ctegories of descriptor we think the topological descriptor may relate to the Boiling Point in this tests.</p>
+<pre><code>desc.names &lt;- get.desc.names(&quot;topological&quot;)</code></pre>
+<p>Then we get the names of those topological descriptors.Up to now, we know the structures and the descriptors’ name. Then we will get the descriptors.</p>
+<p>For the list we need to use lapply or sapply to apply the descriptors caculator function with the descriptors’ name in the desc.names.</p>
+<pre><code>data &lt;- lapply(mols, eval.desc, desc.names)</code></pre>
+<p>This is also a list so we need to unlist and make a dataframe for QSPR model. Also we need to give the column a name.</p>
+<pre><code>df &lt;- data.frame(matrix(unlist(data), nrow = 277, byrow = T))
+colnames(df) &lt;- colnames(data[[1]])</code></pre>
+<p>We need to remove some desciptors unchanged</p>
+<pre><code>df2 &lt;- df[, which(!apply(df, 2, sd) == 0)]</code></pre>
+<p>OK, here we get a data frame contained the descriptors we needed. Then we will use those <span class="math inline">\(X\)</span> to make a <span class="math inline">\(f(X) = Y\)</span>, which is a QSPR model.</p>
+<p>Define the response</p>
+<pre><code>Y &lt;- bpdata[, 2]</code></pre>
+<p>Get a train set and a test set</p>
+<pre><code>train &lt;- sample(1:277, 200)
+traindataX &lt;- df2[train, ]
+traindataY &lt;- Y[train]
+testdataX &lt;- df2[-train, ]
+testdataY &lt;- Y[-train]</code></pre>
+<p>Build a regression model with the leaps packages</p>
+<pre><code>library(&quot;leaps&quot;)</code></pre>
+<p>Define a function to predict the test data</p>
+<pre><code>predict.regsubsets = function(object, newdata, id, ...) {
+form = as.formula(~.)
+mat = model.matrix(form, newdata)
+coefi = coef(object, id)
+xvars = names(coefi)
+mat[, xvars] %*% coefi}</code></pre>
+<p>A 5-fold cross-validation</p>
+<pre><code>k = 5
+folds = sample(1:k, nrow(traindataX), replace = TRUE)
+cv.errors = matrix(NA, k, 50, dimnames = list(NULL, paste(1:50)))
+
+for (j in 1:k) {
+best.fit = regsubsets(y = traindataY[folds != j],
+                      x = traindataX[folds != j, ],
+                      nvmax = 50, 
+                      really.big = T, 
+                      method = &quot;forward&quot;)
+                      for (i in 1:50) {pred = predict.regsubsets(best.fit, traindataX[folds == j, ], id = i);
+                                      cv.errors[j, i] = mean((traindataY[folds == j] - pred)^2)
+                                      }
+                }
+mean.cv.errors = apply(cv.errors, 2, mean)
+which.min(mean.cv.errors)
+
+#38
+
+reg.fwd = regsubsets(x = traindataX,
+                     y = traindataY,
+                     nvmax = 44, 
+                     really.big = T, 
+                     method = &quot;forward&quot;)</code></pre>
+<p>We got a model with many variables on the train dataset, and now we could see the results on the test dataset.</p>
+<pre><code>val.errors &lt;- rep(NA, 50)
+for (i in 1:50) {
+        pred = predict.regsubsets(reg.fwd, testdataX, id = i)
+        val.errors[i] = mean((testdataY - pred)^2)
+        }
+which.min(val.errors)
+#41</code></pre>
+<p>So if you want to see the names of selected variables for prediction the selected QSPR model, you may use <code>coef</code> to get what you want. For example, we show the coef of the selected 15 variables models by the following code.</p>
+<pre><code>coef(reg.fwd, 15)</code></pre>
+<p>(Intercept) khs.dCH2 khs.sOH khs.dO HybRatio VP.2</p>
+<p>310.981 -69.776 70.007 38.068 -61.738 58.648</p>
+<p>SPC.4 SPC.6 SC.4 VC.3 ATSm5 ATSc2</p>
+<p>-4.957 -3.223 -75.819 -42.528 1.890 35.852</p>
+<p>ATSc4 khs.aaS khs.sI C4SP3</p>
+<p>31.831 0.000 -8.693 10.937</p>
+<p>From the results I find the topological descriptors might be not good for the prediction for that no clear overfit were found in train and test dataset.</p>
+<p>OK, this is the whole process for using rcdk package for QSPR. Just modify the input, you will get what you want.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../en/2014/03/23/intro-of-shiny/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> A very brief intro of shiny</div>
+    </a>
+    
+
+    
+    <a href="../../../../../en/2014/07/21/rmd-to-pdf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Display Chinese/Japanese/Korean in PDF from Rmd in RStudio <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/en\/2014\/03\/23\/intro-of-shiny\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/en\/2014\/07\/21\/rmd-to-pdf\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

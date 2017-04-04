@@ -1,0 +1,87 @@
+body {
+    padding-top: 60px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #111;
+    background-color: #fdfdfd;
+}
+
+.navbar-default {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    color: #444;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #444;
+    font-size: 12pt;
+}
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+.post {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 40px; 
+}
+
+.post span {
+    text-align: left;
+}
+
+.post h2 {
+    margin: 0;
+}
+
+.post-content {
+    margin-top: 20px;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #828282;
+}
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 99%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* should be equal to footer height */
+	margin-bottom: -222px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer,
+.page-wrap:after {
+	height: 222px; 
+}
+footer {
+	border-top: 1px solid #e7e7e7;
+	padding: 30px;
+	margin-bottom: 0;
+}
+
+footer h4,
+footer p {
+	color: #444;
+}
+
+footer p {
+	margin-top: 15px;
+	margin-bottom: 0;
+}

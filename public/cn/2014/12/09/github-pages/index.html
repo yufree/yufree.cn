@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>基于Github Pages快速建站指南 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="基于Github Pages快速建站指南 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> 首页 </a></li>
+    
+    <li class=""><a href="../../../../../cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 博客 </a></li>
+    
+    <li class=""><a href="../../../../../cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="../../../../../en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">16 字</span>
+    
+    <h1 class="article-title">基于Github Pages快速建站指南
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2014/12/09</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E5%9F%BA%E4%BA%8EGithub&#43;Pages%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97&#43;http%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F12%2F09%2Fgithub-pages%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E5%9F%BA%E4%BA%8EGithub&#43;Pages%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F12%2F09%2Fgithub-pages%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2014-12-09-github-pages.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+<p>最近整理了公开课笔记，开始是打算生成html扔到rpubs上，后来发现latex公式显示有问题，是可忍孰不可忍，就花了点时间整理出一个<a href="yufree.github.io/notes/">网站</a>。做完了发现实际连半个小时都没用上，但就显示效果而言还过得去。进而想到科研人员给自己的项目搭建一个极简的网站其实是很实用的，但如果让每个科研人员去学前端后端估计不现实，但我们可以站在别人的肩上去工作的。</p>
+
+<h2 id="git-github">Git &amp; Github</h2>
+
+<p>首先你可以在<a href="https://try.github.io/levels/1/challenges/1">在线模拟器</a>上试一下。要点是Git是本地仓，Github是远程仓，你在本地仓的操作commit后可以push到远程仓更新。换句话讲，你在本地仓里写静态文本，然后推送到远程仓，远程仓通过<code>Github Pages</code>这个Github提供的服务将你的文本转化为网页展示出去。所以具备这条前置知识后你应该至少在本地端安装了<a href="http://git-scm.com/">Git</a>并注册有<a href="https://github.com/">Github</a>账号，之后具备在本地Git端与服务器Github端仓库的交互能力。例如在本地名为test仓的a.txt文件可以推送到远程仓。学习基本语法加安装最多半小时左右就可以。</p>
+
+<p>如果你之前写过博客，这就相当于把Github作为博客的空间与域名提供商，你在本地提供内容就可以了。那么问题来了，什么样的内容可以转化成为网页？按说浏览器解析的是html语言，这样你应该先去学html语言… 等等，html语言，对，就是你在浏览器上右键查看源代码看到的那一坨，强烈不建议学习，我们需要一种更简单的语言，这就是markdown语言。</p>
+
+<h2 id="markdown-语法">markdown 语法</h2>
+
+<p>这个语法更简单，查看<a href="https://help.github.com/articles/markdown-basics/">这里</a>就可以，如果你打算实现高级点的功能例如表格或代码高亮什么的，可以看Github对markdown语法的<a href="https://help.github.com/articles/github-flavored-markdown/">增强</a>。这个学习过程可能就是几分钟的事。我在<a href="http://yufree.github.io/blogcn/2014/10/25/kramdown.html">博客</a>中对markdown语法的一种方言进行了介绍，由于科研人员对数学公式的输出有要求，这种方言的学习很有必要。</p>
+
+<h2 id="github-pages">Github Pages</h2>
+
+<p>好了，现在你应该有个本地仓test，远端用testwebpage注册了github账号，里面有个按照markdown语法写好的文本文件例如a.md。把这个文档推送到远端就可以了，那么网址是什么呢？按照github规定，这个网址应该是：<a href="http://testwebpage.github.io/test/a.html。但你直接访问是打不开的，因为你得让github知道这是个需要生成网页的项目，按照规定github默认的网页必须放的一个名为gh-pages的git分支中，这样你手工新建一个这样的分支push到远端就可以了。但这仅仅是实现了网页而你还需要一个主页来整合网页，这时我们写一个index.md的文档把网页整合好放到根目录下就OK了。这样你访问http://testwebpage.github.io/test就能看到主页了。其实还有更简单的方法，你可以按照[这里](https://pages.github.com/)的介绍可视化生成网页。">http://testwebpage.github.io/test/a.html。但你直接访问是打不开的，因为你得让github知道这是个需要生成网页的项目，按照规定github默认的网页必须放的一个名为gh-pages的git分支中，这样你手工新建一个这样的分支push到远端就可以了。但这仅仅是实现了网页而你还需要一个主页来整合网页，这时我们写一个index.md的文档把网页整合好放到根目录下就OK了。这样你访问http://testwebpage.github.io/test就能看到主页了。其实还有更简单的方法，你可以按照[这里](https://pages.github.com/)的介绍可视化生成网页。</a></p>
+
+<h2 id="定制">定制</h2>
+
+<p>按照前面的方法你大概可以做出一个能看的网页，但要做出好看有个性的网页仅仅依赖默认方法就不好办了。这里建议拿出一点时间来到<a href="http://www.w3school.com.cn/">w3school</a>上面学下网页前端的基本概念，然后如果你选择一款有开发者模式的浏览器例如<a href="https://www.google.com/chrome/">chrome</a>，打开我的<a href="http://yufree.github.io/blogcn">博客</a>，对上面每个元素进行审查，看一下样式如何嵌套并修改观察效果。在试错中成长是最快的，如果不断实践，很快就可以摸索出修改方法，然后按自己的习惯定制就可以了。对于科研人员，这类网站不要花哨，简单明了重点在内容就可以了。阮一峰的一篇<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">介绍</a>也很有价值，值得参考。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../cn/2014/12/07/kaggle-titanic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Kaggle 入门：泰坦尼克号幸存者项目</div>
+    </a>
+    
+
+    
+    <a href="../../../../../cn/2014/12/18/hide-in-date/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">大隐隐于数 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/cn\/2014\/12\/07\/kaggle-titanic\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/cn\/2014\/12\/18\/hide-in-date\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

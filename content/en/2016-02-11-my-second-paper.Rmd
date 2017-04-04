@@ -1,0 +1,22 @@
+---
+title: Structure Prediction of Methyoxy-polybrominated diphenyls ethers (MeO-PBDEs) through GC-MS analysis of their corresponding PBDEs
+date: 2016-02-11
+slug: my second paper
+---
+
+This is a paper with many rejection and comments. It was finally published by [Talanta](http://www.sciencedirect.com/science/article/pii/S0039914016300455) with DOI 10.1016/j.talanta.2016.01.047. One [study](http://www.smithsonianmag.com/smart-news/half-academic-studies-are-never-read-more-three-people-180950222/?no-ist) said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.
+
+The basic idea before the structure prediction is that the combination of two qualitative methods. Usually, we use full scan of mass spectrum to get some rules about the structure such as the position of the substitute group of certain compound. Meanwhile, the retention time of seperation process also showed us some information about the compound. For unknown MeO-PBDEs, mass spectrum could tell us the position of MeO- group while can not show us the position of the Br atoms. Chromatography could show us the Br atoms position of PBDEs while not MeO-PBDE. what I should do is that building a model to connect those two information sources to get the structure of unknown MeO-PBDEs in certain samples.
+
+But how? I collected 32 MeO-PBDEs and corresponding PBDEs and get the retention time of those pairs under the same analysis condition. I found we could use those data to make a connection between the information from mass spectrum and chromatography. The basic model is 
+
+$$
+RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
+$$
+
+For different positions, the mass spectrum could show a constant. For example, if BDE-47's retention time is 21.753 min, the ortho- substitute MeO-BDE-47 would show a retention time of 25.648min. The differences of those retention time pairs is a constant around 4. We use regression analysis to get an estimation of such constants. Then when we get a potential peak of MeO-PBDEs. Mass spectrum would tell us the mass, the numbers of Br and the position of MeO- group. Then we just test the standards of potential PBDEs and use the models to check the position of Br atoms. The trick is that the standards of PBDEs were 209 and 837 for MeO-PBDEs. We use small numbers standards to cover large unknown standards(no available standards) . Another thick is that we could use multiple dislike columns to build such models and then the estimation would be much accurate.
+
+This is just a try. I used this method to get three unknown structures of MeO-PBDEs. However, the most important part is that we should try to summarize the data from different analysis method to build a much stronger model. In many studies, scientists use many independent analysis method to explain one problem. I think this is also a model and when we build them, the left could be thrown to computer or automation
+. We human should do smart things!
+
+If you have questions about this paper, comment here and I will reply as soon as possible. 

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>Using recommender systems to fill the missing data - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Using recommender systems to fill the missing data - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> Home </a></li>
+    
+    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    
+    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    
+    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+    <h1 class="article-title">Using recommender systems to fill the missing data
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2014/11/26</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Using&#43;recommender&#43;systems&#43;to&#43;fill&#43;the&#43;missing&#43;data&#43;http%3A%2F%2Fyufree.cn%2Fen%2F2014%2F11%2F26%2Frecommender-system%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Using&#43;recommender&#43;systems&#43;to&#43;fill&#43;the&#43;missing&#43;data&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fen%2F2014%2F11%2F26%2Frecommender-system%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2014-11-26-recommender-system.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>Recommender systems were often used to show the candidates such as books, movies and music for certain user. If you bought something at online shop, you might get a spam email listing something the shop recommended and there must be a recommender systems for you. You might get confused by such system: how does they know what you would buy?</p>
+
+<p>If you know basic concepts about machine learning, you might say: surely there would be a supervised learning algorithm for this problem. Yes, when you have huge data, you might train your algorithm with rating as your output and items as your input. But those data would always be sparse. There would be thousands of books and thousands of users but the input and the output would not be a normal distribution and should be some groups connected with each other. In another words, the books and the users data would have their own structures. If you like novels, most of your books would be novels and the references of your rating on a dictionary would be missing. However, we found another person with the similar rating as you on novels and a lot of rating on dictionaries. So your reasonable rating on a dictionary would be similar to that guy. On the other hand, the novel and the dictionary would have some inner features and those features could be used to group the books.</p>
+
+<p>OK, here the original problems had been convert to the cluster problems on the input and the output. After the cluster, we should train a model to make a connection with the items&rsquo; groups and users&rsquo; groups. Here an algorithm with the update of both cluster on input and output at the same time would be reasonable.</p>
+
+<p>Firstly, the original data would show a matrix structure(M) with rows standing for the books, columns standing for the users and ratings in each cell. To make the algorithm run without error, we need a mask matrix to identify the missing data(R, 0 for missing and 1 for rating). So M.*R would show a matrix without missing data. Our task was finding two matrix(T and U). T should show the features of terms and U should show the corresponding features of the users. U * T should give us a matrix(N) like M and we could use min(N-M) as cost function to train our data. When we get the final N, we could fill the gaps with reasonable data. That is, we get the your ratings on the books you never read and order the rating. OK, we would send you an e-mail with the high rating books.</p>
+
+<p>You might say why we must get two unknown matrix U and T, why not just show me the N. N has no reasonable algorithms to get directly while U and T could be get with a optimization algorithms. We give the U a random initial numbers and get a optimized T, then we use such T to get the U, run in a circle and finally we could get those two. Meanwhile we could use U and T separately to explore the inner groups for books or describe our potential users. In fact, we could use collaborative filtering to get the U and T at the same time.</p>
+
+<p>This idea comes from machine learning but I think we could use such method to get missing data for environmental research. For example, we get huge data about the concentrations of 100 compounds for 100 cities while not all of the cities could analysis those 100 compounds: some analysis 60 and some analysis 80. Then such recommander system could be used to show missing data and the group information for both compounds and cities. But I doubt if traditional environmental scientist could understand such machine learning ideas.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../en/2014/07/21/rmd-to-pdf/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Display Chinese/Japanese/Korean in PDF from Rmd in RStudio</div>
+    </a>
+    
+
+    
+    <a href="../../../../../en/2015/01/03/intro-sp-icp-ms/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Introduction to SP-ICP-MS <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/en\/2014\/07\/21\/rmd-to-pdf\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/en\/2015\/01\/03\/intro-sp-icp-ms\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

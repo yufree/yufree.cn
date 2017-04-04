@@ -1,0 +1,12 @@
+name = "Slim"
+license = "MIT"
+licenselink = "https://github.com/zhe/hugo-theme-slim/blob/master/LICENSE.md"
+description = "A slim minimal theme for Hugo."
+homepage = "https://github.com/zhe/hugo-theme-slim"
+tags = ["minimal", "clean", "neat", "black white", "blog"]
+features = ["blog"]
+min_version = 0.13
+
+[author]
+    name = "Zhe Zhang"
+    homepage = "http://zhezhang.co"

@@ -1,0 +1,65 @@
+---
+title: How to deal with the less than obvious?
+date: 2015-09-05
+slug: LOQ
+---
+
+In environmental analysis, we often target a lot of compounds to get a detailed profile of certain pollution. However, due to different environmental process, not all of the compounds could be detected by our analysis method. For example, when I analysed PBDEs in 100 sludge samples, only a few congeners such as BDE-47, BDE-99, BDE-209 could be found in all of them. The other congerners such as BDE-28, BDE-17, BDE-153 could only be found in about 80% of them. Also some congerners such as BDE-77, BDE-53, BDE-17 were got in only 50% of them. Thus, we faced a problem: how to perform analysis such as summary or hypothesis testing or regression when some values were not detected by our analysis method.
+
+## Summary Statistics
+
+Often a junior PhD student would be told to just use half of the LOQ(limit of quantitative) to substitute the N.D. of certain compounds. However, such method is not recommended for publishing papers. Such method would change the distribution of the concentrations. But what is the raw distribution of the environmental data?
+
+Recently Prof. Ronald A. Hites from Indiana University published a paper about such issue and found such log-normally distribution could be really fit well for PCBs in about 2900 samples.For a log-normally distributed data, the geometric means are the unbiased estimation of the original median. So both of the geometric means and the median could be used to make a summary for the data with less than obvious.
+
+That paper published on ES&T letter also showed a interesting method to find the LOQ as follows:
+
+Assuming that the PCB concentrations are detected with a decreasing probability below their LOQ and that this probability is not zero. That means:
+
+For x > LOQ:
+
+$$p(x) = 1 $$ 
+
+For x < LOQ:
+
+$$p(x) = \frac{1}{LOQ - x + 1} $$ 
+
+Such $p(x)$ means a weight for the concentrations we get from our samples. The PDF(probability density function) of concentrations would be a log-normally distribution as discussed before. So the actually PDF of concentration distribution we got would be:
+
+$$pdf(x) = a*exp(\frac{-(x-\mu)^2}{2*\sigma})$$
+
+$$PDF(x) = p(x) * pdf(x)$$
+
+However, none of the $a$, $\mu$, $\sigma$, $LOQ$ were known. Thus we could use our data and the model to fit those parameters. 
+
+Prof. Hites found that such method could be robust even for small data and interesting, such fitted LOQ would be much higher than we get from the analysis method. So our LOQ might not be sensitivity as we thought.
+
+My comment is that maybe the assumption of $p(x)$ just get the nature of the trace analysis. If we insist the analysis method is sensitivity, then maybe the LOQ we fitted is just another environmental threshold which implied something.
+
+However, we could use such method to simulate the less than obvious for our data. In fact, MLE(maximum-likelihood estimation) and some robust method could be used to impute our data. Then we need to do some inferences about our data.
+
+## Hypothesis Testing and Regression
+
+In most cases, we could not directly use an imputed data for hypothesis testing and regression. However, some statistical methods could help us to find the answer.
+
+When the missing values is less than 20%, Kendall's robust line fit could be used. Such method get the pairwise slope of all of the data with missing values zero or imputed data. Then the median of the slope were used to fit the data.
+
+When the missing values is less than 50% and more than 20%. Tobit regression and logistic regression could be used. For Tobit regression, we use MLE instead of OLS(ordinary least squares) to fit the parameters. For logistic regression, we could treat the detected samples as 1 and non-detected samples as 0 to make analysis. However, such method could only show little information form concentration distribution. Anyway only one or two high concentration might also show little information.
+
+When little compounds detected, only the logistic regression and contingency table analysis with Chi-square test would be performed.
+
+When you want to discuss the relationship between two group of samples with imputed data, only the robust method such as Kendall's $\tau$ and Spearman's $\rho$ could be used.
+
+Ok, the core of this post is "Less thans are valuable data."
+
+## References
+
+1.Hites, R. A. A Statistical Approach for Left-Censored Data: Distributions of Atmospheric Polychlorinated Biphenyl Concentrations near the Great Lakes as a Case Study. Environmental Science & Technology Letters 150831163839007 (2015). doi:10.1021/acs.estlett.5b00223
+
+2.Helsel, D. R. Less than obvious - statistical treatment of data below the detection limit. Environ. Sci. Technol. 24, 1766–1774 (1990).
+
+
+
+
+
+

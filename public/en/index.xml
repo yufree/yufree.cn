@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ens on Miao Yu | 于淼 </title>
+    <link>/en/index.xml</link>
+    <description>Recent content in Ens on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tips for local installation of MetaboAnalyst on Windows</title>
+      <link>/en/2017/03/29/metaboanalyst/</link>
+      <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/03/29/metaboanalyst/</guid>
+      <description>&lt;p&gt;I am running Windows 7 to perform metabolomics data analysis(mainly for mscovert). Recently I found MetaboAnalyst could be installed locally. Since some group members really care about their data safety, I just installed MetaboAnalyst on one of group computers. Here is some tips for it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Windows 7 is currently not supported by Metaboanalyst, so I use virtualbox to install a 64-bit Ubuntu 16.10.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;For Ubuntu, you need to install a few packages to support both the R and Java environment, also some packages. You might follow the script in bash:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libnetcdf-dev graphviz libxml2-dev libcairo2-dev default-jdk r-base-dev 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;You also need to install some packages from either CRAN or Bioconductor&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install Rserver in bash to get rid of configure of R&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get isntall r-cran-rserve
+R
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Use the following code to install packages in R:
+install.packages(c(&amp;quot;ellipse&amp;quot;, &amp;quot;scatterplot3d&amp;quot;,&amp;quot;pls&amp;quot;, &amp;quot;caret&amp;quot;, &amp;quot;lattice&amp;quot;, &amp;quot;Cairo&amp;quot;, &amp;quot;randomForest&amp;quot;, &amp;quot;e1071&amp;quot;,&amp;quot;gplots&amp;quot;, &amp;quot;som&amp;quot;, &amp;quot;xtable&amp;quot;, &amp;quot;RColorBrewer&amp;quot;, &amp;quot;pheatmap&amp;quot;, &amp;quot;igraph&amp;quot;, &amp;quot;RJSONIO&amp;quot;, &amp;quot;caTools&amp;quot;, &amp;quot;ROCR&amp;quot;, &amp;quot;pROC&amp;quot;))
+source(&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;)
+biocLite()
+biocLite(c(&amp;quot;xcms&amp;quot;, &amp;quot;impute&amp;quot;, &amp;quot;pcaMethods&amp;quot;, &amp;quot;siggenes&amp;quot;, &amp;quot;globaltest&amp;quot;, &amp;quot;GlobalAncova&amp;quot;, &amp;quot;Rgraphviz&amp;quot;, &amp;quot;KEGGgraph&amp;quot;, &amp;quot;preprocessCore&amp;quot;, &amp;quot;genefilter&amp;quot;, &amp;quot;SSPA&amp;quot;, &amp;quot;sva&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Download &amp;ldquo;libgstreamer plugin&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download &amp;ldquo;libgstreamer&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install two packages above&lt;/li&gt;
+&lt;li&gt;Install the following packages
+&lt;code&gt;
+sudo apt-get install libjpeg62
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Install the Rstudio&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MetaboAnalyst is actually a java-based web application (also, R based). You need java environment and use Tomcat or Glassfish to host the *.war file on server (Linux or Mac OS). Then you only need to access it by browser, just like what you did online.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install Glassfish. I tried Tomcat and the deploy always failed and I suggest to use Glassfish following the guide(you might need to set up user and password) and upload the *.war file by a web interface at &lt;a href=&#34;http://localhost:4848&#34;&gt;http://localhost:4848&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;wget download.java.net/glassfish/4.1.1/release/glassfish-4.1.1.zip
+apt-get install unzip
+unzip glassfish-4.0.zip -d /opt
+cd /opt/glassfish/bin
+./asadmin start-domain
+./asadmin enable-secure-admin
+./asadmin restart-domain
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/war.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Run the Rserve in bash:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;R CMD Rserve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;After the installation of MetaboAnalyst on Glassfish, make a port transfer to ensure you could access the MetaboAnalyst on browsers of windows. You need to know the local IP address of both your host and virtual machine(VM).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your host address is the IP for the connection between host and VM. Use &lt;code&gt;ipconfig /all&lt;/code&gt; to get it
+&lt;img src=&#34;http://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Your VM address could be found by &lt;code&gt;connection information&lt;/code&gt;
+&lt;img src=&#34;http://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
+&lt;img src=&#34;http://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Save a bookmark for the url(in my case: &lt;a href=&#34;http://192.168.56.1:8080/MetaboAnalyst/&#34;&gt;http://192.168.56.1:8080/MetaboAnalyst/&lt;/a&gt; ) Open the virtualbox all the time at the background
+&lt;img src=&#34;http://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Enjoy local access (while not updated) to MetaboAnalyst&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Every time you restart your computer, input this in bash to start the MetaboAnalyst:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;R CMD Rserve
+cd /opt/glassfish/bin
+./asadmin start-domain
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For the other thing, just follow the official guide &lt;a href=&#34;http://www.metaboanalyst.ca/faces/home.xhtml&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical uncertainty of Isotope Ratio</title>
+      <link>/en/2017/01/15/sd-isotope-ratio/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/01/15/sd-isotope-ratio/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;In Analytical Chemistry, the measurements of isotope ratios are commons. However, I found the uncertainty of ratios are always shown in the format of standard deviation of independant vairiable, which is inappropriate in statistic. You accually measure at least two values to get one measurement.&lt;/p&gt;
+&lt;p&gt;In fact, if you want to use the differences of isotope ratios as a measurement for certain process, you need to accept the assumption that the intensities of different isotopes are independant. Then we could make the Taylor series expansion of the ratio x/y around the mean of x and y:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{split} 
+\frac{x}{y} \approx \frac{x}{y}\Big|_{\mu_x,\mu_y}&amp;amp;+(x-\mu_x)\frac{\partial}{\partial x}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}+(y-\mu_y)\frac{\partial}{\partial y}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}\\&amp;amp;+\frac{1}{2}(x-\mu_x)^2\frac{\partial^2}{\partial x^2}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}+\frac{1}{2}(y-\mu_y)^2\frac{\partial^2}{\partial y^2}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}+(x-\mu_x)(y-\mu_y)\frac{\partial^2}{\partial x \partial y}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}\\&amp;amp;+\mathcal{O}\Big(\Big((x-\mu_x)\frac{\partial}{\partial x}+(y-\mu_y)\frac{\partial}{\partial y}\Big)^3\Big(\frac{x}{y}\Big)\Big)
+\end{split}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The expectation of the ratio is&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mathbb{E}[r] = \mathbb{E}\Big[\frac{\bar x}{\bar y}\Big] = \frac{\mu_x}{\mu_y} + Var(\bar y)\frac{\mu_x}{\mu_y^3} - \frac{Cov(\bar x,\bar y)}{\mu_y^2} \approx \frac{\mu_x}{\mu_y} + \frac{1}{n}\Big(Var(y)\frac{\mu_x}{\mu_y^3} - \frac{Cov(x,y)}{\mu_y^2}\Big)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The variance of the ratio is&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{split}
+Var(r) &amp;amp;= Var\Big( \frac{\bar x}{\bar y} \Big) = \mathbb{E}\Big[\Big(\frac{\bar x}{\bar y} - \mathbb{E}\Big[\frac{\bar x}{\bar y}\Big]\Big)^2\Big] \\&amp;amp;\approx \mathbb{E}\Big[\Big(\frac{\bar x}{\bar y} - \frac{\mu_x}{\mu_y}\Big)^2\Big]\\&amp;amp;\approx \mathbb{E}\Big[\Big((\bar x-\mu_x)\frac{\partial}{\partial \bar x}\Big(\frac{\bar x}{\bar y}\Big)\Big|_{\mu_x,\mu_y} + (\bar y - \mu_y)\frac{\partial}{\partial \bar y}\Big(\frac{\bar x}{\bar y}\Big)\Big|_{\mu_x,\mu_y}\Big)^2\Big]\\&amp;amp;\approx\frac{Var(\bar x)}{\mu^2_y} + \frac{\mu^2_x Var(\bar y)}{\mu^4_y} - \frac{2\mu_x Cov(\bar x, \bar y)}{\mu^3_y}\\&amp;amp;\approx\frac{1}{n}\Big(\frac{Var(x)}{\mu^2_y} + \frac{\mu_x^2 Var(y)}{\mu^4_y} - \frac{2\mu_x Cov(x,y)}{\mu^3_y}\Big)
+\end{split}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Such values could be used as the uncertainty of the isotope ratios instead of the standard deviation of the ratios themselves.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model</title>
+      <link>/en/2016/11/29/my-third-paper/</link>
+      <pubDate>Tue, 29 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/11/29/my-third-paper/</guid>
+      <description>&lt;p&gt;This &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016309298&#34;&gt;paper&lt;/a&gt; received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.&lt;/p&gt;
+
+&lt;p&gt;In this work, I wanted to access and reduce the uncertainties in the whole procedure of environmental analysis. In regular analysis, we would use pure standards to optimized the analysis method and recovery and RSD were commonly used for quality control analysis. My concerns are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Uncertainties were hard to be found with standards in advance. When you injected a dirty samples, you instruments would be polluted after you see the results. Furthormore, when you found your targeted compounds were influenced by something from the matrices, you have to start the analysis from the beginning with new methods. So, I wounder if we could access some common properties during the analysis before we analysis the samples. Then I used visualization methods to show the Uncertainties in the raw data from GC-MS.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Another issue is that how to escape the influnces from the uncertainties found in the visualization methods. My solution was that building a boundary regression models to seperate the &amp;ldquo;clean&amp;rdquo; zone from the &amp;ldquo;dirty&amp;rdquo; zone in the raw data. By this model, we would get a better sensitivity by choosing right ions regardless of the matrices or pretreatment.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I am always wondering whether different pretreatments would show similar results for certain matrix and compounds. From this paper, my answer is almost yes. Certain pretreatments would remove something we do not like or harmful to the instruments. However, such influnces might be pointless and can&amp;rsquo;t be detected on mass spectrum. In GC-MS, the co-elute influnces are hard to affect the your target compounds at the same retention time and the same massed. Only the rising baseline is important and we could get rid of it by the boundary model. Then the only thing we need to consider is the pollution of the instruments.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, I need to say such model might not be suitable for high-resolution mass spectrum. However, this idea could be used to improve the analytical methods for some compounds, especially for PBDEs. Also this paper supplied some basic data for environmental analysis. As a rule of thumb, you might know:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When you rise 1 degrees centigrade, the &amp;lsquo;dirty&amp;rsquo; zone&amp;rsquo;s boundary would rise about 2 unit mass in the worst matrix and pretreatment. Always try to choose heavier ions for qualitative and quantitative analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here is the graphical summary for the whole methods and I think more patterns could be mined from the data of GC-MS:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/MorF.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Also I developed a package to perform this kind of analysis in R. Check &lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;here&lt;/a&gt;. This package has been published on &lt;a href=&#34;https://cran.r-project.org/web/packages/enviGCMS/index.html&#34;&gt;CRAN&lt;/a&gt; and you could install and load it by:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;install.packages(&#39;enviGCMS&#39;)
+library(&#39;enviGCMS&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You might find &lt;strong&gt;Easter Eggs&lt;/strong&gt; in this package.&lt;/p&gt;
+
+&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Use Chinese in RStudio Beamer Slides</title>
+      <link>/en/2016/09/19/beamer-in-chinese/</link>
+      <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/09/19/beamer-in-chinese/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;RStudio&lt;/strong&gt; is an excellent IDE for R. However, using Chinese in default setting of Rmd to output a PDF document is always annoying. Well, the source is &lt;strong&gt;tex&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RStudio&lt;/strong&gt; uses &lt;strong&gt;knitr&lt;/strong&gt; to covert the Rmd document into md document. Then it uses &lt;strong&gt;Pandoc&lt;/strong&gt; to convert the md document into tex document. Then they actually use &lt;strong&gt;tex&lt;/strong&gt; engine such as pdflatex or xelatex to get PDF document.&lt;/p&gt;
+
+&lt;p&gt;Why Chinese would not display? This issue happens at the last step. By default, some templates such as beamer in &lt;strong&gt;RStudio&lt;/strong&gt; use pdflatex. However, you might need CJK package. However you would need to use CJK environment to display Chinese. I don&amp;rsquo;t think it is a good way and you need to write ugly documents.&lt;/p&gt;
+
+&lt;p&gt;xeCJK package would be preferred because you only need to set up the font for your Chinese and you will get the output. However, such configuration need you use xelatex to compile you documents.&lt;/p&gt;
+
+&lt;p&gt;For the beamer template in &lt;strong&gt;RStudio&lt;/strong&gt;, they use pdflatex. So the first way to show Chinese is telling &lt;strong&gt;Pandoc&lt;/strong&gt; to use xelatex other than pdflatex. You could set up such command in the yaml.&lt;/p&gt;
+
+&lt;p&gt;The second issue is the font. When you use xelatex(actually xeCJK package), you need to set the font for CJK charactors such as Chinese. Maybe you could try the following yaml to use a font without sources.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+title: &amp;quot;中文测试&amp;quot;
+author: &amp;quot;Yufree&amp;quot;
+date: &amp;quot;2016年9月19日&amp;quot;
+CJKmainfont: FandolFang
+output:
+  beamer_presentation:
+    latex_engine: xelatex
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Not everyone knows how to find the right name of a font. However, the updated ctex package solved such problem. They use some default setting to avoid the font issue. All you need to do is use the ctex package for your tex template.&lt;/p&gt;
+
+&lt;p&gt;We might also use yaml:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+title: &amp;quot;中文测试&amp;quot;
+author: &amp;quot;Yufree&amp;quot;
+date: &amp;quot;2016年9月19日&amp;quot;
+header-includes:
+  - \usepackage{ctex}
+output: 
+  beamer_presentation:
+    latex_engine: xelatex
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;OK, now you would see Chinese in your Beamer PDF slides.&lt;/p&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Three solutions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use CJK packages along with pdflatex (Not recommanded, only for Guru from 20 century)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Set you font yourself in the yaml with xelatex (for Geek)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use the ctex package in your yaml (for everyone)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For Chinese in the figure and pdf, check &lt;a href=&#34;http://yufree.cn/blog/2014/07/21/rmd-to-pdf.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basic idea behind cluster analysis</title>
+      <link>/en/2016/09/11/basic-idea-cluster/</link>
+      <pubDate>Sun, 11 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/09/11/basic-idea-cluster/</guid>
+      <description>&lt;p&gt;After we got a lot of samples and analyzed the concentrations of many compounds in them, we may ask about the relationship between the samples. You might have the sampling information such as the date and the position and you could use boxplot or violin plot to explore the relationships among those categorical variables. However, you could also use the data to find some potential relationship.&lt;/p&gt;
+
+&lt;p&gt;But how? if two samples&amp;rsquo; data were almost the same, we might think those samples were from the same potential group. On the other hand, how do we define the &amp;ldquo;same&amp;rdquo; in the data?&lt;/p&gt;
+
+&lt;p&gt;Cluster analysis told us that just define a &amp;ldquo;distances&amp;rdquo; to measure the similarity between samples. Mathematically, such distances would be shown in many different manners such as the sum of the absolute values of the differences between samples.&lt;/p&gt;
+
+&lt;p&gt;For example, we analyzed the amounts of compound A, B and C in two samples and get the results:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Compounds(ng)&lt;/th&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;C&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sample 1&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;21&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Sample 2&lt;/td&gt;
+&lt;td&gt;54&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The distance could be:&lt;/p&gt;
+
+&lt;p&gt;$$
+distance = |10-54|+|13-23|+|21-16| = 59
+$$&lt;/p&gt;
+
+&lt;p&gt;Also you could use the sum of squares or other way to stand for the similarity. After you defined a &amp;ldquo;distance&amp;rdquo;, you could get the distances between all of pairs for your samples. If two samples&amp;rsquo; distance was the smallest, put them together as one group. Then calculate the distances again to combine the small group into big group until all of the samples were include in one group. Then draw a dendrogram for those process.&lt;/p&gt;
+
+&lt;p&gt;The following issue is that how to cluster samples? You might set a cut-off and directly get the group from the dendrogram. However, sometimes you were ordered to cluster the samples into certain numbers of groups such as three. In such situation, you need K means cluster analysis.&lt;/p&gt;
+
+&lt;p&gt;The basic idea behind the K means is that generate three virtual samples and calculate the distances between those three virtual samples and all of the other samples. There would be three values for each samples. Choose the smallest values and class that sample into this group. Then your samples were classified into three groups. You need to calculate the center of those three groups and get three new virtual samples. Repeat such process until the group members unchanged and you get your samples classified.&lt;/p&gt;
+
+&lt;p&gt;OK, the basic idea behind the cluster analysis could be summarized as define the distances, set your cut-off and find the group. By this way, you might show potential relationships among samples.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basic idea behind principal components analysis</title>
+      <link>/en/2016/08/31/basic-idea-pca/</link>
+      <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/08/31/basic-idea-pca/</guid>
+      <description>&lt;p&gt;For environmental scientist, data analysis might be the only way to show your ability when you get the data from observation. I found many students even researcher showed their data in a bad way and many data analysis pattern just came from certain one paper. However, data analysis methods always have their scopes and some methods might just not suit your cases.&lt;/p&gt;
+
+&lt;p&gt;Thanks to data analysis software, you need not to calculate some values by hand. But to make their usage clear, you need to know the basic idea. I will show some basic ideas behind certain method in a few posts. The first one is principal components analysis(PCA).&lt;/p&gt;
+
+&lt;p&gt;In most cases, PCA is used as an exploratory data analysis(EDA) method. In most of those most cases, PCA is just served as visualization method. I mean, when I need to visualize some high-dimension data, I would use PCA.&lt;/p&gt;
+
+&lt;p&gt;So, the basic idea behind PCA is compression. When you have 100 samples with concentrations of certain compound, you could plot the concentrations with samples&amp;rsquo; ID. However, if you have 100 compounds to be analyzed, it would by hard to show the relationship between the samples. Actually, you need to show a matrix with sample and compounds (100 * 100 with the concentrations filled into the matrix) in an informal way.&lt;/p&gt;
+
+&lt;p&gt;The PCA would say: OK, guys, I could convert your data into only 100 * 2 matrix with the loss of information minimized. Yeah, that is what the mathematical guys or computer programmer do. You just run the command of PCA. The new two &amp;ldquo;compounds&amp;rdquo; might have the cor-relationship between the original 100 compounds and retain the variances between them. After such projection, you would see the compressed relationship between the 100 samples. If some samples&amp;rsquo; data are similar, they would be projected together in new two &amp;ldquo;compounds&amp;rdquo; plot. That is why PCA could be used for cluster and the new &amp;ldquo;compounds&amp;rdquo; could be referred as principal components(PCs).&lt;/p&gt;
+
+&lt;p&gt;However, you might ask why only two new compounds could finished such task. I have to say, two PCs are just good for visualization. In most cases, we need to collect PCs standing for more than 80% variances in our data if you want to recovery the data with PCs. If each compound have no relationship between each other, the PCs are still those 100 compounds. So you have found a property of the PCs: PCs are orthogonal between each other.&lt;/p&gt;
+
+&lt;p&gt;Another issue is how to find the relationship between the compounds. We could use PCA to find the relationship between samples. However, we could also extract the influences of the compounds on certain PCs. You might find many compounds showed the same loading on the first PC. That means the concentrations pattern between the compounds are looked similar. So PCA could also be used to explore the relationship between the compounds.&lt;/p&gt;
+
+&lt;p&gt;OK, next time you might recall PCA when you need it instead of other paper showed them.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Metabolomics workflow in Rstudio</title>
+      <link>/en/2016/08/21/meta-workflow/</link>
+      <pubDate>Sun, 21 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/08/21/meta-workflow/</guid>
+      <description>&lt;p&gt;I have moved to Canada for about three weeks. Now I am a PostDoc in University of Waterloo. I will handle two projects about &lt;strong&gt;in silica&lt;/strong&gt; studies in analytical chemistry. Well, I treated them as another data and modeling-driven interdisciplinary studies.&lt;/p&gt;
+
+&lt;p&gt;The first step is building the data analysis envrionment for group members. Since I could set down such envrionment on a super computer with RAM 128 GB, I preferred to use R and xcms for metabolomics data analysis.&lt;/p&gt;
+
+&lt;p&gt;For a well-trained analytical chemist, software or programming related stuff is always something agonizing. However, for degree or promotion, researchers have to learn related contents. xcms online is well-designed metabolomics data analysis tool for user with limited coding experiences. Actually, the earlier online version might come from xcms package for R.&lt;/p&gt;
+
+&lt;p&gt;If you know the more details of data processing, you might get more insights for the data. Understanding the each steps might cost you whole day. But I also want to show them in my way. Such process would be helpful if you want to make further development to answer your scientific problems.&lt;/p&gt;
+
+&lt;p&gt;Here is the &lt;a href=&#34;http://yufree.cn/metaworkflow/&#34;&gt;workflow&lt;/a&gt; in Rstudio and a brife &lt;a href=&#34;http://yufree.cn/notes/xcms.html&#34;&gt;version&lt;/a&gt; in Chinese.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Structure Prediction of Methyoxy-polybrominated diphenyls ethers (MeO-PBDEs) through GC-MS analysis of their corresponding PBDEs</title>
+      <link>/en/2016/02/11/my-second-paper/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/02/11/my-second-paper/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;This is a paper with many rejection and comments. It was finally published by &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016300455&#34;&gt;Talanta&lt;/a&gt; with DOI 10.1016/j.talanta.2016.01.047. One &lt;a href=&#34;http://www.smithsonianmag.com/smart-news/half-academic-studies-are-never-read-more-three-people-180950222/?no-ist&#34;&gt;study&lt;/a&gt; said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.&lt;/p&gt;
+&lt;p&gt;The basic idea before the structure prediction is that the combination of two qualitative methods. Usually, we use full scan of mass spectrum to get some rules about the structure such as the position of the substitute group of certain compound. Meanwhile, the retention time of seperation process also showed us some information about the compound. For unknown MeO-PBDEs, mass spectrum could tell us the position of MeO- group while can not show us the position of the Br atoms. Chromatography could show us the Br atoms position of PBDEs while not MeO-PBDE. what I should do is that building a model to connect those two information sources to get the structure of unknown MeO-PBDEs in certain samples.&lt;/p&gt;
+&lt;p&gt;But how? I collected 32 MeO-PBDEs and corresponding PBDEs and get the retention time of those pairs under the same analysis condition. I found we could use those data to make a connection between the information from mass spectrum and chromatography. The basic model is&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;For different positions, the mass spectrum could show a constant. For example, if BDE-47’s retention time is 21.753 min, the ortho- substitute MeO-BDE-47 would show a retention time of 25.648min. The differences of those retention time pairs is a constant around 4. We use regression analysis to get an estimation of such constants. Then when we get a potential peak of MeO-PBDEs. Mass spectrum would tell us the mass, the numbers of Br and the position of MeO- group. Then we just test the standards of potential PBDEs and use the models to check the position of Br atoms. The trick is that the standards of PBDEs were 209 and 837 for MeO-PBDEs. We use small numbers standards to cover large unknown standards(no available standards) . Another thick is that we could use multiple dislike columns to build such models and then the estimation would be much accurate.&lt;/p&gt;
+&lt;p&gt;This is just a try. I used this method to get three unknown structures of MeO-PBDEs. However, the most important part is that we should try to summarize the data from different analysis method to build a much stronger model. In many studies, scientists use many independent analysis method to explain one problem. I think this is also a model and when we build them, the left could be thrown to computer or automation . We human should do smart things!&lt;/p&gt;
+&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HPLC 2015 Beijing</title>
+      <link>/en/2015/09/30/hplc-2015/</link>
+      <pubDate>Wed, 30 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/09/30/hplc-2015/</guid>
+      <description>&lt;p&gt;Last week 43rd International Symposium on High Performance Liquid Phase Separations and Related Techniques(HPLC 2015 Beijing) was held at the Beijing International Conference Center in Beijing, China. For my tutor was the chair of this conference, I stayed there for three days and made a poster presentation. Here is some tips from the HPLC 2015 Beijing.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;ldquo;NMR is your mother, MS is your love and the LC is your superhero.&amp;rdquo; Prof. Peter Schoenmakers said.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The hairstyle of Prof. Jonothan Sweedler is impressive and I don&amp;rsquo;t know if he had played punk.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Though Prof. Robert Kennedy has rejected my paper before, I admit he is handsome.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Girls from South Korea were really beauty. In HPLC 2017 Jeju we might see them again.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;2D and 3D LC were really popular. However, I found they were limited to a few applications. Yeah, they showed a fantastic column efficiency but in practice they somewhat like the art of butchering dragons while no dragons for them. In environmental analysis, I think new complex matrix effect in various samples might be a dragon for them.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Superficially Porous Particles are interesting and attractive. Better choice for start up group.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Modeling in HPLC is really native and ignore the development of novel methods in computer science or data science.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Mass spectrum is the best spouse for (U)HPLC. However, omics treat the features or profiles more than certain compounds.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Some groups have noticed the data mining of hyphenated method data and I think such issue is the best application for data science.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Chemical modification of certain materials or nanomatreials to gain the selectivity are just permutation and combination. However, they could publish good papers&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Oral presentation for PI is very important. Some Chinese PI need to learn how to make presentation and if English is not good, try to list it on slides.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Young scientists are the future of HPLC and I am really appreciate the workshop for starters.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I bet you only care the beauty and handsome in this post.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;See you next HPLC(well, I always need financial support)!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/hplc2015.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;p.s. Finally I could vote on the &lt;a href=&#34;http://stackoverflow.com/users/3083491/yufree&#34;&gt;stackoverflow&lt;/a&gt;!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Data Analysis Similarity between Microarray and GC-MS</title>
+      <link>/en/2015/09/11/microarry-vs-ms/</link>
+      <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/09/11/microarry-vs-ms/</guid>
+      <description>&lt;p&gt;I have finished &lt;a href=&#34;https://courses.edx.org/courses/HarvardX/PH525x/1T2014/info&#34;&gt;Data Analysis for Genomics(HarvardX-PH525x)&lt;/a&gt; by Prof. Rafael A Irizarry and Dr. Michael I Love for more than a year until recently I realised the data analysis similarity between microarray and Gas chromatography–mass spectrometry(GC-MS).&lt;/p&gt;
+
+&lt;p&gt;When we talked about data analysis of microarray, we use different genes or probes as the rows and different samples as the columns. The responses are fluorescence signals.&lt;/p&gt;
+
+&lt;p&gt;When we talked about data analysis of microarray, we use different m/z as the rows and different retention times as the columns. The responses are count signals.&lt;/p&gt;
+
+&lt;p&gt;Interesting, the Total Ion Chromatorgraphy(TIC) is widely used in GC-MS while heatmap in microarray. How about show the heatmap of GC-MS and TIC of heatmap.&lt;/p&gt;
+
+&lt;p&gt;Wait, we couldn&amp;rsquo;t do a thing without meanings. Why use TIC in GC-MS? Because we always think one compound would show at certain retention time. However, under EI source or hard ionization, one compound could show many m/z responses. In environmental analysis, the matrix effect might also show responses. Then we got the meanings: the heatmap of GC-MS would show a visualization of matrix effect.&lt;/p&gt;
+
+&lt;p&gt;How about TIC in microarray? I don&amp;rsquo;t think such plot has meanings because there is no time dependences in the samples of microarray.&lt;/p&gt;
+
+&lt;p&gt;But when the data could be shown in heatmap, we might employ some noise reduction methods to ease the matrix effect. The following two heatmaps were a native &amp;ldquo;before and after&amp;rdquo; results processed by some microarray data analysis methods. Yeah, now I think it is OK to use such method to reduce the matrix effect in environmental samples.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/h2585bg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/h2585diffgcms.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait, my paper is writing. And I will show the details of such method soon(maybe or might be).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to deal with the less than obvious?</title>
+      <link>/en/2015/09/05/loq/</link>
+      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/09/05/loq/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;In environmental analysis, we often target a lot of compounds to get a detailed profile of certain pollution. However, due to different environmental process, not all of the compounds could be detected by our analysis method. For example, when I analysed PBDEs in 100 sludge samples, only a few congeners such as BDE-47, BDE-99, BDE-209 could be found in all of them. The other congerners such as BDE-28, BDE-17, BDE-153 could only be found in about 80% of them. Also some congerners such as BDE-77, BDE-53, BDE-17 were got in only 50% of them. Thus, we faced a problem: how to perform analysis such as summary or hypothesis testing or regression when some values were not detected by our analysis method.&lt;/p&gt;
+&lt;div id=&#34;summary-statistics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary Statistics&lt;/h2&gt;
+&lt;p&gt;Often a junior PhD student would be told to just use half of the LOQ(limit of quantitative) to substitute the N.D. of certain compounds. However, such method is not recommended for publishing papers. Such method would change the distribution of the concentrations. But what is the raw distribution of the environmental data?&lt;/p&gt;
+&lt;p&gt;Recently Prof. Ronald A. Hites from Indiana University published a paper about such issue and found such log-normally distribution could be really fit well for PCBs in about 2900 samples.For a log-normally distributed data, the geometric means are the unbiased estimation of the original median. So both of the geometric means and the median could be used to make a summary for the data with less than obvious.&lt;/p&gt;
+&lt;p&gt;That paper published on ES&amp;amp;T letter also showed a interesting method to find the LOQ as follows:&lt;/p&gt;
+&lt;p&gt;Assuming that the PCB concentrations are detected with a decreasing probability below their LOQ and that this probability is not zero. That means:&lt;/p&gt;
+&lt;p&gt;For x &amp;gt; LOQ:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[p(x) = 1 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;For x &amp;lt; LOQ:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[p(x) = \frac{1}{LOQ - x + 1} \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Such &lt;span class=&#34;math inline&#34;&gt;\(p(x)\)&lt;/span&gt; means a weight for the concentrations we get from our samples. The PDF(probability density function) of concentrations would be a log-normally distribution as discussed before. So the actually PDF of concentration distribution we got would be:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[pdf(x) = a*exp(\frac{-(x-\mu)^2}{2*\sigma})\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[PDF(x) = p(x) * pdf(x)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;However, none of the &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(LOQ\)&lt;/span&gt; were known. Thus we could use our data and the model to fit those parameters.&lt;/p&gt;
+&lt;p&gt;Prof. Hites found that such method could be robust even for small data and interesting, such fitted LOQ would be much higher than we get from the analysis method. So our LOQ might not be sensitivity as we thought.&lt;/p&gt;
+&lt;p&gt;My comment is that maybe the assumption of &lt;span class=&#34;math inline&#34;&gt;\(p(x)\)&lt;/span&gt; just get the nature of the trace analysis. If we insist the analysis method is sensitivity, then maybe the LOQ we fitted is just another environmental threshold which implied something.&lt;/p&gt;
+&lt;p&gt;However, we could use such method to simulate the less than obvious for our data. In fact, MLE(maximum-likelihood estimation) and some robust method could be used to impute our data. Then we need to do some inferences about our data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hypothesis-testing-and-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hypothesis Testing and Regression&lt;/h2&gt;
+&lt;p&gt;In most cases, we could not directly use an imputed data for hypothesis testing and regression. However, some statistical methods could help us to find the answer.&lt;/p&gt;
+&lt;p&gt;When the missing values is less than 20%, Kendall’s robust line fit could be used. Such method get the pairwise slope of all of the data with missing values zero or imputed data. Then the median of the slope were used to fit the data.&lt;/p&gt;
+&lt;p&gt;When the missing values is less than 50% and more than 20%. Tobit regression and logistic regression could be used. For Tobit regression, we use MLE instead of OLS(ordinary least squares) to fit the parameters. For logistic regression, we could treat the detected samples as 1 and non-detected samples as 0 to make analysis. However, such method could only show little information form concentration distribution. Anyway only one or two high concentration might also show little information.&lt;/p&gt;
+&lt;p&gt;When little compounds detected, only the logistic regression and contingency table analysis with Chi-square test would be performed.&lt;/p&gt;
+&lt;p&gt;When you want to discuss the relationship between two group of samples with imputed data, only the robust method such as Kendall’s &lt;span class=&#34;math inline&#34;&gt;\(\tau\)&lt;/span&gt; and Spearman’s &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt; could be used.&lt;/p&gt;
+&lt;p&gt;Ok, the core of this post is “Less thans are valuable data.”&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;p&gt;1.Hites, R. A. A Statistical Approach for Left-Censored Data: Distributions of Atmospheric Polychlorinated Biphenyl Concentrations near the Great Lakes as a Case Study. Environmental Science &amp;amp; Technology Letters 150831163839007 (2015). &lt;a href=&#34;doi:10.1021/acs.estlett.5b00223&#34; class=&#34;uri&#34;&gt;doi:10.1021/acs.estlett.5b00223&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.Helsel, D. R. Less than obvious - statistical treatment of data below the detection limit. Environ. Sci. Technol. 24, 1766–1774 (1990).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ISOTOPES 2015</title>
+      <link>/en/2015/06/30/isotopes-2015/</link>
+      <pubDate>Tue, 30 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/06/30/isotopes-2015/</guid>
+      <description>&lt;p&gt;I went to Israel at the late June for Isotopes 2015 conference. This is my first time trip abroad and it is my pleasure to visit Jerusalem and make friends with scholars from all over the world. This is a quick note of some important tips about isotopes 2015.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Thank you, all of the organisers of the conference!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thank you, all of the participants and I learned a lot!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I have made the web application &lt;a href=&#34;https://yufree.shinyapps.io/MIRtools/&#34;&gt;avaliable&lt;/a&gt; on my web site and just try it!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thank you, Dr. Martin Elsner. Your comments are very important for me.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The old city of Jerusalem is definitly holyland for the three major Abrahamic religions and show a very different view compared with old city such as Beijing and Xi&amp;rsquo;an in China.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Food is delicious and finally I get used to the fork and knife!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I am the only one from China for this conference but it is an amazing coincidence to meet Xi Wei, who also get the Bachelor&amp;rsquo;s degree from Shandong University.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Dead sea and Masada should never be missing if you go to Israel.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thank you, All my new friends! Though I can&amp;rsquo;t spell all of your names, leave message via &lt;a href=&#34;mailto://yufree@live.cn&#34;&gt;Email&lt;/a&gt; or guestbook on this website if you come to China for a visit. You are bound to be received warmly here!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thank you, Dr. Anil Modak. I use your photo as a summary.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/Isotopes2015.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to SP-ICP-MS</title>
+      <link>/en/2015/01/03/intro-sp-icp-ms/</link>
+      <pubDate>Sat, 03 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/01/03/intro-sp-icp-ms/</guid>
+      <description>
+
+&lt;p&gt;Single particle Inductively coupled plasma mass spectrometry(SP-ICP-MS) is a novol method for detect, quantify, and characterize nanoparticles. Its theoretical basis was founded by Dr. Degueldre et al. at 2004. Here I would like to show a much more simplified version of this theory and show you how to perform a SP-ICP-MS analysis.&lt;/p&gt;
+
+&lt;h2 id=&#34;single-particle&#34;&gt;Single Particle&lt;/h2&gt;
+
+&lt;p&gt;The core concept in SP-ICP-MS is single particle. How to understand single particle? Single means every scan time on MS would get no more than one particle&amp;rsquo;s signals. So how to get such signal? two ways: limit the amounts in certain scan time(dwell time) get into the MS or limit the dwell time to cut the particle flows into real pieces. We could write them in the following equation:&lt;/p&gt;
+
+&lt;p&gt;$$\frac{F \cdot C \cdot V \cdot t}{m} \leq 1$$&lt;/p&gt;
+
+&lt;p&gt;C stands for the concentration of certain particles, V stands for the flow rate of the injection, t stands for the dwell time and m stand for the mass of one particles. F means the measurable fraction of the injected particles. When the instrument could satisfy the equation, the collected data could be used for SP-ICP-MS. When you scan the real data, you might see a lot of low signals which is the same with blank data. Those signals could be used as a background and when such signals occupy a large percentage of your data, you data could certainly be used for SP-ICP-MS and you might need a long time to collect enough data for a distribution.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-the-diameter-distribution-of-certain-standard-particles&#34;&gt;Get the diameter distribution of certain standard particles&lt;/h2&gt;
+
+&lt;p&gt;OK, when you know the source of such data for SP-ICP-MS, we should prepare some standards of nano particles, for example, NIST 60nm silver nano particles. We should treat such diameter as an average of the whole particles and get the mass of single particles by the following equations:&lt;/p&gt;
+
+&lt;p&gt;$$m = \frac{4}{3} \pi (\frac{d}{2})^3 \rho $$&lt;/p&gt;
+
+&lt;p&gt;When we fixed the F(typically 0.01~0.05), the dwell time and the flow rate, we could get a max concentration of your standards for SP-ICP-MS analysis by the first equation. In most of the litratures, the ICP-MS currently used could not get the signals when the sliver nano particle&amp;rsquo;s diameter less than about 20nm. In such state, the data look like the data collected from blank. You must know for different element the detection limit of diameter is different. Generally speaking, when the atomic weight is heavior, we could get a lower detectable diameter of such pure element. However, for such nano particles have more than one elements, you need a correction.&lt;/p&gt;
+
+&lt;p&gt;OK, with a proper concentration for SP-ICP-MS, we could get a standard data for SP-ICP-MS analysis(fixed time such as 1 min) and a blank data for noise. Then we could do the following analysis:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;subset the singal bigger than the average noise as partical signal data&lt;/li&gt;
+&lt;li&gt;the signal data should minus the average noise&lt;/li&gt;
+&lt;li&gt;treat the average signal data as the average diameter of nano particle and get the relationship&amp;reg; between the signal data(S) and the particle mass(M) as S = r(M)&lt;/li&gt;
+&lt;li&gt;use such relationship to convert each signal into particle mass and now you could get the mass distribution of nano particle&lt;/li&gt;
+&lt;li&gt;use the second equation to change the mass into diameter and you will get the diameter distribution of standard nano particle.&lt;/li&gt;
+&lt;li&gt;Since you could fix the dwell time and flow rate, you could also get the F for your analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here when you perform a SP-ICP-MS analysis for standards, the most important parameters you get is the relationship between the signal and the mass. Also the F could be helpful when you want to perform a quantitative analysis.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-the-diameter-distribution-of-certain-particles-in-samples&#34;&gt;Get the diameter distribution of certain particles in samples&lt;/h2&gt;
+
+&lt;p&gt;When you get a samples, I suggest you perform a normal quantitative analysis for your target element to get the concertration. Then calculate according to the first equation and dilute your sample to meet the requirment for SP-ICP-MS. When you get the sample data, perform the following analysis:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;subset the singal bigger than the average noise as partical signal data&lt;/li&gt;
+&lt;li&gt;the signal data should minus the average noise&lt;/li&gt;
+&lt;li&gt;use the relationship between the signal and the mass to get the mass and diameter distribution of the partical in your sample&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;OK, if you want to get the partical number concertration, treat each signal bigger than the average noise as one particle and count the numbers of signal in certain time you will get the partical number concertration with the help of F.&lt;/p&gt;
+
+&lt;h2 id=&#34;some-issues&#34;&gt;Some issues&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the distribution of particles are often log-normal while the ions show poisson distribution which could be used to find if the samples have nano particles&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;try to use a larger particles to get the relationship between the signal and the mass because small particles show no signal&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TEM could be used to confirm the distribution of your result from SP-ICP-MS&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;application&#34;&gt;Application&lt;/h2&gt;
+
+&lt;p&gt;I wrote a web application for SP-ICP-MS, you could upload your standard and sample data and then get the diameter distribution of the samples. Click &lt;a href=&#34;https://yufree.shinyapps.io/spicpms/demo.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Degueldre, C., P. -Y. Favarger, and C. Bitea. “Zirconia Colloid Analysis by Single Particle Inductively Coupled Plasma–mass Spectrometry.” Analytica Chimica Acta 518, no. 1–2 (August 2, 2004): 137–42. doi:10.1016/j.aca.2004.04.015.&lt;/li&gt;
+&lt;li&gt;Kiss, L. B., J. Söderlund, G. A. Niklasson, and C. G. Granqvist. “New Approach to the Origin of Lognormal Size Distributions of Nanoparticles.” Nanotechnology 10, no. 1 (March 1, 1999): 25. doi:10.&lt;sup&gt;1088&lt;/sup&gt;&amp;frasl;&lt;sub&gt;0957&lt;/sub&gt;-4484/10/1/006.&lt;/li&gt;
+&lt;li&gt;Laborda, Francisco, Javier Jiménez-Lamana, Eduardo Bolea, and Juan R. Castillo. “Selective Identification, Characterization and Determination of Dissolved silver(I) and Silver Nanoparticles Based on Single Particle Detection by Inductively Coupled Plasma Mass Spectrometry.” Journal of Analytical Atomic Spectrometry 26, no. 7 (July 1, 2011): 1362–71. doi:10.1039/C0JA00098A.&lt;/li&gt;
+&lt;li&gt;Lee, Sungyun, Xiangyu Bi, Robert B. Reed, James F. Ranville, Pierre Herckes, and Paul Westerhoff. “Nanoparticle Size Detection Limits by Single Particle ICP-MS for 40 Elements.” Environmental Science &amp;amp; Technology 48, no. 17 (2014): 10291–300. doi:10.1021/es502422v.&lt;/li&gt;
+&lt;li&gt;Mitrano, Denise M., Emily K. Lesher, Anthony Bednar, Jon Monserud, Christopher P. Higgins, and James F. Ranville. “Detecting Nanoparticulate Silver Using Single-Particle Inductively Coupled Plasma–mass Spectrometry.” Environmental Toxicology and Chemistry 31, no. 1 (2012): 115–21. doi:10.1002/etc.719.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using recommender systems to fill the missing data</title>
+      <link>/en/2014/11/26/recommender-system/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2014/11/26/recommender-system/</guid>
+      <description>&lt;p&gt;Recommender systems were often used to show the candidates such as books, movies and music for certain user. If you bought something at online shop, you might get a spam email listing something the shop recommended and there must be a recommender systems for you. You might get confused by such system: how does they know what you would buy?&lt;/p&gt;
+
+&lt;p&gt;If you know basic concepts about machine learning, you might say: surely there would be a supervised learning algorithm for this problem. Yes, when you have huge data, you might train your algorithm with rating as your output and items as your input. But those data would always be sparse. There would be thousands of books and thousands of users but the input and the output would not be a normal distribution and should be some groups connected with each other. In another words, the books and the users data would have their own structures. If you like novels, most of your books would be novels and the references of your rating on a dictionary would be missing. However, we found another person with the similar rating as you on novels and a lot of rating on dictionaries. So your reasonable rating on a dictionary would be similar to that guy. On the other hand, the novel and the dictionary would have some inner features and those features could be used to group the books.&lt;/p&gt;
+
+&lt;p&gt;OK, here the original problems had been convert to the cluster problems on the input and the output. After the cluster, we should train a model to make a connection with the items&amp;rsquo; groups and users&amp;rsquo; groups. Here an algorithm with the update of both cluster on input and output at the same time would be reasonable.&lt;/p&gt;
+
+&lt;p&gt;Firstly, the original data would show a matrix structure(M) with rows standing for the books, columns standing for the users and ratings in each cell. To make the algorithm run without error, we need a mask matrix to identify the missing data(R, 0 for missing and 1 for rating). So M.*R would show a matrix without missing data. Our task was finding two matrix(T and U). T should show the features of terms and U should show the corresponding features of the users. U * T should give us a matrix(N) like M and we could use min(N-M) as cost function to train our data. When we get the final N, we could fill the gaps with reasonable data. That is, we get the your ratings on the books you never read and order the rating. OK, we would send you an e-mail with the high rating books.&lt;/p&gt;
+
+&lt;p&gt;You might say why we must get two unknown matrix U and T, why not just show me the N. N has no reasonable algorithms to get directly while U and T could be get with a optimization algorithms. We give the U a random initial numbers and get a optimized T, then we use such T to get the U, run in a circle and finally we could get those two. Meanwhile we could use U and T separately to explore the inner groups for books or describe our potential users. In fact, we could use collaborative filtering to get the U and T at the same time.&lt;/p&gt;
+
+&lt;p&gt;This idea comes from machine learning but I think we could use such method to get missing data for environmental research. For example, we get huge data about the concentrations of 100 compounds for 100 cities while not all of the cities could analysis those 100 compounds: some analysis 60 and some analysis 80. Then such recommander system could be used to show missing data and the group information for both compounds and cities. But I doubt if traditional environmental scientist could understand such machine learning ideas.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Display Chinese/Japanese/Korean in PDF from Rmd in RStudio</title>
+      <link>/en/2014/07/21/rmd-to-pdf/</link>
+      <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2014/07/21/rmd-to-pdf/</guid>
+      <description>
+
+&lt;p&gt;New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature &lt;code&gt;fig.showtext&lt;/code&gt; which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts and find the only way might be using the Rnw to write plain tex document. But I just want to use Rmd!&lt;/p&gt;
+
+&lt;p&gt;Then I review the PDF generation process and find the key is the md to tex. Rmarkdown use pandoc as the converter and pandoc just use some template. If we want to show Chinese, we need to hack the template and add the support of Chinese. Just go the &amp;ldquo;R/i686-pc-linux-gnu-library/3.1/rmarkdown/rmd/latex&amp;rdquo; where is the template located and add \usepackage{xeCJK}  and \setCJKmainfont{youfont}  before \begin{document}. Youfont stand for the character font installed in your computer which is used to show in the PDF. Remember to use xetex to process the tex or you may try CJK solution. OK, save the hack and now we could use Chinese both in the main text and the plot. More information could be found &lt;a href=&#34;https://github.com/yihui/knitr/issues/799&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The same way could be applied for Japanese and Korean. Just add the package support for your language.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20140722&#34;&gt;update 20140722&lt;/h1&gt;
+
+&lt;p&gt;@Yixuan write a &lt;a href=&#34;http://statr.me/2014/07/showtext-with-knitr/&#34;&gt;post&lt;/a&gt; on the usage of showtext package in knitr. Also @Yihui showed adding the packages in the header.tex and modified the yaml of the Rmd as the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;will also solve the font problems. You may also use the tex code in the Rmd and pandoc will complie the code like in the Rnw. Thanks a lot, @Yihui and @Yixuan!&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20150119&#34;&gt;update 20150119&lt;/h1&gt;
+
+&lt;p&gt;Chinese issue has been solved by the ctex templete in rticles package(on CRAN now). You might just use the following code to install the package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# install pandoc first
+install.packages(c(&#39;rmarkdown&#39;,&#39;rticles&#39;))
+rmarkdown::draft(&amp;quot;MyCtexArticle.Rmd&amp;quot;, template = &amp;quot;ctex&amp;quot;, package = &amp;quot;rticles&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;updata-20160919&#34;&gt;updata 20160919&lt;/h1&gt;
+
+&lt;p&gt;Aftet the update of ctex, use yaml as shown in this &lt;a href=&#34;http://yufree.cn/blog/2016/09/19/beamer-in-chinese.html&#34;&gt;post&lt;/a&gt; would directly show the Chinese/Japanese/Korean:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+title: &amp;quot;中文／にほんご／韓國語&amp;quot;
+author: &amp;quot;Yufree&amp;quot;
+date: &amp;quot;2016年9月19日&amp;quot;
+header-includes:
+  - \usepackage{ctex}
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;if you preferred xeCJK package to handle this issue, use CJKmainfont: [fontname] in yaml at the top level to set your font.&lt;/p&gt;
+
+&lt;p&gt;You might find Rmd templates for Chinese/Janpanese/Korean &lt;a href=&#34;https://github.com/yufree/democode/tree/master/cjk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

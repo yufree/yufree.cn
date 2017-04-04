@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css'>
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> Home </a></li>
+    
+    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    
+    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    
+    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+    <h1 class="article-title">Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2016/11/29</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Evaluation&#43;and&#43;reduction&#43;of&#43;the&#43;analytical&#43;uncertainties&#43;in&#43;GC-MS&#43;analysis&#43;using&#43;a&#43;boundary&#43;regression&#43;model&#43;http%3A%2F%2Fyufree.cn%2Fen%2F2016%2F11%2F29%2Fmy-third-paper%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Evaluation&#43;and&#43;reduction&#43;of&#43;the&#43;analytical&#43;uncertainties&#43;in&#43;GC-MS&#43;analysis&#43;using&#43;a&#43;boundary&#43;regression&#43;model&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fen%2F2016%2F11%2F29%2Fmy-third-paper%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2016-11-29-my-third-paper.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>This <a href="http://www.sciencedirect.com/science/article/pii/S0039914016309298">paper</a> received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.</p>
+
+<p>In this work, I wanted to access and reduce the uncertainties in the whole procedure of environmental analysis. In regular analysis, we would use pure standards to optimized the analysis method and recovery and RSD were commonly used for quality control analysis. My concerns are:</p>
+
+<ul>
+<li><p>Uncertainties were hard to be found with standards in advance. When you injected a dirty samples, you instruments would be polluted after you see the results. Furthormore, when you found your targeted compounds were influenced by something from the matrices, you have to start the analysis from the beginning with new methods. So, I wounder if we could access some common properties during the analysis before we analysis the samples. Then I used visualization methods to show the Uncertainties in the raw data from GC-MS.</p></li>
+
+<li><p>Another issue is that how to escape the influnces from the uncertainties found in the visualization methods. My solution was that building a boundary regression models to seperate the &ldquo;clean&rdquo; zone from the &ldquo;dirty&rdquo; zone in the raw data. By this model, we would get a better sensitivity by choosing right ions regardless of the matrices or pretreatment.</p></li>
+</ul>
+
+<p>I am always wondering whether different pretreatments would show similar results for certain matrix and compounds. From this paper, my answer is almost yes. Certain pretreatments would remove something we do not like or harmful to the instruments. However, such influnces might be pointless and can&rsquo;t be detected on mass spectrum. In GC-MS, the co-elute influnces are hard to affect the your target compounds at the same retention time and the same massed. Only the rising baseline is important and we could get rid of it by the boundary model. Then the only thing we need to consider is the pollution of the instruments.</p>
+
+<p>Meanwhile, I need to say such model might not be suitable for high-resolution mass spectrum. However, this idea could be used to improve the analytical methods for some compounds, especially for PBDEs. Also this paper supplied some basic data for environmental analysis. As a rule of thumb, you might know:</p>
+
+<blockquote>
+<p>When you rise 1 degrees centigrade, the &lsquo;dirty&rsquo; zone&rsquo;s boundary would rise about 2 unit mass in the worst matrix and pretreatment. Always try to choose heavier ions for qualitative and quantitative analysis.</p>
+</blockquote>
+
+<p>Here is the graphical summary for the whole methods and I think more patterns could be mined from the data of GC-MS:</p>
+
+<p><img src="http://yufree.cn/blogcn/figure/MorF.jpg" alt="" /></p>
+
+<p>Also I developed a package to perform this kind of analysis in R. Check <a href="https://github.com/yufree/enviGCMS">here</a>. This package has been published on <a href="https://cran.r-project.org/web/packages/enviGCMS/index.html">CRAN</a> and you could install and load it by:</p>
+
+<pre><code>install.packages('enviGCMS')
+library('enviGCMS')
+</code></pre>
+
+<p>You might find <strong>Easter Eggs</strong> in this package.</p>
+
+<p>If you have questions about this paper, comment here and I will reply as soon as possible.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../en/2016/09/19/beamer-in-chinese/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Use Chinese in RStudio Beamer Slides</div>
+    </a>
+    
+
+    
+    <a href="../../../../../en/2017/01/15/sd-isotope-ratio/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Statistical uncertainty of Isotope Ratio <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/en\/2016\/09\/19\/beamer-in-chinese\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/en\/2017\/01\/15\/sd-isotope-ratio\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

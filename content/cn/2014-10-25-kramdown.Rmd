@@ -1,0 +1,163 @@
+---
+title: kramdown 语法简介
+date: 2014-10-25
+slug: kramdown
+---
+
+偶然发现之前文章的`markdown`输出有问题，追根溯源发现是`Github Pages`的解释器有问题。当年建站是东拼西凑的代码，其实对`jeklly`没仔细学习，当时就觉得拿`markdown`语法写就没问题了，其实这货也是有方言的。不同的人按自己的需要对标准语法缝缝补补以适应新的要求，[据说](http://commonmark.org)有些大牛开始着手`markdown`的标准化问题了。不过`Github Pages`目前只支持包括Maruku（默认），Redcarpet	和Kramdown在内为数不多的解释器。换言之，像我这种本地不装`jeklly`而纯依赖推送原始`md`文件的做法想要得到数学公式表格啥的支持就需要从这些解释器中找个最合适的用。如果你足够寂寞，装个`jeklly`然后使用`pandoc`的插件来本地生成`html`文档去推送也没关系。但我足够懒，所以我选择找一个最接近`pandoc`功能的解释器，也就是kramdown来凑合。本文旨在总结其与标准`markdown`的区别，方便以后写作。
+
+## Setext Style   {#SS}
+
+`setext` 样式算得上轻量级标记语言的始祖，在`kramdown`中，这种样式可能与水平分割线冲突：
+
+~~~
+para A
+---
+para B
+~~~
+
+这种情况你不太好分辨`para A`是标题还是两段为水平线所分离，这样`kramdown`规定优先为标题，也就是`setext` 样式优先级高于水平分割线，但不允许内容与分割线间有空行，`atx`的井号模式也是如此，标准`markdown`对此没有要求，允许多个空行。
+
+## Header ID   
+
+扩展功能，使用ID为你的标题提供页面内引用地址，可以像超链接一样跳转，不信你点[这里](#SS)。
+
+~~~
+# Hello      {#id}
+
+Say [hello](#id)
+~~~
+
+## 代码块
+
+扩展功能，可折叠代码块直接段落开头使用`tab`键就可以了，默认不折叠。
+
+~~~
+  a <- c(1:100) #宇宙最高司令教导我们说可以把一行代码写的尽量长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长一些
+  b <- c(2:101)
+^
+  c <- b-a
+~~~
+
+相连代码块用`^`分割
+
+## 围栏代码块
+
+扩展功能，用`~~~`跟`~~~`围起来就可以了。
+
+## 列表
+
+不允许混合无序列表与数字列表，标准版两个不同列表容易产生一个无序列表：
+
+~~~
+* kram
++ down
+- now
+
+1. kram
+2. down
+3. now
+~~~
+
+同级别列表不允许有不同缩进。
+
+## 定义列表
+
+扩展功能。
+
+~~~
+kramdown
+: A Markdown-superset converter
+
+Maruku
+:     Another Markdown-superset converter
+~~~
+
+kramdown
+: A Markdown-superset converter
+
+Maruku
+:     Another Markdown-superset converter
+
+## 表格
+
+扩展功能。
+
+~~~
+|-----------------+------------+-----------------+----------------|
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            |
+|-----------------+------------+-----------------+----------------|
+| Second body     |            |                 |                |
+| 2 line          |            |                 |                |
+|=================+============+=================+================|
+| Footer row      |            |                 |                |
+|-----------------+------------+-----------------+----------------|
+~~~
+
+## 数学公式支持
+
+扩展功能。
+
+~~~
+$$
+\begin{align*}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*}
+$$
+~~~
+
+$$
+\begin{align*}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*}
+$$
+
+## HTML支持
+
+比标准更宽泛，支持任意位置插入`html`代码并允许嵌套`markdown`语句
+
+## 脚注
+
+扩展功能，其实就是加了上标的链接。
+
+~~~
+That's some text with a footnote.[^1]
+
+[^1]: And that's the footnote.
+
+That's the second paragraph.
+~~~
+
+That's some text with a footnote.[^1]
+
+[^1]: And that's the footnote.
+
+That's the second paragraph.
+
+以上为常见功能的支持，有了这些写一篇带点公式代码的文章就不难了。

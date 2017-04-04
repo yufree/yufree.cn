@@ -1,0 +1,9 @@
+{{ if and (not .Params.disable_highlight) (in (string .Content) "</pre>") }}
+{{ $highVer := .Site.Params.highlightjsVersion }}
+{{ if (not (eq $highVer "")) }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ $highVer }}/highlight.min.js"></script>
+{{ range .Site.Params.highlightjsLang }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ $highVer }}/languages/{{ . }}.min.js"></script>{{ end }}
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+{{ end }}
+{{ end }}

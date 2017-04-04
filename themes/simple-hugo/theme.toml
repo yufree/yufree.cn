@@ -1,0 +1,13 @@
+name = "simple-hugo"
+license = "MIT"
+licenselink = "https://github.com/druzza/simple-hugo/blob/master/LICENSE.md"
+description = "An elegant, open source and simple theme"
+homepage = "https://github.com/druzza/simple-hugo"
+tags = ["blog", "dev"]
+features = ["blog", "dev"]
+min_version = 0.14
+
+[author]
+  name = "Daniel Ruzza"
+  homepage = "https://github.com/druzza/simple-hugo"
+  repo = "https://github.com/druzza/simple-hugo"

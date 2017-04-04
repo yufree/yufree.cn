@@ -1,0 +1,24 @@
+<footer class="site-footer">
+	<div class="container">
+		<h4>{{ .Site.Title }}</h4>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="form-group">
+					<p>{{ .Site.Params.shortDescription }}</p>
+					<a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<p>
+						<span class="fa fa-fw fa-github"></span>
+						<a href="https://github.com/{{ .Site.Params.github }}">{{ .Site.Params.github }}</a>
+						<br>
+						<span class="fa fa-fw fa-twitter"></span>
+						<a href="https://twitter.com/{{ .Site.Params.twitter }}">{{ .Site.Params.twitter }}</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

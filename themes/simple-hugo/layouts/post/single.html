@@ -1,0 +1,15 @@
+  {{ partial "head.html" . }}
+  <body>
+    {{ partial "navbar.html" . }}
+    <div class="container page-wrap">
+      <h1>{{ .Title }}</h1>
+      <small class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</small>
+      <div class="post-content">
+        {{ .Content }}
+        {{ template "_internal/disqus.html" . }}
+      </div>
+    </div>
+    {{ partial "footer.html" . }}
+    {{ partial "script.html" . }}
+  </body>
+</html>

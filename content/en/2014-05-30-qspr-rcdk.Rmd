@@ -1,0 +1,152 @@
+---
+title: Using rcdk package for QSPR
+date: 2014-05-30
+slug: qspr rcdk
+---
+
+`R` is a handy tool for modeling, so there must be some packages for  Quantitative structure–activity relationship(QSPR) in Chemistry. Recently I wanted to summarize some papers for a presentation, then I found rcdk package, which is a useful tool for QSPR. However, little posts about this topic for beginner. As an absolutely beginner, I make this post as a note for the whole process and add comments for someone else to reproduce a QSPR model by their own.
+
+First,you need the following knowledge:
+
+- Chemistry Development Kit(CDK) is powerful, we will use their function to read in the molecular and calculate some descriptor via `rcdk` package and no need to install CDK and their function has been included in the package
+
+- Just `install.packages(c('rJava','rcdk'))` is enough for a R user
+
+- Copy the smiles files or the sdf files to your work directory or just use a demo data `bpdata`
+
+- Then we begin
+
+~~~
+library(rcdk)
+data(bpdata)
+~~~
+
+The first column is the SMILES vector of the molecular structures so we use parse.smiles to read it
+
+~~~
+mols <- parse.smiles(bpdata[, 1])
+~~~
+
+So rcdk will convert the smiles into a java object this object could be used to get the milecular descriptor. Also you need to know the class of mols is a list. rcdk has five ctegories of descriptor we think the topological descriptor may relate to the Boiling Point in this tests.
+
+~~~
+desc.names <- get.desc.names("topological")
+~~~
+
+Then we get the names of those topological descriptors.Up to now, we know the structures and the descriptors' name. Then we will get the descriptors.
+
+For the list we need to use lapply or sapply to apply the descriptors caculator function with the descriptors' name in the desc.names.
+
+~~~
+data <- lapply(mols, eval.desc, desc.names)
+~~~
+
+This is also a list so we need to unlist and make a dataframe for QSPR  model. Also we need to give the column a name.
+
+~~~
+df <- data.frame(matrix(unlist(data), nrow = 277, byrow = T))
+colnames(df) <- colnames(data[[1]])
+~~~
+
+We need to remove some desciptors unchanged
+
+~~~
+df2 <- df[, which(!apply(df, 2, sd) == 0)]
+~~~
+
+OK, here we get a data frame contained the descriptors we needed. Then we will use those $X$ to make a $f(X) = Y$, which is a QSPR model.
+
+Define the response
+
+~~~
+Y <- bpdata[, 2]
+~~~
+
+Get a train set and a test set
+
+~~~
+train <- sample(1:277, 200)
+traindataX <- df2[train, ]
+traindataY <- Y[train]
+testdataX <- df2[-train, ]
+testdataY <- Y[-train]
+~~~
+Build a regression model with the leaps packages
+
+~~~
+library("leaps")
+~~~
+
+Define a function to predict the test data
+
+~~~
+predict.regsubsets = function(object, newdata, id, ...) {
+form = as.formula(~.)
+mat = model.matrix(form, newdata)
+coefi = coef(object, id)
+xvars = names(coefi)
+mat[, xvars] %*% coefi}
+~~~
+
+A 5-fold cross-validation
+
+~~~
+k = 5
+folds = sample(1:k, nrow(traindataX), replace = TRUE)
+cv.errors = matrix(NA, k, 50, dimnames = list(NULL, paste(1:50)))
+
+for (j in 1:k) {
+best.fit = regsubsets(y = traindataY[folds != j],
+                      x = traindataX[folds != j, ],
+                      nvmax = 50, 
+                      really.big = T, 
+                      method = "forward")
+                      for (i in 1:50) {pred = predict.regsubsets(best.fit, traindataX[folds == j, ], id = i);
+                                      cv.errors[j, i] = mean((traindataY[folds == j] - pred)^2)
+                                      }
+                }
+mean.cv.errors = apply(cv.errors, 2, mean)
+which.min(mean.cv.errors)
+
+#38
+
+reg.fwd = regsubsets(x = traindataX,
+                     y = traindataY,
+                     nvmax = 44, 
+                     really.big = T, 
+                     method = "forward")
+~~~
+
+We got a model with many variables on the train dataset, and now we could see the results on the test dataset.
+
+~~~
+val.errors <- rep(NA, 50)
+for (i in 1:50) {
+        pred = predict.regsubsets(reg.fwd, testdataX, id = i)
+        val.errors[i] = mean((testdataY - pred)^2)
+        }
+which.min(val.errors)
+#41
+~~~
+So if you want to see the names of selected variables for prediction the selected QSPR model, you may use `coef` to get what you want. For example, we show the coef of the selected 15 variables models by the following code.
+
+~~~
+coef(reg.fwd, 15)
+~~~
+
+(Intercept)    khs.dCH2     khs.sOH      khs.dO    HybRatio        VP.2 
+
+310.981     -69.776      70.007      38.068     -61.738      58.648 
+
+SPC.4       SPC.6        SC.4        VC.3       ATSm5       ATSc2 
+
+-4.957      -3.223     -75.819     -42.528       1.890      35.852 
+
+ATSc4     khs.aaS      khs.sI       C4SP3 
+
+31.831       0.000      -8.693      10.937
+
+
+From the results I find the  topological descriptors might be not good for the prediction for that no clear overfit were found in train and test dataset. 
+
+OK, this is the whole process for using rcdk package for QSPR. Just modify the input, you will get what you want.

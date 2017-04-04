@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  <div class="container">
+    {{ partial "header.html" . }}
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <span class="post-date">{{ .Date.Format "Jan 2, 2006 " }}</span>
+          <div class="post-content">
+            {{ .Content }}
+          </div>
+        </div>
+        <div class="pagination">{{ if .Prev }}
+          <a class="btn previous " href="{{.Prev.Permalink}}"> Prev</a> {{ end }} {{ if .Next }}
+          <a class="btn next " href="{{.Next.Permalink}}"> Next</a> {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ if .Params.comments }}
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = {{ .Permalink }};
+        // this.page.identifier = PAGE_IDENTIFIER;
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//{{ .Site.Params.DisqusShortname }}.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    {{ end }}
+    {{ partial "footer.html" . }}
+  </div>
+  <script src="{{ .Site.BaseURL }}js/slim.js"></script>
+  <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  {{ with .Site.Params.AnalyticsID }}{{ partial "analytics.html" . }}{{ end }}
+</body>
+
+</html>

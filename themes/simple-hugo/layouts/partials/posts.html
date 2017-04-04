@@ -1,0 +1,5 @@
+{{ range .Data.Pages }}
+    {{ if eq .Type  "post" }}
+        {{ .Render "list"}}
+    {{ end }}
+{{ end }}

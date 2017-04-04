@@ -18,9 +18,3 @@ I am a Postdoctoral Fellow in [Prof. Pawliszyn's group](https://uwaterloo.ca/paw
 吃货但无炉灶，愿代神农鉴各地美食之毒。
 
 做会议演讲总感时间紧迫且注册费用不菲，因而拟学成后教书，一来吐槽时间充足，二来还能收费。
-
-有<span data-hk-page="current"> - </span>人到此一游，恕不当面接待，欢迎[联系](mailto:42@yufree.cn)。
-
-<!-- Hit Kounter -->
-<script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
-<script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>

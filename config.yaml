@@ -17,19 +17,19 @@ menu:
   main:
     - name: "About"
       url: "/en/about/"
-      weight: 0
+      weight: 1
     - name: "Blog"
       url: "/en/"
-      weight: 1
+      weight: 2
     - name: "关于"
       url: "/cn/about/"
-      weight: 2
+      weight: 3
     - name: "博客"
       url: "/cn/"
-      weight: 3
-    - name: "app"
-      url: "/app/"
       weight: 4
+    - name: "APP"
+      url: "/app/"
+      weight: 5
   en:
     - name: "Home"
       url: "/"

@@ -10,4 +10,4 @@ NumSpacesForTab: 8
 Encoding: UTF-8
 
 RnwWeave: knitr
-LaTeX: pdfLaTeX
+LaTeX: XeLaTeX

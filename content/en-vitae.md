@@ -16,11 +16,11 @@ Waterloo, Ontario, Canada, N2L 3G1
   
 - Email
 
-yufree@live.cn
+42@yufree.cn
 
 - Pages
 
-[Yufree's blog](http://yufree.github.io/)
+[Yufree's blog](http://yufree.cn/)
 
 # Research Interest
 

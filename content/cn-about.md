@@ -46,6 +46,6 @@ slug: "cn/about"
 
 - [微博](http://weibo.com/yufreecas): 私人圈子 都是熟人
 
-- [英文版](http://yufree.cn/blog/): 跟中文版区别很大
+- [英文版](http://yufree.cn/en/): 跟中文版区别很大
 
 - [气宇轩](http://blog.sciencenet.cn/u/yufree): 科学网博客 

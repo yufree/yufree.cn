@@ -17,7 +17,7 @@ Waterloo, Ontario, Canada
 
 - 联系电话: +1 519-888-4567 ext. 31266
 
-- Email: yufree@live.cn
+- Email: 42@yufree.cn
 
 ## 工作信息
 

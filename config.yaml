@@ -72,9 +72,12 @@ menu:
     - name: "English"
       url: "/en/"
       weight: 2
+    - name: "metaworkflow"
+      url: "/metaworkflow/"
+      weight: 3
     - name: "博客"
       url: "/cn/"
-      weight: 3
+      weight: 4
 
 params:
   description: "Personal website of Miao Yu; 于淼的个人网站"

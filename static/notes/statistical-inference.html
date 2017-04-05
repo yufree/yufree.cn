@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Notes</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is notes from yufree">
+  <meta name="generator" content="bookdown 0.1.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is notes from yufree" />
+  <meta name="github-repo" content="yufree/notes" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Notes" />
+  
+  <meta name="twitter:description" content="This is notes from yufree" />
+  
+
+<meta name="author" content="Miao YU">
+
+<meta name="date" content="2016-09-20">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="exploratory-data-analysis.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 目录</a></li>
+<li class="chapter" data-level="2" data-path="the-data-scientists-toolbox.html"><a href="the-data-scientists-toolbox.html"><i class="fa fa-check"></i><b>2</b> The Data Scientist’s Toolbox</a></li>
+<li class="chapter" data-level="3" data-path="getting-and-cleaning-data.html"><a href="getting-and-cleaning-data.html"><i class="fa fa-check"></i><b>3</b> Getting and Cleaning Data</a></li>
+<li class="chapter" data-level="4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="5" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>5</b> Statistical Inference</a><ul>
+<li class="chapter" data-level="5.1" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 导论</a></li>
+<li class="chapter" data-level="5.2" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 概率</a></li>
+<li class="chapter" data-level="5.3" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 期望</a></li>
+<li class="chapter" data-level="5.4" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 方差</a></li>
+<li class="chapter" data-level="5.5" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.5"><i class="fa fa-check"></i><b>5.5</b> 独立性</a></li>
+<li class="chapter" data-level="5.6" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.6"><i class="fa fa-check"></i><b>5.6</b> 条件概率</a></li>
+<li class="chapter" data-level="5.7" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.7"><i class="fa fa-check"></i><b>5.7</b> 贝叶斯定理</a></li>
+<li class="chapter" data-level="5.8" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.8"><i class="fa fa-check"></i><b>5.8</b> 常见分布</a></li>
+<li class="chapter" data-level="5.9" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.9"><i class="fa fa-check"></i><b>5.9</b> 渐进</a></li>
+<li class="chapter" data-level="5.10" data-path="statistical-inference.html"><a href="statistical-inference.html#t-"><i class="fa fa-check"></i><b>5.10</b> T 置信区间</a></li>
+<li class="chapter" data-level="5.11" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.11"><i class="fa fa-check"></i><b>5.11</b> 似然函数</a></li>
+<li class="chapter" data-level="5.12" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.12"><i class="fa fa-check"></i><b>5.12</b> 贝叶斯推断</a></li>
+<li class="chapter" data-level="5.13" data-path="statistical-inference.html"><a href="statistical-inference.html#t"><i class="fa fa-check"></i><b>5.13</b> 两独立样本t检验</a></li>
+<li class="chapter" data-level="5.14" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.14"><i class="fa fa-check"></i><b>5.14</b> 假设检验</a></li>
+<li class="chapter" data-level="5.15" data-path="statistical-inference.html"><a href="statistical-inference.html#p-"><i class="fa fa-check"></i><b>5.15</b> P 值</a></li>
+<li class="chapter" data-level="5.16" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.16"><i class="fa fa-check"></i><b>5.16</b> 功效</a></li>
+<li class="chapter" data-level="5.17" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.17"><i class="fa fa-check"></i><b>5.17</b> 多重比较</a></li>
+<li class="chapter" data-level="5.18" data-path="statistical-inference.html"><a href="statistical-inference.html#section-5.18"><i class="fa fa-check"></i><b>5.18</b> 重采样推断</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/yufree/notes" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-inference" class="section level1">
+<h1><span class="header-section-number">Notes 5</span> Statistical Inference</h1>
+<div id="section-5.1" class="section level2">
+<h2><span class="header-section-number">5.1</span> 导论</h2>
+<ul>
+<li>定义 用需要考虑不确定度的含噪音的统计学数据推断事实</li>
+<li>工具 随机化 随机采样 采样模型 假设检验 置信区间 概率模型 实验设计 bootstraping 排列交换随机</li>
+<li>类型</li>
+<li>频率派 使用概率的频率解释来控制错误率</li>
+<li>贝叶斯派 给定概率与数据概率哪个靠谱</li>
+</ul>
+</div>
+<div id="section-5.2" class="section level2">
+<h2><span class="header-section-number">5.2</span> 概率</h2>
+<ul>
+<li>术语</li>
+<li>样本空间 Ω</li>
+<li>事件 样本空间子集 E</li>
+<li>单独事件 ω</li>
+<li>空事件 ∅</li>
+<li><span class="math inline">\(ω∈E\)</span> ω发生E发生</li>
+<li><span class="math inline">\(ω∉E\)</span> ω发生E不发生</li>
+<li><span class="math inline">\(E⊂F\)</span> E发生则F发生</li>
+<li><span class="math inline">\(E∩F\)</span> EF一起发生</li>
+<li><span class="math inline">\(E∪F\)</span> EF中至少一个发生</li>
+<li><span class="math inline">\(E∩F=∅\)</span> EF互斥</li>
+<li><span class="math inline">\(E^c\)</span> 或 <span class="math inline">\(\bar E\)</span> E不发生</li>
+<li>概率</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>对事件 <span class="math inline">\(E\subset \Omega\)</span>, <span class="math inline">\(0 \leq P(E) \leq 1\)</span></li>
+<li><span class="math inline">\(P(\Omega) = 1\)</span></li>
+<li>如果 <span class="math inline">\(E_1\)</span> 与 <span class="math inline">\(E_2\)</span> 互斥 有<span class="math inline">\(P(E_1 \cup E_2) = P(E_1) + P(E_2)\)</span>.</li>
+<li>概率无限可加性 <span class="math inline">\(P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)\)</span></li>
+<li><span class="math inline">\(P(\emptyset) = 0\)</span></li>
+<li><span class="math inline">\(P(E) = 1 - P(E^c)\)</span></li>
+<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></li>
+<li>如果 <span class="math inline">\(A \subset B\)</span> 则 <span class="math inline">\(P(A) \leq P(B)\)</span></li>
+<li><span class="math inline">\(P\left(A \cup B\right) = 1 - P(A^c \cap B^c)\)</span></li>
+<li><span class="math inline">\(P(A \cap B^c) = P(A) - P(A \cap B)\)</span></li>
+<li><span class="math inline">\(P(\cup_{i=1}^n E_i) \leq \sum_{i=1}^n P(E_i)\)</span></li>
+<li><span class="math inline">\(P(\cup_{i=1}^n E_i) \geq \max_i P(E_i)\)</span></li>
+</ol>
+<ul>
+<li>随机变量</li>
+<li>实验的数值输出</li>
+<li>离散随机变量取可数的概率 <span class="math inline">\(P(X = k)\)</span></li>
+<li>连续随机变量取连续区间子集概率 <span class="math inline">\(P(X \in A)\)</span></li>
+<li>概率质量函数（PMF）&lt;- 离散随机变量</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>对于所有 <span class="math inline">\(x\)</span> <span class="math inline">\(p(x) \geq 0\)</span></li>
+<li><span class="math inline">\(\sum_{x} p(x) = 1\)</span></li>
+</ol>
+<ul>
+<li>概率密度函数（PDF）&lt;- 连续随机变量</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>对于所有 <span class="math inline">\(x\)</span> <span class="math inline">\(f(x) \geq 0\)</span></li>
+<li><span class="math inline">\(f(x)\)</span> 下面积为1</li>
+</ol>
+<ul>
+<li>累计概率函数（CDF）</li>
+<li>定义 <span class="math inline">\(F(x) = P(X \leq x)\)</span></li>
+<li>生存函数 <span class="math inline">\(S(x) = P(X &gt; x)\)</span> <span class="math inline">\(S(x) = 1 - F(x)\)</span></li>
+<li>对于连续函数 CDF是PDF的积分</li>
+<li>分位数 <span class="math inline">\(\alpha^{th}\)</span></li>
+<li><span class="math inline">\(F(x_\alpha) = \alpha\)</span></li>
+<li><span class="math inline">\(50^{th}\)</span> 分位数是中位数</li>
+</ul>
+</div>
+<div id="section-5.3" class="section level2">
+<h2><span class="header-section-number">5.3</span> 期望</h2>
+<ul>
+<li>离散随机变量均值 <span class="math inline">\(E[X] = \sum_x xp(x)\)</span></li>
+<li><span class="math inline">\(E[X]\)</span> 代表质量与位置的中心 <span class="math inline">\(\{x, p(x)\}\)</span></li>
+<li>连续随机变量均值 <span class="math inline">\(E[X] = \mbox{the area under the function}~~~ t f(t)\)</span></li>
+<li>期望值是线性可加的</li>
+<li>如果 <span class="math inline">\(a\)</span> 与 <span class="math inline">\(b\)</span> 不随机 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 是随机变量</li>
+<li><span class="math inline">\(E[aX + b] = a E[X] + b\)</span></li>
+<li><span class="math inline">\(E[X + Y] = E[X] + E[Y]\)</span></li>
+<li>样本均值是总体均值<span class="math inline">\(\mu\)</span>的无偏估计的证明 <span class="math display">\[
+  \begin{eqnarray*}
+E\left[ \frac{1}{n}\sum_{i=1}^n X_i\right]
+&amp; = &amp; \frac{1}{n} E\left[\sum_{i=1}^n X_i\right] \\
+&amp; = &amp; \frac{1}{n} \sum_{i=1}^n E\left[X_i\right] \\
+&amp; = &amp; \frac{1}{n} \sum_{i=1}^n \mu =  \mu.
+  \end{eqnarray*}
+\]</span></li>
+</ul>
+</div>
+<div id="section-5.4" class="section level2">
+<h2><span class="header-section-number">5.4</span> 方差</h2>
+<ul>
+<li>描述随机变量的离散情况</li>
+<li>如果 <span class="math inline">\(X\)</span> 是均值 <span class="math inline">\(\mu\)</span> 的随机变量 其方差为<span class="math inline">\(Var(X) = E[(X - \mu)^2]\)</span></li>
+<li>离开均值距离期望的平方</li>
+<li>计算公式 <span class="math inline">\(Var(X) = E[X^2] - E[X]^2\)</span></li>
+<li>如果 <span class="math inline">\(a\)</span> 是常数有 <span class="math inline">\(Var(aX) = a^2 Var(X)\)</span></li>
+<li>方差的开方是标准差 单位与 <span class="math inline">\(X\)</span> 一致</li>
+<li>车比雪夫不等式（Chebyshev’s inequality）边界极为保守 <span class="math display">\[
+P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2}
+\]</span></li>
+</ul>
+</div>
+<div id="section-5.5" class="section level2">
+<h2><span class="header-section-number">5.5</span> 独立性</h2>
+<ul>
+<li>独立事件</li>
+<li>两事件 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(B\)</span> 在 <span class="math inline">\(P(A \cap B) = P(A)P(B)\)</span> 下独立</li>
+<li>在 <span class="math inline">\(P([X \in A] \cap [Y \in B]) = P(X\in A)P(Y\in B)\)</span> 下两随机变量 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 独立</li>
+<li>对于一组随机独立变量<span class="math inline">\(X_1, X_2, \ldots, X_n\)</span>有 <span class="math inline">\(f(x_1,\ldots, x_n) = \prod_{i=1}^n f_i(x_i)\)</span></li>
+<li>iid随机变量（independent and identically distributed） 来自同一分布相互独立的随机变量</li>
+<li>协方差（covariance）</li>
+<li><span class="math inline">\(Cov(X, Y) = E[(X - \mu_x)(Y - \mu_y)] = E[X Y] - E[X]E[Y]\)</span></li>
+<li><span class="math inline">\(Cov(X, Y) = Cov(Y, X)\)</span></li>
+<li><span class="math inline">\(Cov(X, Y)\)</span> 可以有正负</li>
+<li><span class="math inline">\(|Cov(X, Y)| \leq \sqrt{Var(X) Var(y)}\)</span></li>
+<li>相关性（correlation）</li>
+<li><span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 的相关性 <span class="math inline">\(Cor(X, Y) = Cov(X, Y) / \sqrt{Var(X) Var(y)}\)</span></li>
+<li><span class="math inline">\(-1 \leq Cor(X, Y) \leq 1\)</span></li>
+<li>只有对常数 <span class="math inline">\(a\)</span> 与 <span class="math inline">\(b\)</span>满足 <span class="math inline">\(X = a + bY\)</span> 时<span class="math inline">\(Cor(X, Y) = \pm 1\)</span></li>
+<li><span class="math inline">\(Cor(X, Y)\)</span> 无单位</li>
+<li><span class="math inline">\(Cor(X, Y) = 0\)</span> 时 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 不相关</li>
+<li><span class="math inline">\(Cor(X,Y)\)</span> 越接近1 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 越正相关 反之接近-1 负相关</li>
+<li><span class="math inline">\(\{X_i\}_{i=1}^n\)</span> 是一组随机变量 当 <span class="math inline">\(\{X_i\}\)</span> 不相关时 <span class="math inline">\(Var\left(\sum_{i=1}^n a_i X_i + b\right) = \sum_{i=1}^n a_i^2 Var(X_i)\)</span></li>
+<li>如果一组随机变量<span class="math inline">\(\{X_i\}\)</span>不相关 方差的和等于和的方差 非标准差</li>
+<li>样本均值方差的推导 <span class="math display">\[
+\begin{eqnarray*}
+Var(\bar X) &amp; = &amp; Var \left( \frac{1}{n}\sum_{i=1}^n X_i \right)\\ \\
+&amp; = &amp; \frac{1}{n^2} Var\left(\sum_{i=1}^n X_i \right)\\ \\
+&amp; = &amp; \frac{1}{n^2} \sum_{i=1}^n Var(X_i) \\ \\
+&amp; = &amp; \frac{1}{n^2} \times n\sigma^2 \\ \\
+&amp; = &amp; \frac{\sigma^2}{n}
+  \end{eqnarray*}
+\]</span></li>
+<li>当 <span class="math inline">\(X_i\)</span> 独立且方差为 <span class="math inline">\(Var(\bar X) = \frac{\sigma^2}{n}\)</span></li>
+<li><span class="math inline">\(\sigma/\sqrt{n}\)</span> 为样本均值的标准误</li>
+<li>样本均值的标准误就是样本均值分布的标准差</li>
+<li><span class="math inline">\(\sigma\)</span> 是一次观察分布的标准差</li>
+<li>样本均值要比一次观察变化小 因此除以<span class="math inline">\(\sqrt{n}\)</span></li>
+<li>样本方差</li>
+<li><span class="math inline">\(S^2 = \frac{\sum_{i=1}^n (X_i - \bar X)^2}{n-1}\)</span></li>
+<li>总体方差 <span class="math inline">\(\sigma^2\)</span>的估计</li>
+<li>计算 <span class="math inline">\(\sum_{i=1}^n (X_i - \bar X)^2 = \sum_{i=1}^n X_i^2 - n \bar X^2\)</span></li>
+<li>均值偏差平方的均值</li>
+<li>样本方差是总体方差的无偏估计 <span class="math display">\[
+  \begin{eqnarray*}
+E\left[\sum_{i=1}^n (X_i - \bar X)^2\right] &amp; = &amp; \sum_{i=1}^n E\left[X_i^2\right] - n E\left[\bar X^2\right] \\ \\
+&amp; = &amp; \sum_{i=1}^n \left\{Var(X_i) + \mu^2\right\} - n \left\{Var(\bar X) + \mu^2\right\} \\ \\
+&amp; = &amp; \sum_{i=1}^n \left\{\sigma^2 + \mu^2\right\} - n \left\{\sigma^2 / n + \mu^2\right\} \\ \\
+&amp; = &amp; n \sigma^2 + n \mu ^ 2 - \sigma^2 - n \mu^2 \\ \\
+&amp; = &amp; (n - 1) \sigma^2
+  \end{eqnarray*}
+\]</span></li>
+<li>澄清</li>
+<li>假定 <span class="math inline">\(X_i\)</span> 是 iid 均值 <span class="math inline">\(\mu\)</span> 方差 <span class="math inline">\(\sigma^2\)</span></li>
+<li><span class="math inline">\(S^2\)</span> 估计 <span class="math inline">\(\sigma^2\)</span></li>
+<li><span class="math inline">\(S^2\)</span> 的计算涉及除 <span class="math inline">\(n-1\)</span></li>
+<li><span class="math inline">\(S / \sqrt{n}\)</span> 估计 <span class="math inline">\(\sigma / \sqrt{n}\)</span> 是均值的标准误</li>
+</ul>
+</div>
+<div id="section-5.6" class="section level2">
+<h2><span class="header-section-number">5.6</span> 条件概率</h2>
+<ul>
+<li><span class="math inline">\(B\)</span> 为一个事件 有 <span class="math inline">\(P(B) &gt; 0\)</span></li>
+<li><span class="math inline">\(B\)</span> 出现条件下 <span class="math inline">\(A\)</span> 的条件概率为 <span class="math inline">\(P(A ~|~ B) = \frac{P(A \cap B)}{P(B)}\)</span></li>
+<li>如果 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(B\)</span> 独立 有 <span class="math inline">\(P(A ~|~ B) = \frac{P(A) P(B)}{P(B)} = P(A)\)</span></li>
+</ul>
+</div>
+<div id="section-5.7" class="section level2">
+<h2><span class="header-section-number">5.7</span> 贝叶斯定理</h2>
+<p><span class="math display">\[
+P(B ~|~ A) = \frac{P(A ~|~ B) P(B)}{P(A ~|~ B) P(B) + P(A ~|~ B^c)P(B^c)}.
+\]</span></p>
+<ul>
+<li>2*2 列联表 - 诊断测试</li>
+</ul>
+<div class="figure">
+<img src="http://yufree.github.io/blogcn/figure/error.png" alt="示意图" />
+<p class="caption">示意图</p>
+</div>
+</div>
+<div id="section-5.8" class="section level2">
+<h2><span class="header-section-number">5.8</span> 常见分布</h2>
+<ul>
+<li>贝努力分布</li>
+<li>二元输出变量</li>
+<li>数值为0或1 概率<span class="math inline">\(p\)</span> 与 <span class="math inline">\(1-p\)</span></li>
+<li><span class="math inline">\(X\)</span>的PMF是<span class="math inline">\(P(X = x) = p^x (1 - p)^{1 - x}\)</span></li>
+<li>均值 <span class="math inline">\(p\)</span> 方差 <span class="math inline">\(p(1 - p)\)</span></li>
+<li>如果有iid的贝努力观察<span class="math inline">\(x_1,\ldots, x_n\)</span> 似然函数 <span class="math inline">\(\prod_{i=1}^n p^{x_i} (1 - p)^{1 - x_i} = p^{\sum x_i} (1 - p)^{n - \sum x_i}\)</span></li>
+<li>似然函数依赖<span class="math inline">\(x_i\)</span>的和 <span class="math inline">\(\sum_i x_i / n\)</span> 包含了所有 <span class="math inline">\(p\)</span> 的可能性</li>
+<li><p>最大化似然函数可以得到 <span class="math inline">\(p\)</span> 的估计</p></li>
+<li>二项分布</li>
+<li><p>PMF <span class="math display">\[
+P(X = x) = 
+\left(
+\begin{array}{c}
+  n \\ x
+\end{array}
+\right)
+p^x(1 - p)^{n-x}
+\]</span> 对于 <span class="math inline">\(x=0,\ldots,n\)</span></p></li>
+<li>正态分布</li>
+<li>PDF <span class="math inline">\((2\pi \sigma^2)^{-1/2}e^{-(x - \mu)^2/2\sigma^2}\)</span></li>
+<li><span class="math inline">\(X\)</span> 为均值 <span class="math inline">\(E[X] = \mu\)</span> 方差 <span class="math inline">\(Var(X) = \sigma^2\)</span> 的iid随机变量</li>
+<li>写作<span class="math inline">\(X\sim \mbox{N}(\mu, \sigma^2)\)</span></li>
+<li>均值 <span class="math inline">\(\mu = 0\)</span> 方差 <span class="math inline">\(\sigma = 1\)</span> 是标准正态分布</li>
+<li>标准正态函数写作 <span class="math inline">\(\phi\)</span></li>
+<li>标准正态随机变量用 <span class="math inline">\(Z\)</span> 表示</li>
+<li>如果 <span class="math inline">\(X \sim \mbox{N}(\mu,\sigma^2)\)</span> 并且 <span class="math inline">\(Z = \frac{X -\mu}{\sigma}\)</span> 是标准正态函数</li>
+<li>如果 <span class="math inline">\(Z\)</span> 是标准正态函数 <span class="math inline">\(X = \mu + \sigma Z \sim \mbox{N}(\mu, \sigma^2)\)</span></li>
+<li>非标准正态密度函数 <span class="math inline">\(\phi\{(x - \mu) / \sigma\}/\sigma\)</span></li>
+<li>正态似然函数对方差的估计是有偏的</li>
+<li>正态的和是正态 样本均值正态</li>
+<li>正态的平方是卡方</li>
+<li>泊松分布</li>
+<li>PMF <span class="math inline">\(P(X = x; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}\)</span></li>
+<li>均值方差均为 <span class="math inline">\(\lambda\)</span></li>
+<li>可看做很短时间间隔中发生事件的概率 模拟速率 其中<span class="math inline">\(\lambda * h\)</span>小于1 则各时间段独立</li>
+<li><span class="math inline">\(X \sim Poisson(\lambda t)\)</span> <span class="math inline">\(\lambda = E[X / t]\)</span>是速率 <span class="math inline">\(t\)</span> 是总时间</li>
+<li><span class="math inline">\(n\)</span> 大 <span class="math inline">\(p\)</span> 小是对二项分布的模拟</li>
+<li><p><span class="math inline">\(X \sim \mbox{Binomial}(n, p)\)</span>, <span class="math inline">\(\lambda = n p\)</span></p></li>
+</ul>
+</div>
+<div id="section-5.9" class="section level2">
+<h2><span class="header-section-number">5.9</span> 渐进</h2>
+<ul>
+<li>样本接近无穷大时统计量的行为</li>
+<li>频率派的基石</li>
+<li>大数理论（LLN） 样本数量越多 均值接近期望</li>
+<li>中心极限理论 (CLT) iid 变量均值的分布标准化后随样本数增加接近标准正态分布 <span class="math display">\[
+\frac{\bar X_n - \mu}{\sigma / \sqrt{n}} = 
+\frac{\mbox{Estimate} - \mbox{Mean of estimate}}{\mbox{Std. Err. of estimate}}
+\]</span></li>
+<li>可根据变量分布来 知道均值 方差 计算出样本均值标准误 就可以根据CLT计算逼近的统计量</li>
+<li>置信区间</li>
+<li>根据CLT随机区间<span class="math inline">\(\bar X_n \pm z_{1-\alpha/2}\sigma / \sqrt{n}\)</span> 包括 <span class="math inline">\(\mu\)</span> 的概率逼近于 100<span class="math inline">\((1-\alpha)\)</span>% <span class="math inline">\(z_{1-\alpha/2}\)</span>为标准正态分布<span class="math inline">\(1-\alpha/2\)</span>的分位数 <span class="math inline">\(100(1 - \alpha)\)</span>% 为置信区间 <span class="math inline">\(\sigma\)</span> 可用样本估计 <span class="math inline">\(s\)</span> 来近似</li>
+<li>估计是基于分布假设的 如果分布有解析解 则置信区间可以更准确的得到估计</li>
+<li>先生成不依赖参数的统计量</li>
+<li>根据统计量的概率分布计算参数的边界</li>
+</ul>
+</div>
+<div id="t-" class="section level2">
+<h2><span class="header-section-number">5.10</span> T 置信区间</h2>
+<ul>
+<li>卡方分布</li>
+<li>假定 <span class="math inline">\(S^2\)</span> 是来自<span class="math inline">\(n\)</span>个 iid <span class="math inline">\(N(\mu,\sigma^2)\)</span> 数据样本的方差 有<span class="math inline">\(\frac{(n - 1) S^2}{\sigma^2} \sim \chi^2_{n-1}\)</span> 符合自由度<span class="math inline">\(n-1\)</span>的卡方分布</li>
+<li>不对称分布</li>
+<li>均值是自由度 方差是两倍的自由度</li>
+<li>方差的置信区间 <span class="math display">\[
+\begin{eqnarray*}
+  1 - \alpha &amp; = &amp; P \left( \chi^2_{n-1, \alpha/2} \leq  \frac{(n - 1) S^2}{\sigma^2} \leq  \chi^2_{n-1,1 - \alpha/2} \right) \\ \\
+&amp; = &amp;  P\left(\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}} \leq \sigma^2 \leq 
+\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}} \right) \\
+\end{eqnarray*}
+\]</span></li>
+<li><span class="math inline">\(\left[\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}, \frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}}\right]\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的 <span class="math inline">\(100(1-\alpha)\%\)</span> 置信区间</li>
+<li>依赖正态性假设 开方后得到 <span class="math inline">\(\sigma\)</span> 的置信区间</li>
+<li>Gosset的 t 分布</li>
+<li>比正态分布尾厚</li>
+<li>考虑自由度 自由度大时接近正态分布</li>
+<li><span class="math inline">\(\frac{Z}{\sqrt{\frac{\chi^2}{df}}}\)</span></li>
+<li>假定 <span class="math inline">\((X_1,\ldots,X_n)\)</span> 是 iid <span class="math inline">\(N(\mu,\sigma^2)\)</span> 有 <span class="math inline">\(\frac{\bar X - \mu}{\sigma / \sqrt{n}}\)</span> 是标准正态分布 <span class="math inline">\(\sqrt{\frac{(n - 1) S^2}{\sigma^2 (n - 1)}} = S / \sigma\)</span> 是卡方除以自由度的开方</li>
+<li>有 <span class="math display">\[
+\frac{\frac{\bar X - \mu}{\sigma /\sqrt{n}}}{S/\sigma}  
+= \frac{\bar X - \mu}{S/\sqrt{n}}
+\]</span> 服从自由度<span class="math inline">\(n-1\)</span>的<span class="math inline">\(t\)</span>分布</li>
+<li>均值的置信区间 <span class="math display">\[
+  \begin{eqnarray*}
+&amp;   &amp; 1 - \alpha \\
+&amp; = &amp; P\left(-t_{n-1,1-\alpha/2} \leq \frac{\bar X - \mu}{S/\sqrt{n}} \leq t_{n-1,1-\alpha/2}\right) \\ \\
+&amp; = &amp; P\left(\bar X - t_{n-1,1-\alpha/2} S / \sqrt{n} \leq \mu  
+  \leq \bar X + t_{n-1,1-\alpha/2}S /\sqrt{n}\right)
+  \end{eqnarray*}
+\]</span> <span class="math inline">\(t_{df,\alpha}\)</span> 是t分布的 <span class="math inline">\(\alpha^{th}\)</span> 分位数 自由度 <span class="math inline">\(df\)</span></li>
+<li>t检验不适合有偏分布 置信区间中心也不在均值上</li>
+</ul>
+</div>
+<div id="section-5.11" class="section level2">
+<h2><span class="header-section-number">5.11</span> 似然函数</h2>
+<ul>
+<li>一组数据的似然函数是数据固定下参数的联合概率密度函数</li>
+<li>似然函数可用来估计参数 是参数的函数</li>
+<li>似然函数比估计两个可能参数值的可能性</li>
+<li>给定模型与数据 似然函数包含所有参数可能性</li>
+<li>样本独立时 参数的似然函数是各独立样本似然函数的乘积</li>
+<li>参数使似然函数概率取最大值时真实的可能性更大 更支持这组数据 这个估计是最大似然估计（MLE）</li>
+</ul>
+</div>
+<div id="section-5.12" class="section level2">
+<h2><span class="header-section-number">5.12</span> 贝叶斯推断</h2>
+<ul>
+<li><span class="math inline">\(\mbox{Posterior} \propto \mbox{Likelihood} \times \mbox{Prior}\)</span></li>
+<li>先验beta分布</li>
+<li>01之间</li>
+<li>依赖 <span class="math inline">\(\alpha\)</span> <span class="math inline">\(\beta\)</span> 的概率密度函数 <span class="math display">\[
+\frac{\Gamma(\alpha +  \beta)}{\Gamma(\alpha)\Gamma(\beta)}
+ p ^ {\alpha - 1} (1 - p) ^ {\beta - 1} ~~~~\mbox{for} ~~ 0 \leq p \leq 1
+\]</span></li>
+<li>均值 <span class="math inline">\(\alpha / (\alpha + \beta)\)</span></li>
+<li>方差 <span class="math inline">\(\frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}\)</span></li>
+<li><span class="math inline">\(\alpha = \beta = 1\)</span> 为均匀分布</li>
+<li>后验beta分布</li>
+<li>参数<span class="math inline">\(\tilde \alpha = x + \alpha\)</span> <span class="math inline">\(\tilde \beta = n - x + \beta\)</span> 的beta分布 <span class="math display">\[
+\begin{align}
+\mbox{Posterior} &amp;\propto  p^x(1 - p)^{n-x} \times p^{\alpha -1} (1 - p)^{\beta - 1} \\
+             &amp;  =      p^{x + \alpha - 1} (1 - p)^{n - x + \beta - 1}
+\end{align}
+\]</span></li>
+<li>后验均值 <span class="math display">\[
+\begin{align}
+E[p ~|~ X] &amp; =   \frac{\tilde \alpha}{\tilde \alpha + \tilde \beta}\\ \\
+&amp; =  \frac{x + \alpha}{x + \alpha + n - x + \beta}\\ \\
+&amp; =  \frac{x + \alpha}{n + \alpha + \beta} \\ \\
+&amp; =  \frac{x}{n} \times \frac{n}{n + \alpha + \beta} + \frac{\alpha}{\alpha + \beta} \times \frac{\alpha + \beta}{n + \alpha + \beta} \\ \\
+&amp; =  \mbox{MLE} \times \pi + \mbox{Prior Mean} \times (1 - \pi)
+\end{align}
+\]</span></li>
+<li>后验均值是先验均值与最大似然估计的混合</li>
+<li>当 <span class="math inline">\(n\)</span> 变大 <span class="math inline">\(\pi\)</span> 接近 <span class="math inline">\(1\)</span> 先验作用小</li>
+<li>当 <span class="math inline">\(n\)</span> 很小 先验作用大</li>
+<li>当数据量够大时 先验概率作用就很小了</li>
+<li>当先验概率足够稳定 数据就作用不大了</li>
+<li>信任区间</li>
+<li><span class="math inline">\(95\%\)</span> 信任区间 <span class="math inline">\([a, b]\)</span> 会满足<span class="math inline">\(P(p \in [a, b] ~|~ x) = .95\)</span></li>
+<li>最高后验密度 (HPD) 区间</li>
+</ul>
+</div>
+<div id="t" class="section level2">
+<h2><span class="header-section-number">5.13</span> 两独立样本t检验</h2>
+<ul>
+<li><span class="math inline">\(X_1,\ldots,X_{n_x}\)</span> 为 iid <span class="math inline">\(N(\mu_x,\sigma^2)\)</span></li>
+<li><span class="math inline">\(Y_1,\ldots,Y_{n_y}\)</span> 为 iid <span class="math inline">\(N(\mu_y, \sigma^2)\)</span></li>
+<li><span class="math inline">\(\bar X\)</span>, <span class="math inline">\(\bar Y\)</span>, <span class="math inline">\(S_x\)</span>, <span class="math inline">\(S_y\)</span> 为均值与标准差</li>
+<li>根据均值与方差的线性组合 有 <span class="math inline">\(\bar Y - \bar X\)</span> 也是正态 均值 <span class="math inline">\(\mu_y - \mu_x\)</span> 方差 <span class="math inline">\(\sigma^2 (\frac{1}{n_x} + \frac{1}{n_y})\)</span></li>
+<li>混合方差为 <span class="math inline">\(S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2)\)</span> 为<span class="math inline">\(\sigma^2\)</span>的良好估计</li>
+<li>该估计为无偏估计 <span class="math display">\[
+\begin{eqnarray*}
+E[S_p^2] &amp; = &amp; \frac{(n_x - 1) E[S_x^2] + (n_y - 1) E[S_y^2]}{n_x + n_y - 2}\\
+        &amp; = &amp; \frac{(n_x - 1)\sigma^2 + (n_y - 1)\sigma^2}{n_x + n_y - 2}
+\end{eqnarray*}
+\]</span></li>
+<li>该估计独立于 <span class="math inline">\(\bar Y - \bar X\)</span> 因为方差独立于均值</li>
+<li>两个独立的卡方变量之和是自由度之和的卡方值 <span class="math display">\[
+\begin{eqnarray*}
+  (n_x + n_y - 2) S_p^2 / \sigma^2 &amp; = &amp; (n_x - 1)S_x^2 /\sigma^2 + (n_y - 1)S_y^2/\sigma^2 \\ \\
+  &amp; = &amp; \chi^2_{n_x - 1} + \chi^2_{n_y-1} \\ \\
+  &amp; = &amp; \chi^2_{n_x + n_y - 2}
+\end{eqnarray*}
+\]</span></li>
+<li>构建统计量 <span class="math display">\[
+\frac{\frac{\bar Y - \bar X - (\mu_y - \mu_x)}{\sigma \left(\frac{1}{n_x} + \frac{1}{n_y}\right)^{1/2}}}{\sqrt{\frac{(n_x + n_y - 2) S_p^2}{(n_x + n_y - 2)\sigma^2}}}
+= \frac{\bar Y - \bar X - (\mu_y - \mu_x)}{S_p \left(\frac{1}{n_x} + \frac{1}{n_y}\right)^{1/2}}
+\]</span></li>
+<li>该统计量为符合自由度 <span class="math inline">\(n_x + n_y - 2\)</span> 的 <span class="math inline">\(t\)</span> 分布</li>
+<li>置信区间 <span class="math display">\[
+\bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p\left(\frac{1}{n_x} + \frac{1}{n_y}\right)^{1/2}
+\]</span></li>
+<li>方差不等 <span class="math display">\[
+\bar Y - \bar X \sim N\left(\mu_y - \mu_x, \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)
+\]</span></li>
+<li>统计量 <span class="math display">\[
+\frac{\bar Y - \bar X - (\mu_y - \mu_x)}{\left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}}
+\]</span> 近似于自由度 <span class="math display">\[
+\frac{\left(S_x^2 / n_x + S_y^2/n_y\right)^2}
+{\left(\frac{S_x^2}{n_x}\right)^2 / (n_x - 1) +
+  \left(\frac{S_y^2}{n_y}\right)^2 / (n_y - 1)}
+\]</span> 的<span class="math inline">\(t\)</span>分布</li>
+</ul>
+</div>
+<div id="section-5.14" class="section level2">
+<h2><span class="header-section-number">5.14</span> 假设检验</h2>
+<ul>
+<li>使用数据做决定</li>
+<li>空假设 <span class="math inline">\(H_0\)</span> 无变化</li>
+<li>备择假设 <span class="math inline">\(H_a\)</span> 或大 或小 或不等</li>
+<li>真值表</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Truth</th>
+<th>Decide</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0\)</span></td>
+<td><span class="math inline">\(H_0\)</span></td>
+<td>Correctly accept null</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_0\)</span></td>
+<td><span class="math inline">\(H_a\)</span></td>
+<td>Type I error</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(H_a\)</span></td>
+<td><span class="math inline">\(H_a\)</span></td>
+<td>Correctly reject null</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_a\)</span></td>
+<td><span class="math inline">\(H_0\)</span></td>
+<td>Type II error</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Z检验</li>
+<li>Z检验 <span class="math inline">\(H_0:\mu = \mu_0\)</span> 与
+<ul>
+<li><span class="math inline">\(H_1: \mu &lt; \mu_0\)</span></li>
+<li><span class="math inline">\(H_2: \mu \neq \mu_0\)</span></li>
+<li><span class="math inline">\(H_3: \mu &gt; \mu_0\)</span></li>
+</ul></li>
+<li>检验统计量 <span class="math inline">\(TS = \frac{\bar{X} - \mu_0}{S / \sqrt{n}}\)</span></li>
+<li>拒绝空假设条件
+<ul>
+<li><span class="math inline">\(TS \leq -Z_{1 - \alpha}\)</span></li>
+<li><span class="math inline">\(|TS| \geq Z_{1 - \alpha / 2}\)</span></li>
+<li><span class="math inline">\(TS \geq Z_{1 - \alpha}\)</span></li>
+</ul></li>
+<li>样本数要足够 否则选 <span class="math inline">\(t\)</span> 检验</li>
+<li>通过 <span class="math inline">\(\alpha\)</span> 控制了 Type I error 但没控制 <span class="math inline">\(\beta\)</span> Type II error 所以结论为没有拒绝 <span class="math inline">\(H_0\)</span> 而不是接受 <span class="math inline">\(H_0\)</span></li>
+<li>拒绝 <span class="math inline">\(H_0\)</span> 的值域为拒绝域</li>
+<li>二项分布不易做正态假设可精确计算拒绝域</li>
+</ul>
+</div>
+<div id="p-" class="section level2">
+<h2><span class="header-section-number">5.15</span> P 值</h2>
+<ul>
+<li>假定没有事发生 出现状况的可能性</li>
+<li>先定义分布 然后计算相关统计量 对比常见阈值看数值是否够极端</li>
+<li>阈值为达到显著性水平 与p值有区别</li>
+<li>p值可设定任意显著性水平 小于就可以拒绝</li>
+<li>两尾检验 单尾概率翻倍</li>
+<li>独立于假设检验 但常常一起使用</li>
+</ul>
+</div>
+<div id="section-5.16" class="section level2">
+<h2><span class="header-section-number">5.16</span> 功效</h2>
+<ul>
+<li>错误拒绝空假设的概率为功效（power）</li>
+<li>Power <span class="math inline">\(= 1 - \beta\)</span> 对 Type II error 的控制</li>
+<li>正态分布假设下的推导 <span class="math display">\[
+\begin{align}
+1 -\beta &amp; = 
+P\left(\frac{\bar X - 30}{\sigma /\sqrt{n}} &gt; z_{1-\alpha} ~|~ \mu = \mu_a \right)\\
+&amp; = P\left(\frac{\bar X - \mu_a + \mu_a - 30}{\sigma /\sqrt{n}} &gt; z_{1-\alpha} ~|~ \mu = \mu_a \right)\\ \\
+&amp; = P\left(\frac{\bar X - \mu_a}{\sigma /\sqrt{n}} &gt; z_{1-\alpha} - \frac{\mu_a - 30}{\sigma /\sqrt{n}} ~|~ \mu = \mu_a \right)\\ \\
+&amp; = P\left(Z &gt; z_{1-\alpha} - \frac{\mu_a - 30}{\sigma /\sqrt{n}} ~|~ \mu = \mu_a \right)\\ \\
+\end{align}
+\]</span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sigma &lt;-<span class="st"> </span><span class="dv">10</span>; mu_0 =<span class="st"> </span><span class="dv">0</span>; mu_a =<span class="st"> </span><span class="dv">2</span>; n &lt;-<span class="st"> </span><span class="dv">100</span>; alpha =<span class="st"> </span>.<span class="dv">05</span>
+<span class="kw">plot</span>(<span class="kw">c</span>(-<span class="dv">3</span>, <span class="dv">6</span>),<span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">dnorm</span>(<span class="dv">0</span>)), <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">frame =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;Z value&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)
+xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(-<span class="dv">3</span>, <span class="dv">6</span>, <span class="dt">length =</span> <span class="dv">1000</span>)
+<span class="kw">lines</span>(xvals, <span class="kw">dnorm</span>(xvals), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)
+<span class="kw">lines</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dt">mean =</span> <span class="kw">sqrt</span>(n) *<span class="st"> </span>(mu_a -<span class="st"> </span>mu_0) /<span class="st"> </span>sigma), <span class="dt">lwd =</span><span class="dv">3</span>)
+<span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">qnorm</span>(<span class="dv">1</span> -<span class="st"> </span>alpha))</code></pre></div>
+<p><img src="/Users/yufree/figure/power-1.png" width="672" /> - 计算步骤 - 考虑 <span class="math inline">\(H_0 : \mu = \mu_0\)</span> 与 <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span> 且在<span class="math inline">\(H_a\)</span>下 <span class="math inline">\(\mu = \mu_a\)</span> - 在 <span class="math inline">\(H_0\)</span> 下统计量 <span class="math inline">\(Z = \frac{\sqrt{n}(\bar X - \mu_0)}{\sigma}\)</span> 符合 <span class="math inline">\(N(0, 1)\)</span> - 在<span class="math inline">\(H_a\)</span>下 <span class="math inline">\(Z\)</span> 是 <span class="math inline">\(N\left( \frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma}, 1\right)\)</span> - 如果 <span class="math inline">\(Z &gt; Z_{1-\alpha}\)</span> 拒绝空假设 也就是给定条件下功效不够 - 当检验 <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, 如果功效为 <span class="math inline">\(1 - \beta\)</span> 那么 <span class="math inline">\(1 - \beta = P\left(Z &gt; z_{1-\alpha} - \frac{\mu_a - \mu_0}{\sigma /\sqrt{n}} ~|~ \mu = \mu_a \right) = P(Z &gt; z_{\beta})\)</span> 也就是 <span class="math inline">\(z_{1-\alpha} - \frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma} = z_{\beta}\)</span> - <span class="math inline">\(\mu_a\)</span>, <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(n\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(\alpha\)</span> 给定五个可解出剩余的 - 两尾检验考虑 <span class="math inline">\(\alpha / 2\)</span> - 功效在 <span class="math inline">\(\alpha\)</span> 提高 单尾检验功效高于两尾 <span class="math inline">\(\mu_1\)</span> 距离 <span class="math inline">\(\mu_0\)</span> 远功效大 样本数提高功效高 - 计算功效不需要特定样本 只需要指定 <span class="math inline">\(\frac{\mu_a - \mu_0}{\sigma}\)</span> 也就是有效样本大小 无单位 - R 中使用 <code>power.t.test</code> 来计算 <span class="math inline">\(t\)</span> 检验功效相关参数 指定多数求一个</p>
+</div>
+<div id="section-5.17" class="section level2">
+<h2><span class="header-section-number">5.17</span> 多重比较</h2>
+<ul>
+<li>多次进行比较会导致错误率与校正出现问题</li>
+<li>False positive rate 错误结果是显著的比率 <span class="math inline">\(\alpha\)</span> 样本数增大错误增加</li>
+<li>Family wise error rate (FWER) 所有比较中至少一个假阳性比率</li>
+<li>Bonferroni correction</li>
+<li>假设你进行m次测试 控制 <span class="math inline">\(\alpha\)</span> 在某水平 计算所有测试的 <span class="math inline">\(p\)</span> 值 将 <span class="math inline">\(\alpha\)</span> 设为 $ /m$ 所有测试都在这个置信度下进行</li>
+<li>容易计算 过于保守</li>
+<li>False discovery rate (FDR) 声称显著是错误的概率</li>
+<li><span class="math inline">\(m\)</span> 次测试 水平 <span class="math inline">\(\alpha\)</span> 计算 <span class="math inline">\(p\)</span> 值 排序 <span class="math inline">\(P_{(i)} \leq \alpha \times \frac{i}{m}\)</span> 为显著</li>
+<li>相对容易计算 不保守 允许一定的假阳性</li>
+<li>调节p值</li>
+<li><span class="math inline">\(P_i^{fwer} = \max{m \times P_i,1}\)</span> 类似FWER处理 <span class="math inline">\(\alpha\)</span> 的方式处理 <span class="math inline">\(p\)</span> 按照正常 <span class="math inline">\(\alpha\)</span> 检测</li>
+<li>一般情况对 <span class="math inline">\(p\)</span> 值用 bonferroni/BH矫正就够了</li>
+<li>对比间依赖强烈考虑 method=“BY”</li>
+<li><a href="http://yufree.github.io/blogcn/2013/12/16/rgabriel-package.html">多重比较从原理到应用</a> 从实用角度分类 适合常见科研实验结果处理</li>
+</ul>
+</div>
+<div id="section-5.18" class="section level2">
+<h2><span class="header-section-number">5.18</span> 重采样推断</h2>
+<ul>
+<li>jackknife</li>
+<li>用来无偏估计偏差与标准误</li>
+<li>每次估计删掉一个数据 <span class="math inline">\(\bar \theta = \frac{1}{n}\sum_{i=1}^n \hat \theta_{i}\)</span></li>
+<li>偏差 <span class="math inline">\((n - 1) \left(\bar \theta - \hat \theta\right)\)</span></li>
+<li>标准误 <span class="math inline">\(\left[\frac{n-1}{n}\sum_{i=1}^n (\hat \theta_i - \bar\theta )^2\right]^{1/2}\)</span></li>
+<li>可用来估计分位数 是bootstrap的线性逼近 但性质不好</li>
+<li>假观察量角度理解jackknife <span class="math inline">\(\mbox{Pseudo Obs} = n \hat \theta - (n - 1) \hat \theta_{i}\)</span> 生成原数据集</li>
+<li>bootstrap</li>
+<li>构建置信区间与求标准误</li>
+<li>假定采样分布是总体分布 重采样估计统计量</li>
+<li>有放回的重采样 <span class="math inline">\(B\)</span> 次 <span class="math inline">\(N\)</span> 个样本 得到估计统计量的一个分布 直接计算置信区间</li>
+<li>非参方法 偏差小 <a href="http://galton.uchicago.edu/~eichler/stat24600/Handouts/bootstrap.pdf">进阶指南</a></li>
+<li>置换检验</li>
+<li>分组对比时取消原分组随机分组</li>
+<li>重复进行 记录分组差异</li>
+<li>对比原参数与置换后参数差异进行推断</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploratory-data-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yufree/notes/edit/master/04-DSpartIV.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

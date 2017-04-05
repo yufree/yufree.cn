@@ -5,11 +5,16 @@ body {
   position: relative;
 }
 
-body {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
+body
+{
+    font-size:18px;
+    font-family:"Merriweather Sans","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+    color:#000000;
+    background-color:#f1f3ec;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
 }
 
 h1,
@@ -22,13 +27,17 @@ h6 {
 }
 
 a {
-  outline: none;
+  color:#323031;
+  text-decoration:underline;
 }
 
 code {
   background-color: rgba(0, 0, 0, 0.02);
 }
-
+a:hover
+{
+    color:#c8d0d3;
+}
 code .MathJax {
   background-color: white;
 }
@@ -132,15 +141,14 @@ code .MathJax {
 .article-content a {
   text-decoration: none;
   color: inherit;
-  border-bottom: 3px solid #CBF8DF;
-  box-shadow: inset 0 -4px 0 #CBF8DF;
+  border-bottom: 3px solid #c8d0d3;
   background: transparent;
   transition: background 150ms ease;
 }
 
 .article-content a:hover,
 .article-content a:focus {
-  background: #CBF8DF;
+  background: #c8d0d3;
 }
 
 .article-content hr {
@@ -197,7 +205,6 @@ code .MathJax {
   font-weight: bold;
   color: #222;
   padding: 5px 0;
-  border-bottom: 1px solid #ddd;
 }
 
 .archive-item-link:hover {

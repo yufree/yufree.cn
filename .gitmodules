@@ -2,3 +2,7 @@
 	path = content/notes
 	url = git@github.com:yufree/notes.git
 	branch = gh-pages
+[submodule "content/metaworkflow"]
+	path = content/metaworkflow
+	url = git@github.com:yufree/metaworkflow.git
+	branch = gh-pages

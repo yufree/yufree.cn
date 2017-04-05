@@ -1,0 +1,8 @@
+[submodule "static/notes"]
+	path = static/notes
+	url = git@github.com:yufree/notes.git
+	branch = gh-pages
+[submodule "static/metaworkflow"]
+	path = static/metaworkflow
+	url = git@github.com:yufree/metaworkflow.git
+	branch = gh-pages

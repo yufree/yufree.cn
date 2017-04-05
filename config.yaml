@@ -43,9 +43,12 @@ menu:
     - name: "Vitae"
       url: "/en/vitae/"
       weight: 3
+    - name: "metaworkflow"
+      url: "/metaworkflow/"
+      weight: 4
     - name: "中文"
       url: "/cn/"
-      weight: 4
+      weight: 5
   cn:
     - name: "首页"
       url: "/"
@@ -72,9 +75,6 @@ menu:
     - name: "English"
       url: "/en/"
       weight: 2
-    - name: "metaworkflow"
-      url: "/metaworkflow/"
-      weight: 3
     - name: "博客"
       url: "/cn/"
       weight: 4

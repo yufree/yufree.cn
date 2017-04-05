@@ -1,4 +1,8 @@
-[submodule "content/notes/notes"]
+[submodule "content/notes"]
 	path = content/notes/
+	url = git@github.com:yufree/notes.git
+	branch = gh-pages
+[submodule "notes"]
+	path = notes
 	url = git@github.com:yufree/notes.git
 	branch = gh-pages

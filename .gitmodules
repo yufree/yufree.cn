@@ -1,0 +1,4 @@
+[submodule "content/notes/notes"]
+	path = content/notes/
+	url = git@github.com:yufree/notes.git
+	branch = gh-pages

@@ -1,13 +1,46 @@
 # Hugo Lithium
 
-A simple responsive blog theme for [Hugo](https://gohugo.io/) forked from https://github.com/jrutheiser/hugo-lithium-theme with modifications to make it work better with [**blogdown**](https://github.com/rstudio/blogdown).
+A simple responsive blog theme for [Hugo](https://gohugo.io/).
 
-The easiest way to get started is to create a new (empty) RStudio project, then
+![Hugo Lithium Theme Screenshot](https://raw.githubusercontent.com/jrutheiser/hugo-lithium-theme/master/images/screenshot.png)
 
-```r
-devtools::install_github('rstudio/blogdown')  # install blogdown
-blogdown::install_hugo()  # install Hugo
-blogdown::new_site(theme = 'yihui/hugo-lithium-theme')
+## Features
+
+- Blog
+- Responsive
+- Disqus
+- Google Analytics
+
+## Installation
+
+Run the following inside your Hugo site folder:
+
+```
+$ mkdir themes
+$ cd themes
+$ git clone https://github.com/jrutheiser/hugo-lithium-theme
 ```
 
-Then you should be able to see an example website launched in the RStudio Viewer.
+## Configuration
+
+Take a look at the sample [config.toml](https://github.com/jrutheiser/hugo-lithium-theme/blob/master/exampleSite/config.toml)
+file located in the [exampleSite](https://github.com/jrutheiser/hugo-lithium-theme/blob/master/exampleSite) folder.
+
+## Content Types
+
+### Post
+
+Used for blog posts. Blog posts are listed on the homepage.
+
+Run `hugo new post/<post-name>.md` to create a post.
+
+### Page
+
+Used for site pages.
+
+Run `hugo new page/<page-name>.md` to create a page.
+
+## License
+
+The code is available under the [MIT license](https://github.com/jrutheiser/hugo-lithium-theme/blob/master/LICENSE.md).
+

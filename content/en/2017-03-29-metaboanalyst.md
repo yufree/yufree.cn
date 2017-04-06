@@ -36,10 +36,10 @@ biocLite(c("xcms", "impute", "pcaMethods", "siggenes", "globaltest", "GlobalAnco
     - Download "libgstreamer" from [here](https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download) 
     - Install two packages above
     - Install the following packages
+    
 ```
 sudo apt-get install libjpeg62
 ```
-    - Install the Rstudio
 
 - MetaboAnalyst is actually a java-based web application (also, R based). You need java environment and use Tomcat or Glassfish to host the *.war file on server (Linux or Mac OS). Then you only need to access it by browser, just like what you did online.
 
@@ -54,6 +54,7 @@ cd /opt/glassfish/bin
 ./asadmin enable-secure-admin
 ./asadmin restart-domain
 ```
+
 ![](http://yufree.github.io/blogcn/figure/war.PNG)
 
 - Run the Rserve in bash:
@@ -65,13 +66,21 @@ R CMD Rserve
 - After the installation of MetaboAnalyst on Glassfish, make a port transfer to ensure you could access the MetaboAnalyst on browsers of windows. You need to know the local IP address of both your host and virtual machine(VM).
 
     - Your host address is the IP for the connection between host and VM. Use `ipconfig /all` to get it
+    
     ![](http://yufree.github.io/blogcn/figure/hostip.PNG)
+    
     - Your VM address could be found by `connection information`
+    
     ![](http://yufree.github.io/blogcn/figure/vmip.PNG)
+    
     - Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
+    
     ![](http://yufree.github.io/blogcn/figure/porttrans.PNG)
+    
     - Save a bookmark for the url(in my case: http://192.168.56.1:8080/MetaboAnalyst/ ) Open the virtualbox all the time at the background
+    
     ![](http://yufree.github.io/blogcn/figure/ip.PNG)
+    
     - Enjoy local access (while not updated) to MetaboAnalyst
 
 - Every time you restart your computer, input this in bash to start the MetaboAnalyst:

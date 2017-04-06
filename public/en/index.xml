@@ -46,19 +46,21 @@ biocLite(c(&amp;quot;xcms&amp;quot;, &amp;quot;impute&amp;quot;, &amp;quot;pcaMe
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:&lt;/p&gt;
+&lt;li&gt;If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:
 
 &lt;ul&gt;
 &lt;li&gt;Download &amp;ldquo;libgstreamer plugin&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Download &amp;ldquo;libgstreamer&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Install two packages above&lt;/li&gt;
 &lt;li&gt;Install the following packages
-&lt;code&gt;
-sudo apt-get install libjpeg62
-&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Install the Rstudio&lt;/li&gt;
+&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libjpeg62
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;MetaboAnalyst is actually a java-based web application (also, R based). You need java environment and use Tomcat or Glassfish to host the *.war file on server (Linux or Mac OS). Then you only need to access it by browser, just like what you did online.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Install Glassfish. I tried Tomcat and the deploy always failed and I suggest to use Glassfish following the guide(you might need to set up user and password) and upload the *.war file by a web interface at &lt;a href=&#34;http://localhost:4848&#34;&gt;http://localhost:4848&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -87,13 +89,33 @@ cd /opt/glassfish/bin
 
 &lt;ul&gt;
 &lt;li&gt;Your host address is the IP for the connection between host and VM. Use &lt;code&gt;ipconfig /all&lt;/code&gt; to get it
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;Your VM address could be found by &lt;code&gt;connection information&lt;/code&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;Save a bookmark for the url(in my case: &lt;a href=&#34;http://192.168.56.1:8080/MetaboAnalyst/&#34;&gt;http://192.168.56.1:8080/MetaboAnalyst/&lt;/a&gt; ) Open the virtualbox all the time at the background
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;Enjoy local access (while not updated) to MetaboAnalyst&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 

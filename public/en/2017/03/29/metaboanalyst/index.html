@@ -129,19 +129,21 @@ biocLite(c(&quot;xcms&quot;, &quot;impute&quot;, &quot;pcaMethods&quot;, &quot;s
 </code></pre>
 
 <ul>
-<li><p>If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:</p>
+<li>If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:
 
 <ul>
 <li>Download &ldquo;libgstreamer plugin&rdquo; from <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download">here</a></li>
 <li>Download &ldquo;libgstreamer&rdquo; from <a href="https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download">here</a></li>
 <li>Install two packages above</li>
 <li>Install the following packages
-<code>
-sudo apt-get install libjpeg62
-</code></li>
-<li>Install the Rstudio</li>
+<br /></li>
 </ul></li>
+</ul>
 
+<pre><code>sudo apt-get install libjpeg62
+</code></pre>
+
+<ul>
 <li><p>MetaboAnalyst is actually a java-based web application (also, R based). You need java environment and use Tomcat or Glassfish to host the *.war file on server (Linux or Mac OS). Then you only need to access it by browser, just like what you did online.</p></li>
 
 <li><p>Install Glassfish. I tried Tomcat and the deploy always failed and I suggest to use Glassfish following the guide(you might need to set up user and password) and upload the *.war file by a web interface at <a href="http://localhost:4848">http://localhost:4848</a></p></li>
@@ -170,13 +172,33 @@ cd /opt/glassfish/bin
 
 <ul>
 <li>Your host address is the IP for the connection between host and VM. Use <code>ipconfig /all</code> to get it
-<img src="http://yufree.github.io/blogcn/figure/hostip.PNG" alt="" /></li>
+<br /></li>
+</ul>
+
+<p><img src="http://yufree.github.io/blogcn/figure/hostip.PNG" alt="" /></p>
+
+<ul>
 <li>Your VM address could be found by <code>connection information</code>
-<img src="http://yufree.github.io/blogcn/figure/vmip.PNG" alt="" /></li>
+<br /></li>
+</ul>
+
+<p><img src="http://yufree.github.io/blogcn/figure/vmip.PNG" alt="" /></p>
+
+<ul>
 <li>Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
-<img src="http://yufree.github.io/blogcn/figure/porttrans.PNG" alt="" /></li>
+<br /></li>
+</ul>
+
+<p><img src="http://yufree.github.io/blogcn/figure/porttrans.PNG" alt="" /></p>
+
+<ul>
 <li>Save a bookmark for the url(in my case: <a href="http://192.168.56.1:8080/MetaboAnalyst/">http://192.168.56.1:8080/MetaboAnalyst/</a> ) Open the virtualbox all the time at the background
-<img src="http://yufree.github.io/blogcn/figure/ip.PNG" alt="" /></li>
+<br /></li>
+</ul>
+
+<p><img src="http://yufree.github.io/blogcn/figure/ip.PNG" alt="" /></p>
+
+<ul>
 <li>Enjoy local access (while not updated) to MetaboAnalyst</li>
 </ul></li>
 

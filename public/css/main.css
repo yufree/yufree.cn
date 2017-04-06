@@ -9,7 +9,7 @@ body
 {
     font-size:18px;
     font-family:"Merriweather Sans","Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
-    color:#000000;
+    color:#323031;
     background-color:#f1f3ec;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -23,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #222;
+  color: #848a91;
 }
 
 a {
@@ -32,7 +32,7 @@ a {
 }
 
 code {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: #c8d0d3;
 }
 a:hover
 {
@@ -50,8 +50,8 @@ code .MathJax {
 .header {
   padding: 20px 0;
   position: relative;
-  background: #f5f5f5;
-  border-bottom: 1px solid #eaeaea;
+  background: #e2e6e2;
+  border-bottom: 1px solid #f1f3ec;
 }
 
 .nav {
@@ -96,11 +96,11 @@ code .MathJax {
 
 .nav-links a {
   text-decoration: none;
-  color: #111;
+  color: #c8d0d3;
 }
 
 .nav-links a:hover {
-  color: #000;
+  color: #323031;
 }
 
 .content {
@@ -109,18 +109,18 @@ code .MathJax {
   padding: 0 15px;
   font-size: 16px;
   line-height: 1.7;
-  color: #555;
+  color: #323031;
 }
 
 .article-title {
   font-size: 34px;
-  color: #222;
+  color: #848a91;
   margin: 0;
   line-height: 1.3;
 }
 
 .article-date {
-  color: #ccc;
+  color: #848a91;
 }
 
 .article-duration {
@@ -157,7 +157,7 @@ code .MathJax {
   height: 1px;
   overflow: hidden;
   border: none;
-  background: #e5e5e5;
+  background: #c8d0d3;
 }
 
 .highlight {
@@ -177,7 +177,7 @@ code .MathJax {
   list-style: none;
   line-height: 1.3em;
   text-align: center;
-  color: #111;
+  color: #323031;
 }
 
 .archive-title {
@@ -191,7 +191,7 @@ code .MathJax {
 }
 
 .archive-item-date {
-  color: #ccc;
+  color: #848a91;
   font-size: 14px;
   padding: 5px 0;
   margin-top: 5px;
@@ -203,7 +203,7 @@ code .MathJax {
   text-decoration: none;
   font-size: 21px;
   font-weight: bold;
-  color: #222;
+  color: #c8d0d3;
   padding: 5px 0;
 }
 
@@ -231,7 +231,7 @@ code .MathJax {
 }
 
 .footer-links a {
-  color: #888;
+  color: #c8d0d3;
   text-decoration: none;
   transition: color 150ms ease;
   margin: 0 15px;
@@ -239,7 +239,7 @@ code .MathJax {
 
 .footer-links a:hover,
 .footer-links a:focus {
-  color: #222;
+  color: #c8d0d3;
 }
 
 .footer-links li::before {

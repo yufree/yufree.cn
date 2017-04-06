@@ -44,7 +44,7 @@ menu:
     - name: "Vitae"
       url: "/en/vitae/"
       weight: 4
-    - name: "metaworkflow"
+    - name: "MetaWorkflow"
       url: "/metaworkflow/"
       weight: 5
     - name: "中文"

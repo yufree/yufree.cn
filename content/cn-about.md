@@ -1,5 +1,5 @@
 ---
-title: "关于"
+title: 
 slug: "cn/about"
 ---
 
@@ -7,8 +7,6 @@ slug: "cn/about"
 
 - [谢益辉](http://yihui.name): 之前博客风格从这里抄的
 - [hugo](https://gohugo.io/): 当前博客风格从这里选的
-
----
 
 ## 学术相关
 
@@ -21,8 +19,6 @@ slug: "cn/about"
 - [ResearchGate](https://www.researchgate.net/profile/Miao_Yu21): 项目管理&追随导师的脚步
 
 - [linkedin](https://www.linkedin.com/in/yufree): 我毕业了！！！
-
----
 
 ## 兴趣爱好
 
@@ -39,8 +35,6 @@ slug: "cn/about"
 - [摄影](https://instagram.com/yufree/): 半瓶醋水平 从点点转乐乎最后落脚Instagram
 
 - [读书笔记](https://yufreecas.blogspot.com/): 沥青下滴速更新
-
----
 
 ## 吐槽
 

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Meta-Workflow</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a workflow for metabolomics studies.">
+  <meta name="generator" content="bookdown 0.1.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Meta-Workflow" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a workflow for metabolomics studies." />
+  <meta name="github-repo" content="yufree/metaworkflow" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Meta-Workflow" />
+  
+  <meta name="twitter:description" content="This is a workflow for metabolomics studies." />
+  
+
+<meta name="author" content="Miao YU">
+
+<meta name="date" content="2016-09-22">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="useful-links.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Metabolomics Workflow</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="project-setup.html"><a href="project-setup.html"><i class="fa fa-check"></i><b>2</b> Project Setup</a></li>
+<li class="chapter" data-level="3" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>3</b> Exprimental design(DoE)</a></li>
+<li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a></li>
+<li class="chapter" data-level="5" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>5</b> Peaks selection</a></li>
+<li class="chapter" data-level="6" data-path="omics-analysis.html"><a href="omics-analysis.html"><i class="fa fa-check"></i><b>6</b> Omics analysis</a></li>
+<li class="chapter" data-level="7" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>7</b> Common analysis methods for metabolomics</a></li>
+<li class="chapter" data-level="8" data-path="demo.html"><a href="demo.html"><i class="fa fa-check"></i><b>8</b> Demo</a></li>
+<li class="chapter" data-level="9" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>9</b> Useful links</a></li>
+<li class="chapter" data-level="10" data-path="demo-1.html"><a href="demo-1.html"><i class="fa fa-check"></i><b>10</b> Demo</a><ul>
+<li class="chapter" data-level="10.1" data-path="demo-1.html"><a href="demo-1.html#data-input"><i class="fa fa-check"></i><b>10.1</b> Data input</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Meta-Workflow</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="demo-1" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Demo</h1>
+<div id="data-input" class="section level2">
+<h2><span class="header-section-number">10.1</span> Data input</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multtest)
+<span class="kw">library</span>(xcms)
+<span class="kw">library</span>(faahKO)
+<span class="co"># get the demo data in faahKO packages</span>
+cdfpath &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;cdf&quot;</span>,<span class="dt">package =</span> <span class="st">&quot;faahKO&quot;</span>)
+<span class="co"># show the name of demo data</span>
+<span class="kw">list.files</span>(cdfpath,<span class="dt">recursive =</span> T)</code></pre></div>
+<pre><code>##  [1] &quot;KO/ko15.CDF&quot; &quot;KO/ko16.CDF&quot; &quot;KO/ko18.CDF&quot; &quot;KO/ko19.CDF&quot; &quot;KO/ko21.CDF&quot;
+##  [6] &quot;KO/ko22.CDF&quot; &quot;WT/wt15.CDF&quot; &quot;WT/wt16.CDF&quot; &quot;WT/wt18.CDF&quot; &quot;WT/wt19.CDF&quot;
+## [11] &quot;WT/wt21.CDF&quot; &quot;WT/wt22.CDF&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cdffiles &lt;-<span class="st"> </span><span class="kw">list.files</span>(cdfpath, <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles)</code></pre></div>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:38 300:103 350:226 400:338 450:431 500:529 550:674 600:847</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:43 300:128 350:275 400:394 450:500 500:637 550:835 600:1027</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:25 300:93 350:227 400:337 450:411 500:498 550:640 600:758</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:19 300:67 350:169 400:258 450:301 500:373 550:488 600:580</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:24 300:60 350:166 400:254 450:315 500:391 550:501 600:582</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:31 300:71 350:183 400:280 450:338 500:422 550:532 600:604</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:41 300:105 350:212 400:319 450:416 500:533 550:684 600:838</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:27 300:107 350:232 400:347 450:440 500:549 550:712 600:905</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:24 300:87 350:200 400:293 450:351 500:426 550:548 600:661</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:22 300:65 350:161 400:243 450:293 500:358 550:483 600:561</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:28 300:69 350:157 400:229 450:282 500:364 550:493 600:592</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, &quot;object&quot;, value = &lt;S4 object of class
+## structure(&quot;xcmsRaw&quot;, package = &quot;xcms&quot;)&gt;): implicit list embedding of S4
+## objects is deprecated</code></pre>
+<pre><code>## 250:30 300:81 350:188 400:280 450:356 500:473 550:618 600:765</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset</code></pre></div>
+<pre><code>## An &quot;xcmsSet&quot; object with 12 samples
+## 
+## Time range: 2506.1-4147.7 seconds (41.8-69.1 minutes)
+## Mass range: 200.1-599.3338 m/z
+## Peaks: 4721 (about 393 per sample)
+## Peak Groups: 0 
+## Sample classes: KO, WT 
+## 
+## Peak picking was performed on MS1.
+## Profile settings: method = bin
+##                   step = 0.1
+## 
+## Memory usage: 0.713 MB</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset &lt;-<span class="st"> </span><span class="kw">group</span>(xset)</code></pre></div>
+<pre><code>## 262 325 387 450 512 575</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset</code></pre></div>
+<pre><code>## An &quot;xcmsSet&quot; object with 12 samples
+## 
+## Time range: 2506.1-4147.7 seconds (41.8-69.1 minutes)
+## Mass range: 200.1-599.3338 m/z
+## Peaks: 4721 (about 393 per sample)
+## Peak Groups: 403 
+## Sample classes: KO, WT 
+## 
+## Peak picking was performed on MS1.
+## Profile settings: method = bin
+##                   step = 0.1
+## 
+## Memory usage: 0.777 MB</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset2 &lt;-<span class="st"> </span><span class="kw">retcor</span>(xset, <span class="dt">method =</span> <span class="st">&quot;obiwarp&quot;</span>)</code></pre></div>
+<pre><code>## center sample:  ko16 
+## Processing: ko15  ko18  ko19  ko21  ko22  wt15  wt16  wt18  wt19  wt21  wt22</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset2</code></pre></div>
+<pre><code>## An &quot;xcmsSet&quot; object with 12 samples
+## 
+## Time range: 2506.3-4162.2 seconds (41.8-69.4 minutes)
+## Mass range: 200.1-599.3338 m/z
+## Peaks: 4721 (about 393 per sample)
+## Peak Groups: 0 
+## Sample classes: KO, WT 
+## 
+## Peak picking was performed on MS1.
+## Profile settings: method = bin
+##                   step = 0.1
+## 
+## Memory usage: 0.713 MB</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># you need group the peaks again for this corrected data</span>
+xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code></pre></div>
+<pre><code>## 262 325 387 450 512 575</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset2</code></pre></div>
+<pre><code>## An &quot;xcmsSet&quot; object with 12 samples
+## 
+## Time range: 2506.3-4162.2 seconds (41.8-69.4 minutes)
+## Mass range: 200.1-599.3338 m/z
+## Peaks: 4721 (about 393 per sample)
+## Peak Groups: 404 
+## Sample classes: KO, WT 
+## 
+## Peak picking was performed on MS1.
+## Profile settings: method = bin
+##                   step = 0.1
+## 
+## Memory usage: 0.777 MB</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3 &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset2)</code></pre></div>
+<pre><code>## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko15.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko16.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko18.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko19.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko21.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko22.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt15.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt16.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt18.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt19.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt21.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt22.CDF</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3</code></pre></div>
+<pre><code>## An &quot;xcmsSet&quot; object with 12 samples
+## 
+## Time range: 2502.9-4162.2 seconds (41.7-69.4 minutes)
+## Mass range: 200.1-599.3338 m/z
+## Peaks: 6054 (about 504 per sample)
+## Peak Groups: 404 
+## Sample classes: KO, WT 
+## 
+## Peak picking was performed on MS1.
+## Profile settings: method = bin
+##                   step = 0.1
+## 
+## Memory usage: 0.918 MB</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CAMERA)
+dreport &lt;-<span class="st"> </span><span class="kw">annotateDiffreport</span>(xset3)</code></pre></div>
+<pre><code>## Start grouping after retention time.
+## Created 132 pseudospectra.
+## Generating peak matrix!
+## Run isotope peak annotation
+##  % finished: 10  20  30  40  50  60  70  80  90  100  
+## Found isotopes: 68 
+## Start grouping after correlation.
+## Generating EIC&#39;s .. 
+## 
+## Calculating peak correlations in 132 Groups... 
+##  % finished: 10  20  30  40  50  60  70  80  90  100  
+## 
+## Calculating graph cross linking in 132 Groups... 
+##  % finished: 10  20  30  40  50  60  70  80  90  100  
+## New number of ps-groups:  202 
+## xsAnnotate has now 202 groups, instead of 132 
+## Generating peak matrix for peak annotation!
+## 
+## Calculating possible adducts in 202 Groups... 
+##  % finished: 10  20  30  40  50  60  70  80  90  100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pdreport &lt;-<span class="st"> </span>dreport[,<span class="dv">14</span>:<span class="dv">25</span>]
+
+<span class="kw">library</span>(<span class="st">&#39;sva&#39;</span>)
+<span class="kw">library</span>(<span class="st">&#39;limma&#39;</span>)
+lv &lt;-<span class="st"> </span><span class="kw">gl</span>(<span class="dv">2</span>,<span class="dv">6</span>)
+mod &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(~lv)
+svafit &lt;-<span class="st"> </span><span class="kw">sva</span>(<span class="kw">as.matrix</span>(pdreport),mod)</code></pre></div>
+<pre><code>## Number of significant surrogate variables is:  1 
+## Iteration (out of 5 ):1  2  3  4  5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">svaX &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(~lv+svafit$sv)
+lmfit &lt;-<span class="st"> </span><span class="kw">lmFit</span>(pdreport,svaX)
+
+tt&lt;-<span class="st"> </span>lmfit$coef[,<span class="dv">2</span>]*<span class="kw">sqrt</span>(lmfit$df.residual)/(<span class="dv">2</span>*lmfit$sigma)
+
+Batch&lt;-<span class="st"> </span>lmfit$coef[,<span class="dv">3</span>]%*%<span class="kw">t</span>(svaX[,<span class="dv">3</span>])
+Signal&lt;-lmfit$coef[,<span class="dv">1</span>:<span class="dv">2</span>]%*%<span class="kw">t</span>(svaX[,<span class="dv">1</span>:<span class="dv">2</span>])
+error &lt;-<span class="st"> </span>pdreport-Signal-Batch
+##demean for plot
+Signal &lt;-Signal-<span class="kw">rowMeans</span>(Signal)
+mat &lt;-<span class="st"> </span>pdreport-<span class="kw">rowMeans</span>(pdreport)
+
+<span class="kw">library</span>(rafalib)
+<span class="kw">library</span>(RColorBrewer)
+<span class="kw">mypar</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">2.75</span>, <span class="fl">4.5</span>, <span class="fl">2.6</span>, <span class="fl">1.1</span>))
+icolors &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(<span class="kw">rev</span>(<span class="kw">brewer.pal</span>(<span class="dv">11</span>,<span class="st">&quot;RdYlBu&quot;</span>)))(<span class="dv">100</span>)
+
+<span class="kw">image</span>(<span class="kw">t</span>(mat),<span class="dt">col=</span>icolors,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)
+<span class="kw">image</span>(<span class="kw">t</span>(Signal),<span class="dt">col=</span>icolors,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)
+<span class="kw">image</span>(<span class="kw">t</span>(Batch),<span class="dt">col=</span>icolors,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)
+<span class="kw">image</span>(<span class="kw">t</span>(error),<span class="dt">col=</span>icolors,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/cars-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="useful-links.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yufree/metaworkflow/edit/master/09-sva.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

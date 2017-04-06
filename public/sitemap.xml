@@ -37,6 +37,11 @@
   </url>
   
   <url>
+    <loc>/en/</loc>
+    <lastmod>2017-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/cn/</loc>
     <lastmod>2017-02-22T00:00:00+00:00</lastmod>
   </url>
@@ -662,17 +667,7 @@
   </url>
   
   <url>
-    <loc>/en/vitae/</loc>
-  </url>
-  
-  <url>
-    <loc>/en/</loc>
-    <lastmod>2017-03-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/app/</loc>
+    <loc>/cn/about/</loc>
   </url>
   
   <url>
@@ -680,7 +675,11 @@
   </url>
   
   <url>
-    <loc>/cn/about/</loc>
+    <loc>/en/vitae/</loc>
+  </url>
+  
+  <url>
+    <loc>/app/</loc>
   </url>
   
   <url>

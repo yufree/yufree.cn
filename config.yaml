@@ -6,6 +6,7 @@ theme: "hugo-lithium-theme"
 googleAnalytics: "UA-43118729-1"
 disqusShortname: "yufree"
 ignoreFiles: ["\\.Rmd$", "_files$", "_cache$"]
+hasCJKLanguage: true
 enableEmoji: true
 footnotereturnlinkcontents: "↩"
 

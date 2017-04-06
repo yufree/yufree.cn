@@ -1,5 +1,5 @@
 ---
-title: 
+title: "关于我"
 slug: "cn/about"
 ---
 

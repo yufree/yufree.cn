@@ -10,6 +10,62 @@
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>假新闻、利率与三间分布</title>
+      <link>/cn/2017/04/08/rates/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/04/08/rates/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;假新闻&lt;/h2&gt;
+&lt;p&gt;最近各大不存在的知名网站都宣布了打击假新闻的新闻，希望这些新闻不要到最后变成假新闻。那么如何有效判定一个新闻的真假呢？目前的解决方案大都是基于事实核查或第三方，当然互联网大佬们更理想的方案应该是基于算法的，更具体说，这是个自然语言处理的问题。但这个问题还是很不容易解决的，本质上在于新闻本身就是新奇度比较高的信息 ，而真假新闻都这样只是又可能假新闻新奇度更高。好，问题来了，如何定量描述新奇度。&lt;/p&gt;
+&lt;p&gt;直观理解，新奇度本质应该是事件发生的概率&lt;span class=&#34;math inline&#34;&gt;\(P(x_i)\)&lt;/span&gt;，如果发生概率越低，那么新奇度越高，例如人咬狗与狗咬人哪个概率低哪个就更有新闻价值。那么我们定义某件事新奇度（XQD）为：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[XQD_i = 1-P(x_i)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;但这个定义有问题，因为多件事的新奇度可以叠加：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\sum_{i = 1}^NXQD_i = N - \sum_{i = 1}^NP(x_i)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;而根据定义，新奇度是整体事件发生的概率，因而应该是单一事件概率的乘积而不是求和。同时，事件多了这个乘积会非常小，既不好存储也不好运算，此时最常见的方法就是求对数。也就是说，我们把新奇度定义为：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[XQD_i = -lnP(x_i)\]&lt;/span&gt; 在这个定义里，新奇度就可以叠加了。而这个其实就是香农对信息量的定义。&lt;/p&gt;
+&lt;p&gt;但每个人对同一信息的新奇度可能是不同的，例如一篇论文的报道对相关领域的研究人员可能觉得就是某种工作的延续但对大众而言就会感觉匪夷所思。如果我们考虑所有人的平均新奇度为基准，那么对于具体的个人而言有效新奇度（也就是相信信息为真）就是考虑个体背景知识的新奇度与平均新奇度的差值：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[XQD_E = XQD_{个人} - XQD_{社会平均值}\]&lt;/span&gt; 我们有理由相信，所有新闻的平均新奇度基本是稳定的，太平淡没人看，太扯淡也不会有人看，因为总是发布离奇古怪的事那就会被认为是洋葱新闻而没有可信度。但个人新奇度千差万别，如果这个人从没听过这件事，那么很容易相信。很多广告总是跟你扯一些稀奇古怪的参数，因为你从没听说过&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+H(X) = -\sum_iP(x_i)*log_bP(x_i) 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;什么意思呢？&lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; 代表新闻中的一条信息，&lt;span class=&#34;math inline&#34;&gt;\(P(x_i)\)&lt;/span&gt;代表这条信息发生的概率而&lt;span class=&#34;math inline&#34;&gt;\(log_bP(x_i)\)&lt;/span&gt;代表这个概率的对数。为什么这么定义呢？首先我们去考虑要描述的东西，也就是信息量，那么用最简单的例子来说狗咬人不是新闻而人咬狗是新闻，这两者的本质&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>搬家</title>
+      <link>/cn/2017/04/08/movingagain/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/04/08/movingagain/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;经过长期跟拖延症的斗争与谢大的&lt;a href=&#34;https://yihui.name/cn/2017/04/url-to-content/&#34;&gt;指引&lt;/a&gt;，我终于在这周把博客进行了blogdown一站式处理。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了域名上的小绿锁，我把空间托管所从github pages搬家到了Netlify&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;mailto:使用Migadu注册了xx@yufree.cn域名邮箱&#34;&gt;使用Migadu注册了xx@yufree.cn域名邮箱&lt;/a&gt;，xx当然是42&lt;/li&gt;
+&lt;li&gt;DNS解析从万网搬家到了Cloudflare，主要为了域名短一些跟邮箱加密&lt;/li&gt;
+&lt;li&gt;中文与英文网站进行了合并处理，中文网站增加笔记入口，英文网站增加代谢组学流程入口，用blogdown管理&lt;/li&gt;
+&lt;li&gt;主题自然又是无耻的抄了谢大了，不过我对主题配色与一些细节进行了修改，放在&lt;a href=&#34;https://github.com/yufree/hugo-lithium-theme&#34;&gt;这里&lt;/a&gt;，除非万不得已，应该懒得修改了&lt;/li&gt;
+&lt;li&gt;最大的问题就是域名，原来使用了blog跟blogcn，这次用了cn跟en，也就是说你用原来的访问模式看到的gitbub的页面应该不会更新了，rss也会停了&lt;/li&gt;
+&lt;li&gt;以后中文博客地址就是https://yufree.cn/cn，英文则是https://yufree.cn/en&lt;/li&gt;
+&lt;li&gt;rss的地址更新如下： - 中文：&lt;a href=&#34;https://yufree.cn/cn/index.xml&#34; class=&#34;uri&#34;&gt;https://yufree.cn/cn/index.xml&lt;/a&gt; - 英文：&lt;a href=&#34;https://yufree.cn/en/index.xml&#34; class=&#34;uri&#34;&gt;https://yufree.cn/en/index.xml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;由此带来的不便深表歉意，但应该不会再搬家了，除非上面的某个服务商倒了。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>公交系统、地理学第一定律与切蛋糕</title>
       <link>/cn/2017/04/02/cake/</link>
       <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
@@ -924,129 +980,6 @@ points(q$qvalues~pvalue,col=&amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;小结&lt;/h2&gt;
 &lt;p&gt;多重检验问题是高通量数据里逃不掉的问题，要想找出真正的差异数据就要面对假阳性跟假阴性问题，这是一个不可兼得的过程，看重假阳性就用整体错误率，看重功效就用错误发现率控制。并不是说哪种方法会好一些，更本质的问题在于你对实际问题的了解程度及统计方法的适用范围。例如你选基因芯片时实际也进行了一次选择，改变了整体检验的p值分布，而不同的p值分布对应的处理方法也不太一样，有兴趣可以读下&lt;a href=&#34;http://varianceexplained.org/statistics/interpreting-pvalue-histogram/&#34;&gt;这篇&lt;/a&gt;。有时候你的实验设计本身就会影响数据的统计行为，而这个恰恰是最容易被忽视的。&lt;/p&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>尺度效应疑案</title>
-      <link>/cn/2016/12/18/scale/</link>
-      <pubDate>Sun, 18 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2016/12/18/scale/</guid>
-      <description>&lt;p&gt;1947年，生物学家Max Kleiber 发表了一篇题为《body size and metabolic rate》的论文，在论文中提出了一个克莱伯定律：对于哺乳动物，其基础代谢速率与体重的3/4次幂成正比。这其实是个观察得出的规律，搭上眼一看可能觉得没什么，但其实问题就出在那个3/4上了：理论上不应该是3/4，而应该是2/3，而且从19世纪人们就认为应该是这个数。&lt;/p&gt;
-
-&lt;p&gt;作为一个生物体，我们的物理构造受限于基本的物理规律，例如散热。生物一般具有细胞结构（病毒朊病毒就别来添乱了），对生物而言，维持正常的生理活动需要呼吸作用提供能量，当然也要有热量产生，前者可以用需氧量来衡量，后者自然跟前者成正比。那么能量供应与热量产生必然是要有一个平衡的，例如身躯庞大，能量供应多，热量也会多，如果热量不能及时散出去或者散热太快，那么细胞温度就无法维持，生理功能也就受到影响。那么能否用这个平衡构建一个代谢速率跟质量的简化模型描述呢？可以。&lt;/p&gt;
-
-&lt;p&gt;我们把整个哺乳动物想象成一个直径为d的球，那么不考虑密度差异，球的质量跟体积是成正比的：&lt;/p&gt;
-
-&lt;p&gt;质量正比于体积正比于d的立方&lt;/p&gt;
-
-&lt;p&gt;同时，这个球的散热应该是跟表面积成正比的：&lt;/p&gt;
-
-&lt;p&gt;表面积正比于d的平方&lt;/p&gt;
-
-&lt;p&gt;散热跟代谢速率是成正比的，那么有：&lt;/p&gt;
-
-&lt;p&gt;代谢速率 正比于 表面积 正比于 d平方 正比于 d立方的2/3次方 正比于 质量的2/3次方&lt;/p&gt;
-
-&lt;p&gt;其实想象成立方体也不会改变结论，代谢速率与质量的对数作图，会得到斜率为2/3的直线。&lt;/p&gt;
-
-&lt;p&gt;但克莱伯定律告诉我们（如下图的回归分析），这个数是3/4。
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/scale1.png&#34; alt=&#34;&#34; /&gt;
-更有趣的是，不仅仅哺乳动物，如果你把低等生物甚至单细胞生物也考虑进来，这个斜率还是3/4：
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/scale2.png&#34; alt=&#34;&#34; /&gt;
-那么问题来了：上面哪个假设有问题呢？或者说怎么才能假设出一个3/4的尺度效应呢？这个问题等了50年才等到一个答案。&lt;/p&gt;
-
-&lt;p&gt;1997年，James Brown 等人在science上发表了一篇题为《A General Model for the Origin of Allometric Scaling Laws in Biology》的论文，论文给出了一个基于生物体物质能量输送方式而简洁明了的解决方案，这个方案有三个基本假设：&lt;/p&gt;
-
-&lt;p&gt;进化压力下，生物体倾向于使用耗能最少的方式来传递物质进行新陈代谢；&lt;/p&gt;
-
-&lt;p&gt;如果要想把生物体用一种输送方式填满，最有效的就是有自我相似性的层级管道；&lt;/p&gt;
-
-&lt;p&gt;只在输送管道的末端，营养与物质交换是跟体积相关的。&lt;/p&gt;
-
-&lt;p&gt;如果你有一个三维实体，他需要各个部位都可以得到某一区域摄取的物质与能量，那么填充管道最节能的方法就是找一种有边界的输送方式，进化给我们的答案就是分形结构。我们的循环系统就是由动脉，静脉及毛细血管组成，这基本可以看作是分支结构。而对绿色植物而言，其物质输送方式是维管束，也可看作一种自我相似性的层级管道。最后一个假设是对计算最关键的，输送管道末端的物质能量交换对于各种生物体应该是相对一致的，但因为生物体大小不一致，层级数也就不一致，是这个联系了生物体质量与代谢速率。&lt;/p&gt;
-
-&lt;p&gt;那么如何联系？考虑一个典型的分支结构，每个节点都是从一个分到n个，有m层，最底层会有n^m个分支，在这一层上已经不能再分了，或者说继续分也无法将物质能量输送到更多的空间里，这是分形的边界。而在分支的末端代谢速率是恒定的，如此有：&lt;/p&gt;
-
-&lt;p&gt;代谢速率正比于末端分支个数&lt;/p&gt;
-
-&lt;p&gt;那么末端分支个数跟生物体质量如何联系呢？从分形的角度看就是已知节点的分支策略，求解这样的分形能占据多大的体积，而体积也就跟质量正相关了。对一个具有自相似性的结构，子结构是母结构的重现，那么在一个空间里如何填充呢？首先子结构的长度应该是按照固定比例缩短的，其次子结构的内径也应该是按比例逐渐缩小的，James Brown设定前者的比例A跟分支数n的1/3次方成正比，后者的比例B跟分支数n的1/2次方成正比，而伸展空间的大小正比于A的平方乘B，那么有：&lt;/p&gt;
-
-&lt;p&gt;质量正比于AB^2正比于分支个数的4/3次方&lt;/p&gt;
-
-&lt;p&gt;如此有：&lt;/p&gt;
-
-&lt;p&gt;代谢速率正比于末端分支数正比于质量的3/4次方&lt;/p&gt;
-
-&lt;p&gt;相信你看完后会跟我有类似的感觉：这不是生造出来的吗？但其实还是有比较严密的推理的，感兴趣看原文，不感兴趣我大致说下思路。&lt;/p&gt;
-
-&lt;p&gt;末端分支的体积正比于内径的平方乘上分支长度，总体积就是不同层级m上各个分支体积之和，而基于自相似性，求和后的总体积正比于不同层内径比例的平方乘不同层长度比例，这就是伸展空间大小正比于A的平方乘B的来源。&lt;/p&gt;
-
-&lt;p&gt;那么底层分支长度跟高一层的分支长度的比例也就是A如何跟分支数产生联系呢？在分形结构末端，两层的分支总体积几乎相等，而每层分支体积可以看作分支长度为内径的球体体积乘个数，求比例可以发现分支长度比例的三次方（球体体积公式）等于节点的分支个数n，也就是A跟分支数n的1/3次方成正比。&lt;/p&gt;
-
-&lt;p&gt;同理，分形里底层分支截面积之和等于上一层截面积之和，求比例可发现分支内经比例的平方（圆面积公式）等于节点的分支个数n，也就是B跟分支数n的1/2次方成正比。&lt;/p&gt;
-
-&lt;p&gt;这样我们就得到了自然界中尺度效应里那个3/4。&lt;/p&gt;
-
-&lt;p&gt;从假设为球体或立方体到思考体内物质能量交换过程，对一个客观事实给出合理解释是不容易的。但今天讲这个并不是说后面那个是对的，其实最新的实验证据并不能很好的区别到底是2/3跟3/4，各有各的解释空间。但这个研究是很具有启发性的，有限空间内部的有序物质能量交换可以说是生物体的一个特性，当初研究尺度效应的研究人员现在把研究手段放到了另一种“有机体”——城市上面。社交网络、交通规划、管道流控…总有些自发形成的规则等待人们去探索。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>水卢流水（二）</title>
-      <link>/cn/2016/12/18/waterloo-ii/</link>
-      <pubDate>Sun, 18 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2016/12/18/waterloo-ii/</guid>
-      <description>&lt;p&gt;11
-川普当选时作为学校还是很政治正确的嘲讽了一把美国人，但真要问他们移民过来怎么办？他们马上会说不行！这不是抢我们饭碗吗？&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/waterloo2.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;12&lt;/p&gt;
-
-&lt;p&gt;课题组成员来自加村、波兰、意大利、阿根廷、哥伦比亚、伊朗、印度与中国，这不算刚跑路的法国烟民，跑到ratemyprofessor上去看老板评价，不出所料的差评，有一个原因是：He abused his grad student specially immigrant using his influence.&lt;/p&gt;
-
-&lt;p&gt;13&lt;/p&gt;
-
-&lt;p&gt;跟拉美同事交流，发现我们竟都是看着七龙珠等日漫长大的一代，反倒是加村土著，他们心心念念的是哈利波特。&lt;/p&gt;
-
-&lt;p&gt;14&lt;/p&gt;
-
-&lt;p&gt;老板每次开会都会放古典音乐并喝茶，原因是安抚他看到我们垃圾一样报告时烦躁的心情。对了，两周就要交一次报告。&lt;/p&gt;
-
-&lt;p&gt;15&lt;/p&gt;
-
-&lt;p&gt;开学时作为路盲申请了引路志愿者，活动结束时我基本搞清楚学校里的路了，只是苦了那些跟我瞎转的学生。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/waterloo1.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;16&lt;/p&gt;
-
-&lt;p&gt;为了认识更多的中国人，参与了一个面向薄厚跟访学的英语课，主讲是个德国老太太，助教是她退休的英国老公，老两口从2002年开始开课，不收学费，也很敬业，学生多来自国内，哈工大居多，大概那边比较耐寒。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/waterloo4.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;17&lt;/p&gt;
-
-&lt;p&gt;加村的资本主义已经发展到社会主义阶段了，五大银行三大电信基本垄断，收费贵的要死且落后，信用卡想自动还款需要打电话，按我的经验，每次交流大概半小时到一小时之间，其中有一大半时间是提示音，告诉你客服很忙，而且客服也颇有国营企业风范，甩锅技术一流，我的经验总结就是：能走邮件，就别在电话上浪费时间了。&lt;/p&gt;
-
-&lt;p&gt;18&lt;/p&gt;
-
-&lt;p&gt;当地华人论坛上总少不了让人从国内带东西的帖子，需求最旺盛的是烟，很多老烟鬼适应得了零下三四十度的鬼天气与语言环境，但吞云吐雾起来，都是乡愁。&lt;/p&gt;
-
-&lt;p&gt;19&lt;/p&gt;
-
-&lt;p&gt;一下雪，中国留学生的二代属性就不自觉的暴露了，满眼都是加拿大鹅极地科考的标志，当之无愧的雪龙号船员培训基地，起码制服统一了。不过暴雪临门时，路上昏昏沉沉，竟有种回到帝都吸霾的感觉。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/waterloo5.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;20&lt;/p&gt;
-
-&lt;p&gt;年末学校发邮件请所有员工临时工吃午餐，本着蹭饭的目的去了，结果队伍奇长，想退出来结果已经有人跟你聊天做social了，好容易吃完走小道跑路，发现校长躲小道角落里休息，很亲切的握了手说welcome，等出门总觉得有点不对，大概是吃猪排搞了一手油，然后都蹭校长手上了。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/waterloo3.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

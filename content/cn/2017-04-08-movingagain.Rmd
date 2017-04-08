@@ -1,0 +1,22 @@
+---
+title: 搬家
+author: ''
+date: '2017-04-08'
+slug: movingagain
+categories: []
+tags: []
+---
+
+经过长期跟拖延症的斗争与谢大的[指引](https://yihui.name/cn/2017/04/url-to-content/)，我终于在这周把博客进行了blogdown一站式处理。
+
+- 为了域名上的小绿锁，我把空间托管所从github pages搬家到了Netlify
+- 使用Migadu注册了xx@yufree.cn域名邮箱，xx当然是42
+- DNS解析从万网搬家到了Cloudflare，主要为了域名短一些跟邮箱加密
+- 中文与英文网站进行了合并处理，中文网站增加笔记入口，英文网站增加代谢组学流程入口，用blogdown管理
+- 主题自然又是无耻的抄了谢大了，不过我对主题配色与一些细节进行了修改，放在[这里](https://github.com/yufree/hugo-lithium-theme)，除非万不得已，应该懒得修改了
+- 最大的问题就是域名，原来使用了blog跟blogcn，这次用了cn跟en，也就是说你用原来的访问模式看到的gitbub的页面应该不会更新了，rss也会停了
+- 以后中文博客地址就是https://yufree.cn/cn，英文则是https://yufree.cn/en
+- rss的地址更新如下：
+        - 中文：https://yufree.cn/cn/index.xml
+        - 英文：https://yufree.cn/en/index.xml
+- 由此带来的不便深表歉意，但应该不会再搬家了，除非上面的某个服务商倒了。

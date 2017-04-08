@@ -55,7 +55,7 @@ cd /opt/glassfish/bin
 ./asadmin restart-domain
 ```
 
-![](http://yufree.github.io/blogcn/figure/war.PNG)
+![](https://yufree.github.io/blogcn/figure/war.PNG)
 
 - Run the Rserve in bash:
 
@@ -67,19 +67,19 @@ R CMD Rserve
 
     - Your host address is the IP for the connection between host and VM. Use `ipconfig /all` to get it
     
-    ![](http://yufree.github.io/blogcn/figure/hostip.PNG)
+    ![](https://yufree.github.io/blogcn/figure/hostip.PNG)
     
     - Your VM address could be found by `connection information`
     
-    ![](http://yufree.github.io/blogcn/figure/vmip.PNG)
+    ![](https://yufree.github.io/blogcn/figure/vmip.PNG)
     
     - Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
     
-    ![](http://yufree.github.io/blogcn/figure/porttrans.PNG)
+    ![](https://yufree.github.io/blogcn/figure/porttrans.PNG)
     
     - Save a bookmark for the url(in my case: http://192.168.56.1:8080/MetaboAnalyst/ ) Open the virtualbox all the time at the background
     
-    ![](http://yufree.github.io/blogcn/figure/ip.PNG)
+    ![](https://yufree.github.io/blogcn/figure/ip.PNG)
     
     - Enjoy local access (while not updated) to MetaboAnalyst
 

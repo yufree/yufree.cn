@@ -121,7 +121,7 @@ cd /opt/glassfish/bin
 ./asadmin restart-domain
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/war.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/war.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Run the Rserve in bash:&lt;/li&gt;
@@ -138,28 +138,28 @@ cd /opt/glassfish/bin
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Your VM address could be found by &lt;code&gt;connection information&lt;/code&gt;
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Save a bookmark for the url(in my case: &lt;a href=&#34;http://192.168.56.1:8080/MetaboAnalyst/&#34;&gt;http://192.168.56.1:8080/MetaboAnalyst/&lt;/a&gt; ) Open the virtualbox all the time at the background
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Enjoy local access (while not updated) to MetaboAnalyst&lt;/li&gt;

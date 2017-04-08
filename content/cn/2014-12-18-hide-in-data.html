@@ -1,0 +1,37 @@
+---
+title: 大隐隐于数
+date: 2014-12-18
+slug: hide in date
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>最小二乘法有个“基本假设”：残差要符合正态分布。结果最近读《Advanced Data Analysis from an Elementary Point of View》时，作者来了句：</p>
+<blockquote>
+<p>None of these assumptions was needed in deriving the optimal linear predictor.</p>
+</blockquote>
+<p>哭了，这些年我没少拿QQ图忽悠人，结果还忽悠错了。后来想想，如果残差不符合正态分布，那是不是说可以随意分布，或者说，画个图。</p>
+<p>放狗一搜，还真有人做了，这年代有个原创太不易了。<a href="http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/stat_res_plots.html">Leonard A. Stefanski</a>在2007年在《The American Statistician》上发表了一篇搞笑式的<a href="http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/Residual_Surrealism_TAS_2007.pdf">论文</a>介绍如何在回归分析的残差中藏图。大意是生成一个数据集，如果你对这个数据集做回归分析然后对残差作图就可以把隐藏在残差中的信息解出来。相比之下，感觉什么其他解密方法都成浮云了，抗解密指数极高。</p>
+<p>我仔细读了下算法，没读懂；再读，还没懂；我是不会读第三遍的（据说三遍不懂就等于承认自己笨蛋，绝不给机会）。不过仔细看了下，发现作者不懂R，但提供了别人写的R脚本来<a href="http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/000_R_Programs/John_Staudenmayer/residplots.R">实现</a>。</p>
+<p>算法细节不提了（因为没看懂），我们可以把这个脚本看作一个加密算法。这个算法需要你输入一个点阵图，也就是你要加密的信息，横轴看作残差<span class="math inline">\(R\)</span>，纵轴看作拟合的值<span class="math inline">\(Y\)</span>，这两个值实际都要中心化（也就是和为0），这样你会得到一个<span class="math inline">\(R^T Y = 0\)</span>的等式。同时根据残差的定义，有<span class="math inline">\(P_x Y_0 = Y\)</span>与<span class="math inline">\((I - P_x)Y_0 = R\)</span>，这样我们的问题实际转化为了在已知<span class="math inline">\(R\)</span>与<span class="math inline">\(Y\)</span>的条件下求解矩阵<span class="math inline">\(X\)</span>与真实值<span class="math inline">\(Y_0\)</span>的问题。不过仅仅求解一个X是无法隐藏残差中的信息的，我们需要引入另一个矩阵<span class="math inline">\(M\)</span>来扰乱X的计算并给出初始随机值，这样通过数值迭代求解我们可得到一个多变量数据框。乍看就是一组数据，如果对其按照线性回归拟合并对残差作图就可以得到原始信息了。这种情况我会把私钥设为响应值的列号，例如42，这样生成数据后毁掉算法，除了那个列号的持有者谁也无法从一堆随机数中找出关系。当然数据集数目不大可以穷举，但这个算法足够耗时，所以可以用来传递私人信息。</p>
+<p>上面一坨其实可以不用看，因为不懂也可以用。如果你仅仅拿到脚本会发现一个尴尬的问题：从哪去找个这样的点阵图片？必须imagemagick啊，安装后准备一个包含你想传达信息的图片，然后用下面的命令生成ASCII形式的图片：</p>
+<pre><code>convert &#39;fig.jpg&#39;  -resize 100x100 -extent 100x100 -monochrome -compress none &#39;fig.pbm&#39;</code></pre>
+<p>然后记事本打开脚本，把其中</p>
+<pre><code>temp &lt;- scan(&quot;~/logo.txt&quot;)</code></pre>
+<p>改成</p>
+<pre><code>temp &lt;- scan(&quot;fig.pbm&quot;, skip = 1)</code></pre>
+<p>就可以了。这样你在脚本最下面加入下面这句：</p>
+<pre><code>save(data,file = &#39;data.RData&#39;)</code></pre>
+<p>就可以在工作目录下得到一个数据文件，将文件传出去，解密者使用下面命令：</p>
+<pre><code>load(&#39;data.RData&#39;)
+reg &lt;- lm(Y~X,data=data)
+plot(reg$fitted,reg$resid,pch=16,main=&quot;Residual plot from data&quot;)</code></pre>
+<p>就可以看到隐藏的信息了。我修改了这个脚本，放在<a href="https://github.com/yufree/democode/tree/master/Residual%20Sur">这里</a>，一个生成数据，另一个解密，不过你要把你自己的文件名输入进去，另外就是懂一点R。稍加改动就可以写成将Y隐藏于X中的形式，这算得上一个熟人间的暗号系统了，不过对我而言又是个没啥大用的课余小制作。</p>
+<p>附一个logo成品：</p>
+<div class="figure">
+<img src="http://yufree.github.io/blogcn/figure/fish.png" />
+
+</div>

@@ -1,0 +1,99 @@
+---
+title: Mean, Variance and Something about Sample
+date: 2013-12-07
+slug: mean and variance
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>OK，I must clear the concepts of those terms because this is the third time I review my notes.</p>
+<div id="description-of-data" class="section level2">
+<h2>Description of Data</h2>
+<p>If one wants to descript a collection of data, the Mode, Median and Mean are the first three terms to be learned. They are used to show the whole data in one parameter. And yes, one value is enough and the most important property of a dataset is the center. So where do the center come from? Here, our formula could be written as a distance between a parameter and the every values in the dataset.</p>
+<p>So the Mode could be written as</p>
+<p><span class="math display">\[ 
+\sum_{}^{}(M_{para} - x_{i})^0 
+\]</span></p>
+<p>And the Median could be written as</p>
+<p><span class="math display">\[
+\sum_{}^{}(M_{para} - x_{i})^1 
+\]</span></p>
+<p>Then the Mean could be written as</p>
+<p><span class="math display">\[
+\sum_{}^{}(M_{para} - x_{i})^2 
+\]</span></p>
+<p>Eh, I think the solution of the formula will show the Mean which make the distance smallest and yes, just make a diff. So here the description of the data is finished or just begin. Change the uppercase as you like. The origin idea came from <a href="http://www.johnmyleswhite.com/notebook/2013/03/22/modes-medians-and-means-an-unifying-perspective/">John Myles White</a>.</p>
+</div>
+<div id="mean" class="section level2">
+<h2>Mean</h2>
+<p>Here we get Mean to show the center of dataset. And mean of discrete random variable X could be wright in the following formula:</p>
+<p><span class="math display">\[
+E[X] = \sum_x xp(x) 
+\]</span></p>
+<p>For a continuous random variable,</p>
+<p><span class="math display">\[
+E[X] = \int_{-\infty}^\infty t f(t)dt 
+\]</span></p>
+<p>Mean tell us the center of the distribution because we just use the smallest distance. Now we want to known the spread of the data. So we use variance.</p>
+</div>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<p>Here, we need to talk about moment in another view. The mean or the expected values is the first raw moment and the second central moment is variance. The <a href="http://en.wikipedia.org/wiki/Moment_(mathematics)">moment</a> is another discription method of the distribution. Here we only use the formula of variance:</p>
+<p><span class="math display">\[
+Var(X) = E[(X - \mu)^2] 
+\]</span></p>
+<p>And the variance could be written as:</p>
+<p><span class="math display">\[
+Var(X) = E[X^2] - E[X]^2 
+\]</span></p>
+<p>So how to understand the variance in probability?</p>
+<div id="chebyshevs-inequality" class="section level3">
+<h3>Chebyshev’s inequality</h3>
+<p><span class="math display">\[
+P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2} 
+\]</span></p>
+<p>Here we found the variance actually show the probaliblity of a observation in a distribution. That is just a description of spread of the distribution.</p>
+<p>Ok, we talk enough about the distribution itself. Next we will see the sample.</p>
+</div>
+</div>
+<div id="sample" class="section level2">
+<h2>Sample</h2>
+<p>The independent and identically distributed random variables are the default model for random samples. Under iid, we could use the probaliblity to give out the description of sample. So if the values of variables is uncorrelated, then the variance of the sum is the sum of the variances.</p>
+<p><span class="math display">\[
+Var\left(\sum_{i=1}^n X_i \right) = \sum_{i=1}^n Var(X_i) 
+\]</span></p>
+<p>So we will get the variance of the mean of the sample:</p>
+<p><span class="math display">\[
+\begin{align}
+Var(\bar X) &amp; = Var \left( \frac{1}{n}\sum_{i=1}^n X_i \right)\\ 
+    &amp; =  \frac{1}{n^2} Var\left(\sum_{i=1}^n X_i \right)\\ 
+    &amp; =  \frac{1}{n^2} \sum_{i=1}^n Var(X_i) \\ 
+    &amp; =  \frac{1}{n^2} \times n\sigma^2 \\ 
+    &amp; =  \frac{\sigma^2}{n} 
+\end{align}
+\]</span></p>
+<p>We also get the standard error of the sample mean: <span class="math inline">\(\sigma/\sqrt{n}\)</span>,the sample mean has to be less variable than a single observation, therefore its standard deviation is divided.</p>
+<p>For the sample mean which is the unbiased estimator of the population, nothing could be discussed. But for the sample variance need more attentions:</p>
+<p><span class="math display">\[
+S^2 =   \frac{\sum_{i=1}^n (X_i - \bar X)^2}{n-1} 
+\]</span></p>
+<p>We proof it:</p>
+<p><span class="math display">\[
+\begin{align}
+E\left[\sum_{i=1}^n (X_i - \bar X)^2\right] &amp; = \sum_{i=1}^n E\left[X_i^2\right] - n E\left[\bar X^2\right] \\ \\
+    &amp; = \sum_{i=1}^n \left\{Var(X_i) + \mu^2\right\} - n \left\{Var(\bar X) + \mu^2\right\} \\ \\
+    &amp; = \sum_{i=1}^n \left\{\sigma^2 + \mu^2\right\} - n \left\{\sigma^2 / n + \mu^2\right\} \\ \\
+    &amp; = n \sigma^2 + n \mu ^ 2 - \sigma^2 - n \mu^2 \\ \\
+    &amp; = (n - 1) \sigma^2
+\end{align}
+\]</span></p>
+<p>For the estimator <span class="math inline">\(S^2\)</span> of <span class="math inline">\(\sigma^2\)</span> is unbiased, the calculation of sample variance <span class="math inline">\(S^2\)</span> involves dividing by <span class="math inline">\(n-1\)</span>. And <span class="math inline">\(S / \sqrt{n}\)</span> is called the sample standard error of the mean.</p>
+</div>
+<div id="mean-again" class="section level2">
+<h2>Mean Again</h2>
+<p>If I want to descript a collection of samples, the mean is esay to get. But if we want to know the population behind the samples, we will use S as a description of the spread. But if we only care the mean, the <span class="math inline">\(S / \sqrt{n}\)</span> will show the description of the error when we calculate the mean. When the n is large enough, we will get a precise mean with small error. But this error have no effect of S, which is the description of the spread behind the sample. If you want an interval estimation of the sample mean instead of a point estimation, you may need to consider that t-value multiply the standard error.</p>
+<p>Ok, finally I sort out those terms. I cite the work done by <a href="https://github.com/bcaffo/Caffo-Coursera">Professor Brian Caffo</a>, thank you very much.</p>
+</div>

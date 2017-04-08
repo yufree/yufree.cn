@@ -27,8 +27,6 @@
 <script async src="https://use.fontawesome.com/32c3d13def.js"></script>
 
 
-<!-- /BLOGDOWN-HEAD -->
-      <!-- BLOGDOWN-HEAD -->
   </head>
   <body>
     <div class="wrapper">
@@ -95,7 +93,11 @@
 
     
     <div class="article-content">
+      <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
 
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
 <p>最近在听一门统计学习的公开课，由<a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">ESL</a>的两个作者Trevor Hastie与Robert Tibshirani讲授，不过使用的教材是ESL的简化版——<a href="http://www-bcf.usc.edu/~gareth/ISL/">《An Introduction to Statistical Learning》</a>。虽说是简化版但写作风格明显是面对不同群体的，ISL偏应用，ESL更侧重数学原理解析，更抽象些。但这两本书的核心都是围着统计学习转的，而统计学习的一个核心论题就在Bias-Variance的取舍上，简单说就是偏差与方差的取舍。</p>
 <p>初涉统计学习最直观的图形就是过拟合与欠拟合训练集的模型对测试集残差的倒U型曲线，解释上也会偏重说明过拟合问题，下面就从原理层解释下这个问题：</p>
 <p>首先，我们知道统计学习实际上关注的是模型与现实问题，将现实的数据转化提炼出抽象的模型用来预测或做关系推断。那么先把无监督学习跟关系推断放一边，我们面对的是<span class="math inline">\(Y = f(X) + \epsilon\)</span> 的回归预测问题，这里<span class="math inline">\(f(x)\)</span>是理想模型。那么从公式上看我们可以想像，即使是理想模型，也存在<span class="math inline">\(\epsilon\)</span>，这是由Y背后的分布决定的，即预测值存在于一个范围而不是定值，通过其出现的概率密度函数，我们可以得到取值的变动范围。</p>

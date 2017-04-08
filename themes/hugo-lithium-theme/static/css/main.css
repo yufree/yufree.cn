@@ -31,9 +31,6 @@ a {
   text-decoration:underline;
 }
 
-code {
-  background-color: #c8d0d3;
-}
 a:hover
 {
     color:#c8d0d3;
@@ -159,7 +156,14 @@ code .MathJax {
   border: none;
   background: #c8d0d3;
 }
-
+.article-content img{
+    max-width:600px;
+    display:block;
+    margin:4px auto;
+    -webkit-box-shadow:#999 1px 1px 4px;
+    -moz-box-shadow:#999 1px 1px 4px;
+    box-shadow:#999 1px 1px 4px;
+}
 .highlight {
   border-radius: 3px;
   position: relative;

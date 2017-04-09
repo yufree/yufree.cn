@@ -1,9 +1,0 @@
----
-title: 谣言、利率与三间分布
-author: ''
-date: '2017-04-08'
-slug: ''
-categories: []
-tags: []
----
-

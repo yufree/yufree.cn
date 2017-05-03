@@ -10,6 +10,104 @@
     <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Using xcms offline for metabolomics study</title>
+      <link>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</guid>
+      <description>&lt;p&gt;XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.&lt;/p&gt;
+&lt;div id=&#34;optimized-parameters&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optimized Parameters&lt;/h2&gt;
+&lt;p&gt;Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them. Those parameters are related to peaks extraction, grouping, retention time correction and fill missing peaks. Authors of xcms online has published &lt;a href=&#34;http://www.nature.com/nprot/journal/v7/n3/fig_tab/nprot.2011.454_T1.html&#34;&gt;paper&lt;/a&gt; and show the table of suggested parameters. Thus in the local version, you could directly use them. If you still feel hard, I write a function &lt;code&gt;getdata&lt;/code&gt; in the &lt;code&gt;enviGCMS&lt;/code&gt; package. You could install it from Github (CRAN version has not been updated):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;yufree/enviGCMS&amp;#39;)
+# we need parallel computing
+library(enviGCMS)
+library(BiocParallel)
+library(xcms)
+# you need faahKO package for demo
+cdfpath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;, package = &amp;quot;faahKO&amp;quot;)
+# directly input path and you could get xcmsSet object
+xset &amp;lt;- getdata(cdfpath, pmethod = &amp;#39;hplcqtof&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;getdata&lt;/code&gt; could directly perform peaks extraction, grouping, retention time correction and fill missing peaks and return the &lt;code&gt;xcmsSet&lt;/code&gt; object for further analysis.&lt;/p&gt;
+&lt;p&gt;However, I suggest use &lt;code&gt;IPO&lt;/code&gt; package to optimize the parameters for certain instrumental. Here is the R script for optimizing. You need to be patient because such process usually take half day. After finding the parameters for your instrumental, you could use those parameters for the following studies. Here is the R script to optimize parameters for certain instrumental:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# path and files
+# use pool qc or blank for this optimization
+mzdatapath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;,package = &amp;quot;faahKO&amp;quot;)
+mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names=TRUE)
+library(IPO)
+# use centwave if you use obitrap
+peakpickingParameters &amp;lt;- getDefaultXcmsSetStartingParams(&amp;#39;matchedFilter&amp;#39;)
+#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)
+peakpickingParameters$min_peakwidth &amp;lt;- c(10,20) 
+peakpickingParameters$max_peakwidth &amp;lt;- c(26,42)
+#setting only one value for ppm therefore this parameter is not optimized
+peakpickingParameters$ppm &amp;lt;- 20 
+resultPeakpicking &amp;lt;- 
+  optimizeXcmsSet(files = mzdatafiles[6:9], 
+                  params = peakpickingParameters, 
+                  nSlaves = 4, 
+                  subdir = &amp;#39;rsmDirectory&amp;#39;)
+
+optimizedXcmsSetObject &amp;lt;- resultPeakpicking$best_settings$xset
+
+retcorGroupParameters &amp;lt;- getDefaultRetGroupStartingParams()
+retcorGroupParameters$profStep &amp;lt;- 1
+resultRetcorGroup &amp;lt;-
+  optimizeRetGroup(xset = optimizedXcmsSetObject, 
+                   params = retcorGroupParameters, 
+                   nSlaves = 4, 
+                   subdir = &amp;quot;rsmDirectory&amp;quot;)
+
+
+writeRScript(resultPeakpicking$best_settings$parameters, 
+             resultRetcorGroup$best_settings, 
+             nSlaves=12)
+# https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistical-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Statistical analysis&lt;/h2&gt;
+&lt;p&gt;Actually, the statistival methods in xcms online are limited compared with Metaboanalyst. In last post, I have shown how to install Metaboanalyst locally. Here, I also supply a function in &lt;code&gt;enviGCMS&lt;/code&gt; to directly get the csv file to be uploaded to Metaboanalyst. You need to show a xcmsSet object and the name for the file:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this xcmsSet object could be directly get from getdata function
+getupload(xset,name = &amp;#39;peaklist&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eic-and-boxplot-for-peaks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;EIC and Boxplot for peaks&lt;/h2&gt;
+&lt;p&gt;If you like the report from xcms online, you could also get them with the figures. I also write a function called &lt;code&gt;plote&lt;/code&gt; in &lt;code&gt;enviGCMS&lt;/code&gt; package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# you also need the name for subdir of EIC and Boxplot, you might also change the test method for the diffreport
+plote(xset,name = &amp;#39;test&amp;#39;,test = &amp;#39;t&amp;#39;, nonpara = &amp;#39;y&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All of the function has been documented. I might update the CRAN version in the near future.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;waters-q-tof-mass-lock-issue&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Waters Q-ToF mass lock issue&lt;/h2&gt;
+&lt;p&gt;If you use Waters Q-ToF, you might be confused by data conversion. I suggest you use the most updated msconvert to convert RAW folder into mzxml, which you could input the lock mass(older version miss this function). However, such data still have gap, you might use the &lt;code&gt;lockMassFreq = T&lt;/code&gt; in xcms to imput such gap to get more peaks. Such parameters could be transfer in &lt;code&gt;getdata&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;xset &amp;lt;- getdata(path,lockMassFreq = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;annotation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Annotation&lt;/h2&gt;
+&lt;p&gt;For the annotation part, I suggest using &lt;code&gt;xMSannotator&lt;/code&gt; package. You could install it from my github repo since the author didn’t use github:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# You might need to install the following packages before installing this package
+install.packages(&amp;#39;data.table&amp;#39;)
+install.packages(&amp;#39;digest&amp;#39;)
+source(&amp;quot;http://bioconductor.org/biocLite.R&amp;quot;)
+biocLite(&amp;quot;SSOAP&amp;quot;)
+biocLite(&amp;quot;KEGGREST&amp;quot;)
+biocLite(&amp;quot;pcaMethods&amp;quot;)
+biocLite(&amp;quot;Rdisop&amp;quot;)
+biocLite(&amp;quot;GO.db&amp;quot;)
+biocLite(&amp;quot;matrixStats&amp;quot;)
+biocLite(&amp;#39;WGCNA&amp;#39;)
+devtools::install_github(&amp;quot;yufree/xMSannotator&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other functions&lt;/h2&gt;
+&lt;p&gt;I have writed some other functions in &lt;code&gt;enviGCMS&lt;/code&gt; package and you could explore them. You might find some Easter Eggs. Also I will documented them as vignette in the future.&lt;/p&gt;
+&lt;p&gt;This post and the post before is about finding the peaks and performing statistical analysis for metabolomics. In the next post, I will show you some tips about annotation based on &lt;code&gt;xMSannotator&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;If you have other issues about metabolomics data analysis, you could comment here and I’d like to discuss them. Also you could sent email to &lt;a href=&#34;mailto:slack@yufree.cn&#34;&gt;slack@yufree.cn&lt;/a&gt; to get invitation for a slack group about metabolomics data analysis.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Tips for local installation of MetaboAnalyst on Windows</title>
       <link>/en/2017/03/29/metaboanalyst/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
@@ -632,65 +730,6 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
 &lt;p&gt;You might say why we must get two unknown matrix U and T, why not just show me the N. N has no reasonable algorithms to get directly while U and T could be get with a optimization algorithms. We give the U a random initial numbers and get a optimized T, then we use such T to get the U, run in a circle and finally we could get those two. Meanwhile we could use U and T separately to explore the inner groups for books or describe our potential users. In fact, we could use collaborative filtering to get the U and T at the same time.&lt;/p&gt;
 
 &lt;p&gt;This idea comes from machine learning but I think we could use such method to get missing data for environmental research. For example, we get huge data about the concentrations of 100 compounds for 100 cities while not all of the cities could analysis those 100 compounds: some analysis 60 and some analysis 80. Then such recommander system could be used to show missing data and the group information for both compounds and cities. But I doubt if traditional environmental scientist could understand such machine learning ideas.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Display Chinese/Japanese/Korean in PDF from Rmd in RStudio</title>
-      <link>/en/2014/07/21/rmd-to-pdf/</link>
-      <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/en/2014/07/21/rmd-to-pdf/</guid>
-      <description>
-
-&lt;p&gt;New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature &lt;code&gt;fig.showtext&lt;/code&gt; which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts and find the only way might be using the Rnw to write plain tex document. But I just want to use Rmd!&lt;/p&gt;
-
-&lt;p&gt;Then I review the PDF generation process and find the key is the md to tex. Rmarkdown use pandoc as the converter and pandoc just use some template. If we want to show Chinese, we need to hack the template and add the support of Chinese. Just go the &amp;ldquo;R/i686-pc-linux-gnu-library/3.1/rmarkdown/rmd/latex&amp;rdquo; where is the template located and add \usepackage{xeCJK}  and \setCJKmainfont{youfont}  before \begin{document}. Youfont stand for the character font installed in your computer which is used to show in the PDF. Remember to use xetex to process the tex or you may try CJK solution. OK, save the hack and now we could use Chinese both in the main text and the plot. More information could be found &lt;a href=&#34;https://github.com/yihui/knitr/issues/799&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The same way could be applied for Japanese and Korean. Just add the package support for your language.&lt;/p&gt;
-
-&lt;h1 id=&#34;update-20140722&#34;&gt;update 20140722&lt;/h1&gt;
-
-&lt;p&gt;@Yixuan write a &lt;a href=&#34;http://statr.me/2014/07/showtext-with-knitr/&#34;&gt;post&lt;/a&gt; on the usage of showtext package in knitr. Also @Yihui showed adding the packages in the header.tex and modified the yaml of the Rmd as the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-output:
-  pdf_document:
-    includes:
-      in_header: header.tex
----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;will also solve the font problems. You may also use the tex code in the Rmd and pandoc will complie the code like in the Rnw. Thanks a lot, @Yihui and @Yixuan!&lt;/p&gt;
-
-&lt;h1 id=&#34;update-20150119&#34;&gt;update 20150119&lt;/h1&gt;
-
-&lt;p&gt;Chinese issue has been solved by the ctex templete in rticles package(on CRAN now). You might just use the following code to install the package.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# install pandoc first
-install.packages(c(&#39;rmarkdown&#39;,&#39;rticles&#39;))
-rmarkdown::draft(&amp;quot;MyCtexArticle.Rmd&amp;quot;, template = &amp;quot;ctex&amp;quot;, package = &amp;quot;rticles&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;updata-20160919&#34;&gt;updata 20160919&lt;/h1&gt;
-
-&lt;p&gt;Aftet the update of ctex, use yaml as shown in this &lt;a href=&#34;http://yufree.cn/blog/2016/09/19/beamer-in-chinese.html&#34;&gt;post&lt;/a&gt; would directly show the Chinese/Japanese/Korean:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-title: &amp;quot;中文／にほんご／韓國語&amp;quot;
-author: &amp;quot;Yufree&amp;quot;
-date: &amp;quot;2016年9月19日&amp;quot;
-header-includes:
-  - \usepackage{ctex}
-output: 
-  pdf_document:
-    latex_engine: xelatex
----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;if you preferred xeCJK package to handle this issue, use CJKmainfont: [fontname] in yaml at the top level to set your font.&lt;/p&gt;
-
-&lt;p&gt;You might find Rmd templates for Chinese/Janpanese/Korean &lt;a href=&#34;https://github.com/yufree/democode/tree/master/cjk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

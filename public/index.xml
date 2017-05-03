@@ -11,10 +11,10 @@
     
     <item>
       <title>Using xcms offline for metabolomics study</title>
-      <link>/cn/2017/05/02/using-xcms-offline-for-metabolomics-study/</link>
+      <link>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/cn/2017/05/02/using-xcms-offline-for-metabolomics-study/</guid>
+      <guid>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</guid>
       <description>&lt;p&gt;XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.&lt;/p&gt;
 &lt;div id=&#34;optimized-parameters&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Optimized Parameters&lt;/h2&gt;

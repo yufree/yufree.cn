@@ -139,12 +139,7 @@ cd /opt/glassfish/bin
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/01/15/sd-isotope-ratio/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;In Analytical Chemistry, the measurements of isotope ratios are commons. However, I found the uncertainty of ratios are always shown in the format of standard deviation of independant vairiable, which is inappropriate in statistic. You accually measure at least two values to get one measurement.&lt;/p&gt;
+      <description>&lt;p&gt;In Analytical Chemistry, the measurements of isotope ratios are commons. However, I found the uncertainty of ratios are always shown in the format of standard deviation of independant vairiable, which is inappropriate in statistic. You accually measure at least two values to get one measurement.&lt;/p&gt;
 &lt;p&gt;In fact, if you want to use the differences of isotope ratios as a measurement for certain process, you need to accept the assumption that the intensities of different isotopes are independant. Then we could make the Taylor series expansion of the ratio x/y around the mean of x and y:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \begin{split} 
@@ -383,12 +378,7 @@ $$&lt;/p&gt;
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/02/11/my-second-paper/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;This is a paper with many rejection and comments. It was finally published by &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016300455&#34;&gt;Talanta&lt;/a&gt; with DOI 10.1016/j.talanta.2016.01.047. One &lt;a href=&#34;http://www.smithsonianmag.com/smart-news/half-academic-studies-are-never-read-more-three-people-180950222/?no-ist&#34;&gt;study&lt;/a&gt; said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.&lt;/p&gt;
+      <description>&lt;p&gt;This is a paper with many rejection and comments. It was finally published by &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016300455&#34;&gt;Talanta&lt;/a&gt; with DOI 10.1016/j.talanta.2016.01.047. One &lt;a href=&#34;http://www.smithsonianmag.com/smart-news/half-academic-studies-are-never-read-more-three-people-180950222/?no-ist&#34;&gt;study&lt;/a&gt; said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.&lt;/p&gt;
 &lt;p&gt;The basic idea before the structure prediction is that the combination of two qualitative methods. Usually, we use full scan of mass spectrum to get some rules about the structure such as the position of the substitute group of certain compound. Meanwhile, the retention time of seperation process also showed us some information about the compound. For unknown MeO-PBDEs, mass spectrum could tell us the position of MeO- group while can not show us the position of the Br atoms. Chromatography could show us the Br atoms position of PBDEs while not MeO-PBDE. what I should do is that building a model to connect those two information sources to get the structure of unknown MeO-PBDEs in certain samples.&lt;/p&gt;
 &lt;p&gt;But how? I collected 32 MeO-PBDEs and corresponding PBDEs and get the retention time of those pairs under the same analysis condition. I found we could use those data to make a connection between the information from mass spectrum and chromatography. The basic model is&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
@@ -478,12 +468,7 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
       <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>/en/2015/09/05/loq/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;In environmental analysis, we often target a lot of compounds to get a detailed profile of certain pollution. However, due to different environmental process, not all of the compounds could be detected by our analysis method. For example, when I analysed PBDEs in 100 sludge samples, only a few congeners such as BDE-47, BDE-99, BDE-209 could be found in all of them. The other congerners such as BDE-28, BDE-17, BDE-153 could only be found in about 80% of them. Also some congerners such as BDE-77, BDE-53, BDE-17 were got in only 50% of them. Thus, we faced a problem: how to perform analysis such as summary or hypothesis testing or regression when some values were not detected by our analysis method.&lt;/p&gt;
+      <description>&lt;p&gt;In environmental analysis, we often target a lot of compounds to get a detailed profile of certain pollution. However, due to different environmental process, not all of the compounds could be detected by our analysis method. For example, when I analysed PBDEs in 100 sludge samples, only a few congeners such as BDE-47, BDE-99, BDE-209 could be found in all of them. The other congerners such as BDE-28, BDE-17, BDE-153 could only be found in about 80% of them. Also some congerners such as BDE-77, BDE-53, BDE-17 were got in only 50% of them. Thus, we faced a problem: how to perform analysis such as summary or hypothesis testing or regression when some values were not detected by our analysis method.&lt;/p&gt;
 &lt;div id=&#34;summary-statistics&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Summary Statistics&lt;/h2&gt;
 &lt;p&gt;Often a junior PhD student would be told to just use half of the LOQ(limit of quantitative) to substitute the N.D. of certain compounds. However, such method is not recommended for publishing papers. Such method would change the distribution of the concentrations. But what is the raw distribution of the environmental data?&lt;/p&gt;

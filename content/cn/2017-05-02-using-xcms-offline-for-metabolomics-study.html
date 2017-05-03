@@ -1,0 +1,100 @@
+---
+title: Using xcms offline for metabolomics study
+author: ''
+date: '2017-05-02'
+slug: using-xcms-offline-for-metabolomics-study
+categories: []
+tags: []
+---
+
+
+
+<p>XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.</p>
+<div id="optimized-parameters" class="section level2">
+<h2>Optimized Parameters</h2>
+<p>Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them. Those parameters are related to peaks extraction, grouping, retention time correction and fill missing peaks. Authors of xcms online has published <a href="http://www.nature.com/nprot/journal/v7/n3/fig_tab/nprot.2011.454_T1.html">paper</a> and show the table of suggested parameters. Thus in the local version, you could directly use them. If you still feel hard, I write a function <code>getdata</code> in the <code>enviGCMS</code> package. You could install it from Github (CRAN version has not been updated):</p>
+<pre class="r"><code>devtools::install_github(&#39;yufree/enviGCMS&#39;)
+# we need parallel computing
+library(enviGCMS)
+library(BiocParallel)
+library(xcms)
+# you need faahKO package for demo
+cdfpath &lt;- system.file(&quot;cdf&quot;, package = &quot;faahKO&quot;)
+# directly input path and you could get xcmsSet object
+xset &lt;- getdata(cdfpath, pmethod = &#39;hplcqtof&#39;)</code></pre>
+<p><code>getdata</code> could directly perform peaks extraction, grouping, retention time correction and fill missing peaks and return the <code>xcmsSet</code> object for further analysis.</p>
+<p>However, I suggest use <code>IPO</code> package to optimize the parameters for certain instrumental. Here is the R script for optimizing. You need to be patient because such process usually take half day. After finding the parameters for your instrumental, you could use those parameters for the following studies. Here is the R script to optimize parameters for certain instrumental:</p>
+<pre class="r"><code># path and files
+# use pool qc or blank for this optimization
+mzdatapath &lt;- system.file(&quot;cdf&quot;,package = &quot;faahKO&quot;)
+mzdatafiles &lt;- list.files(mzdatapath, recursive = TRUE, full.names=TRUE)
+library(IPO)
+# use centwave if you use obitrap
+peakpickingParameters &lt;- getDefaultXcmsSetStartingParams(&#39;matchedFilter&#39;)
+#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)
+peakpickingParameters$min_peakwidth &lt;- c(10,20) 
+peakpickingParameters$max_peakwidth &lt;- c(26,42)
+#setting only one value for ppm therefore this parameter is not optimized
+peakpickingParameters$ppm &lt;- 20 
+resultPeakpicking &lt;- 
+  optimizeXcmsSet(files = mzdatafiles[6:9], 
+                  params = peakpickingParameters, 
+                  nSlaves = 4, 
+                  subdir = &#39;rsmDirectory&#39;)
+
+optimizedXcmsSetObject &lt;- resultPeakpicking$best_settings$xset
+
+retcorGroupParameters &lt;- getDefaultRetGroupStartingParams()
+retcorGroupParameters$profStep &lt;- 1
+resultRetcorGroup &lt;-
+  optimizeRetGroup(xset = optimizedXcmsSetObject, 
+                   params = retcorGroupParameters, 
+                   nSlaves = 4, 
+                   subdir = &quot;rsmDirectory&quot;)
+
+
+writeRScript(resultPeakpicking$best_settings$parameters, 
+             resultRetcorGroup$best_settings, 
+             nSlaves=12)
+# https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd</code></pre>
+</div>
+<div id="statistical-analysis" class="section level2">
+<h2>Statistical analysis</h2>
+<p>Actually, the statistival methods in xcms online are limited compared with Metaboanalyst. In last post, I have shown how to install Metaboanalyst locally. Here, I also supply a function in <code>enviGCMS</code> to directly get the csv file to be uploaded to Metaboanalyst. You need to show a xcmsSet object and the name for the file:</p>
+<pre class="r"><code># this xcmsSet object could be directly get from getdata function
+getupload(xset,name = &#39;peaklist&#39;)</code></pre>
+</div>
+<div id="eic-and-boxplot-for-peaks" class="section level2">
+<h2>EIC and Boxplot for peaks</h2>
+<p>If you like the report from xcms online, you could also get them with the figures. I also write a function called <code>plote</code> in <code>enviGCMS</code> package:</p>
+<pre class="r"><code># you also need the name for subdir of EIC and Boxplot, you might also change the test method for the diffreport
+plote(xset,name = &#39;test&#39;,test = &#39;t&#39;, nonpara = &#39;y&#39;)</code></pre>
+<p>All of the function has been documented. I might update the CRAN version in the near future.</p>
+</div>
+<div id="waters-q-tof-mass-lock-issue" class="section level2">
+<h2>Waters Q-ToF mass lock issue</h2>
+<p>If you use Waters Q-ToF, you might be confused by data conversion. I suggest you use the most updated msconvert to convert RAW folder into mzxml, which you could input the lock mass(older version miss this function). However, such data still have gap, you might use the <code>lockMassFreq = T</code> in xcms to imput such gap to get more peaks. Such parameters could be transfer in <code>getdata</code>:</p>
+<pre class="r"><code>xset &lt;- getdata(path,lockMassFreq = T)</code></pre>
+</div>
+<div id="annotation" class="section level2">
+<h2>Annotation</h2>
+<p>For the annotation part, I suggest using <code>xMSannotator</code> package. You could install it from my github repo since the author didn’t use github:</p>
+<pre class="r"><code># You might need to install the following packages before installing this package
+install.packages(&#39;data.table&#39;)
+install.packages(&#39;digest&#39;)
+source(&quot;http://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;SSOAP&quot;)
+biocLite(&quot;KEGGREST&quot;)
+biocLite(&quot;pcaMethods&quot;)
+biocLite(&quot;Rdisop&quot;)
+biocLite(&quot;GO.db&quot;)
+biocLite(&quot;matrixStats&quot;)
+biocLite(&#39;WGCNA&#39;)
+devtools::install_github(&quot;yufree/xMSannotator&quot;)</code></pre>
+</div>
+<div id="other-functions" class="section level2">
+<h2>Other functions</h2>
+<p>I have writed some other functions in <code>enviGCMS</code> package and you could explore them. You might find some Easter Eggs. Also I will documented them as vignette in the future.</p>
+<p>This post and the post before is about finding the peaks and performing statistical analysis for metabolomics. In the next post, I will show you some tips about annotation based on <code>xMSannotator</code> package.</p>
+<p>If you have other issues about metabolomics data analysis, you could comment here and I’d like to discuss them. Also you could sent email to <a href="mailto:slack@yufree.cn">slack@yufree.cn</a> to get invitation for a slack group about metabolomics data analysis.</p>
+</div>

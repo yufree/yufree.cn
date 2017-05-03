@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>Using xcms offline for metabolomics study - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Using xcms offline for metabolomics study - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css'>
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> 首页 </a></li>
+    
+    <li class=""><a href="../../../../../cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 博客 </a></li>
+    
+    <li class=""><a href="../../../../../cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="../../../../../notes/"> 笔记 </a></li>
+    
+    <li class=""><a href="../../../../../en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">751 字</span>
+    
+    <h1 class="article-title">Using xcms offline for metabolomics study
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2017/05/02</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Using&#43;xcms&#43;offline&#43;for&#43;metabolomics&#43;study&#43;http%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F05%2F02%2Fusing-xcms-offline-for-metabolomics-study%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Using&#43;xcms&#43;offline&#43;for&#43;metabolomics&#43;study&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F05%2F02%2Fusing-xcms-offline-for-metabolomics-study%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2017-05-02-using-xcms-offline-for-metabolomics-study.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.</p>
+<div id="optimized-parameters" class="section level2">
+<h2>Optimized Parameters</h2>
+<p>Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them. Those parameters are related to peaks extraction, grouping, retention time correction and fill missing peaks. Authors of xcms online has published <a href="http://www.nature.com/nprot/journal/v7/n3/fig_tab/nprot.2011.454_T1.html">paper</a> and show the table of suggested parameters. Thus in the local version, you could directly use them. If you still feel hard, I write a function <code>getdata</code> in the <code>enviGCMS</code> package. You could install it from Github (CRAN version has not been updated):</p>
+<pre class="r"><code>devtools::install_github(&#39;yufree/enviGCMS&#39;)
+# we need parallel computing
+library(enviGCMS)
+library(BiocParallel)
+library(xcms)
+# you need faahKO package for demo
+cdfpath &lt;- system.file(&quot;cdf&quot;, package = &quot;faahKO&quot;)
+# directly input path and you could get xcmsSet object
+xset &lt;- getdata(cdfpath, pmethod = &#39;hplcqtof&#39;)</code></pre>
+<p><code>getdata</code> could directly perform peaks extraction, grouping, retention time correction and fill missing peaks and return the <code>xcmsSet</code> object for further analysis.</p>
+<p>However, I suggest use <code>IPO</code> package to optimize the parameters for certain instrumental. Here is the R script for optimizing. You need to be patient because such process usually take half day. After finding the parameters for your instrumental, you could use those parameters for the following studies. Here is the R script to optimize parameters for certain instrumental:</p>
+<pre class="r"><code># path and files
+# use pool qc or blank for this optimization
+mzdatapath &lt;- system.file(&quot;cdf&quot;,package = &quot;faahKO&quot;)
+mzdatafiles &lt;- list.files(mzdatapath, recursive = TRUE, full.names=TRUE)
+library(IPO)
+# use centwave if you use obitrap
+peakpickingParameters &lt;- getDefaultXcmsSetStartingParams(&#39;matchedFilter&#39;)
+#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)
+peakpickingParameters$min_peakwidth &lt;- c(10,20) 
+peakpickingParameters$max_peakwidth &lt;- c(26,42)
+#setting only one value for ppm therefore this parameter is not optimized
+peakpickingParameters$ppm &lt;- 20 
+resultPeakpicking &lt;- 
+  optimizeXcmsSet(files = mzdatafiles[6:9], 
+                  params = peakpickingParameters, 
+                  nSlaves = 4, 
+                  subdir = &#39;rsmDirectory&#39;)
+
+optimizedXcmsSetObject &lt;- resultPeakpicking$best_settings$xset
+
+retcorGroupParameters &lt;- getDefaultRetGroupStartingParams()
+retcorGroupParameters$profStep &lt;- 1
+resultRetcorGroup &lt;-
+  optimizeRetGroup(xset = optimizedXcmsSetObject, 
+                   params = retcorGroupParameters, 
+                   nSlaves = 4, 
+                   subdir = &quot;rsmDirectory&quot;)
+
+
+writeRScript(resultPeakpicking$best_settings$parameters, 
+             resultRetcorGroup$best_settings, 
+             nSlaves=12)
+# https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd</code></pre>
+</div>
+<div id="statistical-analysis" class="section level2">
+<h2>Statistical analysis</h2>
+<p>Actually, the statistival methods in xcms online are limited compared with Metaboanalyst. In last post, I have shown how to install Metaboanalyst locally. Here, I also supply a function in <code>enviGCMS</code> to directly get the csv file to be uploaded to Metaboanalyst. You need to show a xcmsSet object and the name for the file:</p>
+<pre class="r"><code># this xcmsSet object could be directly get from getdata function
+getupload(xset,name = &#39;peaklist&#39;)</code></pre>
+</div>
+<div id="eic-and-boxplot-for-peaks" class="section level2">
+<h2>EIC and Boxplot for peaks</h2>
+<p>If you like the report from xcms online, you could also get them with the figures. I also write a function called <code>plote</code> in <code>enviGCMS</code> package:</p>
+<pre class="r"><code># you also need the name for subdir of EIC and Boxplot, you might also change the test method for the diffreport
+plote(xset,name = &#39;test&#39;,test = &#39;t&#39;, nonpara = &#39;y&#39;)</code></pre>
+<p>All of the function has been documented. I might update the CRAN version in the near future.</p>
+</div>
+<div id="waters-q-tof-mass-lock-issue" class="section level2">
+<h2>Waters Q-ToF mass lock issue</h2>
+<p>If you use Waters Q-ToF, you might be confused by data conversion. I suggest you use the most updated msconvert to convert RAW folder into mzxml, which you could input the lock mass(older version miss this function). However, such data still have gap, you might use the <code>lockMassFreq = T</code> in xcms to imput such gap to get more peaks. Such parameters could be transfer in <code>getdata</code>:</p>
+<pre class="r"><code>xset &lt;- getdata(path,lockMassFreq = T)</code></pre>
+</div>
+<div id="annotation" class="section level2">
+<h2>Annotation</h2>
+<p>For the annotation part, I suggest using <code>xMSannotator</code> package. You could install it from my github repo since the author didn’t use github:</p>
+<pre class="r"><code># You might need to install the following packages before installing this package
+install.packages(&#39;data.table&#39;)
+install.packages(&#39;digest&#39;)
+source(&quot;http://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;SSOAP&quot;)
+biocLite(&quot;KEGGREST&quot;)
+biocLite(&quot;pcaMethods&quot;)
+biocLite(&quot;Rdisop&quot;)
+biocLite(&quot;GO.db&quot;)
+biocLite(&quot;matrixStats&quot;)
+biocLite(&#39;WGCNA&#39;)
+devtools::install_github(&quot;yufree/xMSannotator&quot;)</code></pre>
+</div>
+<div id="other-functions" class="section level2">
+<h2>Other functions</h2>
+<p>I have writed some other functions in <code>enviGCMS</code> package and you could explore them. You might find some Easter Eggs. Also I will documented them as vignette in the future.</p>
+<p>This post and the post before is about finding the peaks and performing statistical analysis for metabolomics. In the next post, I will show you some tips about annotation based on <code>xMSannotator</code> package.</p>
+<p>If you have other issues about metabolomics data analysis, you could comment here and I’d like to discuss them. Also you could sent email to <a href="mailto:slack@yufree.cn">slack@yufree.cn</a> to get invitation for a slack group about metabolomics data analysis.</p>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../cn/2017/04/21/es-team/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 环境化学的组队原则</div>
+    </a>
+    
+
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/cn\/2017\/04\/21\/es-team\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

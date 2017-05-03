@@ -10,17 +10,110 @@
     <atom:link href="/cn/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Using xcms offline for metabolomics study</title>
+      <link>/cn/2017/05/02/using-xcms-offline-for-metabolomics-study/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/05/02/using-xcms-offline-for-metabolomics-study/</guid>
+      <description>&lt;p&gt;XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.&lt;/p&gt;
+&lt;div id=&#34;optimized-parameters&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optimized Parameters&lt;/h2&gt;
+&lt;p&gt;Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them. Those parameters are related to peaks extraction, grouping, retention time correction and fill missing peaks. Authors of xcms online has published &lt;a href=&#34;http://www.nature.com/nprot/journal/v7/n3/fig_tab/nprot.2011.454_T1.html&#34;&gt;paper&lt;/a&gt; and show the table of suggested parameters. Thus in the local version, you could directly use them. If you still feel hard, I write a function &lt;code&gt;getdata&lt;/code&gt; in the &lt;code&gt;enviGCMS&lt;/code&gt; package. You could install it from Github (CRAN version has not been updated):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;yufree/enviGCMS&amp;#39;)
+# we need parallel computing
+library(enviGCMS)
+library(BiocParallel)
+library(xcms)
+# you need faahKO package for demo
+cdfpath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;, package = &amp;quot;faahKO&amp;quot;)
+# directly input path and you could get xcmsSet object
+xset &amp;lt;- getdata(cdfpath, pmethod = &amp;#39;hplcqtof&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;getdata&lt;/code&gt; could directly perform peaks extraction, grouping, retention time correction and fill missing peaks and return the &lt;code&gt;xcmsSet&lt;/code&gt; object for further analysis.&lt;/p&gt;
+&lt;p&gt;However, I suggest use &lt;code&gt;IPO&lt;/code&gt; package to optimize the parameters for certain instrumental. Here is the R script for optimizing. You need to be patient because such process usually take half day. After finding the parameters for your instrumental, you could use those parameters for the following studies. Here is the R script to optimize parameters for certain instrumental:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# path and files
+# use pool qc or blank for this optimization
+mzdatapath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;,package = &amp;quot;faahKO&amp;quot;)
+mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names=TRUE)
+library(IPO)
+# use centwave if you use obitrap
+peakpickingParameters &amp;lt;- getDefaultXcmsSetStartingParams(&amp;#39;matchedFilter&amp;#39;)
+#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)
+peakpickingParameters$min_peakwidth &amp;lt;- c(10,20) 
+peakpickingParameters$max_peakwidth &amp;lt;- c(26,42)
+#setting only one value for ppm therefore this parameter is not optimized
+peakpickingParameters$ppm &amp;lt;- 20 
+resultPeakpicking &amp;lt;- 
+  optimizeXcmsSet(files = mzdatafiles[6:9], 
+                  params = peakpickingParameters, 
+                  nSlaves = 4, 
+                  subdir = &amp;#39;rsmDirectory&amp;#39;)
+
+optimizedXcmsSetObject &amp;lt;- resultPeakpicking$best_settings$xset
+
+retcorGroupParameters &amp;lt;- getDefaultRetGroupStartingParams()
+retcorGroupParameters$profStep &amp;lt;- 1
+resultRetcorGroup &amp;lt;-
+  optimizeRetGroup(xset = optimizedXcmsSetObject, 
+                   params = retcorGroupParameters, 
+                   nSlaves = 4, 
+                   subdir = &amp;quot;rsmDirectory&amp;quot;)
+
+
+writeRScript(resultPeakpicking$best_settings$parameters, 
+             resultRetcorGroup$best_settings, 
+             nSlaves=12)
+# https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistical-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Statistical analysis&lt;/h2&gt;
+&lt;p&gt;Actually, the statistival methods in xcms online are limited compared with Metaboanalyst. In last post, I have shown how to install Metaboanalyst locally. Here, I also supply a function in &lt;code&gt;enviGCMS&lt;/code&gt; to directly get the csv file to be uploaded to Metaboanalyst. You need to show a xcmsSet object and the name for the file:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this xcmsSet object could be directly get from getdata function
+getupload(xset,name = &amp;#39;peaklist&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eic-and-boxplot-for-peaks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;EIC and Boxplot for peaks&lt;/h2&gt;
+&lt;p&gt;If you like the report from xcms online, you could also get them with the figures. I also write a function called &lt;code&gt;plote&lt;/code&gt; in &lt;code&gt;enviGCMS&lt;/code&gt; package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# you also need the name for subdir of EIC and Boxplot, you might also change the test method for the diffreport
+plote(xset,name = &amp;#39;test&amp;#39;,test = &amp;#39;t&amp;#39;, nonpara = &amp;#39;y&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All of the function has been documented. I might update the CRAN version in the near future.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;waters-q-tof-mass-lock-issue&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Waters Q-ToF mass lock issue&lt;/h2&gt;
+&lt;p&gt;If you use Waters Q-ToF, you might be confused by data conversion. I suggest you use the most updated msconvert to convert RAW folder into mzxml, which you could input the lock mass(older version miss this function). However, such data still have gap, you might use the &lt;code&gt;lockMassFreq = T&lt;/code&gt; in xcms to imput such gap to get more peaks. Such parameters could be transfer in &lt;code&gt;getdata&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;xset &amp;lt;- getdata(path,lockMassFreq = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;annotation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Annotation&lt;/h2&gt;
+&lt;p&gt;For the annotation part, I suggest using &lt;code&gt;xMSannotator&lt;/code&gt; package. You could install it from my github repo since the author didn’t use github:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# You might need to install the following packages before installing this package
+install.packages(&amp;#39;data.table&amp;#39;)
+install.packages(&amp;#39;digest&amp;#39;)
+source(&amp;quot;http://bioconductor.org/biocLite.R&amp;quot;)
+biocLite(&amp;quot;SSOAP&amp;quot;)
+biocLite(&amp;quot;KEGGREST&amp;quot;)
+biocLite(&amp;quot;pcaMethods&amp;quot;)
+biocLite(&amp;quot;Rdisop&amp;quot;)
+biocLite(&amp;quot;GO.db&amp;quot;)
+biocLite(&amp;quot;matrixStats&amp;quot;)
+biocLite(&amp;#39;WGCNA&amp;#39;)
+devtools::install_github(&amp;quot;yufree/xMSannotator&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other functions&lt;/h2&gt;
+&lt;p&gt;I have writed some other functions in &lt;code&gt;enviGCMS&lt;/code&gt; package and you could explore them. You might find some Easter Eggs. Also I will documented them as vignette in the future.&lt;/p&gt;
+&lt;p&gt;This post and the post before is about finding the peaks and performing statistical analysis for metabolomics. In the next post, I will show you some tips about annotation based on &lt;code&gt;xMSannotator&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;If you have other issues about metabolomics data analysis, you could comment here and I’d like to discuss them. Also you could sent email to &lt;a href=&#34;mailto:slack@yufree.cn&#34;&gt;slack@yufree.cn&lt;/a&gt; to get invitation for a slack group about metabolomics data analysis.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>环境化学的组队原则</title>
       <link>/cn/2017/04/21/es-team/</link>
       <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/cn/2017/04/21/es-team/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;最近同组两个博后都拿到了教职，聊天时就说到了自己建课题组所需要的人员组成。因为当前课题组的研究方向是分析化学，所以一般至少会需要仪器仿真方向、材料合成方向、数据处理方向与特定应用方向的人才。如果是课题组长，这四方面至少要会两到三项，不然很多项目根本做不起来。回过头来想想，环境化学其实也可以考虑下组队问题。&lt;/p&gt;
+      <description>&lt;p&gt;最近同组两个博后都拿到了教职，聊天时就说到了自己建课题组所需要的人员组成。因为当前课题组的研究方向是分析化学，所以一般至少会需要仪器仿真方向、材料合成方向、数据处理方向与特定应用方向的人才。如果是课题组长，这四方面至少要会两到三项，不然很多项目根本做不起来。回过头来想想，环境化学其实也可以考虑下组队问题。&lt;/p&gt;
 &lt;div class=&#34;section level2&#34;&gt;
 &lt;h2&gt;平台&lt;/h2&gt;
 &lt;p&gt;环境化学目标污染物常规一点的大概就是无机方面的重金属与有机方面的农残、食品添加剂、POPs名单上那一坨、PPCPs还有一些生物毒素。往前沿看基本都是非目的检测或筛选，简单一点的是已知污染物的代谢产物与结构类似物，复杂一点就是效应诱导分析或通过QSPR预测毒性这类。这些主题比较热门，如果是环境调查方向，可以各种污染物排列组合去发，毕竟考虑三间分布的话，时间地点人群不同，迁移转化规律也不一样。同时还有非生物介质、生物介质等等污染物载体的差异，研究视角不同，看到的东西也不一样。&lt;/p&gt;
@@ -50,12 +143,7 @@
       <pubDate>Thu, 13 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/cn/2017/04/13/virtual/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;div id=&#34;virtual&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;virtual&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Virtual&lt;/h2&gt;
 &lt;p&gt;这个单词究竟怎么翻译曾经困惑我很久，因为实在搞不清究竟它指的是虚拟的还是事实上的，其实两个意思都有。这个词看似精神分裂，但却可以很好的描述当前人的状态，也就是说现实中的虚实界限逐渐在模糊，互联网在这个过程中功不可没。&lt;/p&gt;
 &lt;p&gt;首先，大多数文娱活动都是在构建一个Virtual空间。玩一部游戏、读一部小说、看一部电影、听一段音乐甚至欣赏一幅画。你都是在闯入一个异世界，这个世界逻辑矛盾、规矩奇特甚至根本就不可能在现实中遇到，但沉浸其中后，你可能并不会感到什么违和感而更多的是亲切感。在这些空间中可以感到强烈的情感、感同身受的震撼与对背后形而上探求的渴望。但这些并不是喜欢这些活动的真正原因，喜欢Virtual空间其实是因为这个空间比真实空间更舒适。换言之，真实空间的充满了不确定性，而且似乎无始无终，没有太多剧情，没有人去设计也毫不讲道理。&lt;/p&gt;
@@ -73,12 +161,7 @@
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/cn/2017/04/08/movingagain/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;经过长期跟拖延症的斗争与谢大的&lt;a href=&#34;https://yihui.name/cn/2017/04/url-to-content/&#34;&gt;指引&lt;/a&gt;，我终于在这周把个人网站进行了blogdown一站式处理。&lt;/p&gt;
+      <description>&lt;p&gt;经过长期跟拖延症的斗争与谢大的&lt;a href=&#34;https://yihui.name/cn/2017/04/url-to-content/&#34;&gt;指引&lt;/a&gt;，我终于在这周把个人网站进行了blogdown一站式处理。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;为了域名上的小绿锁，我把空间托管所从github pages搬家到了Netlify&lt;/li&gt;
 &lt;li&gt;使用Migadu注册了 &lt;a href=&#34;mailto:xx@yufree.cn&#34;&gt;xx@yufree.cn&lt;/a&gt; 域名邮箱，xx当然是42&lt;/li&gt;
@@ -100,12 +183,7 @@
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/cn/2017/04/08/rates/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;div class=&#34;section level2&#34;&gt;
+      <description>&lt;div class=&#34;section level2&#34;&gt;
 &lt;h2&gt;社会动物&lt;/h2&gt;
 &lt;p&gt;这周读完了戴维·布鲁克斯的《社会动物》，这本书很特殊，一方面你可以把它当非虚构类来读，因为里面综合了大量社会学、经济学、心理学甚至脑科学的研究成果，但另一方面却又可以看作一个虚构类的小说，因为所有研究成果都贯穿于一对夫妻的成长过程，从其父母的相识相爱、童年、青少年、大学、创业、职场成长、中年危机、事业巅峰贯穿到退休后的生活与男主角的死亡，作者将全过程娓娓道来，娴熟地把研究成果、社会现象与生活经验体会捏合到一个时间尺度之中，阅读体验非常好。同类的书还有《苏菲的世界》，不过那个是将哲学的，如果你对经济学感兴趣，《狼与香辛料》这部轻小说也是类似的结构，读这类书不必执着于对错与严谨性，沉浸于故事中就好。&lt;/p&gt;
 &lt;p&gt;但读这本书我最大的体验就是作者观点其实跟另一本去年读过的《贪婪的大脑》是有一定冲突的。《社会动物》的作者戴维·布鲁克斯是芝加哥大学历史学专业毕业的，目前是一位专栏作家兼政治评论员，其背景类似男主角哈罗德。《贪婪的大脑》的作者丹尼尔·博尔则是一位神经科学家，论述风格带有明显的理工类论文的节奏。这种迥然不同的背景似乎也影响了其文章思想的体现。《社会动物》中，女主角埃丽卡创立了一家以引入各种行为经济学研究成果来帮助企业发展的咨询公司，但是那些拎着核磁共振仪的神经科学家却更受企业欢迎，这导致创业初期并不顺利。这影射了目前两种咨询策略，一种是诉诸非理性或潜意识的研究而另一种则是理性量化的实验性科学。严格说这并不对立，但在《贪婪的大脑》中，丹尼尔·博尔认为很多关于无意识起作用的研究实质上并没有回答原始问题而仅仅是忽略或混淆了某些过程中意识与自我意识的区别与作用方式，因而埃丽卡的成果或许有用，但并不是一个正确的解释。然而戴维·布鲁克斯却认为过分依赖理性的力量也存在严重的缺陷，那就是在这类研究中过分依赖有良好效果的理性主义与模式的识别，人的社会性等难以量化分析的成分都被系统性地忽略了，而社会属性才是解决当前社会问题的关键。具体来说就是为什么社会学研究精彩纷呈，但落实到政策上总是答非所问，似乎理性的策略设计总是在社会层面不成功，例如美国教育改革与税收政策并没有实现原有的目标，反而不断激化了社会矛盾与割裂。&lt;/p&gt;
@@ -224,12 +302,7 @@
       <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>/cn/2017/03/18/estimation/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;div class=&#34;section level2&#34;&gt;
+      <description>&lt;div class=&#34;section level2&#34;&gt;
 &lt;h2&gt;估计&lt;/h2&gt;
 &lt;p&gt;科研数据分析中最基本的思维工具就是抽象，也就是把实实在在的事实在保留最大信息量的前提下用最简洁的描述方法展示出来，数学与统计学往往是这类工具的不二之选。估计则是其中最基本的问题，搞清楚其背后的思想才能把工具用的得心应手。&lt;/p&gt;
 &lt;p&gt;举个例子，我手头有一堆人的身高，然后找个人（没错，就是你了）让他描述一下这个数据，那么这个人该怎么办？最笨的方法就是把所有这些数读一遍，这种描述不丢失信息，但你读完了我也睡着了。这样传递信息效率太低，那么有没有办法效率高一点呢？&lt;/p&gt;
@@ -669,227 +742,6 @@
 &lt;p&gt;其实从这个数据集的故事是我们可以清晰感觉到的不是一个统计学过程而是科研过程。从观察到提出假说，然后通过数据分析给出证据，最后通过后续的研究不断证明结论，从已知走向未知。而当今的很多研究，你很难找到假设检验的影子，更多偏重的是流程化科研，用更尖端的技术得到更准确的测量，然后甩给统计学家处理，缺少了最初的&amp;rdquo;insight&amp;rdquo;。或者说，相对专业的领域分工让科学家自己也变得工具化，缺少研究方法，特别是数据处理方法与实际问题的原理层互动从而将数据分析黑箱化与实用化，这不妨碍实际问题的解决，但会少很多发现的乐趣。&lt;/p&gt;
 
 &lt;p&gt;当然，寻找insight可能是未来人工智能可以做的，但愿这一天晚点到来。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>高通量数据的多重检验问题</title>
-      <link>/cn/2017/01/04/mutiple-test/</link>
-      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2017/01/04/mutiple-test/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;各种组学分析技术的进展导致了我们在收集数据时更侧重数据信息的保存，然而我们收集的数据最终也会根据我们的想探索的问题来寻找答案，甚至有时候我们在实验设计分组时就打算考察某一个变量而为了获取更多的相关信息而采用了组学技术。这点是尤其要强调的，科研人员一定是面向科学问题解决科学问题，而不要为了应用新技术而应用新技术。当然，现实的情况是新技术特别是组学技术的发展为我们提供了大量的可同时测定的生物学指标（例如基因表达水平、蛋白表达水平、代谢产物表达水平）数据，大到我们事先也不知道会有什么模式会出现，这样就需要数据挖掘，特别是统计学知识来帮助我们发现新知。然而，组学技术产生的这类高通量数据是具有一些特质的，数据里确实会有我们关心分组的差异表达，但同时也有大量测量值对于我们设定的分组不敏感，然而当我们去对比组间差异时就会被这些数据干扰。&lt;/p&gt;
-&lt;p&gt;举例而言，我对两组样品（暴露组跟对照组）中每一个样品测定了10000个指标，每组有10个样品，那么如果我想知道差异有多大就需要对比10000次，具体说就是10000次双样本t检验。那么如果我对t检验的置信水平设置在0.05，也就是5%假阳性，做完这10000次检验，我会期望看到500个假阳性，而这500个有显著差异的指标其实对分组不敏感也可以随机生成。假如真实测到了600个有显著差异的指标，那么如何区分其中哪些是对分组敏感？哪些又仅仅只是随机的呢？随机的会不会只有500个整呢？&lt;/p&gt;
-&lt;p&gt;这就是多重检验问题，做经典科研实验时往往会忽略，深层次的原因是经典的科研实验往往是理论或经验主导需要进行检验的假说。例如，我测定血液中白血球的数目就可以知道你是不是处于炎症中，其背后是医学知识的支撑。然而，再组学或其他高通量实验中，研究实际是数据导向的，也就是不管有用没用反正我测了一堆指标，然后就去对比差异，然后就是上面的问题了，我们可能分不清楚哪些是真的相关，哪些又是随机出现的。&lt;/p&gt;
-&lt;p&gt;当然这个问题出现也不是一天两天了，再&lt;a href=&#34;http://yufree.cn/blogcn/2013/12/16/rgabriel-package.html&#34;&gt;多重比较&lt;/a&gt;问题上就已经被提出过，只不过在多重比较里对比数因为排列组合比较多而在多重检验里纯粹就是因为同时进行的假设检验数目多。那么其实从统计角度解决的方法也基本来源于此。&lt;/p&gt;
-&lt;div id=&#34;family-wise-error-rate&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;整体错误率（Family-wise error rate）控制&lt;/h2&gt;
-&lt;p&gt;对于单次比较，当我们看到显著差异的p值脑子里想的是空假设为真时发生的概率，当我们置信水平设定在0.95（I型错误率0.05）而p值低于对应的阈值，那么我们应该拒绝空假设。但对比次数多了从概率上就会出现已经被拒绝的假设实际是错误的而你不知道是哪一个。整体错误率控制的思路就是我不管单次比较了，我只对你这所有的对比次数的总错误率进行控制。还是上面的例子，对于10000次假设检验我只能接受1个错误，整体犯错概率为0.0001，那么对于单次比较，其I型错误率也得设定在这个水平上去进行假设检验，结果整体上错误率是控制住了，但对于单次比较就显得十分严格了。下面用一个仿真实验来说明：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 随机数的10000次比较
-set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:10000){
-  a &amp;lt;- rnorm(10)
-  b &amp;lt;- rnorm(10)
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-# 看下p值分布
-hist(pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/null-1.png&#34; alt=&#34;plot of chunk null&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk null&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.05的个数
-sum(pvalue&amp;lt;0.05)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 477&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.0001的个数
-sum(pvalue&amp;lt;0.0001)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这样我们会看到进行了整体的控制之后，确实是找不到有差异的了，但假如里面本来就有有差异的呢？&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:10000){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- a+1
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-# 看下p值分布
-hist(pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/diff-1.png&#34; alt=&#34;plot of chunk diff&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk diff&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.05的个数
-sum(pvalue&amp;lt;0.05)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 6559&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.0001的个数
-sum(pvalue&amp;lt;0.0001)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 45&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上面我们模拟了10000次有真实差异的假设检验，结果按照单次检验0.05的阈值能发现约7000有差异，而使用0.0001却只能发现不到100次有显著差异。那么问题很明显，或许控制整体错误率可以让我们远离假阳性，但假阴性也就是II型错误率就大幅提高了，最后的结果可能是什么差异也看不到。&lt;/p&gt;
-&lt;p&gt;下面我们尝试一个更实际的模拟，混合有差异跟无差异的检验：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:5000){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- a+1
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-for (i in 1:5000){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- rnorm(10,1)
-  c &amp;lt;- t.test(a,b)
-  pvalue[i+5000] &amp;lt;- c$p.value
-}
-# 看下p值分布
-hist(pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/mix-1.png&#34; alt=&#34;plot of chunk mix&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk mix&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.05的个数
-sum(pvalue&amp;lt;0.05)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3499&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.0001的个数
-sum(pvalue&amp;lt;0.0001)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 21&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;此时结果就更有意思了，明明应该有5000次是有差异的，但阈值设定在0.05只能看到约3500次，而0.0001只能看到24次。&lt;/p&gt;
-&lt;p&gt;上面的模拟告诉我们，降低假阳性会提高假阴性的比率，而且似乎本来0.05的阈值对于真阳性也是偏小的。同时，面对假设检验概率低于0.05的那些差异，我们也没有很好的方法区别哪些是真的，哪些是随机的。&lt;/p&gt;
-&lt;p&gt;其实很多人都知道整体错误率控制是比较严格的，但也不是完全没人用，例如寻找生物标记物做重大疾病诊断时就不太能接受假阳性而可以接受一定的假阴性，此时如果标准放宽就会找到一大堆假信号，到时候标记不准就会对诊断产生负面影响。&lt;/p&gt;
-&lt;p&gt;下面介绍下常见的整体错误率控制方法：&lt;/p&gt;
-&lt;div id=&#34;bonferroni-&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Bonferroni 方法&lt;/h3&gt;
-&lt;p&gt;思路很简单，就是控制显著性，例如单次检验假阳性比率&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;控制在0.05，那么n次检验假阳性比率控制为&lt;span class=&#34;math inline&#34;&gt;\(\frac{\alpha}{n}\)&lt;/span&gt;。这样实际是对整体采用了个体控制的控制思路：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-P(至少一个显著)=1-P(无显著差异) = 1-(1-\alpha/n)^n
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;我们来看下&lt;span class=&#34;math inline&#34;&gt;\(\alpha = 0.05\)&lt;/span&gt;随比较数增加的效果：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n &amp;lt;- c(1:10 %o% 10^(1:2))
-p0 &amp;lt;- 1-(1-0.05)^n
-p &amp;lt;- 1-(1-0.05/n)^n
-# 不进行控制
-plot(p0~n,ylim = c(0,1))
-# Bonferroni方法控制
-points(p~n,pch=19)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/Bonferroni-1.png&#34; alt=&#34;plot of chunk Bonferroni&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk Bonferroni&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;其实，这样的控制得到的整体错误率是略低于0.05的，并且数目越大，整体错误率越低。这个方法十分保守，有可能什么差异你都看不到，因为都变成假阴性了。在实际应用中一般不调节p值的假阳性比率而直接调节p值，取原始p值跟整体检验数目的乘积与1的最小值作为调节p值，还可以用0.05或0.01进行判断，不过这时候控制的整体而不是单一检验了。&lt;/p&gt;
-&lt;p&gt;当然这只是最原始的Bonferroni方法，后来Holm改进了这种一步法为逐步法，此时我们需要首先对原始p值进行排序，然后每个原始p值乘上其排序作为调节p值。例如三次多重检验的p值分别是0.01、0.03与0.06，其调节后的p值为0.03，0.06，0.06。如果我们控制整体假阳性比率低于0.05，那么调解后只有第一个检验可以拒绝空假设。值得注意的是Holm的改进是全面优于原始方法的，也就是说当你一定要去用Bonferroni方法控制整体错误率，优先选Holm的改进版。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;sidak-&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Sidak 方法&lt;/h3&gt;
-&lt;p&gt;上面那种方法其实有点非参的意思，其实数学上我们是可以精确的把假阳性比率控制在某个数值的：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-P(至少一个显著)=1-P(无显著差异) = 1-(1-\alpha&amp;#39;)^n = 0.05
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;求解可得到&lt;span class=&#34;math inline&#34;&gt;\(\alpha&amp;#39; = 1-0.95^{\frac{1}{n}}\)&lt;/span&gt;，此时我们就可以比较精确的控制整体错误率了，但是，这个方法有个前提就是各个检验必须是独立的，这在生物学实验里几乎不可能，所以这个方法的应用远没有Bonferroni方法广。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;false-discovery-rate&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;错误发现率（False Discovery Rate）控制&lt;/h2&gt;
-&lt;p&gt;刚才的模拟中我们可以看到，控制整体错误率比较严格，假阴性比率高，那么有没有办法找到假阴性比率低的呢？要知道我们其实只关心有差异的那部分中那些是真的，哪些是假的，无差异的可以完全不用考虑。那么我们可以尝试控制错误发现率，也就是在有差异的那一部分指标中控制错误率低于某一水平。&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 所有有差异的
-R &amp;lt;- sum(pvalue&amp;lt;0.05)
-# 假阳性
-V &amp;lt;- sum(pvalue[5001:10000]&amp;lt;0.05)
-# 错误发现率
-Q &amp;lt;- V/R
-R&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3499&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;V&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 225&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Q&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.06430409&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上面的计算显示虽然我们漏掉了很多阳性结果，但错误发现率并不高。事实上如果我们控制错误率到0.01，错误发现率会更低：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 所有有差异的
-R &amp;lt;- sum(pvalue&amp;lt;0.01)
-# 假阳性
-V &amp;lt;- sum(pvalue[5001:10000]&amp;lt;0.01)
-# 错误发现率
-Q &amp;lt;- V/R
-R&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 999&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;V&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 34&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Q&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.03403403&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其实出现这个问题不难理解，空假设检验里p值是均匀分布的而有差异检验的p值是有偏分布且偏向于较小的数值，所以假阳性控制的越小，有偏分布占比例就越高，但同时会造成假阴性提高的问题。&lt;/p&gt;
-&lt;p&gt;那么错误发现率会不会比整体错误率的控制更好呢？这里通过两种常见的控制方法进行说明。&lt;/p&gt;
-&lt;div id=&#34;benjamini-hochberg&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Benjamini-Hochberg方法&lt;/h3&gt;
-&lt;p&gt;这个方法跟Holm方法很像，也是先排序，但之后p值并不是简单的乘排序，而是乘检验总数后除排序：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-p_i \leq \frac{i}{m} \alpha
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;举例来说就是假设三次多重检验的p值分别是0.01、0.03与0.06，其调节后的p值为0.03，0.45，0.06。那么为什么说这种方法控制的是错误发现率呢？我们来看下&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;是如何得到的：p值乘总数m得到的是在该p值下理论发现数，而除以其排序实际是该p值下实际发现数，理论发现数基于在这里的分布是均匀分布，也就是空假设的分布，这两个的比值自然就是错误发现率。下面我用仿真实验来说明一下：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pbh &amp;lt;- p.adjust(pvalue,method = &amp;#39;BH&amp;#39;)
-ph &amp;lt;- p.adjust(pvalue,method = &amp;#39;holm&amp;#39;)
-plot(pbh~pvalue)
-points(ph~pvalue,col=&amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/BH-1.png&#34; alt=&#34;plot of chunk BH&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk BH&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;从上面图我们可以看出，如果控制整体错误率（红色），那么p值很容易就到1了，过于严格。而如果用BH方法控制错误发现率，那么原始p值越大，调节后的错误发现率也逐渐递增，这就符合了区分真实差异与随机差异就要假设真实差异更可能出现更小的p值这个现象。当然至于这个方法的推演细节，可以去读原始论文。值得注意的是这个错误发现率求的是有差异存在的情况，不然零发现就出现除数为零了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;storeyq&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Storey方法（q值）&lt;/h3&gt;
-&lt;p&gt;如果说BH方法还算是调节了p值，那么Storey提出的方法则直接去估计了错误发现率本身。刚才介绍BH算法时我提到总数m与p值的乘积是基于这里的分布是均匀分布，但实际上按照错误发现率的定义，这里应该出现的是空假设总数。直接使用所有检验数会造成一个问题，那就是对错误发现率的高估，为了保证功效，这里应该去估计空假设的总体比例。这里我们去观察混合分布会发现在p值较大的时候基本可以认为这里分布的都是空假设的p值，那么我们可以用：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\hat\pi_0 = \frac{\#\{p_i&amp;gt;\lambda\}}{(1-\lambda)m}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;估计这个比例&lt;span class=&#34;math inline&#34;&gt;\(\hat\pi_0\)&lt;/span&gt;，其中参数&lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;的跟&lt;span class=&#34;math inline&#34;&gt;\(\hat\pi_0\)&lt;/span&gt;的关系可以用一个三阶方程拟合，然后计算出整体假阳性比例。有了这个比例，我们再去按照BH方法计算p值，然后两个相乘就会得到q值，而q值的理论含义就是在某一概率上低于这个概率所有数里假阳性的比重。打个比方，我测到某个指标的q值是0.05，这意味着q值低于这个数所有检验中我有0.05的可能性得到的是假阳性。。但我们会发现当空假设比重较高时BH结果跟q值很接近，而比重很低的话q值会变得更小，功效会提高，基本也符合我们对错误发现率的预期。&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(qvalue)
-q &amp;lt;- qvalue(pvalue)
-# Q值
-plot(q$qvalues~pvalue,col=&amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/qvalues-1.png&#34; alt=&#34;plot of chunk qvalues&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk qvalues&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;如上图所示，q值增大后会最终逼近到0.5，而我们的模拟中空假设的比例就设定就是50%。我们重新模拟一个空假设比例5%的实验：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:500){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- a+1
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-for (i in 1:9500){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- rnorm(10,1)
-  c &amp;lt;- t.test(a,b)
-  pvalue[i+500] &amp;lt;- c$p.value
-}
-pbh &amp;lt;- p.adjust(pvalue,method = &amp;#39;BH&amp;#39;)
-ph &amp;lt;- p.adjust(pvalue,method = &amp;#39;holm&amp;#39;)
-q &amp;lt;- qvalue(pvalue)
-plot(pbh~pvalue)
-# Holm 方法
-points(ph~pvalue,col=&amp;#39;red&amp;#39;)
-# Q值
-points(q$qvalues~pvalue,col=&amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/qbh-1.png&#34; alt=&#34;plot of chunk qbh&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk qbh&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;此时我们可以看到两者结果较为接近，q值理论上更完备，功效也更强，但算法上对&lt;span class=&#34;math inline&#34;&gt;\(\hat\pi_0\)&lt;/span&gt;的估计并不稳定，特别是比例靠近1的时候，所以BH方法可能还是更容易让人接受的保守错误发现率控制。详细的估计方法还得去啃Storey的&lt;a href=&#34;http://www.pnas.org/content/100/16/9440.full&#34;&gt;论文&lt;/a&gt;。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;section level2&#34;&gt;
-&lt;h2&gt;小结&lt;/h2&gt;
-&lt;p&gt;多重检验问题是高通量数据里逃不掉的问题，要想找出真正的差异数据就要面对假阳性跟假阴性问题，这是一个不可兼得的过程，看重假阳性就用整体错误率，看重功效就用错误发现率控制。并不是说哪种方法会好一些，更本质的问题在于你对实际问题的了解程度及统计方法的适用范围。例如你选基因芯片时实际也进行了一次选择，改变了整体检验的p值分布，而不同的p值分布对应的处理方法也不太一样，有兴趣可以读下&lt;a href=&#34;http://varianceexplained.org/statistics/interpreting-pvalue-histogram/&#34;&gt;这篇&lt;/a&gt;。有时候你的实验设计本身就会影响数据的统计行为，而这个恰恰是最容易被忽视的。&lt;/p&gt;
-&lt;/div&gt;
 </description>
     </item>
     

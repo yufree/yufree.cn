@@ -10,6 +10,45 @@
     <atom:link href="/cn/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>社会感知、文献解读与棋盘思考</title>
+      <link>/cn/2017/05/06/social-sense/</link>
+      <pubDate>Sat, 06 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/05/06/social-sense/</guid>
+      <description>&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;社会感知&lt;/h2&gt;
+&lt;p&gt;最近看到一篇&lt;a href=&#34;http://journals.lww.com/co-allergy/Fulltext/2017/04000/Social_media_use_for_occupational_lung_disease.4.aspx&#34;&gt;综述&lt;/a&gt;，大意介绍了下通过社交网络数据来进行职业性肺病的研究趋势。其实回想一下，从大概四五年前就开始有利用类似数据进行研究的报导了，甚至还有个相关名词：社会感知。&lt;/p&gt;
+&lt;p&gt;字面理解，社会感知通过收集社会群体传感数据来研究社会中群体行为或相关科学问题。例如，我收集医院呼吸科就诊数据，然后看看这一观察点是否与其他环境因素或个体遗传因素有关联，譬如有人会&lt;a href=&#34;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0153099&#34;&gt;发现&lt;/a&gt;雾霾严重时呼吸科就诊率会上升。但其实研究可以不局限于特定行业，社交网络的快速发展一方面成为很多人日常生活的必需品，另一方面也提供了大量信息输出。例如有人就&lt;a href=&#34;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2835988&#34;&gt;研究&lt;/a&gt;过在重度空气污染时人们会在微博上的讨论行为。同样的主题似乎在地理学研究中用到，我曾听过一个报告使用的就是微博签到数据来观察旅游旺季游客的聚集行为。如果不局限在国内，实际各大不存在的社交网站都发表过类似论文，有的是基于地理信息，有的是基于语义分析，还有的则基于传播结构用图论的方法去研究。&lt;/p&gt;
+&lt;p&gt;总的来说，社会感知可以看作一个研究手段或视角，其应用面还可以更大。就环境分析而言，污染物调查类论文往往侧重于研究其在环境介质中的迁移转化规律，但逻辑上看，污染物的产生多半是人类行为，也就是说迁移转化规律也可能从社会感知角度去考察。例如我们可以关注一些污染企业的经济指标，其波动很有可能与污染物的环境浓度产生关联，如果是滞后性关联，我们是可以预测一些污染的集中爆发的。同样，人们在社交网络里关注的污染物是存在新闻传播高峰的，也就是脉冲式的，但污染物浓度的变化一般是连续的，这之间的差异或趋势可以用来区别环境污染的生理影响与心理影响。如果环境科研工作者不尽快掌握相关研究手段，那么不出意外做社会学研究或计算机科学研究的人会渗透过来。&lt;/p&gt;
+&lt;p&gt;最近掌握相关数据的公司纷纷成立研究院，人员组成学科背景都比较多样，很有可能比学术界优先发现有意思的现象。相比之下，学术界学科间壁垒还比较明显，很有可能因为研究手段的落后而走下坡路，而且业界科研的待遇在国外是普遍高于起步期学界待遇的，而人才的流动一般都会是往前沿去，如果在业界那就会流向业界。现在的研究视角越来越多样化与面向问题出发，单一学科或视角、固定的研究模版与闭塞的交流很容易快速衰落而不自知。例如当前大家都喜欢投学科顶尖期刊，很多老牌期刊却存在门户之见，对新方向把握不充分，新研究无法在原有学科体系内成长就会到其他领域或开辟领域野蛮生长，很多人看不上眼的 plos one 跟 scientific report 等新综合性期刊在慢慢孕育新学科。从引用量上可能不明显，但媒体曝光度上来说，新的研究方向更高。如果所有科研经费总量不变，新学科趋势通过媒体影响力会去逐渐挤占传统学科的资源，届时可能会出现系统性学科衰落。这就好比科学共同体的新陈代谢，缓慢却不可逆。所有学科都曾是新学科，也将会成为传统学科，如果内部不能换血，那就只能等外部输血了。这里血指的就是类似社会感知这样的前沿趋势与视角，这对起步期科研人员尤其重要，因为一旦搞错形势，后面不论你多努力可能都会有一种听天由命的焦虑感。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;文献解读&lt;/h2&gt;
+&lt;p&gt;最近几年，科普类网站或公众号的快速崛起促进了科学传播，越来越多的人愿意去把最前沿的研究发现带给有好奇心的听众，特别是目前正在进行科研工作的研究生与老师。但我发现很多人在进行解读时并没有很好的说明白研究类型而更多去讨论发现的事实与意义，这样会形成一些误解。&lt;/p&gt;
+&lt;div class=&#34;section level3&#34;&gt;
+&lt;h3&gt;没有研究基线的盲信&lt;/h3&gt;
+&lt;p&gt;很少有研究是凭空蹦出来的，但对科学报道的受众而言，绝大多数都是头一回听到一些研究领域。也就是说听众都是白纸一张，你说什么他们会首先接纳为事实而不是批判思考，因为多半根本就没有提供批判思考的知识体系。所以文献解读很重要的一点就是要说明我们之前对这个问题了解到什么程度了，有一个基线与背景可以让读者去展开批判思考而不是全盘接受。由于很多论文解读出自领域内专家，而专家通常喜欢用复杂术语树立权威感，所以这个偏误多半只能读者自己揣度，留有余地。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level3&#34;&gt;
+&lt;h3&gt;现象与规律分不清&lt;/h3&gt;
+&lt;p&gt;社会科学方面的研究论文解读时经常出现，论文描述的是当前现象，但解读时进行了规律演绎。例如队列研究发现富人们存在早期打高尔夫球的共同喜好，这是一个现象，不能解读成当前你去打高尔夫球，以后就可能变成富人。现象与规律分不清不能用简单的相关不代表因果来解释，更深层次的问题在于，即便很多现象说明的因果关系是事实存在的，时过境迁后，这个因果关系解除了。同样是上面的例子，也许早期打高尔夫球其实是因为能在高尔夫球场获取更好的人脉，但如果现在富人们主要社交方式变成打壁球，那么这个现象只能描述为历史事件，曾经是合理的，但当前完全不合理了。规律是相对稳定不变的而现象是历史性的，一般读者看论文解读的视角是规律视角而不是现象视角，如果解读者自己没搞清楚，那就很容易产生误导。多数科学发现都是有语境的，语境就是适用范围，也可理解为历史条件下的现象。而放之四海而皆准的规律是可遇不可求的，特别社会科学里存在舆论反馈与行为习惯的转变，很多结论在自然态下成立在社会系统中就面目全非了，整个社会到处都是局部最优解与区域护城河，不能当成均相系统研究。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level3&#34;&gt;
+&lt;h3&gt;决策风险&lt;/h3&gt;
+&lt;p&gt;要知道很多人的决策，特别在健康、育儿与理财等切身相关的主题决策上是很依赖专家意见的，一旦误导后果都是自负的。烟盒上都标个吸烟有害健康，论文解读上最好也提升下决策风险。不知道从什么时候开始，很多原来自然而然的事都出现了各种专业人士去提供服务并帮助决策，所有人都变成了决策困难者。就育儿而言，当前最新的研究成果与30年前父母自己摸索的育儿经验究竟能造成多大的差异，我想这也是个摸石头过河的事。但解读研究成果的人往往并不提示风险，直接论述方法与成效。从读者角度，这个风险往往会被期刊的权威性所掩饰，但事实上越是影响力大的期刊，撤稿率越高；越是前沿的发现，越有可能是缺少证据的。如果论文解读最终变成了个人经验的论述，那么读者应该放弃其决策价值，不然跟信教没啥区别。&lt;/p&gt;
+&lt;p&gt;关于文献解读甚至其他种类的文章，读的时候最好也要有点类似社会感知的想法，想想看这是不是现象唯一的解释与思考视角？解读者有没有夹藏私货？自己有没有意识到其中的偏误与决策风险？&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;棋盘思考&lt;/h2&gt;
+&lt;p&gt;上面关于文献解读的分析实际上也只是棋盘思考的一个应用。设想你跟我下棋，如果你下你的，我下我的那就没意思了，一般情况双方都会去思考对方的立场与策略。好比你去考试，如果你身经百战，那么你一定掌握了出题人视角与阅卷人视角，出题人考察你对某个问题的理解而阅卷人关注的是得分点，作为答题者最好就是把答案分条，展示你理解了某个知识点。其实出题人与阅卷人也会意识到答题者的应对策略去制定答案，这样最后真正懂问题的人总会高分通过，而一知半解的人很难蒙混过关。而在互联网上看信息或报道，你至少要意识到一个三方对弈场景。&lt;/p&gt;
+&lt;p&gt;所有报道都存在一个事实基础，把事实展示给你的人是第二方，第三方就是你。大多数人并不能意识到事实与展示事实的人之间的互动关系而看成一体，但其实立场差异不同。A采访了B，B所叙述的事实经过A的加工往往会产生微妙的情感共鸣与调动，而受众就是C。C永远只看到A笔下的B，甚至B是否存在C都不会去怀疑。C当然可以自主采访B，但同样C在描述时也是带有某些情感共鸣的。想到这一点，所有报道，包括自己所提供的，对于别人都是相对主观的。也就是说，棋盘思考的核心不在于了解对方想的是什么，而是意识到自己的局限性。&lt;/p&gt;
+&lt;p&gt;只有知道自己的局限性，才能对别人的局限性进行合理评估并达成一定程度上的信任或不信任。这始终都是个决策问题，只是日常生活中发生的太过频繁，很多人意识不到其中发生的过程，总是跟着感觉走。但其实跟着感觉走可能也是一种良好的决策，只是在行为经济学大行其道的今天，总有商人盯着你的行为，考虑能否从中挖到一桶金。无论如何，现代社会实在是错综复杂，所有人都在犯错或试错，站在承认局限性的位置思考总不会错的太离谱。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>环境化学的组队原则</title>
       <link>/cn/2017/04/21/es-team/</link>
       <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
@@ -20,7 +59,7 @@
 &lt;h2&gt;平台&lt;/h2&gt;
 &lt;p&gt;环境化学目标污染物常规一点的大概就是无机方面的重金属与有机方面的农残、食品添加剂、POPs名单上那一坨、PPCPs还有一些生物毒素。往前沿看基本都是非目的检测或筛选，简单一点的是已知污染物的代谢产物与结构类似物，复杂一点就是效应诱导分析或通过QSPR预测毒性这类。这些主题比较热门，如果是环境调查方向，可以各种污染物排列组合去发，毕竟考虑三间分布的话，时间地点人群不同，迁移转化规律也不一样。同时还有非生物介质、生物介质等等污染物载体的差异，研究视角不同，看到的东西也不一样。&lt;/p&gt;
 &lt;p&gt;从分析技术上看，首先得有前处理设备。常规的超声、ASE、SPE、旋蒸、氮吹、离心机等得有，如果是作方法学的，什么SPME、整体柱、分子印迹、微流控、离子液体、纳米颗粒负载修饰等技术得有会的人，特别纳米材料那一块，考虑上磁性容易做出体系，当然实用性另当别论。这些设备与技术能让你萃取净化到目标物，当然你做无机搞微波消解然后赶酸啥的当我没说，你们那不叫前处理。&lt;/p&gt;
-&lt;p&gt;处理完了的东西就要检测，环境分析检出限都是ppb级及以下，有机的就别来掺和了。无机检测ICP-MS是一站式解决方案，你要有钱搞得起MC-ICP-MS还可以做无机同位素分析，前提是有钱。有机一般就是质谱了，获取你比较关心核磁红外紫外，但那个出的结果大概率被审稿人鄙视。不过核磁另当别论，关键环境污染物含量太低，一般满足不了核磁要求，如果你能找到做合成的人帮你鉴定未知物那最好不过。质谱里面有条件上obitrap就上，再不济也得有个tof，如果你有FT，那基本可以抛弃前面的色谱了。定量的话qqq跟单杆最好都有，离子阱如果不做便携质谱或是杜克厨子的门生就不要考虑了。电离源也要配齐，气谱EI跟CI，液谱ESI跟APCI，冷门点的双喷雾或DESI也可以搞搞，不然有些污染物你可能根本就测不到。光谱也是一个思路，不过你得往高通量或可视检测去做，发不出文章也可以出点专利产品，这部分一般思路就是做抗体或者化学发光、荧光啥的，主要就是原子分子光谱，不过跟质谱比最大的优势可能就是便宜了。此外，表面共振拉曼光谱也是个快速发文章的渠道，配合一些稀奇古怪的修饰，总能在现场分析上找到突破口。光谱其实也有个大杀器，光源，前提你约的上，高能射线下能对很多过程进行细致分析与成像。此外，元素分析、各类显微镜电镜还有生物方向的特异性分析、测序跟芯片技术在环境领域也有应用，就看你想回答的科学问题是什么了。&lt;/p&gt;
+&lt;p&gt;处理完了的东西就要检测，环境分析检出限都是ppb级及以下，有机的就别来掺和了。无机检测ICP-MS是一站式解决方案，你要有钱搞得起MC-ICP-MS还可以做无机同位素分析，前提是有钱。有机一般就是质谱了，获取你比较关心核磁红外紫外，但那个出的结果大概率被审稿人鄙视。不过核磁另当别论，关键环境污染物含量太低，一般满足不了核磁要求，如果你能找到做合成的人帮你鉴定未知物那最好不过。质谱里面有条件上obitrap就上，再不济也得有个tof，如果你有FT，那基本可以抛弃前面的色谱了。定量的话qqq跟单杆最好都有，离子阱如果不做便携质谱或是普渡厨子的门生就不要考虑了。电离源也要配齐，气谱EI跟CI，液谱ESI跟APCI，冷门点的双喷雾或DESI也可以搞搞，不然有些污染物你可能根本就测不到。光谱也是一个思路，不过你得往高通量或可视检测去做，发不出文章也可以出点专利产品，这部分一般思路就是做抗体或者化学发光、荧光啥的，主要就是原子分子光谱，不过跟质谱比最大的优势可能就是便宜了。此外，表面共振拉曼光谱也是个快速发文章的渠道，配合一些稀奇古怪的修饰，总能在现场分析上找到突破口。光谱其实也有个大杀器，光源，前提你约的上，高能射线下能对很多过程进行细致分析与成像。此外，元素分析、各类显微镜电镜还有生物方向的特异性分析、测序跟芯片技术在环境领域也有应用，就看你想回答的科学问题是什么了。&lt;/p&gt;
 &lt;p&gt;上面扯半天主要就是说得有个仪器平台可以依赖，而且多半你也不会买维修合同，这说明初期得有点当金工、电工甚至木工的手艺，没有也没关系，好的平台一般都标配。我现在组里那几台质谱基本都是老板各种谈判低价搞过来的，不是二手demo机就是根本已经坏了，故障五花八门全是自己修，搞得这边博士生毕业都可以去培训仪器公司工程师了，反正多数上门工程师的顶级秘籍就是换件。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;section level2&#34;&gt;
@@ -644,222 +683,6 @@
 &lt;p&gt;其实从这个数据集的故事是我们可以清晰感觉到的不是一个统计学过程而是科研过程。从观察到提出假说，然后通过数据分析给出证据，最后通过后续的研究不断证明结论，从已知走向未知。而当今的很多研究，你很难找到假设检验的影子，更多偏重的是流程化科研，用更尖端的技术得到更准确的测量，然后甩给统计学家处理，缺少了最初的&amp;rdquo;insight&amp;rdquo;。或者说，相对专业的领域分工让科学家自己也变得工具化，缺少研究方法，特别是数据处理方法与实际问题的原理层互动从而将数据分析黑箱化与实用化，这不妨碍实际问题的解决，但会少很多发现的乐趣。&lt;/p&gt;
 
 &lt;p&gt;当然，寻找insight可能是未来人工智能可以做的，但愿这一天晚点到来。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>高通量数据的多重检验问题</title>
-      <link>/cn/2017/01/04/mutiple-test/</link>
-      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2017/01/04/mutiple-test/</guid>
-      <description>&lt;p&gt;各种组学分析技术的进展导致了我们在收集数据时更侧重数据信息的保存，然而我们收集的数据最终也会根据我们的想探索的问题来寻找答案，甚至有时候我们在实验设计分组时就打算考察某一个变量而为了获取更多的相关信息而采用了组学技术。这点是尤其要强调的，科研人员一定是面向科学问题解决科学问题，而不要为了应用新技术而应用新技术。当然，现实的情况是新技术特别是组学技术的发展为我们提供了大量的可同时测定的生物学指标（例如基因表达水平、蛋白表达水平、代谢产物表达水平）数据，大到我们事先也不知道会有什么模式会出现，这样就需要数据挖掘，特别是统计学知识来帮助我们发现新知。然而，组学技术产生的这类高通量数据是具有一些特质的，数据里确实会有我们关心分组的差异表达，但同时也有大量测量值对于我们设定的分组不敏感，然而当我们去对比组间差异时就会被这些数据干扰。&lt;/p&gt;
-&lt;p&gt;举例而言，我对两组样品（暴露组跟对照组）中每一个样品测定了10000个指标，每组有10个样品，那么如果我想知道差异有多大就需要对比10000次，具体说就是10000次双样本t检验。那么如果我对t检验的置信水平设置在0.05，也就是5%假阳性，做完这10000次检验，我会期望看到500个假阳性，而这500个有显著差异的指标其实对分组不敏感也可以随机生成。假如真实测到了600个有显著差异的指标，那么如何区分其中哪些是对分组敏感？哪些又仅仅只是随机的呢？随机的会不会只有500个整呢？&lt;/p&gt;
-&lt;p&gt;这就是多重检验问题，做经典科研实验时往往会忽略，深层次的原因是经典的科研实验往往是理论或经验主导需要进行检验的假说。例如，我测定血液中白血球的数目就可以知道你是不是处于炎症中，其背后是医学知识的支撑。然而，再组学或其他高通量实验中，研究实际是数据导向的，也就是不管有用没用反正我测了一堆指标，然后就去对比差异，然后就是上面的问题了，我们可能分不清楚哪些是真的相关，哪些又是随机出现的。&lt;/p&gt;
-&lt;p&gt;当然这个问题出现也不是一天两天了，再&lt;a href=&#34;http://yufree.cn/blogcn/2013/12/16/rgabriel-package.html&#34;&gt;多重比较&lt;/a&gt;问题上就已经被提出过，只不过在多重比较里对比数因为排列组合比较多而在多重检验里纯粹就是因为同时进行的假设检验数目多。那么其实从统计角度解决的方法也基本来源于此。&lt;/p&gt;
-&lt;div id=&#34;family-wise-error-rate&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;整体错误率（Family-wise error rate）控制&lt;/h2&gt;
-&lt;p&gt;对于单次比较，当我们看到显著差异的p值脑子里想的是空假设为真时发生的概率，当我们置信水平设定在0.95（I型错误率0.05）而p值低于对应的阈值，那么我们应该拒绝空假设。但对比次数多了从概率上就会出现已经被拒绝的假设实际是错误的而你不知道是哪一个。整体错误率控制的思路就是我不管单次比较了，我只对你这所有的对比次数的总错误率进行控制。还是上面的例子，对于10000次假设检验我只能接受1个错误，整体犯错概率为0.0001，那么对于单次比较，其I型错误率也得设定在这个水平上去进行假设检验，结果整体上错误率是控制住了，但对于单次比较就显得十分严格了。下面用一个仿真实验来说明：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 随机数的10000次比较
-set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:10000){
-  a &amp;lt;- rnorm(10)
-  b &amp;lt;- rnorm(10)
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-# 看下p值分布
-hist(pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/null-1.png&#34; alt=&#34;plot of chunk null&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk null&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.05的个数
-sum(pvalue&amp;lt;0.05)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 477&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.0001的个数
-sum(pvalue&amp;lt;0.0001)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这样我们会看到进行了整体的控制之后，确实是找不到有差异的了，但假如里面本来就有有差异的呢？&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:10000){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- a+1
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-# 看下p值分布
-hist(pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/diff-1.png&#34; alt=&#34;plot of chunk diff&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk diff&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.05的个数
-sum(pvalue&amp;lt;0.05)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 6559&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.0001的个数
-sum(pvalue&amp;lt;0.0001)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 45&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上面我们模拟了10000次有真实差异的假设检验，结果按照单次检验0.05的阈值能发现约7000有差异，而使用0.0001却只能发现不到100次有显著差异。那么问题很明显，或许控制整体错误率可以让我们远离假阳性，但假阴性也就是II型错误率就大幅提高了，最后的结果可能是什么差异也看不到。&lt;/p&gt;
-&lt;p&gt;下面我们尝试一个更实际的模拟，混合有差异跟无差异的检验：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:5000){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- a+1
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-for (i in 1:5000){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- rnorm(10,1)
-  c &amp;lt;- t.test(a,b)
-  pvalue[i+5000] &amp;lt;- c$p.value
-}
-# 看下p值分布
-hist(pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/mix-1.png&#34; alt=&#34;plot of chunk mix&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk mix&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.05的个数
-sum(pvalue&amp;lt;0.05)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3499&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 小于0.0001的个数
-sum(pvalue&amp;lt;0.0001)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 21&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;此时结果就更有意思了，明明应该有5000次是有差异的，但阈值设定在0.05只能看到约3500次，而0.0001只能看到24次。&lt;/p&gt;
-&lt;p&gt;上面的模拟告诉我们，降低假阳性会提高假阴性的比率，而且似乎本来0.05的阈值对于真阳性也是偏小的。同时，面对假设检验概率低于0.05的那些差异，我们也没有很好的方法区别哪些是真的，哪些是随机的。&lt;/p&gt;
-&lt;p&gt;其实很多人都知道整体错误率控制是比较严格的，但也不是完全没人用，例如寻找生物标记物做重大疾病诊断时就不太能接受假阳性而可以接受一定的假阴性，此时如果标准放宽就会找到一大堆假信号，到时候标记不准就会对诊断产生负面影响。&lt;/p&gt;
-&lt;p&gt;下面介绍下常见的整体错误率控制方法：&lt;/p&gt;
-&lt;div id=&#34;bonferroni-&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Bonferroni 方法&lt;/h3&gt;
-&lt;p&gt;思路很简单，就是控制显著性，例如单次检验假阳性比率&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;控制在0.05，那么n次检验假阳性比率控制为&lt;span class=&#34;math inline&#34;&gt;\(\frac{\alpha}{n}\)&lt;/span&gt;。这样实际是对整体采用了个体控制的控制思路：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-P(至少一个显著)=1-P(无显著差异) = 1-(1-\alpha/n)^n
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;我们来看下&lt;span class=&#34;math inline&#34;&gt;\(\alpha = 0.05\)&lt;/span&gt;随比较数增加的效果：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n &amp;lt;- c(1:10 %o% 10^(1:2))
-p0 &amp;lt;- 1-(1-0.05)^n
-p &amp;lt;- 1-(1-0.05/n)^n
-# 不进行控制
-plot(p0~n,ylim = c(0,1))
-# Bonferroni方法控制
-points(p~n,pch=19)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/Bonferroni-1.png&#34; alt=&#34;plot of chunk Bonferroni&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk Bonferroni&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;其实，这样的控制得到的整体错误率是略低于0.05的，并且数目越大，整体错误率越低。这个方法十分保守，有可能什么差异你都看不到，因为都变成假阴性了。在实际应用中一般不调节p值的假阳性比率而直接调节p值，取原始p值跟整体检验数目的乘积与1的最小值作为调节p值，还可以用0.05或0.01进行判断，不过这时候控制的整体而不是单一检验了。&lt;/p&gt;
-&lt;p&gt;当然这只是最原始的Bonferroni方法，后来Holm改进了这种一步法为逐步法，此时我们需要首先对原始p值进行排序，然后每个原始p值乘上其排序作为调节p值。例如三次多重检验的p值分别是0.01、0.03与0.06，其调节后的p值为0.03，0.06，0.06。如果我们控制整体假阳性比率低于0.05，那么调解后只有第一个检验可以拒绝空假设。值得注意的是Holm的改进是全面优于原始方法的，也就是说当你一定要去用Bonferroni方法控制整体错误率，优先选Holm的改进版。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;sidak-&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Sidak 方法&lt;/h3&gt;
-&lt;p&gt;上面那种方法其实有点非参的意思，其实数学上我们是可以精确的把假阳性比率控制在某个数值的：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-P(至少一个显著)=1-P(无显著差异) = 1-(1-\alpha&amp;#39;)^n = 0.05
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;求解可得到&lt;span class=&#34;math inline&#34;&gt;\(\alpha&amp;#39; = 1-0.95^{\frac{1}{n}}\)&lt;/span&gt;，此时我们就可以比较精确的控制整体错误率了，但是，这个方法有个前提就是各个检验必须是独立的，这在生物学实验里几乎不可能，所以这个方法的应用远没有Bonferroni方法广。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;false-discovery-rate&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;错误发现率（False Discovery Rate）控制&lt;/h2&gt;
-&lt;p&gt;刚才的模拟中我们可以看到，控制整体错误率比较严格，假阴性比率高，那么有没有办法找到假阴性比率低的呢？要知道我们其实只关心有差异的那部分中那些是真的，哪些是假的，无差异的可以完全不用考虑。那么我们可以尝试控制错误发现率，也就是在有差异的那一部分指标中控制错误率低于某一水平。&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 所有有差异的
-R &amp;lt;- sum(pvalue&amp;lt;0.05)
-# 假阳性
-V &amp;lt;- sum(pvalue[5001:10000]&amp;lt;0.05)
-# 错误发现率
-Q &amp;lt;- V/R
-R&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3499&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;V&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 225&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Q&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.06430409&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上面的计算显示虽然我们漏掉了很多阳性结果，但错误发现率并不高。事实上如果我们控制错误率到0.01，错误发现率会更低：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 所有有差异的
-R &amp;lt;- sum(pvalue&amp;lt;0.01)
-# 假阳性
-V &amp;lt;- sum(pvalue[5001:10000]&amp;lt;0.01)
-# 错误发现率
-Q &amp;lt;- V/R
-R&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 999&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;V&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 34&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Q&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.03403403&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其实出现这个问题不难理解，空假设检验里p值是均匀分布的而有差异检验的p值是有偏分布且偏向于较小的数值，所以假阳性控制的越小，有偏分布占比例就越高，但同时会造成假阴性提高的问题。&lt;/p&gt;
-&lt;p&gt;那么错误发现率会不会比整体错误率的控制更好呢？这里通过两种常见的控制方法进行说明。&lt;/p&gt;
-&lt;div id=&#34;benjamini-hochberg&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Benjamini-Hochberg方法&lt;/h3&gt;
-&lt;p&gt;这个方法跟Holm方法很像，也是先排序，但之后p值并不是简单的乘排序，而是乘检验总数后除排序：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-p_i \leq \frac{i}{m} \alpha
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;举例来说就是假设三次多重检验的p值分别是0.01、0.03与0.06，其调节后的p值为0.03，0.45，0.06。那么为什么说这种方法控制的是错误发现率呢？我们来看下&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;是如何得到的：p值乘总数m得到的是在该p值下理论发现数，而除以其排序实际是该p值下实际发现数，理论发现数基于在这里的分布是均匀分布，也就是空假设的分布，这两个的比值自然就是错误发现率。下面我用仿真实验来说明一下：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pbh &amp;lt;- p.adjust(pvalue,method = &amp;#39;BH&amp;#39;)
-ph &amp;lt;- p.adjust(pvalue,method = &amp;#39;holm&amp;#39;)
-plot(pbh~pvalue)
-points(ph~pvalue,col=&amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/BH-1.png&#34; alt=&#34;plot of chunk BH&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk BH&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;从上面图我们可以看出，如果控制整体错误率（红色），那么p值很容易就到1了，过于严格。而如果用BH方法控制错误发现率，那么原始p值越大，调节后的错误发现率也逐渐递增，这就符合了区分真实差异与随机差异就要假设真实差异更可能出现更小的p值这个现象。当然至于这个方法的推演细节，可以去读原始论文。值得注意的是这个错误发现率求的是有差异存在的情况，不然零发现就出现除数为零了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;storeyq&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Storey方法（q值）&lt;/h3&gt;
-&lt;p&gt;如果说BH方法还算是调节了p值，那么Storey提出的方法则直接去估计了错误发现率本身。刚才介绍BH算法时我提到总数m与p值的乘积是基于这里的分布是均匀分布，但实际上按照错误发现率的定义，这里应该出现的是空假设总数。直接使用所有检验数会造成一个问题，那就是对错误发现率的高估，为了保证功效，这里应该去估计空假设的总体比例。这里我们去观察混合分布会发现在p值较大的时候基本可以认为这里分布的都是空假设的p值，那么我们可以用：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\hat\pi_0 = \frac{\#\{p_i&amp;gt;\lambda\}}{(1-\lambda)m}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;估计这个比例&lt;span class=&#34;math inline&#34;&gt;\(\hat\pi_0\)&lt;/span&gt;，其中参数&lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;的跟&lt;span class=&#34;math inline&#34;&gt;\(\hat\pi_0\)&lt;/span&gt;的关系可以用一个三阶方程拟合，然后计算出整体假阳性比例。有了这个比例，我们再去按照BH方法计算p值，然后两个相乘就会得到q值，而q值的理论含义就是在某一概率上低于这个概率所有数里假阳性的比重。打个比方，我测到某个指标的q值是0.05，这意味着q值低于这个数所有检验中我有0.05的可能性得到的是假阳性。。但我们会发现当空假设比重较高时BH结果跟q值很接近，而比重很低的话q值会变得更小，功效会提高，基本也符合我们对错误发现率的预期。&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(qvalue)
-q &amp;lt;- qvalue(pvalue)
-# Q值
-plot(q$qvalues~pvalue,col=&amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/qvalues-1.png&#34; alt=&#34;plot of chunk qvalues&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk qvalues&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;如上图所示，q值增大后会最终逼近到0.5，而我们的模拟中空假设的比例就设定就是50%。我们重新模拟一个空假设比例5%的实验：&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(42)
-pvalue &amp;lt;- NULL
-for (i in 1:500){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- a+1
-  c &amp;lt;- t.test(a,b)
-  pvalue[i] &amp;lt;- c$p.value
-}
-for (i in 1:9500){
-  a &amp;lt;- rnorm(10,1)
-  b &amp;lt;- rnorm(10,1)
-  c &amp;lt;- t.test(a,b)
-  pvalue[i+500] &amp;lt;- c$p.value
-}
-pbh &amp;lt;- p.adjust(pvalue,method = &amp;#39;BH&amp;#39;)
-ph &amp;lt;- p.adjust(pvalue,method = &amp;#39;holm&amp;#39;)
-q &amp;lt;- qvalue(pvalue)
-plot(pbh~pvalue)
-# Holm 方法
-points(ph~pvalue,col=&amp;#39;red&amp;#39;)
-# Q值
-points(q$qvalues~pvalue,col=&amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/qbh-1.png&#34; alt=&#34;plot of chunk qbh&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;plot of chunk qbh&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;此时我们可以看到两者结果较为接近，q值理论上更完备，功效也更强，但算法上对&lt;span class=&#34;math inline&#34;&gt;\(\hat\pi_0\)&lt;/span&gt;的估计并不稳定，特别是比例靠近1的时候，所以BH方法可能还是更容易让人接受的保守错误发现率控制。详细的估计方法还得去啃Storey的&lt;a href=&#34;http://www.pnas.org/content/100/16/9440.full&#34;&gt;论文&lt;/a&gt;。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;section level2&#34;&gt;
-&lt;h2&gt;小结&lt;/h2&gt;
-&lt;p&gt;多重检验问题是高通量数据里逃不掉的问题，要想找出真正的差异数据就要面对假阳性跟假阴性问题，这是一个不可兼得的过程，看重假阳性就用整体错误率，看重功效就用错误发现率控制。并不是说哪种方法会好一些，更本质的问题在于你对实际问题的了解程度及统计方法的适用范围。例如你选基因芯片时实际也进行了一次选择，改变了整体检验的p值分布，而不同的p值分布对应的处理方法也不太一样，有兴趣可以读下&lt;a href=&#34;http://varianceexplained.org/statistics/interpreting-pvalue-histogram/&#34;&gt;这篇&lt;/a&gt;。有时候你的实验设计本身就会影响数据的统计行为，而这个恰恰是最容易被忽视的。&lt;/p&gt;
-&lt;/div&gt;
 </description>
     </item>
     

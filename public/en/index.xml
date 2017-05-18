@@ -10,6 +10,31 @@
     <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Data analysis for Desorption Electrospray Ionization</title>
+      <link>/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</guid>
+      <description>&lt;p&gt;Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms.&lt;/p&gt;
+&lt;p&gt;Supposing we have data from 1 min sampling and we want to get the mass spectrum. For mass spectrum, 1 min usually means more than 100 full scan. The basic idea to process such data is directly binning the mass and average the intensity. However, I found &lt;code&gt;group.mzClust&lt;/code&gt; function and &lt;code&gt;MSW&lt;/code&gt; method are designed for this purpose.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(msdata)
+mzdatapath &amp;lt;- system.file(&amp;quot;fticr&amp;quot;, package = &amp;quot;msdata&amp;quot;)
+mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names = TRUE)
+
+xs &amp;lt;- xcmsSet(method=&amp;quot;MSW&amp;quot;, files=mzdatafiles, scales=c(1,7),
+              SNR.method=&amp;#39;data.mean&amp;#39; , winSize.noise=500,
+               peakThr=80000,  amp.Th=0.005)
+xsg &amp;lt;- group.mzClust(xs)
+xsg &amp;lt;- fillPeaks.MSW(xsg)
+r &amp;lt;- groupval(xsg,&amp;#39;medret&amp;#39;,&amp;#39;into&amp;#39;)
+z &amp;lt;- as.data.frame(peaks(xsg))
+file &amp;lt;- cbind(z$mz,r)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You could save the data as csv file. Then you could perform further analysis such as peak picking or PCA analysis. If your data could be organized for spatial analysis or imaging, all the data has been ready and you could draw them by one for loop or just use &lt;code&gt;animation&lt;/code&gt; package for a gif. I used this trick for my last group meeting as PhD students.&lt;/p&gt;
+&lt;p&gt;PS: the new design of xcms 3 is much more friendly to process such data via &lt;code&gt;XCMSnExp&lt;/code&gt; object and the parameters design is very friendly to users.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Using xcms offline for metabolomics study</title>
       <link>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
@@ -710,26 +735,6 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
 &lt;li&gt;Lee, Sungyun, Xiangyu Bi, Robert B. Reed, James F. Ranville, Pierre Herckes, and Paul Westerhoff. “Nanoparticle Size Detection Limits by Single Particle ICP-MS for 40 Elements.” Environmental Science &amp;amp; Technology 48, no. 17 (2014): 10291–300. doi:10.1021/es502422v.&lt;/li&gt;
 &lt;li&gt;Mitrano, Denise M., Emily K. Lesher, Anthony Bednar, Jon Monserud, Christopher P. Higgins, and James F. Ranville. “Detecting Nanoparticulate Silver Using Single-Particle Inductively Coupled Plasma–mass Spectrometry.” Environmental Toxicology and Chemistry 31, no. 1 (2012): 115–21. doi:10.1002/etc.719.&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Using recommender systems to fill the missing data</title>
-      <link>/en/2014/11/26/recommender-system/</link>
-      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/en/2014/11/26/recommender-system/</guid>
-      <description>&lt;p&gt;Recommender systems were often used to show the candidates such as books, movies and music for certain user. If you bought something at online shop, you might get a spam email listing something the shop recommended and there must be a recommender systems for you. You might get confused by such system: how does they know what you would buy?&lt;/p&gt;
-
-&lt;p&gt;If you know basic concepts about machine learning, you might say: surely there would be a supervised learning algorithm for this problem. Yes, when you have huge data, you might train your algorithm with rating as your output and items as your input. But those data would always be sparse. There would be thousands of books and thousands of users but the input and the output would not be a normal distribution and should be some groups connected with each other. In another words, the books and the users data would have their own structures. If you like novels, most of your books would be novels and the references of your rating on a dictionary would be missing. However, we found another person with the similar rating as you on novels and a lot of rating on dictionaries. So your reasonable rating on a dictionary would be similar to that guy. On the other hand, the novel and the dictionary would have some inner features and those features could be used to group the books.&lt;/p&gt;
-
-&lt;p&gt;OK, here the original problems had been convert to the cluster problems on the input and the output. After the cluster, we should train a model to make a connection with the items&amp;rsquo; groups and users&amp;rsquo; groups. Here an algorithm with the update of both cluster on input and output at the same time would be reasonable.&lt;/p&gt;
-
-&lt;p&gt;Firstly, the original data would show a matrix structure(M) with rows standing for the books, columns standing for the users and ratings in each cell. To make the algorithm run without error, we need a mask matrix to identify the missing data(R, 0 for missing and 1 for rating). So M.*R would show a matrix without missing data. Our task was finding two matrix(T and U). T should show the features of terms and U should show the corresponding features of the users. U * T should give us a matrix(N) like M and we could use min(N-M) as cost function to train our data. When we get the final N, we could fill the gaps with reasonable data. That is, we get the your ratings on the books you never read and order the rating. OK, we would send you an e-mail with the high rating books.&lt;/p&gt;
-
-&lt;p&gt;You might say why we must get two unknown matrix U and T, why not just show me the N. N has no reasonable algorithms to get directly while U and T could be get with a optimization algorithms. We give the U a random initial numbers and get a optimized T, then we use such T to get the U, run in a circle and finally we could get those two. Meanwhile we could use U and T separately to explore the inner groups for books or describe our potential users. In fact, we could use collaborative filtering to get the U and T at the same time.&lt;/p&gt;
-
-&lt;p&gt;This idea comes from machine learning but I think we could use such method to get missing data for environmental research. For example, we get huge data about the concentrations of 100 compounds for 100 cities while not all of the cities could analysis those 100 compounds: some analysis 60 and some analysis 80. Then such recommander system could be used to show missing data and the group information for both compounds and cities. But I doubt if traditional environmental scientist could understand such machine learning ideas.&lt;/p&gt;
 </description>
     </item>
     

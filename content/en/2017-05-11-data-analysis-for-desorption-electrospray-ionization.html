@@ -1,0 +1,27 @@
+---
+title: Data analysis for Desorption Electrospray Ionization
+author: ''
+date: '2017-05-11'
+slug: data-analysis-for-desorption-electrospray-ionization
+categories: []
+tags: []
+---
+
+
+
+<p>Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms.</p>
+<p>Supposing we have data from 1 min sampling and we want to get the mass spectrum. For mass spectrum, 1 min usually means more than 100 full scan. The basic idea to process such data is directly binning the mass and average the intensity. However, I found <code>group.mzClust</code> function and <code>MSW</code> method are designed for this purpose.</p>
+<pre class="r"><code>library(msdata)
+mzdatapath &lt;- system.file(&quot;fticr&quot;, package = &quot;msdata&quot;)
+mzdatafiles &lt;- list.files(mzdatapath, recursive = TRUE, full.names = TRUE)
+
+xs &lt;- xcmsSet(method=&quot;MSW&quot;, files=mzdatafiles, scales=c(1,7),
+              SNR.method=&#39;data.mean&#39; , winSize.noise=500,
+               peakThr=80000,  amp.Th=0.005)
+xsg &lt;- group.mzClust(xs)
+xsg &lt;- fillPeaks.MSW(xsg)
+r &lt;- groupval(xsg,&#39;medret&#39;,&#39;into&#39;)
+z &lt;- as.data.frame(peaks(xsg))
+file &lt;- cbind(z$mz,r)</code></pre>
+<p>You could save the data as csv file. Then you could perform further analysis such as peak picking or PCA analysis. If your data could be organized for spatial analysis or imaging, all the data has been ready and you could draw them by one for loop or just use <code>animation</code> package for a gif. I used this trick for my last group meeting as PhD students.</p>
+<p>PS: the new design of xcms 3 is much more friendly to process such data via <code>XCMSnExp</code> object and the parameters design is very friendly to users.</p>

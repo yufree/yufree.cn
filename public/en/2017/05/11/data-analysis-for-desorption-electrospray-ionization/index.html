@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>Data analysis for Desorption Electrospray Ionization - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Data analysis for Desorption Electrospray Ionization - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css'>
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> Home </a></li>
+    
+    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    
+    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    
+    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="../../../../../metaworkflow/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+    <h1 class="article-title">Data analysis for Desorption Electrospray Ionization
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2017/05/11</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Data&#43;analysis&#43;for&#43;Desorption&#43;Electrospray&#43;Ionization&#43;http%3A%2F%2Fyufree.cn%2Fen%2F2017%2F05%2F11%2Fdata-analysis-for-desorption-electrospray-ionization%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Data&#43;analysis&#43;for&#43;Desorption&#43;Electrospray&#43;Ionization&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=http%3A%2F%2Fyufree.cn%2Fen%2F2017%2F05%2F11%2Fdata-analysis-for-desorption-electrospray-ionization%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2017-05-11-data-analysis-for-desorption-electrospray-ionization.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms.</p>
+<p>Supposing we have data from 1 min sampling and we want to get the mass spectrum. For mass spectrum, 1 min usually means more than 100 full scan. The basic idea to process such data is directly binning the mass and average the intensity. However, I found <code>group.mzClust</code> function and <code>MSW</code> method are designed for this purpose.</p>
+<pre class="r"><code>library(msdata)
+mzdatapath &lt;- system.file(&quot;fticr&quot;, package = &quot;msdata&quot;)
+mzdatafiles &lt;- list.files(mzdatapath, recursive = TRUE, full.names = TRUE)
+
+xs &lt;- xcmsSet(method=&quot;MSW&quot;, files=mzdatafiles, scales=c(1,7),
+              SNR.method=&#39;data.mean&#39; , winSize.noise=500,
+               peakThr=80000,  amp.Th=0.005)
+xsg &lt;- group.mzClust(xs)
+xsg &lt;- fillPeaks.MSW(xsg)
+r &lt;- groupval(xsg,&#39;medret&#39;,&#39;into&#39;)
+z &lt;- as.data.frame(peaks(xsg))
+file &lt;- cbind(z$mz,r)</code></pre>
+<p>You could save the data as csv file. Then you could perform further analysis such as peak picking or PCA analysis. If your data could be organized for spatial analysis or imaging, all the data has been ready and you could draw them by one for loop or just use <code>animation</code> package for a gif. I used this trick for my last group meeting as PhD students.</p>
+<p>PS: the new design of xcms 3 is much more friendly to process such data via <code>XCMSnExp</code> object and the parameters design is very friendly to users.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../en/2017/05/02/using-xcms-offline-for-metabolomics-study/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Using xcms offline for metabolomics study</div>
+    </a>
+    
+
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/en\/2017\/05\/02\/using-xcms-offline-for-metabolomics-study\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "http:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

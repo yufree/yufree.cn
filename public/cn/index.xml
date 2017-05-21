@@ -15,7 +15,7 @@
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/cn/2017/05/21/omics-power-analysis/</guid>
-      <description>&lt;p&gt;最近设计了一组代谢组学实验，因为用到动物所以需要学校动物保护委员会的许可，完成了一系列理论与实验室参观后，主管人员要求提供预实验结果与功效分析来确定动物数量。这个要求就诡异了，组学实验同时测上千个指标，这功效分析根本无从谈起。但因为是必填项，硬着头皮去查了下资料，如果是代谢组学数据，确实基本没人提功效分析，有也是针对特定测量值。然而，蛋白质组学跟基因组学都曾经讨论过这个问题，这里我大体总结下。&lt;/p&gt;
+      <description>&lt;p&gt;最近设计了一组代谢组学实验，因为用到动物所以需要学校动物保护委员会的许可，完成了一系列理论学习与实验室参观后，主管人员要求提供预实验结果与功效分析来确定动物数量。这个要求就诡异了，组学实验同时测上千个指标，这功效分析根本无从谈起。但因为是必填项，硬着头皮去查了下资料，如果是代谢组学数据，确实基本没人提功效分析，有也是针对特定测量值。然而，蛋白质组学跟基因组学都曾经讨论过这个问题，这里我大体总结下。&lt;/p&gt;
 &lt;div class=&#34;section level2&#34;&gt;
 &lt;h2&gt;功效分析&lt;/h2&gt;
 &lt;p&gt;常规功效分析至少需要显著性水平、组内标准差、组间差异、功效及检验方式来确定样本数。其实说白了就是知道想看到一个显著差异所需要的最小样本数，如果不能达到这个数，那么你这个实验基本可以当成白干了。功效分析跟显著性分析关注点并不一样，前者关心看到的差异真不真，后者关心这个差异存不存在。一般而言，控制实验都能看到差异，所以关心这个差异靠不靠谱其实对实验设计很重要，而具体表现就是样本数。样本越大越容易看出细微差异，如果样本数固定，那么可以通过功效分析测定哪些差异靠谱。从上面我们可以总结出两点：&lt;/p&gt;
@@ -97,7 +97,7 @@ power.t.test.FDR(n = 6, sd = sd, FDR.level = 0.05,power = 0.8, pi0= 1)&lt;/code&
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number in *each* group&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(tr$dm&amp;gt;4651648)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(tr$dm&amp;gt; 6149021)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Get the sample numbers fitting the power and 50% differences true in this DoE
 power.t.test.FDR(delta = dm, sd = sd, FDR.level = 0.05,power = 0.8, pi0= 1)&lt;/code&gt;&lt;/pre&gt;

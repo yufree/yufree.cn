@@ -10,6 +10,219 @@
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>组学实验设计中的功效分析</title>
+      <link>/cn/2017/05/21/omics-power-analysis/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/05/21/omics-power-analysis/</guid>
+      <description>&lt;p&gt;最近设计了一组代谢组学实验，因为用到动物所以需要学校动物保护委员会的许可，完成了一系列理论与实验室参观后，主管人员要求提供预实验结果与功效分析来确定动物数量。这个要求就诡异了，组学实验同时测上千个指标，这功效分析根本无从谈起。但因为是必填项，硬着头皮去查了下资料，如果是代谢组学数据，确实基本没人提功效分析，有也是针对特定测量值。然而，蛋白质组学跟基因组学都曾经讨论过这个问题，这里我大体总结下。&lt;/p&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;功效分析&lt;/h2&gt;
+&lt;p&gt;常规功效分析至少需要显著性水平、组内标准差、组间差异、功效及检验方式来确定样本数。其实说白了就是知道想看到一个显著差异所需要的最小样本数，如果不能达到这个数，那么你这个实验基本可以当成白干了。功效分析跟显著性分析关注点并不一样，前者关心看到的差异真不真，后者关心这个差异存不存在。一般而言，控制实验都能看到差异，所以关心这个差异靠不靠谱其实对实验设计很重要，而具体表现就是样本数。样本越大越容易看出细微差异，如果样本数固定，那么可以通过功效分析测定哪些差异靠谱。从上面我们可以总结出两点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;功效分析需要显著性水平的设定&lt;/li&gt;
+&lt;li&gt;功效分析是知道多个求一个，这个数可以是样本数，也可以是差异本身&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;组学实验&lt;/h2&gt;
+&lt;p&gt;组学实验最大问题就是同时测定两组样本的多维属性，这里面显著性水平要考虑整体错误发现率。同时，功效分析对于单一变量考察是没什么问题的，但如果你同时测量多个变量，那么这个样本数对不同变量应该是不一样的。你需要对结果进行筛选，而这个筛选反过来影响样本数。此外，组学实验中存在大量白噪音，不考虑这个问题的功效分析也是有问题的。我们通过下面的例子来说明。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;示例&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(BiocParallel)
+library(xcms)
+## Load 6 of the CDF files from the faahKO
+cdf_files &amp;lt;- dir(system.file(&amp;quot;cdf&amp;quot;, package = &amp;quot;faahKO&amp;quot;), recursive = TRUE,
+         full.names = TRUE)
+
+## Define the sample grouping.
+s_groups &amp;lt;- rep(&amp;quot;KO&amp;quot;, length(cdf_files))
+s_groups[grep(cdf_files, pattern = &amp;quot;WT&amp;quot;)] &amp;lt;- &amp;quot;WT&amp;quot;
+## Define a data.frame that will be used as phenodata
+pheno &amp;lt;- data.frame(sample_name = sub(basename(cdf_files), pattern = &amp;quot;.CDF&amp;quot;,
+                      replacement = &amp;quot;&amp;quot;, fixed = TRUE),
+            sample_group = s_groups, stringsAsFactors = FALSE)
+## Read the data.
+raw_data &amp;lt;- readMSData2(cdf_files, pdata = new(&amp;quot;NAnnotatedDataFrame&amp;quot;, pheno))
+## Find peaks 
+cwp &amp;lt;- CentWaveParam(snthresh = 20, noise = 1000)
+xod &amp;lt;- findChromPeaks(raw_data, param = cwp)
+## Doing the obiwarp alignment using the default settings.
+xod &amp;lt;- adjustRtime(xod, param = ObiwarpParam())
+## Define the PeakDensityParam
+pdp &amp;lt;- PeakDensityParam(sampleGroups = pData(xod)$sample_group,
+            maxFeatures = 300, minFraction = 0.3)
+## Group the peaks
+xod &amp;lt;- groupChromPeaks(xod, param = pdp)
+## Fill in peaks with default settings. Settings can be adjusted by passing
+## a FillChromPeaksParam object to the method.
+xod &amp;lt;- fillChromPeaks(xod)
+## Get the data matrix
+data &amp;lt;- featureValues(xod, value = &amp;quot;into&amp;quot;)
+## Get the complete cases
+data0 &amp;lt;- data[complete.cases(data),]
+dim(data0)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 243  12&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在上面的示例中，两组数据每组样本是6个，共提取出了243个峰的完整数据，那么，此时的功效分析首先要确定整体错误发现率。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(genefilter)
+## Get group infomation
+lv &amp;lt;- as.factor(pData(xod)[,2])
+## Get median difference and standard deviation in one group
+tr &amp;lt;- rowttests(data0,lv)
+## Estimates the proportion of true null p-values, for FDR
+ts &amp;lt;- mean(abs(tr$statistic),na.rm = T)
+library(qvalue)
+pi0 &amp;lt;- pi0est(tr$p.value)$pi0
+hist(tr$p.value,breaks = 20)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./cn/2017-05-21-omics-power-analysis_files/figure-html/FDR-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pi0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从上面我们可以看出这一组多重比较数据的p值分布符合均匀分布, 道理上说这组数据基本可以看作没有多少差异，但直方图却显示应该存在一些有显著差异的峰。那么我们基于当前数据可以进行一下功效分析，看看究竟差异多大可以认为是真的。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Get median difference and standard deviation in one group
+dm &amp;lt;- median(abs(tr$dm))
+sd &amp;lt;- median(rowSds(data0[,1:6]))
+## Get the difference
+library(ssize)
+## Get the differences number fitting the power in this DoE
+power.t.test.FDR(n = 6, sd = sd, FDR.level = 0.05,power = 0.8, pi0= 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##      Two-sample t test power calculation 
+## 
+##               n = 6
+##           delta = 6149021
+##              sd = 366486.2
+##       FDR.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(tr$dm&amp;gt;4651648)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Get the sample numbers fitting the power and 50% differences true in this DoE
+power.t.test.FDR(delta = dm, sd = sd, FDR.level = 0.05,power = 0.8, pi0= 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##      Two-sample t test power calculation 
+## 
+##               n = 9675.235
+##           delta = 136197.7
+##              sd = 366486.2
+##       FDR.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样我们大体可以认为，在当前实验设计下，只有1个峰的显著差异是靠谱的。同理，也可以计算出如果想看到50%的差异为真，我们每组需要9675个样本。&lt;/p&gt;
+&lt;p&gt;同时，如果不考虑错误发现率的结果则是：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;power.t.test(n = 6, sd = sd, sig.level = 0.05,power = 0.8)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##      Two-sample t test power calculation 
+## 
+##               n = 6
+##           delta = 658041.6
+##              sd = 366486.2
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(tr$dm&amp;gt;497799.2,na.rm = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 27&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;power.t.test(delta = dm, sd = sd, sig.level = 0.05,power = 0.8)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##      Two-sample t test power calculation 
+## 
+##               n = 114.6297
+##           delta = 136197.7
+##              sd = 366486.2
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当前实验可以发现27个差异是靠谱的，或者需要每组115个样品才能表示出一半的差异是真的。&lt;/p&gt;
+&lt;p&gt;产生上述问题的本质在于高通量数据的错误发现率控制降低了发现差异的p值，所以更少的差异是真的。同时如果严格控制错误发现率，那么所需要的样本数会非常多。此外，这个结果提示我们如果样本数不多，那么你其实只能对那些差异很大的峰给予信心。&lt;/p&gt;
+&lt;p&gt;但上面的计算有一个最大的问题，就是组内标准差其实差异很大，此时应考虑局部错误发现率:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;power &amp;lt;- 0.8
+# get local FDR
+lfdr &amp;lt;- qvalue::lfdr(tr$p.value)
+# get alpha
+alpha &amp;lt;- power*lfdr/(1 + (1 - lfdr)*pi0)
+df &amp;lt;- cbind.data.frame(tr$dm,rowSds(data0[,1:6]),alpha)
+# care the peaks with differences
+df &amp;lt;- df[df$alpha&amp;lt;0.05,]
+rs &amp;lt;- vector()
+for (i in c(1:nrow(df))){
+        r &amp;lt;- power.t.test(delta = abs(df[,1][i]), sd = df[,2][i], sig.level = df[,3][i],power = power)
+        rs[i] &amp;lt;- r$n
+}
+sum(rs&amp;lt;6)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样，我们发现会有9个差异是真正显著的，这比使用全局FDR控制得到的多，但也少于不进行控制的功效分析。&lt;/p&gt;
+&lt;p&gt;功效分析不一定会得到跟FDR控制更少的峰，而且FDR控制的算法设计里实际也考虑了类似的过程，但是从全局分析的功效分析对于实验设计非常有用。当你进行了一组预实验，功效分析可以告诉你结论中多少峰是靠谱的，如果一个都没有，那么就增加样本量吧。如果你的研究目的是至少发现一个峰是靠谱的，也就是生物标记物研究，那么此时功效分析所需的样本数最好再多一个，否则结论可能无意义。&lt;/p&gt;
+&lt;p&gt;下面就把上述过程整合成一个函数，输入提取好的MSnExp对象与功效值、p值与q值的阈值就可以返回一个满足条件的峰列表，这个函数只对两组数据对比有用，也仅适合 xcms 3 的新对象类型，不过稍微修改就可以推广到其他检验方式了。这个峰列表是进一步研究的基础，如果不严格考察，后面的分析大概率得到错误结论。在检验模型的选择上，如果你的数据存在技术重复或需要线性混合模型求解，这里面的功效分析会比较不同，需要你自己设计算法求解，这里不展开说了，大概是个生统硕士论文的工作量。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(genefilter)
+library(qvalue)
+getrealpeaks &amp;lt;- function(xod, power = 0.8, pt = 0.05, qt = 0.05, n = 6){
+        data &amp;lt;- featureValues(xod, value = &amp;quot;into&amp;quot;)
+        idx &amp;lt;- complete.cases(data)
+        data1 &amp;lt;- featureDefinitions(xod)
+        mz &amp;lt;- data1$mzmed[idx]
+        rt &amp;lt;- data1$rtmed[idx]
+        lv &amp;lt;- as.factor(pData(xod)[,2])
+        data0 &amp;lt;- data[idx,]
+        tr &amp;lt;- rowttests(data0,lv)
+        qvalue &amp;lt;- qvalue(tr$p.value)
+        pi0 &amp;lt;- qvalue$pi0
+        lfdr &amp;lt;- qvalue$lfdr
+        alpha &amp;lt;- power*lfdr/(1 + (1 - lfdr)*pi0)
+        df &amp;lt;- cbind.data.frame(diff = tr$dm,sd = rowSds(data0[,1:n]),alpha,qvalue = qvalue$qvalues,mz,rt,data0)
+        df &amp;lt;- df[df$alpha &amp;lt; pt,]
+        rs &amp;lt;- vector()
+        for (i in c(1:nrow(df))){
+                r &amp;lt;- power.t.test(delta = abs(df[,1][i]), sd = df[,2][i], sig.level = df[,3][i],power = power)
+                rs[i] &amp;lt;- r$n
+        }
+        df &amp;lt;- cbind(n = rs,df)
+        df &amp;lt;- df[df$n &amp;lt; n &amp;amp; df$qvalue&amp;lt;qt,]
+        return(df)
+}
+getrealpeaks(xod = xod)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##              n      diff        sd        alpha       qvalue    mz
+## FT097 4.855139 4222313.9  517270.4 6.852830e-06 6.616844e-06 300.2
+## FT099 5.402033  859327.3  138921.4 1.511628e-05 8.421971e-06 301.2
+## FT145 5.606813 3854274.6  857833.0 1.387318e-04 5.611878e-05 326.2
+## FT151 5.720406 4196270.9 1625958.0 7.419553e-03 3.568896e-03 328.2
+## FT153 5.709668  962963.5  393795.7 1.057723e-02 4.779705e-03 329.2
+## FT198 5.559601  769115.1  229339.9 1.430701e-03 6.384113e-04 354.2
+## FT202 5.425675 1200041.5  552410.2 2.630894e-02 1.353587e-02 356.2
+## FT204 5.487860  302032.3  142406.5 2.866946e-02 1.353587e-02 357.2
+## FT294 5.385658  588872.8  188262.9 2.887644e-03 1.283045e-03 410.3
+##             rt  ko15.CDF  ko16.CDF  ko18.CDF  ko19.CDF  ko21.CDF  ko22.CDF
+## FT097 3396.521 4700903.2 5313736.1 5169558.2 4440101.2 5226126.2 4014433.0
+## FT099 3394.024  941818.5 1012957.7 1008082.9  864392.2 1068664.4  685367.1
+## FT145 3425.330 5228030.4 4387790.8 3237781.3 3180077.5 3660161.7 4836066.3
+## FT151 3652.989 6910890.1 6237355.7 4818139.2 3414477.1 3687310.0 2887521.0
+## FT153 3645.188 1641637.9 1414275.6 1082999.8  765245.2  840180.8  640554.0
+## FT198 3637.866 1186626.4  990292.1  888447.5  572387.7  628576.2  798903.3
+## FT202 3845.558 1273983.8 2437987.3 1660572.6 1036657.4 1359872.1  906430.0
+## FT204 3840.979  327421.6  608556.9  429684.4  265373.7  259054.8  238679.3
+## FT294 3938.468  817164.9  939245.0  686185.7  379921.9  728328.8  647026.1
+##         wt15.CDF  wt16.CDF  wt18.CDF  wt19.CDF  wt21.CDF   wt22.CDF
+## FT097 354117.291 451118.77 387118.56 779301.86 190178.80 1369138.98
+## FT099  51810.028  10168.10  29754.35 119707.96  50560.45  163318.15
+## FT145 274492.128 345255.12  65652.21 230344.24 264158.58  224358.28
+## FT151 429141.812 638381.69 450805.18 465956.31 482660.70  311122.12
+## FT153 135291.856  67581.11 124881.14  98692.07 124361.14   56305.24
+## FT198 123597.943  49761.09  51277.22 121467.11  67091.99   37347.08
+## FT202  58602.238 520451.52 257324.53 206015.07 169351.52  263509.09
+## FT204   9169.335 108408.96  45375.44  53541.48  28053.18   72028.61
+## FT294 121764.943 207587.80 133772.97 103481.70  71090.24   26937.83&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>差异、相似与模式</title>
       <link>/cn/2017/05/17/pattern/</link>
       <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
@@ -651,110 +864,6 @@ cd /opt/glassfish/bin
 &lt;p&gt;知识经济的伪就伪在这本质上还是一种营销，引导你的愿望并告诉你这玩意有用有意思，通过你的消费来告诉你你的选择是对的并不断加强，然后等你发觉这是虚幻时它又去忽悠下一批了。有用也好、有意思也罢，都应该你自己说了算，而不是大v跟人工智能算法说了算。好比被收了美人税的爱子感到的身份认同，现实中不知道有多少人沉浸其中，殊不知美丑规则都是可以被摆布的。&lt;/p&gt;
 
 &lt;p&gt;我不是在写科幻。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>二十年博士延期之怪现状</title>
-      <link>/cn/2017/02/19/phd-extend/</link>
-      <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2017/02/19/phd-extend/</guid>
-      <description>
-
-&lt;p&gt;坊间有句话叫做“没有延期毕业的硕士，没有按期毕业的博士”，最近放长周末假，就抓了点数据探索了一下这个问题。（来自教育部网站公开数据&lt;a href=&#34;http://www.moe.edu.cn/s78/A03/moe_560/jytjsj_2015/）&#34;&gt;http://www.moe.edu.cn/s78/A03/moe_560/jytjsj_2015/）&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;研究生教育现状&#34;&gt;研究生教育现状&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/admitted.png&#34; alt=&#34;&#34; /&gt;
-这是最近20年研究生招生情况，可以看出硕士的扩招力度是远高于博士的，但两者都在扩，20年前一共6万多，现在仅博士每年录取就有7万多，硕士则扩张了10倍有余。
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/graduates.png&#34; alt=&#34;&#34; /&gt;
-这个则是研究生毕业状况，伴随扩招，每年招生人数与毕业人数有相当的差距，但比较吊诡的是博士招生在增长而毕业人数却趋稳了，这基本暗示延期的常态化。
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/enrolment.png&#34; alt=&#34;&#34; /&gt;
-通过在读人数我们也会发现，研究生这个临时身份群体在不断扩大，除了扩招影响，另一个自然就是前面提到的延期问题。&lt;/p&gt;
-
-&lt;h2 id=&#34;延期现状&#34;&gt;延期现状&lt;/h2&gt;
-
-&lt;p&gt;自从2003年起，教育部增加了下年预期毕业人数的数据，这样根据真实毕业人数，我们可以计算出当年延期的状况：
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/extend.png&#34; alt=&#34;&#34; /&gt;
-图上我们可以看出，基本上博士延期概率超过50%，硕士延期概率是个位数，也就是说“没有延期毕业的硕士，没有按期毕业的博士”这句话没毛病，而且延期超过50%的时间已经超过10年了。同时另一个现象也值得关注，那就是女性研究生的延期概率是普遍低于平均水平的，那么对应的男性研究生延期概率会更加惨不忍睹。&lt;/p&gt;
-
-&lt;h2 id=&#34;延期会延多少年&#34;&gt;延期会延多少年？&lt;/h2&gt;
-
-&lt;p&gt;上个问题我们可以看到延期情况是客观存在的，那么延多久就是另一个问题了。如果我们用在校生去除当年毕业生，会得到下面的恐怖结果：
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/meangrad.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;也就是说，博士需要6年多毕业而硕士也需要3年多毕业，硕士那个考虑到延期概率不高还可以接受，博士那个就有点反人类了，而且从近几年情况看这个毕业年限还在增加。其实答案很简单，就是扩招导致的人口在高校或研究机构的滞留，那么如何去除这个影响呢？考虑到博士硕士其实应该是2-4年内毕业，我们只要用当年录取的人数去对比2-4年后毕业的人数就可以了。结果如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/year2.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/year3.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/year4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;考虑到博士毕业率应该低于硕士且硕士毕业率不应该超过100%，应该是3年毕业的数据比较可信，但同时我们会注意到3年毕业率要远高于延期概率，这又是怎么回事？&lt;/p&gt;
-
-&lt;p&gt;这里就没数据支持了，但我想大多数研究生都听过硕博连读这个概念，其实如果三年毕业为真，那么硕博加起来应该是6年，而硕博连读应该是5年，如果博士延期是常态化的，那么我想这里面很大一部分比例是硕博连读。估计再过几年，考博的比率可能会更低而硕博6年将成为默认的学习年限。有打算硕士毕业出国读博的可以考虑下了，年限上其实吃亏不多而且国外会有老板没钱了逼着早点毕业的情况。&lt;/p&gt;
-
-&lt;h2 id=&#34;国内教职状况&#34;&gt;国内教职状况&lt;/h2&gt;
-
-&lt;p&gt;刚才说了研究生毕业的供给端，下面看看需求端也就是教职的变化。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionall.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;国内教职因为99年开始的扩招导致在21世纪的第一个5年大量的扩展教职，这样的后果就是有一个5年的教职年龄高峰，这个高峰占据了大量的教职。从图上看，目前这个高峰年龄段在51-55岁，都算是当打之年，如果退休年龄没有明显推迟的话，那么在10-15年后应该可以看到一个因为退休高峰导致的教职空缺期。那么10到15年后谁博士毕业呢？大概是现在读中学的孩子，反正我老人家是赶不上了。其实考虑硕博6年加本科4年，每个高校都有义务在学生刚接触高等教育或研究时给他们领先当前技术10年的教材与方法，否则学生10年前选了小灵通网络优化专业，博士毕业基本就只有转行了。&lt;/p&gt;
-
-&lt;p&gt;那么女性教职呢？&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionallf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我只能说似乎女性教职前期扩张的要更厉害，平均年龄也更低，大概要20年左右才能迎来退休高峰的教职空缺，如果校方固定当前男女比，那么其实对有更低概率延期的女性并没有什么优势。此外，我们来看下教职中教授的年龄分布状况：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionprof.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;可以看出教授平均年龄会大一点，当前教授主流是51-55岁，反推下基本是刚改革开放后上的大学，经历应该挺丰富的。我们再看下副教授的情况：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionprofa.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;可以看出副教授整体要比教授年轻10岁，大概90年前后上大学，46-50岁这个年龄段人数基本稳定，说明升教授基本就是前一个年龄段，从年龄分布上看35-45岁人多，不同代际间竞争会激烈些。&lt;/p&gt;
-
-&lt;h2 id=&#34;年教职数变化趋势&#34;&gt;年教职数变化趋势&lt;/h2&gt;
-
-&lt;p&gt;前面着重强调年龄分布可能带来的教职空缺，另一种空缺就是所谓扩张期或窗口期，我们看下这个趋势，当然这个数没考虑退休，但从年龄分布上看这一部分的人数似乎比较稳定。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positiontrend.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;从教职数上我们可以看到，每年的教职数一直在提高，而是似乎斜率比较稳定。但是女性的教职数增长的回归斜率只有总数的1/3，也就是说每增长3个教职才会有一个是女性的，这说明教职市场存在一定的歧视。但这个问题不好直接下结论，因为辛普森悖论也是同样的语境。同时，教授与副教授教职增长的斜率低于总体，暗示了教职里存在的层级结构。&lt;/p&gt;
-
-&lt;p&gt;总之，目前还算是一个稳定的窗口期，教职数不断增长，属于利好；但成长空间不算大，别忘了博士毕业生可是年年增长，所以以后熬年限是肯定不行的，31-35岁的副教授人数逐年下降，不是升迁（概率低）就是收紧了要求转而直接从海外引进人才，诸君努力吧。&lt;/p&gt;
-
-&lt;h2 id=&#34;教职与博士毕业生供求&#34;&gt;教职与博士毕业生供求&lt;/h2&gt;
-
-&lt;p&gt;首先，我们都知道研究生学历在贬值，那么究竟贬到什么状况了呢？我计算了同年毕业的博士与硕士人数比例，结果如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/phdvalue.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;很明显，硕士的贬值效果更强，博士相比之下反而在升值，女博士升值更高。当然，大前提是五十步笑百步，你懂的。基本的情况就是1个博士大概对应10个硕士，显然硕士作为一个学位扩的有点太猛了。后面的分析就不考虑硕士找教职了，基本没戏。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionphd.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;通过这个图（我赌一瓶胡椒博士教育部2000年的数据绝对有问题）我们可以看到新增教职数这些年基本稳定在2万这个水平，博士毕业生大概超过5万，也就是说教职市场在今后可预期的时间里撑死也就能解决一半博士的就业，另外有一半肯定会转行。考虑到博士学位对硕士学位是升值的，估计非教职市场上应该挺容易就业的，当然看你干不干了。&lt;/p&gt;
-
-&lt;p&gt;我们进一步看一下女性教职，如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionphdf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;很遗憾新教职里女性比例是低于人口比例的，但这二十年却一直在增长，同样在增长的则是博士毕业生中女性的比例，伴随这个趋势，教职里对女性的歧视似乎是要好于社会其他行业的。&lt;/p&gt;
-
-&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;没有延期毕业的硕士，没有按期毕业的博士&lt;/li&gt;
-&lt;li&gt;从上大学到博士毕业大概要准备10年人生最好的时光&lt;/li&gt;
-&lt;li&gt;然后就进入了发展空间可预期的教职市场（掌握通过年龄分布推测的技巧）&lt;/li&gt;
-&lt;li&gt;或者转行到业界，学历贬值速度低于硕士&lt;/li&gt;
-&lt;li&gt;女性在博士延期可能性上低于男性，但在教职市场上存在歧视&lt;/li&gt;
-&lt;li&gt;没有分专业讨论，我大体看了下数据，理工科延期概率显著高于其他专业，约70%-80%的延期率，医学最低（但他们本来年限就长）&lt;/li&gt;
-&lt;li&gt;教育部应该给api的，网页数据格式乱七八糟，洗数据洗的我上火&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

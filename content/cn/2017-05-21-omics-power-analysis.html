@@ -136,27 +136,25 @@ power.t.test.FDR(delta = dm, sd = sd, FDR.level = 0.05,power = 0.8, pi0= 1)</cod
 ## NOTE: n is number in *each* group</code></pre>
 <p>当前实验可以发现27个差异是靠谱的，或者需要每组115个样品才能表示出一半的差异是真的。</p>
 <p>产生上述问题的本质在于高通量数据的错误发现率控制降低了发现差异的p值，所以更少的差异是真的。同时如果严格控制错误发现率，那么所需要的样本数会非常多。此外，这个结果提示我们如果样本数不多，那么你其实只能对那些差异很大的峰给予信心。</p>
-<p>但上面的计算有一个最大的问题，就是组内标准差其实差异很大，此时应考虑局部错误发现率:</p>
+<p>但上面的计算有一个最大的问题，就是组内标准差其实差异很大，此时应考虑每个样本的情况:</p>
 <pre class="r"><code>power &lt;- 0.8
-# get local FDR
-lfdr &lt;- qvalue::lfdr(tr$p.value)
-# get alpha
-alpha &lt;- power*lfdr/(1 + (1 - lfdr)*pi0)
-df &lt;- cbind.data.frame(tr$dm,rowSds(data0[,1:6]),alpha)
-# care the peaks with differences
-df &lt;- df[df$alpha&lt;0.05,]
+alpha &lt;- 0.05
+pv &lt;- tr$p.value
+df &lt;- cbind.data.frame(tr$dm,rowSds(data0[,1:6]),alpha,pv)
+df &lt;- df[df$pv&lt;0.05,]
 rs &lt;- vector()
 for (i in c(1:nrow(df))){
-        r &lt;- power.t.test(delta = abs(df[,1][i]), sd = df[,2][i], sig.level = df[,3][i],power = power)
+        r &lt;- power.t.test.FDR(delta = abs(df[,1][i]), sd = df[,2][i], FDR.level = 0.05,power = power, pi0 = 1)
         rs[i] &lt;- r$n
 }
 sum(rs&lt;6)</code></pre>
-<pre><code>## [1] 9</code></pre>
-<p>这样，我们发现会有9个差异是真正显著的，这比使用全局FDR控制得到的多，但也少于不进行控制的功效分析。</p>
+<pre><code>## [1] 0</code></pre>
+<p>这样，我们发现会有0个差异是真正显著的，这比使用平均样本控制得到的少，说明单个去看其实更难找到真正有差异的峰。</p>
 <p>功效分析不一定会得到跟FDR控制更少的峰，而且FDR控制的算法设计里实际也考虑了类似的过程，但是从全局分析的功效分析对于实验设计非常有用。当你进行了一组预实验，功效分析可以告诉你结论中多少峰是靠谱的，如果一个都没有，那么就增加样本量吧。如果你的研究目的是至少发现一个峰是靠谱的，也就是生物标记物研究，那么此时功效分析所需的样本数最好再多一个，否则结论可能无意义。</p>
 <p>下面就把上述过程整合成一个函数，输入提取好的MSnExp对象与功效值、p值与q值的阈值就可以返回一个满足条件的峰列表，这个函数只对两组数据对比有用，也仅适合 xcms 3 的新对象类型，不过稍微修改就可以推广到其他检验方式了。这个峰列表是进一步研究的基础，如果不严格考察，后面的分析大概率得到错误结论。在检验模型的选择上，如果你的数据存在技术重复或需要线性混合模型求解，这里面的功效分析会比较不同，需要你自己设计算法求解，这里不展开说了，大概是个生统硕士论文的工作量。</p>
 <pre class="r"><code>library(genefilter)
 library(qvalue)
+library(ssize)
 getrealpeaks &lt;- function(xod, power = 0.8, pt = 0.05, qt = 0.05, n = 6){
         data &lt;- featureValues(xod, value = &quot;into&quot;)
         idx &lt;- complete.cases(data)
@@ -168,13 +166,12 @@ getrealpeaks &lt;- function(xod, power = 0.8, pt = 0.05, qt = 0.05, n = 6){
         tr &lt;- rowttests(data0,lv)
         qvalue &lt;- qvalue(tr$p.value)
         pi0 &lt;- qvalue$pi0
-        lfdr &lt;- qvalue$lfdr
-        alpha &lt;- power*lfdr/(1 + (1 - lfdr)*pi0)
-        df &lt;- cbind.data.frame(diff = tr$dm,sd = rowSds(data0[,1:n]),alpha,qvalue = qvalue$qvalues,mz,rt,data0)
-        df &lt;- df[df$alpha &lt; pt,]
+        alpha &lt;- pt
+        df &lt;- cbind.data.frame(diff = tr$dm,sd = rowSds(data0[,1:n]),p = tr$p.value,qvalue = qvalue$qvalues,mz,rt,data0)
+        df &lt;- df[df$p &lt; pt,]
         rs &lt;- vector()
         for (i in c(1:nrow(df))){
-                r &lt;- power.t.test(delta = abs(df[,1][i]), sd = df[,2][i], sig.level = df[,3][i],power = power)
+                r &lt;- power.t.test.FDR(delta = abs(df[,1][i]), sd = df[,2][i], FDR.level = qt,power = power, pi0 = pi0)
                 rs[i] &lt;- r$n
         }
         df &lt;- cbind(n = rs,df)
@@ -182,34 +179,8 @@ getrealpeaks &lt;- function(xod, power = 0.8, pt = 0.05, qt = 0.05, n = 6){
         return(df)
 }
 getrealpeaks(xod = xod)</code></pre>
-<pre><code>##              n      diff        sd        alpha       qvalue    mz
-## FT097 4.855139 4222313.9  517270.4 6.852830e-06 6.616844e-06 300.2
-## FT099 5.402033  859327.3  138921.4 1.511628e-05 8.421971e-06 301.2
-## FT145 5.606813 3854274.6  857833.0 1.387318e-04 5.611878e-05 326.2
-## FT151 5.720406 4196270.9 1625958.0 7.419553e-03 3.568896e-03 328.2
-## FT153 5.709668  962963.5  393795.7 1.057723e-02 4.779705e-03 329.2
-## FT198 5.559601  769115.1  229339.9 1.430701e-03 6.384113e-04 354.2
-## FT202 5.425675 1200041.5  552410.2 2.630894e-02 1.353587e-02 356.2
-## FT204 5.487860  302032.3  142406.5 2.866946e-02 1.353587e-02 357.2
-## FT294 5.385658  588872.8  188262.9 2.887644e-03 1.283045e-03 410.3
-##             rt  ko15.CDF  ko16.CDF  ko18.CDF  ko19.CDF  ko21.CDF  ko22.CDF
-## FT097 3396.521 4700903.2 5313736.1 5169558.2 4440101.2 5226126.2 4014433.0
-## FT099 3394.024  941818.5 1012957.7 1008082.9  864392.2 1068664.4  685367.1
-## FT145 3425.330 5228030.4 4387790.8 3237781.3 3180077.5 3660161.7 4836066.3
-## FT151 3652.989 6910890.1 6237355.7 4818139.2 3414477.1 3687310.0 2887521.0
-## FT153 3645.188 1641637.9 1414275.6 1082999.8  765245.2  840180.8  640554.0
-## FT198 3637.866 1186626.4  990292.1  888447.5  572387.7  628576.2  798903.3
-## FT202 3845.558 1273983.8 2437987.3 1660572.6 1036657.4 1359872.1  906430.0
-## FT204 3840.979  327421.6  608556.9  429684.4  265373.7  259054.8  238679.3
-## FT294 3938.468  817164.9  939245.0  686185.7  379921.9  728328.8  647026.1
-##         wt15.CDF  wt16.CDF  wt18.CDF  wt19.CDF  wt21.CDF   wt22.CDF
-## FT097 354117.291 451118.77 387118.56 779301.86 190178.80 1369138.98
-## FT099  51810.028  10168.10  29754.35 119707.96  50560.45  163318.15
-## FT145 274492.128 345255.12  65652.21 230344.24 264158.58  224358.28
-## FT151 429141.812 638381.69 450805.18 465956.31 482660.70  311122.12
-## FT153 135291.856  67581.11 124881.14  98692.07 124361.14   56305.24
-## FT198 123597.943  49761.09  51277.22 121467.11  67091.99   37347.08
-## FT202  58602.238 520451.52 257324.53 206015.07 169351.52  263509.09
-## FT204   9169.335 108408.96  45375.44  53541.48  28053.18   72028.61
-## FT294 121764.943 207587.80 133772.97 103481.70  71090.24   26937.83</code></pre>
+<pre><code>##  [1] n        diff     sd       p        qvalue   mz       rt      
+##  [8] ko15.CDF ko16.CDF ko18.CDF ko19.CDF ko21.CDF ko22.CDF wt15.CDF
+## [15] wt16.CDF wt18.CDF wt19.CDF wt21.CDF wt22.CDF
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 </div>

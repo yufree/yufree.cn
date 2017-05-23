@@ -104,26 +104,23 @@ power.t.test(delta = dm, sd = sd, sig.level = 0.05,power = 0.8)
 
 产生上述问题的本质在于高通量数据的错误发现率控制降低了发现差异的p值，所以更少的差异是真的。同时如果严格控制错误发现率，那么所需要的样本数会非常多。此外，这个结果提示我们如果样本数不多，那么你其实只能对那些差异很大的峰给予信心。
 
-但上面的计算有一个最大的问题，就是组内标准差其实差异很大，此时应考虑局部错误发现率:
+但上面的计算有一个最大的问题，就是组内标准差其实差异很大，此时应考虑每个样本的情况:
 
 ```{r lfdr,message=FALSE,warning=FALSE,cache=T}
 power <- 0.8
-# get local FDR
-lfdr <- qvalue::lfdr(tr$p.value)
-# get alpha
-alpha <- power*lfdr/(1 + (1 - lfdr)*pi0)
-df <- cbind.data.frame(tr$dm,rowSds(data0[,1:6]),alpha)
-# care the peaks with differences
-df <- df[df$alpha<0.05,]
+alpha <- 0.05
+pv <- tr$p.value
+df <- cbind.data.frame(tr$dm,rowSds(data0[,1:6]),alpha,pv)
+df <- df[df$pv<0.05,]
 rs <- vector()
 for (i in c(1:nrow(df))){
-        r <- power.t.test(delta = abs(df[,1][i]), sd = df[,2][i], sig.level = df[,3][i],power = power)
+        r <- power.t.test.FDR(delta = abs(df[,1][i]), sd = df[,2][i], FDR.level = 0.05,power = power, pi0 = 1)
         rs[i] <- r$n
 }
 sum(rs<6)
 ```
 
-这样，我们发现会有9个差异是真正显著的，这比使用全局FDR控制得到的多，但也少于不进行控制的功效分析。
+这样，我们发现会有0个差异是真正显著的，这比使用平均样本控制得到的少，说明单个去看其实更难找到真正有差异的峰。
 
 功效分析不一定会得到跟FDR控制更少的峰，而且FDR控制的算法设计里实际也考虑了类似的过程，但是从全局分析的功效分析对于实验设计非常有用。当你进行了一组预实验，功效分析可以告诉你结论中多少峰是靠谱的，如果一个都没有，那么就增加样本量吧。如果你的研究目的是至少发现一个峰是靠谱的，也就是生物标记物研究，那么此时功效分析所需的样本数最好再多一个，否则结论可能无意义。
 
@@ -132,6 +129,7 @@ sum(rs<6)
 ```{r fun,message=FALSE,warning=FALSE,cache=T}
 library(genefilter)
 library(qvalue)
+library(ssize)
 getrealpeaks <- function(xod, power = 0.8, pt = 0.05, qt = 0.05, n = 6){
         data <- featureValues(xod, value = "into")
         idx <- complete.cases(data)
@@ -143,13 +141,12 @@ getrealpeaks <- function(xod, power = 0.8, pt = 0.05, qt = 0.05, n = 6){
         tr <- rowttests(data0,lv)
         qvalue <- qvalue(tr$p.value)
         pi0 <- qvalue$pi0
-        lfdr <- qvalue$lfdr
-        alpha <- power*lfdr/(1 + (1 - lfdr)*pi0)
-        df <- cbind.data.frame(diff = tr$dm,sd = rowSds(data0[,1:n]),alpha,qvalue = qvalue$qvalues,mz,rt,data0)
-        df <- df[df$alpha < pt,]
+        alpha <- pt
+        df <- cbind.data.frame(diff = tr$dm,sd = rowSds(data0[,1:n]),p = tr$p.value,qvalue = qvalue$qvalues,mz,rt,data0)
+        df <- df[df$p < pt,]
         rs <- vector()
         for (i in c(1:nrow(df))){
-                r <- power.t.test(delta = abs(df[,1][i]), sd = df[,2][i], sig.level = df[,3][i],power = power)
+                r <- power.t.test.FDR(delta = abs(df[,1][i]), sd = df[,2][i], FDR.level = qt,power = power, pi0 = pi0)
                 rs[i] <- r$n
         }
         df <- cbind(n = rs,df)

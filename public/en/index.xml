@@ -16,9 +16,9 @@
       
       <guid>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</guid>
       <description>&lt;p&gt;Recently I reviewed some platforms for metabolomics or lipidomics and tried to find out which one is currently available to my demands. I knew some instrumental company supplied software or solutions for metabolomics and lipidomics. I just disliked them since they concealed too many details about data processing which made omics studies as a magic box like Artificial Neural Network. It gains nothing for scientist to get insights from the data and you might only follow the workflow defined by the company. I read some papers using those kind of software and felt the authors know little about what they performed. Data analysis for metabolomics or lipidomics is a systems engineering. If someone really want to use this tools, just choose a open source platform and inspect the code when you needed. Otherwise, your work could be replaced by AI someday. It’s not a joke. Here is a summary for the selection of mass spectrum based metabolomics or lipidomics software platform.&lt;/p&gt;
-&lt;div id=&#34;principle-for-selection&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Principle for selection&lt;/h2&gt;
-&lt;p&gt;A decent solution should have functions covering the following required functions:&lt;/p&gt;
+&lt;div id=&#34;principles-for-selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Principles for selection&lt;/h2&gt;
+&lt;p&gt;A decent solution should have functions covering the following required functions or features:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Open source: as I said before, researcher could benefit a lot from open source community. Based on your experiences, Java, matlab, python and R would be your choices. I liked R most while python might dominate everything in the further.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Data input/output: this work could be done by msconvert from &lt;a href=&#34;http://proteowizard.sourceforge.net/tools.shtml&#34;&gt;proteowizard&lt;/a&gt;. I preferred to install msconvert directly on the instruments and convert the vendor files into mzML or mzXML files to perform further analysis. I just dislike Windows. On the other hand, some software from the instruments could output CDF files, which is also nice.&lt;/p&gt;&lt;/li&gt;

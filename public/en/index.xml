@@ -10,6 +10,72 @@
     <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Selection of open source software platform for metabolomics or lipidomics</title>
+      <link>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</link>
+      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</guid>
+      <description>&lt;p&gt;Recently I reviewed some platform for metabolomics or lipidomics and tried to find out which one is currently available to my demands. I knew some instrumental company supplied software or solutions for metabolomics and lipidomics. I just disliked them since they concealed too many details about data processing which made omics studies as a magic box like Artificial Neural Network. It gains nothing for scientist to get insights from the data and you might only follow the workflow defined by the company. I read some papers using those kind of software and felt the authors know little about what they performed. Data analysis for metabolomics or lipidomics is a systems engineering. If someone really want to use this tools, just choose a open source platform and inspect the code when you needed. Otherwise, your work could be replaced by AI someday. It’s not a joke. Here is a summary for the selection of mass spectrum based metabolomics or lipidomics software platform.&lt;/p&gt;
+&lt;div id=&#34;principle-for-selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Principle for selection&lt;/h2&gt;
+&lt;p&gt;A decent solution should have functions covering the following required functions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Open source: as I said before, researcher could benefit a lot from open source community. Based on your experiences, Java, matlab, python and R would be your choices. I liked R most while python might dominate everything in the further.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data input/output: this work could be done by msconvert from &lt;a href=&#34;http://proteowizard.sourceforge.net/tools.shtml&#34;&gt;proteowizard&lt;/a&gt;. I preferred to install msconvert directly on the instruments and convert the vendor files into mzML or mzXML files to perform further analysis. I just dislike Windows. On the other hand, some software from the instruments could output CDF files, which is also nice.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Turn the Raw data into mass-retention time matrix: single data file from mass spectrum would always contain matadata and profile data. The former container has records for that data and the latter were always full scans of mass spectrum indexed by retention time. Then you need to map such data into a matrix because the following peaks picking and alignments always based on algorithms for matrix.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Peaks picking: you also need functions to pick up the peaks from mass-retention time matrix. Functions like centWave or isotope-based algorithms would help to find the peaks. Sometimes you need to bin the matrix first before peak picking and such requirements should be carefully checked. Anyway you could just use one function to perform peaks picking in most software. The output of this step would be a peak list with intensity, mass and retention time.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Retention time correction: when you process more than one data file such as technique replicates, the drift of retention time would make the final peak list contained replicated peaks. Someone use certain peaks to corrected the data, while I prefer some global similarity analysis based algorithm to undertake this task. However, some software might add one step to group the peaks before and/or after retention time correction. Anyway, the output of this step is the peak list from one group.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Batch effects correction: this is another issue from analysis procedure and batch effects would also bury signals from noise. Researchers from analytical chemistry always use random experiment design and pooled sample to check if the batch effects exist. However, I think the most important things were correction. Just treat a series of samples suffered batch effects and use some statistical analysis to correct them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Statistical analysis: when you get the peaks list, you could perform the following supervised or non-supervised analysis to find bio-markers or data pattern. I think &lt;a href=&#34;http://www.metaboanalyst.ca/&#34;&gt;Metaboanalyst&lt;/a&gt; could satisfy most researchers.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Annotation or identification: the peaks annotation is also important. &lt;a href=&#34;www.hmdb.ca&#34;&gt;HMDB&lt;/a&gt; and &lt;a href=&#34;http://www.lipidmaps.org/&#34;&gt;LIPID MAPS&lt;/a&gt; would be the basic version for mapping peaks to compounds. In most cases, MS/MS data would be used. I think most of MS/MS dataset could be separated handled by &lt;a href=&#34;https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp&#34;&gt;GNPS&lt;/a&gt; or &lt;a href=&#34;https://metlin.scripps.edu&#34;&gt;Metlin&lt;/a&gt; and predicted by &lt;a href=&#34;http://www.csi-fingerid.org/&#34;&gt;FingerID&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pathway analysis: sometimes we also need to know the relationship among compounds and pathway analysis is always performed for that purpose.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;platform&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Platform&lt;/h2&gt;
+&lt;div id=&#34;xcms-online&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;XCMS online&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://xcmsonline.scripps.edu/landing_page.php?pgcontent=mainPage&#34;&gt;XCMS online&lt;/a&gt; is hosted by Scripps Institute. If your datasets are not large, XCMS online would be the best option for you. Recently they updated the online version to support more functions for systems biology. They use metlin and iso metlin to annotate the MS/MS data. Pathway analysis is also supported. Besides, to accelerate the process, xcms online employed stream (windows only). You could use stream to connect your instrument workstation to their server and process the data along with the data acquisition automate. They also developed apps for xcms online, but I think apps for slack would be even cooler to control the data processing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prime&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PRIMe&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://prime.psc.riken.jp/Metabolomics_Software/&#34;&gt;PRIMe&lt;/a&gt; is from RIKEN and UC Davis. It supports mzML and major MS vendor formats. They defined own file format ABF and eco-system for omics studies. The software are updated almost everyday. You could use MS-DIAL for untargeted analysis and MRMOROBS for targeted analysis. For annotation, they developed MS-FINDER and they also developed statistic tools with excel. This platform could replaced the dear software from company and well prepared for MS/MS data analysis and lipidomics. They are open source, work on Windows and also could run within mathmamtics. However, they don’t cover pathway analysis. Another feature is they always show the most recently spectral records from public repositories. You could always get the updated MSP spectra files for your own data analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;openms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;OpenMS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.openms.de/&#34;&gt;OpenMS&lt;/a&gt; is another good platform for mass spectrum data analysis developed with C++. You could use them as plugin of &lt;a href=&#34;https://www.knime.org/&#34;&gt;KNIME&lt;/a&gt;. I suggest anyone who want to be a data scientist to get familiar with platform like KNIME because they supplied various API for different programme language, which is easy to use and show every steps for others. Also TOPPView in OpenMS could be the best software to visualize the MS data. You could always use the metabolomics workflow to train starter about details in data processing. pyOpenMS and OpenSWATH are also used in this platform. If you want to turn into industry, this platform fit you best because you might get a clear idea about solution and workflow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mzmine-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;MZmine 2&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://mzmine.github.io/&#34;&gt;MZmine 2&lt;/a&gt; has three version developed on Java platform and the lastest version is included into &lt;a href=&#34;https://msdk.github.io/&#34;&gt;MSDK&lt;/a&gt;. Similar function could be found from MZmine 2 as shown in XCMS online. However, MZmine 2 do not have pathway analysis. You could use metaboanalyst for that purpose. Actually, you could go into MSDK to find similar function supplied by &lt;a href=&#34;http://www.proteosuite.org&#34;&gt;ProteoSuite&lt;/a&gt; and &lt;a href=&#34;https://www.openchrom.net/&#34;&gt;Openchrom&lt;/a&gt;. If you are a experienced coder for Java, you should start here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;xcms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;XCMS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/xcms.html&#34;&gt;xcms&lt;/a&gt; is different from xcms online while they might share the same code. I used it almost every data to run local metabolomics data analysis. Recently, they will change their version to xcms 3 with major update for object class. Their data format would integrate into the MSnbase package and the parameters would be easy to set up for each step. Normally, I will use msconvert-IPO-xcms-xMSannotator-metaboanalyst as workflow to process the offline data. It could accelerate the process by parallel processing. However, if you are not familiar with R, you would better to choose some software above.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emory-mahpic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Emory MaHPIC&lt;/h3&gt;
+&lt;p&gt;This platform is composed by several R packages from Emory University including &lt;a href=&#34;https://sourceforge.net/projects/aplcms/&#34;&gt;apLCMS&lt;/a&gt; to collect the data, &lt;a href=&#34;https://sourceforge.net/projects/xmsanalyzer/&#34;&gt;xMSanalyzer&lt;/a&gt; to handle automated pipeline for large-scale, non-targeted metabolomics data, &lt;a href=&#34;https://sourceforge.net/projects/xmsannotator/&#34;&gt;xMSannotator&lt;/a&gt; for annotation of LC-MS data and &lt;a href=&#34;https://code.google.com/archive/p/atcg/wikis/mummichog_for_metabolomics.wiki&#34;&gt;Mummichog&lt;/a&gt; for pathway and network analysis for high-throughput metabolomics. This platform would be preferred by someone from environmental science to study exposome. I always use xMSannotator to annotate the LC-MS data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;others&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Others&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://genomics-pubs.princeton.edu/mzroll/index.php?show=index&#34;&gt;MAVEN&lt;/a&gt; from Princeton University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://vpr.colostate.edu/pmf/wp-content/uploads/sites/23/2015/06/Broeckling_2014.pdf&#34;&gt;RAMclustR&lt;/a&gt; from Colorado State University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/html/MAIT.html&#34;&gt;MAIT&lt;/a&gt; based on xcms&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;enviGCMS&lt;/a&gt; from me&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ebi.ac.uk/metabolights/&#34;&gt;Metabolights&lt;/a&gt; for sharing data&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Selection&lt;/h2&gt;
+&lt;p&gt;All of the platform above could be used for metabolomics and lipidomics. However, best selection would be based on your programming skills and the popularity in your research area. Every tool need training before analysis your data and you could choose one randomly and be focused on the source code for one day. If you feel you could handle it, just use it. Otherwise select another one. Enjoy and fight with the data.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Data analysis for Desorption Electrospray Ionization</title>
       <link>/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
@@ -658,83 +724,6 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/Isotopes2015.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Introduction to SP-ICP-MS</title>
-      <link>/en/2015/01/03/intro-sp-icp-ms/</link>
-      <pubDate>Sat, 03 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/en/2015/01/03/intro-sp-icp-ms/</guid>
-      <description>
-
-&lt;p&gt;Single particle Inductively coupled plasma mass spectrometry(SP-ICP-MS) is a novol method for detect, quantify, and characterize nanoparticles. Its theoretical basis was founded by Dr. Degueldre et al. at 2004. Here I would like to show a much more simplified version of this theory and show you how to perform a SP-ICP-MS analysis.&lt;/p&gt;
-
-&lt;h2 id=&#34;single-particle&#34;&gt;Single Particle&lt;/h2&gt;
-
-&lt;p&gt;The core concept in SP-ICP-MS is single particle. How to understand single particle? Single means every scan time on MS would get no more than one particle&amp;rsquo;s signals. So how to get such signal? two ways: limit the amounts in certain scan time(dwell time) get into the MS or limit the dwell time to cut the particle flows into real pieces. We could write them in the following equation:&lt;/p&gt;
-
-&lt;p&gt;$$\frac{F \cdot C \cdot V \cdot t}{m} \leq 1$$&lt;/p&gt;
-
-&lt;p&gt;C stands for the concentration of certain particles, V stands for the flow rate of the injection, t stands for the dwell time and m stand for the mass of one particles. F means the measurable fraction of the injected particles. When the instrument could satisfy the equation, the collected data could be used for SP-ICP-MS. When you scan the real data, you might see a lot of low signals which is the same with blank data. Those signals could be used as a background and when such signals occupy a large percentage of your data, you data could certainly be used for SP-ICP-MS and you might need a long time to collect enough data for a distribution.&lt;/p&gt;
-
-&lt;h2 id=&#34;get-the-diameter-distribution-of-certain-standard-particles&#34;&gt;Get the diameter distribution of certain standard particles&lt;/h2&gt;
-
-&lt;p&gt;OK, when you know the source of such data for SP-ICP-MS, we should prepare some standards of nano particles, for example, NIST 60nm silver nano particles. We should treat such diameter as an average of the whole particles and get the mass of single particles by the following equations:&lt;/p&gt;
-
-&lt;p&gt;$$m = \frac{4}{3} \pi (\frac{d}{2})^3 \rho $$&lt;/p&gt;
-
-&lt;p&gt;When we fixed the F(typically 0.01~0.05), the dwell time and the flow rate, we could get a max concentration of your standards for SP-ICP-MS analysis by the first equation. In most of the litratures, the ICP-MS currently used could not get the signals when the sliver nano particle&amp;rsquo;s diameter less than about 20nm. In such state, the data look like the data collected from blank. You must know for different element the detection limit of diameter is different. Generally speaking, when the atomic weight is heavior, we could get a lower detectable diameter of such pure element. However, for such nano particles have more than one elements, you need a correction.&lt;/p&gt;
-
-&lt;p&gt;OK, with a proper concentration for SP-ICP-MS, we could get a standard data for SP-ICP-MS analysis(fixed time such as 1 min) and a blank data for noise. Then we could do the following analysis:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;subset the singal bigger than the average noise as partical signal data&lt;/li&gt;
-&lt;li&gt;the signal data should minus the average noise&lt;/li&gt;
-&lt;li&gt;treat the average signal data as the average diameter of nano particle and get the relationship&amp;reg; between the signal data(S) and the particle mass(M) as S = r(M)&lt;/li&gt;
-&lt;li&gt;use such relationship to convert each signal into particle mass and now you could get the mass distribution of nano particle&lt;/li&gt;
-&lt;li&gt;use the second equation to change the mass into diameter and you will get the diameter distribution of standard nano particle.&lt;/li&gt;
-&lt;li&gt;Since you could fix the dwell time and flow rate, you could also get the F for your analysis&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Here when you perform a SP-ICP-MS analysis for standards, the most important parameters you get is the relationship between the signal and the mass. Also the F could be helpful when you want to perform a quantitative analysis.&lt;/p&gt;
-
-&lt;h2 id=&#34;get-the-diameter-distribution-of-certain-particles-in-samples&#34;&gt;Get the diameter distribution of certain particles in samples&lt;/h2&gt;
-
-&lt;p&gt;When you get a samples, I suggest you perform a normal quantitative analysis for your target element to get the concertration. Then calculate according to the first equation and dilute your sample to meet the requirment for SP-ICP-MS. When you get the sample data, perform the following analysis:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;subset the singal bigger than the average noise as partical signal data&lt;/li&gt;
-&lt;li&gt;the signal data should minus the average noise&lt;/li&gt;
-&lt;li&gt;use the relationship between the signal and the mass to get the mass and diameter distribution of the partical in your sample&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;OK, if you want to get the partical number concertration, treat each signal bigger than the average noise as one particle and count the numbers of signal in certain time you will get the partical number concertration with the help of F.&lt;/p&gt;
-
-&lt;h2 id=&#34;some-issues&#34;&gt;Some issues&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;the distribution of particles are often log-normal while the ions show poisson distribution which could be used to find if the samples have nano particles&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;try to use a larger particles to get the relationship between the signal and the mass because small particles show no signal&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;TEM could be used to confirm the distribution of your result from SP-ICP-MS&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;application&#34;&gt;Application&lt;/h2&gt;
-
-&lt;p&gt;I wrote a web application for SP-ICP-MS, you could upload your standard and sample data and then get the diameter distribution of the samples. Click &lt;a href=&#34;https://yufree.shinyapps.io/spicpms/demo.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Degueldre, C., P. -Y. Favarger, and C. Bitea. “Zirconia Colloid Analysis by Single Particle Inductively Coupled Plasma–mass Spectrometry.” Analytica Chimica Acta 518, no. 1–2 (August 2, 2004): 137–42. doi:10.1016/j.aca.2004.04.015.&lt;/li&gt;
-&lt;li&gt;Kiss, L. B., J. Söderlund, G. A. Niklasson, and C. G. Granqvist. “New Approach to the Origin of Lognormal Size Distributions of Nanoparticles.” Nanotechnology 10, no. 1 (March 1, 1999): 25. doi:10.&lt;sup&gt;1088&lt;/sup&gt;&amp;frasl;&lt;sub&gt;0957&lt;/sub&gt;-4484/10/1/006.&lt;/li&gt;
-&lt;li&gt;Laborda, Francisco, Javier Jiménez-Lamana, Eduardo Bolea, and Juan R. Castillo. “Selective Identification, Characterization and Determination of Dissolved silver(I) and Silver Nanoparticles Based on Single Particle Detection by Inductively Coupled Plasma Mass Spectrometry.” Journal of Analytical Atomic Spectrometry 26, no. 7 (July 1, 2011): 1362–71. doi:10.1039/C0JA00098A.&lt;/li&gt;
-&lt;li&gt;Lee, Sungyun, Xiangyu Bi, Robert B. Reed, James F. Ranville, Pierre Herckes, and Paul Westerhoff. “Nanoparticle Size Detection Limits by Single Particle ICP-MS for 40 Elements.” Environmental Science &amp;amp; Technology 48, no. 17 (2014): 10291–300. doi:10.1021/es502422v.&lt;/li&gt;
-&lt;li&gt;Mitrano, Denise M., Emily K. Lesher, Anthony Bednar, Jon Monserud, Christopher P. Higgins, and James F. Ranville. “Detecting Nanoparticulate Silver Using Single-Particle Inductively Coupled Plasma–mass Spectrometry.” Environmental Toxicology and Chemistry 31, no. 1 (2012): 115–21. doi:10.1002/etc.719.&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

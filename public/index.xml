@@ -10,6 +10,72 @@
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Selection of open source software platform for metabolomics or lipidomics</title>
+      <link>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</link>
+      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</guid>
+      <description>&lt;p&gt;Recently I reviewed some platform for metabolomics or lipidomics and tried to find out which one is currently available to my demands. I knew some instrumental company supplied software or solutions for metabolomics and lipidomics. I just disliked them since they concealed too many details about data processing which made omics studies as a magic box like Artificial Neural Network. It gains nothing for scientist to get insights from the data and you might only follow the workflow defined by the company. I read some papers using those kind of software and felt the authors know little about what they performed. Data analysis for metabolomics or lipidomics is a systems engineering. If someone really want to use this tools, just choose a open source platform and inspect the code when you needed. Otherwise, your work could be replaced by AI someday. It’s not a joke. Here is a summary for the selection of mass spectrum based metabolomics or lipidomics software platform.&lt;/p&gt;
+&lt;div id=&#34;principle-for-selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Principle for selection&lt;/h2&gt;
+&lt;p&gt;A decent solution should have functions covering the following required functions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Open source: as I said before, researcher could benefit a lot from open source community. Based on your experiences, Java, matlab, python and R would be your choices. I liked R most while python might dominate everything in the further.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data input/output: this work could be done by msconvert from &lt;a href=&#34;http://proteowizard.sourceforge.net/tools.shtml&#34;&gt;proteowizard&lt;/a&gt;. I preferred to install msconvert directly on the instruments and convert the vendor files into mzML or mzXML files to perform further analysis. I just dislike Windows. On the other hand, some software from the instruments could output CDF files, which is also nice.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Turn the Raw data into mass-retention time matrix: single data file from mass spectrum would always contain matadata and profile data. The former container has records for that data and the latter were always full scans of mass spectrum indexed by retention time. Then you need to map such data into a matrix because the following peaks picking and alignments always based on algorithms for matrix.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Peaks picking: you also need functions to pick up the peaks from mass-retention time matrix. Functions like centWave or isotope-based algorithms would help to find the peaks. Sometimes you need to bin the matrix first before peak picking and such requirements should be carefully checked. Anyway you could just use one function to perform peaks picking in most software. The output of this step would be a peak list with intensity, mass and retention time.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Retention time correction: when you process more than one data file such as technique replicates, the drift of retention time would make the final peak list contained replicated peaks. Someone use certain peaks to corrected the data, while I prefer some global similarity analysis based algorithm to undertake this task. However, some software might add one step to group the peaks before and/or after retention time correction. Anyway, the output of this step is the peak list from one group.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Batch effects correction: this is another issue from analysis procedure and batch effects would also bury signals from noise. Researchers from analytical chemistry always use random experiment design and pooled sample to check if the batch effects exist. However, I think the most important things were correction. Just treat a series of samples suffered batch effects and use some statistical analysis to correct them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Statistical analysis: when you get the peaks list, you could perform the following supervised or non-supervised analysis to find bio-markers or data pattern. I think &lt;a href=&#34;http://www.metaboanalyst.ca/&#34;&gt;Metaboanalyst&lt;/a&gt; could satisfy most researchers.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Annotation or identification: the peaks annotation is also important. &lt;a href=&#34;www.hmdb.ca&#34;&gt;HMDB&lt;/a&gt; and &lt;a href=&#34;http://www.lipidmaps.org/&#34;&gt;LIPID MAPS&lt;/a&gt; would be the basic version for mapping peaks to compounds. In most cases, MS/MS data would be used. I think most of MS/MS dataset could be separated handled by &lt;a href=&#34;https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp&#34;&gt;GNPS&lt;/a&gt; or &lt;a href=&#34;https://metlin.scripps.edu&#34;&gt;Metlin&lt;/a&gt; and predicted by &lt;a href=&#34;http://www.csi-fingerid.org/&#34;&gt;FingerID&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pathway analysis: sometimes we also need to know the relationship among compounds and pathway analysis is always performed for that purpose.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;platform&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Platform&lt;/h2&gt;
+&lt;div id=&#34;xcms-online&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;XCMS online&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://xcmsonline.scripps.edu/landing_page.php?pgcontent=mainPage&#34;&gt;XCMS online&lt;/a&gt; is hosted by Scripps Institute. If your datasets are not large, XCMS online would be the best option for you. Recently they updated the online version to support more functions for systems biology. They use metlin and iso metlin to annotate the MS/MS data. Pathway analysis is also supported. Besides, to accelerate the process, xcms online employed stream (windows only). You could use stream to connect your instrument workstation to their server and process the data along with the data acquisition automate. They also developed apps for xcms online, but I think apps for slack would be even cooler to control the data processing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prime&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PRIMe&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://prime.psc.riken.jp/Metabolomics_Software/&#34;&gt;PRIMe&lt;/a&gt; is from RIKEN and UC Davis. It supports mzML and major MS vendor formats. They defined own file format ABF and eco-system for omics studies. The software are updated almost everyday. You could use MS-DIAL for untargeted analysis and MRMOROBS for targeted analysis. For annotation, they developed MS-FINDER and they also developed statistic tools with excel. This platform could replaced the dear software from company and well prepared for MS/MS data analysis and lipidomics. They are open source, work on Windows and also could run within mathmamtics. However, they don’t cover pathway analysis. Another feature is they always show the most recently spectral records from public repositories. You could always get the updated MSP spectra files for your own data analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;openms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;OpenMS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.openms.de/&#34;&gt;OpenMS&lt;/a&gt; is another good platform for mass spectrum data analysis developed with C++. You could use them as plugin of &lt;a href=&#34;https://www.knime.org/&#34;&gt;KNIME&lt;/a&gt;. I suggest anyone who want to be a data scientist to get familiar with platform like KNIME because they supplied various API for different programme language, which is easy to use and show every steps for others. Also TOPPView in OpenMS could be the best software to visualize the MS data. You could always use the metabolomics workflow to train starter about details in data processing. pyOpenMS and OpenSWATH are also used in this platform. If you want to turn into industry, this platform fit you best because you might get a clear idea about solution and workflow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mzmine-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;MZmine 2&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://mzmine.github.io/&#34;&gt;MZmine 2&lt;/a&gt; has three version developed on Java platform and the lastest version is included into &lt;a href=&#34;https://msdk.github.io/&#34;&gt;MSDK&lt;/a&gt;. Similar function could be found from MZmine 2 as shown in XCMS online. However, MZmine 2 do not have pathway analysis. You could use metaboanalyst for that purpose. Actually, you could go into MSDK to find similar function supplied by &lt;a href=&#34;http://www.proteosuite.org&#34;&gt;ProteoSuite&lt;/a&gt; and &lt;a href=&#34;https://www.openchrom.net/&#34;&gt;Openchrom&lt;/a&gt;. If you are a experienced coder for Java, you should start here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;xcms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;XCMS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/xcms.html&#34;&gt;xcms&lt;/a&gt; is different from xcms online while they might share the same code. I used it almost every data to run local metabolomics data analysis. Recently, they will change their version to xcms 3 with major update for object class. Their data format would integrate into the MSnbase package and the parameters would be easy to set up for each step. Normally, I will use msconvert-IPO-xcms-xMSannotator-metaboanalyst as workflow to process the offline data. It could accelerate the process by parallel processing. However, if you are not familiar with R, you would better to choose some software above.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emory-mahpic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Emory MaHPIC&lt;/h3&gt;
+&lt;p&gt;This platform is composed by several R packages from Emory University including &lt;a href=&#34;https://sourceforge.net/projects/aplcms/&#34;&gt;apLCMS&lt;/a&gt; to collect the data, &lt;a href=&#34;https://sourceforge.net/projects/xmsanalyzer/&#34;&gt;xMSanalyzer&lt;/a&gt; to handle automated pipeline for large-scale, non-targeted metabolomics data, &lt;a href=&#34;https://sourceforge.net/projects/xmsannotator/&#34;&gt;xMSannotator&lt;/a&gt; for annotation of LC-MS data and &lt;a href=&#34;https://code.google.com/archive/p/atcg/wikis/mummichog_for_metabolomics.wiki&#34;&gt;Mummichog&lt;/a&gt; for pathway and network analysis for high-throughput metabolomics. This platform would be preferred by someone from environmental science to study exposome. I always use xMSannotator to annotate the LC-MS data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;others&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Others&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://genomics-pubs.princeton.edu/mzroll/index.php?show=index&#34;&gt;MAVEN&lt;/a&gt; from Princeton University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://vpr.colostate.edu/pmf/wp-content/uploads/sites/23/2015/06/Broeckling_2014.pdf&#34;&gt;RAMclustR&lt;/a&gt; from Colorado State University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/html/MAIT.html&#34;&gt;MAIT&lt;/a&gt; based on xcms&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;enviGCMS&lt;/a&gt; from me&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ebi.ac.uk/metabolights/&#34;&gt;Metabolights&lt;/a&gt; for sharing data&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Selection&lt;/h2&gt;
+&lt;p&gt;All of the platform above could be used for metabolomics and lipidomics. However, best selection would be based on your programming skills and the popularity in your research area. Every tool need training before analysis your data and you could choose one randomly and be focused on the source code for one day. If you feel you could handle it, just use it. Otherwise select another one. Enjoy and fight with the data.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>留学生、隔离与适应</title>
       <link>/cn/2017/05/22/study-aboard/</link>
       <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
@@ -791,58 +857,6 @@ cd /opt/glassfish/bin
 &lt;p&gt;Science is more than a body of knowledge; it is a way of thinking. … The method of science, as stodgy and grumpy as it may seem, is far more important than the findings of science.&lt;/p&gt;
 &lt;p&gt;— Carl Sagan&lt;/p&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>回归、安慰剂与流行</title>
-      <link>/cn/2017/03/12/regression/</link>
-      <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2017/03/12/regression/</guid>
-      <description>
-
-&lt;h2 id=&#34;回归&#34;&gt;回归&lt;/h2&gt;
-
-&lt;p&gt;在科研数据分析中，回归分析的使用频率可能仅次于假设检验。我们现在提回归分析更多是说数据回归到我们预设的自变量因变量模型的分析，例如线性回归就是说假设了自变量与因变量之间的关系是线性的，那么通过拟合这个模型得到一堆自变量系数，然后通过一堆关于系数（t检验）或模型本身（F检验）的假设检验来说明模型对数据的解释能力。但其实回到100多年前其诞生的维多利亚时代，回归这个说法更多的是特指“回归到均值”，而这背后的故事其实也很有启发性。&lt;/p&gt;
-
-&lt;p&gt;回归这个说法诞生于高尔顿关于种子的研究，但真正出名却是在1886年关于父母与子女身高的遗传学&lt;a href=&#34;http://galton.org/essays/1880-1889/galton-1886-jaigi-regression-stature.pdf&#34;&gt;研究&lt;/a&gt;之中。高尔顿发现子女的身高要比父母的身高更趋向于平均身高，反之也成立。那个时候多数人已经知道的是父母的身高会影响子女的身高，但“回归到均值”的思想说的却是除了遗传因素，冥冥中还存在一种向均值回归的力量。两个都很高的父母的孩子身高会高，但总没有父母那么高；同样两个都很矮的父母的孩子身高也许会矮，但总没有父母那么矮。前面这句话里父母跟子女互相替代也成立，总之就是所有人的身高都趋向于整体的均值。&lt;/p&gt;
-
-&lt;p&gt;这个思想其实跟科研中常说的相关性研究是互补的，科研关心的是有关系的变量，但回归到均值的思想说的却是如果没有关系，两组变量都会收缩到均值。也就是说，也有一个客观的变化趋势。这是基于观察的规律，但其实很有指导价值。&lt;/p&gt;
-
-&lt;h2 id=&#34;安慰剂&#34;&gt;安慰剂&lt;/h2&gt;
-
-&lt;p&gt;在医药研究中经常会使用安慰剂来观察某种药是否真的有效，但如果你考虑回归到均值的思想就会发现一个事实：安慰剂效应可能是天然存在的，也就是不论你试验什么新药，那个没啥效果的安慰剂总会显示出效果。&lt;/p&gt;
-
-&lt;p&gt;下面我用一组1000人的模拟数据来说明这个问题。首先我们不去管新药，就去考虑那一组吃安慰剂的。假设我们监测了人群中某项指标例如血糖并认为其是均值100，方差10的正态分布，那么吃过糖丸之后其血糖应该跟之前差不多。这个就类似父母身高与子女身高。我们默认前后变化大概符合&lt;/p&gt;
-
-&lt;p&gt;$$y = 0.9x+error$$&lt;/p&gt;
-
-&lt;p&gt;这个error我们假定为均值10，方差10的正态分布噪音，也就是说对于一个人群，吃安慰剂前后血糖变化应该是长这样：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/galton1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;同时我们认为高于110的人是高血糖，也就是新药与安慰剂实际只会在存在高血糖的人中使用，也就是这一部分：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/galton2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这样我们会看到无论是否治疗，总有下图的部分患者自然恢复了。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/galton3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;那么这部分算不算安慰剂效应呢？自然是不应该算，因为安慰剂效应是要基于病人的期望的，而真实的情况却是因为存在“回归到均值”的现象，哪怕病人不想康复或不相信治疗，他还是有可能好转的。由于药物试验一般都会去选择人群中的病人进行双盲对照试验，那么可以预期的是安慰剂效应被天然高估了。同理，药物治疗过程中的药效也会因为存在向均值回归的现象而被天然高估。用一个更常见的中西医争论来说就是不论中西医是否真的有效，对于有些疾病，本来就会自然而然痊愈，如果这个比例本来就很高，那么很多治疗手段根本就是多余。&lt;/p&gt;
-
-&lt;p&gt;没错，确实有个领域是这样的，那就是营养学。各种保健品跟所谓“养生”手段其实就在长期系统性玩弄这个手段，有时候会有人争论哪怕安慰剂效应也是有用的，但很不幸的是这个所谓的“有效”可能根本就是“向均值回归”的一个外在表现，跟心理作用也没啥关系。所谓买个心安理得其实也是交智商税了，起码有一定数理统计基础的人不应该去凑这个热闹，倒不是怕花钱，实在丢不起那个人。&lt;/p&gt;
-
-&lt;p&gt;这个思想可以类推到所谓“生活方式”的领域，兜售各种“健康”、“流行”还有“品位”概念并觊觎你钱包的人，离得越远越好。&lt;/p&gt;
-
-&lt;h2 id=&#34;流行&#34;&gt;流行&lt;/h2&gt;
-
-&lt;p&gt;说到流行，其实是很有意思的自发现象，可以理解成系统性的均值偏离。人总是倾向于新鲜的事物，一成不变的东西总会视而不见而认为恒常。其实都在变，你重复去看一段笑话，看多了也就不那么可乐了，你会说我笑点变高了，其实是你均值偏移了，不断偏移你就很难乐起来了，大家都吃肉，肉就不好吃了。这种均值偏移有时是瞬时的，举个例子，在音乐厅听完一段演奏，大家鼓掌致敬，这时有人觉得特别好就站起来鼓掌，如果大家都互不干扰可能就完了，但如果又有人站起来呢？如果在音乐厅里的人群能让他们起立的人数分布为&lt;/p&gt;
-
-&lt;p&gt;1，1，2，3，4，5，5，5，5，5，5，5，5，5，5，5&lt;/p&gt;
-
-&lt;p&gt;那么没人会起立，因为没有人可以达到自己起立的阈值，但如果此时有一个人恰巧站起来打算上厕所而不是鼓掌，最后几乎所有人都会站起来鼓掌，因为虽然有的人需要另外5个人起立才能站起来，但由于存在不间断的上升阶梯，一个随机扰动就可以让所有人起立鼓掌。如此反复，其实你的品味会不断去贴合整体观众的品味，进而形成一种圈内氛围，大家的喜好变得相对一致，你也就实现了均值回归。有意思的是，你如果需要更多人认可的数目越少，越有可能成为整体同化的关键因素。换句话讲，如果你打算说服一群人，最好找个摇摆不定或者总持怀疑观点的人下手，他们都搞定了，其余的随大流就不难了。同样的，如果你去看亲戚朋友表演的晚会并想捧场，尽量坐前排，这样当你站起来鼓掌时几乎所有人都看得到，也就更容易动摇到摇摆的人。&lt;/p&gt;
 </description>
     </item>
     

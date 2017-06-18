@@ -70,7 +70,7 @@
 
   <article class="article">
     
-    <span class="article-duration">2301 字</span>
+    <span class="article-duration">2656 字</span>
     
     <h1 class="article-title">文献阅读的文本分析流派
 
@@ -103,17 +103,6 @@
 <div class="section level2">
 <h2>数据获取</h2>
 <p>数据获取思路是这样的：如果想知道整体前沿，最需要的是综合类期刊，全文的数据量我的笔记本也跑不了，就考虑摘要，这样也过滤了那些没有摘要的评论与观点，更多关注研究性论文。期刊选择为综合类的《科学》、《自然》与《美国科学院院刊》，收集2016年一整年的论文摘要，用<code>easyPubmed</code>包来搜索并整理成相对干净的数据集。这里我只收集了题目、摘要、出版期刊与日期进行文本数据挖掘。</p>
-<pre><code>## Loading required package: XML</code></pre>
-<pre><code>## Loading required package: methods</code></pre>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
 <pre><code>## # A tibble: 8,815 x 6
 ##                                                                          title
 ##                                                                          &lt;chr&gt;
@@ -139,40 +128,15 @@
 <div class="section level2">
 <h2>高频词</h2>
 <p>然后我们看一下各期刊的前十大摘要高频词：</p>
-<pre><code>## Joining, by = &quot;word&quot;</code></pre>
 <p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/abs-1.png" width="672" /></p>
 <p>这里解释一下，如果我们单纯寻找高频词其实这几个期刊都应该差不多，但这里我们用的是TF-IDF来加权筛选，这个加权不严谨的说就是这个词出现在该期刊的词频与出现在所有期刊词频的比例，通过这个值我们可以找到单个期刊比较重要的词。我们可以看到肿瘤与行为均出现在三个期刊的十大关键词中，推测相关研究应该是去年的重点。此外，《自然》与《美国科学院院刊》都出现了模型这个词。就特色而言，《自然》去年更关注造血过程、信号传递与衰老问题；《科学》杂志则关心磷酸化、spo11蛋白与火山口还有小尺度问题；《美国科学院院刊》主题特色不算明显，但比较喜欢强调研究重要性。</p>
 <p>如果我们只考虑题目里的文字呢？</p>
-<pre><code>## Joining, by = &quot;word&quot;</code></pre>
 <p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/title-1.png" width="672" /></p>
 <p>这里我们可以看出，《自然》上的论文题目跟摘要内容契合度比较高；《科学》上论文题目喜欢出现中美的国家标签；《美国科学院院刊》看意思题目里专业名词比较多。此外，三份期刊的题目里都出现了勘误，这倒是前沿高影响力期刊的特点：容易被质疑。</p>
 </div>
 <div class="section level2">
 <h2>词关系</h2>
 <p>看完整体你应该想到，单个词并非孤立，那么这些词之间会不会有相关性呢？这个问题我们也可以用NLP工具来研究：</p>
-<pre><code>## 
-## Attaching package: &#39;igraph&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:stringr&#39;:
-## 
-##     %&gt;%</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     %&gt;%, as_data_frame, groups, union</code></pre>
-<pre><code>## The following objects are masked from &#39;package:purrr&#39;:
-## 
-##     %&gt;%, compose, simplify</code></pre>
-<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
-## 
-##     %&gt;%, crossing</code></pre>
-<pre><code>## The following object is masked from &#39;package:tibble&#39;:
-## 
-##     as_data_frame</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     decompose, spectrum</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     union</code></pre>
 <p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/termrelation-1.png" width="672" /><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/termrelation-2.png" width="672" /> 其实这个技术更常见，平时你用的输入法就实现去考察一些字词的关系，然后让其出现的排序更符合常识。这里我们可以看到，从题目里我们能看到气候变化、干细胞以及前面提到的勘误问题。从摘要里我们则会发现大多数是生物相关的主题，也就是前沿科研应该是生命科学在导向。但到目前为止我们都是把这一些文本当成一个整体，但科学是分科的，也就是有不同的主题，此时我们就要用到主题模型来探索去年前沿科研关注的主题分类。</p>
 </div>
 <div class="section level2">
@@ -189,8 +153,10 @@
 </div>
 <div class="section level2">
 <h2>其他</h2>
-<p>其实这只是一个很初步的分析，我甚至没用用到引用与被引用的关系，也没有考虑作者与研究机构的时空分布特征，但类似这样的文本分析应该是一个现代科研人员所具备的属性。这个时代学科内的经验贬值飞速，很多东西没必要闭门造车慢慢悟，利用开放数据的便利性你可以很快了解整体学术动态，这样不至于随波逐流。更麻烦的是如果你不懂而别人懂，那你将很容易体会到别人眼神中的怜悯，做一个好奇心使然的科研人员，现在起步从来都不晚。</p>
-<p>本文实现代码可见<a href="">Github</a>。</p>
+<p>其实这只是一个很初步的分析，我甚至没用用到引用与被引用的关系，也没有考虑作者与研究机构的时空分布特征，但类似这样的文本分析应该是一个现代科研人员所具备的属性。这种分析的好处在于你不是在采样，而是直接分析所拥有的整体，也就几十兆的文本量，如果你电脑跑得动，把十年二十年的文献沿革都可以概览一下，这是这个时代给我们的红利，不要白不要。</p>
+<p>你可以研究一个大牛几十年的论文发表来发现其独到的眼光；也可以针对某个期刊挖掘其关注点的变更；还可以构建自己认可的课题组的文献库，通过其发表内容探索同行那些自己都没意识到的行为改变。这个时代学科内的经验贬值飞速，很多东西没必要闭门造车慢慢悟，利用开放数据的便利性你可以很快了解整体学术动态，这样不至于随波逐流。更麻烦的是如果你不懂而别人懂，那你将很容易体会到别人眼神中的怜悯，做一个好奇心使然的科研人员，现在起步从来都不晚。</p>
+<p>更重要的是，这类技术本质是让你满足好奇心的，你可以用这个来了解社会，例如纽约时报就给个人提供API，你可以看看其对川普用词风格的变化；为什么最近比特币搜索指数集中在拉美？欧洲吸引难民究竟是政治正确还是劳动力人口不足？不要等着看新闻来指导自己，要学会发现生活中的闪光点；不要通过键盘上情感喧嚣来面对社会，要用键盘甚至语音编程（我果然很自然的想到了最懒的方法）从繁复的公开数据中挖掘趋势；不要总是等着大牛来带，在未知的领域人人都可能成为大牛，你需要掌握一些实现方法而已，你甚至不需要太了解算法细节（会忘，比如我），但要有自己的兵器库随想随用。你不需要带着目的性去学，这说到底只是一种生活方式，你变强了也秃了的可能性是存在的（你能否感到我最近在看漫画）。</p>
+<p>本文实现代码可见我的<a href="https://github.com/yufree/yufree.cn/blob/master/content/cn/2017-06-16-nlp.Rmd">Github</a>。</p>
 </div>
 <div class="section level2">
 <h2>参考文献</h2>

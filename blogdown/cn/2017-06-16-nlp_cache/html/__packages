@@ -1,0 +1,17 @@
+base
+XML
+easyPubMed
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+tidytext
+stringr
+bindrcpp
+widyr
+igraph
+ggraph
+topicmodels

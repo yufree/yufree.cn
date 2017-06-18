@@ -262,6 +262,8 @@ contributions %>%
 
 本文实现代码可见我的[Github](https://github.com/yufree/yufree.cn/blob/master/content/cn/2017-06-16-nlp.Rmd)。
 
+> 想要了解世界吗？想要的话可以全部給你，去找吧！我把所有的线索都放在互联网上了。
+
 ## 参考文献
 
 http://tidytextmining.com/

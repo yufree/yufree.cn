@@ -82,8 +82,8 @@ menu:
 
 params:
   description: "Personal website of Miao Yu; 于淼的个人网站"
-  disqusURL: "http://yufree.cn"
-  fullURL: "http://yufree.cn"
+  disqusURL: "https://yufree.cn"
+  fullURL: "https://yufree.cn"
   dateFormat: "2006/01/02"
   customCSS: ["css/custom.css"]
   customJS: ["js/center-img.js", "js/right-quote.js", "js/no-highlight.js", "js/fix-footnote.js"]

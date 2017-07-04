@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-05-24">
+<meta name="date" content="2017-07-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="case-studyselected.html">
-
+<link rel="next" href="batch-effect.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -162,6 +162,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="11" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>11</b> Batch effect</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>11.0.1</b> Detection of unmodeled factors</a></li>
+<li class="chapter" data-level="11.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>11.0.2</b> Construction of surrogate variables</a></li>
+<li class="chapter" data-level="11.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>11.0.3</b> Case study</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
 
@@ -185,82 +190,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 
-<div id="refs" class="references">
-<div>
-<p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Frontiers in Bioengineering and Biotechnology</em> 3 (March). doi:<a href="https://doi.org/10.3389/fbioe.2015.00023">10.3389/fbioe.2015.00023</a>.</p>
-</div>
-<div>
-<p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>Journal of Mass Spectrometry</em> 51 (7): 461–75. doi:<a href="https://doi.org/10.1002/jms.3782">10.1002/jms.3782</a>.</p>
-</div>
-<div>
-<p>———. 2016b. “Training in Metabolomics Research. II. Processing and Statistical Analysis of Metabolomics Data, Metabolite Identification, Pathway Analysis, Applications of Metabolomics and Its Future.” <em>Journal of Mass Spectrometry</em> 51 (8): 535–48. doi:<a href="https://doi.org/10.1002/jms.3780">10.1002/jms.3780</a>.</p>
-</div>
-<div>
-<p>Blaise, Benjamin J., Gonçalo Correia, Adrienne Tin, J. Hunter Young, Anne-Claire Vergnaud, Matthew Lewis, Jake T. M. Pearce, et al. 2016. “Power Analysis and Sample Size Determination in Metabolic Phenotyping.” <em>Analytical Chemistry</em> 88 (10): 5179–88. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00188">10.1021/acs.analchem.6b00188</a>.</p>
-</div>
-<div>
-<p>Broeckling, C. D., F. A. Afsar, S. Neumann, A. Ben-Hur, and J. E. Prenni. 2014. “RAMClust: A Novel Feature Clustering Method Enables Spectral-Matching-Based Annotation for Metabolomics Data.” <em>Analytical Chemistry</em> 86 (14): 6812–7. doi:<a href="https://doi.org/10.1021/ac501530d">10.1021/ac501530d</a>.</p>
-</div>
-<div>
-<p>Cajka, Tomas, and Oliver Fiehn. 2016. “Toward Merging Untargeted and Targeted Methods in Mass Spectrometry-Based Metabolomics and Lipidomics.” <em>Analytical Chemistry</em> 88 (1): 524–45. doi:<a href="https://doi.org/10.1021/acs.analchem.5b04491">10.1021/acs.analchem.5b04491</a>.</p>
-</div>
-<div>
-<p>Domingo-Almenara, Xavier, Jesus Brezmes, Maria Vinaixa, Sara Samino, Noelia Ramirez, Marta Ramon-Krauel, Carles Lerin, et al. 2016. “ERah: A Computational Tool Integrating Spectral Deconvolution and Alignment with Quantification and Identification of Metabolites in GC/MS-Based Metabolomics.” <em>Analytical Chemistry</em> 88 (19): 9821–9. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02927">10.1021/acs.analchem.6b02927</a>.</p>
-</div>
-<div>
-<p>Du, Xiuxia, and Steven H Zeisel. 2013. “SPECTRAL DECONVOLUTION FOR GAS CHROMATOGRAPHY MASS SPECTROMETRY-BASED METABOLOMICS: CURRENT STATUS AND FUTURE PERSPECTIVES.” <em>Computational and Structural Biotechnology Journal</em> 4 (5): 1–10. doi:<a href="https://doi.org/10.5936/csbj.201301013">10.5936/csbj.201301013</a>.</p>
-</div>
-<div>
-<p>Kuhl, Carsten, Ralf Tautenhahn, Christoph Böttcher, Tony R. Larson, and Steffen Neumann. 2012. “CAMERA: An Integrated Strategy for Compound Spectra Extraction and Annotation of Liquid Chromatography/Mass Spectrometry Data Sets.” <em>Analytical Chemistry</em> 84 (1): 283–89. doi:<a href="https://doi.org/10.1021/ac202450g">10.1021/ac202450g</a>.</p>
-</div>
-<div>
-<p>Kuligowski, Julia, Ángel Sánchez-Illana, Daniel Sanjuán-Herráez, Máximo Vento, and Guillermo Quintás. 2015. “Intra-Batch Effect Correction in Liquid Chromatography-Mass Spectrometry Using Quality Control Samples and Support Vector Regression (QC-SVRC).” <em>Analyst</em> 140 (22): 7810–7. doi:<a href="https://doi.org/10.1039/C5AN01638J">10.1039/C5AN01638J</a>.</p>
-</div>
-<div>
-<p>Li, Lili, Jieyu Zhao, Yanni Zhao, Xin Lu, Zhihui Zhou, Chunxia Zhao, and Guowang Xu. 2016. “Comprehensive Investigation of Tobacco Leaves During Natural Early Senescence via Multi-Platform Metabolomics Analyses.” <em>Scientific Reports</em> 6 (November). doi:<a href="https://doi.org/10.1038/srep37976">10.1038/srep37976</a>.</p>
-</div>
-<div>
-<p>Lisec, Jan, Friederike Hoffmann, Clemens Schmitt, and Carsten Jaeger. 2016. “Extending the Dynamic Range in Metabolomics Experiments by Automatic Correction of Peaks Exceeding the Detection Limit.” <em>Analytical Chemistry</em> 88 (15): 7487–92. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02515">10.1021/acs.analchem.6b02515</a>.</p>
-</div>
-<div>
-<p>Lu, Xin, and Guowang Xu. 2008. “LC-MS Metabonomics Methodology in Biomarker Discovery.” In <em>Biomarker Methods in Drug Discovery and Development</em>, edited by Feng Wang, 291–315. Methods in Pharmacology and Toxicology. Humana Press. doi:<a href="https://doi.org/10.1007/978-1-59745-463-6_14">10.1007/978-1-59745-463-6_14</a>.</p>
-</div>
-<div>
-<p>Najdekr, Lukáš, David Friedecký, Ralf Tautenhahn, Tomáš Pluskal, Junhua Wang, Yingying Huang, and Tomáš Adam. 2016. “Influence of Mass Resolving Power in Orbital Ion-Trap Mass Spectrometry-Based Metabolomics.” <em>Analytical Chemistry</em> 88 (23): 11429–35. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02319">10.1021/acs.analchem.6b02319</a>.</p>
-</div>
-<div>
-<p>Ni, Yan, Mingming Su, Yunping Qiu, Wei Jia, and Xiuxia Du. 2016. “ADAP-GC 3.0: Improved Peak Detection and Deconvolution of Co-Eluting Metabolites from GC/TOF-MS Data for Metabolomics Studies.” <em>Analytical Chemistry</em> 88 (17): 8802–11. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02222">10.1021/acs.analchem.6b02222</a>.</p>
-</div>
-<div>
-<p>Qiu, Feng, Dennis D. Fine, Daniel J. Wherritt, Zhentian Lei, and Lloyd W. Sumner. 2016. “PlantMAT: A Metabolomics Tool for Predicting the Specialized Metabolic Potential of a System and for Large-Scale Metabolite Identifications.” <em>Analytical Chemistry</em> 88 (23): 11373–83. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00906">10.1021/acs.analchem.6b00906</a>.</p>
-</div>
-<div>
-<p>Schrimpe-Rutledge, Alexandra C., Simona G. Codreanu, Stacy D. Sherrod, and John A. McLean. 2016. “Untargeted Metabolomics Strategies and Emerging Directions.” <em>Journal of The American Society for Mass Spectrometry</em> 27 (12): 1897–1905. doi:<a href="https://doi.org/10.1007/s13361-016-1469-y">10.1007/s13361-016-1469-y</a>.</p>
-</div>
-<div>
-<p>Sitnikov, Dmitri G., Cian S. Monnin, and Dajana Vuckovic. 2016. “Systematic Assessment of Seven Solvent and Solid-Phase Extraction Methods for Metabolomics Analysis of Human Plasma by LC-MS.” <em>Scientific Reports</em> 6 (December). doi:<a href="https://doi.org/10.1038/srep38885">10.1038/srep38885</a>.</p>
-</div>
-<div>
-<p>Tautenhahn, Ralf, Christoph Böttcher, and Steffen Neumann. 2008. “Highly Sensitive Feature Detection for High Resolution LC/MS.” <em>BMC Bioinformatics</em> 9: 504. doi:<a href="https://doi.org/10.1186/1471-2105-9-504">10.1186/1471-2105-9-504</a>.</p>
-</div>
-<div>
-<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Analytical Chemistry</em> 88 (21): 10395–10403. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00755">10.1021/acs.analchem.6b00755</a>.</p>
-</div>
-<div>
-<p>Townsend, Mary K., Hugues Aschard, Immaculata De Vivo, Karin B. Michels, and Peter Kraft. 2016. “Genomics, Telomere Length, Epigenetics, and Metabolomics in the Nurses’ Health Studies.” <em>American Journal of Public Health</em> 106 (9): 1663–8. doi:<a href="https://doi.org/10.2105/AJPH.2016.303344">10.2105/AJPH.2016.303344</a>.</p>
-</div>
-<div>
-<p>Wang, San-Yuan, Ching-Hua Kuo, and Yufeng J. Tseng. 2013. “Batch Normalizer: A Fast Total Abundance Regression Calibration Method to Simultaneously Adjust Batch and Injection Order Effects in Liquid Chromatography/Time-of-Flight Mass Spectrometry-Based Metabolomics Data and Comparison with Current Calibration Methods.” <em>Analytical Chemistry</em> 85 (2): 1037–46. doi:<a href="https://doi.org/10.1021/ac302877x">10.1021/ac302877x</a>.</p>
-</div>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="case-studyselected.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="case-studyselected.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="batch-effect.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-01-30">
+<meta name="date" content="2017-05-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,8 +33,7 @@
   
   
 <link rel="prev" href="common-analysis-methods-for-metabolomics.html">
-<link rel="next" href="references.html">
-
+<link rel="next" href="case-studyselected.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -93,6 +91,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 
 <body>
+
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -159,6 +158,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.10" data-path="demo.html"><a href="demo.html#optimation-of-xcms"><i class="fa fa-check"></i><b>9.10</b> Optimation of XCMS</a></li>
 <li class="chapter" data-level="9.11" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>9.11</b> Summary</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="case-studyselected.html"><a href="case-studyselected.html"><i class="fa fa-check"></i><b>10</b> Case Study(selected)</a><ul>
+<li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
@@ -217,20 +219,8 @@ cdfpath &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span 
 ## [11] &quot;WT/wt21.CDF&quot; &quot;WT/wt22.CDF&quot;</code></pre>
 <p>Here is a demo for <em>xcmsSet</em>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cdffiles &lt;-<span class="st"> </span><span class="kw">list.files</span>(cdfpath, <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
-xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<span class="dt">BPPARAM=</span><span class="kw">SnowParam</span>())</code></pre></div>
-<pre><code>## 250:38 300:103 350:226 400:338 450:431 500:529 550:674 600:847 
-## 250:43 300:128 350:275 400:394 450:500 500:637 550:835 600:1027 
-## 250:25 300:93 350:227 400:337 450:411 500:498 550:640 600:758 
-## 250:19 300:67 350:169 400:258 450:301 500:373 550:488 600:580 
-## 250:24 300:60 350:166 400:254 450:315 500:391 550:501 600:582 
-## 250:31 300:71 350:183 400:280 450:338 500:422 550:532 600:604 
-## 250:41 300:105 350:212 400:319 450:416 500:533 550:684 600:838 
-## 250:27 300:107 350:232 400:347 450:440 500:549 550:712 600:905 
-## 250:24 300:87 350:200 400:293 450:351 500:426 550:548 600:661 
-## 250:22 300:65 350:161 400:243 450:293 500:358 550:483 600:561 
-## 250:28 300:69 350:157 400:229 450:282 500:364 550:493 600:592 
-## 250:30 300:81 350:188 400:280 450:356 500:473 550:618 600:765</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset</code></pre></div>
+xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<span class="dt">BPPARAM=</span><span class="kw">SnowParam</span>())
+xset</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
 ## Time range: 2506.1-4147.7 seconds (41.8-69.1 minutes)
@@ -239,11 +229,12 @@ xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<spa
 ## Peak Groups: 0 
 ## Sample classes: KO, WT 
 ## 
-## Peak picking was performed on MS1.
+## Feature detection:
+##  o Peak picking performed on MS1.
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.713 MB</code></pre>
+## Memory usage: 0.74 MB</code></pre>
 </div>
 <div id="find-the-peaks" class="section level2">
 <h2><span class="header-section-number">9.3</span> Find the peaks</h2>
@@ -255,7 +246,8 @@ xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<spa
 <p>The output was an object with class of <em>xcmsSet</em>. You could see a summary by type the name. In this cases, <em>xcmsSet</em> found 4721 peaks with time range 41.8-69.1 min and mass range 200.1-599.3338 m/z in the 12 samples.</p>
 <p>Another function which might be useful is <code>group</code>. This function will add additional information about the same analytes for <code>xcmsSet</code> objects.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset &lt;-<span class="st"> </span><span class="kw">group</span>(xset)</code></pre></div>
-<pre><code>## 262 325 387 450 512 575</code></pre>
+<pre><code>## Processing 3195 mz slices ...</code></pre>
+<pre><code>## OK</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -265,11 +257,12 @@ xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<spa
 ## Peak Groups: 403 
 ## Sample classes: KO, WT 
 ## 
-## Peak picking was performed on MS1.
+## Feature detection:
+##  o Peak picking performed on MS1.
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.776 MB</code></pre>
+## Memory usage: 0.804 MB</code></pre>
 <p>Now you see there are 403 groups in the demo data, which meant 403 analytes are found across 4721 peaks.</p>
 </div>
 <div id="data-correction" class="section level2">
@@ -278,7 +271,31 @@ xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<spa
 <p>Remember the original retention time might changed and use another object to save the new object:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset2 &lt;-<span class="st"> </span><span class="kw">retcor</span>(xset, <span class="dt">method =</span> <span class="st">&quot;obiwarp&quot;</span>)</code></pre></div>
 <pre><code>## center sample:  ko16 
-## Processing: ko15  ko18  ko19  ko21  ko22  wt15  wt16  wt18  wt19  wt21  wt22</code></pre>
+## Processing: ko15</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ...</code></pre>
+<pre><code>## OK</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ...</code></pre>
+<pre><code>## OK</code></pre>
+<pre><code>## ko18</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## ko19</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## ko21</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## ko22</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## wt15</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## wt16</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## wt18</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## wt19</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## wt21</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
+<pre><code>## wt22</code></pre>
+<pre><code>## Create profile matrix with method &#39;bin&#39; and step 1 ... OK</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset2</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -288,14 +305,15 @@ xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles,<spa
 ## Peak Groups: 0 
 ## Sample classes: KO, WT 
 ## 
-## Peak picking was performed on MS1.
+## Feature detection:
+##  o Peak picking performed on MS1.
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.713 MB</code></pre>
+## Memory usage: 0.74 MB</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># you need group the peaks again for this corrected data</span>
 xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code></pre></div>
-<pre><code>## 262 325 387 450 512 575</code></pre>
+<pre><code>## Processing 3195 mz slices ... OK</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset2</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -305,25 +323,50 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Peak Groups: 404 
 ## Sample classes: KO, WT 
 ## 
-## Peak picking was performed on MS1.
+## Feature detection:
+##  o Peak picking performed on MS1.
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.776 MB</code></pre>
+## Memory usage: 0.804 MB</code></pre>
 <p>You see one more peak groups after the correction. After the retention time correction, we also need to correct the peak groups by filling the missing peaks. Such function calls <em>fillpeaks</em>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3 &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset2,<span class="dt">BPPARAM=</span><span class="kw">SnowParam</span>())</code></pre></div>
 <pre><code>## /home/travis/R/Library/faahKO/cdf/KO/ko15.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/KO/ko16.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/KO/ko18.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/KO/ko19.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/KO/ko21.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/KO/ko22.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/WT/wt15.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/WT/wt16.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/WT/wt18.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/WT/wt19.CDF 
+## method:  bin 
+## step:  0.1 
 ## /home/travis/R/Library/faahKO/cdf/WT/wt21.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt22.CDF</code></pre>
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt22.CDF 
+## method:  bin 
+## step:  0.1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -333,11 +376,12 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Peak Groups: 404 
 ## Sample classes: KO, WT 
 ## 
-## Peak picking was performed on MS1.
+## Feature detection:
+##  o Peak picking performed on MS1.
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.917 MB</code></pre>
+## Memory usage: 0.945 MB</code></pre>
 <p>You see more peaks found.</p>
 </div>
 <div id="statistic-analysis" class="section level2">
@@ -586,8 +630,9 @@ resultRetcorGroup &lt;-
         </div>
       </div>
 <a href="common-analysis-methods-for-metabolomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="case-studyselected.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -630,7 +675,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

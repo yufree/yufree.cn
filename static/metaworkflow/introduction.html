@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-01-30">
+<meta name="date" content="2017-05-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="index.html">
 <link rel="next" href="exprimental-designdoe.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -93,6 +91,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 
 <body>
+
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -159,6 +158,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.10" data-path="demo.html"><a href="demo.html#optimation-of-xcms"><i class="fa fa-check"></i><b>9.10</b> Optimation of XCMS</a></li>
 <li class="chapter" data-level="9.11" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>9.11</b> Summary</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="case-studyselected.html"><a href="case-studyselected.html"><i class="fa fa-check"></i><b>10</b> Case Study(selected)</a><ul>
+<li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
@@ -182,7 +184,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>Information in living organism commuicates along the Genomics, Transcriptomics, Proteomics and Metabolomics in Central dogma. Following such stream, we might answer certain problems in different scales from individual, population, community to ecosystem. Metabolomics (i.e., the profiling and quantitation of metabolites in body fluids) is a relatively new field of “omics” studies. Different from other omics studies, metabolomics always focused on small moleculars with much lower mass than polypeptide, around m/z 100-1000. Metabolomics studies are always performed in GC/MS, LC/MS or NMR. This workflow concerns mass spectrum based metabolomics.</p>
+<p>Information in living organism commuicates along the Genomics, Transcriptomics, Proteomics and Metabolomics in Central dogma. Following such stream, we might answer certain problems in different scales from individual, population, community to ecosystem. Metabolomics (i.e., the profiling and quantitation of metabolites in body fluids) is a relatively new field of “omics” studies. Different from other omics studies, metabolomics always focused on small moleculars with much lower mass than polypeptide, around m/z 100-1000. Metabolomics studies are always performed in GC/MS, GC*GC/MS<span class="citation">(Tian et al. <a href="#ref-tian2016">2016</a>)</span>, LC/MS or NMR. This workflow concerns mass spectrum based metabolomics.</p>
 <div id="reviews-and-tutorials" class="section level2">
 <h2><span class="header-section-number">1.1</span> Reviews and tutorials</h2>
 <p>Some new reviews and tutorials related to this workflow could be found in those papers<span class="citation">(Alonso, Marsal, and Julià <a href="#ref-alonso2015">2015</a>; Cajka and Fiehn <a href="#ref-cajka2016">2016</a>; Lu and Xu <a href="#ref-lu2008">2008</a>; Schrimpe-Rutledge et al. <a href="#ref-schrimpe-rutledge2016">2016</a>; Townsend et al. <a href="#ref-townsend2016">2016</a>; Barnes et al. <a href="#ref-barnes2016">2016</a><a href="#ref-barnes2016">b</a>; Barnes et al. <a href="#ref-barnes2016a">2016</a><a href="#ref-barnes2016a">a</a>)</span>.</p>
@@ -191,6 +193,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-tian2016">
+<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Analytical Chemistry</em> 88 (21): 10395–10403. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00755">10.1021/acs.analchem.6b00755</a>.</p>
+</div>
 <div id="ref-alonso2015">
 <p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Frontiers in Bioengineering and Biotechnology</em> 3 (March). doi:<a href="https://doi.org/10.3389/fbioe.2015.00023">10.3389/fbioe.2015.00023</a>.</p>
 </div>
@@ -219,8 +224,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exprimental-designdoe.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="exprimental-designdoe.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -263,7 +269,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

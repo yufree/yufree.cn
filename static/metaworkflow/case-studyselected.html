@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="raw-data-pretreatment.html">
-<link rel="next" href="annotation.html">
+<link rel="prev" href="demo.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -182,21 +182,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="peaks-selection" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Peaks selection</h1>
-<p>After we get corrected peaks across samples, the next step is finding the differences between two groups. Actually, you could perform ANOVA or Kruskal-Wallis Test for comparison among more than two groups. The basic idea behind statistic analysis is to find the meaningful differences between groups and extract such ions or peak groups.</p>
-<p>So how to find the differences? In most metabolomics software, such task is completed by a t-test and report p-value and fold changes. If you only compare two groups on one peaks, that’s OK. However, if you compare two groups on thousands of peaks, statistic textbook would tell you to notice the false positive. For one comparasion, the confidence level is 0.05, which means 5% chances to get false positive result. For two comparasions, such chances would be <span class="math inline">\(1-0.95^2\)</span>. For 10 comparasions, such chances would be <span class="math inline">\(1-0.95^{10} = 0.4012631\)</span>. For 100 comparasions, such chances would be <span class="math inline">\(1-0.95^{100} = 0.9940795\)</span>. You would almost certainly to make mistakes for your results.</p>
-<p>In statistics, the false discovery rate(FDR) control is always mentioned in omics studies for mutiple tests. I suggested using q-values to control FDR. If q-value is less than 0.05, we should expect a lower than 5% chances we make the wrong selections for all of the comparisions showed lower q-values in the whole dataset. Also we could use local false discovery rate, which showed the FDR for certain peaks. However, such values are hard to be estimated accurately.</p>
-<p>Karin Ortmayr thought fold change might be better than p-values to find the differences<span class="citation">(<span class="citeproc-not-found" data-reference-id="ortmayr2016"><strong>???</strong></span>)</span>.</p>
+<div id="case-studyselected" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Case Study(selected)</h1>
+<div id="cancer" class="section level2">
+<h2><span class="header-section-number">10.1</span> Cancer</h2>
+<ul>
+<li><p>LC-QToF, Urine, Prostate <span class="citation">(<span class="citeproc-not-found" data-reference-id="fernandez-peralbo2016a"><strong>???</strong></span>)</span></p></li>
+<li><p>Muti, tobacco, Senescence<span class="citation">(Li et al. <a href="#ref-li2016">2016</a>)</span></p></li>
+</ul>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-li2016">
+<p>Li, Lili, Jieyu Zhao, Yanni Zhao, Xin Lu, Zhihui Zhou, Chunxia Zhao, and Guowang Xu. 2016. “Comprehensive Investigation of Tobacco Leaves During Natural Early Senescence via Multi-Platform Metabolomics Analyses.” <em>Scientific Reports</em> 6 (November). doi:<a href="https://doi.org/10.1038/srep37976">10.1038/srep37976</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="raw-data-pretreatment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="annotation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="demo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -225,7 +234,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yufree/metaworkflow/edit/master/05-peakselection.Rmd",
+"link": "https://github.com/yufree/metaworkflow/edit/master/11-casestudy.Rmd",
 "text": "Edit"
 },
 "download": null,

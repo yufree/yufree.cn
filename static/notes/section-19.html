@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Notes</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="This is notes from yufree">
-  <meta name="generator" content="bookdown 0.3.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Notes" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-01-12">
+<meta name="date" content="2017-05-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="section-18.html">
 <link rel="next" href="python.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -685,6 +683,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="25.8" data-path="section-25.html"><a href="section-25.html#section-25.8"><i class="fa fa-check"></i><b>25.8</b> 网络</a></li>
 <li class="chapter" data-level="25.9" data-path="section-25.html"><a href="section-25.html#section-25.9"><i class="fa fa-check"></i><b>25.9</b> 尺度</a></li>
 </ul></li>
+<li class="chapter" data-level="26" data-path="section-26.html"><a href="section-26.html"><i class="fa fa-check"></i><b>26</b> 量化投资</a><ul>
+<li class="chapter" data-level="26.1" data-path="section-26.html"><a href="section-26.html#section-26.1"><i class="fa fa-check"></i><b>26.1</b> 股票收益模型</a></li>
+<li class="chapter" data-level="26.2" data-path="section-26.html"><a href="section-26.html#section-26.2"><i class="fa fa-check"></i><b>26.2</b> 风险</a></li>
+<li class="chapter" data-level="26.3" data-path="section-26.html"><a href="section-26.html#section-26.3"><i class="fa fa-check"></i><b>26.3</b> 收益</a></li>
+<li class="chapter" data-level="26.4" data-path="section-26.html"><a href="section-26.html#section-26.4"><i class="fa fa-check"></i><b>26.4</b> 一般性投资</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/notes" target="blank">Published with bookdown</a></li>
 
@@ -798,18 +802,18 @@ career &lt;-<span class="st"> </span>Master %&gt;%
 <span class="st">  </span><span class="kw">select</span>(-playerID)
 <span class="co"># 展示数据</span>
 career</code></pre></div>
-<pre><code>## # A tibble: 9,429 × 4
+<pre><code>## # A tibble: 9,429 x 4
 ##                 name     H    AB average
 ##                &lt;chr&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1         Hank Aaron  3771 12364  0.3050
-## 2       Tommie Aaron   216   944  0.2288
-## 3          Andy Abad     2    21  0.0952
-## 4        John Abadie    11    49  0.2245
-## 5     Ed Abbaticchio   772  3044  0.2536
-## 6        Fred Abbott   107   513  0.2086
-## 7        Jeff Abbott   157   596  0.2634
-## 8        Kurt Abbott   523  2044  0.2559
-## 9         Ody Abbott    13    70  0.1857
+##  1        Hank Aaron  3771 12364  0.3050
+##  2      Tommie Aaron   216   944  0.2288
+##  3         Andy Abad     2    21  0.0952
+##  4       John Abadie    11    49  0.2245
+##  5    Ed Abbaticchio   772  3044  0.2536
+##  6       Fred Abbott   107   513  0.2086
+##  7       Jeff Abbott   157   596  0.2634
+##  8       Kurt Abbott   523  2044  0.2559
+##  9        Ody Abbott    13    70  0.1857
 ## 10 Frank Abercrombie     0     4  0.0000
 ## # ... with 9,419 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 击球前5</span>
@@ -1266,7 +1270,7 @@ career_eb %&gt;%
 <p><img src="Notes_files/figure-html/lp-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 提取该球员数据</span>
 career_eb %&gt;%<span class="st"> </span><span class="kw">filter</span>(name ==<span class="st"> &quot;Hank Aaron&quot;</span>)</code></pre></div>
-<pre><code>## # A tibble: 1 × 10
+<pre><code>## # A tibble: 1 x 10
 ##    playerID       name     H    AB average eb_estimate alpha1 beta1   low
 ##       &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 aaronha01 Hank Aaron  3771 12364   0.305       0.304   3850  8819 0.296
@@ -1508,7 +1512,7 @@ two_players %&gt;%
 }
 
 <span class="kw">credible_interval_approx</span>(piazza$alpha1, piazza$beta1, aaron$alpha1, aaron$beta1)</code></pre></div>
-<pre><code>## # A tibble: 1 × 4
+<pre><code>## # A tibble: 1 x 4
 ##   posterior estimate conf.low conf.high
 ##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1     0.606 -0.00182  -0.0151    0.0115</code></pre>
@@ -1558,18 +1562,18 @@ career_eb_vs_piazza &lt;-<span class="st"> </span><span class="kw">bind_cols</sp
 <span class="st">  </span>dplyr::<span class="kw">select</span>(name, posterior, conf.low, conf.high)
 
 career_eb_vs_piazza</code></pre></div>
-<pre><code>## # A tibble: 9,429 × 4
+<pre><code>## # A tibble: 9,429 x 4
 ##                    name posterior conf.low conf.high
 ##                   &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1        Rogers Hornsby  2.84e-11   0.0345    0.0639
-## 2          Ed Delahanty  7.10e-07   0.0218    0.0518
-## 3  Shoeless Joe Jackson  8.77e-08   0.0278    0.0611
-## 4         Willie Keeler  4.62e-06   0.0183    0.0472
-## 5            Nap Lajoie  1.62e-05   0.0158    0.0441
-## 6            Tony Gwynn  1.83e-05   0.0157    0.0442
-## 7        Harry Heilmann  7.19e-06   0.0180    0.0476
-## 8            Lou Gehrig  1.43e-05   0.0167    0.0461
-## 9        Billy Hamilton  7.03e-06   0.0190    0.0503
+##  1       Rogers Hornsby  2.84e-11   0.0345    0.0639
+##  2         Ed Delahanty  7.10e-07   0.0218    0.0518
+##  3 Shoeless Joe Jackson  8.77e-08   0.0278    0.0611
+##  4        Willie Keeler  4.62e-06   0.0183    0.0472
+##  5           Nap Lajoie  1.62e-05   0.0158    0.0441
+##  6           Tony Gwynn  1.83e-05   0.0157    0.0442
+##  7       Harry Heilmann  7.19e-06   0.0180    0.0476
+##  8           Lou Gehrig  1.43e-05   0.0167    0.0461
+##  9       Billy Hamilton  7.03e-06   0.0190    0.0503
 ## 10        Eddie Collins  2.00e-04   0.0113    0.0393
 ## # ... with 9,419 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 计算q值</span>
@@ -1582,18 +1586,18 @@ better &lt;-<span class="st"> </span>career_eb_vs_piazza %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(qvalue &lt;<span class="st"> </span>.<span class="dv">05</span>)
 
 better</code></pre></div>
-<pre><code>## # A tibble: 49 × 5
+<pre><code>## # A tibble: 49 x 5
 ##                    name posterior conf.low conf.high   qvalue
 ##                   &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1        Rogers Hornsby  2.84e-11   0.0345    0.0639 2.84e-11
-## 2  Shoeless Joe Jackson  8.77e-08   0.0278    0.0611 4.39e-08
-## 3          Ed Delahanty  7.10e-07   0.0218    0.0518 2.66e-07
-## 4         Willie Keeler  4.62e-06   0.0183    0.0472 1.35e-06
-## 5        Billy Hamilton  7.03e-06   0.0190    0.0503 2.49e-06
-## 6        Harry Heilmann  7.19e-06   0.0180    0.0476 3.27e-06
-## 7            Lou Gehrig  1.43e-05   0.0167    0.0461 4.85e-06
-## 8            Nap Lajoie  1.62e-05   0.0158    0.0441 6.27e-06
-## 9            Tony Gwynn  1.83e-05   0.0157    0.0442 7.61e-06
+##  1       Rogers Hornsby  2.84e-11   0.0345    0.0639 2.84e-11
+##  2 Shoeless Joe Jackson  8.77e-08   0.0278    0.0611 4.39e-08
+##  3         Ed Delahanty  7.10e-07   0.0218    0.0518 2.66e-07
+##  4        Willie Keeler  4.62e-06   0.0183    0.0472 1.35e-06
+##  5       Billy Hamilton  7.03e-06   0.0190    0.0503 2.49e-06
+##  6       Harry Heilmann  7.19e-06   0.0180    0.0476 3.27e-06
+##  7           Lou Gehrig  1.43e-05   0.0167    0.0461 4.85e-06
+##  8           Nap Lajoie  1.62e-05   0.0158    0.0441 6.27e-06
+##  9           Tony Gwynn  1.83e-05   0.0157    0.0442 7.61e-06
 ## 10           Bill Terry  3.03e-05   0.0162    0.0472 9.88e-06
 ## # ... with 39 more rows</code></pre>
 <ul>
@@ -1731,7 +1735,7 @@ career_eb_wAB %&gt;%
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 展示数据</span>
 career2 %&gt;%
 <span class="st">        </span><span class="kw">count</span>(bats)</code></pre></div>
-<pre><code>## # A tibble: 4 × 2
+<pre><code>## # A tibble: 4 x 2
 ##     bats     n
 ##   &lt;fctr&gt; &lt;int&gt;
 ## 1      B   767
@@ -1806,19 +1810,14 @@ fit2 &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="k
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(decade, average)) +
 <span class="st">  </span><span class="kw">geom_boxplot</span>() +
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Batting average&quot;</span>)</code></pre></div>
-<p><img src="Notes_files/figure-html/batyear-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 用样条插值来进行拟合</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Batting average&quot;</span>)
+<span class="co"># 用样条插值来进行拟合</span>
 <span class="kw">library</span>(splines)
 fit3 &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">cbind</span>(H, AB -<span class="st"> </span>H) ~<span class="st"> </span><span class="dv">0</span> +<span class="st"> </span><span class="kw">ns</span>(year, <span class="dt">df =</span> <span class="dv">5</span>) +<span class="st"> </span>bats +<span class="st"> </span><span class="kw">log</span>(AB),
                <span class="dt">data =</span> career3,
-               <span class="dt">family =</span> <span class="kw">BB</span>(<span class="dt">mu.link =</span> <span class="st">&quot;identity&quot;</span>))</code></pre></div>
-<pre><code>## GAMLSS-RS iteration 1: Global Deviance = 88204 
-## GAMLSS-RS iteration 2: Global Deviance = 69289 
-## GAMLSS-RS iteration 3: Global Deviance = 64841 
-## GAMLSS-RS iteration 4: Global Deviance = 64832 
-## GAMLSS-RS iteration 5: Global Deviance = 64832</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 观察在击球数1000上先验概率的变化</span>
+               <span class="dt">family =</span> <span class="kw">BB</span>(<span class="dt">mu.link =</span> <span class="st">&quot;identity&quot;</span>))
+
+<span class="co"># 观察在击球数1000上先验概率的变化</span>
 plot_gamlss_fit &lt;-<span class="st"> </span>function(f) {
   career3 %&gt;%
 <span class="st">    </span>dplyr::<span class="kw">select</span>(year, bats) %&gt;%
@@ -1840,21 +1839,15 @@ plot_gamlss_fit &lt;-<span class="st"> </span>function(f) {
          <span class="dt">color =</span> <span class="st">&quot;Batting hand&quot;</span>)
 }
 <span class="kw">plot_gamlss_fit</span>(fit3)</code></pre></div>
-<p><img src="Notes_files/figure-html/batyear-2.png" width="672" /></p>
 <ul>
 <li>同时另一个问题是这些因素会交互影响</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit4 &lt;-<span class="st"> </span><span class="kw">gamlss</span>(<span class="kw">cbind</span>(H, AB -<span class="st"> </span>H) ~<span class="st"> </span><span class="dv">0</span> +<span class="st"> </span><span class="kw">ns</span>(year, <span class="dv">5</span>) *<span class="st"> </span>bats +<span class="st"> </span><span class="kw">log</span>(AB),
                <span class="dt">data =</span> career3,
-               <span class="dt">family =</span> <span class="kw">BB</span>(<span class="dt">mu.link =</span> <span class="st">&quot;identity&quot;</span>))</code></pre></div>
-<pre><code>## GAMLSS-RS iteration 1: Global Deviance = 88201 
-## GAMLSS-RS iteration 2: Global Deviance = 69241 
-## GAMLSS-RS iteration 3: Global Deviance = 64708 
-## GAMLSS-RS iteration 4: Global Deviance = 64698 
-## GAMLSS-RS iteration 5: Global Deviance = 64698</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_gamlss_fit</span>(fit4)</code></pre></div>
-<p><img src="Notes_files/figure-html/interact-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Pitching %&gt;%
+               <span class="dt">family =</span> <span class="kw">BB</span>(<span class="dt">mu.link =</span> <span class="st">&quot;identity&quot;</span>))
+<span class="kw">plot_gamlss_fit</span>(fit4)
+
+Pitching %&gt;%
 <span class="st">  </span>dplyr::<span class="kw">select</span>(playerID, yearID, GS) %&gt;%
 <span class="st">  </span><span class="kw">distinct</span>() %&gt;%
 <span class="st">  </span><span class="kw">inner_join</span>(dplyr::<span class="kw">select</span>(Master, playerID, throws)) %&gt;%
@@ -1868,7 +1861,6 @@ plot_gamlss_fit &lt;-<span class="st"> </span>function(f) {
 <span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales::<span class="kw">percent_format</span>()) +
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;% of games with left-handed pitcher&quot;</span>)</code></pre></div>
-<p><img src="Notes_files/figure-html/interact-2.png" width="672" /></p>
 <ul>
 <li>左右手之间的差距伴随年份在逐渐减少</li>
 </ul>
@@ -1893,7 +1885,6 @@ players_posterior %&gt;%
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Batting average&quot;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Posterior density&quot;</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Posterior distributions for batters with 30 / 100&quot;</span>)</code></pre></div>
-<p><img src="Notes_files/figure-html/yearcompare-1.png" width="672" /></p>
 <ul>
 <li>经验贝叶斯对先验概率的估计类似频率学派，但进行的又是贝叶斯分析</li>
 </ul>
@@ -1956,7 +1947,7 @@ fit_bb_mle &lt;-<span class="st"> </span>function(x, n) {
 }
 <span class="co"># 看下初始参数</span>
 <span class="kw">fit_bb_mle</span>(starting_data$H, starting_data$AB)</code></pre></div>
-<pre><code>## # A tibble: 1 × 3
+<pre><code>## # A tibble: 1 x 3
 ##   alpha  beta number
 ##   &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;
 ## 1  12.7  45.3   3310</code></pre>
@@ -1968,7 +1959,7 @@ fits &lt;-<span class="st"> </span>starting_data %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prior =</span> number /<span class="st"> </span><span class="kw">sum</span>(number))
 
 fits</code></pre></div>
-<pre><code>## # A tibble: 2 × 5
+<pre><code>## # A tibble: 2 x 5
 ##   cluster alpha  beta number prior
 ##    &lt;fctr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt;
 ## 1       A  12.6  45.0   1644 0.497
@@ -1985,18 +1976,18 @@ fits</code></pre></div>
 <span class="st">  </span><span class="kw">ungroup</span>()
 <span class="co"># 去除掉原有分组，根据更新的后验概率重新分组</span>
 assignments</code></pre></div>
-<pre><code>## # A tibble: 3,310 × 11
+<pre><code>## # A tibble: 3,310 x 11
 ##     playerID               name     H    AB average cluster alpha  beta
 ##        &lt;chr&gt;              &lt;chr&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;  &lt;fctr&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1  abbotje01        Jeff Abbott    11    42  0.2619       B  12.9  45.6
-## 2  abbotji01         Jim Abbott     2    21  0.0952       A  12.6  45.0
-## 3  abbotku01        Kurt Abbott   475  1860  0.2554       B  12.9  45.6
-## 4  abbotky01        Kyle Abbott     3    31  0.0968       A  12.6  45.0
-## 5  abercre01 Reggie Abercrombie    86   386  0.2228       B  12.9  45.6
-## 6  abnersh01        Shawn Abner   110   531  0.2072       B  12.9  45.6
-## 7  abreubo01        Bobby Abreu  1607  5395  0.2979       B  12.9  45.6
-## 8  abreuto01         Tony Abreu   129   509  0.2534       B  12.9  45.6
-## 9  acevejo01       Jose Acevedo     8   101  0.0792       A  12.6  45.0
+##  1 abbotje01        Jeff Abbott    11    42  0.2619       B  12.9  45.6
+##  2 abbotji01         Jim Abbott     2    21  0.0952       A  12.6  45.0
+##  3 abbotku01        Kurt Abbott   475  1860  0.2554       B  12.9  45.6
+##  4 abbotky01        Kyle Abbott     3    31  0.0968       A  12.6  45.0
+##  5 abercre01 Reggie Abercrombie    86   386  0.2228       B  12.9  45.6
+##  6 abnersh01        Shawn Abner   110   531  0.2072       B  12.9  45.6
+##  7 abreubo01        Bobby Abreu  1607  5395  0.2979       B  12.9  45.6
+##  8 abreuto01         Tony Abreu   129   509  0.2534       B  12.9  45.6
+##  9 acevejo01       Jose Acevedo     8   101  0.0792       A  12.6  45.0
 ## 10 aceveju01       Juan Acevedo     6    65  0.0923       A  12.6  45.0
 ## # ... with 3,300 more rows, and 3 more variables: number &lt;int&gt;,
 ## #   prior &lt;dbl&gt;, likelihood &lt;dbl&gt;</code></pre>
@@ -2061,7 +2052,7 @@ batter_100 &lt;-<span class="st"> </span>career %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(AB ==<span class="st"> </span><span class="dv">100</span>) %&gt;%
 <span class="st">  </span><span class="kw">arrange</span>(average)
 batter_100</code></pre></div>
-<pre><code>## # A tibble: 5 × 8
+<pre><code>## # A tibble: 5 x 8
 ##    playerID            name   bats     H    AB  year average isPitcher
 ##       &lt;chr&gt;           &lt;chr&gt; &lt;fctr&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;lgl&gt;
 ## 1 dejesjo01   Jose de Jesus      R    11   100  1990    0.11      TRUE
@@ -2074,7 +2065,7 @@ final_parameters &lt;-<span class="st"> </span>fit_iterations %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(iteration ==<span class="st"> </span><span class="kw">max</span>(iteration))
 
 final_parameters</code></pre></div>
-<pre><code>## # A tibble: 2 × 6
+<pre><code>## # A tibble: 2 x 6
 ##   iteration cluster alpha  beta number prior
 ##       &lt;chr&gt;  &lt;fctr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt;
 ## 1         5       A  36.4   255    851 0.257
@@ -2126,6 +2117,7 @@ career_assignments %&gt;%
 <pre><code>## Source: local data frame [2 x 3]
 ## Groups: isPitcher [2]
 ## 
+## # A tibble: 2 x 3
 ##   isPitcher     A     B
 ## *     &lt;lgl&gt; &lt;int&gt; &lt;int&gt;
 ## 1     FALSE    30  2043
@@ -2204,7 +2196,7 @@ prior &lt;-<span class="st"> </span>career %&gt;%
 prior</code></pre></div>
 <pre><code>## Empirical Bayes binomial fit with method mle 
 ## Parameters:
-## # A tibble: 1 × 2
+## # A tibble: 1 x 2
 ##   alpha  beta
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1  72.4   216</code></pre>
@@ -2227,18 +2219,18 @@ career_sim &lt;-<span class="st"> </span>career %&gt;%
          <span class="dt">H =</span> <span class="kw">rbinom</span>(<span class="kw">n</span>(), AB, p))
 
 career_sim</code></pre></div>
-<pre><code>## # A tibble: 10,492 × 4
+<pre><code>## # A tibble: 10,492 x 4
 ##     playerID     H    AB     p
 ##        &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
-## 1  aaronha01  3618 12364 0.299
-## 2  aaronto01   229   944 0.249
-## 3   abadan01     7    21 0.274
-## 4  abadijo01    14    49 0.198
-## 5  abbated01   762  3044 0.249
-## 6  abbeych01   464  1751 0.264
-## 7  abbotda01     2     7 0.191
-## 8  abbotfr01   125   513 0.251
-## 9  abbotje01   145   596 0.243
+##  1 aaronha01  3618 12364 0.299
+##  2 aaronto01   229   944 0.249
+##  3  abadan01     7    21 0.274
+##  4 abadijo01    14    49 0.198
+##  5 abbated01   762  3044 0.249
+##  6 abbeych01   464  1751 0.264
+##  7 abbotda01     2     7 0.191
+##  8 abbotfr01   125   513 0.251
+##  9 abbotje01   145   596 0.243
 ## 10 abbotku01   554  2044 0.261
 ## # ... with 10,482 more rows</code></pre>
 <div id="section-19.15.1" class="section level3">
@@ -2274,7 +2266,7 @@ career_sim_gathered %&gt;%
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">career_sim_gathered %&gt;%
 <span class="st">  </span><span class="kw">group_by</span>(type) %&gt;%
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mse =</span> <span class="kw">mean</span>((estimate -<span class="st"> </span>p) ^<span class="st"> </span><span class="dv">2</span>))</code></pre></div>
-<pre><code>## # A tibble: 2 × 2
+<pre><code>## # A tibble: 2 x 2
 ##       type      mse
 ##      &lt;chr&gt;    &lt;dbl&gt;
 ## 1      Raw 0.014971
@@ -2340,7 +2332,7 @@ career_sim_gathered %&gt;%
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">career_sim_eb %&gt;%
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">coverage =</span> <span class="kw">mean</span>(.low &lt;=<span class="st"> </span>p &amp;<span class="st"> </span>p &lt;=<span class="st"> </span>.high))</code></pre></div>
-<pre><code>## # A tibble: 1 × 1
+<pre><code>## # A tibble: 1 x 1
 ##   coverage
 ##      &lt;dbl&gt;
 ## 1    0.943</code></pre>
@@ -2399,7 +2391,7 @@ bb_reg &lt;-<span class="st"> </span>career %&gt;%
 <span class="st">  </span><span class="kw">ebb_fit_prior</span>(H, AB, <span class="dt">method =</span> <span class="st">&quot;gamlss&quot;</span>, <span class="dt">mu_predictors =</span> ~<span class="st"> </span><span class="kw">log10</span>(AB))
 
 <span class="kw">tidy</span>(bb_reg)</code></pre></div>
-<pre><code>## # A tibble: 3 × 6
+<pre><code>## # A tibble: 3 x 6
 ##   parameter        term estimate std.error statistic p.value
 ##      &lt;fctr&gt;       &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
 ## 1        mu (Intercept)   -1.686   0.00902    -186.9       0
@@ -2417,7 +2409,7 @@ career_ab_prior &lt;-<span class="st"> </span>career_sim_ab %&gt;%
 
 <span class="co"># 对比</span>
 <span class="kw">tidy</span>(career_ab_prior)</code></pre></div>
-<pre><code>## # A tibble: 3 × 6
+<pre><code>## # A tibble: 3 x 6
 ##   parameter        term estimate std.error statistic p.value
 ##      &lt;fctr&gt;       &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
 ## 1        mu (Intercept)   -1.686   0.00909      -185       0
@@ -2452,18 +2444,18 @@ sim_replications &lt;-<span class="st"> </span>career %&gt;%
          <span class="dt">H =</span> <span class="kw">rbinom</span>(<span class="kw">n</span>(), AB, p))
 
 sim_replications</code></pre></div>
-<pre><code>## # A tibble: 524,600 × 5
+<pre><code>## # A tibble: 524,600 x 5
 ##     playerID     H    AB replication     p
 ##        &lt;chr&gt; &lt;int&gt; &lt;int&gt;       &lt;int&gt; &lt;dbl&gt;
-## 1  aaronha01  3762 12364           1 0.299
-## 2  aaronha01  3021 12364           2 0.249
-## 3  aaronha01  3419 12364           3 0.274
-## 4  aaronha01  2475 12364           4 0.198
-## 5  aaronha01  3045 12364           5 0.249
-## 6  aaronha01  3296 12364           6 0.264
-## 7  aaronha01  2376 12364           7 0.191
-## 8  aaronha01  3069 12364           8 0.251
-## 9  aaronha01  2927 12364           9 0.243
+##  1 aaronha01  3762 12364           1 0.299
+##  2 aaronha01  3021 12364           2 0.249
+##  3 aaronha01  3419 12364           3 0.274
+##  4 aaronha01  2475 12364           4 0.198
+##  5 aaronha01  3045 12364           5 0.249
+##  6 aaronha01  3296 12364           6 0.264
+##  7 aaronha01  2376 12364           7 0.191
+##  8 aaronha01  3069 12364           8 0.251
+##  9 aaronha01  2927 12364           9 0.243
 ## 10 aaronha01  3320 12364          10 0.261
 ## # ... with 524,590 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sim_replication_models &lt;-<span class="st"> </span>sim_replications %&gt;%
@@ -2475,18 +2467,18 @@ sim_replication_priors &lt;-<span class="st"> </span>sim_replication_models %&gt
 <span class="st">  </span><span class="kw">unnest</span>(<span class="kw">map</span>(prior, tidy), <span class="dt">.drop =</span> <span class="ot">TRUE</span>)
 
 sim_replication_priors</code></pre></div>
-<pre><code>## # A tibble: 50 × 4
+<pre><code>## # A tibble: 50 x 4
 ##    replication alpha  beta  mean
 ##          &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1            1  74.1   221 0.251
-## 2            2  73.2   218 0.251
-## 3            3  72.7   217 0.251
-## 4            4  73.1   218 0.251
-## 5            5  69.5   207 0.251
-## 6            6  75.4   224 0.252
-## 7            7  74.3   221 0.252
-## 8            8  72.7   216 0.252
-## 9            9  76.9   229 0.251
+##  1           1  74.1   221 0.251
+##  2           2  73.2   218 0.251
+##  3           3  72.7   217 0.251
+##  4           4  73.1   218 0.251
+##  5           5  69.5   207 0.251
+##  6           6  75.4   224 0.252
+##  7           7  74.3   221 0.252
+##  8           8  72.7   216 0.252
+##  9           9  76.9   229 0.251
 ## 10          10  72.2   215 0.252
 ## # ... with 40 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">true_values &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">parameter =</span> <span class="kw">c</span>(<span class="st">&quot;alpha&quot;</span>, <span class="st">&quot;beta&quot;</span>, <span class="st">&quot;mean&quot;</span>),
@@ -2572,8 +2564,9 @@ sim_replication_prop_tests %&gt;%
         </div>
       </div>
 <a href="section-18.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -2616,7 +2609,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

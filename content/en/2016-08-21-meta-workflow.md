@@ -2,6 +2,7 @@
 title: Metabolomics workflow in Rstudio
 date: 2016-08-21
 slug: meta workflow
+tags: [metabolomics]
 ---
 
 I have moved to Canada for about three weeks. Now I am a PostDoc in University of Waterloo. I will handle two projects about **in silica** studies in analytical chemistry. Well, I treated them as another data and modeling-driven interdisciplinary studies.

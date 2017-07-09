@@ -2,6 +2,7 @@
 title: A very brief intro of shiny
 date: 2014-03-23
 slug: intro of shiny
+tags: [R]
 ---
 
 > If you are a starter of shiny as me, this post may help your know some principle of shiny.  

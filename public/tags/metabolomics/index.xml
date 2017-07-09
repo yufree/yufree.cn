@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Metabolomics on Miao Yu | 于淼 </title>
+    <link>/tags/metabolomics/index.xml</link>
+    <description>Recent content in Metabolomics on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/tags/metabolomics/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Selection of open source software platform for metabolomics or lipidomics</title>
+      <link>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</link>
+      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</guid>
+      <description>&lt;p&gt;Recently I reviewed some platforms for metabolomics or lipidomics and tried to find out which one is currently available to my demands. I knew some instrumental company supplied software or solutions for metabolomics and lipidomics. I just disliked them since they concealed too many details about data processing which made omics studies as a magic box like Artificial Neural Network. It gains nothing for scientist to get insights from the data and you might only follow the workflow defined by the company. I read some papers using those kind of software and felt the authors know little about what they performed. Data analysis for metabolomics or lipidomics is a systems engineering. If someone really want to use this tools, just choose a open source platform and inspect the code when you needed. Otherwise, your work could be replaced by AI someday. It’s not a joke. Here is a summary for the selection of mass spectrum based metabolomics or lipidomics software platform.&lt;/p&gt;
+&lt;div id=&#34;principles-for-selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Principles for selection&lt;/h2&gt;
+&lt;p&gt;A decent solution should have functions covering the following required functions or features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Open source: as I said before, researcher could benefit a lot from open source community. Based on your experiences, Java, matlab, python and R would be your choices. I liked R most while python might dominate everything in the further.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data input/output: this work could be done by msconvert from &lt;a href=&#34;http://proteowizard.sourceforge.net/tools.shtml&#34;&gt;proteowizard&lt;/a&gt;. I preferred to install msconvert directly on the instruments and convert the vendor files into mzML or mzXML files to perform further analysis. I just dislike Windows. On the other hand, some software from the instruments could output CDF files, which is also nice.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Turn the Raw data into mass-retention time matrix: single data file from mass spectrum would always contain matadata and profile data. The former container has records for that data and the latter were always full scans of mass spectrum indexed by retention time. Then you need to map such data into a matrix because the following peaks picking and alignments always based on algorithms for matrix.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Peaks picking: you also need functions to pick up the peaks from mass-retention time matrix. Functions like centWave or isotope-based algorithms would help to find the peaks. Sometimes you need to bin the matrix first before peak picking and such requirements should be carefully checked. Anyway you could just use one function to perform peaks picking in most software. The output of this step would be a peak list with intensity, mass and retention time.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Retention time correction: when you process more than one data file such as technique replicates, the drift of retention time would make the final peak list contained replicated peaks. Someone use certain peaks to corrected the data, while I prefer some global similarity analysis based algorithm to undertake this task. However, some software might add one step to group the peaks before and/or after retention time correction. Anyway, the output of this step is the peak list from one group.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Batch effects correction: this is another issue from analysis procedure and batch effects would also bury signals from noise. Researchers from analytical chemistry always use random experiment design and pooled sample to check if the batch effects exist. However, I think the most important things were correction. Just treat a series of samples suffered batch effects and use some statistical analysis to correct them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Statistical analysis: when you get the peaks list, you could perform the following supervised or non-supervised analysis to find bio-markers or data pattern. I think &lt;a href=&#34;http://www.metaboanalyst.ca/&#34;&gt;Metaboanalyst&lt;/a&gt; could satisfy most researchers.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Annotation or identification: the peaks annotation is also important. &lt;a href=&#34;www.hmdb.ca&#34;&gt;HMDB&lt;/a&gt; and &lt;a href=&#34;http://www.lipidmaps.org/&#34;&gt;LIPID MAPS&lt;/a&gt; would be the basic version for mapping peaks to compounds. In most cases, MS/MS data would be used. I think most of MS/MS dataset could be separated handled by &lt;a href=&#34;https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp&#34;&gt;GNPS&lt;/a&gt; or &lt;a href=&#34;https://metlin.scripps.edu&#34;&gt;Metlin&lt;/a&gt; and predicted by &lt;a href=&#34;http://www.csi-fingerid.org/&#34;&gt;FingerID&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pathway analysis: sometimes we also need to know the relationship among compounds and pathway analysis is always performed for that purpose.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;platform&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Platform&lt;/h2&gt;
+&lt;div id=&#34;xcms-online&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;XCMS online&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://xcmsonline.scripps.edu/landing_page.php?pgcontent=mainPage&#34;&gt;XCMS online&lt;/a&gt; is hosted by Scripps Institute. If your datasets are not large, XCMS online would be the best option for you. Recently they updated the online version to support more functions for systems biology. They use metlin and iso metlin to annotate the MS/MS data. Pathway analysis is also supported. Besides, to accelerate the process, xcms online employed stream (windows only). You could use stream to connect your instrument workstation to their server and process the data along with the data acquisition automate. They also developed apps for xcms online, but I think apps for slack would be even cooler to control the data processing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prime&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PRIMe&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://prime.psc.riken.jp/Metabolomics_Software/&#34;&gt;PRIMe&lt;/a&gt; is from RIKEN and UC Davis. It supports mzML and major MS vendor formats. They defined own file format ABF and eco-system for omics studies. The software are updated almost everyday. You could use MS-DIAL for untargeted analysis and MRMOROBS for targeted analysis. For annotation, they developed MS-FINDER and they also developed statistic tools with excel. This platform could replaced the dear software from company and well prepared for MS/MS data analysis and lipidomics. They are open source, work on Windows and also could run within mathmamtics. However, they don’t cover pathway analysis. Another feature is they always show the most recently spectral records from public repositories. You could always get the updated MSP spectra files for your own data analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;openms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;OpenMS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.openms.de/&#34;&gt;OpenMS&lt;/a&gt; is another good platform for mass spectrum data analysis developed with C++. You could use them as plugin of &lt;a href=&#34;https://www.knime.org/&#34;&gt;KNIME&lt;/a&gt;. I suggest anyone who want to be a data scientist to get familiar with platform like KNIME because they supplied various API for different programme language, which is easy to use and show every steps for others. Also TOPPView in OpenMS could be the best software to visualize the MS data. You could always use the metabolomics workflow to train starter about details in data processing. pyOpenMS and OpenSWATH are also used in this platform. If you want to turn into industry, this platform fit you best because you might get a clear idea about solution and workflow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mzmine-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;MZmine 2&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://mzmine.github.io/&#34;&gt;MZmine 2&lt;/a&gt; has three version developed on Java platform and the lastest version is included into &lt;a href=&#34;https://msdk.github.io/&#34;&gt;MSDK&lt;/a&gt;. Similar function could be found from MZmine 2 as shown in XCMS online. However, MZmine 2 do not have pathway analysis. You could use metaboanalyst for that purpose. Actually, you could go into MSDK to find similar function supplied by &lt;a href=&#34;http://www.proteosuite.org&#34;&gt;ProteoSuite&lt;/a&gt; and &lt;a href=&#34;https://www.openchrom.net/&#34;&gt;Openchrom&lt;/a&gt;. If you are a experienced coder for Java, you should start here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;xcms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;XCMS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/xcms.html&#34;&gt;xcms&lt;/a&gt; is different from xcms online while they might share the same code. I used it almost every data to run local metabolomics data analysis. Recently, they will change their version to xcms 3 with major update for object class. Their data format would integrate into the MSnbase package and the parameters would be easy to set up for each step. Normally, I will use msconvert-IPO-xcms-xMSannotator-metaboanalyst as workflow to process the offline data. It could accelerate the process by parallel processing. However, if you are not familiar with R, you would better to choose some software above.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emory-mahpic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Emory MaHPIC&lt;/h3&gt;
+&lt;p&gt;This platform is composed by several R packages from Emory University including &lt;a href=&#34;https://sourceforge.net/projects/aplcms/&#34;&gt;apLCMS&lt;/a&gt; to collect the data, &lt;a href=&#34;https://sourceforge.net/projects/xmsanalyzer/&#34;&gt;xMSanalyzer&lt;/a&gt; to handle automated pipeline for large-scale, non-targeted metabolomics data, &lt;a href=&#34;https://sourceforge.net/projects/xmsannotator/&#34;&gt;xMSannotator&lt;/a&gt; for annotation of LC-MS data and &lt;a href=&#34;https://code.google.com/archive/p/atcg/wikis/mummichog_for_metabolomics.wiki&#34;&gt;Mummichog&lt;/a&gt; for pathway and network analysis for high-throughput metabolomics. This platform would be preferred by someone from environmental science to study exposome. I always use xMSannotator to annotate the LC-MS data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;others&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Others&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://genomics-pubs.princeton.edu/mzroll/index.php?show=index&#34;&gt;MAVEN&lt;/a&gt; from Princeton University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://vpr.colostate.edu/pmf/wp-content/uploads/sites/23/2015/06/Broeckling_2014.pdf&#34;&gt;RAMclustR&lt;/a&gt; from Colorado State University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/html/MAIT.html&#34;&gt;MAIT&lt;/a&gt; based on xcms&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;enviGCMS&lt;/a&gt; from me&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ebi.ac.uk/metabolights/&#34;&gt;Metabolights&lt;/a&gt; for sharing data&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;selection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Selection&lt;/h2&gt;
+&lt;p&gt;All of the platform above could be used for metabolomics and lipidomics. However, best selection would be based on your programming skills and the popularity in your research area. Every tool need training before analysis your data and you could choose one randomly and be focused on the source code for one day. If you feel you could handle it, just use it. Otherwise select another one. Enjoy and fight with the data.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data analysis for Desorption Electrospray Ionization</title>
+      <link>/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</guid>
+      <description>&lt;p&gt;Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms.&lt;/p&gt;
+&lt;p&gt;Supposing we have data from 1 min sampling and we want to get the mass spectrum. For mass spectrum, 1 min usually means more than 100 full scan. The basic idea to process such data is directly binning the mass and average the intensity. However, I found &lt;code&gt;group.mzClust&lt;/code&gt; function and &lt;code&gt;MSW&lt;/code&gt; method are designed for this purpose.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(msdata)
+mzdatapath &amp;lt;- system.file(&amp;quot;fticr&amp;quot;, package = &amp;quot;msdata&amp;quot;)
+mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names = TRUE)
+
+xs &amp;lt;- xcmsSet(method=&amp;quot;MSW&amp;quot;, files=mzdatafiles, scales=c(1,7),
+              SNR.method=&amp;#39;data.mean&amp;#39; , winSize.noise=500,
+               peakThr=80000,  amp.Th=0.005)
+xsg &amp;lt;- group.mzClust(xs)
+xsg &amp;lt;- fillPeaks.MSW(xsg)
+r &amp;lt;- groupval(xsg,&amp;#39;medret&amp;#39;,&amp;#39;into&amp;#39;)
+z &amp;lt;- as.data.frame(peaks(xsg))
+file &amp;lt;- cbind(z$mz,r)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You could save the data as csv file. Then you could perform further analysis such as peak picking or PCA analysis. If your data could be organized for spatial analysis or imaging, all the data has been ready and you could draw them by one for loop or just use &lt;code&gt;animation&lt;/code&gt; package for a gif. I used this trick for my last group meeting as PhD students.&lt;/p&gt;
+&lt;p&gt;PS: the new design of xcms 3 is much more friendly to process such data via &lt;code&gt;XCMSnExp&lt;/code&gt; object and the parameters design is very friendly to users.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using xcms offline for metabolomics study</title>
+      <link>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</guid>
+      <description>&lt;p&gt;XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.&lt;/p&gt;
+&lt;div id=&#34;optimized-parameters&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optimized Parameters&lt;/h2&gt;
+&lt;p&gt;Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them. Those parameters are related to peaks extraction, grouping, retention time correction and fill missing peaks. Authors of xcms online has published &lt;a href=&#34;http://www.nature.com/nprot/journal/v7/n3/fig_tab/nprot.2011.454_T1.html&#34;&gt;paper&lt;/a&gt; and show the table of suggested parameters. Thus in the local version, you could directly use them. If you still feel hard, I write a function &lt;code&gt;getdata&lt;/code&gt; in the &lt;code&gt;enviGCMS&lt;/code&gt; package. You could install it from Github (CRAN version has not been updated):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;yufree/enviGCMS&amp;#39;)
+# we need parallel computing
+library(enviGCMS)
+library(BiocParallel)
+library(xcms)
+# you need faahKO package for demo
+cdfpath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;, package = &amp;quot;faahKO&amp;quot;)
+# directly input path and you could get xcmsSet object
+xset &amp;lt;- getdata(cdfpath, pmethod = &amp;#39;hplcqtof&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;getdata&lt;/code&gt; could directly perform peaks extraction, grouping, retention time correction and fill missing peaks and return the &lt;code&gt;xcmsSet&lt;/code&gt; object for further analysis.&lt;/p&gt;
+&lt;p&gt;However, I suggest use &lt;code&gt;IPO&lt;/code&gt; package to optimize the parameters for certain instrumental. Here is the R script for optimizing. You need to be patient because such process usually take half day. After finding the parameters for your instrumental, you could use those parameters for the following studies. Here is the R script to optimize parameters for certain instrumental:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# path and files
+# use pool qc or blank for this optimization
+mzdatapath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;,package = &amp;quot;faahKO&amp;quot;)
+mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names=TRUE)
+library(IPO)
+# use centwave if you use obitrap
+peakpickingParameters &amp;lt;- getDefaultXcmsSetStartingParams(&amp;#39;matchedFilter&amp;#39;)
+#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)
+peakpickingParameters$min_peakwidth &amp;lt;- c(10,20) 
+peakpickingParameters$max_peakwidth &amp;lt;- c(26,42)
+#setting only one value for ppm therefore this parameter is not optimized
+peakpickingParameters$ppm &amp;lt;- 20 
+resultPeakpicking &amp;lt;- 
+  optimizeXcmsSet(files = mzdatafiles[6:9], 
+                  params = peakpickingParameters, 
+                  nSlaves = 4, 
+                  subdir = &amp;#39;rsmDirectory&amp;#39;)
+
+optimizedXcmsSetObject &amp;lt;- resultPeakpicking$best_settings$xset
+
+retcorGroupParameters &amp;lt;- getDefaultRetGroupStartingParams()
+retcorGroupParameters$profStep &amp;lt;- 1
+resultRetcorGroup &amp;lt;-
+  optimizeRetGroup(xset = optimizedXcmsSetObject, 
+                   params = retcorGroupParameters, 
+                   nSlaves = 4, 
+                   subdir = &amp;quot;rsmDirectory&amp;quot;)
+
+
+writeRScript(resultPeakpicking$best_settings$parameters, 
+             resultRetcorGroup$best_settings, 
+             nSlaves=12)
+# https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistical-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Statistical analysis&lt;/h2&gt;
+&lt;p&gt;Actually, the statistival methods in xcms online are limited compared with Metaboanalyst. In last post, I have shown how to install Metaboanalyst locally. Here, I also supply a function in &lt;code&gt;enviGCMS&lt;/code&gt; to directly get the csv file to be uploaded to Metaboanalyst. You need to show a xcmsSet object and the name for the file:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this xcmsSet object could be directly get from getdata function
+getupload(xset,name = &amp;#39;peaklist&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eic-and-boxplot-for-peaks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;EIC and Boxplot for peaks&lt;/h2&gt;
+&lt;p&gt;If you like the report from xcms online, you could also get them with the figures. I also write a function called &lt;code&gt;plote&lt;/code&gt; in &lt;code&gt;enviGCMS&lt;/code&gt; package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# you also need the name for subdir of EIC and Boxplot, you might also change the test method for the diffreport
+plote(xset,name = &amp;#39;test&amp;#39;,test = &amp;#39;t&amp;#39;, nonpara = &amp;#39;y&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All of the function has been documented. I might update the CRAN version in the near future.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;waters-q-tof-mass-lock-issue&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Waters Q-ToF mass lock issue&lt;/h2&gt;
+&lt;p&gt;If you use Waters Q-ToF, you might be confused by data conversion. I suggest you use the most updated msconvert to convert RAW folder into mzxml, which you could input the lock mass(older version miss this function). However, such data still have gap, you might use the &lt;code&gt;lockMassFreq = T&lt;/code&gt; in xcms to imput such gap to get more peaks. Such parameters could be transfer in &lt;code&gt;getdata&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;xset &amp;lt;- getdata(path,lockMassFreq = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;annotation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Annotation&lt;/h2&gt;
+&lt;p&gt;For the annotation part, I suggest using &lt;code&gt;xMSannotator&lt;/code&gt; package. You could install it from my github repo since the author didn’t use github:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# You might need to install the following packages before installing this package
+install.packages(&amp;#39;data.table&amp;#39;)
+install.packages(&amp;#39;digest&amp;#39;)
+source(&amp;quot;http://bioconductor.org/biocLite.R&amp;quot;)
+biocLite(&amp;quot;SSOAP&amp;quot;)
+biocLite(&amp;quot;KEGGREST&amp;quot;)
+biocLite(&amp;quot;pcaMethods&amp;quot;)
+biocLite(&amp;quot;Rdisop&amp;quot;)
+biocLite(&amp;quot;GO.db&amp;quot;)
+biocLite(&amp;quot;matrixStats&amp;quot;)
+biocLite(&amp;#39;WGCNA&amp;#39;)
+devtools::install_github(&amp;quot;yufree/xMSannotator&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other functions&lt;/h2&gt;
+&lt;p&gt;I have writed some other functions in &lt;code&gt;enviGCMS&lt;/code&gt; package and you could explore them. You might find some Easter Eggs. Also I will documented them as vignette in the future.&lt;/p&gt;
+&lt;p&gt;This post and the post before is about finding the peaks and performing statistical analysis for metabolomics. In the next post, I will show you some tips about annotation based on &lt;code&gt;xMSannotator&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;If you have other issues about metabolomics data analysis, you could comment here and I’d like to discuss them. Also you could sent email to &lt;a href=&#34;mailto:slack@yufree.cn&#34;&gt;slack@yufree.cn&lt;/a&gt; to get invitation for a slack group about metabolomics data analysis.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tips for local installation of MetaboAnalyst on Windows</title>
+      <link>/en/2017/03/29/metaboanalyst/</link>
+      <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/03/29/metaboanalyst/</guid>
+      <description>&lt;p&gt;I am running Windows 7 to perform metabolomics data analysis(mainly for mscovert). Recently I found MetaboAnalyst could be installed locally. Since some group members really care about their data safety, I just installed MetaboAnalyst on one of group computers. Here is some tips for it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Windows 7 is currently not supported by Metaboanalyst, so I use virtualbox to install a 64-bit Ubuntu 16.10.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;For Ubuntu, you need to install a few packages to support both the R and Java environment, also some packages. You might follow the script in bash:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libnetcdf-dev graphviz libxml2-dev libcairo2-dev default-jdk r-base-dev 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;You also need to install some packages from either CRAN or Bioconductor&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install Rserver in bash to get rid of configure of R&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get isntall r-cran-rserve
+R
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Use the following code to install packages in R:
+install.packages(c(&amp;quot;ellipse&amp;quot;, &amp;quot;scatterplot3d&amp;quot;,&amp;quot;pls&amp;quot;, &amp;quot;caret&amp;quot;, &amp;quot;lattice&amp;quot;, &amp;quot;Cairo&amp;quot;, &amp;quot;randomForest&amp;quot;, &amp;quot;e1071&amp;quot;,&amp;quot;gplots&amp;quot;, &amp;quot;som&amp;quot;, &amp;quot;xtable&amp;quot;, &amp;quot;RColorBrewer&amp;quot;, &amp;quot;pheatmap&amp;quot;, &amp;quot;igraph&amp;quot;, &amp;quot;RJSONIO&amp;quot;, &amp;quot;caTools&amp;quot;, &amp;quot;ROCR&amp;quot;, &amp;quot;pROC&amp;quot;))
+source(&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;)
+biocLite()
+biocLite(c(&amp;quot;xcms&amp;quot;, &amp;quot;impute&amp;quot;, &amp;quot;pcaMethods&amp;quot;, &amp;quot;siggenes&amp;quot;, &amp;quot;globaltest&amp;quot;, &amp;quot;GlobalAncova&amp;quot;, &amp;quot;Rgraphviz&amp;quot;, &amp;quot;KEGGgraph&amp;quot;, &amp;quot;preprocessCore&amp;quot;, &amp;quot;genefilter&amp;quot;, &amp;quot;SSPA&amp;quot;, &amp;quot;sva&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:
+
+&lt;ul&gt;
+&lt;li&gt;Download &amp;ldquo;libgstreamer plugin&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download &amp;ldquo;libgstreamer&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install two packages above&lt;/li&gt;
+&lt;li&gt;Install the following packages
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libjpeg62
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;MetaboAnalyst is actually a java-based web application (also, R based). You need java environment and use Tomcat or Glassfish to host the *.war file on server (Linux or Mac OS). Then you only need to access it by browser, just like what you did online.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install Glassfish. I tried Tomcat and the deploy always failed and I suggest to use Glassfish following the guide(you might need to set up user and password) and upload the *.war file by a web interface at &lt;a href=&#34;http://localhost:4848&#34;&gt;http://localhost:4848&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;wget download.java.net/glassfish/4.1.1/release/glassfish-4.1.1.zip
+apt-get install unzip
+unzip glassfish-4.0.zip -d /opt
+cd /opt/glassfish/bin
+./asadmin start-domain
+./asadmin enable-secure-admin
+./asadmin restart-domain
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/war.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Run the Rserve in bash:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;R CMD Rserve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;After the installation of MetaboAnalyst on Glassfish, make a port transfer to ensure you could access the MetaboAnalyst on browsers of windows. You need to know the local IP address of both your host and virtual machine(VM).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your host address is the IP for the connection between host and VM. Use &lt;code&gt;ipconfig /all&lt;/code&gt; to get it
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your VM address could be found by &lt;code&gt;connection information&lt;/code&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Save a bookmark for the url(in my case: &lt;a href=&#34;http://192.168.56.1:8080/MetaboAnalyst/&#34;&gt;http://192.168.56.1:8080/MetaboAnalyst/&lt;/a&gt; ) Open the virtualbox all the time at the background
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Enjoy local access (while not updated) to MetaboAnalyst&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Every time you restart your computer, input this in bash to start the MetaboAnalyst:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;R CMD Rserve
+cd /opt/glassfish/bin
+./asadmin start-domain
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For the other thing, just follow the official guide &lt;a href=&#34;http://www.metaboanalyst.ca/faces/home.xhtml&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Metabolomics workflow in Rstudio</title>
+      <link>/en/2016/08/21/meta-workflow/</link>
+      <pubDate>Sun, 21 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2016/08/21/meta-workflow/</guid>
+      <description>&lt;p&gt;I have moved to Canada for about three weeks. Now I am a PostDoc in University of Waterloo. I will handle two projects about &lt;strong&gt;in silica&lt;/strong&gt; studies in analytical chemistry. Well, I treated them as another data and modeling-driven interdisciplinary studies.&lt;/p&gt;
+
+&lt;p&gt;The first step is building the data analysis envrionment for group members. Since I could set down such envrionment on a super computer with RAM 128 GB, I preferred to use R and xcms for metabolomics data analysis.&lt;/p&gt;
+
+&lt;p&gt;For a well-trained analytical chemist, software or programming related stuff is always something agonizing. However, for degree or promotion, researchers have to learn related contents. xcms online is well-designed metabolomics data analysis tool for user with limited coding experiences. Actually, the earlier online version might come from xcms package for R.&lt;/p&gt;
+
+&lt;p&gt;If you know the more details of data processing, you might get more insights for the data. Understanding the each steps might cost you whole day. But I also want to show them in my way. Such process would be helpful if you want to make further development to answer your scientific problems.&lt;/p&gt;
+
+&lt;p&gt;Here is the &lt;a href=&#34;http://yufree.cn/metaworkflow/&#34;&gt;workflow&lt;/a&gt; in Rstudio and a brife &lt;a href=&#34;http://yufree.cn/notes/xcms.html&#34;&gt;version&lt;/a&gt; in Chinese.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

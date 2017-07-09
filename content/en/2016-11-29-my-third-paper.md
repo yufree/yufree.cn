@@ -2,6 +2,7 @@
 title: Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model
 date: 2016-11-29
 slug: my third paper
+tags: [paper]
 ---
 
 This [paper](http://www.sciencedirect.com/science/article/pii/S0039914016309298) received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.

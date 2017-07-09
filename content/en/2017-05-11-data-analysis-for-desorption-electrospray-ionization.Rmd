@@ -4,7 +4,7 @@ author: ''
 date: '2017-05-11'
 slug: data-analysis-for-desorption-electrospray-ionization
 categories: []
-tags: []
+tags: [metabolomics]
 ---
 
 Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms. 

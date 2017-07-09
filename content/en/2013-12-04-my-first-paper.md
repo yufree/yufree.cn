@@ -2,6 +2,7 @@
 title: Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure
 date: 2013-12-04
 slug: my first paper
+tags: [paper]
 ---
 
 This is the first paper written by me which was just published on *Environmental Science & Technology*, pp 13494–13501, Volume 47, Issue 23, 2013. You could access the full text either by [ACS's website](http://pubs.acs.org/doi/abs/10.1021/es404144p) or just send [Dr. Liu](mailto:liujy@rcees.ac.cn) or [me](mailto:yufreecas@gmail.com) an email. 

@@ -2,6 +2,7 @@
 title: Box Plot v.s. Violin Plot
 date: 2013-08-15
 slug: boxplot vs violinplot
+tags: [R]
 ---
 
 In a seminar I introduced the violin plot and showed the following figure(this example comes from the help document):

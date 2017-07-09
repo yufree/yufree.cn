@@ -2,6 +2,7 @@
 title: Tips for local installation of MetaboAnalyst on Windows
 date: 2017-03-29
 slug: metaboanalyst
+tags: [metabolomics]
 ---
 
 I am running Windows 7 to perform metabolomics data analysis(mainly for mscovert). Recently I found MetaboAnalyst could be installed locally. Since some group members really care about their data safety, I just installed MetaboAnalyst on one of group computers. Here is some tips for it:

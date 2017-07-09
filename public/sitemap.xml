@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/en/2017/07/07/text-mining/</loc>
+    <lastmod>2017-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/cn/2017/06/16/nlp-literature/</loc>
     <lastmod>2017-06-16T00:00:00+00:00</lastmod>
   </url>

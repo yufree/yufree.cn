@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -26,15 +25,14 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2016-12-11">
+<meta name="date" content="2017-07-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="demo.html">
-
+<link rel="prev" href="references.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -95,6 +93,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -105,55 +104,68 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#reviews-and-tutorials"><i class="fa fa-check"></i><b>1.1</b> Reviews and tutorials</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
-<li class="chapter" data-level="3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>3</b> Raw data pretreatment</a><ul>
-<li class="chapter" data-level="3.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#spectral-deconvolution"><i class="fa fa-check"></i><b>3.1</b> Spectral deconvolution</a></li>
-<li class="chapter" data-level="3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#correction"><i class="fa fa-check"></i><b>3.2</b> Correction</a></li>
-<li class="chapter" data-level="3.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#non-detects"><i class="fa fa-check"></i><b>3.3</b> Non-detects</a></li>
-<li class="chapter" data-level="3.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variance-with-known-batch"><i class="fa fa-check"></i><b>3.4</b> Adjust for unwanted variance with known batch</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#centering"><i class="fa fa-check"></i><b>3.4.1</b> Centering</a></li>
-<li class="chapter" data-level="3.4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#scaling"><i class="fa fa-check"></i><b>3.4.2</b> Scaling</a></li>
-<li class="chapter" data-level="3.4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#quantile"><i class="fa fa-check"></i><b>3.4.3</b> Quantile</a></li>
-<li class="chapter" data-level="3.4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ratio-based-calibraton"><i class="fa fa-check"></i><b>3.4.4</b> Ratio based calibraton</a></li>
-<li class="chapter" data-level="3.4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#linear-normalizer"><i class="fa fa-check"></i><b>3.4.5</b> Linear Normalizer</a></li>
-<li class="chapter" data-level="3.4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#regression-calibration"><i class="fa fa-check"></i><b>3.4.6</b> Regression calibration</a></li>
-<li class="chapter" data-level="3.4.7" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#batch-normalizer"><i class="fa fa-check"></i><b>3.4.7</b> Batch Normalizer</a></li>
-<li class="chapter" data-level="3.4.8" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#internal-standards"><i class="fa fa-check"></i><b>3.4.8</b> Internal standards</a></li>
+<li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a></li>
+<li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a><ul>
+<li class="chapter" data-level="4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#spectral-deconvolution"><i class="fa fa-check"></i><b>4.1</b> Spectral deconvolution</a></li>
+<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#correction"><i class="fa fa-check"></i><b>4.2</b> Correction</a></li>
+<li class="chapter" data-level="4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#dynamic-range"><i class="fa fa-check"></i><b>4.3</b> Dynamic Range</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#non-detects"><i class="fa fa-check"></i><b>4.3.1</b> Non-detects</a></li>
+<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over detection limit</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variance-with-unknown-batch"><i class="fa fa-check"></i><b>3.5</b> Adjust for unwanted variance with unknown batch</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#sva"><i class="fa fa-check"></i><b>3.5.1</b> SVA</a></li>
-<li class="chapter" data-level="3.5.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ruv"><i class="fa fa-check"></i><b>3.5.2</b> RUV</a></li>
+<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variances-with-known-batch"><i class="fa fa-check"></i><b>4.4</b> Adjust for unwanted variances with known batch</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#centering"><i class="fa fa-check"></i><b>4.4.1</b> Centering</a></li>
+<li class="chapter" data-level="4.4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#scaling"><i class="fa fa-check"></i><b>4.4.2</b> Scaling</a></li>
+<li class="chapter" data-level="4.4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#quantile"><i class="fa fa-check"></i><b>4.4.3</b> Quantile</a></li>
+<li class="chapter" data-level="4.4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ratio-based-calibraton"><i class="fa fa-check"></i><b>4.4.4</b> Ratio based calibraton</a></li>
+<li class="chapter" data-level="4.4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#linear-normalizer"><i class="fa fa-check"></i><b>4.4.5</b> Linear Normalizer</a></li>
+<li class="chapter" data-level="4.4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#regression-calibration"><i class="fa fa-check"></i><b>4.4.6</b> Regression calibration</a></li>
+<li class="chapter" data-level="4.4.7" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#batch-normalizer"><i class="fa fa-check"></i><b>4.4.7</b> Batch Normalizer</a></li>
+<li class="chapter" data-level="4.4.8" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#internal-standards"><i class="fa fa-check"></i><b>4.4.8</b> Internal standards</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variance-with-unknown-batch"><i class="fa fa-check"></i><b>4.5</b> Adjust for unwanted variance with unknown batch</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#sva"><i class="fa fa-check"></i><b>4.5.1</b> SVA</a></li>
+<li class="chapter" data-level="4.5.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ruv"><i class="fa fa-check"></i><b>4.5.2</b> RUV</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>4</b> Peaks selection</a></li>
-<li class="chapter" data-level="5" data-path="omics-analysis.html"><a href="omics-analysis.html"><i class="fa fa-check"></i><b>5</b> Omics analysis</a><ul>
-<li class="chapter" data-level="5.1" data-path="omics-analysis.html"><a href="omics-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>5.1</b> Pathway analysis</a></li>
-<li class="chapter" data-level="5.2" data-path="omics-analysis.html"><a href="omics-analysis.html#network-analysis"><i class="fa fa-check"></i><b>5.2</b> Network analysis</a></li>
-<li class="chapter" data-level="5.3" data-path="omics-analysis.html"><a href="omics-analysis.html#omics-integration"><i class="fa fa-check"></i><b>5.3</b> Omics integration</a></li>
+<li class="chapter" data-level="5" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>5</b> Peaks selection</a></li>
+<li class="chapter" data-level="6" data-path="annotation.html"><a href="annotation.html"><i class="fa fa-check"></i><b>6</b> Annotation</a><ul>
+<li class="chapter" data-level="6.1" data-path="annotation.html"><a href="annotation.html#tools"><i class="fa fa-check"></i><b>6.1</b> Tools</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>6</b> Common analysis methods for metabolomics</a><ul>
-<li class="chapter" data-level="6.1" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#pca"><i class="fa fa-check"></i><b>6.1</b> PCA</a></li>
-<li class="chapter" data-level="6.2" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#cluster-analysis"><i class="fa fa-check"></i><b>6.2</b> Cluster Analysis</a></li>
-<li class="chapter" data-level="6.3" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#plsda"><i class="fa fa-check"></i><b>6.3</b> PLSDA</a></li>
+<li class="chapter" data-level="7" data-path="omics-analysis.html"><a href="omics-analysis.html"><i class="fa fa-check"></i><b>7</b> Omics analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="omics-analysis.html"><a href="omics-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>7.1</b> Pathway analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="omics-analysis.html"><a href="omics-analysis.html#network-analysis"><i class="fa fa-check"></i><b>7.2</b> Network analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="omics-analysis.html"><a href="omics-analysis.html#omics-integration"><i class="fa fa-check"></i><b>7.3</b> Omics integration</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="demo.html"><a href="demo.html"><i class="fa fa-check"></i><b>7</b> Demo</a><ul>
-<li class="chapter" data-level="7.1" data-path="demo.html"><a href="demo.html#project-setup"><i class="fa fa-check"></i><b>7.1</b> Project Setup</a></li>
-<li class="chapter" data-level="7.2" data-path="demo.html"><a href="demo.html#data-input"><i class="fa fa-check"></i><b>7.2</b> Data input</a></li>
-<li class="chapter" data-level="7.3" data-path="demo.html"><a href="demo.html#find-the-peaks"><i class="fa fa-check"></i><b>7.3</b> Find the peaks</a></li>
-<li class="chapter" data-level="7.4" data-path="demo.html"><a href="demo.html#data-correction"><i class="fa fa-check"></i><b>7.4</b> Data correction</a></li>
-<li class="chapter" data-level="7.5" data-path="demo.html"><a href="demo.html#statistic-analysis"><i class="fa fa-check"></i><b>7.5</b> Statistic analysis</a></li>
-<li class="chapter" data-level="7.6" data-path="demo.html"><a href="demo.html#annotation"><i class="fa fa-check"></i><b>7.6</b> Annotation</a></li>
-<li class="chapter" data-level="7.7" data-path="demo.html"><a href="demo.html#omics-analysis-1"><i class="fa fa-check"></i><b>7.7</b> Omics analysis</a></li>
-<li class="chapter" data-level="7.8" data-path="demo.html"><a href="demo.html#metaboanalyst"><i class="fa fa-check"></i><b>7.8</b> MetaboAnalyst</a></li>
-<li class="chapter" data-level="7.9" data-path="demo.html"><a href="demo.html#visulizing-peaks"><i class="fa fa-check"></i><b>7.9</b> Visulizing Peaks</a></li>
-<li class="chapter" data-level="7.10" data-path="demo.html"><a href="demo.html#optimation-of-xcms"><i class="fa fa-check"></i><b>7.10</b> Optimation of XCMS</a></li>
-<li class="chapter" data-level="7.11" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="8" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>8</b> Common analysis methods for metabolomics</a><ul>
+<li class="chapter" data-level="8.1" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#pca"><i class="fa fa-check"></i><b>8.1</b> PCA</a></li>
+<li class="chapter" data-level="8.2" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#cluster-analysis"><i class="fa fa-check"></i><b>8.2</b> Cluster Analysis</a></li>
+<li class="chapter" data-level="8.3" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#plsda"><i class="fa fa-check"></i><b>8.3</b> PLSDA</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>8</b> Batch effect</a><ul>
-<li class="chapter" data-level="8.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>8.0.1</b> Detection of unmodeled factors</a></li>
-<li class="chapter" data-level="8.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>8.0.2</b> Construction of surrogate variables</a></li>
-<li class="chapter" data-level="8.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>8.0.3</b> Case study</a></li>
+<li class="chapter" data-level="9" data-path="demo.html"><a href="demo.html"><i class="fa fa-check"></i><b>9</b> Demo</a><ul>
+<li class="chapter" data-level="9.1" data-path="demo.html"><a href="demo.html#project-setup"><i class="fa fa-check"></i><b>9.1</b> Project Setup</a></li>
+<li class="chapter" data-level="9.2" data-path="demo.html"><a href="demo.html#data-input"><i class="fa fa-check"></i><b>9.2</b> Data input</a></li>
+<li class="chapter" data-level="9.3" data-path="demo.html"><a href="demo.html#find-the-peaks"><i class="fa fa-check"></i><b>9.3</b> Find the peaks</a></li>
+<li class="chapter" data-level="9.4" data-path="demo.html"><a href="demo.html#data-correction"><i class="fa fa-check"></i><b>9.4</b> Data correction</a></li>
+<li class="chapter" data-level="9.5" data-path="demo.html"><a href="demo.html#statistic-analysis"><i class="fa fa-check"></i><b>9.5</b> Statistic analysis</a></li>
+<li class="chapter" data-level="9.6" data-path="demo.html"><a href="demo.html#annotation-1"><i class="fa fa-check"></i><b>9.6</b> Annotation</a></li>
+<li class="chapter" data-level="9.7" data-path="demo.html"><a href="demo.html#omics-analysis-1"><i class="fa fa-check"></i><b>9.7</b> Omics analysis</a></li>
+<li class="chapter" data-level="9.8" data-path="demo.html"><a href="demo.html#metaboanalyst"><i class="fa fa-check"></i><b>9.8</b> MetaboAnalyst</a></li>
+<li class="chapter" data-level="9.9" data-path="demo.html"><a href="demo.html#visulizing-peaks"><i class="fa fa-check"></i><b>9.9</b> Visulizing Peaks</a></li>
+<li class="chapter" data-level="9.10" data-path="demo.html"><a href="demo.html#optimation-of-xcms"><i class="fa fa-check"></i><b>9.10</b> Optimation of XCMS</a></li>
+<li class="chapter" data-level="9.11" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>9.11</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="case-studyselected.html"><a href="case-studyselected.html"><i class="fa fa-check"></i><b>10</b> Case Study(selected)</a><ul>
+<li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="11" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>11</b> Batch effect</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>11.0.1</b> Detection of unmodeled factors</a></li>
+<li class="chapter" data-level="11.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>11.0.2</b> Construction of surrogate variables</a></li>
+<li class="chapter" data-level="11.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>11.0.3</b> Case study</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
@@ -176,7 +188,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="batch-effect" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Batch effect</h1>
+<h1><span class="header-section-number">Chapter 11</span> Batch effect</h1>
 <p>Batch effect is common in high-throughput analysis.</p>
 <p>We have a data matrix(M*N) with M stands for indentity peaks from one sample and N stand for individual samples. For one sample, <span class="math inline">\(X = (x_{i1},...,x_{in})^T\)</span> stands for the normalized intensities of peaks. We use <span class="math inline">\(Y = (y_i,...,y_m)^T\)</span> stands for the group infomation of our data. Then we could build such modles:</p>
 <p><span class="math display">\[x_{ij} = \mu_i + f_i(y_i) + e_{ij}\]</span></p>
@@ -188,14 +200,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We could not get the potential factors directly. Since we don’t care the details of the unknown factors, we could estimate orthogonal vectors <span class="math inline">\(h_k\)</span> standing for such potential factors. Thus we have:</p>
 <p><span class="math display">\[
 x_{ij} = \mu_i + f_i(y_i) + \sum_{l = 1}^L \gamma_{li}p_{lj} + e_{ij}^*\\ 
-= \mu_i + f_i(y_i) + \sum_{k = 1}^K \gamma_{ki}h_{kj} + e_{ij}
+= \mu_i + f_i(y_i) + \sum_{k = 1}^K \lambda_{ki}h_{kj} + e_{ij}
 \]</span></p>
 <p>Here is the details of the algorithm:</p>
 <blockquote>
 <p>The algorithm is decomposed into two parts: detection of unmodeled factors and construction of surrogate variables</p>
 </blockquote>
 <div id="detection-of-unmodeled-factors" class="section level3">
-<h3><span class="header-section-number">8.0.1</span> Detection of unmodeled factors</h3>
+<h3><span class="header-section-number">11.0.1</span> Detection of unmodeled factors</h3>
 <ul>
 <li><p>Estimate <span class="math inline">\(\hat\mu_i\)</span> and <span class="math inline">\(f_i\)</span> by fitting the model <span class="math inline">\(x_{ij} = \mu_i + f_i(y_i) + e_{ij}\)</span> and get the residual $r_{ij} = x_{ij}-_i - f_i(y_i) $. Then we have the residual matrix R.</p></li>
 <li><p>Perform the singular value decompositon(SVD) of the residual matrix <span class="math inline">\(R = UDV^T\)</span></p></li>
@@ -222,7 +234,7 @@ T_k^0 = \frac{d_{0k}^2}{\sum_{l=1}^{n-df}d_{0l}^2}
 </ul>
 </div>
 <div id="construction-of-surrogate-variables" class="section level3">
-<h3><span class="header-section-number">8.0.2</span> Construction of surrogate variables</h3>
+<h3><span class="header-section-number">11.0.2</span> Construction of surrogate variables</h3>
 <ul>
 <li><p>Estimate <span class="math inline">\(\hat\mu_i\)</span> and <span class="math inline">\(f_i\)</span> by fitting the model <span class="math inline">\(x_{ij} = \mu_i + f_i(y_i) + e_{ij}\)</span> and get the residual $r_{ij} = x_{ij}-_i - f_i(y_i) $. Then we have the residual matrix R.</p></li>
 <li><p>Perform the singular value decompositon(SVD) of the residual matrix <span class="math inline">\(R = UDV^T\)</span>. Let <span class="math inline">\(e_k = (e_{k1},...,e_{kn})^T\)</span> be the <span class="math inline">\(k\)</span>th column of V</p></li>
@@ -236,83 +248,207 @@ T_k^0 = \frac{d_{0k}^2}{\sum_{l=1}^{n-df}d_{0l}^2}
 <p>This method could found the potentical variables for the data. However, such idea could be improved by a iteratively re-weighted least squares approach for estimating surrogate variables. I will show a case study to show such iteratively process.</p>
 </div>
 <div id="case-study" class="section level3">
-<h3><span class="header-section-number">8.0.3</span> Case study</h3>
+<h3><span class="header-section-number">11.0.3</span> Case study</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(faahKO)
-<span class="kw">source</span>(<span class="st">&#39;https://raw.githubusercontent.com/yufree/democode/master/meta/getmetadata.R&#39;</span>)
-<span class="kw">source</span>(<span class="st">&#39;https://raw.githubusercontent.com/yufree/democode/master/meta/svaplot.R&#39;</span>)
-<span class="kw">install_github</span>(<span class="st">&quot;cbroeckl/RAMClustR&quot;</span>)
-<span class="kw">biocLite</span>(<span class="st">&#39;dynamicTreeCut&#39;</span>)
-<span class="kw">biocLite</span>(<span class="st">&#39;fastcluster&#39;</span>)
-<span class="kw">biocLite</span>(<span class="st">&#39;ff&#39;</span>)
+
 path &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;cdf&quot;</span>,<span class="dt">package =</span> <span class="st">&quot;faahKO&quot;</span>)
-df &lt;-<span class="st"> </span><span class="kw">getdata</span>(path,<span class="dt">pmethod=</span><span class="st">&#39;hplcqtof&#39;</span>)
+xset &lt;-<span class="st"> </span><span class="kw">getdata</span>(path,<span class="dt">pmethod=</span><span class="st">&#39;hplcqtof&#39;</span>)
 lv &lt;-<span class="st"> </span><span class="kw">gl</span>(<span class="dv">2</span>,<span class="dv">6</span>)
+df &lt;-<span class="st"> </span><span class="kw">svacor</span>(xset,lv)
+<span class="kw">svapca</span>(df)
 
-df1 &lt;-<span class="st"> </span><span class="kw">svameta</span>(df,lv)
-df2 &lt;-<span class="st"> </span><span class="kw">svameta</span>(df,lv,<span class="dt">sva2 =</span> F)
+df1 &lt;-<span class="st"> </span><span class="kw">svaplot</span>(df,<span class="dt">pqvalues =</span> <span class="st">&#39;anova&#39;</span>)
+df2 &lt;-<span class="st"> </span><span class="kw">svaplot</span>(df,<span class="dt">pqvalues =</span> <span class="st">&#39;sv&#39;</span>)
 
-df1a &lt;-<span class="st"> </span>df1[df1$pValuesSv&lt;<span class="fl">0.05</span>,]
-df2a &lt;-<span class="st"> </span>df2[df2$pValuesSv&lt;<span class="fl">0.05</span>,]
-
-<span class="kw">sum</span>(df1a$mzmed %in%<span class="st"> </span>df2a$mzmed)
-
-data &lt;-<span class="st"> </span><span class="kw">groupval</span>(df,<span class="st">&quot;maxint&quot;</span>, <span class="dt">value=</span><span class="st">&#39;into&#39;</span>)
+data &lt;-<span class="st"> </span>df[[<span class="dv">1</span>]]
 mod &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(~lv)
 weights=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(data))
-<span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">4.1</span>, <span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">2.1</span>), 
+<span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">4.1</span>, <span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">2.1</span>),
     <span class="dt">mgp =</span> <span class="kw">c</span>(<span class="fl">1.5</span>, <span class="fl">0.5</span>, <span class="dv">0</span>))
-<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">8</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>))
-for(b in <span class="dv">1</span>:<span class="dv">10</span>){
-  svafit &lt;-<span class="st"> </span><span class="kw">sva</span>(data,mod,<span class="dt">B=</span>b,<span class="dt">method =</span> <span class="st">&#39;irw2&#39;</span>)
-  svaX &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(~lv+svafit$sv)
-  lmfit &lt;-<span class="st"> </span><span class="kw">lmFit</span>(data,svaX)
-  Batch&lt;-<span class="st"> </span>lmfit$coef[,(<span class="kw">nlevels</span>(lv)+<span class="dv">1</span>):(<span class="kw">nlevels</span>(lv)+svafit$n.sv)]%*%<span class="kw">t</span>(svaX[,(<span class="kw">nlevels</span>(lv)+<span class="dv">1</span>):(<span class="kw">nlevels</span>(lv)+svafit$n.sv)])
-  Signal&lt;-lmfit$coef[,<span class="dv">1</span>:<span class="kw">nlevels</span>(lv)]%*%<span class="kw">t</span>(svaX[,<span class="dv">1</span>:<span class="kw">nlevels</span>(lv)])
-  error &lt;-<span class="st"> </span>data-Signal-Batch
-  <span class="kw">colnames</span>(Signal) &lt;-<span class="st"> </span><span class="kw">colnames</span>(Batch) &lt;-<span class="st"> </span><span class="kw">colnames</span>(error) &lt;-<span class="st"> </span><span class="kw">colnames</span>(data)
-  ind &lt;-<span class="st"> </span>svafit$pprob.gam&gt;<span class="fl">0.5</span>&amp;svafit$pprob.b&gt;<span class="fl">0.5</span>
-  <span class="co"># ind &lt;- svafit$pprob.gam&gt;0</span>
-  icolors &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(<span class="kw">rev</span>(<span class="kw">brewer.pal</span>(<span class="dv">11</span>,<span class="st">&quot;RdYlBu&quot;</span>)))(<span class="dv">100</span>)
-  zlim &lt;-<span class="st"> </span><span class="kw">range</span>(<span class="kw">c</span>(Signal,data,Batch,error))
-  <span class="kw">image</span>(<span class="kw">t</span>(Signal[ind,]),<span class="dt">col=</span>icolors,<span class="dt">xlab =</span> <span class="st">&#39;samples&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;peaks-signal&#39;</span>,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">zlim=</span>zlim)
-        <span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>/(<span class="kw">ncol</span>(data)-<span class="dv">1</span>)), <span class="dt">labels=</span><span class="kw">colnames</span>(Signal),<span class="dt">cex.axis=</span><span class="fl">0.618</span>,<span class="dt">las=</span><span class="dv">2</span>)
-  <span class="kw">image</span>(<span class="kw">t</span>(Batch[ind,]),<span class="dt">col=</span>icolors,<span class="dt">xlab =</span> <span class="st">&#39;samples&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;peaks-batch&#39;</span>,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">zlim=</span>zlim)
-        <span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>/(<span class="kw">ncol</span>(data)-<span class="dv">1</span>)), <span class="dt">labels=</span><span class="kw">colnames</span>(Batch),<span class="dt">cex.axis=</span><span class="fl">0.618</span>,<span class="dt">las=</span><span class="dv">2</span>)
-  <span class="kw">image</span>(<span class="kw">t</span>(error[ind,]),<span class="dt">col=</span>icolors,<span class="dt">xlab =</span> <span class="st">&#39;samples&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;peaks-error&#39;</span>,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">zlim=</span>zlim)
-        <span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>/(<span class="kw">ncol</span>(data)-<span class="dv">1</span>)), <span class="dt">labels=</span><span class="kw">colnames</span>(error),<span class="dt">cex.axis=</span><span class="fl">0.618</span>,<span class="dt">las=</span><span class="dv">2</span>)
-        
-  weights =<span class="st"> </span>svafit$pprob.gam*(<span class="dv">1</span>-svafit$pprob.b)
-  surrogate &lt;-<span class="st"> </span><span class="kw">svd</span>(data[ind,]*weights[ind])$v[,<span class="dv">1</span>]<span class="co">#Weighted SVD</span>
-  <span class="kw">image</span>(<span class="kw">matrix</span>(weights[ind],<span class="dt">nrow=</span><span class="dv">1</span>),<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">col=</span><span class="kw">brewer.pal</span>(<span class="dv">9</span>,<span class="st">&quot;Blues&quot;</span>))
-  
-  pca &lt;-<span class="st"> </span><span class="kw">prcomp</span>(<span class="kw">t</span>(Signal), <span class="dt">center=</span><span class="ot">TRUE</span>, <span class="dt">scale=</span><span class="ot">TRUE</span>) 
-  pcab &lt;-<span class="st"> </span><span class="kw">prcomp</span>(<span class="kw">t</span>(Batch), <span class="dt">center=</span><span class="ot">TRUE</span>, <span class="dt">scale=</span><span class="ot">TRUE</span>)
-  pcae &lt;-<span class="st"> </span><span class="kw">prcomp</span>(<span class="kw">t</span>(error), <span class="dt">center=</span><span class="ot">TRUE</span>, <span class="dt">scale=</span><span class="ot">TRUE</span>)
-  
-  <span class="kw">plot</span>(pca$x[,<span class="dv">1</span>],pca$x[,<span class="dv">2</span>], <span class="dt">xlab=</span><span class="st">&quot;PC1&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;PC2&quot;</span>, <span class="dt">pch=</span><span class="kw">colnames</span>(Signal), <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;PCA-signal&quot;</span>)
-  <span class="kw">plot</span>(pcab$x[,<span class="dv">1</span>],pcab$x[,<span class="dv">2</span>], <span class="dt">xlab=</span><span class="st">&quot;PC1&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;PC2&quot;</span>, <span class="dt">pch=</span><span class="kw">colnames</span>(Signal), <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;PCA-batch&quot;</span>)
-  <span class="kw">plot</span>(pcae$x[,<span class="dv">1</span>],pcae$x[,<span class="dv">2</span>], <span class="dt">xlab=</span><span class="st">&quot;PC1&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;PC2&quot;</span>, <span class="dt">pch=</span><span class="kw">colnames</span>(Signal), <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;PCA-error&quot;</span>)
-  <span class="kw">plot</span>(surrogate,<span class="dt">pch=</span><span class="dv">21</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Surrogate variable&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(-.<span class="dv">5</span>,.<span class="dv">5</span>),<span class="dt">cex=</span><span class="fl">1.5</span>)
-  <span class="kw">abline</span>(<span class="dt">v=</span><span class="fl">6.5</span>)
-}
-b &lt;-<span class="st"> </span>ind
-a &lt;-<span class="st"> </span>ind
-<span class="kw">ramclustR</span>(df)</code></pre></div>
+    <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">8</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>))
+    for (b in <span class="dv">1</span>:<span class="dv">10</span>) {
+    svafit &lt;-<span class="st"> </span><span class="kw">sva</span>(data, mod, <span class="dt">B =</span> b)
+    svaX &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(~<span class="st"> </span>lv +<span class="st"> </span>svafit$sv)
+    lmfit &lt;-<span class="st"> </span><span class="kw">lmFit</span>(data, svaX)
+    Batch &lt;-
+<span class="st">    </span>lmfit$coef[, (<span class="kw">nlevels</span>(lv) +<span class="st"> </span><span class="dv">1</span>):(<span class="kw">nlevels</span>(lv) +<span class="st"> </span>svafit$n.sv)] %*%<span class="st"> </span><span class="kw">t</span>(svaX[, (<span class="kw">nlevels</span>(lv) +
+<span class="st">    </span><span class="dv">1</span>):(<span class="kw">nlevels</span>(lv) +<span class="st"> </span>svafit$n.sv)])
+    Signal &lt;-
+<span class="st">    </span>lmfit$coef[, <span class="dv">1</span>:<span class="kw">nlevels</span>(lv)] %*%<span class="st"> </span><span class="kw">t</span>(svaX[, <span class="dv">1</span>:<span class="kw">nlevels</span>(lv)])
+    error &lt;-<span class="st"> </span>data -<span class="st"> </span>Signal -<span class="st"> </span>Batch
+    <span class="kw">colnames</span>(Signal) &lt;-
+<span class="st">    </span><span class="kw">colnames</span>(Batch) &lt;-<span class="st"> </span><span class="kw">colnames</span>(error) &lt;-<span class="st"> </span><span class="kw">colnames</span>(data)
+    <span class="co">#ind &lt;- svafit$pprob.gam&gt;0.5&amp;svafit$pprob.b&gt;0.5</span>
+    ind &lt;-<span class="st"> </span>svafit$pprob.gam &gt;<span class="st"> </span><span class="dv">0</span>
+    icolors &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(<span class="kw">rev</span>(<span class="kw">brewer.pal</span>(<span class="dv">11</span>, <span class="st">&quot;RdYlBu&quot;</span>)))(<span class="dv">100</span>)
+    zlim &lt;-<span class="st"> </span><span class="kw">range</span>(<span class="kw">c</span>(Signal, data, Batch, error))
+    <span class="kw">image</span>(
+    <span class="kw">t</span>(Signal[ind,]),
+    <span class="dt">col =</span> icolors,
+    <span class="dt">xlab =</span> <span class="st">&#39;samples&#39;</span>,
+    <span class="dt">ylab =</span> <span class="st">&#39;peaks-signal&#39;</span>,
+    <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">zlim =</span> zlim
+    )
+    <span class="kw">axis</span>(
+    <span class="dv">1</span>,
+    <span class="dt">at =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span> /<span class="st"> </span>(<span class="kw">ncol</span>(data) -<span class="st"> </span><span class="dv">1</span>)),
+    <span class="dt">labels =</span> <span class="kw">colnames</span>(Signal),
+    <span class="dt">cex.axis =</span> <span class="fl">0.618</span>,
+    <span class="dt">las =</span> <span class="dv">2</span>
+    )
+    <span class="kw">image</span>(
+    <span class="kw">t</span>(Batch[ind,]),
+    <span class="dt">col =</span> icolors,
+    <span class="dt">xlab =</span> <span class="st">&#39;samples&#39;</span>,
+    <span class="dt">ylab =</span> <span class="st">&#39;peaks-batch&#39;</span>,
+    <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">zlim =</span> zlim
+    )
+    <span class="kw">axis</span>(
+    <span class="dv">1</span>,
+    <span class="dt">at =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span> /<span class="st"> </span>(<span class="kw">ncol</span>(data) -<span class="st"> </span><span class="dv">1</span>)),
+    <span class="dt">labels =</span> <span class="kw">colnames</span>(Batch),
+    <span class="dt">cex.axis =</span> <span class="fl">0.618</span>,
+    <span class="dt">las =</span> <span class="dv">2</span>
+    )
+    <span class="kw">image</span>(
+    <span class="kw">t</span>(error[ind,]),
+    <span class="dt">col =</span> icolors,
+    <span class="dt">xlab =</span> <span class="st">&#39;samples&#39;</span>,
+    <span class="dt">ylab =</span> <span class="st">&#39;peaks-error&#39;</span>,
+    <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">zlim =</span> zlim
+    )
+    <span class="kw">axis</span>(
+    <span class="dv">1</span>,
+    <span class="dt">at =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span> /<span class="st"> </span>(<span class="kw">ncol</span>(data) -<span class="st"> </span><span class="dv">1</span>)),
+    <span class="dt">labels =</span> <span class="kw">colnames</span>(error),
+    <span class="dt">cex.axis =</span> <span class="fl">0.618</span>,
+    <span class="dt">las =</span> <span class="dv">2</span>
+    )
+    
+    weights =<span class="st"> </span>svafit$pprob.gam *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>svafit$pprob.b)
+    surrogate &lt;-<span class="st"> </span><span class="kw">svd</span>(data[ind,] *<span class="st"> </span>weights[ind])$v[, <span class="dv">1</span>]<span class="co">#Weighted SVD</span>
+    <span class="kw">image</span>(
+    <span class="kw">matrix</span>(weights[ind], <span class="dt">nrow =</span> <span class="dv">1</span>),
+    <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">col =</span> <span class="kw">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Blues&quot;</span>)
+    )
+    
+    pca &lt;-<span class="st"> </span><span class="kw">prcomp</span>(<span class="kw">t</span>(Signal), <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)
+    pcab &lt;-<span class="st"> </span><span class="kw">prcomp</span>(<span class="kw">t</span>(Batch), <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)
+    pcae &lt;-<span class="st"> </span><span class="kw">prcomp</span>(<span class="kw">t</span>(error), <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)
+    
+    <span class="kw">plot</span>(
+    pca$x[, <span class="dv">1</span>],
+    pca$x[, <span class="dv">2</span>],
+    <span class="dt">xlab =</span> <span class="st">&quot;PC1&quot;</span>,
+    <span class="dt">ylab =</span> <span class="st">&quot;PC2&quot;</span>,
+    <span class="dt">pch =</span> <span class="kw">colnames</span>(Signal),
+    <span class="dt">cex =</span> <span class="dv">2</span>,
+    <span class="dt">main =</span> <span class="st">&quot;PCA-signal&quot;</span>
+    )
+    <span class="kw">plot</span>(
+    pcab$x[, <span class="dv">1</span>],
+    pcab$x[, <span class="dv">2</span>],
+    <span class="dt">xlab =</span> <span class="st">&quot;PC1&quot;</span>,
+    <span class="dt">ylab =</span> <span class="st">&quot;PC2&quot;</span>,
+    <span class="dt">pch =</span> <span class="kw">colnames</span>(Signal),
+    <span class="dt">cex =</span> <span class="dv">2</span>,
+    <span class="dt">main =</span> <span class="st">&quot;PCA-batch&quot;</span>
+    )
+    <span class="kw">plot</span>(
+    pcae$x[, <span class="dv">1</span>],
+    pcae$x[, <span class="dv">2</span>],
+    <span class="dt">xlab =</span> <span class="st">&quot;PC1&quot;</span>,
+    <span class="dt">ylab =</span> <span class="st">&quot;PC2&quot;</span>,
+    <span class="dt">pch =</span> <span class="kw">colnames</span>(Signal),
+    <span class="dt">cex =</span> <span class="dv">2</span>,
+    <span class="dt">main =</span> <span class="st">&quot;PCA-error&quot;</span>
+    )
+    <span class="kw">plot</span>(
+    surrogate,
+    <span class="dt">pch =</span> <span class="dv">21</span>,
+    <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>,
+    <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>,
+    <span class="dt">ylab =</span> <span class="st">&quot;Surrogate variable&quot;</span>,
+    <span class="dt">ylim =</span> <span class="kw">c</span>(-.<span class="dv">5</span>, .<span class="dv">5</span>),
+    <span class="dt">cex =</span> <span class="fl">1.5</span>
+    )
+    <span class="kw">abline</span>(<span class="dt">v =</span> <span class="fl">6.5</span>)
+    }
+r    </code></pre></div>
 <p>As you can see from the plot, even after one round the SVA could show a fine result with less effect from batch effect.</p>
 <p>Also we might think the unwanted variances in the data could be used for annotation for further studies.</p>
 
 <div id="refs" class="references">
 <div>
+<p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Frontiers in Bioengineering and Biotechnology</em> 3 (March). doi:<a href="https://doi.org/10.3389/fbioe.2015.00023">10.3389/fbioe.2015.00023</a>.</p>
+</div>
+<div>
+<p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>Journal of Mass Spectrometry</em> 51 (7): 461–75. doi:<a href="https://doi.org/10.1002/jms.3782">10.1002/jms.3782</a>.</p>
+</div>
+<div>
+<p>———. 2016b. “Training in Metabolomics Research. II. Processing and Statistical Analysis of Metabolomics Data, Metabolite Identification, Pathway Analysis, Applications of Metabolomics and Its Future.” <em>Journal of Mass Spectrometry</em> 51 (8): 535–48. doi:<a href="https://doi.org/10.1002/jms.3780">10.1002/jms.3780</a>.</p>
+</div>
+<div>
+<p>Blaise, Benjamin J., Gonçalo Correia, Adrienne Tin, J. Hunter Young, Anne-Claire Vergnaud, Matthew Lewis, Jake T. M. Pearce, et al. 2016. “Power Analysis and Sample Size Determination in Metabolic Phenotyping.” <em>Analytical Chemistry</em> 88 (10): 5179–88. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00188">10.1021/acs.analchem.6b00188</a>.</p>
+</div>
+<div>
+<p>Broeckling, C. D., F. A. Afsar, S. Neumann, A. Ben-Hur, and J. E. Prenni. 2014. “RAMClust: A Novel Feature Clustering Method Enables Spectral-Matching-Based Annotation for Metabolomics Data.” <em>Analytical Chemistry</em> 86 (14): 6812–7. doi:<a href="https://doi.org/10.1021/ac501530d">10.1021/ac501530d</a>.</p>
+</div>
+<div>
+<p>Cajka, Tomas, and Oliver Fiehn. 2016. “Toward Merging Untargeted and Targeted Methods in Mass Spectrometry-Based Metabolomics and Lipidomics.” <em>Analytical Chemistry</em> 88 (1): 524–45. doi:<a href="https://doi.org/10.1021/acs.analchem.5b04491">10.1021/acs.analchem.5b04491</a>.</p>
+</div>
+<div>
+<p>Domingo-Almenara, Xavier, Jesus Brezmes, Maria Vinaixa, Sara Samino, Noelia Ramirez, Marta Ramon-Krauel, Carles Lerin, et al. 2016. “ERah: A Computational Tool Integrating Spectral Deconvolution and Alignment with Quantification and Identification of Metabolites in GC/MS-Based Metabolomics.” <em>Analytical Chemistry</em> 88 (19): 9821–9. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02927">10.1021/acs.analchem.6b02927</a>.</p>
+</div>
+<div>
 <p>Du, Xiuxia, and Steven H Zeisel. 2013. “SPECTRAL DECONVOLUTION FOR GAS CHROMATOGRAPHY MASS SPECTROMETRY-BASED METABOLOMICS: CURRENT STATUS AND FUTURE PERSPECTIVES.” <em>Computational and Structural Biotechnology Journal</em> 4 (5): 1–10. doi:<a href="https://doi.org/10.5936/csbj.201301013">10.5936/csbj.201301013</a>.</p>
+</div>
+<div>
+<p>Kuhl, Carsten, Ralf Tautenhahn, Christoph Böttcher, Tony R. Larson, and Steffen Neumann. 2012. “CAMERA: An Integrated Strategy for Compound Spectra Extraction and Annotation of Liquid Chromatography/Mass Spectrometry Data Sets.” <em>Analytical Chemistry</em> 84 (1): 283–89. doi:<a href="https://doi.org/10.1021/ac202450g">10.1021/ac202450g</a>.</p>
 </div>
 <div>
 <p>Kuligowski, Julia, Ángel Sánchez-Illana, Daniel Sanjuán-Herráez, Máximo Vento, and Guillermo Quintás. 2015. “Intra-Batch Effect Correction in Liquid Chromatography-Mass Spectrometry Using Quality Control Samples and Support Vector Regression (QC-SVRC).” <em>Analyst</em> 140 (22): 7810–7. doi:<a href="https://doi.org/10.1039/C5AN01638J">10.1039/C5AN01638J</a>.</p>
 </div>
 <div>
+<p>Li, Lili, Jieyu Zhao, Yanni Zhao, Xin Lu, Zhihui Zhou, Chunxia Zhao, and Guowang Xu. 2016. “Comprehensive Investigation of Tobacco Leaves During Natural Early Senescence via Multi-Platform Metabolomics Analyses.” <em>Scientific Reports</em> 6 (November). doi:<a href="https://doi.org/10.1038/srep37976">10.1038/srep37976</a>.</p>
+</div>
+<div>
+<p>Lisec, Jan, Friederike Hoffmann, Clemens Schmitt, and Carsten Jaeger. 2016. “Extending the Dynamic Range in Metabolomics Experiments by Automatic Correction of Peaks Exceeding the Detection Limit.” <em>Analytical Chemistry</em> 88 (15): 7487–92. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02515">10.1021/acs.analchem.6b02515</a>.</p>
+</div>
+<div>
 <p>Lu, Xin, and Guowang Xu. 2008. “LC-MS Metabonomics Methodology in Biomarker Discovery.” In <em>Biomarker Methods in Drug Discovery and Development</em>, edited by Feng Wang, 291–315. Methods in Pharmacology and Toxicology. Humana Press. doi:<a href="https://doi.org/10.1007/978-1-59745-463-6_14">10.1007/978-1-59745-463-6_14</a>.</p>
 </div>
 <div>
-<p>van der Kloet, Frans M., Ivana Bobeldijk, Elwin R. Verheij, and Renger H. Jellema. 2009. “Analytical Error Reduction Using Single Point Calibration for Accurate and Precise Metabolomic Phenotyping.” <em>Journal of Proteome Research</em> 8 (11): 5132–41. doi:<a href="https://doi.org/10.1021/pr900499r">10.1021/pr900499r</a>.</p>
+<p>Najdekr, Lukáš, David Friedecký, Ralf Tautenhahn, Tomáš Pluskal, Junhua Wang, Yingying Huang, and Tomáš Adam. 2016. “Influence of Mass Resolving Power in Orbital Ion-Trap Mass Spectrometry-Based Metabolomics.” <em>Analytical Chemistry</em> 88 (23): 11429–35. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02319">10.1021/acs.analchem.6b02319</a>.</p>
+</div>
+<div>
+<p>Ni, Yan, Mingming Su, Yunping Qiu, Wei Jia, and Xiuxia Du. 2016. “ADAP-GC 3.0: Improved Peak Detection and Deconvolution of Co-Eluting Metabolites from GC/TOF-MS Data for Metabolomics Studies.” <em>Analytical Chemistry</em> 88 (17): 8802–11. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02222">10.1021/acs.analchem.6b02222</a>.</p>
+</div>
+<div>
+<p>Qiu, Feng, Dennis D. Fine, Daniel J. Wherritt, Zhentian Lei, and Lloyd W. Sumner. 2016. “PlantMAT: A Metabolomics Tool for Predicting the Specialized Metabolic Potential of a System and for Large-Scale Metabolite Identifications.” <em>Analytical Chemistry</em> 88 (23): 11373–83. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00906">10.1021/acs.analchem.6b00906</a>.</p>
+</div>
+<div>
+<p>Schrimpe-Rutledge, Alexandra C., Simona G. Codreanu, Stacy D. Sherrod, and John A. McLean. 2016. “Untargeted Metabolomics Strategies and Emerging Directions.” <em>Journal of The American Society for Mass Spectrometry</em> 27 (12): 1897–1905. doi:<a href="https://doi.org/10.1007/s13361-016-1469-y">10.1007/s13361-016-1469-y</a>.</p>
+</div>
+<div>
+<p>Sitnikov, Dmitri G., Cian S. Monnin, and Dajana Vuckovic. 2016. “Systematic Assessment of Seven Solvent and Solid-Phase Extraction Methods for Metabolomics Analysis of Human Plasma by LC-MS.” <em>Scientific Reports</em> 6 (December). doi:<a href="https://doi.org/10.1038/srep38885">10.1038/srep38885</a>.</p>
+</div>
+<div>
+<p>Tautenhahn, Ralf, Christoph Böttcher, and Steffen Neumann. 2008. “Highly Sensitive Feature Detection for High Resolution LC/MS.” <em>BMC Bioinformatics</em> 9: 504. doi:<a href="https://doi.org/10.1186/1471-2105-9-504">10.1186/1471-2105-9-504</a>.</p>
+</div>
+<div>
+<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Analytical Chemistry</em> 88 (21): 10395–10403. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00755">10.1021/acs.analchem.6b00755</a>.</p>
+</div>
+<div>
+<p>Townsend, Mary K., Hugues Aschard, Immaculata De Vivo, Karin B. Michels, and Peter Kraft. 2016. “Genomics, Telomere Length, Epigenetics, and Metabolomics in the Nurses’ Health Studies.” <em>American Journal of Public Health</em> 106 (9): 1663–8. doi:<a href="https://doi.org/10.2105/AJPH.2016.303344">10.2105/AJPH.2016.303344</a>.</p>
 </div>
 <div>
 <p>Wang, San-Yuan, Ching-Hua Kuo, and Yufeng J. Tseng. 2013. “Batch Normalizer: A Fast Total Abundance Regression Calibration Method to Simultaneously Adjust Batch and Injection Order Effects in Liquid Chromatography/Time-of-Flight Mass Spectrometry-Based Metabolomics Data and Comparison with Current Calibration Methods.” <em>Analytical Chemistry</em> 85 (2): 1037–46. doi:<a href="https://doi.org/10.1021/ac302877x">10.1021/ac302877x</a>.</p>
@@ -325,9 +461,10 @@ a &lt;-<span class="st"> </span>ind
           </div>
         </div>
       </div>
-<a href="demo.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -370,7 +507,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

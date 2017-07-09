@@ -35,10 +35,10 @@ a:hover
 {
     color:#c8d0d3;
 }
-code .MathJax {
-  background-color: white;
-}
 
+code {
+  background-color: rgba(0, 0, 0, 0.02);
+}
 .wrapper {
   overflow: hidden;
   position: relative;

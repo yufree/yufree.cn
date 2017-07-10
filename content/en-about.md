@@ -18,6 +18,8 @@ Here is some links related to this website:
 
 - [Yihui's blog](http://yihui.name): Codes where I got my blog's style
 
+- [R-bloggers](https://www.r-bloggers.com): All blog posts related to R, feed [here](http://feeds.feedburner.com/RBloggers)
+
 - [Yufree](http://yufree.github.io/blogcn): My Chinese pages
 
 - [Linkedin](http://cn.linkedin.com/pub/yufree): I am looking for a post-doc position

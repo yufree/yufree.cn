@@ -371,4 +371,4 @@ Well, I think the afinn word list for sentiment analysis is not suitable for sci
 
 Here, I demo some basic text mining results for top academic journals. Just like Google trends might predict the popularity of flu, text mining for academic journal might be a good tool to reveal unknown patterns or trends in certain subjects or top journals. Besides, we could also find unique usages of some words and some tones behind the journal. Besides, such methods might work better than impact factor or H index as the evaluation tools for certain researcher, journal or institute in a dynamic view. The most attractive thing is that every scientist could use this tools through open databases and find their own answers. This is the best benefits from information era.
 
-You might read this excellent on-line [book](http://tidytextmining.com/) to make more findings.
+You might read this excellent on-line [book](http://tidytextmining.com/) and David Robinson's [blog](http://varianceexplained.org/) to make more findings.

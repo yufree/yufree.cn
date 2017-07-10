@@ -10,6 +10,52 @@
     <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Real high-throughput for LC/GC-MS</title>
+      <link>/en/2017/07/09/real-high-throughput-for-lc-gc-ms/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2017/07/09/real-high-throughput-for-lc-gc-ms/</guid>
+      <description>&lt;p&gt;If someone want to know whether some compounds exist in certain samples. He always need to make pretreatment for that samples and make them into a little vial for analysis in sophisticated instruments like mass spectrum. If you want to analysis many components in one sample, you also need some separation methods like gas/liquid chromatography. How about analysis multiple samples and multiple compounds in a single run?&lt;/p&gt;
+&lt;div id=&#34;pseudo-high-throughput&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pseudo high-throughput&lt;/h2&gt;
+&lt;p&gt;If you use LC/GC-MS to analysis samples, all the efforts for high-throughput would be limited at the injection step. You could arrange 96-well plate for analysis. But wait, ONE BY ONE. If some short-live compound could survive in the pre-treatment, they would disappear in the auto-sampler.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;back-to-mass-spectrum&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Back to Mass Spectrum&lt;/h2&gt;
+&lt;p&gt;Actually, similar issue happened when we perform Multiple Reaction Monitoring(MRM) to collect the intensities from different ions. If the detector could only measure one ion at one time, mass spectrum simply use a high frequency scan like 50ms or 20ms for one ion and re-construct the time profile by smooth the points into a line. To my knowledge, 15 points would fit a bell curve well for one peak with smooth. OK, if the peak width is 15s, for each ion we only need 1 scan per second as shown below. OK, that means if our instrument could reach 10ms per scan per ion, we could monitor 100 ions at the same time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../en/2017-07-09-real-high-throughput-for-mass-spectrum_files/figure-html/sim-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then how about full scan, some detectors like obitrap and tof-tof could monitor a full scan for all ions at almost the same time. Common high resolution mass spectrum could collect more than 10 spectrum per second. If the compounds could show peaks’ width larger than 15s, we could actually collect 10 spectrum from different samples, which is the real high-throughput.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;real-high-throughput&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Real high-throughput&lt;/h2&gt;
+&lt;p&gt;All we need to do is to synchronize the injection and mass spectrum scan. I have three options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple columns with single channel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;\images\htoption1.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;In this solution, we injected 6 samples at the same time. The column should be the same. Then when the samples reach MS part, they were arranged into one sequence. All we need to do is to ensure every six full scan on the mass spectrum could meet six identity sample from the LC/GC part. Then MS could collect and rebuilt six samples’ retention time - mass profile and output six data set for those samples.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple columns with Multiple channels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;\images\htoption2.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;In this way, we need some controls on pumps to on/off when one channel’s sample get into MS for full scan. Or we could have cells to guide the samples into the slit before the lens. This option is better to avoid the cross contamination. However, we need re-design the MS ion source for multiple channels.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Single column with single channel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this way, you do not need to modify your current instruments. All you need to do is the injection of the samples by sequence without considering the full separation in former sample. However, you need a lot of efforts to deconvolution. Since it’s the same column, the separation for most ions should be same. You could build a model to capture such patterns and separate the samples by those patterns. In such way, the batch effects could be minimized. However, the requirements for data mining are maximization. I like this way.&lt;/p&gt;
+&lt;p&gt;I think in the near future we would find the real high-throughput LC/GC-MS. Those devices would short the analysis time between sample collection and data acquisition. MS-based scientists could reach more interesting findings with REAL high-throughput.&lt;/p&gt;
+&lt;p&gt;Happy explore!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Text mining for top academic journals</title>
       <link>/en/2017/07/07/text-mining/</link>
       <pubDate>Fri, 07 Jul 2017 00:00:00 +0000</pubDate>
@@ -996,48 +1042,6 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
 &lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/h2585diffgcms.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Wait, my paper is writing. And I will show the details of such method soon(maybe or might be).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to deal with the less than obvious?</title>
-      <link>/en/2015/09/05/loq/</link>
-      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/en/2015/09/05/loq/</guid>
-      <description>&lt;p&gt;In environmental analysis, we often target a lot of compounds to get a detailed profile of certain pollution. However, due to different environmental process, not all of the compounds could be detected by our analysis method. For example, when I analysed PBDEs in 100 sludge samples, only a few congeners such as BDE-47, BDE-99, BDE-209 could be found in all of them. The other congerners such as BDE-28, BDE-17, BDE-153 could only be found in about 80% of them. Also some congerners such as BDE-77, BDE-53, BDE-17 were got in only 50% of them. Thus, we faced a problem: how to perform analysis such as summary or hypothesis testing or regression when some values were not detected by our analysis method.&lt;/p&gt;
-&lt;div id=&#34;summary-statistics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary Statistics&lt;/h2&gt;
-&lt;p&gt;Often a junior PhD student would be told to just use half of the LOQ(limit of quantitative) to substitute the N.D. of certain compounds. However, such method is not recommended for publishing papers. Such method would change the distribution of the concentrations. But what is the raw distribution of the environmental data?&lt;/p&gt;
-&lt;p&gt;Recently Prof. Ronald A. Hites from Indiana University published a paper about such issue and found such log-normally distribution could be really fit well for PCBs in about 2900 samples.For a log-normally distributed data, the geometric means are the unbiased estimation of the original median. So both of the geometric means and the median could be used to make a summary for the data with less than obvious.&lt;/p&gt;
-&lt;p&gt;That paper published on ES&amp;amp;T letter also showed a interesting method to find the LOQ as follows:&lt;/p&gt;
-&lt;p&gt;Assuming that the PCB concentrations are detected with a decreasing probability below their LOQ and that this probability is not zero. That means:&lt;/p&gt;
-&lt;p&gt;For x &amp;gt; LOQ:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[p(x) = 1 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;For x &amp;lt; LOQ:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[p(x) = \frac{1}{LOQ - x + 1} \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Such &lt;span class=&#34;math inline&#34;&gt;\(p(x)\)&lt;/span&gt; means a weight for the concentrations we get from our samples. The PDF(probability density function) of concentrations would be a log-normally distribution as discussed before. So the actually PDF of concentration distribution we got would be:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[pdf(x) = a*exp(\frac{-(x-\mu)^2}{2*\sigma})\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[PDF(x) = p(x) * pdf(x)\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;However, none of the &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(LOQ\)&lt;/span&gt; were known. Thus we could use our data and the model to fit those parameters.&lt;/p&gt;
-&lt;p&gt;Prof. Hites found that such method could be robust even for small data and interesting, such fitted LOQ would be much higher than we get from the analysis method. So our LOQ might not be sensitivity as we thought.&lt;/p&gt;
-&lt;p&gt;My comment is that maybe the assumption of &lt;span class=&#34;math inline&#34;&gt;\(p(x)\)&lt;/span&gt; just get the nature of the trace analysis. If we insist the analysis method is sensitivity, then maybe the LOQ we fitted is just another environmental threshold which implied something.&lt;/p&gt;
-&lt;p&gt;However, we could use such method to simulate the less than obvious for our data. In fact, MLE(maximum-likelihood estimation) and some robust method could be used to impute our data. Then we need to do some inferences about our data.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;hypothesis-testing-and-regression&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Hypothesis Testing and Regression&lt;/h2&gt;
-&lt;p&gt;In most cases, we could not directly use an imputed data for hypothesis testing and regression. However, some statistical methods could help us to find the answer.&lt;/p&gt;
-&lt;p&gt;When the missing values is less than 20%, Kendall’s robust line fit could be used. Such method get the pairwise slope of all of the data with missing values zero or imputed data. Then the median of the slope were used to fit the data.&lt;/p&gt;
-&lt;p&gt;When the missing values is less than 50% and more than 20%. Tobit regression and logistic regression could be used. For Tobit regression, we use MLE instead of OLS(ordinary least squares) to fit the parameters. For logistic regression, we could treat the detected samples as 1 and non-detected samples as 0 to make analysis. However, such method could only show little information form concentration distribution. Anyway only one or two high concentration might also show little information.&lt;/p&gt;
-&lt;p&gt;When little compounds detected, only the logistic regression and contingency table analysis with Chi-square test would be performed.&lt;/p&gt;
-&lt;p&gt;When you want to discuss the relationship between two group of samples with imputed data, only the robust method such as Kendall’s &lt;span class=&#34;math inline&#34;&gt;\(\tau\)&lt;/span&gt; and Spearman’s &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt; could be used.&lt;/p&gt;
-&lt;p&gt;Ok, the core of this post is “Less thans are valuable data.”&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;references&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;References&lt;/h2&gt;
-&lt;p&gt;1.Hites, R. A. A Statistical Approach for Left-Censored Data: Distributions of Atmospheric Polychlorinated Biphenyl Concentrations near the Great Lakes as a Case Study. Environmental Science &amp;amp; Technology Letters 150831163839007 (2015). &lt;a href=&#34;doi:10.1021/acs.estlett.5b00223&#34; class=&#34;uri&#34;&gt;doi:10.1021/acs.estlett.5b00223&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.Helsel, D. R. Less than obvious - statistical treatment of data below the detection limit. Environ. Sci. Technol. 24, 1766–1774 (1990).&lt;/p&gt;
-&lt;/div&gt;
 </description>
     </item>
     

@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-06">
+<meta name="date" content="2017-07-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -107,6 +107,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#history"><i class="fa fa-check"></i><b>1.1</b> History</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#reviews-and-tutorials"><i class="fa fa-check"></i><b>1.2</b> Reviews and tutorials</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#platform-for-metabolomics"><i class="fa fa-check"></i><b>1.3</b> Platform for metabolomics</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#xcms-online"><i class="fa fa-check"></i><b>1.3.1</b> XCMS online</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#prime"><i class="fa fa-check"></i><b>1.3.2</b> PRIMe</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#openms"><i class="fa fa-check"></i><b>1.3.3</b> OpenMS</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#mzmine-2"><i class="fa fa-check"></i><b>1.3.4</b> MZmine 2</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#xcms"><i class="fa fa-check"></i><b>1.3.5</b> XCMS</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#emory-mahpic"><i class="fa fa-check"></i><b>1.3.6</b> Emory MaHPIC</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#others"><i class="fa fa-check"></i><b>1.3.7</b> Others</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
 <li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a><ul>
@@ -205,6 +214,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>However, you might ask why only two new compounds could finished such task. I have to say, two PCs are just good for visualization. In most cases, we need to collect PCs standing for more than 80% variances in our data if you want to recovery the data with PCs. If each compound have no relationship between each other, the PCs are still those 100 compounds. So you have found a property of the PCs: PCs are orthogonal between each other.</p>
 <p>Another issue is how to find the relationship between the compounds. We could use PCA to find the relationship between samples. However, we could also extract the influences of the compounds on certain PCs. You might find many compounds showed the same loading on the first PC. That means the concentrations pattern between the compounds are looked similar. So PCA could also be used to explore the relationship between the compounds.</p>
 <p>OK, next time you might recall PCA when you need it instead of other paper showed them.</p>
+<p>Besides, there are some other usage of PCA. Loadings are actually correlation coefficients between peaks and their PC scores. Yamamoto et.al.<span class="citation">(Yamamoto et al. <a href="#ref-yamamoto2014">2014</a>)</span> used t-test on this correlation coefficient and thought the peaks with statistically significant correlation to the PC score have biological meanings for further study such as annotation. However, such analysis works better when few PCs could explain most of the variances in the datasets.</p>
 </div>
 <div id="cluster-analysis" class="section level2">
 <h2><span class="header-section-number">8.2</span> Cluster Analysis</h2>
@@ -251,6 +261,12 @@ distance = |10-54|+|13-23|+|21-16| = 59
 <div id="self-organizing-map" class="section level2">
 <h2><span class="header-section-number">8.4</span> Self-organizing map</h2>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-yamamoto2014">
+<p>Yamamoto, Hiroyuki, Tamaki Fujimori, Hajime Sato, Gen Ishikawa, Kenjiro Kami, and Yoshiaki Ohashi. 2014. “Statistical Hypothesis Testing of Factor Loading in Principal Component Analysis and Its Application to Metabolite Set Enrichment Analysis.” <em>BMC Bioinformatics</em> 15 (February): 51. doi:<a href="https://doi.org/10.1186/1471-2105-15-51">10.1186/1471-2105-15-51</a>.</p>
 </div>
 </div>
             </section>

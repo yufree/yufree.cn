@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-06">
+<meta name="date" content="2017-07-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -107,6 +107,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#history"><i class="fa fa-check"></i><b>1.1</b> History</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#reviews-and-tutorials"><i class="fa fa-check"></i><b>1.2</b> Reviews and tutorials</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#platform-for-metabolomics"><i class="fa fa-check"></i><b>1.3</b> Platform for metabolomics</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#xcms-online"><i class="fa fa-check"></i><b>1.3.1</b> XCMS online</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#prime"><i class="fa fa-check"></i><b>1.3.2</b> PRIMe</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#openms"><i class="fa fa-check"></i><b>1.3.3</b> OpenMS</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#mzmine-2"><i class="fa fa-check"></i><b>1.3.4</b> MZmine 2</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#xcms"><i class="fa fa-check"></i><b>1.3.5</b> XCMS</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#emory-mahpic"><i class="fa fa-check"></i><b>1.3.6</b> Emory MaHPIC</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#others"><i class="fa fa-check"></i><b>1.3.7</b> Others</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
 <li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a><ul>
@@ -222,7 +231,45 @@ Figure 1.1: Metabolomics timeline during pre- and post-metabolomics era
 <div id="reviews-and-tutorials" class="section level2">
 <h2><span class="header-section-number">1.2</span> Reviews and tutorials</h2>
 <p>Some new reviews and tutorials related to this workflow could be found in those papers<span class="citation">(Alonso, Marsal, and Julià <a href="#ref-alonso2015">2015</a>; Cajka and Fiehn <a href="#ref-cajka2016">2016</a>; Lu and Xu <a href="#ref-lu2008">2008</a>; Schrimpe-Rutledge et al. <a href="#ref-schrimpe-rutledge2016">2016</a>; Townsend et al. <a href="#ref-townsend2016">2016</a>; Barnes et al. <a href="#ref-barnes2016">2016</a><a href="#ref-barnes2016">b</a>; Barnes et al. <a href="#ref-barnes2016a">2016</a><a href="#ref-barnes2016a">a</a>)</span>.</p>
+</div>
+<div id="platform-for-metabolomics" class="section level2">
+<h2><span class="header-section-number">1.3</span> Platform for metabolomics</h2>
+<div id="xcms-online" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> XCMS online</h3>
+<p><a href="https://xcmsonline.scripps.edu/landing_page.php?pgcontent=mainPage">XCMS online</a> is hosted by Scripps Institute. If your datasets are not large, XCMS online would be the best option for you. Recently they updated the online version to support more functions for systems biology. They use metlin and iso metlin to annotate the MS/MS data. Pathway analysis is also supported. Besides, to accelerate the process, xcms online employed stream (windows only). You could use stream to connect your instrument workstation to their server and process the data along with the data acquisition automate. They also developed apps for xcms online, but I think apps for slack would be even cooler to control the data processing.</p>
+</div>
+<div id="prime" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> PRIMe</h3>
+<p><a href="http://prime.psc.riken.jp/Metabolomics_Software/">PRIMe</a> is from RIKEN and UC Davis. It supports mzML and major MS vendor formats. They defined own file format ABF and eco-system for omics studies. The software are updated almost everyday. You could use MS-DIAL for untargeted analysis and MRMOROBS for targeted analysis. For annotation, they developed MS-FINDER and statistic tools with excel. This platform could replaced the dear software from company and well prepared for MS/MS data analysis and lipidomics. They are open source, work on Windows and also could run within mathmamtics. However, they don’t cover pathway analysis. Another feature is they always show the most recently spectral records from public repositories. You could always get the updated MSP spectra files for your own data analysis.</p>
+<p>If you make GC-MS based metabolomics, this paper<span class="citation">(Matsuo et al. <a href="#ref-matsuo2017">2017</a>)</span> could be nice start.</p>
+</div>
+<div id="openms" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> OpenMS</h3>
+<p><a href="https://www.openms.de/">OpenMS</a> is another good platform for mass spectrum data analysis developed with C++. You could use them as plugin of <a href="https://www.knime.org/">KNIME</a>. I suggest anyone who want to be a data scientist to get familiar with platform like KNIME because they supplied various API for different programme language, which is easy to use and show every steps for others. Also TOPPView in OpenMS could be the best software to visualize the MS data. You could always use the metabolomics workflow to train starter about details in data processing. pyOpenMS and OpenSWATH are also used in this platform. If you want to turn into industry, this platform fit you best because you might get a clear idea about solution and workflow.</p>
+</div>
+<div id="mzmine-2" class="section level3">
+<h3><span class="header-section-number">1.3.4</span> MZmine 2</h3>
+<p><a href="http://mzmine.github.io/">MZmine 2</a> has three version developed on Java platform and the lastest version is included into <a href="https://msdk.github.io/">MSDK</a>. Similar function could be found from MZmine 2 as shown in XCMS online. However, MZmine 2 do not have pathway analysis. You could use metaboanalyst for that purpose. Actually, you could go into MSDK to find similar function supplied by <a href="http://www.proteosuite.org">ProteoSuite</a> and <a href="https://www.openchrom.net/">Openchrom</a>. If you are a experienced coder for Java, you should start here.</p>
+</div>
+<div id="xcms" class="section level3">
+<h3><span class="header-section-number">1.3.5</span> XCMS</h3>
+<p><a href="https://bioconductor.org/packages/release/bioc/html/xcms.html">xcms</a> is different from xcms online while they might share the same code. I used it almost every data to run local metabolomics data analysis. Recently, they will change their version to xcms 3 with major update for object class. Their data format would integrate into the MSnbase package and the parameters would be easy to set up for each step. Normally, I will use msconvert-IPO-xcms-xMSannotator-metaboanalyst as workflow to process the offline data. It could accelerate the process by parallel processing. However, if you are not familiar with R, you would better to choose some software above.</p>
+</div>
+<div id="emory-mahpic" class="section level3">
+<h3><span class="header-section-number">1.3.6</span> Emory MaHPIC</h3>
+<p>This platform is composed by several R packages from Emory University including <a href="https://sourceforge.net/projects/aplcms/">apLCMS</a> to collect the data, <a href="https://sourceforge.net/projects/xmsanalyzer/">xMSanalyzer</a> to handle automated pipeline for large-scale, non-targeted metabolomics data, <a href="https://sourceforge.net/projects/xmsannotator/">xMSannotator</a> for annotation of LC-MS data and <a href="https://code.google.com/archive/p/atcg/wikis/mummichog_for_metabolomics.wiki">Mummichog</a> for pathway and network analysis for high-throughput metabolomics. This platform would be preferred by someone from environmental science to study exposome. I always use xMSannotator to annotate the LC-MS data.</p>
+</div>
+<div id="others" class="section level3">
+<h3><span class="header-section-number">1.3.7</span> Others</h3>
+<ul>
+<li><p><a href="http://genomics-pubs.princeton.edu/mzroll/index.php?show=index">MAVEN</a> from Princeton University</p></li>
+<li><p><a href="https://vpr.colostate.edu/pmf/wp-content/uploads/sites/23/2015/06/Broeckling_2014.pdf">RAMclustR</a> from Colorado State University</p></li>
+<li><p><a href="https://www.bioconductor.org/packages/release/bioc/html/MAIT.html">MAIT</a> based on xcms</p></li>
+<li><p><a href="https://github.com/yufree/enviGCMS">enviGCMS</a> from me</p></li>
+<li><p><a href="http://www.ebi.ac.uk/metabolights/">Metabolights</a> for sharing data</p></li>
+</ul>
 
+</div>
 </div>
 </div>
 <h3>References</h3>
@@ -253,6 +300,9 @@ Figure 1.1: Metabolomics timeline during pre- and post-metabolomics era
 </div>
 <div id="ref-barnes2016a">
 <p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>Journal of Mass Spectrometry</em> 51 (7): 461–75. doi:<a href="https://doi.org/10.1002/jms.3782">10.1002/jms.3782</a>.</p>
+</div>
+<div id="ref-matsuo2017">
+<p>Matsuo, Teruko, Hiroshi Tsugawa, Hiromi Miyagawa, and Eiichiro Fukusaki. 2017. “Integrated Strategy for Unknown EI, Multivariate Analysis, EI, and Retention Index Prediction.” <em>Analytical Chemistry</em> 89 (12): 6766–73. doi:<a href="https://doi.org/10.1021/acs.analchem.7b01010">10.1021/acs.analchem.7b01010</a>.</p>
 </div>
 </div>
             </section>

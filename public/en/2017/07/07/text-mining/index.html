@@ -70,7 +70,7 @@
 
   <article class="article">
     
-    <span class="article-duration">10 min read</span>
+    <span class="article-duration">6 min read</span>
     
     <h1 class="article-title">Text mining for top academic journals
 
@@ -101,8 +101,6 @@
       <p>Text mining is often used to find spatiotemporal trends in news, government report and user generated contents in SNS websites. We could make sentiment analysis to find the real opinions of netizens. Also we could track the popularity of certain phases and find the connections among them. Such technique might also be useful for scientists or researchers to read papers.</p>
 <p>Scientists or researchers’ daily life is immersed by a lot of literature. Most of the them are only focused on limited area in certain subjects. However, a modern scientist should always know what had happened in all of the other subjects. Some techniques used in other research might inspire your research. The only problem is that you need a lot time reading top general journals like Science, Nature and PNAS. Wait, we actually do not need to know the technique details and all we want to know is the patterns in those journals. Well, text mining would help.</p>
 <p>The main advantage for text mining in academic journals is that academic papers always share same structures in one journals. Public academic databases such as PubMed or Google scholar could always show you the structured records for papers such as journal, authors, title, published dates and even abstracts. We could directly fetch those data and save in database. I developed scifetch package to get those data from PubMed. This package would support Google scholar, bing academic and baidu xueshu in the future. Actually I support PubMed in the first version because they have a user-friendly API and I could connect such pipe with xml2 package in a tidyverse way. Besides, easyPubMed package is also a good package to extract such data from PubMed.</p>
-<pre class="r"><code># devtools::install_github(&#39;yufree/scifetch&#39;)
-library(scifetch)</code></pre>
 <div id="data-collection" class="section level2">
 <h2>Data collection</h2>
 <p>Here I collected the information from all the papers published in SNP i.e. science, nature and PNAS in the past three years as xml format and clean them into a dataframe for further text mining. The search grammar could be find from <a href="https://www.ncbi.nlm.nih.gov/books/NBK3827/">NCBI websites</a> and a cheat sheet here.</p>
@@ -110,26 +108,8 @@ library(scifetch)</code></pre>
 <img src="../../../../../images/cheatsheetpubmed.png" />
 
 </div>
-<pre class="r"><code>query &lt;- &#39;(1095-9203[TA] OR 0028-0836[TA] OR 0027-8424[TA]) AND 2014/07:2017/06[DP]&#39;
-xml &lt;- getpubmed(query, start = 1, end = 100)</code></pre>
 <p>There are 26559 papers and I will use such data for text mining. PubMed has a limitation for 10000 records per query. So we need to fetch the data multiple times.</p>
-<pre class="r"><code>library(tidyverse)
-library(lubridate)
-
-xml2_1 &lt;- getpubmed(query, start = 1, end = 10000)
-xml2_2 &lt;- getpubmed(query, start = 10001, end = 20000)
-xml2_3 &lt;- getpubmed(query, start = 20001, end = 26559)
-
-tmdf1 &lt;- getpubmedtbl(xml2_1)
-tmdf2 &lt;- getpubmedtbl(xml2_2)
-tmdf3 &lt;- getpubmedtbl(xml2_3)
-
-tmdf &lt;- bind_rows(tmdf1,tmdf2,tmdf3) %&gt;%
-        mutate(time = as.POSIXct(date, origin = &quot;1970-01-01&quot;),
-         month = round_date(date, &quot;month&quot;))
-
-tmdf</code></pre>
-<pre><code>## # A tibble: 26,559 x 7
+<pre><code>## # A tibble: 26,557 x 7
 ##                          journal
 ##                            &lt;chr&gt;
 ##  1                        Nature
@@ -142,84 +122,21 @@ tmdf</code></pre>
 ##  8                       Science
 ##  9                       Science
 ## 10                       Science
-## # ... with 26,549 more rows, and 6 more variables: title &lt;chr&gt;,
+## # ... with 26,547 more rows, and 6 more variables: title &lt;chr&gt;,
 ## #   date &lt;date&gt;, abstract &lt;chr&gt;, line &lt;int&gt;, time &lt;dttm&gt;, month &lt;date&gt;</code></pre>
 </div>
 <div id="description-statistics" class="section level2">
 <h2>Description statistics</h2>
 <p>Firstly, let’s see the papers by journal:</p>
-<pre class="r"><code>library(tidytext)
-library(stringr)
-
-tmdf %&gt;%
-  group_by(journal) %&gt;%
-  summarize(papers = n_distinct(title)) %&gt;%
-  ggplot(aes(journal, papers)) +
-  geom_col() +
-  coord_flip()</code></pre>
 <p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/sum-1.png" width="672" /></p>
 <p>Then we could check the high frequency terms in the title and abstract of these papers.</p>
 <div id="title" class="section level3">
 <h3>Title</h3>
-<pre class="r"><code>wordft &lt;- tmdf %&gt;%
-        filter(nchar(title) &gt; 0) %&gt;%
-        unnest_tokens(word, title) %&gt;%
-        anti_join(stop_words) %&gt;%
-        filter(str_detect(word, &quot;[^\\d]&quot;)) %&gt;%
-        group_by(word) %&gt;%
-        mutate(word_total = n()) %&gt;%
-        ungroup() 
-
-words_by_journal &lt;- wordft %&gt;%
-  count(journal, word, sort = TRUE) %&gt;%
-  ungroup()
-
-tf_idf &lt;- words_by_journal %&gt;%
-  bind_tf_idf(word, journal, n) %&gt;%
-  arrange(desc(tf_idf))
-
-tf_idf %&gt;%
-  group_by(journal) %&gt;%
-  top_n(10, tf_idf) %&gt;%
-  ungroup() %&gt;%
-  mutate(word = reorder(word, tf_idf)) %&gt;%
-  ggplot(aes(word, tf_idf, fill = journal)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ journal, scales = &quot;free&quot;) +
-  ylab(&quot;tf-idf in title&quot;) +
-  coord_flip()</code></pre>
 <p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordtitle-1.png" width="672" /></p>
 <p>As top journals, one of the most obvious features is that they all need correction and reply. With high influences, those journals would be the best place to discuss the leading edge techniques and findings. However, Science likes U.S., glance and paleoanthropology more while Nature and PNAS like tumor to be used in the titles.</p>
 </div>
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
-<pre class="r"><code>wordfabs &lt;- tmdf %&gt;%
-        filter(nchar(abstract) &gt; 0) %&gt;%
-        unnest_tokens(word, abstract) %&gt;%
-        anti_join(stop_words) %&gt;%
-        filter(str_detect(word, &quot;[^\\d]&quot;)) %&gt;%
-        group_by(word) %&gt;%
-        mutate(word_total = n()) %&gt;%
-        ungroup() 
-
-words_by_journal &lt;- wordfabs %&gt;%
-  count(journal, word, sort = TRUE) %&gt;%
-  ungroup()
-
-tf_idfabs &lt;- words_by_journal %&gt;%
-  bind_tf_idf(word, journal, n) %&gt;%
-  arrange(desc(tf_idf))
-
-tf_idfabs %&gt;%
-  group_by(journal) %&gt;%
-  top_n(10, tf_idf) %&gt;%
-  ungroup() %&gt;%
-  mutate(word = reorder(word, tf_idf)) %&gt;%
-  ggplot(aes(word, tf_idf, fill = journal)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ journal, scales = &quot;free&quot;) +
-  ylab(&quot;tf-idf in abstract&quot;) +
-  coord_flip()</code></pre>
 <p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordabs-1.png" width="672" /></p>
 <p>Well, when we focused on the abstracts, something interesting happens:</p>
 <ul>
@@ -235,145 +152,20 @@ tf_idfabs %&gt;%
 <p>Here we use logistic regression to examine whether the frequency of each word is increasing or decreasing over time. Every term will then have a growth rate associated with it.</p>
 <div id="title-1" class="section level3">
 <h3>Title</h3>
-<pre class="r"><code>papers_per_month &lt;- tmdf %&gt;%
-  group_by(month) %&gt;%
-  summarize(month_total = n())
-
-word_month_counts &lt;- wordft %&gt;%
-  filter(word_total &gt;= 100) %&gt;%
-  count(word, month) %&gt;%
-  complete(word, month, fill = list(n = 0)) %&gt;%
-  inner_join(papers_per_month, by = &quot;month&quot;) %&gt;%
-  mutate(percent = n / month_total) %&gt;%
-  mutate(year = year(month) + yday(month) / 365)
-
-library(broom)
-library(scales)
-
-mod &lt;- ~ glm(cbind(n, month_total - n) ~ year, ., family = &quot;binomial&quot;)
-
-slopes &lt;- word_month_counts %&gt;%
-  nest(-word) %&gt;%
-  mutate(model = map(data, mod)) %&gt;%
-  unnest(map(model, tidy)) %&gt;%
-  filter(term == &quot;year&quot;) %&gt;%
-  arrange(desc(estimate))
-
-slopes %&gt;%
-  head(20) %&gt;%
-  inner_join(word_month_counts, by = &quot;word&quot;) %&gt;%
-  mutate(word = reorder(word, -estimate)) %&gt;%
-  ggplot(aes(month, n / month_total, color = word)) +
-  geom_line(show.legend = FALSE) +
-  scale_y_continuous(labels = percent_format()) +
-  facet_wrap(~ word, scales = &quot;free_y&quot;) +
-  expand_limits(y = 0) +
-  labs(x = &quot;Year&quot;,
-       y = &quot;Percentage of titles containing this term&quot;,
-       title = &quot;20 fastest growing words in SNP titles&quot;,
-       subtitle = &quot;Judged by growth rate over 3 years&quot;)</code></pre>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png" width="672" /></p>
-<pre class="r"><code>slopes %&gt;%
-  tail(20) %&gt;%
-  inner_join(word_month_counts, by = &quot;word&quot;) %&gt;%
-  mutate(word = reorder(word, estimate)) %&gt;%
-  ggplot(aes(month, n / month_total, color = word)) +
-  geom_line(show.legend = FALSE) +
-  scale_y_continuous(labels = percent_format()) +
-  facet_wrap(~ word, scales = &quot;free_y&quot;) +
-  expand_limits(y = 0) +
-  labs(x = &quot;Year&quot;,
-       y = &quot;Percentage of titles containing this term&quot;,
-       title = &quot;20 fastest shrinking words in SNP titles&quot;,
-       subtitle = &quot;Judged by growth rate over 3 years&quot;)</code></pre>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png" width="672" /></p>
+<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png" width="672" /><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png" width="672" /></p>
 <p>Here we could find some trending terms like CRISPR, gut, and corrigendum are ‘promising’. However, some topics like Ebola, Hiv and cell differentiation would leave us. Another interesting trending is that the names of certain subjects is disappearing in those top journals like biology, chemistry, neuroscience, ecology and policy. Maybe most titles would like to focus on specific topics or certain problems.</p>
 </div>
 <div id="abstract-1" class="section level3">
 <h3>Abstract</h3>
 <p>Now let’s review the temporal trends of terms in abstracts during the past three years by months.</p>
-<pre class="r"><code>word_month_counts2 &lt;- wordfabs %&gt;%
-  filter(word_total &gt;= 1000) %&gt;%
-  count(word, month) %&gt;%
-  complete(word, month, fill = list(n = 0)) %&gt;%
-  inner_join(papers_per_month, by = &quot;month&quot;) %&gt;%
-  mutate(percent = n / month_total) %&gt;%
-  mutate(year = year(month) + yday(month) / 365)
-
-slopes2 &lt;- word_month_counts2 %&gt;%
-  nest(-word) %&gt;%
-  mutate(model = map(data, mod)) %&gt;%
-  unnest(map(model, tidy)) %&gt;%
-  filter(term == &quot;year&quot;) %&gt;%
-  arrange(desc(estimate))
-
-slopes2 %&gt;%
-  head(20) %&gt;%
-  inner_join(word_month_counts2, by = &quot;word&quot;) %&gt;%
-  mutate(word = reorder(word, -estimate)) %&gt;%
-  ggplot(aes(month, n / month_total, color = word)) +
-  geom_line(show.legend = FALSE) +
-  scale_y_continuous(labels = percent_format()) +
-  facet_wrap(~ word, scales = &quot;free_y&quot;) +
-  expand_limits(y = 0) +
-  labs(x = &quot;Year&quot;,
-       y = &quot;Percentage of abstracts containing this term&quot;,
-       title = &quot;20 fastest growing words in SNP&quot;,
-       subtitle = &quot;Judged by growth rate over 3 years&quot;)</code></pre>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png" width="672" /></p>
-<pre class="r"><code>slopes2 %&gt;%
-  tail(20) %&gt;%
-  inner_join(word_month_counts2, by = &quot;word&quot;) %&gt;%
-  mutate(word = reorder(word, estimate)) %&gt;%
-  ggplot(aes(month, n / month_total, color = word)) +
-  geom_line(show.legend = FALSE) +
-  scale_y_continuous(labels = percent_format()) +
-  facet_wrap(~ word, scales = &quot;free_y&quot;) +
-  expand_limits(y = 0) +
-  labs(x = &quot;Year&quot;,
-       y = &quot;Percentage of abstracts containing this term&quot;,
-       title = &quot;20 fastest shrinking words in SNP&quot;,
-       subtitle = &quot;Judged by growth rate over 3 years&quot;)</code></pre>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png" width="672" /></p>
+<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png" width="672" /><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png" width="672" /></p>
 <p>It’s hard to find a clear pattern in growing words in abstracts. Maybe the abstracts focused more on technique details. However, shrinking words like viral, gene expression and pathway showed clear trends. Meanwhile, we could find some words like suggests, previously and production are discarded by the top scientist.</p>
 </div>
 </div>
 <div id="relationship-among-words" class="section level2">
 <h2>Relationship among words</h2>
 <p>N-gram analysis could be used to find a meaningful terms in those papers.</p>
-<pre class="r"><code>library(widyr)
-library(igraph)
-library(ggraph)
-
-title_word_pairs &lt;- wordft %&gt;%
-        pairwise_count(word,line,sort = TRUE)
-
-set.seed(42)
-title_word_pairs %&gt;%
-  filter(n &gt;= 50) %&gt;%
-  graph_from_data_frame() %&gt;%
-  ggraph(layout = &quot;fr&quot;) +
-  geom_edge_link(aes(edge_alpha = n, edge_width = n), edge_colour = &quot;cyan4&quot;) +
-  geom_node_point(size = 1) +
-  geom_node_text(aes(label = name), repel = TRUE, 
-                 point.padding = unit(0.2, &quot;lines&quot;)) +
-  labs(title = &quot;Bigrams in title&quot;) +
-  theme_void()</code></pre>
 <p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png" width="672" /></p>
-<pre class="r"><code>abs_word_pairs &lt;- wordfabs %&gt;%
-        pairwise_count(word,line,sort = TRUE)
-
-set.seed(42)
-abs_word_pairs %&gt;%
-  filter(n &gt;= 1000) %&gt;%
-  graph_from_data_frame() %&gt;%
-  ggraph(layout = &quot;fr&quot;) +
-  geom_edge_link(aes(edge_alpha = n, edge_width = n), edge_colour = &quot;cyan4&quot;) +
-  geom_node_point(size = 1) +
-  geom_node_text(aes(label = name), repel = TRUE, 
-                 point.padding = unit(0.2, &quot;lines&quot;)) +
-  labs(title = &quot;Bigrams in abstract&quot;) +
-  theme_void()</code></pre>
 <div class="figure">
 <img src="../../../../../images/biabs.png" />
 
@@ -383,52 +175,11 @@ abs_word_pairs %&gt;%
 <div id="topic-modeling" class="section level2">
 <h2>Topic modeling</h2>
 <p>Relationships among words could show us some trending. However, we could employ topic modeling to explore the topics as a bunch of words in the abstracts of those top journals.</p>
-<pre class="r"><code>desc_dtm &lt;- wordfabs %&gt;%
-        count(line, word, sort = TRUE) %&gt;%
-        ungroup() %&gt;%
-        cast_dtm(line, word, n)
-
-library(topicmodels)
-desc_lda &lt;- LDA(desc_dtm, k = 20, control = list(seed = 42))
-tidy_lda &lt;- tidy(desc_lda)
-
-top_terms &lt;- tidy_lda %&gt;%
-  group_by(topic) %&gt;%
-  top_n(10, beta) %&gt;%
-  ungroup() %&gt;%
-  arrange(topic, -beta)
-
-top_terms %&gt;%
-  mutate(term = reorder(term, beta)) %&gt;%
-  group_by(topic, term) %&gt;%    
-  arrange(desc(beta)) %&gt;%  
-  ungroup() %&gt;%
-  mutate(term = factor(paste(term, topic, sep = &quot;__&quot;), 
-                       levels = rev(paste(term, topic, sep = &quot;__&quot;)))) %&gt;%
-  ggplot(aes(term, beta, fill = as.factor(topic))) +
-  geom_col(show.legend = FALSE) +
-  coord_flip() +
-  scale_x_discrete(labels = function(x) gsub(&quot;__.+$&quot;, &quot;&quot;, x)) +
-  labs(title = &quot;Top 10 terms in each LDA topic&quot;,
-       x = NULL, y = expression(beta)) +
-  facet_wrap(~ topic, ncol = 4, scales = &quot;free&quot;)</code></pre>
 <p><img src="../../../../../images/tm.png" /> This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.</p>
 </div>
 <div id="sentiment-analysis" class="section level2">
 <h2>Sentiment analysis</h2>
 <p>Text mining could also be used to find the sentiment behind those journal papers or the customs using certain words.</p>
-<pre class="r"><code>contributions &lt;- wordfabs %&gt;%
-  inner_join(get_sentiments(&quot;afinn&quot;), by = &quot;word&quot;) %&gt;%
-  group_by(word) %&gt;%
-  summarize(occurences = n(),
-            contribution = sum(score))
-
-contributions %&gt;%
-  top_n(25, abs(contribution)) %&gt;%
-  mutate(word = reorder(word, contribution)) %&gt;%
-  ggplot(aes(word, contribution, fill = contribution &gt; 0)) +
-  geom_col(show.legend = FALSE) +
-  coord_flip()</code></pre>
 <p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/SA-1.png" width="672" /></p>
 <p>Well, I think the afinn word list for sentiment analysis is not suitable for scientific literature. Some words is actually neutral in academic journals. If someone could develop a specific word list for scientists, we might find something ignored by the writing lessons on campus.</p>
 </div>
@@ -436,6 +187,7 @@ contributions %&gt;%
 <h2>Summary</h2>
 <p>Here, I demo some basic text mining results for top academic journals. Just like Google trends might predict the popularity of flu, text mining for academic journal might be a good tool to reveal unknown patterns or trends in certain subjects or top journals. Besides, we could also find unique usages of some words and some tones behind the journal. Besides, such methods might work better than impact factor or H index as the evaluation tools for certain researcher, journal or institute in a dynamic view. The most attractive thing is that every scientist could use this tools through open databases and find their own answers. This is the best benefits from information era.</p>
 <p>You might read this excellent on-line <a href="http://tidytextmining.com/">book</a> and David Robinson’s <a href="http://varianceexplained.org/">blog</a> to make more findings.</p>
+<p>All the R code for this post could be found <a href="https://github.com/yufree/yufree.cn/blob/master/content/en/2017-07-07-text-mining-for-trends-in-top-journal.Rmd">here</a>.</p>
 </div>
 
     </div>
@@ -541,17 +293,6 @@ document.addEventListener('keyup', function(e) {
 
 
     
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-  }
-});
-</script>
-<script async type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
     
 <script>

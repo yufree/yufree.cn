@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-11">
+<meta name="date" content="2017-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="demo.html">
-<link rel="next" href="references.html">
+<link rel="next" href="batch-effect.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -120,10 +120,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#quantitative-metabolomics"><i class="fa fa-check"></i><b>1.4.1</b> Quantitative Metabolomics</a></li>
 <li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#high-throughput-metabolomics"><i class="fa fa-check"></i><b>1.4.2</b> High throughput Metabolomics</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#data-sharing"><i class="fa fa-check"></i><b>1.5</b> Data sharing</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#data-hosting"><i class="fa fa-check"></i><b>1.5.1</b> Data hosting</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#ms-database-with-annotation"><i class="fa fa-check"></i><b>1.5.2</b> MS Database with annotation</a></li>
+<li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#compounds-database"><i class="fa fa-check"></i><b>1.5.3</b> Compounds Database</a></li>
+<li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#pathway-database"><i class="fa fa-check"></i><b>1.5.4</b> Pathway Database</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
 <li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a><ul>
-<li class="chapter" data-level="3.1" data-path="pretreatment.html"><a href="pretreatment.html#quenching"><i class="fa fa-check"></i><b>3.1</b> QUENCHING</a></li>
+<li class="chapter" data-level="3.1" data-path="pretreatment.html"><a href="pretreatment.html#quenching"><i class="fa fa-check"></i><b>3.1</b> Quenching</a></li>
 <li class="chapter" data-level="3.2" data-path="pretreatment.html"><a href="pretreatment.html#extraction"><i class="fa fa-check"></i><b>3.2</b> Extraction</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a><ul>
@@ -153,11 +159,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="6" data-path="annotation.html"><a href="annotation.html"><i class="fa fa-check"></i><b>6</b> Annotation</a><ul>
 <li class="chapter" data-level="6.1" data-path="annotation.html"><a href="annotation.html#annotation-v.s.-identification"><i class="fa fa-check"></i><b>6.1</b> Annotation v.s. identification</a></li>
-<li class="chapter" data-level="6.2" data-path="annotation.html"><a href="annotation.html#tools"><i class="fa fa-check"></i><b>6.2</b> Tools</a></li>
+<li class="chapter" data-level="6.2" data-path="annotation.html"><a href="annotation.html#network-analysis"><i class="fa fa-check"></i><b>6.2</b> Network analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="annotation.html"><a href="annotation.html#tools"><i class="fa fa-check"></i><b>6.3</b> Tools</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="omics-analysis.html"><a href="omics-analysis.html"><i class="fa fa-check"></i><b>7</b> Omics analysis</a><ul>
 <li class="chapter" data-level="7.1" data-path="omics-analysis.html"><a href="omics-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>7.1</b> Pathway analysis</a></li>
-<li class="chapter" data-level="7.2" data-path="omics-analysis.html"><a href="omics-analysis.html#network-analysis"><i class="fa fa-check"></i><b>7.2</b> Network analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="omics-analysis.html"><a href="omics-analysis.html#network-analysis-1"><i class="fa fa-check"></i><b>7.2</b> Network analysis</a></li>
 <li class="chapter" data-level="7.3" data-path="omics-analysis.html"><a href="omics-analysis.html#omics-integration"><i class="fa fa-check"></i><b>7.3</b> Omics integration</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>8</b> Common analysis methods for metabolomics</a><ul>
@@ -181,13 +188,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10" data-path="case-studyselected.html"><a href="case-studyselected.html"><i class="fa fa-check"></i><b>10</b> Case Study(selected)</a><ul>
 <li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
+<li class="chapter" data-level="10.2" data-path="case-studyselected.html"><a href="case-studyselected.html#mental-health"><i class="fa fa-check"></i><b>10.2</b> Mental Health</a></li>
+<li class="chapter" data-level="10.3" data-path="case-studyselected.html"><a href="case-studyselected.html#interestion-papers"><i class="fa fa-check"></i><b>10.3</b> Interestion papers</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="11" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>11</b> Batch effect</a><ul>
 <li class="chapter" data-level="11.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>11.0.1</b> Detection of unmodeled factors</a></li>
 <li class="chapter" data-level="11.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>11.0.2</b> Construction of surrogate variables</a></li>
 <li class="chapter" data-level="11.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>11.0.3</b> Case study</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
 
@@ -214,7 +223,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">10.1</span> Cancer</h2>
 <ul>
 <li><p>LC-QToF, Urine, Prostate <span class="citation">(<span class="citeproc-not-found" data-reference-id="fernandez-peralbo2016a"><strong>???</strong></span>)</span></p></li>
-<li><p>Muti, tobacco, Senescence<span class="citation">(Li et al. <a href="#ref-li2016">2016</a>)</span></p></li>
+<li><p>Muti, tobacco, Senescence <span class="citation">(Li et al. <a href="#ref-li2016">2016</a>)</span></p></li>
+<li><p>Serum <span class="citation">(Itoi et al. <a href="#ref-itoi2017">2017</a>)</span></p></li>
+</ul>
+</div>
+<div id="mental-health" class="section level2">
+<h2><span class="header-section-number">10.2</span> Mental Health</h2>
+<ul>
+<li>Internet gaming disorder (IGD) <span class="citation">(Cho et al. <a href="#ref-cho2017">2017</a>)</span></li>
+</ul>
+</div>
+<div id="interestion-papers" class="section level2">
+<h2><span class="header-section-number">10.3</span> Interestion papers</h2>
+<ul>
+<li>Ionmoics<span class="citation">(Konz et al. <a href="#ref-konz2017">2017</a>)</span></li>
 </ul>
 
 </div>
@@ -224,6 +246,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="ref-li2016">
 <p>Li, Lili, Jieyu Zhao, Yanni Zhao, Xin Lu, Zhihui Zhou, Chunxia Zhao, and Guowang Xu. 2016. “Comprehensive Investigation of Tobacco Leaves During Natural Early Senescence via Multi-Platform Metabolomics Analyses.” <em>Scientific Reports</em> 6 (November). doi:<a href="https://doi.org/10.1038/srep37976">10.1038/srep37976</a>.</p>
 </div>
+<div id="ref-itoi2017">
+<p>Itoi, Takao, Masahiro Sugimoto, Junko Umeda, Atsushi Sofuni, Takayoshi Tsuchiya, Shujiro Tsuji, Reina Tanaka, et al. 2017. “Serum Metabolomic Profiles for Human Pancreatic Cancer Discrimination.” <em>International Journal of Molecular Sciences</em> 18 (4): 767. doi:<a href="https://doi.org/10.3390/ijms18040767">10.3390/ijms18040767</a>.</p>
+</div>
+<div id="ref-cho2017">
+<p>Cho, Yeo Ul, Deokjong Lee, Jung-Eun Lee, Kyoung Heon Kim, Do Yup Lee, and Young-Chul Jung. 2017. “Exploratory Metabolomics of Biomarker Identification for the Internet Gaming Disorder in Young Korean Males.” <em>Journal of Chromatography B</em> 1057 (July): 24–31. doi:<a href="https://doi.org/10.1016/j.jchromb.2017.04.046">10.1016/j.jchromb.2017.04.046</a>.</p>
+</div>
+<div id="ref-konz2017">
+<p>Konz, Tobias, Eugenia Migliavacca, Loïc Dayon, Gene Bowman, Aikaterini Oikonomidi, Julius Popp, and Serge Rezzi. 2017. “ICP-MS/MS-Based Ionomics: A Validated Methodology to Investigate the Biological Variability of the Human Ionome.” <em>Journal of Proteome Research</em> 16 (5): 2080–90. doi:<a href="https://doi.org/10.1021/acs.jproteome.7b00055">10.1021/acs.jproteome.7b00055</a>.</p>
+</div>
 </div>
             </section>
 
@@ -231,7 +262,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="demo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="batch-effect.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -28,7 +28,7 @@ points(table(df)[2:16],col = 'red')
 lines(predict(lo)~as.numeric(names(table(df))), col='blue', lwd=2)
 ```
 
-Then how about full scan, some detectors like obitrap and tof-tof could monitor a full scan for all ions at almost the same time. Common high resolution mass spectrum could collect more than 10 spectrum per second. If the compounds could show peaks' width larger than 15s, we could actually collect 10 spectrum from different samples, which is the real high-throughput.
+Then how about full scan, some detectors like orbitrap and tof-tof could monitor a full scan for all ions at almost the same time. Common high resolution mass spectrum could collect more than 10 spectrum per second. If the compounds could show peaks' width larger than 15s, we could actually collect 10 spectrum from different samples, which is the real high-throughput.
 
 ## Real high-throughput
 

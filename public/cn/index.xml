@@ -10,6 +10,261 @@
     <atom:link href="/cn/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>从真空里的球形鸡到社会财富分配（一）</title>
+      <link>/cn/2017/07/24/boltzmann-distribution-1/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/07/24/boltzmann-distribution-1/</guid>
+      <description>&lt;p&gt;曾经有个笑话吐槽物理学家研究鸡不下蛋问题时首先假设了一只存在真空中的球形鸡，进而认为理工类研究过于简化了现实世界，再进而推导出了一种不修边幅、不谙人情世故且高智商低情商的理工科书呆子刻板印象。就我个人生活经验而言，这种看法倒也没啥问题，对，就是没啥问题，你没看错。&lt;/p&gt;
+&lt;p&gt;但是（说“但是”前的都是废话–马克·于瘟），当今学术研究的一个大趋势就是用理工科的思维研究社会自发行为，我曾经尝试&lt;a href=&#34;http://blog.sciencenet.cn/blog-430956-869450.html&#34;&gt;用马尔可夫过程解释社会阶层流动&lt;/a&gt;，但其实很多理工科出身的科学家是很严肃地研究这类问题的。我们将会看到一个松散假设下的物理模型是可以解释很多（但绝不是全部）自发的宏观社会行为的。在某些视角下，我们也许就是个真空中的球状社会信息综合体。首先，我们从具象到抽象，来了解下一个统计物理学的概念——玻尔兹曼分布。在后续的文章中我们会用这个分布来探索下社会行为，特别是经济行为。&lt;/p&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;社会行为的抽象&lt;/h2&gt;
+&lt;p&gt;社会行为其实就是个体间的相互作用，在物理学视角下，这个个体间相互作用有四种（但我知道多数人不关心这个），简单说就是物质能量交换。而社会经济行为视角下，这个相互作用可以看成价值流动，通俗一点就是钱。钱可以在流通成本很低的现代信息社会下快速在社会个体间转移，在物理学视角下可看作能量在不同粒子间的传递。那么类比一下我们会发现，如果我想知道一个社会整体的财富分配，我们可以类比到一个装满带有能量的小球的空间去观察小球的能量分布。这里有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;社会个体（人、公司、团体）-&amp;gt; 空间里的小球&lt;/li&gt;
+&lt;li&gt;财富（钱、资产） -&amp;gt; 能量&lt;/li&gt;
+&lt;li&gt;价值交换（买卖行为、资本流动）-&amp;gt; 小球间能量交换&lt;/li&gt;
+&lt;li&gt;社会个体的财富分配 -&amp;gt; 空间里的能量分布&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里我们需要一些假设，首先我们考虑的是一个热力学平衡，也就是说，空间里能量总和一定，也就是要是个封闭空间，同样，社会里总财富在某个时间点也是稳定的。其次，我们想知道的是财富分布或能量分布，那么我们就要有不同财富区间与能量区间来构成分布，这里我们用钱数或能量值来划分，拥有钱数或能量在同一区间的社会个体或小球在分布中是一样的，无法区分，也是等概率的。最后，能量交换或价值交换要达到热力学平衡，这个在小球模型里很容易实现，但社会实际状态只能近似认为达到，这意味着交易是随机的且充分的，后续我们会修改这个限制让模型更符合社会实际。&lt;/p&gt;
+&lt;p&gt;根据上面的类比与假设，目前我们大概可以用一堆小球去模拟一些稳态社会行为了，这个抽象过程是大多数理工类科学研究的起点，不然一上来就过于复杂很难讨论。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;封闭空间里的赋能小球&lt;/h2&gt;
+&lt;p&gt;好了，目前我们先不去想复杂的社会行为来考虑小球。在一个封闭空间里，小球的能量总和是固定的，但能量范围却可以很广，小球数也可以很多，那么我们再简化下，就考虑3个球总能量6，能量区间就会有7个离散数值：0，1，2，3，4，5，6，7。那么我们想得到的是宏观状态下能量分布，我们首先来个原始方法：数。&lt;/p&gt;
+&lt;p&gt;首先要数下有多少个宏观态。例如有一个球上有6的能量，其余的球能量都只能是0。我们可以列出下面的7种宏观态：&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-1&#34;&gt;Table 1: &lt;/span&gt;Macrostate.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;0&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;1&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;2&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;3&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;4&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;5&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;6&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;然后我们考虑每一种宏观态下有多少种微观态，因为球有3个，区间有7个，我们可以看成一个排列组合问题。微观下，一共有&lt;span class=&#34;math inline&#34;&gt;\(3!\)&lt;/span&gt;种排列组合，但在基本假设中，我们认为属于同一宏观状态的球是一种，那么这些情况就要被排除掉。例如在宏观态7中，虽然球可以有6种排列，但因为都在1个能量区间，实际只有1种微观态。也就是说，如果我们有N个球，排列组合上看虽然有&lt;span class=&#34;math inline&#34;&gt;\(N!\)&lt;/span&gt;种组合，但实际由于N个球中有n个球在区间i，我们要从总的排列组合中除掉这种组合。也就是：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\# microstates = \frac{N!}{n_0!n_1!...n_i!}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这样我们可以得到共计28种微观态，在这里所有微观态的出现概率是一样的：&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-2&#34;&gt;Table 2: &lt;/span&gt;State.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;0&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;1&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;2&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;3&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;4&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;5&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;6&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Microstate&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;total&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.64&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.54&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.43&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.32&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.07&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;在宏观态1中所有微观态出现的可能性为&lt;span class=&#34;math inline&#34;&gt;\(3/28\)&lt;/span&gt;，其中针对能量为0的区间贡献&lt;span class=&#34;math inline&#34;&gt;\(2*3/28 = 0.214\)&lt;/span&gt; 个小球，而宏观态2中对能量为0的也贡献&lt;span class=&#34;math inline&#34;&gt;\(0.214\)&lt;/span&gt;个小球，同样宏观态3中贡献为&lt;span class=&#34;math inline&#34;&gt;\(0.214\)&lt;/span&gt;个小球而宏观态4中贡献为&lt;span class=&#34;math inline&#34;&gt;\(0.107\)&lt;/span&gt;个小球，这样会有&lt;span class=&#34;math inline&#34;&gt;\(0.75\)&lt;/span&gt;个小球贡献给能量为0的区间，同样我们可以得到其他能量区间上有多少小球。这个小球的能量分布就是我们打算求的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../cn/2017-07-24-boltzmann-distribution-1_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在这个演示里，能量分布似乎跟数目是线性的，但是如果我们把系统放宽，加入更多的球跟能量，这条曲线应该是指数分布的且指数为负。当然我知道你们不信，这里我们用 Eisberg &amp;amp; Resnick 在量子物理教材中描述来进行一个理论推导。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;能量分布的数学形式&lt;/h2&gt;
+&lt;p&gt;如果我们看到两个小球，这两个小球来自同一个能量分布，那么一个小球其出现在&lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;上的概率为&lt;span class=&#34;math inline&#34;&gt;\(f(E_1)\)&lt;/span&gt;，出现在&lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt;能量区间上的概率为&lt;span class=&#34;math inline&#34;&gt;\(f(E_2)\)&lt;/span&gt;。我们考虑一个特殊情况，一个小球来自&lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;而另一个来自&lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt;，发生这种情况的概率应该是两个概率的乘积，也就是：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(E_1) \times f(E_2) 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;然后，我们考虑所有宏观态中能量为&lt;span class=&#34;math inline&#34;&gt;\(E_1 + E_2\)&lt;/span&gt;的情况，因为我们进行了区间划分，所以能量为&lt;span class=&#34;math inline&#34;&gt;\(E_1 + E_2\)&lt;/span&gt;的情况只出现在所有能量和为这个数的小球组合里。由于我们之前假设了所有微观态是等概率的，那么出现这个能量和的小球组合方式也是等概率的。那么在某种程度上，会有下面的公式成立：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(E_1)+f(E_2) = h(E_1+E_2)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;我们可以认为上面那个特殊情况，也就是一个小球来自&lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;而另一个来自&lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt;的概率是属于&lt;span class=&#34;math inline&#34;&gt;\(E_1 + E_2\)&lt;/span&gt;这个能量分布的，那么根据第一段的推理出现这个情况时的概率应该是乘积。也就是两个能量和的出现概率既是两个独立能量区间概率的和又是乘积，那么满足这个条件的数学形式只能是指数形式。那么我们可以得出，在某个能量区间上小球的概率密度函数应该是：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(E) = A e^{-E/E_c}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这里面的常数&lt;span class=&#34;math inline&#34;&gt;\(E_c\)&lt;/span&gt;是描述独立于小球的系统变量，玻尔兹曼经过推导得出这一部分是系统温度（总能量）的线性函数，所以我们就有了玻尔兹曼分布的数学形式：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f_b(E) = A e^{-E/kT}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这个分布描述了在封闭系统内不同能量的小球概率分布形式，简单说就是能量高的概率很低，而能量低的概率比较高。这个现象是客观存在的，但同时由于存在量子效应限制，有些能量段上的小球是无法稳定存在的，所以能谱分布实际并不连续，不过这就是另一个故事了。那么这个符合粒子运动的物理模型跟社会行为有什么联系呢？&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;社会行为&lt;/h2&gt;
+&lt;p&gt;在一个达到平衡的社会经济系统中，我们对小球的假设基本是符合现实的，能量代表财富，那么很直观的现象就是这个社会的财富分配天然就不是平均的，会基本符合指数分布。也就是说，总是少数人富有而多数人穷。那么有人会反对说发达国家都是纺锤形的，明显模型有问题。没错，发达国家可以是纺锤的，但如果把全球看成一个缓慢增长的经济体，一个区域特别稳定富有只可能是牺牲其他区域的财富增长才能实现。所谓共同富裕，在全球封闭尺度下是无法自发形成的。&lt;/p&gt;
+&lt;p&gt;请注意关键词：自发。也就是说，如果不进行法律政策干预是无法形成的，但是如果博弈规则发生改变，那么物理系统就不那么好使了。另一个关键词是稳态，也就是如果社会整体财富增加了，那么即使分布不变，所有人生活的幸福指数也会提高。而增加社会整体财富的方式在最近这一百年的主要表现方式是科技革新，有意思的是，目前可以让财富分配更不平等的最主要动因也是科技的不平等。&lt;/p&gt;
+&lt;p&gt;在接下来的两篇中，我们先看看到底这个世界的财富在不同的小球模型中会有如何的分布特征，然后再看看社会财富实际是如何分配的而物理学规律能给我们什么样的启发。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>文献阅读的文本分析流派</title>
       <link>/cn/2017/06/16/nlp-literature/</link>
       <pubDate>Fri, 16 Jun 2017 00:00:00 +0000</pubDate>
@@ -708,110 +963,6 @@ getrealpeaks(xod = xod)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;知识经济的伪就伪在这本质上还是一种营销，引导你的愿望并告诉你这玩意有用有意思，通过你的消费来告诉你你的选择是对的并不断加强，然后等你发觉这是虚幻时它又去忽悠下一批了。有用也好、有意思也罢，都应该你自己说了算，而不是大v跟人工智能算法说了算。好比被收了美人税的爱子感到的身份认同，现实中不知道有多少人沉浸其中，殊不知美丑规则都是可以被摆布的。&lt;/p&gt;
 
 &lt;p&gt;我不是在写科幻。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>二十年博士延期之怪现状</title>
-      <link>/cn/2017/02/19/phd-extend/</link>
-      <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2017/02/19/phd-extend/</guid>
-      <description>
-
-&lt;p&gt;坊间有句话叫做“没有延期毕业的硕士，没有按期毕业的博士”，最近放长周末假，就抓了点数据探索了一下这个问题。（来自教育部网站公开数据&lt;a href=&#34;http://www.moe.edu.cn/s78/A03/moe_560/jytjsj_2015/）&#34;&gt;http://www.moe.edu.cn/s78/A03/moe_560/jytjsj_2015/）&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;研究生教育现状&#34;&gt;研究生教育现状&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/admitted.png&#34; alt=&#34;&#34; /&gt;
-这是最近20年研究生招生情况，可以看出硕士的扩招力度是远高于博士的，但两者都在扩，20年前一共6万多，现在仅博士每年录取就有7万多，硕士则扩张了10倍有余。
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/graduates.png&#34; alt=&#34;&#34; /&gt;
-这个则是研究生毕业状况，伴随扩招，每年招生人数与毕业人数有相当的差距，但比较吊诡的是博士招生在增长而毕业人数却趋稳了，这基本暗示延期的常态化。
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/enrolment.png&#34; alt=&#34;&#34; /&gt;
-通过在读人数我们也会发现，研究生这个临时身份群体在不断扩大，除了扩招影响，另一个自然就是前面提到的延期问题。&lt;/p&gt;
-
-&lt;h2 id=&#34;延期现状&#34;&gt;延期现状&lt;/h2&gt;
-
-&lt;p&gt;自从2003年起，教育部增加了下年预期毕业人数的数据，这样根据真实毕业人数，我们可以计算出当年延期的状况：
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/extend.png&#34; alt=&#34;&#34; /&gt;
-图上我们可以看出，基本上博士延期概率超过50%，硕士延期概率是个位数，也就是说“没有延期毕业的硕士，没有按期毕业的博士”这句话没毛病，而且延期超过50%的时间已经超过10年了。同时另一个现象也值得关注，那就是女性研究生的延期概率是普遍低于平均水平的，那么对应的男性研究生延期概率会更加惨不忍睹。&lt;/p&gt;
-
-&lt;h2 id=&#34;延期会延多少年&#34;&gt;延期会延多少年？&lt;/h2&gt;
-
-&lt;p&gt;上个问题我们可以看到延期情况是客观存在的，那么延多久就是另一个问题了。如果我们用在校生去除当年毕业生，会得到下面的恐怖结果：
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/meangrad.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;也就是说，博士需要6年多毕业而硕士也需要3年多毕业，硕士那个考虑到延期概率不高还可以接受，博士那个就有点反人类了，而且从近几年情况看这个毕业年限还在增加。其实答案很简单，就是扩招导致的人口在高校或研究机构的滞留，那么如何去除这个影响呢？考虑到博士硕士其实应该是2-4年内毕业，我们只要用当年录取的人数去对比2-4年后毕业的人数就可以了。结果如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/year2.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/year3.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://yufree.github.io/blogcn/figure/year4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;考虑到博士毕业率应该低于硕士且硕士毕业率不应该超过100%，应该是3年毕业的数据比较可信，但同时我们会注意到3年毕业率要远高于延期概率，这又是怎么回事？&lt;/p&gt;
-
-&lt;p&gt;这里就没数据支持了，但我想大多数研究生都听过硕博连读这个概念，其实如果三年毕业为真，那么硕博加起来应该是6年，而硕博连读应该是5年，如果博士延期是常态化的，那么我想这里面很大一部分比例是硕博连读。估计再过几年，考博的比率可能会更低而硕博6年将成为默认的学习年限。有打算硕士毕业出国读博的可以考虑下了，年限上其实吃亏不多而且国外会有老板没钱了逼着早点毕业的情况。&lt;/p&gt;
-
-&lt;h2 id=&#34;国内教职状况&#34;&gt;国内教职状况&lt;/h2&gt;
-
-&lt;p&gt;刚才说了研究生毕业的供给端，下面看看需求端也就是教职的变化。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionall.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;国内教职因为99年开始的扩招导致在21世纪的第一个5年大量的扩展教职，这样的后果就是有一个5年的教职年龄高峰，这个高峰占据了大量的教职。从图上看，目前这个高峰年龄段在51-55岁，都算是当打之年，如果退休年龄没有明显推迟的话，那么在10-15年后应该可以看到一个因为退休高峰导致的教职空缺期。那么10到15年后谁博士毕业呢？大概是现在读中学的孩子，反正我老人家是赶不上了。其实考虑硕博6年加本科4年，每个高校都有义务在学生刚接触高等教育或研究时给他们领先当前技术10年的教材与方法，否则学生10年前选了小灵通网络优化专业，博士毕业基本就只有转行了。&lt;/p&gt;
-
-&lt;p&gt;那么女性教职呢？&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionallf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我只能说似乎女性教职前期扩张的要更厉害，平均年龄也更低，大概要20年左右才能迎来退休高峰的教职空缺，如果校方固定当前男女比，那么其实对有更低概率延期的女性并没有什么优势。此外，我们来看下教职中教授的年龄分布状况：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionprof.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;可以看出教授平均年龄会大一点，当前教授主流是51-55岁，反推下基本是刚改革开放后上的大学，经历应该挺丰富的。我们再看下副教授的情况：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionprofa.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;可以看出副教授整体要比教授年轻10岁，大概90年前后上大学，46-50岁这个年龄段人数基本稳定，说明升教授基本就是前一个年龄段，从年龄分布上看35-45岁人多，不同代际间竞争会激烈些。&lt;/p&gt;
-
-&lt;h2 id=&#34;年教职数变化趋势&#34;&gt;年教职数变化趋势&lt;/h2&gt;
-
-&lt;p&gt;前面着重强调年龄分布可能带来的教职空缺，另一种空缺就是所谓扩张期或窗口期，我们看下这个趋势，当然这个数没考虑退休，但从年龄分布上看这一部分的人数似乎比较稳定。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positiontrend.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;从教职数上我们可以看到，每年的教职数一直在提高，而是似乎斜率比较稳定。但是女性的教职数增长的回归斜率只有总数的1/3，也就是说每增长3个教职才会有一个是女性的，这说明教职市场存在一定的歧视。但这个问题不好直接下结论，因为辛普森悖论也是同样的语境。同时，教授与副教授教职增长的斜率低于总体，暗示了教职里存在的层级结构。&lt;/p&gt;
-
-&lt;p&gt;总之，目前还算是一个稳定的窗口期，教职数不断增长，属于利好；但成长空间不算大，别忘了博士毕业生可是年年增长，所以以后熬年限是肯定不行的，31-35岁的副教授人数逐年下降，不是升迁（概率低）就是收紧了要求转而直接从海外引进人才，诸君努力吧。&lt;/p&gt;
-
-&lt;h2 id=&#34;教职与博士毕业生供求&#34;&gt;教职与博士毕业生供求&lt;/h2&gt;
-
-&lt;p&gt;首先，我们都知道研究生学历在贬值，那么究竟贬到什么状况了呢？我计算了同年毕业的博士与硕士人数比例，结果如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/phdvalue.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;很明显，硕士的贬值效果更强，博士相比之下反而在升值，女博士升值更高。当然，大前提是五十步笑百步，你懂的。基本的情况就是1个博士大概对应10个硕士，显然硕士作为一个学位扩的有点太猛了。后面的分析就不考虑硕士找教职了，基本没戏。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionphd.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;通过这个图（我赌一瓶胡椒博士教育部2000年的数据绝对有问题）我们可以看到新增教职数这些年基本稳定在2万这个水平，博士毕业生大概超过5万，也就是说教职市场在今后可预期的时间里撑死也就能解决一半博士的就业，另外有一半肯定会转行。考虑到博士学位对硕士学位是升值的，估计非教职市场上应该挺容易就业的，当然看你干不干了。&lt;/p&gt;
-
-&lt;p&gt;我们进一步看一下女性教职，如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/positionphdf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;很遗憾新教职里女性比例是低于人口比例的，但这二十年却一直在增长，同样在增长的则是博士毕业生中女性的比例，伴随这个趋势，教职里对女性的歧视似乎是要好于社会其他行业的。&lt;/p&gt;
-
-&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;没有延期毕业的硕士，没有按期毕业的博士&lt;/li&gt;
-&lt;li&gt;从上大学到博士毕业大概要准备10年人生最好的时光&lt;/li&gt;
-&lt;li&gt;然后就进入了发展空间可预期的教职市场（掌握通过年龄分布推测的技巧）&lt;/li&gt;
-&lt;li&gt;或者转行到业界，学历贬值速度低于硕士&lt;/li&gt;
-&lt;li&gt;女性在博士延期可能性上低于男性，但在教职市场上存在歧视&lt;/li&gt;
-&lt;li&gt;没有分专业讨论，我大体看了下数据，理工科延期概率显著高于其他专业，约70%-80%的延期率，医学最低（但他们本来年限就长）&lt;/li&gt;
-&lt;li&gt;教育部应该给api的，网页数据格式乱七八糟，洗数据洗的我上火&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

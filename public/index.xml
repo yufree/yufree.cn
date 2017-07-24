@@ -10,6 +10,261 @@
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>从真空里的球形鸡到社会财富分配（一）</title>
+      <link>/cn/2017/07/24/boltzmann-distribution-1/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/07/24/boltzmann-distribution-1/</guid>
+      <description>&lt;p&gt;曾经有个笑话吐槽物理学家研究鸡不下蛋问题时首先假设了一只存在真空中的球形鸡，进而认为理工类研究过于简化了现实世界，再进而推导出了一种不修边幅、不谙人情世故且高智商低情商的理工科书呆子刻板印象。就我个人生活经验而言，这种看法倒也没啥问题，对，就是没啥问题，你没看错。&lt;/p&gt;
+&lt;p&gt;但是（说“但是”前的都是废话–马克·于瘟），当今学术研究的一个大趋势就是用理工科的思维研究社会自发行为，我曾经尝试&lt;a href=&#34;http://blog.sciencenet.cn/blog-430956-869450.html&#34;&gt;用马尔可夫过程解释社会阶层流动&lt;/a&gt;，但其实很多理工科出身的科学家是很严肃地研究这类问题的。我们将会看到一个松散假设下的物理模型是可以解释很多（但绝不是全部）自发的宏观社会行为的。在某些视角下，我们也许就是个真空中的球状社会信息综合体。首先，我们从具象到抽象，来了解下一个统计物理学的概念——玻尔兹曼分布。在后续的文章中我们会用这个分布来探索下社会行为，特别是经济行为。&lt;/p&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;社会行为的抽象&lt;/h2&gt;
+&lt;p&gt;社会行为其实就是个体间的相互作用，在物理学视角下，这个个体间相互作用有四种（但我知道多数人不关心这个），简单说就是物质能量交换。而社会经济行为视角下，这个相互作用可以看成价值流动，通俗一点就是钱。钱可以在流通成本很低的现代信息社会下快速在社会个体间转移，在物理学视角下可看作能量在不同粒子间的传递。那么类比一下我们会发现，如果我想知道一个社会整体的财富分配，我们可以类比到一个装满带有能量的小球的空间去观察小球的能量分布。这里有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;社会个体（人、公司、团体）-&amp;gt; 空间里的小球&lt;/li&gt;
+&lt;li&gt;财富（钱、资产） -&amp;gt; 能量&lt;/li&gt;
+&lt;li&gt;价值交换（买卖行为、资本流动）-&amp;gt; 小球间能量交换&lt;/li&gt;
+&lt;li&gt;社会个体的财富分配 -&amp;gt; 空间里的能量分布&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里我们需要一些假设，首先我们考虑的是一个热力学平衡，也就是说，空间里能量总和一定，也就是要是个封闭空间，同样，社会里总财富在某个时间点也是稳定的。其次，我们想知道的是财富分布或能量分布，那么我们就要有不同财富区间与能量区间来构成分布，这里我们用钱数或能量值来划分，拥有钱数或能量在同一区间的社会个体或小球在分布中是一样的，无法区分，也是等概率的。最后，能量交换或价值交换要达到热力学平衡，这个在小球模型里很容易实现，但社会实际状态只能近似认为达到，这意味着交易是随机的且充分的，后续我们会修改这个限制让模型更符合社会实际。&lt;/p&gt;
+&lt;p&gt;根据上面的类比与假设，目前我们大概可以用一堆小球去模拟一些稳态社会行为了，这个抽象过程是大多数理工类科学研究的起点，不然一上来就过于复杂很难讨论。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;封闭空间里的赋能小球&lt;/h2&gt;
+&lt;p&gt;好了，目前我们先不去想复杂的社会行为来考虑小球。在一个封闭空间里，小球的能量总和是固定的，但能量范围却可以很广，小球数也可以很多，那么我们再简化下，就考虑3个球总能量6，能量区间就会有7个离散数值：0，1，2，3，4，5，6，7。那么我们想得到的是宏观状态下能量分布，我们首先来个原始方法：数。&lt;/p&gt;
+&lt;p&gt;首先要数下有多少个宏观态。例如有一个球上有6的能量，其余的球能量都只能是0。我们可以列出下面的7种宏观态：&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-1&#34;&gt;Table 1: &lt;/span&gt;Macrostate.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;0&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;1&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;2&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;3&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;4&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;5&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;6&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;然后我们考虑每一种宏观态下有多少种微观态，因为球有3个，区间有7个，我们可以看成一个排列组合问题。微观下，一共有&lt;span class=&#34;math inline&#34;&gt;\(3!\)&lt;/span&gt;种排列组合，但在基本假设中，我们认为属于同一宏观状态的球是一种，那么这些情况就要被排除掉。例如在宏观态7中，虽然球可以有6种排列，但因为都在1个能量区间，实际只有1种微观态。也就是说，如果我们有N个球，排列组合上看虽然有&lt;span class=&#34;math inline&#34;&gt;\(N!\)&lt;/span&gt;种组合，但实际由于N个球中有n个球在区间i，我们要从总的排列组合中除掉这种组合。也就是：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\# microstates = \frac{N!}{n_0!n_1!...n_i!}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这样我们可以得到共计28种微观态，在这里所有微观态的出现概率是一样的：&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-2&#34;&gt;Table 2: &lt;/span&gt;State.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;0&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;1&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;2&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;3&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;4&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;5&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;6&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Microstate&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Macrostate6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Macrostate7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;total&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.64&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.54&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.43&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.32&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.07&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;在宏观态1中所有微观态出现的可能性为&lt;span class=&#34;math inline&#34;&gt;\(3/28\)&lt;/span&gt;，其中针对能量为0的区间贡献&lt;span class=&#34;math inline&#34;&gt;\(2*3/28 = 0.214\)&lt;/span&gt; 个小球，而宏观态2中对能量为0的也贡献&lt;span class=&#34;math inline&#34;&gt;\(0.214\)&lt;/span&gt;个小球，同样宏观态3中贡献为&lt;span class=&#34;math inline&#34;&gt;\(0.214\)&lt;/span&gt;个小球而宏观态4中贡献为&lt;span class=&#34;math inline&#34;&gt;\(0.107\)&lt;/span&gt;个小球，这样会有&lt;span class=&#34;math inline&#34;&gt;\(0.75\)&lt;/span&gt;个小球贡献给能量为0的区间，同样我们可以得到其他能量区间上有多少小球。这个小球的能量分布就是我们打算求的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./cn/2017-07-24-boltzmann-distribution-1_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在这个演示里，能量分布似乎跟数目是线性的，但是如果我们把系统放宽，加入更多的球跟能量，这条曲线应该是指数分布的且指数为负。当然我知道你们不信，这里我们用 Eisberg &amp;amp; Resnick 在量子物理教材中描述来进行一个理论推导。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;能量分布的数学形式&lt;/h2&gt;
+&lt;p&gt;如果我们看到两个小球，这两个小球来自同一个能量分布，那么一个小球其出现在&lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;上的概率为&lt;span class=&#34;math inline&#34;&gt;\(f(E_1)\)&lt;/span&gt;，出现在&lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt;能量区间上的概率为&lt;span class=&#34;math inline&#34;&gt;\(f(E_2)\)&lt;/span&gt;。我们考虑一个特殊情况，一个小球来自&lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;而另一个来自&lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt;，发生这种情况的概率应该是两个概率的乘积，也就是：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(E_1) \times f(E_2) 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;然后，我们考虑所有宏观态中能量为&lt;span class=&#34;math inline&#34;&gt;\(E_1 + E_2\)&lt;/span&gt;的情况，因为我们进行了区间划分，所以能量为&lt;span class=&#34;math inline&#34;&gt;\(E_1 + E_2\)&lt;/span&gt;的情况只出现在所有能量和为这个数的小球组合里。由于我们之前假设了所有微观态是等概率的，那么出现这个能量和的小球组合方式也是等概率的。那么在某种程度上，会有下面的公式成立：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(E_1)+f(E_2) = h(E_1+E_2)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;我们可以认为上面那个特殊情况，也就是一个小球来自&lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;而另一个来自&lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt;的概率是属于&lt;span class=&#34;math inline&#34;&gt;\(E_1 + E_2\)&lt;/span&gt;这个能量分布的，那么根据第一段的推理出现这个情况时的概率应该是乘积。也就是两个能量和的出现概率既是两个独立能量区间概率的和又是乘积，那么满足这个条件的数学形式只能是指数形式。那么我们可以得出，在某个能量区间上小球的概率密度函数应该是：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(E) = A e^{-E/E_c}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这里面的常数&lt;span class=&#34;math inline&#34;&gt;\(E_c\)&lt;/span&gt;是描述独立于小球的系统变量，玻尔兹曼经过推导得出这一部分是系统温度（总能量）的线性函数，所以我们就有了玻尔兹曼分布的数学形式：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f_b(E) = A e^{-E/kT}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这个分布描述了在封闭系统内不同能量的小球概率分布形式，简单说就是能量高的概率很低，而能量低的概率比较高。这个现象是客观存在的，但同时由于存在量子效应限制，有些能量段上的小球是无法稳定存在的，所以能谱分布实际并不连续，不过这就是另一个故事了。那么这个符合粒子运动的物理模型跟社会行为有什么联系呢？&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;社会行为&lt;/h2&gt;
+&lt;p&gt;在一个达到平衡的社会经济系统中，我们对小球的假设基本是符合现实的，能量代表财富，那么很直观的现象就是这个社会的财富分配天然就不是平均的，会基本符合指数分布。也就是说，总是少数人富有而多数人穷。那么有人会反对说发达国家都是纺锤形的，明显模型有问题。没错，发达国家可以是纺锤的，但如果把全球看成一个缓慢增长的经济体，一个区域特别稳定富有只可能是牺牲其他区域的财富增长才能实现。所谓共同富裕，在全球封闭尺度下是无法自发形成的。&lt;/p&gt;
+&lt;p&gt;请注意关键词：自发。也就是说，如果不进行法律政策干预是无法形成的，但是如果博弈规则发生改变，那么物理系统就不那么好使了。另一个关键词是稳态，也就是如果社会整体财富增加了，那么即使分布不变，所有人生活的幸福指数也会提高。而增加社会整体财富的方式在最近这一百年的主要表现方式是科技革新，有意思的是，目前可以让财富分配更不平等的最主要动因也是科技的不平等。&lt;/p&gt;
+&lt;p&gt;在接下来的两篇中，我们先看看到底这个世界的财富在不同的小球模型中会有如何的分布特征，然后再看看社会财富实际是如何分配的而物理学规律能给我们什么样的启发。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Real high-throughput for LC/GC-MS</title>
       <link>/en/2017/07/09/real-high-throughput-for-lc-gc-ms/</link>
       <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
@@ -820,52 +1075,6 @@ devtools::install_github(&amp;quot;yufree/xMSannotator&amp;quot;)&lt;/code&gt;&l
 &lt;p&gt;作为一个社会动物，了解时间尺度的利率可能生活轻松些，了解科研方法则可能让思考上更有框架感。最后推荐下戴维·布鲁克斯的TED演讲，应该说获取新知不要拘泥于形式，怎么方便怎么来。最后的最后跟现在赶论文的毕业生一个过来人的经验：&lt;/p&gt;
 &lt;p&gt;语音输入&lt;/p&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>公交系统、地理学第一定律与切蛋糕</title>
-      <link>/cn/2017/04/02/cake/</link>
-      <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/cn/2017/04/02/cake/</guid>
-      <description>
-
-&lt;h2 id=&#34;公交系统&#34;&gt;公交系统&lt;/h2&gt;
-
-&lt;p&gt;在加村的公交系统是令人发指的，且不说单程定价3.25加元跟间隔时间至少20分钟，动不动就搞罢工也让人崩溃。最近附近一个离城区20分钟车程的小镇举行枫糖节，查了半天才发现去那里的公交工作日都是一个小时一班，只是因为节日会临时加开。而且小镇内部是没有公交路线的，也就是没人引导很难找明白路，手机也基本没信号，可以说公共基础建设很差。但是当你真正进入这个小镇会发现，家家户户的房子都比城区大，后院也大，一般都放个游艇。镇子里银行、诊所、健身房、商区等服务机构一应俱全，回来后查了一下，这边房子价格中位数在36万加元，而城区价格中位数39万加元。北美这边汽车的普及率从汽车发明出来后不久就一直很高，车对于居民而言是必需品而公交系统却不是，公交系统只对底层居民、早期移民（包括留学人员）与游客是必须的，在这个大前提下很多地方不通公交是理所当然的。&lt;/p&gt;
-
-&lt;p&gt;这点跟国内比较很不一样，例如在北京，靠近地铁跟不通公交的地方天然存在很大的价差，有时候如果房子附近被规划成地铁出口，价格瞬间就会涨起来。但这边很差劲的公交系统似乎根本不影响定价，原因也很简单，公交系统对住在这边的人没有太多的附加值。有些小镇甚至会抵制市政公交系统的渗透，除了部分居民有摩门教的信仰外，公交会把流浪汉从城市输送到小镇上，而相对富庶的小镇天然具有排外倾向，一通投票就可以把政府影响降成零，至于手机信号，同样也没必要，不欢迎你来。但如果你进入小镇，又会发现居民其实都很友善且热情好客，也就是说，你来可以，不要住下来。&lt;/p&gt;
-
-&lt;p&gt;公交具有连通属性，但与之对应的是如果家家户户都有车，公共交通既多余又不盈利。同时，公交还让穷人有了进入富人居住地的可能，而富人又是自认善良且友善的，应对一个两个落难的人很轻松，但一车车的送过来就成了经济与道德的双重负担了。此时，小镇的民主集体投票就会展示出一个拒绝姿态，对居民是负责，对其他人呢？对不起，我压根就要从制度设计上消除你接触我的可能。也就是，地理隔离。&lt;/p&gt;
-
-&lt;h2 id=&#34;地理学第一定律&#34;&gt;地理学第一定律&lt;/h2&gt;
-
-&lt;p&gt;地理学是文科，但不代表文科就没有定律。加州大学圣芭芭拉分校的Waldo Tobler教授就提出了一个很模糊但又很独特的定律：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Everything is related to everything else, but near things are more related than distant things.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;不过孟子他妈可能有个更简单的成语版本来解释这个现象：孟母三迁。&lt;/p&gt;
-
-&lt;p&gt;如果两个主体空间离得近，那就更容易产生相互影响，听上去跟废话一样，但却有出奇的解释力。世界上城市的分布大都是城市群的聚居结构的而不是均匀分布在国家领土上，也正是这种结构可以在现代社会里催生有竞争力的创新土壤，这种自发结构天然吸引人才，提供机会，推动变革。而其余星罗棋布的小城镇则基本丧失了最好的人才与劳动力，走向衰落，至于更均匀分布的乡村，不都已经工业化运作了么，社会经济结构在现代社会的影响下脆弱不堪。而那些催生聚居的东西，通常是某种资源，教育、医疗、人才甚至是矿产或港口。在钻石教授的《枪炮、病菌与钢铁》里就反复强调农作物与家畜在地理上的分布是如何导致了不同经济与文化的发展，很多制度所依赖的基础跟个人或许有关，但更多是其背后那片大陆的位置与形状。例如在相对狭长的南美大陆上气候变化很大，农作物的耕种经验就很难像横向发展的欧亚大陆那样有广泛的适用性，这样农业社会的政治经济组织关系就很难形成。&lt;/p&gt;
-
-&lt;p&gt;不过技术的发展促进了交通的发展也就是远近的定义。如果两个地方空间距离是20公里，在走路主导的年代，这大概需要一天，而马车就把发生联系的时间缩到一个小时，而小汽车呢，大概十几二十分钟。人的工作是受生理周期限制的，每天都要睡觉休息，如果我固定每天交通时间，那么技术发展会让我可产生物理交流的空间尺度越来越大，但受限于生理而不是无限大，这个有限空间就是地理学第一定律起作用的地方。但要注意的是，这个区域之外，就是隔离。&lt;/p&gt;
-
-&lt;p&gt;回看公交系统问题，小镇居民事实上是通过私家车享受了现代社会连通属性带来的较高的经济收入但规避了公交连通带来的城市化弊端。也就是说，地理隔离可以保障一部分人的生活质量总是高于另一部分，而那一部分人甚至意识不到高质量生活的存在，毕竟根本就可以没有让你接触的机会。但如果小镇居民的收入下降了呢，那么小镇就会被现代社会抛弃，拒绝新技术的态度会让他们失去竞争力，人口流失进而衰退。当然，此时他们会更乐于用人口优势去投出一个保守派领袖，打断国家层面与外界的联系来享受回过去的辉煌。这都是基于人性可以预测的，所有圈子内部的平等性都高于外部，利益也相对一致，当你访问一个这样的圈子时会感到里面的人都很好，经济条件也好，学识也广，能力也大。但当你想进入这个圈子时就会发现，其实其背后都是一个有限空间，进去的人也都不想出来还希望下一代继续在圈子里，因此门槛就会逐渐提高：作为外来户你看看可以，但也就是看看。这个有限空间就不仅仅是地理学上的了。&lt;/p&gt;
-
-&lt;h2 id=&#34;切蛋糕&#34;&gt;切蛋糕&lt;/h2&gt;
-
-&lt;p&gt;隔离会制造事实上的两个物种，两个生理上一致的物种在地理隔离下会走向生理隔离。此时很多人会跳出来说，互联网打破了地理上的隔离啊，信息传播都是瞬间的，这不就是最大的公平吗？互联网确实打破了地理隔离，但其实没有对社会层面的隔离产生太多正面影响。在A网站火的一塌糊涂的某个ID在B网站可能一个人都没听过，而A网B网的用户都可能是千万级别的。当年贴吧火爆时动不动就会出现各类爆吧，这有点类似地理空间里的游行示威，互联网只是提供了一个只需要敲打键盘就可以宣泄情感的途径，但并不解决问题。理解这个过程需要掌握一个切蛋糕的思考方法。&lt;/p&gt;
-
-&lt;p&gt;回到公交问题，其实公交车跟私家车是潜在的竞争对手，争夺的是所有人的出行需求。对于居住密度高的大城市，其实公交系统更有利于降低城市整体交通负担。前期大放异彩的出行共享并不新鲜，所有的公交系统都是共享经济且更为节能环保，只不过私家车的自由度更高。不过国内城市住宅从一开始就基本没有house这种房型，大部分人住的基本是condo，这个人口空间集成度的住宅方式不太允许一人一辆车，能做到一家一辆已经不错了，这个条件下可共享私家车的基数本就不大，引入的共享模式最后一定会发展成类似出租车公司的模式。因此国内的人口居住行为基本就决定了必须优先发展公共交通，限制私家车并鼓励租车。短程公交或绿色出行，中远程租车可能是国内大城市出行的理性选择，私家车买了一周用不到一次的话不如考虑租车，省下车险跟车位的钱可以租更安全的车而不是买一个功能很全但一年用不上一次的车。只不过国内车还有炫耀属性，考虑那个就只能痛并快乐了。&lt;/p&gt;
-
-&lt;p&gt;假设1000万人口城市出行日总需求1亿公里，那么蛋糕已经放好了，就看怎么切。绿色出行比例越高，大家整体健康收益越高，但具体到个人可能就会降低生活质量。同样城市的设计规划也影响蛋糕的大小，你搞了一个小区全是高层，可容纳5万人，但就设计了1千停车位，那后果要么就是小区天天爆满，要么就是住进来的都是不需要车的人，无论哪一点都会影响定价与居住意愿。例如前面的小镇，如果没有枫糖节，完全可以不建大型停车场，这样什么活动都不会规划到这边，也就实现了隔离，要知道从交通上隔离是最简单直接的封闭措施，基本上公交跟停车场的规模与建设方式一旦确定，这个地方的蛋糕就出炉了，吃蛋糕的人数也就确定了。而且割裂化的社会结构一旦形成就会主动创造排外文化，无一例外。&lt;/p&gt;
-
-&lt;p&gt;日常生活中也是如此，首先搞清楚你需要多大的蛋糕，然后看看现在你所居住的地方藉由地理学第一定律可以提供多大的蛋糕，再就是衡量下自己能切到多少。盲目跟风的恶性后果一般就是社会上某种总需求的蛋糕并没变化多少，但一旦跟风人多了，不但你本来能拿到的蛋糕少了，付出的代价也更多了。商家是最喜欢营造跟风的氛围的，毕竟多数人善于精打细算自己的小账本，但对全局总是盲目的估计。&lt;/p&gt;
-
-&lt;p&gt;当公交系统成为降低房价的因素时，这个地方的社会隔离就真正开始了。&lt;/p&gt;
 </description>
     </item>
     

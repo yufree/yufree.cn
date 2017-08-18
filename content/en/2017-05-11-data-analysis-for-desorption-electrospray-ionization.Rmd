@@ -22,7 +22,7 @@ xs <- xcmsSet(method="MSW", files=mzdatafiles, scales=c(1,7),
 xsg <- group.mzClust(xs)
 xsg <- fillPeaks.MSW(xsg)
 r <- groupval(xsg,'medret','into')
-z <- as.data.frame(peaks(xsg))
+z <- as.data.frame(groups(xsg))
 file <- cbind(z$mz,r)
 ```
 

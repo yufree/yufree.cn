@@ -138,7 +138,7 @@ xs &amp;lt;- xcmsSet(method=&amp;quot;MSW&amp;quot;, files=mzdatafiles, scales=c
 xsg &amp;lt;- group.mzClust(xs)
 xsg &amp;lt;- fillPeaks.MSW(xsg)
 r &amp;lt;- groupval(xsg,&amp;#39;medret&amp;#39;,&amp;#39;into&amp;#39;)
-z &amp;lt;- as.data.frame(peaks(xsg))
+z &amp;lt;- as.data.frame(groups(xsg))
 file &amp;lt;- cbind(z$mz,r)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You could save the data as csv file. Then you could perform further analysis such as peak picking or PCA analysis. If your data could be organized for spatial analysis or imaging, all the data has been ready and you could draw them by one for loop or just use &lt;code&gt;animation&lt;/code&gt; package for a gif. I used this trick for my last group meeting as PhD students.&lt;/p&gt;
 &lt;p&gt;PS: the new design of xcms 3 is much more friendly to process such data via &lt;code&gt;XCMSnExp&lt;/code&gt; object and the parameters design is very friendly to users.&lt;/p&gt;

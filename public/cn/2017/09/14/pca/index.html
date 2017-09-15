@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+<title>主成分分析那些事儿 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="主成分分析那些事儿 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../../css/custom.css">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> 首页 </a></li>
+    
+    <li class=""><a href="../../../../../cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 博客 </a></li>
+    
+    <li class=""><a href="../../../../../cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="../../../../../notes/"> 笔记 </a></li>
+    
+    <li class=""><a href="../../../../../en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4692 字</span>
+    
+    <h1 class="article-title">主成分分析那些事儿
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2017/09/14</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F09%2F14%2Fpca%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F09%2F14%2Fpca%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2017-09-14-pca.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>目之所及，主成分分析应该是科研领域里相对通用的一种数据分析手段。在相当长的一段时间里，我认为这种方法主要是用来进行探索分析的可视化手段与数据降维，但最近因为出现了一个绕不过去的数据问题就把主成分分析又拎出来看了一下，这才意识到这个方法其实四通八达，可以把很多数据分析的概念连接起来。</p>
+<div class="section level2">
+<h2>从线到点</h2>
+<p>首先还是回到一个最简单的场景，我有一堆数，想找出一个来做代表。从距离测量角度，就是找一个点让它离所有点最近，这就成了个优化问题，此时不同测量方法结论是不一样的。例如你考虑距离的绝对值最小，那你就会得到中位数；如果是差异的平方，求导后就是均值。回想下对一堆数找一个数，其实就是一种降维，从1维降低到0维。这里我们只考虑最小化差异的平方，那么求均值就是主成分分析把从1维降低到0维的应用场景。</p>
+</div>
+<div class="section level2">
+<h2>从面到线</h2>
+<p>现在复杂一点，我们设想一个二维（无码）平面，如果我们对其降维，那么降一维就是线，降两维就是点。而且我们可以确定降两维的那个点肯定就在降一维的线上，不然你这个降维就丧失了代表性。至于如何保障代表性，一般来说要交给数学家。那么这条线会通过所有点的均值，此时你应该想起来二维线性回归也通过这个点，那条线可以通过最小二乘得到，会不会就是我们要找的那条线？这个答案是否定的，最小二乘里最小化的是因变量到回归线的值，但是这里主成分分析最小化的是所有点到一条线的垂直距离，模型上细微的差别导致结果也会有区别，事实上求解过程也不对等。</p>
+</div>
+<div class="section level2">
+<h2>主成分分析的求解思想</h2>
+<p>虽然最小二乘回归线是高斯－马尔可夫定理下线性回归的最佳无偏估计，但主成分分析里二维降一维里那条线的求解思想并非回归到均值，常见有两种解释。第一种是寻找低维度空间，使投影点上到高维度点距离最近；另一种则是从统计角度寻找让点之间方差最大的方向映射，然后寻找跟这个方向正交的方向中方差最大的方向继续映射。从求解上，这两种解释都可转化成最优化问题，都是先归一化，然后求协方差矩阵，通过求导求特征向量跟特征值，那个方差最大的方向或距离最短子空间维度就是协方差矩阵里特征值最大的特征向量，剩下的方向或维度跟前面那个正交，再次找方差最大或距离最小即可。当然协方差矩阵不是一定要求的，如果你选用奇异值分解的套路就完全不用求。在这个求解策略下，解析解就是正交的，如果不是，那就不是主成分分析了。</p>
+<p>除此之外，理论上你也可以用隐藏变量模型迭代求解，不过有解析解不要用数值分析去逼近，而且有些矩阵运算可以进行分布式计算，这个在数据量大时是要特别考虑的。主成分分析求解上可以用矩阵是很大的优势，虽然理论上其概率解释并不完美。不同求解思想的多元分析方法其实背后都是有思想跟应用场景的，虽然理论上很多都是通用方法，但如果不适合你的数据就不要用。当前由于技术进步，之前很多很耗性能的方法目前都可以计算得到，如果搞科研我们要找那个最完美的，但工业应用可能更看重性价比。</p>
+</div>
+<div class="section level2">
+<h2>归一化</h2>
+<p>如果我们进一步考察三维空间，那么我们的降维就首先是一个平面，然后是平面上的线，然后是线上的点。此时如果你对所有数据点乘2，那么很自然点、线、面的坐标位置都要变化，这样你就可以理解一个事实，那就是主成分分析对尺度是敏感的，所以一般来说都要对不同尺度／维度的测量进行归一化，否则你的映射会被大尺度的维度带跑偏。到现在为止，我们可以大概对主成分分析有个直观感受：将高维度空间的点映射到低纬度空间的点且要保证这些点之间的差异关系最大程度地保留，至于怎么保留，不同求解思想实际求解结果一致，都可以用矩阵运算，内含了进行转换或映射时要沿着正交的维度走（使用了正定阵），所以求解完矩阵就可以得到符合要求的低维度空间，而且低维空间是正交的。</p>
+</div>
+<div class="section level2">
+<h2>投影点的方差</h2>
+<p>主成分分析经常用来可视化，这里我们回到二维平面降维的场景仔细看看我们究竟可视化了什么。首先我们有一个二维点A，这个点投影到一维线上得到点B，这个点跟所有点的均值C连线就是到0维的投影。目前我们已知AC这个线，同时A到一维线的距离又要最小也就是垂直，这样A、B及C构成一个直角三角形。此时根据勾股定理BC这个距离最大，也就是一维到0维时所有投影点的距离之和最长，在这个方向中各点间方差最大程度保留，也就是找到了方差最大的方向。事实上，因为前面提到的直角三角形，每降低一次维度，点之间的距离比高维度都不可避免的减少，如果此时点聚到一起不一定相似度很高，但如果主成分占总方差比重比较大，那么这些点就很有可能十分相似。</p>
+</div>
+<div class="section level2">
+<h2>多维标度分析</h2>
+<p>说到距离，其实主成分分析也是多维标度分析的一种。在经典多维标度分析中，测定点很困难，但可以测到点之间欧式距离并构建距离矩阵，因为其映射子空间里点之间方差最大时可以证明点之间的距离也是最大的，这个特性保证了当我们只有距离矩阵时进行主成分分析得到的低维映射也可以保证两个空间间距离最短，这样主成分分析事实上符合经典多维标度分析。也就是说，在你能够测到欧式距离而不是点时，是有可能重构出原始标度的，这点在结构生物学上有应用，但我完全不了解。</p>
+</div>
+<div class="section level2">
+<h2>聚类</h2>
+<p>有些论文用主成分分析搞聚类画圈圈来说明样品间存在内在共性。这个在环境分析中比较常见，因为环境分析通常同时测定上百种化合物，前面提到低维映射里最大程度保留了样品点的差异，此时映射到一起就有可能说明那些样品污染特征接近，便于探索来源或环境过程。实际上此时不一定需要局限在主成分分析，可以直接用聚类分析等统计模型。</p>
+</div>
+<div class="section level2">
+<h2>概率化的主成分分析</h2>
+<p>主成分分析在求解上基本都走了矩阵运算的捷径，结果也是等价的。但这个过程不算是一个概率模型，因为可能产生不确定度的白噪音根本没出现在求解模型中。此时，我们应该意识到，这个子空间可能是某个概率模型的解，但如同我们只求了均值没求方差一样，似乎我们没有考虑模型的不确定度。这样我们需要从统计角度把主成分分析统一到基于统计学的数据分析中，这样也许会对将来构建相关假设检验模型有用，当然这也意味着我们可能不太方便再用矩阵运算来求解了。</p>
+<p>首先，我们对数据点进行假设，例如来自一个正态分布，那么主成分分析的问题就转化为求一个子空间，使得映射后的距离最小。让我们把这个映射关系描述成下面这样：</p>
+<p><span class="math display">\[
+t = Wx + \mu + \epsilon
+\]</span></p>
+<p>这里t是我们观察到的数据点，W是映射关系，维度不变可以理解成坐标轴旋转，x是映射前的点，<span class="math inline">\(\mu\)</span>代表x的均值，<span class="math inline">\(\epsilon\)</span>代表高斯随机变量。这样我们看到的点符合均值<span class="math inline">\(\mu\)</span>，方差<span class="math inline">\(WW^t + \psi\)</span>的正态分布，这里<span class="math inline">\(\psi\)</span>代表了随机误差，如果我们不考虑这一项，那么主成分分析是完全可以用特征值跟特征向量求解的，此时我们默认那个误差项0方差。但是，实际场景中我们都很清楚每一个高维样本点都至少存在测量误差，这个误差的方差不是0，那么此时我们应该在模型中包含误差项，但一个很尴尬的问题是我们对这个误差一无所知。此时我们假定所有点的误差项来自于某一个方差统一的正态分布，然后有了这个限制条件就可以求解了。加入了这一部分后，主成分分析就可以进行假设检验了，例如某个点是否属于异常值。</p>
+</div>
+<div id="em" class="section level2">
+<h2>EM算法</h2>
+<p>说到求解EM算法是绕不过去的，这个算法普适性比较强，存在隐藏变量的模型求解都可以用。主成分分析可以看作一种存在隐藏变量的模型，我们在低维空间看到的点背后是高维空间点但看不到，反之也成立。这样我们先随意假设一个新空间出来，这样我们就可以进行E阶段计算，也就是把看到的点投影到这个新空间上，然后计算距离。之后我们就可以进行M阶段，也就是最小化距离，这样就做出了一个比起始新空间距离更小的空间。然后再进行E阶段，M阶段，直到距离无法缩小。说白了就是模型不存在时先人工创造一个，然后不断按你的目标迭代让模型跟数据契合。在EM算法里，我们就可以很轻松把前面的方差项也扔进去一同优化，最后也能求解。这样概率化的主成分分析就有解了。不过这个算法具体实现存在很高的技巧性，我们吃现成就可以了。同时你会发现，其实EM算法思想可以用在很多不同模型参数求解上，马尔可夫过程、贝叶斯网络、条件随机场等有隐含变量的都可以用。</p>
+</div>
+<div class="section level2">
+<h2>因子分析</h2>
+<p>其实在更多资料中引入概率化的主成分分析主要是为了引入因子分析，因子分析跟概率化主成分分析最大区别在于其不限制误差来自方差相同的正态分布。这当然增加了计算难度，但其实因子分析对于解释这种隐藏结构其实比主成分分析更靠谱。但是，理解因子分析比主成分分析麻烦多了，至少求解上不如主成分分析容易，也不唯一。同时，因子分析得到的成分也是正交的，这点跟主成分分析一致。不过正交的优点在于映射之间不相关，但不一定独立，如果需要就需要独立成分分析。</p>
+</div>
+<div class="section level2">
+<h2>独立成分分析</h2>
+<p>独立成分分析在面向正态分布时其实就是主成分分析，但当你高维数据并不来自正态分布时，独立成分分析就更有优势。最经典的应用就是鸡尾酒会问题，在一个嘈杂的场景里很多人都在说话，你在固定位置放了几个麦克风，这样麦克风收集到的就是多种声音的混合，现在你需要把混音中每个人的声音提取出来。此时你要用主成分分析，你会得到所有人声音的共性，但独立成分分析就可以分辨出每个个体，或者说潜在变量，所以你也猜到了，EM算法也可以求解独立成分分析。在我看来生物组学数据更适合独立成分分析，你可以直接从数据中提取出一组独立模块进行注释，这样可以直接去关联生物学功能而不是反过来。当然你可能会说主成分分析或因子分析也可以做啊，但你如何保证其分布假设与正交假设？不过我们还是用主成分分析来说一下，因为很多人没意识到这个功能。</p>
+</div>
+<div class="section level2">
+<h2>共性／压缩／降噪</h2>
+<p>很多人搞不清楚特征值、特征向量还有载荷等的细节，所以主成分分析就被用成了降维画图工具，但其实这个探索分析是针对背后隐藏变量的，具体到主成分分析就是共性。还是举个例子来说吧，我有100个样品，每个样品测了1000个指标，现在我就有了个<span class="math inline">\(100*1000\)</span>的矩阵，通过主成分分析我得到了<span class="math inline">\(100*250\)</span>的矩阵，这个矩阵包含了原数据95%的方差。好了，现在我问你，这250个新指标是什么？对，特征向量，特征向量就是新投影方向，投影可以看作隐含共性。特征值又是什么，共性的权重，越大代表越重要，毕竟可以代表更多的方差。那么载荷又是什么，大概可以理解成原来1000个指标对250个新指标的贡献。那么进行分析时我们在样本和指标之间多了一个共性层，一方面减少了数据维度，另一方面算是提取了指标间不相关的共性（但不一定独立，切记）。对于多出来的共性层，我们同时知道样品在这些共性上的分布，也知道每个指标对共性的分布，常见的biplot就可以同时绘制样品点跟指标在两个最重要共性上的分布，一目了然。此时我们的专业知识就要上场了，我们可能会通过指标相互作用发现共性背后对应隐含因素的物理含义，也可以发现某种分离样品的共性背后暗示的样品潜在来源。总之，多了一个共性层后，我们可以研究的本质就更明显了。例如自然语言处理里可以用其寻找文本主题，基因组学里可以用来寻找基因模块等，但需要提醒的是，这个“共性”并不代表真实，只是一种线性变换后的结果，如果跟实际想研究的因素不对应还不如直接上回归分析。</p>
+<p>主成分分析或者说实现主成分分析的奇异值分解的另一个应用就是可以用来压缩数据，上面的例子中100*1000的数据空间如果赶上稀疏矩阵十分浪费，此时就可以用奇异值分解压缩存储空间。从信号处理的角度去看，主成分分析跟傅立叶变换等变换过程本质上都是用一组新信号替代原来信号，由于一般认为信号方差高于噪音方差，通过变换时保留主成分或特定频谱，我们同时可以做到降噪。图形处理也可以用，而所有数据其实都可以用图形展示，那么作为图形降噪的主成分分析背后跟数据降噪是可以联系到一起的，特别环境痕量分析中的降噪。结合前面的结构重构、方差保留等性质，其实哪怕你就只会主成分分析，能做的事也很多。</p>
+<p>你只是需要一点想象力。</p>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../cn/2017/09/04/sci-blog-discussion/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 科研博客圈的书剑恩仇</div>
+    </a>
+    
+
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/cn\/2017\/09\/04\/sci-blog-discussion\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2017</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/right-quote.js"></script>
+    
+    <script async src="../../../../../js/no-highlight.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

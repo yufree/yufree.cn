@@ -118,15 +118,15 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 # Presentations
 
-- Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/master/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
+- Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
 
 - Miao YU, 2014, Digging the thresholds in environmental data, 2nd Environmental pollution and health forum for Graduate students, Beijing, China.([slides](http://yufree.github.io/presentation/threshold/threshold))
 
-- Miao Yu, 2015, Analysis method for unknown Mono-MeO-PBDEs based on GC-qMS, Chinese Chemical Society: The 18th National Conference on Organic Analysis and Bioanalysis, Shanghai, China
+- Miao Yu, 2015, Analysis method for unknown Mono-MeO-PBDEs based on GC-qMS, Chinese Chemical Society: The 18th National Conference on Organic Analysis and Bioanalysis, Shanghai, China.([slides](http://yufree.github.io/presentation/fishingnet/fishingnet))
 
-- Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015, Jerusalem, Israel
+- Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015, Jerusalem, Israel.([slides](https://github.com/yufree/presentation/blob/gh-pages/isotope/isotope2015.pdf))
 
-- Miao Yu, 2015, Data visualization of GC-MS and its application in environmental analysis, The 8th National Conference on Environmental Chemistry, Guangzhou, China
+- Miao Yu, 2015, Data visualization of GC-MS and its application in environmental analysis, The 8th National Conference on Environmental Chemistry, Guangzhou, China([slides](http://yufree.github.io/presentation/GCMS/GCMS))
 
 # Recommendation
 

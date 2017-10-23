@@ -3,6 +3,34 @@ title: "Web Application"
 slug: "app"
 ---
 
+## Simple SwiftKey
+
+This application is used to predict next words based on your imput words. This is a capstone project for Data Science Specialization(DSS) from John Hopkins University. I removed some data in the source code due to plagiarism from DSS.
+
+- Click [here](https://yufree.shinyapps.io/nlpshiny)
+- [Source code](https://github.com/yufree/nlpshiny)
+
+## JournalTone
+
+This application is used to explore new trend for certain keywords and journal by text mining for the title and abstract via data from PubMed.
+
+- Click [here](https://yufreecas.shinyapps.io/journaltone)
+- [Source code](https://github.com/yufree/journaltone)
+
+## XcmsPlus
+
+This application is used for visulization, DART, and Batch correction & simulation of metabolomics data.
+
+- Click [here](https://yufreecas.shinyapps.io/xcmsplus)
+- [Source code](https://github.com/yufree/xcmsplus)
+
+## MSCCP
+
+This application is used to quantitative analysis of Short Chain Chlorinated Paraffins (SCCPs).
+
+- Click [here](https://yufreecas.shinyapps.io/msccp)
+- [Source code](https://github.com/yufree/msccp)
+
 ## Molecular isotope ratio tools
 
 This application is used to get molecular isotope ratio and related information.
@@ -16,13 +44,6 @@ This application is used to get the distribution of nano-particles when you perf
 
 - Click [here](https://yufree.shinyapps.io/spicpmsshiny)
 - [Source code](https://github.com/yufree/spicpms)
-
-## Simple Simple SwiftKey
-
-This application is used to predict next words based on your imput words. This is a capstone project for Data Science Specialization(DSS) from John Hopkins University. I removed some data in the source code due to plagiarism from DSS.
-
-- Click [here](https://yufree.shinyapps.io/nlpshiny)
-- [Source code](https://github.com/yufree/nlpshiny)
 
 ## PBDEs' Retention time
 

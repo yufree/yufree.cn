@@ -70,7 +70,9 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
 
-- Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M., Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by solid-phase microextraction-transmission mode coupled to a portable mass spectrometer via direct analysis in real time. Analyst. doi:10.1039/C7AN00718C
+- Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017. Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after waterborne exposure. Environmental Science: Processes & Impacts 19, 1327–1335. doi:10.1039/C7EM00304H
+
+- Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M., Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by solid-phase microextraction-transmission mode coupled to a portable mass spectrometer via direct analysis in real time. Analyst. doi:10.1039/C7AN00718C
 
 - Chi, X., Liu, J., Yu, M., Xie, Z., Jiang, G., 2017. Analysis of bromophenols in various aqueous samples using solid phase extraction followed by HPLC-MS/MS. Talanta 164, 57–63. doi:10.1016/j.talanta.2016.11.010
 
@@ -106,7 +108,39 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - [R package - rgabriel](http://cran.r-project.org/web/packages/rgabriel/index.html)
 
+Gabriel Multiple Comparison Test and Plot the Confidence Interval on Barplot
+
 - [R package - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html)
+
+LC/GC-MS Data Analysis for Environmental Science
+
+- [Shiny app - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)
+
+This application is used to predict next words based on your imput words. 
+
+- [Shiny app - JournalTone](https://yufreecas.shinyapps.io/journaltone)
+
+This application is used to explore new trend for certain keywords and journal by text mining for the title and abstract via data from PubMed.
+
+- [Shiny app - XcmsPlus](https://yufreecas.shinyapps.io/xcmsplus)
+
+This application is used for visulization, DART, and Batch correction & simulation of metabolomics data.
+
+- [Shiny app - MSCCP](https://yufreecas.shinyapps.io/msccp)
+
+This application is used to quantitative analysis of Short Chain Chlorinated Paraffins (SCCPs).
+
+- [Shiny app - Molecular isotope ratio tools](https://yufree.shinyapps.io/MIRtools/)
+
+This application is used to get molecular isotope ratio and related information.
+
+- [Shiny app - SP-ICP-MS](https://yufree.shinyapps.io/spicpmsshiny)
+
+This application is used to get the distribution of nano-particles when you perform the analysis on ICP-MS.
+
+- [Shiny app - ShinyBDE](https://yufree.shinyapps.io/shinyBDE)
+
+This application is used to show the database of PBDEs' RRTs on DB-5ms and prediction values by various machine learning algorithms.
 
 ## Granted Patents
 
@@ -118,9 +152,7 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 # Presentations
 
-- Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
-
-- Miao YU, 2014, Digging the thresholds in environmental data, 2nd Environmental pollution and health forum for Graduate students, Beijing, China.([slides](http://yufree.github.io/presentation/threshold/threshold))
+- Miao Yu, 2017, Text Mining for Academic Journals: Science Café @ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
 
 - Miao Yu, 2015, Analysis method for unknown Mono-MeO-PBDEs based on GC-qMS, Chinese Chemical Society: The 18th National Conference on Organic Analysis and Bioanalysis, Shanghai, China.([slides](http://yufree.github.io/presentation/fishingnet/fishingnet))
 
@@ -128,6 +160,9 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Miao Yu, 2015, Data visualization of GC-MS and its application in environmental analysis, The 8th National Conference on Environmental Chemistry, Guangzhou, China([slides](http://yufree.github.io/presentation/GCMS/GCMS))
 
+- Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
+
+- Miao YU, 2014, Digging the thresholds in environmental data, 2nd Environmental pollution and health forum for Graduate students, Beijing, China.([slides](http://yufree.github.io/presentation/threshold/threshold))
 # Recommendation
 
 [Prof. Guibin Jiang](http://sourcedb.cas.cn/sourcedb_rcees_cas/yw/cm/200906/t20090612_1038265.html)

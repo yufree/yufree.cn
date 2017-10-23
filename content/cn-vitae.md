@@ -66,7 +66,9 @@ Waterloo, Ontario, Canada
 
 - Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
 
-- Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M., Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by solid-phase microextraction-transmission mode coupled to a portable mass spectrometer via direct analysis in real time. Analyst. doi:10.1039/C7AN00718C
+- Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017. Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after waterborne exposure. Environmental Science: Processes & Impacts 19, 1327–1335. doi:10.1039/C7EM00304H
+
+- Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M., Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by solid-phase microextraction-transmission mode coupled to a portable mass spectrometer via direct analysis in real time. Analyst. doi:10.1039/C7AN00718C
 
 - Chi, X., Liu, J., Yu, M., Xie, Z., Jiang, G., 2017. Analysis of bromophenols in various aqueous samples using solid phase extraction followed by HPLC-MS/MS. Talanta 164, 57–63. doi:10.1016/j.talanta.2016.11.010
 
@@ -98,11 +100,25 @@ Waterloo, Ontario, Canada
 
 - Zhao, X., Yu, M., Xu, D., Liu, A., Hou, X., Hao, F., Long, Y., Zhou, Q., Jiang, G., 2017. Distribution, Bioaccumulation, Trophic Transfer, and Influences of CeO2 Nanoparticles in a Constructed Aquatic Food Web. Environ. Sci. Technol. 51, 5205–5214. doi:10.1021/acs.est.6b05875
 
-## 软件包
+## 软件开发
 
 - [R包 - rgabriel](http://cran.r-project.org/web/packages/rgabriel/index.html): Gabriel多重比较及其可视化
 
 - [R包 - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html): GC-MS数据在环境科学中的应用
+
+- [Shiny在线应用 - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)：极简在线输入法
+
+- [Shiny在线应用 - JournalTone](https://yufreecas.shinyapps.io/journaltone)：基于PubMed关键词或期刊的文本趋势挖掘
+
+- [Shiny在线应用 - XcmsPlus](https://yufreecas.shinyapps.io/xcmsplus)：代谢组学数据分析与可视化
+
+- [Shiny在线应用 - MSCCP](https://yufreecas.shinyapps.io/msccp)：短链氯化石蜡定量
+
+- [Shiny在线应用 - Molecular isotope ratio tools](https://yufree.shinyapps.io/MIRtools/)：分子同位素分析
+
+- [Shiny在线应用 - SP-ICP-MS](https://yufree.shinyapps.io/spicpmsshiny)：基于ICP-MS的纳米粒子颗粒分布分析
+
+- [Shiny app - ShinyBDE](https://yufree.shinyapps.io/shinyBDE)：多溴联苯醚保留时间预测
 
 ## 会议论文
 

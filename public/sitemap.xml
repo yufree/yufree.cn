@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/post/chaos-winter/</loc>
+    <lastmod>2017-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cn/2017/10/28/nhst/</loc>
+    <lastmod>2017-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cn/2017/10/23/joyplot/</loc>
+    <lastmod>2017-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/data-popular-science/</loc>
+    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/cn/2017/10/01/popularization-of-science/</loc>
     <lastmod>2017-10-01T00:00:00+00:00</lastmod>
   </url>
@@ -788,6 +808,12 @@
   <url>
     <loc>/tags/paper/</loc>
     <lastmod>2016-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2017-11-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

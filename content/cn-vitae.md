@@ -66,6 +66,8 @@ Waterloo, Ontario, Canada
 
 - Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
 
+- Liu, Y., Liu, J., Yu, M., Zhou, Q., Jiang, G., 2018. Hydroxylated and methoxylated polybrominated diphenyl ethers in a marine food web of Chinese Bohai Sea and their human dietary exposure. Environmental Pollution 233, 604–611. doi:10.1016/j.envpol.2017.10.105
+
 - Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017. Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after waterborne exposure. Environmental Science: Processes & Impacts 19, 1327–1335. doi:10.1039/C7EM00304H
 
 - Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M., Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by solid-phase microextraction-transmission mode coupled to a portable mass spectrometer via direct analysis in real time. Analyst. doi:10.1039/C7AN00718C
@@ -84,13 +86,13 @@ Waterloo, Ontario, Canada
 
 - Liu, Y., Ruan, T., Lin, Y., Liu, A., Yu, M., Liu, R., Meng, M., Wang, Y., Liu, J., Jiang, G., 2017. Chlorinated Polyfluoroalkyl Ether Sulfonic Acids in Marine Organisms from Bohai Sea, China: Occurrence, Temporal Variations, and Trophic Transfer Behavior. Environ. Sci. Technol. 51, 4407–4414. doi:10.1021/acs.est.6b06593
 
-- Poole, J.J., Grandy, J.J., Yu, M., Boyaci, E., Gómez-Ríos, G.A., Reyes-Garcés, N., Bojko, B., Heide, H.V., Pawliszyn, J., 2017. Deposition of a Sorbent into a Recession on a Solid Support To Provide a New, Mechanically Robust Solid-Phase Microextraction Device. Anal. Chem. doi:10.1021/acs.analchem.7b01382
+- Poole, J.J., Grandy, J.J., Yu, M., Boyaci, E., Gómez-Ríos, G.A., Reyes-Garcés, N., Bojko, B., Heide, H.V., Pawliszyn, J., 2017. Deposition of a Sorbent into a Recession on a Solid Support To Provide a New, Mechanically Robust Solid-Phase Microextraction Device. Anal. Chem. doi:10.1021/acs.analchem.7b01382 (Cover paper)
 
 - Qu, G., Liu, A., Wang, T., Zhang, C., Fu, J., Yu, M., Sun, J., Zhu, N., Li, Z., Wei, G., Du, Y., Shi, J., Liu, S., Jiang, G., 2013. Identification of Tetrabromobisphenol A Allyl Ether and Tetrabromobisphenol A 2,3-Dibromopropyl Ether in the Ambient Environment near a Manufacturing Site and in Mollusks at a Coastal Region. Environ. Sci. Technol. 47, 4760–4767. doi:10.1021/es3049916
 
 - Sun, J., Liu, J., Liu, Q., Ruan, T., Yu, M., Wang, Y., Wang, T., Jiang, G., 2013a. Hydroxylated polybrominated diphenyl ethers (OH-PBDEs) in biosolids from municipal wastewater treatment plants in China. Chemosphere 90, 2388–2395. doi:10.1016/j.chemosphere.2012.10.034
 
-- Sun, J., Liu, J., Liu, Y., Yu, M., Jiang, G., 2014. Reciprocal Transformation between Hydroxylated and Methoxylated Polybrominated Diphenyl Ethers in Young Whole Pumpkin Plants. Environ. Sci. Technol. Lett. 1, 236–241. doi:10.1021/ez500068q
+- Sun, J., Liu, J., Liu, Y., Yu, M., Jiang, G., 2014. Reciprocal Transformation between Hydroxylated and Methoxylated Polybrominated Diphenyl Ethers in Young Whole Pumpkin Plants. Environ. Sci. Technol. Lett. 1, 236–241. doi:10.1021/ez500068q (Cover paper)
 
 - Sun, J., Liu, J., Yu, M., Wang, C., Sun, Y., Zhang, A., Wang, T., Lei, Z., Jiang, G., 2013b. In Vivo Metabolism of 2,2′,4,4′-Tetrabromodiphenyl Ether (BDE-47) in Young Whole Pumpkin Plant. Environ. Sci. Technol. 47, 3701–3707. doi:10.1021/es4003263
 

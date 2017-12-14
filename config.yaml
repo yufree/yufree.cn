@@ -85,8 +85,7 @@ params:
   disqusURL: "https://yufree.cn"
   fullURL: "https://yufree.cn"
   dateFormat: "2006/01/02"
-  customCSS: ["css/custom.css"]
-  customJS: ["js/center-img.js", "js/right-quote.js", "js/no-highlight.js", "js/fix-footnote.js"]
+  customJS: ["js/center-img.js", "js/fix-footnote.js"]
   githubContentURL: "https://github.com/yufree/yufree.cn/edit/master/content/"
 
   # options for highlight.js (version, additional languages, and theme)

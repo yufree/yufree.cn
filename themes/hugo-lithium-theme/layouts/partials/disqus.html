@@ -2,13 +2,13 @@
 <section id="comments">
   <div id="disqus_thread"></div>
   <script>
-  var disqus_config = function () {
   {{ with .Site.Params.disqusURL }}
+  var disqus_config = function () {
     this.page.url = "{{ . }}" +{{ if eq $.Type "404" }} "/404.html" {{ else }} location.pathname{{ end }};
-  {{ end }}
   };
+  {{ end }}
   (function() {
-    var inIFrame = function() {
+   var inIFrame = function() {
       var iframe = true;
       try { iframe = window.self !== window.top; } catch (e) {}
       return iframe;

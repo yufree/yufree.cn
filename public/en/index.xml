@@ -2,12 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blog on Miao Yu | 于淼 </title>
-    <link>/en/index.xml</link>
+    <link>/en/</link>
     <description>Recent content in blog on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Feb 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Real high-throughput for LC/GC-MS</title>
@@ -15,44 +17,8 @@
       <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/07/09/real-high-throughput-for-lc-gc-ms/</guid>
-      <description>&lt;p&gt;If someone want to know whether some compounds exist in certain samples. He always need to make pretreatment for that samples and make them into a little vial for analysis in sophisticated instruments like mass spectrum. If you want to analysis many components in one sample, you also need some separation methods like gas/liquid chromatography. How about analysis multiple samples and multiple compounds in a single run?&lt;/p&gt;
-&lt;div id=&#34;pseudo-high-throughput&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Pseudo high-throughput&lt;/h2&gt;
-&lt;p&gt;If you use LC/GC-MS to analysis samples, all the efforts for high-throughput would be limited at the injection step. You could arrange 96-well plate for analysis. But wait, ONE BY ONE. If some short-live compound could survive in the pre-treatment, they would disappear in the auto-sampler.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;back-to-mass-spectrum&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Back to Mass Spectrum&lt;/h2&gt;
-&lt;p&gt;Actually, similar issue happened when we perform Multiple Reaction Monitoring(MRM) to collect the intensities from different ions. If the detector could only measure one ion at one time, mass spectrum simply use a high frequency scan like 50ms or 20ms for one ion and re-construct the time profile by smooth the points into a line. To my knowledge, 15 points would fit a bell curve well for one peak with smooth. OK, if the peak width is 15s, for each ion we only need 1 scan per second as shown below. OK, that means if our instrument could reach 10ms per scan per ion, we could monitor 100 ions at the same time.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-09-real-high-throughput-for-mass-spectrum_files/figure-html/sim-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Then how about full scan, some detectors like orbitrap and tof-tof could monitor a full scan for all ions at almost the same time. Common high resolution mass spectrum could collect more than 10 spectrum per second. If the compounds could show peaks’ width larger than 15s, we could actually collect 10 spectrum from different samples, which is the real high-throughput.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;real-high-throughput&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Real high-throughput&lt;/h2&gt;
-&lt;p&gt;All we need to do is to synchronize the injection and mass spectrum scan. I have three options:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Multiple columns with single channel&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;\images\htoption1.png&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;In this solution, we injected 6 samples at the same time. The column should be the same. Then when the samples reach MS part, they were arranged into one sequence. All we need to do is to ensure every six full scan on the mass spectrum could meet six identity sample from the LC/GC part. Then MS could collect and rebuilt six samples’ retention time - mass profile and output six data set for those samples.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Multiple columns with Multiple channels&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;\images\htoption2.png&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;In this way, we need some controls on pumps to on/off when one channel’s sample get into MS for full scan. Or we could have cells to guide the samples into the slit before the lens. This option is better to avoid the cross contamination. However, we need re-design the MS ion source for multiple channels.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Single column with single channel&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In this way, you do not need to modify your current instruments. All you need to do is the injection of the samples by sequence without considering the full separation in former sample. However, you need a lot of efforts to deconvolution. Since it’s the same column, the separation for most ions should be same. You could build a model to capture such patterns and separate the samples by those patterns. In such way, the batch effects could be minimized. However, the requirements for data mining are maximization. I like this way.&lt;/p&gt;
-&lt;p&gt;I think in the near future we would find the real high-throughput LC/GC-MS. Those devices would short the analysis time between sample collection and data acquisition. MS-based scientists could reach more interesting findings with REAL high-throughput.&lt;/p&gt;
-&lt;p&gt;Happy explore!&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>If someone want to know whether some compounds exist in certain samples. He always need to make pretreatment for that samples and make them into a little vial for analysis in sophisticated instruments like mass spectrum. If you want to analysis many components in one sample, you also need some separation methods like gas/liquid chromatography. How about analysis multiple samples and multiple compounds in a single run?
+Pseudo high-throughput If you use LC/GC-MS to analysis samples, all the efforts for high-throughput would be limited at the injection step.</description>
     </item>
     
     <item>
@@ -61,98 +27,8 @@
       <pubDate>Fri, 07 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/07/07/text-mining/</guid>
-      <description>&lt;p&gt;Text mining is often used to find spatiotemporal trends in news, government report and user generated contents in SNS websites. We could make sentiment analysis to find the real opinions of netizens. Also we could track the popularity of certain phases and find the connections among them. Such technique might also be useful for scientists or researchers to read papers.&lt;/p&gt;
-&lt;p&gt;Scientists or researchers’ daily life is immersed by a lot of literature. Most of the them are only focused on limited area in certain subjects. However, a modern scientist should always know what had happened in all of the other subjects. Some techniques used in other research might inspire your research. The only problem is that you need a lot time reading top general journals like Science, Nature and PNAS. Wait, we actually do not need to know the technique details and all we want to know is the patterns in those journals. Well, text mining would help.&lt;/p&gt;
-&lt;p&gt;The main advantage for text mining in academic journals is that academic papers always share same structures in one journals. Public academic databases such as PubMed or Google scholar could always show you the structured records for papers such as journal, authors, title, published dates and even abstracts. We could directly fetch those data and save in database. I developed scifetch package to get those data from PubMed. This package would support Google scholar, bing academic and baidu xueshu in the future. Actually I support PubMed in the first version because they have a user-friendly API and I could connect such pipe with xml2 package in a tidyverse way. Besides, easyPubMed package is also a good package to extract such data from PubMed.&lt;/p&gt;
-&lt;div id=&#34;data-collection&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Data collection&lt;/h2&gt;
-&lt;p&gt;Here I collected the information from all the papers published in SNP i.e. science, nature and PNAS in the past three years as xml format and clean them into a dataframe for further text mining. The search grammar could be find from &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/books/NBK3827/&#34;&gt;NCBI websites&lt;/a&gt; and a cheat sheet here.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;../images/cheatsheetpubmed.png&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;There are 26559 papers and I will use such data for text mining. PubMed has a limitation for 10000 records per query. So we need to fetch the data multiple times.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 26,557 x 7
-##                          journal
-##                            &amp;lt;chr&amp;gt;
-##  1                        Nature
-##  2                        Nature
-##  3 Proc. Natl. Acad. Sci. U.S.A.
-##  4 Proc. Natl. Acad. Sci. U.S.A.
-##  5                       Science
-##  6                       Science
-##  7                       Science
-##  8                       Science
-##  9                       Science
-## 10                       Science
-## # ... with 26,547 more rows, and 6 more variables: title &amp;lt;chr&amp;gt;,
-## #   date &amp;lt;date&amp;gt;, abstract &amp;lt;chr&amp;gt;, line &amp;lt;int&amp;gt;, time &amp;lt;dttm&amp;gt;, month &amp;lt;date&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;description-statistics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Description statistics&lt;/h2&gt;
-&lt;p&gt;Firstly, let’s see the papers by journal:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/sum-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Then we could check the high frequency terms in the title and abstract of these papers.&lt;/p&gt;
-&lt;div id=&#34;title&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Title&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordtitle-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;As top journals, one of the most obvious features is that they all need correction and reply. With high influences, those journals would be the best place to discuss the leading edge techniques and findings. However, Science likes U.S., glance and paleoanthropology more while Nature and PNAS like tumor to be used in the titles.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;abstract&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Abstract&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordabs-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Well, when we focused on the abstracts, something interesting happens:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;They all focused on tumor while Nature use ‘tumour’ as a journal from U.K.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Nature’s title and abstracts look similar while Science’s title always use different terms compared with their abstracts. Maybe Science’s authors like to be clickbaits.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;PNAS’s authors use a lot of abbreviation in their abstracts.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Those top journals all like tumor, behavior and modeling and now you know how to pick up a topic to be published.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;temporal-trends&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Temporal trends&lt;/h2&gt;
-&lt;p&gt;Here we use logistic regression to examine whether the frequency of each word is increasing or decreasing over time. Every term will then have a growth rate associated with it.&lt;/p&gt;
-&lt;div id=&#34;title-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Title&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Here we could find some trending terms like CRISPR, gut, and corrigendum are ‘promising’. However, some topics like Ebola, Hiv and cell differentiation would leave us. Another interesting trending is that the names of certain subjects is disappearing in those top journals like biology, chemistry, neuroscience, ecology and policy. Maybe most titles would like to focus on specific topics or certain problems.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;abstract-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Abstract&lt;/h3&gt;
-&lt;p&gt;Now let’s review the temporal trends of terms in abstracts during the past three years by months.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;It’s hard to find a clear pattern in growing words in abstracts. Maybe the abstracts focused more on technique details. However, shrinking words like viral, gene expression and pathway showed clear trends. Meanwhile, we could find some words like suggests, previously and production are discarded by the top scientist.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;relationship-among-words&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Relationship among words&lt;/h2&gt;
-&lt;p&gt;N-gram analysis could be used to find a meaningful terms in those papers.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;../images/biabs.png&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;Well, climate change, transcription factor, stem cell and cancer would always be the favorite bigrams in the titles of top journals. For the abstracts, cell related topics such as function, protein and expression are always preferred. Anyway, life science is always the center of trending sciences.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;topic-modeling&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Topic modeling&lt;/h2&gt;
-&lt;p&gt;Relationships among words could show us some trending. However, we could employ topic modeling to explore the topics as a bunch of words in the abstracts of those top journals.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../images/tm.png&#34; /&gt; This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;sentiment-analysis&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Sentiment analysis&lt;/h2&gt;
-&lt;p&gt;Text mining could also be used to find the sentiment behind those journal papers or the customs using certain words.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/SA-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Well, I think the afinn word list for sentiment analysis is not suitable for scientific literature. Some words is actually neutral in academic journals. If someone could develop a specific word list for scientists, we might find something ignored by the writing lessons on campus.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Here, I demo some basic text mining results for top academic journals. Just like Google trends might predict the popularity of flu, text mining for academic journal might be a good tool to reveal unknown patterns or trends in certain subjects or top journals. Besides, we could also find unique usages of some words and some tones behind the journal. Besides, such methods might work better than impact factor or H index as the evaluation tools for certain researcher, journal or institute in a dynamic view. The most attractive thing is that every scientist could use this tools through open databases and find their own answers. This is the best benefits from information era.&lt;/p&gt;
-&lt;p&gt;You might read this excellent on-line &lt;a href=&#34;http://tidytextmining.com/&#34;&gt;book&lt;/a&gt; and David Robinson’s &lt;a href=&#34;http://varianceexplained.org/&#34;&gt;blog&lt;/a&gt; to make more findings.&lt;/p&gt;
-&lt;p&gt;All the R code for this post could be found &lt;a href=&#34;https://github.com/yufree/yufree.cn/blob/master/content/en/2017-07-07-text-mining-for-trends-in-top-journal.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>Text mining is often used to find spatiotemporal trends in news, government report and user generated contents in SNS websites. We could make sentiment analysis to find the real opinions of netizens. Also we could track the popularity of certain phases and find the connections among them. Such technique might also be useful for scientists or researchers to read papers.
+Scientists or researchers’ daily life is immersed by a lot of literature.</description>
     </item>
     
     <item>
@@ -161,64 +37,7 @@
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</guid>
-      <description>&lt;p&gt;Recently I reviewed some platforms for metabolomics or lipidomics and tried to find out which one is currently available to my demands. I knew some instrumental company supplied software or solutions for metabolomics and lipidomics. I just disliked them since they concealed too many details about data processing which made omics studies as a magic box like Artificial Neural Network. It gains nothing for scientist to get insights from the data and you might only follow the workflow defined by the company. I read some papers using those kind of software and felt the authors know little about what they performed. Data analysis for metabolomics or lipidomics is a systems engineering. If someone really want to use this tools, just choose a open source platform and inspect the code when you needed. Otherwise, your work could be replaced by AI someday. It’s not a joke. Here is a summary for the selection of mass spectrum based metabolomics or lipidomics software platform.&lt;/p&gt;
-&lt;div id=&#34;principles-for-selection&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Principles for selection&lt;/h2&gt;
-&lt;p&gt;A decent solution should have functions covering the following required functions or features:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Open source: as I said before, researcher could benefit a lot from open source community. Based on your experiences, Java, matlab, python and R would be your choices. I liked R most while python might dominate everything in the further.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Data input/output: this work could be done by msconvert from &lt;a href=&#34;http://proteowizard.sourceforge.net/tools.shtml&#34;&gt;proteowizard&lt;/a&gt;. I preferred to install msconvert directly on the instruments and convert the vendor files into mzML or mzXML files to perform further analysis. I just dislike Windows. On the other hand, some software from the instruments could output CDF files, which is also nice.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Turn the Raw data into mass-retention time matrix: single data file from mass spectrum would always contain matadata and profile data. The former container has records for that data and the latter were always full scans of mass spectrum indexed by retention time. Then you need to map such data into a matrix because the following peaks picking and alignments always based on algorithms for matrix.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Peaks picking: you also need functions to pick up the peaks from mass-retention time matrix. Functions like centWave or isotope-based algorithms would help to find the peaks. Sometimes you need to bin the matrix first before peak picking and such requirements should be carefully checked. Anyway you could just use one function to perform peaks picking in most software. The output of this step would be a peak list with intensity, mass and retention time.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Retention time correction: when you process more than one data file such as technique replicates, the drift of retention time would make the final peak list contained replicated peaks. Someone use certain peaks to corrected the data, while I prefer some global similarity analysis based algorithm to undertake this task. However, some software might add one step to group the peaks before and/or after retention time correction. Anyway, the output of this step is the peak list from one group.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Batch effects correction: this is another issue from analysis procedure and batch effects would also bury signals from noise. Researchers from analytical chemistry always use random experiment design and pooled sample to check if the batch effects exist. However, I think the most important things were correction. Just treat a series of samples suffered batch effects and use some statistical analysis to correct them.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Statistical analysis: when you get the peaks list, you could perform the following supervised or non-supervised analysis to find bio-markers or data pattern. I think &lt;a href=&#34;http://www.metaboanalyst.ca/&#34;&gt;Metaboanalyst&lt;/a&gt; could satisfy most researchers.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Annotation or identification: the peaks annotation is also important. &lt;a href=&#34;www.hmdb.ca&#34;&gt;HMDB&lt;/a&gt; and &lt;a href=&#34;http://www.lipidmaps.org/&#34;&gt;LIPID MAPS&lt;/a&gt; would be the basic version for mapping peaks to compounds. In most cases, MS/MS data would be used. I think most of MS/MS dataset could be separated handled by &lt;a href=&#34;https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp&#34;&gt;GNPS&lt;/a&gt; or &lt;a href=&#34;https://metlin.scripps.edu&#34;&gt;Metlin&lt;/a&gt; and predicted by &lt;a href=&#34;http://www.csi-fingerid.org/&#34;&gt;FingerID&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pathway analysis: sometimes we also need to know the relationship among compounds and pathway analysis is always performed for that purpose.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;platform&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Platform&lt;/h2&gt;
-&lt;div id=&#34;xcms-online&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;XCMS online&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://xcmsonline.scripps.edu/landing_page.php?pgcontent=mainPage&#34;&gt;XCMS online&lt;/a&gt; is hosted by Scripps Institute. If your datasets are not large, XCMS online would be the best option for you. Recently they updated the online version to support more functions for systems biology. They use metlin and iso metlin to annotate the MS/MS data. Pathway analysis is also supported. Besides, to accelerate the process, xcms online employed stream (windows only). You could use stream to connect your instrument workstation to their server and process the data along with the data acquisition automate. They also developed apps for xcms online, but I think apps for slack would be even cooler to control the data processing.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;prime&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;PRIMe&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://prime.psc.riken.jp/Metabolomics_Software/&#34;&gt;PRIMe&lt;/a&gt; is from RIKEN and UC Davis. It supports mzML and major MS vendor formats. They defined own file format ABF and eco-system for omics studies. The software are updated almost everyday. You could use MS-DIAL for untargeted analysis and MRMOROBS for targeted analysis. For annotation, they developed MS-FINDER and they also developed statistic tools with excel. This platform could replaced the dear software from company and well prepared for MS/MS data analysis and lipidomics. They are open source, work on Windows and also could run within mathmamtics. However, they don’t cover pathway analysis. Another feature is they always show the most recently spectral records from public repositories. You could always get the updated MSP spectra files for your own data analysis.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;openms&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;OpenMS&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.openms.de/&#34;&gt;OpenMS&lt;/a&gt; is another good platform for mass spectrum data analysis developed with C++. You could use them as plugin of &lt;a href=&#34;https://www.knime.org/&#34;&gt;KNIME&lt;/a&gt;. I suggest anyone who want to be a data scientist to get familiar with platform like KNIME because they supplied various API for different programme language, which is easy to use and show every steps for others. Also TOPPView in OpenMS could be the best software to visualize the MS data. You could always use the metabolomics workflow to train starter about details in data processing. pyOpenMS and OpenSWATH are also used in this platform. If you want to turn into industry, this platform fit you best because you might get a clear idea about solution and workflow.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;mzmine-2&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;MZmine 2&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://mzmine.github.io/&#34;&gt;MZmine 2&lt;/a&gt; has three version developed on Java platform and the lastest version is included into &lt;a href=&#34;https://msdk.github.io/&#34;&gt;MSDK&lt;/a&gt;. Similar function could be found from MZmine 2 as shown in XCMS online. However, MZmine 2 do not have pathway analysis. You could use metaboanalyst for that purpose. Actually, you could go into MSDK to find similar function supplied by &lt;a href=&#34;http://www.proteosuite.org&#34;&gt;ProteoSuite&lt;/a&gt; and &lt;a href=&#34;https://www.openchrom.net/&#34;&gt;Openchrom&lt;/a&gt;. If you are a experienced coder for Java, you should start here.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;xcms&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;XCMS&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/xcms.html&#34;&gt;xcms&lt;/a&gt; is different from xcms online while they might share the same code. I used it almost every data to run local metabolomics data analysis. Recently, they will change their version to xcms 3 with major update for object class. Their data format would integrate into the MSnbase package and the parameters would be easy to set up for each step. Normally, I will use msconvert-IPO-xcms-xMSannotator-metaboanalyst as workflow to process the offline data. It could accelerate the process by parallel processing. However, if you are not familiar with R, you would better to choose some software above.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;emory-mahpic&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Emory MaHPIC&lt;/h3&gt;
-&lt;p&gt;This platform is composed by several R packages from Emory University including &lt;a href=&#34;https://sourceforge.net/projects/aplcms/&#34;&gt;apLCMS&lt;/a&gt; to collect the data, &lt;a href=&#34;https://sourceforge.net/projects/xmsanalyzer/&#34;&gt;xMSanalyzer&lt;/a&gt; to handle automated pipeline for large-scale, non-targeted metabolomics data, &lt;a href=&#34;https://sourceforge.net/projects/xmsannotator/&#34;&gt;xMSannotator&lt;/a&gt; for annotation of LC-MS data and &lt;a href=&#34;https://code.google.com/archive/p/atcg/wikis/mummichog_for_metabolomics.wiki&#34;&gt;Mummichog&lt;/a&gt; for pathway and network analysis for high-throughput metabolomics. This platform would be preferred by someone from environmental science to study exposome. I always use xMSannotator to annotate the LC-MS data.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;others&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Others&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://genomics-pubs.princeton.edu/mzroll/index.php?show=index&#34;&gt;MAVEN&lt;/a&gt; from Princeton University&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://vpr.colostate.edu/pmf/wp-content/uploads/sites/23/2015/06/Broeckling_2014.pdf&#34;&gt;RAMclustR&lt;/a&gt; from Colorado State University&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/html/MAIT.html&#34;&gt;MAIT&lt;/a&gt; based on xcms&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;enviGCMS&lt;/a&gt; from me&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ebi.ac.uk/metabolights/&#34;&gt;Metabolights&lt;/a&gt; for sharing data&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;selection&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Selection&lt;/h2&gt;
-&lt;p&gt;All of the platform above could be used for metabolomics and lipidomics. However, best selection would be based on your programming skills and the popularity in your research area. Every tool need training before analysis your data and you could choose one randomly and be focused on the source code for one day. If you feel you could handle it, just use it. Otherwise select another one. Enjoy and fight with the data.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>Recently I reviewed some platforms for metabolomics or lipidomics and tried to find out which one is currently available to my demands. I knew some instrumental company supplied software or solutions for metabolomics and lipidomics. I just disliked them since they concealed too many details about data processing which made omics studies as a magic box like Artificial Neural Network. It gains nothing for scientist to get insights from the data and you might only follow the workflow defined by the company.</description>
     </item>
     
     <item>
@@ -227,23 +46,8 @@
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</guid>
-      <description>&lt;p&gt;Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms.&lt;/p&gt;
-&lt;p&gt;Supposing we have data from 1 min sampling and we want to get the mass spectrum. For mass spectrum, 1 min usually means more than 100 full scan. The basic idea to process such data is directly binning the mass and average the intensity. However, I found &lt;code&gt;group.mzClust&lt;/code&gt; function and &lt;code&gt;MSW&lt;/code&gt; method are designed for this purpose.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(msdata)
-mzdatapath &amp;lt;- system.file(&amp;quot;fticr&amp;quot;, package = &amp;quot;msdata&amp;quot;)
-mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names = TRUE)
-
-xs &amp;lt;- xcmsSet(method=&amp;quot;MSW&amp;quot;, files=mzdatafiles, scales=c(1,7),
-              SNR.method=&amp;#39;data.mean&amp;#39; , winSize.noise=500,
-               peakThr=80000,  amp.Th=0.005)
-xsg &amp;lt;- group.mzClust(xs)
-xsg &amp;lt;- fillPeaks.MSW(xsg)
-r &amp;lt;- groupval(xsg,&amp;#39;medret&amp;#39;,&amp;#39;into&amp;#39;)
-z &amp;lt;- as.data.frame(groups(xsg))
-file &amp;lt;- cbind(z$mz,r)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You could save the data as csv file. Then you could perform further analysis such as peak picking or PCA analysis. If your data could be organized for spatial analysis or imaging, all the data has been ready and you could draw them by one for loop or just use &lt;code&gt;animation&lt;/code&gt; package for a gif. I used this trick for my last group meeting as PhD students.&lt;/p&gt;
-&lt;p&gt;PS: the new design of xcms 3 is much more friendly to process such data via &lt;code&gt;XCMSnExp&lt;/code&gt; object and the parameters design is very friendly to users.&lt;/p&gt;
-</description>
+      <description>Desorption Electrospray Ionization (DESI) is known for on-site mass spectrum analysis. For example, you could use DESI-MS to get the distribution of certain ions on the surface or cross section of sample. Without chromatograph or related separation process, the mass spectrum is actually the average intensities of all the mass during the sampling time. Recently I am thinking how to process such data via xcms.
+Supposing we have data from 1 min sampling and we want to get the mass spectrum.</description>
     </item>
     
     <item>
@@ -252,96 +56,8 @@ file &amp;lt;- cbind(z$mz,r)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</guid>
-      <description>&lt;p&gt;XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.&lt;/p&gt;
-&lt;div id=&#34;optimized-parameters&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Optimized Parameters&lt;/h2&gt;
-&lt;p&gt;Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them. Those parameters are related to peaks extraction, grouping, retention time correction and fill missing peaks. Authors of xcms online has published &lt;a href=&#34;http://www.nature.com/nprot/journal/v7/n3/fig_tab/nprot.2011.454_T1.html&#34;&gt;paper&lt;/a&gt; and show the table of suggested parameters. Thus in the local version, you could directly use them. If you still feel hard, I write a function &lt;code&gt;getdata&lt;/code&gt; in the &lt;code&gt;enviGCMS&lt;/code&gt; package. You could install it from Github (CRAN version has not been updated):&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;yufree/enviGCMS&amp;#39;)
-# we need parallel computing
-library(enviGCMS)
-library(BiocParallel)
-library(xcms)
-# you need faahKO package for demo
-cdfpath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;, package = &amp;quot;faahKO&amp;quot;)
-# directly input path and you could get xcmsSet object
-xset &amp;lt;- getdata(cdfpath, pmethod = &amp;#39;hplcqtof&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;getdata&lt;/code&gt; could directly perform peaks extraction, grouping, retention time correction and fill missing peaks and return the &lt;code&gt;xcmsSet&lt;/code&gt; object for further analysis.&lt;/p&gt;
-&lt;p&gt;However, I suggest use &lt;code&gt;IPO&lt;/code&gt; package to optimize the parameters for certain instrumental. Here is the R script for optimizing. You need to be patient because such process usually take half day. After finding the parameters for your instrumental, you could use those parameters for the following studies. Here is the R script to optimize parameters for certain instrumental:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# path and files
-# use pool qc or blank for this optimization
-mzdatapath &amp;lt;- system.file(&amp;quot;cdf&amp;quot;,package = &amp;quot;faahKO&amp;quot;)
-mzdatafiles &amp;lt;- list.files(mzdatapath, recursive = TRUE, full.names=TRUE)
-library(IPO)
-# use centwave if you use obitrap
-peakpickingParameters &amp;lt;- getDefaultXcmsSetStartingParams(&amp;#39;matchedFilter&amp;#39;)
-#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)
-peakpickingParameters$min_peakwidth &amp;lt;- c(10,20) 
-peakpickingParameters$max_peakwidth &amp;lt;- c(26,42)
-#setting only one value for ppm therefore this parameter is not optimized
-peakpickingParameters$ppm &amp;lt;- 20 
-resultPeakpicking &amp;lt;- 
-  optimizeXcmsSet(files = mzdatafiles[6:9], 
-                  params = peakpickingParameters, 
-                  nSlaves = 4, 
-                  subdir = &amp;#39;rsmDirectory&amp;#39;)
-
-optimizedXcmsSetObject &amp;lt;- resultPeakpicking$best_settings$xset
-
-retcorGroupParameters &amp;lt;- getDefaultRetGroupStartingParams()
-retcorGroupParameters$profStep &amp;lt;- 1
-resultRetcorGroup &amp;lt;-
-  optimizeRetGroup(xset = optimizedXcmsSetObject, 
-                   params = retcorGroupParameters, 
-                   nSlaves = 4, 
-                   subdir = &amp;quot;rsmDirectory&amp;quot;)
-
-
-writeRScript(resultPeakpicking$best_settings$parameters, 
-             resultRetcorGroup$best_settings, 
-             nSlaves=12)
-# https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;statistical-analysis&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Statistical analysis&lt;/h2&gt;
-&lt;p&gt;Actually, the statistival methods in xcms online are limited compared with Metaboanalyst. In last post, I have shown how to install Metaboanalyst locally. Here, I also supply a function in &lt;code&gt;enviGCMS&lt;/code&gt; to directly get the csv file to be uploaded to Metaboanalyst. You need to show a xcmsSet object and the name for the file:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this xcmsSet object could be directly get from getdata function
-getupload(xset,name = &amp;#39;peaklist&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;eic-and-boxplot-for-peaks&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;EIC and Boxplot for peaks&lt;/h2&gt;
-&lt;p&gt;If you like the report from xcms online, you could also get them with the figures. I also write a function called &lt;code&gt;plote&lt;/code&gt; in &lt;code&gt;enviGCMS&lt;/code&gt; package:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# you also need the name for subdir of EIC and Boxplot, you might also change the test method for the diffreport
-plote(xset,name = &amp;#39;test&amp;#39;,test = &amp;#39;t&amp;#39;, nonpara = &amp;#39;y&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;All of the function has been documented. I might update the CRAN version in the near future.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;waters-q-tof-mass-lock-issue&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Waters Q-ToF mass lock issue&lt;/h2&gt;
-&lt;p&gt;If you use Waters Q-ToF, you might be confused by data conversion. I suggest you use the most updated msconvert to convert RAW folder into mzxml, which you could input the lock mass(older version miss this function). However, such data still have gap, you might use the &lt;code&gt;lockMassFreq = T&lt;/code&gt; in xcms to imput such gap to get more peaks. Such parameters could be transfer in &lt;code&gt;getdata&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;xset &amp;lt;- getdata(path,lockMassFreq = T)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;annotation&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Annotation&lt;/h2&gt;
-&lt;p&gt;For the annotation part, I suggest using &lt;code&gt;xMSannotator&lt;/code&gt; package. You could install it from my github repo since the author didn’t use github:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# You might need to install the following packages before installing this package
-install.packages(&amp;#39;data.table&amp;#39;)
-install.packages(&amp;#39;digest&amp;#39;)
-source(&amp;quot;http://bioconductor.org/biocLite.R&amp;quot;)
-biocLite(&amp;quot;SSOAP&amp;quot;)
-biocLite(&amp;quot;KEGGREST&amp;quot;)
-biocLite(&amp;quot;pcaMethods&amp;quot;)
-biocLite(&amp;quot;Rdisop&amp;quot;)
-biocLite(&amp;quot;GO.db&amp;quot;)
-biocLite(&amp;quot;matrixStats&amp;quot;)
-biocLite(&amp;#39;WGCNA&amp;#39;)
-devtools::install_github(&amp;quot;yufree/xMSannotator&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;other-functions&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Other functions&lt;/h2&gt;
-&lt;p&gt;I have writed some other functions in &lt;code&gt;enviGCMS&lt;/code&gt; package and you could explore them. You might find some Easter Eggs. Also I will documented them as vignette in the future.&lt;/p&gt;
-&lt;p&gt;This post and the post before is about finding the peaks and performing statistical analysis for metabolomics. In the next post, I will show you some tips about annotation based on &lt;code&gt;xMSannotator&lt;/code&gt; package.&lt;/p&gt;
-&lt;p&gt;If you have other issues about metabolomics data analysis, you could comment here and I’d like to discuss them. Also you could sent email to &lt;a href=&#34;mailto:slack@yufree.cn&#34;&gt;slack@yufree.cn&lt;/a&gt; to get invitation for a slack group about metabolomics data analysis.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>XCMS online is preferred for its convenience, especially with Stream. However, the storage is limited and you need to wait for some time to process your data. Actually, almost all of the functions online could be processed offline on local computer. Here I will show you some tips about using xcms package locally in R.
+Optimized Parameters Most of the users like xcms online because they have optimized parameters for different instruments and you could directly choose them.</description>
     </item>
     
     <item>
@@ -350,122 +66,9 @@ devtools::install_github(&amp;quot;yufree/xMSannotator&amp;quot;)&lt;/code&gt;&l
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/03/29/metaboanalyst/</guid>
-      <description>&lt;p&gt;I am running Windows 7 to perform metabolomics data analysis(mainly for mscovert). Recently I found MetaboAnalyst could be installed locally. Since some group members really care about their data safety, I just installed MetaboAnalyst on one of group computers. Here is some tips for it:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Windows 7 is currently not supported by Metaboanalyst, so I use virtualbox to install a 64-bit Ubuntu 16.10.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;For Ubuntu, you need to install a few packages to support both the R and Java environment, also some packages. You might follow the script in bash:&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install libnetcdf-dev graphviz libxml2-dev libcairo2-dev default-jdk r-base-dev 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;You also need to install some packages from either CRAN or Bioconductor&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Install Rserver in bash to get rid of configure of R&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get isntall r-cran-rserve
-R
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Use the following code to install packages in R:
-install.packages(c(&amp;quot;ellipse&amp;quot;, &amp;quot;scatterplot3d&amp;quot;,&amp;quot;pls&amp;quot;, &amp;quot;caret&amp;quot;, &amp;quot;lattice&amp;quot;, &amp;quot;Cairo&amp;quot;, &amp;quot;randomForest&amp;quot;, &amp;quot;e1071&amp;quot;,&amp;quot;gplots&amp;quot;, &amp;quot;som&amp;quot;, &amp;quot;xtable&amp;quot;, &amp;quot;RColorBrewer&amp;quot;, &amp;quot;pheatmap&amp;quot;, &amp;quot;igraph&amp;quot;, &amp;quot;RJSONIO&amp;quot;, &amp;quot;caTools&amp;quot;, &amp;quot;ROCR&amp;quot;, &amp;quot;pROC&amp;quot;))
-source(&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;)
-biocLite()
-biocLite(c(&amp;quot;xcms&amp;quot;, &amp;quot;impute&amp;quot;, &amp;quot;pcaMethods&amp;quot;, &amp;quot;siggenes&amp;quot;, &amp;quot;globaltest&amp;quot;, &amp;quot;GlobalAncova&amp;quot;, &amp;quot;Rgraphviz&amp;quot;, &amp;quot;KEGGgraph&amp;quot;, &amp;quot;preprocessCore&amp;quot;, &amp;quot;genefilter&amp;quot;, &amp;quot;SSPA&amp;quot;, &amp;quot;sva&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;If you want to install Rstudio on 64-bit Ubuntu, you need the following steps:
-
-&lt;ul&gt;
-&lt;li&gt;Download &amp;ldquo;libgstreamer plugin&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Download &amp;ldquo;libgstreamer&amp;rdquo; from &lt;a href=&#34;https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Install two packages above&lt;/li&gt;
-&lt;li&gt;Install the following packages
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install libjpeg62
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;MetaboAnalyst is actually a java-based web application (also, R based). You need java environment and use Tomcat or Glassfish to host the *.war file on server (Linux or Mac OS). Then you only need to access it by browser, just like what you did online.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Install Glassfish. I tried Tomcat and the deploy always failed and I suggest to use Glassfish following the guide(you might need to set up user and password) and upload the *.war file by a web interface at &lt;a href=&#34;http://localhost:4848&#34;&gt;http://localhost:4848&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;wget download.java.net/glassfish/4.1.1/release/glassfish-4.1.1.zip
-apt-get install unzip
-unzip glassfish-4.0.zip -d /opt
-cd /opt/glassfish/bin
-./asadmin start-domain
-./asadmin enable-secure-admin
-./asadmin restart-domain
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/war.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Run the Rserve in bash:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;R CMD Rserve
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;After the installation of MetaboAnalyst on Glassfish, make a port transfer to ensure you could access the MetaboAnalyst on browsers of windows. You need to know the local IP address of both your host and virtual machine(VM).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Your host address is the IP for the connection between host and VM. Use &lt;code&gt;ipconfig /all&lt;/code&gt; to get it
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/hostip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Your VM address could be found by &lt;code&gt;connection information&lt;/code&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/vmip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Set up the NAT port transfer to ensure you could access MetaboAnalyst on VM from host browser
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/porttrans.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Save a bookmark for the url(in my case: &lt;a href=&#34;http://192.168.56.1:8080/MetaboAnalyst/&#34;&gt;http://192.168.56.1:8080/MetaboAnalyst/&lt;/a&gt; ) Open the virtualbox all the time at the background
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/ip.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Enjoy local access (while not updated) to MetaboAnalyst&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Every time you restart your computer, input this in bash to start the MetaboAnalyst:&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;R CMD Rserve
-cd /opt/glassfish/bin
-./asadmin start-domain
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;For the other thing, just follow the official guide &lt;a href=&#34;http://www.metaboanalyst.ca/faces/home.xhtml&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>I am running Windows 7 to perform metabolomics data analysis(mainly for mscovert). Recently I found MetaboAnalyst could be installed locally. Since some group members really care about their data safety, I just installed MetaboAnalyst on one of group computers. Here is some tips for it:
+ Windows 7 is currently not supported by Metaboanalyst, so I use virtualbox to install a 64-bit Ubuntu 16.10.
+ For Ubuntu, you need to install a few packages to support both the R and Java environment, also some packages.</description>
     </item>
     
     <item>
@@ -474,25 +77,8 @@ cd /opt/glassfish/bin
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/01/15/sd-isotope-ratio/</guid>
-      <description>&lt;p&gt;In Analytical Chemistry, the measurements of isotope ratios are commons. However, I found the uncertainty of ratios are always shown in the format of standard deviation of independant vairiable, which is inappropriate in statistic. You accually measure at least two values to get one measurement.&lt;/p&gt;
-&lt;p&gt;In fact, if you want to use the differences of isotope ratios as a measurement for certain process, you need to accept the assumption that the intensities of different isotopes are independant. Then we could make the Taylor series expansion of the ratio x/y around the mean of x and y:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\begin{split} 
-\frac{x}{y} \approx \frac{x}{y}\Big|_{\mu_x,\mu_y}&amp;amp;+(x-\mu_x)\frac{\partial}{\partial x}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}+(y-\mu_y)\frac{\partial}{\partial y}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}\\&amp;amp;+\frac{1}{2}(x-\mu_x)^2\frac{\partial^2}{\partial x^2}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}+\frac{1}{2}(y-\mu_y)^2\frac{\partial^2}{\partial y^2}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}+(x-\mu_x)(y-\mu_y)\frac{\partial^2}{\partial x \partial y}\Big(\frac{x}{y}\Big)\Big|_{\mu_x,\mu_y}\\&amp;amp;+\mathcal{O}\Big(\Big((x-\mu_x)\frac{\partial}{\partial x}+(y-\mu_y)\frac{\partial}{\partial y}\Big)^3\Big(\frac{x}{y}\Big)\Big)
-\end{split}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The expectation of the ratio is&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\mathbb{E}[r] = \mathbb{E}\Big[\frac{\bar x}{\bar y}\Big] = \frac{\mu_x}{\mu_y} + Var(\bar y)\frac{\mu_x}{\mu_y^3} - \frac{Cov(\bar x,\bar y)}{\mu_y^2} \approx \frac{\mu_x}{\mu_y} + \frac{1}{n}\Big(Var(y)\frac{\mu_x}{\mu_y^3} - \frac{Cov(x,y)}{\mu_y^2}\Big)
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The variance of the ratio is&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\begin{split}
-Var(r) &amp;amp;= Var\Big( \frac{\bar x}{\bar y} \Big) = \mathbb{E}\Big[\Big(\frac{\bar x}{\bar y} - \mathbb{E}\Big[\frac{\bar x}{\bar y}\Big]\Big)^2\Big] \\&amp;amp;\approx \mathbb{E}\Big[\Big(\frac{\bar x}{\bar y} - \frac{\mu_x}{\mu_y}\Big)^2\Big]\\&amp;amp;\approx \mathbb{E}\Big[\Big((\bar x-\mu_x)\frac{\partial}{\partial \bar x}\Big(\frac{\bar x}{\bar y}\Big)\Big|_{\mu_x,\mu_y} + (\bar y - \mu_y)\frac{\partial}{\partial \bar y}\Big(\frac{\bar x}{\bar y}\Big)\Big|_{\mu_x,\mu_y}\Big)^2\Big]\\&amp;amp;\approx\frac{Var(\bar x)}{\mu^2_y} + \frac{\mu^2_x Var(\bar y)}{\mu^4_y} - \frac{2\mu_x Cov(\bar x, \bar y)}{\mu^3_y}\\&amp;amp;\approx\frac{1}{n}\Big(\frac{Var(x)}{\mu^2_y} + \frac{\mu_x^2 Var(y)}{\mu^4_y} - \frac{2\mu_x Cov(x,y)}{\mu^3_y}\Big)
-\end{split}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Such values could be used as the uncertainty of the isotope ratios instead of the standard deviation of the ratios themselves.&lt;/p&gt;
-</description>
+      <description>In Analytical Chemistry, the measurements of isotope ratios are commons. However, I found the uncertainty of ratios are always shown in the format of standard deviation of independant vairiable, which is inappropriate in statistic. You accually measure at least two values to get one measurement.
+In fact, if you want to use the differences of isotope ratios as a measurement for certain process, you need to accept the assumption that the intensities of different isotopes are independant.</description>
     </item>
     
     <item>
@@ -501,38 +87,8 @@ Var(r) &amp;amp;= Var\Big( \frac{\bar x}{\bar y} \Big) = \mathbb{E}\Big[\Big(\fr
       <pubDate>Tue, 29 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/11/29/my-third-paper/</guid>
-      <description>&lt;p&gt;This &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016309298&#34;&gt;paper&lt;/a&gt; received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.&lt;/p&gt;
-
-&lt;p&gt;In this work, I wanted to access and reduce the uncertainties in the whole procedure of environmental analysis. In regular analysis, we would use pure standards to optimized the analysis method and recovery and RSD were commonly used for quality control analysis. My concerns are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Uncertainties were hard to be found with standards in advance. When you injected a dirty samples, you instruments would be polluted after you see the results. Furthormore, when you found your targeted compounds were influenced by something from the matrices, you have to start the analysis from the beginning with new methods. So, I wounder if we could access some common properties during the analysis before we analysis the samples. Then I used visualization methods to show the Uncertainties in the raw data from GC-MS.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Another issue is that how to escape the influnces from the uncertainties found in the visualization methods. My solution was that building a boundary regression models to seperate the &amp;ldquo;clean&amp;rdquo; zone from the &amp;ldquo;dirty&amp;rdquo; zone in the raw data. By this model, we would get a better sensitivity by choosing right ions regardless of the matrices or pretreatment.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I am always wondering whether different pretreatments would show similar results for certain matrix and compounds. From this paper, my answer is almost yes. Certain pretreatments would remove something we do not like or harmful to the instruments. However, such influnces might be pointless and can&amp;rsquo;t be detected on mass spectrum. In GC-MS, the co-elute influnces are hard to affect the your target compounds at the same retention time and the same massed. Only the rising baseline is important and we could get rid of it by the boundary model. Then the only thing we need to consider is the pollution of the instruments.&lt;/p&gt;
-
-&lt;p&gt;Meanwhile, I need to say such model might not be suitable for high-resolution mass spectrum. However, this idea could be used to improve the analytical methods for some compounds, especially for PBDEs. Also this paper supplied some basic data for environmental analysis. As a rule of thumb, you might know:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;When you rise 1 degrees centigrade, the &amp;lsquo;dirty&amp;rsquo; zone&amp;rsquo;s boundary would rise about 2 unit mass in the worst matrix and pretreatment. Always try to choose heavier ions for qualitative and quantitative analysis.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here is the graphical summary for the whole methods and I think more patterns could be mined from the data of GC-MS:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/MorF.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Also I developed a package to perform this kind of analysis in R. Check &lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;here&lt;/a&gt;. This package has been published on &lt;a href=&#34;https://cran.r-project.org/web/packages/enviGCMS/index.html&#34;&gt;CRAN&lt;/a&gt; and you could install and load it by:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;install.packages(&#39;enviGCMS&#39;)
-library(&#39;enviGCMS&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You might find &lt;strong&gt;Easter Eggs&lt;/strong&gt; in this package.&lt;/p&gt;
-
-&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
-</description>
+      <description>This paper received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.
+In this work, I wanted to access and reduce the uncertainties in the whole procedure of environmental analysis. In regular analysis, we would use pure standards to optimized the analysis method and recovery and RSD were commonly used for quality control analysis.</description>
     </item>
     
     <item>
@@ -541,71 +97,7 @@ library(&#39;enviGCMS&#39;)
       <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/09/19/beamer-in-chinese/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;RStudio&lt;/strong&gt; is an excellent IDE for R. However, using Chinese in default setting of Rmd to output a PDF document is always annoying. Well, the source is &lt;strong&gt;tex&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;RStudio&lt;/strong&gt; uses &lt;strong&gt;knitr&lt;/strong&gt; to covert the Rmd document into md document. Then it uses &lt;strong&gt;Pandoc&lt;/strong&gt; to convert the md document into tex document. Then they actually use &lt;strong&gt;tex&lt;/strong&gt; engine such as pdflatex or xelatex to get PDF document.&lt;/p&gt;
-
-&lt;p&gt;Why Chinese would not display? This issue happens at the last step. By default, some templates such as beamer in &lt;strong&gt;RStudio&lt;/strong&gt; use pdflatex. However, you might need CJK package. However you would need to use CJK environment to display Chinese. I don&amp;rsquo;t think it is a good way and you need to write ugly documents.&lt;/p&gt;
-
-&lt;p&gt;xeCJK package would be preferred because you only need to set up the font for your Chinese and you will get the output. However, such configuration need you use xelatex to compile you documents.&lt;/p&gt;
-
-&lt;p&gt;For the beamer template in &lt;strong&gt;RStudio&lt;/strong&gt;, they use pdflatex. So the first way to show Chinese is telling &lt;strong&gt;Pandoc&lt;/strong&gt; to use xelatex other than pdflatex. You could set up such command in the yaml.&lt;/p&gt;
-
-&lt;p&gt;The second issue is the font. When you use xelatex(actually xeCJK package), you need to set the font for CJK charactors such as Chinese. Maybe you could try the following yaml to use a font without sources.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-title: &amp;quot;中文测试&amp;quot;
-author: &amp;quot;Yufree&amp;quot;
-date: &amp;quot;2016年9月19日&amp;quot;
-CJKmainfont: FandolFang
-output:
-  beamer_presentation:
-    latex_engine: xelatex
----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Not everyone knows how to find the right name of a font. However, the updated ctex package solved such problem. They use some default setting to avoid the font issue. All you need to do is use the ctex package for your tex template.&lt;/p&gt;
-
-&lt;p&gt;We might also use yaml:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-title: &amp;quot;中文测试&amp;quot;
-author: &amp;quot;Yufree&amp;quot;
-date: &amp;quot;2016年9月19日&amp;quot;
-header-includes:
-  - \usepackage{ctex}
-output: 
-  beamer_presentation:
-    latex_engine: xelatex
----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;OK, now you would see Chinese in your Beamer PDF slides.&lt;/p&gt;
-
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Three solutions:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Use CJK packages along with pdflatex (Not recommanded, only for Guru from 20 century)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Set you font yourself in the yaml with xelatex (for Geek)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Use the ctex package in your yaml (for everyone)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For Chinese in the figure and pdf, check &lt;a href=&#34;http://yufree.cn/blog/2014/07/21/rmd-to-pdf.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>RStudio is an excellent IDE for R. However, using Chinese in default setting of Rmd to output a PDF document is always annoying. Well, the source is tex. RStudio uses knitr to covert the Rmd document into md document. Then it uses Pandoc to convert the md document into tex document. Then they actually use tex engine such as pdflatex or xelatex to get PDF document. Why Chinese would not</description>
     </item>
     
     <item>
@@ -614,55 +106,8 @@ output:
       <pubDate>Sun, 11 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/09/11/basic-idea-cluster/</guid>
-      <description>&lt;p&gt;After we got a lot of samples and analyzed the concentrations of many compounds in them, we may ask about the relationship between the samples. You might have the sampling information such as the date and the position and you could use boxplot or violin plot to explore the relationships among those categorical variables. However, you could also use the data to find some potential relationship.&lt;/p&gt;
-
-&lt;p&gt;But how? if two samples&amp;rsquo; data were almost the same, we might think those samples were from the same potential group. On the other hand, how do we define the &amp;ldquo;same&amp;rdquo; in the data?&lt;/p&gt;
-
-&lt;p&gt;Cluster analysis told us that just define a &amp;ldquo;distances&amp;rdquo; to measure the similarity between samples. Mathematically, such distances would be shown in many different manners such as the sum of the absolute values of the differences between samples.&lt;/p&gt;
-
-&lt;p&gt;For example, we analyzed the amounts of compound A, B and C in two samples and get the results:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Compounds(ng)&lt;/th&gt;
-&lt;th&gt;A&lt;/th&gt;
-&lt;th&gt;B&lt;/th&gt;
-&lt;th&gt;C&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Sample 1&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;13&lt;/td&gt;
-&lt;td&gt;21&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Sample 2&lt;/td&gt;
-&lt;td&gt;54&lt;/td&gt;
-&lt;td&gt;23&lt;/td&gt;
-&lt;td&gt;16&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The distance could be:&lt;/p&gt;
-
-&lt;p&gt;$$
-distance = |10-54|+|13-23|+|21-16| = 59
-$$&lt;/p&gt;
-
-&lt;p&gt;Also you could use the sum of squares or other way to stand for the similarity. After you defined a &amp;ldquo;distance&amp;rdquo;, you could get the distances between all of pairs for your samples. If two samples&amp;rsquo; distance was the smallest, put them together as one group. Then calculate the distances again to combine the small group into big group until all of the samples were include in one group. Then draw a dendrogram for those process.&lt;/p&gt;
-
-&lt;p&gt;The following issue is that how to cluster samples? You might set a cut-off and directly get the group from the dendrogram. However, sometimes you were ordered to cluster the samples into certain numbers of groups such as three. In such situation, you need K means cluster analysis.&lt;/p&gt;
-
-&lt;p&gt;The basic idea behind the K means is that generate three virtual samples and calculate the distances between those three virtual samples and all of the other samples. There would be three values for each samples. Choose the smallest values and class that sample into this group. Then your samples were classified into three groups. You need to calculate the center of those three groups and get three new virtual samples. Repeat such process until the group members unchanged and you get your samples classified.&lt;/p&gt;
-
-&lt;p&gt;OK, the basic idea behind the cluster analysis could be summarized as define the distances, set your cut-off and find the group. By this way, you might show potential relationships among samples.&lt;/p&gt;
-</description>
+      <description>After we got a lot of samples and analyzed the concentrations of many compounds in them, we may ask about the relationship between the samples. You might have the sampling information such as the date and the position and you could use boxplot or violin plot to explore the relationships among those categorical variables. However, you could also use the data to find some potential relationship.
+But how? if two samples&amp;rsquo; data were almost the same, we might think those samples were from the same potential group.</description>
     </item>
     
     <item>
@@ -671,22 +116,8 @@ $$&lt;/p&gt;
       <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/08/31/basic-idea-pca/</guid>
-      <description>&lt;p&gt;For environmental scientist, data analysis might be the only way to show your ability when you get the data from observation. I found many students even researcher showed their data in a bad way and many data analysis pattern just came from certain one paper. However, data analysis methods always have their scopes and some methods might just not suit your cases.&lt;/p&gt;
-
-&lt;p&gt;Thanks to data analysis software, you need not to calculate some values by hand. But to make their usage clear, you need to know the basic idea. I will show some basic ideas behind certain method in a few posts. The first one is principal components analysis(PCA).&lt;/p&gt;
-
-&lt;p&gt;In most cases, PCA is used as an exploratory data analysis(EDA) method. In most of those most cases, PCA is just served as visualization method. I mean, when I need to visualize some high-dimension data, I would use PCA.&lt;/p&gt;
-
-&lt;p&gt;So, the basic idea behind PCA is compression. When you have 100 samples with concentrations of certain compound, you could plot the concentrations with samples&amp;rsquo; ID. However, if you have 100 compounds to be analyzed, it would by hard to show the relationship between the samples. Actually, you need to show a matrix with sample and compounds (100 * 100 with the concentrations filled into the matrix) in an informal way.&lt;/p&gt;
-
-&lt;p&gt;The PCA would say: OK, guys, I could convert your data into only 100 * 2 matrix with the loss of information minimized. Yeah, that is what the mathematical guys or computer programmer do. You just run the command of PCA. The new two &amp;ldquo;compounds&amp;rdquo; might have the cor-relationship between the original 100 compounds and retain the variances between them. After such projection, you would see the compressed relationship between the 100 samples. If some samples&amp;rsquo; data are similar, they would be projected together in new two &amp;ldquo;compounds&amp;rdquo; plot. That is why PCA could be used for cluster and the new &amp;ldquo;compounds&amp;rdquo; could be referred as principal components(PCs).&lt;/p&gt;
-
-&lt;p&gt;However, you might ask why only two new compounds could finished such task. I have to say, two PCs are just good for visualization. In most cases, we need to collect PCs standing for more than 80% variances in our data if you want to recovery the data with PCs. If each compound have no relationship between each other, the PCs are still those 100 compounds. So you have found a property of the PCs: PCs are orthogonal between each other.&lt;/p&gt;
-
-&lt;p&gt;Another issue is how to find the relationship between the compounds. We could use PCA to find the relationship between samples. However, we could also extract the influences of the compounds on certain PCs. You might find many compounds showed the same loading on the first PC. That means the concentrations pattern between the compounds are looked similar. So PCA could also be used to explore the relationship between the compounds.&lt;/p&gt;
-
-&lt;p&gt;OK, next time you might recall PCA when you need it instead of other paper showed them.&lt;/p&gt;
-</description>
+      <description>For environmental scientist, data analysis might be the only way to show your ability when you get the data from observation. I found many students even researcher showed their data in a bad way and many data analysis pattern just came from certain one paper. However, data analysis methods always have their scopes and some methods might just not suit your cases.
+Thanks to data analysis software, you need not to calculate some values by hand.</description>
     </item>
     
     <item>
@@ -695,16 +126,8 @@ $$&lt;/p&gt;
       <pubDate>Sun, 21 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/08/21/meta-workflow/</guid>
-      <description>&lt;p&gt;I have moved to Canada for about three weeks. Now I am a PostDoc in University of Waterloo. I will handle two projects about &lt;strong&gt;in silica&lt;/strong&gt; studies in analytical chemistry. Well, I treated them as another data and modeling-driven interdisciplinary studies.&lt;/p&gt;
-
-&lt;p&gt;The first step is building the data analysis envrionment for group members. Since I could set down such envrionment on a super computer with RAM 128 GB, I preferred to use R and xcms for metabolomics data analysis.&lt;/p&gt;
-
-&lt;p&gt;For a well-trained analytical chemist, software or programming related stuff is always something agonizing. However, for degree or promotion, researchers have to learn related contents. xcms online is well-designed metabolomics data analysis tool for user with limited coding experiences. Actually, the earlier online version might come from xcms package for R.&lt;/p&gt;
-
-&lt;p&gt;If you know the more details of data processing, you might get more insights for the data. Understanding the each steps might cost you whole day. But I also want to show them in my way. Such process would be helpful if you want to make further development to answer your scientific problems.&lt;/p&gt;
-
-&lt;p&gt;Here is the &lt;a href=&#34;http://yufree.cn/metaworkflow/&#34;&gt;workflow&lt;/a&gt; in Rstudio and a brife &lt;a href=&#34;http://yufree.cn/notes/xcms.html&#34;&gt;version&lt;/a&gt; in Chinese.&lt;/p&gt;
-</description>
+      <description>I have moved to Canada for about three weeks. Now I am a PostDoc in University of Waterloo. I will handle two projects about in silica studies in analytical chemistry. Well, I treated them as another data and modeling-driven interdisciplinary studies.
+The first step is building the data analysis envrionment for group members. Since I could set down such envrionment on a super computer with RAM 128 GB, I preferred to use R and xcms for metabolomics data analysis.</description>
     </item>
     
     <item>
@@ -713,16 +136,8 @@ $$&lt;/p&gt;
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/02/11/my-second-paper/</guid>
-      <description>&lt;p&gt;This is a paper with many rejection and comments. It was finally published by &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016300455&#34;&gt;Talanta&lt;/a&gt; with DOI 10.1016/j.talanta.2016.01.047. One &lt;a href=&#34;http://www.smithsonianmag.com/smart-news/half-academic-studies-are-never-read-more-three-people-180950222/?no-ist&#34;&gt;study&lt;/a&gt; said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.&lt;/p&gt;
-&lt;p&gt;The basic idea before the structure prediction is that the combination of two qualitative methods. Usually, we use full scan of mass spectrum to get some rules about the structure such as the position of the substitute group of certain compound. Meanwhile, the retention time of seperation process also showed us some information about the compound. For unknown MeO-PBDEs, mass spectrum could tell us the position of MeO- group while can not show us the position of the Br atoms. Chromatography could show us the Br atoms position of PBDEs while not MeO-PBDE. what I should do is that building a model to connect those two information sources to get the structure of unknown MeO-PBDEs in certain samples.&lt;/p&gt;
-&lt;p&gt;But how? I collected 32 MeO-PBDEs and corresponding PBDEs and get the retention time of those pairs under the same analysis condition. I found we could use those data to make a connection between the information from mass spectrum and chromatography. The basic model is&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;For different positions, the mass spectrum could show a constant. For example, if BDE-47’s retention time is 21.753 min, the ortho- substitute MeO-BDE-47 would show a retention time of 25.648min. The differences of those retention time pairs is a constant around 4. We use regression analysis to get an estimation of such constants. Then when we get a potential peak of MeO-PBDEs. Mass spectrum would tell us the mass, the numbers of Br and the position of MeO- group. Then we just test the standards of potential PBDEs and use the models to check the position of Br atoms. The trick is that the standards of PBDEs were 209 and 837 for MeO-PBDEs. We use small numbers standards to cover large unknown standards(no available standards) . Another thick is that we could use multiple dislike columns to build such models and then the estimation would be much accurate.&lt;/p&gt;
-&lt;p&gt;This is just a try. I used this method to get three unknown structures of MeO-PBDEs. However, the most important part is that we should try to summarize the data from different analysis method to build a much stronger model. In many studies, scientists use many independent analysis method to explain one problem. I think this is also a model and when we build them, the left could be thrown to computer or automation . We human should do smart things!&lt;/p&gt;
-&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
-</description>
+      <description>This is a paper with many rejection and comments. It was finally published by Talanta with DOI 10.1016/j.talanta.2016.01.047. One study said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.
+The basic idea before the structure prediction is that the combination of two qualitative methods.</description>
     </item>
     
     <item>
@@ -731,42 +146,8 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
       <pubDate>Wed, 30 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>/en/2015/09/30/hplc-2015/</guid>
-      <description>&lt;p&gt;Last week 43rd International Symposium on High Performance Liquid Phase Separations and Related Techniques(HPLC 2015 Beijing) was held at the Beijing International Conference Center in Beijing, China. For my tutor was the chair of this conference, I stayed there for three days and made a poster presentation. Here is some tips from the HPLC 2015 Beijing.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&amp;ldquo;NMR is your mother, MS is your love and the LC is your superhero.&amp;rdquo; Prof. Peter Schoenmakers said.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The hairstyle of Prof. Jonothan Sweedler is impressive and I don&amp;rsquo;t know if he had played punk.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Though Prof. Robert Kennedy has rejected my paper before, I admit he is handsome.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Girls from South Korea were really beauty. In HPLC 2017 Jeju we might see them again.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;2D and 3D LC were really popular. However, I found they were limited to a few applications. Yeah, they showed a fantastic column efficiency but in practice they somewhat like the art of butchering dragons while no dragons for them. In environmental analysis, I think new complex matrix effect in various samples might be a dragon for them.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Superficially Porous Particles are interesting and attractive. Better choice for start up group.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Modeling in HPLC is really native and ignore the development of novel methods in computer science or data science.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Mass spectrum is the best spouse for (U)HPLC. However, omics treat the features or profiles more than certain compounds.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Some groups have noticed the data mining of hyphenated method data and I think such issue is the best application for data science.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Chemical modification of certain materials or nanomatreials to gain the selectivity are just permutation and combination. However, they could publish good papers&amp;hellip;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Oral presentation for PI is very important. Some Chinese PI need to learn how to make presentation and if English is not good, try to list it on slides.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Young scientists are the future of HPLC and I am really appreciate the workshop for starters.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;I bet you only care the beauty and handsome in this post.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;See you next HPLC(well, I always need financial support)!&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/hplc2015.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;p.s. Finally I could vote on the &lt;a href=&#34;http://stackoverflow.com/users/3083491/yufree&#34;&gt;stackoverflow&lt;/a&gt;!&lt;/p&gt;
-</description>
+      <description>Last week 43rd International Symposium on High Performance Liquid Phase Separations and Related Techniques(HPLC 2015 Beijing) was held at the Beijing International Conference Center in Beijing, China. For my tutor was the chair of this conference, I stayed there for three days and made a poster presentation. Here is some tips from the HPLC 2015 Beijing.
+ &amp;ldquo;NMR is your mother, MS is your love and the LC is your superhero.</description>
     </item>
     
     <item>
@@ -775,26 +156,198 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>/en/2015/09/11/microarry-vs-ms/</guid>
-      <description>&lt;p&gt;I have finished &lt;a href=&#34;https://courses.edx.org/courses/HarvardX/PH525x/1T2014/info&#34;&gt;Data Analysis for Genomics(HarvardX-PH525x)&lt;/a&gt; by Prof. Rafael A Irizarry and Dr. Michael I Love for more than a year until recently I realised the data analysis similarity between microarray and Gas chromatography–mass spectrometry(GC-MS).&lt;/p&gt;
-
-&lt;p&gt;When we talked about data analysis of microarray, we use different genes or probes as the rows and different samples as the columns. The responses are fluorescence signals.&lt;/p&gt;
-
-&lt;p&gt;When we talked about data analysis of microarray, we use different m/z as the rows and different retention times as the columns. The responses are count signals.&lt;/p&gt;
-
-&lt;p&gt;Interesting, the Total Ion Chromatorgraphy(TIC) is widely used in GC-MS while heatmap in microarray. How about show the heatmap of GC-MS and TIC of heatmap.&lt;/p&gt;
-
-&lt;p&gt;Wait, we couldn&amp;rsquo;t do a thing without meanings. Why use TIC in GC-MS? Because we always think one compound would show at certain retention time. However, under EI source or hard ionization, one compound could show many m/z responses. In environmental analysis, the matrix effect might also show responses. Then we got the meanings: the heatmap of GC-MS would show a visualization of matrix effect.&lt;/p&gt;
-
-&lt;p&gt;How about TIC in microarray? I don&amp;rsquo;t think such plot has meanings because there is no time dependences in the samples of microarray.&lt;/p&gt;
-
-&lt;p&gt;But when the data could be shown in heatmap, we might employ some noise reduction methods to ease the matrix effect. The following two heatmaps were a native &amp;ldquo;before and after&amp;rdquo; results processed by some microarray data analysis methods. Yeah, now I think it is OK to use such method to reduce the matrix effect in environmental samples.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/h2585bg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/h2585diffgcms.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Wait, my paper is writing. And I will show the details of such method soon(maybe or might be).&lt;/p&gt;
-</description>
+      <description>I have finished Data Analysis for Genomics(HarvardX-PH525x) by Prof. Rafael A Irizarry and Dr. Michael I Love for more than a year until recently I realised the data analysis similarity between microarray and Gas chromatography–mass spectrometry(GC-MS).
+When we talked about data analysis of microarray, we use different genes or probes as the rows and different samples as the columns. The responses are fluorescence signals.
+When we talked about data analysis of microarray, we use different m/z as the rows and different retention times as the columns.</description>
+    </item>
+    
+    <item>
+      <title>How to deal with the less than obvious?</title>
+      <link>/en/2015/09/05/loq/</link>
+      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/09/05/loq/</guid>
+      <description>In environmental analysis, we often target a lot of compounds to get a detailed profile of certain pollution. However, due to different environmental process, not all of the compounds could be detected by our analysis method. For example, when I analysed PBDEs in 100 sludge samples, only a few congeners such as BDE-47, BDE-99, BDE-209 could be found in all of them. The other congerners such as BDE-28, BDE-17, BDE-153 could only be found in about 80% of them.</description>
+    </item>
+    
+    <item>
+      <title>ISOTOPES 2015</title>
+      <link>/en/2015/06/30/isotopes-2015/</link>
+      <pubDate>Tue, 30 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/06/30/isotopes-2015/</guid>
+      <description>I went to Israel at the late June for Isotopes 2015 conference. This is my first time trip abroad and it is my pleasure to visit Jerusalem and make friends with scholars from all over the world. This is a quick note of some important tips about isotopes 2015.
+ Thank you, all of the organisers of the conference!
+ Thank you, all of the participants and I learned a lot!</description>
+    </item>
+    
+    <item>
+      <title>Introduction to SP-ICP-MS</title>
+      <link>/en/2015/01/03/intro-sp-icp-ms/</link>
+      <pubDate>Sat, 03 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2015/01/03/intro-sp-icp-ms/</guid>
+      <description>Single particle Inductively coupled plasma mass spectrometry(SP-ICP-MS) is a novol method for detect, quantify, and characterize nanoparticles. Its theoretical basis was founded by Dr. Degueldre et al. at 2004. Here I would like to show a much more simplified version of this theory and show you how to perform a SP-ICP-MS analysis.
+Single Particle The core concept in SP-ICP-MS is single particle. How to understand single particle? Single means every scan time on MS would get no more than one particle&amp;rsquo;s signals.</description>
+    </item>
+    
+    <item>
+      <title>Using recommender systems to fill the missing data</title>
+      <link>/en/2014/11/26/recommender-system/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2014/11/26/recommender-system/</guid>
+      <description>Recommender systems were often used to show the candidates such as books, movies and music for certain user. If you bought something at online shop, you might get a spam email listing something the shop recommended and there must be a recommender systems for you. You might get confused by such system: how does they know what you would buy?
+If you know basic concepts about machine learning, you might say: surely there would be a supervised learning algorithm for this problem.</description>
+    </item>
+    
+    <item>
+      <title>Display Chinese/Japanese/Korean in PDF from Rmd in RStudio</title>
+      <link>/en/2014/07/21/rmd-to-pdf/</link>
+      <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2014/07/21/rmd-to-pdf/</guid>
+      <description>New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature fig.showtext which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts</description>
+    </item>
+    
+    <item>
+      <title>Using rcdk package for QSPR</title>
+      <link>/en/2014/05/30/qspr-rcdk/</link>
+      <pubDate>Fri, 30 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2014/05/30/qspr-rcdk/</guid>
+      <description>R is a handy tool for modeling, so there must be some packages for Quantitative structure–activity relationship(QSPR) in Chemistry. Recently I wanted to summarize some papers for a presentation, then I found rcdk package, which is a useful tool for QSPR. However, little posts about this topic for beginner. As an absolutely beginner, I make this post as a note for the whole process and add comments for someone else to reproduce a QSPR model by their own.</description>
+    </item>
+    
+    <item>
+      <title>A very brief intro of shiny</title>
+      <link>/en/2014/03/23/intro-of-shiny/</link>
+      <pubDate>Sun, 23 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2014/03/23/intro-of-shiny/</guid>
+      <description>If you are a starter of shiny as me, this post may help your know some principle of shiny.
+ What is shiny?  R based View as webpage hosted on servers give a request, show the result  Backgroud needed  Almost R only  Why shiny?  Entirely extensible Display your data in an interactive way  How shiny works?  Reactive Programming
+When the input changes, the R code will run again to get a refresh.</description>
+    </item>
+    
+    <item>
+      <title>Mean, Variance and Something about Sample</title>
+      <link>/en/2013/12/07/mean-and-variance/</link>
+      <pubDate>Sat, 07 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/12/07/mean-and-variance/</guid>
+      <description>OK，I must clear the concepts of those terms because this is the third time I review my notes.
+Description of Data If one wants to descript a collection of data, the Mode, Median and Mean are the first three terms to be learned. They are used to show the whole data in one parameter. And yes, one value is enough and the most important property of a dataset is the center.</description>
+    </item>
+    
+    <item>
+      <title>Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure</title>
+      <link>/en/2013/12/04/my-first-paper/</link>
+      <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/12/04/my-first-paper/</guid>
+      <description>This is the first paper written by me which was just published on Environmental Science &amp;amp; Technology, pp 13494–13501, Volume 47, Issue 23, 2013. You could access the full text either by ACS&amp;rsquo;s website or just send Dr. Liu or me an email.
+This work focused on the metabolites of BDE-28 in plant. The main finding is that after the exposure, BDE-28 could be transformed to OH-diBDEs, OH-triBDEs and MeO-triBDEs. Without the standards of metabolites, the MeO-triBDEs were identified as para-MeO-triBDE by thumb rules.</description>
+    </item>
+    
+    <item>
+      <title>Halogen Bond for separation</title>
+      <link>/en/2013/10/10/halogen-bond/</link>
+      <pubDate>Thu, 10 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/10/10/halogen-bond/</guid>
+      <description>As shown in wikipedia, the Halogen bond is the non-covalent interaction that occurs between a halogen atom (Lewis acid) and a Lewis base. The Hydrogen bond could be seen as a special case of halogen bond — they all need electron-donor while the hydrogen may also need electron-receptor. In fact, some Organic Halogen Compounds such as PCBs, PBDEs,PFCs,SCCPs&amp;hellip; were hard to analysis for they have so many congeners. Most of time, the capillary columns were used to separate those compounds.</description>
+    </item>
+    
+    <item>
+      <title>Causal Inference with Confounding Factors</title>
+      <link>/en/2013/09/02/causal-inference/</link>
+      <pubDate>Mon, 02 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/09/02/causal-inference/</guid>
+      <description>Recently I read some articles about causal interpretations. I was told that the correlation doesn&amp;rsquo;t imply causation the first time I learned it. Also the Simpson&amp;rsquo;s paradox show that some confounding factors may destroy the conclusion based on the whole. Maybe when someone wanted to use the cor relationship to do the causal inference, the first problem is the evaluation of the effect of confounding factors.
+Here, we must know the confounding factors are not the interaction between the variables.</description>
+    </item>
+    
+    <item>
+      <title>Box Plot v.s. Violin Plot</title>
+      <link>/en/2013/08/15/boxplot-vs-violinplot/</link>
+      <pubDate>Thu, 15 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/08/15/boxplot-vs-violinplot/</guid>
+      <description>In a seminar I introduced the violin plot and showed the following figure(this example comes from the help document):
+library(vioplot) library(sm) par(mfrow = c(1, 2)) mu &amp;lt;- 2 si &amp;lt;- 0.6 bimodal &amp;lt;- c(rnorm(1000, -mu, si), rnorm(1000, mu, si)) uniform &amp;lt;- runif(1000, -4, 4) normal &amp;lt;- rnorm(2000, 0, 3) vioplot(bimodal, uniform, normal) boxplot(bimodal, uniform, normal)  So obviously, the violin plot can show more information than box plot. When we perform an exploratory analysis, nothing about the samples could be known.</description>
+    </item>
+    
+    <item>
+      <title>The Log Transformation of Concentration Data</title>
+      <link>/en/2013/06/19/statistics-tips/</link>
+      <pubDate>Wed, 19 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/06/19/statistics-tips/</guid>
+      <description>Recently, I read Part I of Song S. Qian&amp;rsquo;s book - Environmental and Ecological Statistics with R and find some interesting tips about statistics in environmental science. Here I will discuss the log transformation of concentration.
+In this book, the author said that the statistical distribution of concentration data of certain compounds need a log transformation to show a bell curve. I don&amp;rsquo;t know if this conclusion comes from certain theory or just depends on the observation.</description>
+    </item>
+    
+    <item>
+      <title>SNS Websites in China</title>
+      <link>/en/2013/06/08/cloned-websites/</link>
+      <pubDate>Sat, 08 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/06/08/cloned-websites/</guid>
+      <description>If you find a Chinese blog, you may confused by so many unknown icons at the share buttons. You may want to know the daily life of Chinese and only to find the Chinese on the Facebook are also lived in you country. Here, I think you need to know something about the network in China.
+ Great Firewall  He who does not reach the Great Wall is not a man.</description>
+    </item>
+    
+    <item>
+      <title>A Brief Introduction of Nomograph</title>
+      <link>/en/2013/06/03/nomograph-intro/</link>
+      <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/06/03/nomograph-intro/</guid>
+      <description>Before I know something about the geometry, the mathematics equals algebra. Algebra is really an art of abstract while the geometry will bring you back to real life. In other word, maths doesn&amp;rsquo;t always mean an accurate calculation with each steps clearly. Don&amp;rsquo;t panic, I mean sometimes we will get the answer just like a magic. The nomogragh is a typically skill to get an answer of equations without analytic solution.</description>
+    </item>
+    
+    <item>
+      <title>My Data</title>
+      <link>/en/2013/05/27/my-data/</link>
+      <pubDate>Mon, 27 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/05/27/my-data/</guid>
+      <description>After a travel to Henan province, I found my removable disk is broken. I don&amp;rsquo;t know when it happened but it just happened. Two days ago, Dropbox pushed an email to remind me of using it, then I find it is hard to record the data in dropbox from my memory. I got so many data that I can&amp;rsquo;t find one when I need it, so I just got more data from the web.</description>
+    </item>
+    
+    <item>
+      <title>The Rules of Ignoring</title>
+      <link>/en/2013/05/24/rules-of-ignoring/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/05/24/rules-of-ignoring/</guid>
+      <description>If I&amp;rsquo;d like to keep on writing this pages for such a long time, the new readers will find it&amp;rsquo;s hard to figure out something about me by so many articles. In fact, if I find a guy&amp;rsquo;s post interesting, I will try to read the other posts in his blog. But most of the time, I am confused by so many tags and classification and I will drop. So for most of the viewers as you, this posts will be just ignored.</description>
+    </item>
+    
+    <item>
+      <title>A Cipher Based on Similar Pictures</title>
+      <link>/en/2013/05/23/pic-cipher/</link>
+      <pubDate>Thu, 23 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/05/23/pic-cipher/</guid>
+      <description>After I finished the computational photography on the coursera, I finally know some basic principles about the digital pictures. The peer-viewed assignment which focused on the epsilon photography is very interesting. In fact, I know nothing about this term before but when I take some photos, I found it awesome to perform something interesting. Recently, Google plus showed a new feature named auto awesome, which is a good application of epsilon photography; but I want to talk about using similar photos to hide some information.</description>
+    </item>
+    
+    <item>
+      <title>HELLO WORLD!</title>
+      <link>/en/2013/05/20/hello-world/</link>
+      <pubDate>Mon, 20 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2013/05/20/hello-world/</guid>
+      <description> italic bold
+italic bold
+Header 1 Header 2 Header 3 Header 4  Item 1 Item 2 Item 3  Item 3a Item 3b   http://example.com
+linked phrase
+A friend once said:
+ It&amp;rsquo;s always better to give than to receive.
+ </description>
     </item>
     
   </channel>

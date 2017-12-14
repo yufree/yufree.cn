@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paper on Miao Yu | 于淼 </title>
-    <link>/tags/paper/index.xml</link>
+    <link>/tags/paper/</link>
     <description>Recent content in Paper on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model</title>
@@ -14,38 +17,8 @@
       <pubDate>Tue, 29 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/11/29/my-third-paper/</guid>
-      <description>&lt;p&gt;This &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016309298&#34;&gt;paper&lt;/a&gt; received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.&lt;/p&gt;
-
-&lt;p&gt;In this work, I wanted to access and reduce the uncertainties in the whole procedure of environmental analysis. In regular analysis, we would use pure standards to optimized the analysis method and recovery and RSD were commonly used for quality control analysis. My concerns are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Uncertainties were hard to be found with standards in advance. When you injected a dirty samples, you instruments would be polluted after you see the results. Furthormore, when you found your targeted compounds were influenced by something from the matrices, you have to start the analysis from the beginning with new methods. So, I wounder if we could access some common properties during the analysis before we analysis the samples. Then I used visualization methods to show the Uncertainties in the raw data from GC-MS.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Another issue is that how to escape the influnces from the uncertainties found in the visualization methods. My solution was that building a boundary regression models to seperate the &amp;ldquo;clean&amp;rdquo; zone from the &amp;ldquo;dirty&amp;rdquo; zone in the raw data. By this model, we would get a better sensitivity by choosing right ions regardless of the matrices or pretreatment.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I am always wondering whether different pretreatments would show similar results for certain matrix and compounds. From this paper, my answer is almost yes. Certain pretreatments would remove something we do not like or harmful to the instruments. However, such influnces might be pointless and can&amp;rsquo;t be detected on mass spectrum. In GC-MS, the co-elute influnces are hard to affect the your target compounds at the same retention time and the same massed. Only the rising baseline is important and we could get rid of it by the boundary model. Then the only thing we need to consider is the pollution of the instruments.&lt;/p&gt;
-
-&lt;p&gt;Meanwhile, I need to say such model might not be suitable for high-resolution mass spectrum. However, this idea could be used to improve the analytical methods for some compounds, especially for PBDEs. Also this paper supplied some basic data for environmental analysis. As a rule of thumb, you might know:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;When you rise 1 degrees centigrade, the &amp;lsquo;dirty&amp;rsquo; zone&amp;rsquo;s boundary would rise about 2 unit mass in the worst matrix and pretreatment. Always try to choose heavier ions for qualitative and quantitative analysis.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here is the graphical summary for the whole methods and I think more patterns could be mined from the data of GC-MS:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.cn/blogcn/figure/MorF.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Also I developed a package to perform this kind of analysis in R. Check &lt;a href=&#34;https://github.com/yufree/enviGCMS&#34;&gt;here&lt;/a&gt;. This package has been published on &lt;a href=&#34;https://cran.r-project.org/web/packages/enviGCMS/index.html&#34;&gt;CRAN&lt;/a&gt; and you could install and load it by:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;install.packages(&#39;enviGCMS&#39;)
-library(&#39;enviGCMS&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You might find &lt;strong&gt;Easter Eggs&lt;/strong&gt; in this package.&lt;/p&gt;
-
-&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
-</description>
+      <description>This paper received opposite comments from reviewers. One rejected and the other recommanded. Anyway, this is just the beginning of this kind of data analysis for mass spectrum. Also this work was the basis of one chapter in my thesis.
+In this work, I wanted to access and reduce the uncertainties in the whole procedure of environmental analysis. In regular analysis, we would use pure standards to optimized the analysis method and recovery and RSD were commonly used for quality control analysis.</description>
     </item>
     
     <item>
@@ -54,16 +27,8 @@ library(&#39;enviGCMS&#39;)
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/en/2016/02/11/my-second-paper/</guid>
-      <description>&lt;p&gt;This is a paper with many rejection and comments. It was finally published by &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0039914016300455&#34;&gt;Talanta&lt;/a&gt; with DOI 10.1016/j.talanta.2016.01.047. One &lt;a href=&#34;http://www.smithsonianmag.com/smart-news/half-academic-studies-are-never-read-more-three-people-180950222/?no-ist&#34;&gt;study&lt;/a&gt; said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.&lt;/p&gt;
-&lt;p&gt;The basic idea before the structure prediction is that the combination of two qualitative methods. Usually, we use full scan of mass spectrum to get some rules about the structure such as the position of the substitute group of certain compound. Meanwhile, the retention time of seperation process also showed us some information about the compound. For unknown MeO-PBDEs, mass spectrum could tell us the position of MeO- group while can not show us the position of the Br atoms. Chromatography could show us the Br atoms position of PBDEs while not MeO-PBDE. what I should do is that building a model to connect those two information sources to get the structure of unknown MeO-PBDEs in certain samples.&lt;/p&gt;
-&lt;p&gt;But how? I collected 32 MeO-PBDEs and corresponding PBDEs and get the retention time of those pairs under the same analysis condition. I found we could use those data to make a connection between the information from mass spectrum and chromatography. The basic model is&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;For different positions, the mass spectrum could show a constant. For example, if BDE-47’s retention time is 21.753 min, the ortho- substitute MeO-BDE-47 would show a retention time of 25.648min. The differences of those retention time pairs is a constant around 4. We use regression analysis to get an estimation of such constants. Then when we get a potential peak of MeO-PBDEs. Mass spectrum would tell us the mass, the numbers of Br and the position of MeO- group. Then we just test the standards of potential PBDEs and use the models to check the position of Br atoms. The trick is that the standards of PBDEs were 209 and 837 for MeO-PBDEs. We use small numbers standards to cover large unknown standards(no available standards) . Another thick is that we could use multiple dislike columns to build such models and then the estimation would be much accurate.&lt;/p&gt;
-&lt;p&gt;This is just a try. I used this method to get three unknown structures of MeO-PBDEs. However, the most important part is that we should try to summarize the data from different analysis method to build a much stronger model. In many studies, scientists use many independent analysis method to explain one problem. I think this is also a model and when we build them, the left could be thrown to computer or automation . We human should do smart things!&lt;/p&gt;
-&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
-</description>
+      <description>This is a paper with many rejection and comments. It was finally published by Talanta with DOI 10.1016/j.talanta.2016.01.047. One study said the average read times of an academic paper was no more than 3. In my case, at least 11 reviewers had read this paper before published and I thanked all of them though some of them really misunderstand my idea.
+The basic idea before the structure prediction is that the combination of two qualitative methods.</description>
     </item>
     
     <item>
@@ -72,12 +37,8 @@ RT_{MeO-PBDEs} = RT_{PBBDEs} + Group position
       <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
       
       <guid>/en/2013/12/04/my-first-paper/</guid>
-      <description>&lt;p&gt;This is the first paper written by me which was just published on &lt;em&gt;Environmental Science &amp;amp; Technology&lt;/em&gt;, pp 13494–13501, Volume 47, Issue 23, 2013. You could access the full text either by &lt;a href=&#34;http://pubs.acs.org/doi/abs/10.1021/es404144p&#34;&gt;ACS&amp;rsquo;s website&lt;/a&gt; or just send &lt;a href=&#34;mailto:liujy@rcees.ac.cn&#34;&gt;Dr. Liu&lt;/a&gt; or &lt;a href=&#34;mailto:yufreecas@gmail.com&#34;&gt;me&lt;/a&gt; an email.&lt;/p&gt;
-
-&lt;p&gt;This work focused on the metabolites of BDE-28 in plant. The main finding is that after the exposure, BDE-28 could be transformed to OH-diBDEs, OH-triBDEs and MeO-triBDEs. Without the standards of metabolites, the MeO-triBDEs were identified as para-MeO-triBDE by thumb rules. This is interesting because we found all of the literature about the MeO- metabolites of PBDEs are para-MeO-PBDEs. Though &lt;em&gt;Science&lt;/em&gt; has published a &lt;a href=&#34;http://www.sciencemag.org/content/307/5711/917.short&#34;&gt;paper&lt;/a&gt; in 2005 which show some Ortho- MeO-PBDEs has a nature source, our finding reveal that the metabolites of PBDEs may also have some features to show their sources. However, there are little works reporting the MeO-PBDEs as metabolites, so more proof is needed.&lt;/p&gt;
-
-&lt;p&gt;If you have questions about this paper, comment here and I will reply as soon as possible.&lt;/p&gt;
-</description>
+      <description>This is the first paper written by me which was just published on Environmental Science &amp;amp; Technology, pp 13494–13501, Volume 47, Issue 23, 2013. You could access the full text either by ACS&amp;rsquo;s website or just send Dr. Liu or me an email.
+This work focused on the metabolites of BDE-28 in plant. The main finding is that after the exposure, BDE-28 could be transformed to OH-diBDEs, OH-triBDEs and MeO-triBDEs. Without the standards of metabolites, the MeO-triBDEs were identified as para-MeO-triBDE by thumb rules.</description>
     </item>
     
   </channel>

@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Miao Yu | 于淼 </title>
-    <link>/tags/r/index.xml</link>
+    <link>/tags/r/</link>
     <description>Recent content in R on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Text mining for top academic journals</title>
@@ -14,98 +17,8 @@
       <pubDate>Fri, 07 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/en/2017/07/07/text-mining/</guid>
-      <description>&lt;p&gt;Text mining is often used to find spatiotemporal trends in news, government report and user generated contents in SNS websites. We could make sentiment analysis to find the real opinions of netizens. Also we could track the popularity of certain phases and find the connections among them. Such technique might also be useful for scientists or researchers to read papers.&lt;/p&gt;
-&lt;p&gt;Scientists or researchers’ daily life is immersed by a lot of literature. Most of the them are only focused on limited area in certain subjects. However, a modern scientist should always know what had happened in all of the other subjects. Some techniques used in other research might inspire your research. The only problem is that you need a lot time reading top general journals like Science, Nature and PNAS. Wait, we actually do not need to know the technique details and all we want to know is the patterns in those journals. Well, text mining would help.&lt;/p&gt;
-&lt;p&gt;The main advantage for text mining in academic journals is that academic papers always share same structures in one journals. Public academic databases such as PubMed or Google scholar could always show you the structured records for papers such as journal, authors, title, published dates and even abstracts. We could directly fetch those data and save in database. I developed scifetch package to get those data from PubMed. This package would support Google scholar, bing academic and baidu xueshu in the future. Actually I support PubMed in the first version because they have a user-friendly API and I could connect such pipe with xml2 package in a tidyverse way. Besides, easyPubMed package is also a good package to extract such data from PubMed.&lt;/p&gt;
-&lt;div id=&#34;data-collection&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Data collection&lt;/h2&gt;
-&lt;p&gt;Here I collected the information from all the papers published in SNP i.e. science, nature and PNAS in the past three years as xml format and clean them into a dataframe for further text mining. The search grammar could be find from &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/books/NBK3827/&#34;&gt;NCBI websites&lt;/a&gt; and a cheat sheet here.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;../../images/cheatsheetpubmed.png&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;There are 26559 papers and I will use such data for text mining. PubMed has a limitation for 10000 records per query. So we need to fetch the data multiple times.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 26,557 x 7
-##                          journal
-##                            &amp;lt;chr&amp;gt;
-##  1                        Nature
-##  2                        Nature
-##  3 Proc. Natl. Acad. Sci. U.S.A.
-##  4 Proc. Natl. Acad. Sci. U.S.A.
-##  5                       Science
-##  6                       Science
-##  7                       Science
-##  8                       Science
-##  9                       Science
-## 10                       Science
-## # ... with 26,547 more rows, and 6 more variables: title &amp;lt;chr&amp;gt;,
-## #   date &amp;lt;date&amp;gt;, abstract &amp;lt;chr&amp;gt;, line &amp;lt;int&amp;gt;, time &amp;lt;dttm&amp;gt;, month &amp;lt;date&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;description-statistics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Description statistics&lt;/h2&gt;
-&lt;p&gt;Firstly, let’s see the papers by journal:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/sum-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Then we could check the high frequency terms in the title and abstract of these papers.&lt;/p&gt;
-&lt;div id=&#34;title&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Title&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordtitle-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;As top journals, one of the most obvious features is that they all need correction and reply. With high influences, those journals would be the best place to discuss the leading edge techniques and findings. However, Science likes U.S., glance and paleoanthropology more while Nature and PNAS like tumor to be used in the titles.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;abstract&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Abstract&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordabs-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Well, when we focused on the abstracts, something interesting happens:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;They all focused on tumor while Nature use ‘tumour’ as a journal from U.K.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Nature’s title and abstracts look similar while Science’s title always use different terms compared with their abstracts. Maybe Science’s authors like to be clickbaits.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;PNAS’s authors use a lot of abbreviation in their abstracts.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Those top journals all like tumor, behavior and modeling and now you know how to pick up a topic to be published.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;temporal-trends&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Temporal trends&lt;/h2&gt;
-&lt;p&gt;Here we use logistic regression to examine whether the frequency of each word is increasing or decreasing over time. Every term will then have a growth rate associated with it.&lt;/p&gt;
-&lt;div id=&#34;title-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Title&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Here we could find some trending terms like CRISPR, gut, and corrigendum are ‘promising’. However, some topics like Ebola, Hiv and cell differentiation would leave us. Another interesting trending is that the names of certain subjects is disappearing in those top journals like biology, chemistry, neuroscience, ecology and policy. Maybe most titles would like to focus on specific topics or certain problems.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;abstract-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Abstract&lt;/h3&gt;
-&lt;p&gt;Now let’s review the temporal trends of terms in abstracts during the past three years by months.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;It’s hard to find a clear pattern in growing words in abstracts. Maybe the abstracts focused more on technique details. However, shrinking words like viral, gene expression and pathway showed clear trends. Meanwhile, we could find some words like suggests, previously and production are discarded by the top scientist.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;relationship-among-words&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Relationship among words&lt;/h2&gt;
-&lt;p&gt;N-gram analysis could be used to find a meaningful terms in those papers.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;../../images/biabs.png&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;Well, climate change, transcription factor, stem cell and cancer would always be the favorite bigrams in the titles of top journals. For the abstracts, cell related topics such as function, protein and expression are always preferred. Anyway, life science is always the center of trending sciences.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;topic-modeling&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Topic modeling&lt;/h2&gt;
-&lt;p&gt;Relationships among words could show us some trending. However, we could employ topic modeling to explore the topics as a bunch of words in the abstracts of those top journals.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../images/tm.png&#34; /&gt; This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;sentiment-analysis&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Sentiment analysis&lt;/h2&gt;
-&lt;p&gt;Text mining could also be used to find the sentiment behind those journal papers or the customs using certain words.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/SA-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Well, I think the afinn word list for sentiment analysis is not suitable for scientific literature. Some words is actually neutral in academic journals. If someone could develop a specific word list for scientists, we might find something ignored by the writing lessons on campus.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Here, I demo some basic text mining results for top academic journals. Just like Google trends might predict the popularity of flu, text mining for academic journal might be a good tool to reveal unknown patterns or trends in certain subjects or top journals. Besides, we could also find unique usages of some words and some tones behind the journal. Besides, such methods might work better than impact factor or H index as the evaluation tools for certain researcher, journal or institute in a dynamic view. The most attractive thing is that every scientist could use this tools through open databases and find their own answers. This is the best benefits from information era.&lt;/p&gt;
-&lt;p&gt;You might read this excellent on-line &lt;a href=&#34;http://tidytextmining.com/&#34;&gt;book&lt;/a&gt; and David Robinson’s &lt;a href=&#34;http://varianceexplained.org/&#34;&gt;blog&lt;/a&gt; to make more findings.&lt;/p&gt;
-&lt;p&gt;All the R code for this post could be found &lt;a href=&#34;https://github.com/yufree/yufree.cn/blob/master/content/en/2017-07-07-text-mining-for-trends-in-top-journal.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>Text mining is often used to find spatiotemporal trends in news, government report and user generated contents in SNS websites. We could make sentiment analysis to find the real opinions of netizens. Also we could track the popularity of certain phases and find the connections among them. Such technique might also be useful for scientists or researchers to read papers.
+Scientists or researchers’ daily life is immersed by a lot of literature.</description>
     </item>
     
     <item>
@@ -114,57 +27,7 @@
       <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
       
       <guid>/en/2014/07/21/rmd-to-pdf/</guid>
-      <description>
-
-&lt;p&gt;New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature &lt;code&gt;fig.showtext&lt;/code&gt; which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts and find the only way might be using the Rnw to write plain tex document. But I just want to use Rmd!&lt;/p&gt;
-
-&lt;p&gt;Then I review the PDF generation process and find the key is the md to tex. Rmarkdown use pandoc as the converter and pandoc just use some template. If we want to show Chinese, we need to hack the template and add the support of Chinese. Just go the &amp;ldquo;R/i686-pc-linux-gnu-library/3.1/rmarkdown/rmd/latex&amp;rdquo; where is the template located and add \usepackage{xeCJK}  and \setCJKmainfont{youfont}  before \begin{document}. Youfont stand for the character font installed in your computer which is used to show in the PDF. Remember to use xetex to process the tex or you may try CJK solution. OK, save the hack and now we could use Chinese both in the main text and the plot. More information could be found &lt;a href=&#34;https://github.com/yihui/knitr/issues/799&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The same way could be applied for Japanese and Korean. Just add the package support for your language.&lt;/p&gt;
-
-&lt;h1 id=&#34;update-20140722&#34;&gt;update 20140722&lt;/h1&gt;
-
-&lt;p&gt;@Yixuan write a &lt;a href=&#34;http://statr.me/2014/07/showtext-with-knitr/&#34;&gt;post&lt;/a&gt; on the usage of showtext package in knitr. Also @Yihui showed adding the packages in the header.tex and modified the yaml of the Rmd as the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-output:
-  pdf_document:
-    includes:
-      in_header: header.tex
----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;will also solve the font problems. You may also use the tex code in the Rmd and pandoc will complie the code like in the Rnw. Thanks a lot, @Yihui and @Yixuan!&lt;/p&gt;
-
-&lt;h1 id=&#34;update-20150119&#34;&gt;update 20150119&lt;/h1&gt;
-
-&lt;p&gt;Chinese issue has been solved by the ctex templete in rticles package(on CRAN now). You might just use the following code to install the package.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# install pandoc first
-install.packages(c(&#39;rmarkdown&#39;,&#39;rticles&#39;))
-rmarkdown::draft(&amp;quot;MyCtexArticle.Rmd&amp;quot;, template = &amp;quot;ctex&amp;quot;, package = &amp;quot;rticles&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;updata-20160919&#34;&gt;updata 20160919&lt;/h1&gt;
-
-&lt;p&gt;Aftet the update of ctex, use yaml as shown in this &lt;a href=&#34;http://yufree.cn/blog/2016/09/19/beamer-in-chinese.html&#34;&gt;post&lt;/a&gt; would directly show the Chinese/Japanese/Korean:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-title: &amp;quot;中文／にほんご／韓國語&amp;quot;
-author: &amp;quot;Yufree&amp;quot;
-date: &amp;quot;2016年9月19日&amp;quot;
-header-includes:
-  - \usepackage{ctex}
-output: 
-  pdf_document:
-    latex_engine: xelatex
----
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;if you preferred xeCJK package to handle this issue, use CJKmainfont: [fontname] in yaml at the top level to set your font.&lt;/p&gt;
-
-&lt;p&gt;You might find Rmd templates for Chinese/Janpanese/Korean &lt;a href=&#34;https://github.com/yufree/democode/tree/master/cjk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature fig.showtext which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts</description>
     </item>
     
     <item>
@@ -173,90 +36,7 @@ output:
       <pubDate>Fri, 30 May 2014 00:00:00 +0000</pubDate>
       
       <guid>/en/2014/05/30/qspr-rcdk/</guid>
-      <description>&lt;p&gt;&lt;code&gt;R&lt;/code&gt; is a handy tool for modeling, so there must be some packages for Quantitative structure–activity relationship(QSPR) in Chemistry. Recently I wanted to summarize some papers for a presentation, then I found rcdk package, which is a useful tool for QSPR. However, little posts about this topic for beginner. As an absolutely beginner, I make this post as a note for the whole process and add comments for someone else to reproduce a QSPR model by their own.&lt;/p&gt;
-&lt;p&gt;First,you need the following knowledge:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Chemistry Development Kit(CDK) is powerful, we will use their function to read in the molecular and calculate some descriptor via &lt;code&gt;rcdk&lt;/code&gt; package and no need to install CDK and their function has been included in the package&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Just &lt;code&gt;install.packages(c(&#39;rJava&#39;,&#39;rcdk&#39;))&lt;/code&gt; is enough for a R user&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Copy the smiles files or the sdf files to your work directory or just use a demo data &lt;code&gt;bpdata&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Then we begin&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;library(rcdk)
-data(bpdata)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The first column is the SMILES vector of the molecular structures so we use parse.smiles to read it&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mols &amp;lt;- parse.smiles(bpdata[, 1])&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So rcdk will convert the smiles into a java object this object could be used to get the milecular descriptor. Also you need to know the class of mols is a list. rcdk has five ctegories of descriptor we think the topological descriptor may relate to the Boiling Point in this tests.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;desc.names &amp;lt;- get.desc.names(&amp;quot;topological&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then we get the names of those topological descriptors.Up to now, we know the structures and the descriptors’ name. Then we will get the descriptors.&lt;/p&gt;
-&lt;p&gt;For the list we need to use lapply or sapply to apply the descriptors caculator function with the descriptors’ name in the desc.names.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;data &amp;lt;- lapply(mols, eval.desc, desc.names)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is also a list so we need to unlist and make a dataframe for QSPR model. Also we need to give the column a name.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;df &amp;lt;- data.frame(matrix(unlist(data), nrow = 277, byrow = T))
-colnames(df) &amp;lt;- colnames(data[[1]])&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We need to remove some desciptors unchanged&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;df2 &amp;lt;- df[, which(!apply(df, 2, sd) == 0)]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;OK, here we get a data frame contained the descriptors we needed. Then we will use those &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; to make a &lt;span class=&#34;math inline&#34;&gt;\(f(X) = Y\)&lt;/span&gt;, which is a QSPR model.&lt;/p&gt;
-&lt;p&gt;Define the response&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Y &amp;lt;- bpdata[, 2]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Get a train set and a test set&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;train &amp;lt;- sample(1:277, 200)
-traindataX &amp;lt;- df2[train, ]
-traindataY &amp;lt;- Y[train]
-testdataX &amp;lt;- df2[-train, ]
-testdataY &amp;lt;- Y[-train]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Build a regression model with the leaps packages&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;library(&amp;quot;leaps&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Define a function to predict the test data&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;predict.regsubsets = function(object, newdata, id, ...) {
-form = as.formula(~.)
-mat = model.matrix(form, newdata)
-coefi = coef(object, id)
-xvars = names(coefi)
-mat[, xvars] %*% coefi}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A 5-fold cross-validation&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;k = 5
-folds = sample(1:k, nrow(traindataX), replace = TRUE)
-cv.errors = matrix(NA, k, 50, dimnames = list(NULL, paste(1:50)))
-
-for (j in 1:k) {
-best.fit = regsubsets(y = traindataY[folds != j],
-                      x = traindataX[folds != j, ],
-                      nvmax = 50, 
-                      really.big = T, 
-                      method = &amp;quot;forward&amp;quot;)
-                      for (i in 1:50) {pred = predict.regsubsets(best.fit, traindataX[folds == j, ], id = i);
-                                      cv.errors[j, i] = mean((traindataY[folds == j] - pred)^2)
-                                      }
-                }
-mean.cv.errors = apply(cv.errors, 2, mean)
-which.min(mean.cv.errors)
-
-#38
-
-reg.fwd = regsubsets(x = traindataX,
-                     y = traindataY,
-                     nvmax = 44, 
-                     really.big = T, 
-                     method = &amp;quot;forward&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We got a model with many variables on the train dataset, and now we could see the results on the test dataset.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;val.errors &amp;lt;- rep(NA, 50)
-for (i in 1:50) {
-        pred = predict.regsubsets(reg.fwd, testdataX, id = i)
-        val.errors[i] = mean((testdataY - pred)^2)
-        }
-which.min(val.errors)
-#41&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So if you want to see the names of selected variables for prediction the selected QSPR model, you may use &lt;code&gt;coef&lt;/code&gt; to get what you want. For example, we show the coef of the selected 15 variables models by the following code.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;coef(reg.fwd, 15)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(Intercept) khs.dCH2 khs.sOH khs.dO HybRatio VP.2&lt;/p&gt;
-&lt;p&gt;310.981 -69.776 70.007 38.068 -61.738 58.648&lt;/p&gt;
-&lt;p&gt;SPC.4 SPC.6 SC.4 VC.3 ATSm5 ATSc2&lt;/p&gt;
-&lt;p&gt;-4.957 -3.223 -75.819 -42.528 1.890 35.852&lt;/p&gt;
-&lt;p&gt;ATSc4 khs.aaS khs.sI C4SP3&lt;/p&gt;
-&lt;p&gt;31.831 0.000 -8.693 10.937&lt;/p&gt;
-&lt;p&gt;From the results I find the topological descriptors might be not good for the prediction for that no clear overfit were found in train and test dataset.&lt;/p&gt;
-&lt;p&gt;OK, this is the whole process for using rcdk package for QSPR. Just modify the input, you will get what you want.&lt;/p&gt;
-</description>
+      <description>R is a handy tool for modeling, so there must be some packages for Quantitative structure–activity relationship(QSPR) in Chemistry. Recently I wanted to summarize some papers for a presentation, then I found rcdk package, which is a useful tool for QSPR. However, little posts about this topic for beginner. As an absolutely beginner, I make this post as a note for the whole process and add comments for someone else to reproduce a QSPR model by their own.</description>
     </item>
     
     <item>
@@ -265,72 +45,9 @@ which.min(val.errors)
       <pubDate>Sun, 23 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>/en/2014/03/23/intro-of-shiny/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;If you are a starter of shiny as me, this post may help your know some principle of shiny.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;what-is-shiny&#34;&gt;What is shiny?&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;R based&lt;/li&gt;
-&lt;li&gt;View as webpage hosted on servers&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;give a request, show the result&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;backgroud-needed&#34;&gt;Backgroud needed&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Almost R only&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;why-shiny&#34;&gt;Why shiny?&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Entirely extensible&lt;/li&gt;
-&lt;li&gt;Display your data in an interactive way&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;how-shiny-works&#34;&gt;How shiny works?&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Reactive Programming&lt;/p&gt;
-
-&lt;p&gt;When the input changes, the R code will run again to get a refresh. Shiny makes the connections among R, input and the the output on your screen by some communication tags. So you can just focused on R code and let shiny do the other things.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;server.R&lt;/p&gt;
-
-&lt;p&gt;You need write your R code here to tell shiny run what when the inputs change. The R code need a input and output values.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ui.R&lt;/p&gt;
-
-&lt;p&gt;You need tell the app user where is the input/output box, which values of the input should be transfer to R code and which values of the output should be display on the webpage. You can also custome your UI of app here if you have writen some basic html pages.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Render function in server.R&lt;/p&gt;
-
-&lt;p&gt;Tell shiny the output values used in the app&amp;rsquo;s webpage. This function need to be re-ran when the input changes, so the render function must be assighed to a output values while contains the input values.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;RUN&lt;/p&gt;
-
-&lt;p&gt;When you finish your server.R and ui.R, just &lt;code&gt;runApp()&lt;/code&gt; and you will get the great webpage.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;how-to-share-your-apps&#34;&gt;How to share your apps?&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Push your shiny code on the github or make a zip file, the user can run it locally use the &lt;code&gt;runUrl&lt;/code&gt;,&lt;code&gt;runGitHub&lt;/code&gt; or &lt;code&gt;runGist&lt;/code&gt; in the shiny package.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;You can also build up a server with www connection and put your app there.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;learn-more&#34;&gt;Learn more?&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.rstudio.com/shiny/lessons/Intro/&#34;&gt;Lessons&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rstudio.github.io/shiny/tutorial/&#34;&gt;Tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>If you are a starter of shiny as me, this post may help your know some principle of shiny.
+ What is shiny?  R based View as webpage hosted on servers give a request, show the result  Backgroud needed  Almost R only  Why shiny?  Entirely extensible Display your data in an interactive way  How shiny works?  Reactive Programming
+When the input changes, the R code will run again to get a refresh.</description>
     </item>
     
     <item>
@@ -339,40 +56,8 @@ which.min(val.errors)
       <pubDate>Thu, 15 Aug 2013 00:00:00 +0000</pubDate>
       
       <guid>/en/2013/08/15/boxplot-vs-violinplot/</guid>
-      <description>&lt;p&gt;In a seminar I introduced the violin plot and showed the following figure(this example comes from the help document):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;library(vioplot)
-library(sm)
-par(mfrow = c(1, 2))
-mu &amp;lt;- 2
-si &amp;lt;- 0.6
-bimodal &amp;lt;- c(rnorm(1000, -mu, si), rnorm(1000, mu, si))
-uniform &amp;lt;- runif(1000, -4, 4)
-normal &amp;lt;- rnorm(2000, 0, 3)
-vioplot(bimodal, uniform, normal)
-boxplot(bimodal, uniform, normal)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://yufree.github.io/blogcn/figure/vs.png&#34; alt=&#34;plot of chunk vs&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So obviously, the violin plot can show more information than box plot. When we perform an exploratory analysis, nothing about the samples could be known. So the distribution of the samples can not be assumed to a normal distribution and usually when you get a big data, the normal distribution will show some out liars in box plot. Referring to the paper by Hintze, J. L. and R. D. Nelson (1998), the violin plot combines the box plot and the density trace, so it seems that the box plot may give the place to the violin plot and I said this in the seminar from a viewpoint of environmental science. But after the seminar, I really doubt that no environmental scientists use this plot. Of course, the violin plot is young comparing with the box plot introduced by Tukey(1977), but there also exist some reasons which stop the spread of violin plot. Here I list it as follows:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;the violin plot can&amp;rsquo;t show a better curve with small samples. In Hintze&amp;rsquo;s paper, he thought a smooth curve with at least 30 observations. But the box plot may stand for a smaller observations. Also the bandwidth need to be chosed carefully.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;the modification box plot could show the number of observations in the groups using the var width while the violin plot couldn&amp;rsquo;t. When we make some comparison between different groups, the violin plot will hide this information.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Another problem is the notch in the box plot to compare the median. In the violin plot, we get a better understanding of distribution of violin plot but less with comparisone with &amp;lsquo;strong evidence&amp;rsquo;(Chambers et al., 1983, p. 62).&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Those were nitpick reasons but I think if someone just want to show the violin plot instead of box plot, he need to know the details. Nowadays, it is easy to use new concepts to confusing the readers, we need more thoughts about the nature. Here is a example: there are numbers people who thought the box plot show the mean&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Further Reading&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Violin_plot&#34;&gt;Wiki pedia&lt;/a&gt;: you need to read the further readings and the references to know more details about violin plot. I recommend ggplot2 to show the violin plot, it is beautiful anyway.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>In a seminar I introduced the violin plot and showed the following figure(this example comes from the help document):
+library(vioplot) library(sm) par(mfrow = c(1, 2)) mu &amp;lt;- 2 si &amp;lt;- 0.6 bimodal &amp;lt;- c(rnorm(1000, -mu, si), rnorm(1000, mu, si)) uniform &amp;lt;- runif(1000, -4, 4) normal &amp;lt;- rnorm(2000, 0, 3) vioplot(bimodal, uniform, normal) boxplot(bimodal, uniform, normal)  So obviously, the violin plot can show more information than box plot. When we perform an exploratory analysis, nothing about the samples could be known.</description>
     </item>
     
   </channel>

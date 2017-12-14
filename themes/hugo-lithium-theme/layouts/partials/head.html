@@ -7,7 +7,7 @@
 <meta property="og:title" content="{{ .Site.Title }}">
 <meta property="og:type" content="website">
 {{ else }}
-<title>{{ .Title }} - {{ .Site.Title }}</title>
+<title>{{ .Title }}{{ with .Params.subtitle }} - {{ . }} {{ end }} - {{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
 {{ end }}
 
@@ -24,12 +24,12 @@
 {{ end }}
 
 {{ if .RSSLink }}
-<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+<link href="{{ .RSSLink | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{ end }}
 {{ partial "head_highlightjs" . }}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/fonts.css" media="all">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" media="all">
+<link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}" media="all">
 {{ range .Site.Params.customCSS }}
-<link rel="stylesheet" href="{{ . | absURL }}">
+<link rel="stylesheet" href="{{ . | relURL }}">
 {{ end }}
 {{ partial "head_custom" . }}

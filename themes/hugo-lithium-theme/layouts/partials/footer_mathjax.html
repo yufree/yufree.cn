@@ -1,12 +1,4 @@
-{{ if and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$$")) }}
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-  }
-});
-</script>
-<script async type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+{{ if and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$")) }}
+<script src="{{ "/js/math-code.js" | relURL }}"></script>
+<script async src="{{ .Site.Params.MathJaxCDN | default "//cdn.bootcss.com" }}/mathjax/{{ .Site.Params.MathJaxVersion | default "2.7.1" }}/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 {{ end }}

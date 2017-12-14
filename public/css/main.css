@@ -36,9 +36,10 @@ a:hover
     color:#c8d0d3;
 }
 
-code {
-  background-color: rgba(0, 0, 0, 0.02);
+code .MathJax {
+  background-color: white;
 }
+
 .wrapper {
   overflow: hidden;
   position: relative;

@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>三十而立</title>
+      <link>/cn/2017/12/31/30/</link>
+      <pubDate>Sun, 31 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2017/12/31/30/</guid>
+      <description>从今年开始我进入奔四模式，因为本来记性就不好，写日记没耐性，周记太琐碎，月记性别不符，季记容易忘，所以就来写个年记吧。 学习方面按说拿了博士学</description>
+    </item>
+    
+    <item>
+      <title>学术期刊</title>
+      <link>/post/journal/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/journal/</guid>
+      <description>bookdown 主页 主页所有内容都用 rmarkdown::render_site 来生成确实需要不断维护。blogdown 的话谢大的意思是不是单独为这个主页做一个 repo 然后把输出的网站文件夹 push 到这个文件</description>
+    </item>
+    
+    <item>
       <title>Follow-up based open source journal</title>
       <link>/en/2017/12/17/blockchain-based-journal/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>

@@ -42,4 +42,12 @@ slug: "cn/about"
 
 - [英文版](http://yufree.cn/en/): 跟中文版区别很大
 
-- [气宇轩](http://blog.sciencenet.cn/u/yufree): 科学网博客 
+- [气宇轩](http://blog.sciencenet.cn/u/yufree): 科学网博客
+
+## 寻人诀
+
+- [约时间](https://doodle.com/yufree)
+
+- [约视频](https://appear.in/yufree)
+
+- [Slack群组](https://join.slack.com/t/yufree/shared_invite/enQtMjk0NjcyNjQ3MDc0LTMxY2ZjZGQ1ZDA0N2EyYTExYTg5ODEwNWRlNTJmNzUwMTA4ODBlYjQzNzFiY2U3OTJjMWUyODIwMGI1MWMzNDY)

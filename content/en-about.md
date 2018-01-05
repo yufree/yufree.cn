@@ -33,3 +33,9 @@ Here is some links related to this website:
 - [Twitter](https://twitter.com/yu_free): My twitter
 
 - [Facebook](https://www.facebook.com/yufreecas): My Facebook
+
+- [Doodle](https://doodle.com/yufree)
+
+- [Vedio](https://appear.in/yufree)
+
+- [Slack](https://join.slack.com/t/yufree/shared_invite/enQtMjk0NjcyNjQ3MDc0LTMxY2ZjZGQ1ZDA0N2EyYTExYTg5ODEwNWRlNTJmNzUwMTA4ODBlYjQzNzFiY2U3OTJjMWUyODIwMGI1MWMzNDY)

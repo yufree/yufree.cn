@@ -6,10 +6,19 @@
     <description>Recent content in R on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DOI 年代的参考文献</title>
+      <link>/cn/2018/01/11/doi/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2018/01/11/doi/</guid>
+      <description>现在的研究人员其实大部分时间都浪费在了研究完全不沾边的事，例如论文排版，而论文排版中的大部分时间其实是花费在了按照期刊要求改格式。我个人有个</description>
+    </item>
     
     <item>
       <title>Text mining for top academic journals</title>

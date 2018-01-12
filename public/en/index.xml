@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Get rid of bibliography with R</title>
+      <link>/en/2018/01/12/get-rid-of-bibliography/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2018/01/12/get-rid-of-bibliography/</guid>
+      <description>Change citation and bibliography format for papers are somewhat waste of time when we are not really care about the contents about how to order the authors, journal and issues. To be honest, with the popularity of HTML support on most of the journal, citation in the paper could always be linked to the original webpage via DOI. In those cases, extra bibliography just make the papers longer and require extra efforts to covert the items of interests into the original paper webpages.</description>
+    </item>
+    
+    <item>
       <title>Follow-up based open source journal</title>
       <link>/en/2017/12/17/blockchain-based-journal/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>

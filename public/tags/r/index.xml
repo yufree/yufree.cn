@@ -6,10 +6,19 @@
     <description>Recent content in R on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Get rid of bibliography with R</title>
+      <link>/en/2018/01/12/get-rid-of-bibliography/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/en/2018/01/12/get-rid-of-bibliography/</guid>
+      <description>Change citation and bibliography format for papers are somewhat waste of time when we are not really care about the contents about how to order the authors, journal and issues. To be honest, with the popularity of HTML support on most of the journal, citation in the paper could always be linked to the original webpage via DOI. In those cases, extra bibliography just make the papers longer and require extra efforts to covert the items of interests into the original paper webpages.</description>
+    </item>
     
     <item>
       <title>DOI 年代的参考文献</title>

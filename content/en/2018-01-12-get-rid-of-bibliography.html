@@ -1,0 +1,59 @@
+---
+title: Get rid of bibliography with R
+author: ''
+date: '2018-01-12'
+slug: get-rid-of-bibliography
+categories: []
+tags: [r]
+---
+
+
+
+<p>Change citation and bibliography format for papers are somewhat waste of time when we are not really care about the contents about how to order the authors, journal and issues. To be honest, with the popularity of HTML support on most of the journal, citation in the paper could always be linked to the original webpage via DOI. In those cases, extra bibliography just make the papers longer and require extra efforts to covert the items of interests into the original paper webpages.</p>
+<p>Another issue is the authors might need to learn zotero, endnote or mendeley to format the papers. For Tex user, BibTeX should be learned. We need to learn the differences between citation key, citation format and bibliography to make it work. Yes, make those concepts clear would help us to collaborate with the journal easier. However, we actually make such thing much simpler.</p>
+<div id="goal" class="section level2">
+<h2>Goal</h2>
+<p>When you write the paper, JUST need to know the DOI of the paper needed to be cited. Put the DOI in the right place and that’s it. All the other things should be handled by a small script.</p>
+</div>
+<div id="method" class="section level2">
+<h2>Method</h2>
+<p>Firstly, I need a fast copy support for literature management software such as Zotero. All I need to do is the creation of a <a href="http://citationstyles.org/">CSL files</a> with citation format as DOI. Furthermore, make the DOI into a HTTP link. Here is <a href="https://github.com/yufree/democode/blob/master/doi/doi.csl">it</a>. Such CSL could output a bibliography with DOI links only and you could always use the links to find the original papers.</p>
+<p>For zotero, download or copy&amp;save this CSL file and then install this file according to the following two screenshot:</p>
+<div class="figure">
+<img src="\images\doi1.png" />
+
+</div>
+<div class="figure">
+<img src="\images\doi2.png" />
+
+</div>
+<p>Then you could directly drag your items( hold the shift to use citation instead of bibliography) in the local library to any text editor. Of course you need to ensure your literature information contain a DOI. In this step, your manuscript would contain the DOI links to the cited papers. I think we could stop here while you might not like it since the bibliography are still needed for the print version of your paper.</p>
+<p>OK. The following step is to process the text file with DOI and output a text file with bibliography. Here is the script:</p>
+<pre class="r"><code>library(&#39;stringr&#39;)
+library(&#39;readr&#39;)
+library(&#39;rcrossref&#39;)
+
+doiref &lt;- function(path, style = &#39;apa&#39;){
+  mystring &lt;- readr::read_file(path)
+  doi &lt;- unlist(stringr::str_extract_all(mystring, , &quot;\\b10\\.(\\d+\\.*)+[\\/](([^\\s\\.])+\\.*)+\\b&quot;))
+  doi &lt;- unique(doi)
+  ref &lt;- vector()
+  for (i in 1:length(doi)){
+        temp &lt;- try(rcrossref::cr_cn(dois = doi[i], format = &quot;text&quot;, style = style), T)
+        ref &lt;- c(ref,temp)
+  }
+  readr::write_lines(ref, path = &#39;bibliography.txt&#39;)
+  return(ref)
+}</code></pre>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>Also I prepared a test files <a href="https://github.com/yufree/democode/blob/master/doi/test.txt">here</a> and the output should be <a href="https://github.com/yufree/democode/blob/master/doi/bibliography.txt">this</a>. The usage is:</p>
+<pre class="r"><code>library(&#39;stringr&#39;)
+library(&#39;readr&#39;)
+library(&#39;rcrossref&#39;)
+doiref(path = &#39;you/text/file/path&#39;, style = &#39;journal/you/like&#39;)</code></pre>
+<p>You might find a file with name ‘bibliography.txt’ under your workdir. Just change the style for specific journal you like anytime you REALLY need such bibliography. Here is the name <a href="https://www.zotero.org/styles">list</a> you might need to search.</p>
+<p>In general, such script should work under any kind of pure text file format such as md, Rmd, tex, and so on. DOI would relax you from different markup languages and focused on the contents only no matter which software you used. Hopefully, such feature could be finally accepted by the journals. We might reduce quite a lot of efforts on bibliography and enjoy a green life.</p>
+<p>When we have the links online, why we still need that shortcut references lines in a modern WWW world?</p>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading on Miao Yu | 于淼 </title>
+    <link>/tags/reading/</link>
+    <description>Recent content in Reading on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/reading/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>作为世界观的统计学</title>
+      <link>/cn/2018/01/12/statistic-view/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/cn/2018/01/12/statistic-view/</guid>
+      <description>去年啃了《The Seven Pillars of Statistical Wisdom》，我一直很喜欢这种能够告诉你来龙去脉的书。很多事很多人在做也知道怎么做能做好，这是工程师思维。但只有知</description>
+    </item>
+    
+  </channel>
+</rss>

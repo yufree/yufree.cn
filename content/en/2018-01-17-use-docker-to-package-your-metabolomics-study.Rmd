@@ -44,3 +44,5 @@ Three major reasons to use docker for metabolomics are:
 In the most updated image, you could find the packages powered by xcms or apLCMS workflow or metaboanalystR which behind the metaboanalyst server. Such image might help you to get the data analysis tools I used in half an hour and deploy it on your computer. Then you might only need to copy and paste to run your metabolomics data in a Rstudio server.
 
 Hopefully, we could share such image for research to reduce the time and pain on reproduce the same data analysis environment in the near future.
+
+If you want to learn more about R based docker, check this [tutorial](http://ropenscilabs.github.io/r-docker-tutorial/) from [rOpenSci](https://ropensci.org).

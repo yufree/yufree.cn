@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.31.1" />
+
+
+<title>Use docker to package your metabolomics study - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Use docker to package your metabolomics study - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../../" class="nav-logo">
+    <img src="../../../../../images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="../../../../../"> Home </a></li>
+    
+    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    
+    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    
+    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="../../../../../metaworkflow/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Use docker to package your metabolomics study
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2018/01/17</span>
+  <span class="article-toolbar">
+    
+    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Use&#43;docker&#43;to&#43;package&#43;your&#43;metabolomics&#43;study&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F01%2F17%2Fuse-docker-to-package-your-metabolomics-study%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Use&#43;docker&#43;to&#43;package&#43;your&#43;metabolomics&#43;study&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F01%2F17%2Fuse-docker-to-package-your-metabolomics-study%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2018-01-17-use-docker-to-package-your-metabolomics-study.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>One of the most annoying thing during data analysis is that the technique barrier between the authors and the users. For example, you could share your raw data, script and reports online while other people just can’t reproduce your results. Actually, the development environment matters.</p>
+<p>If you have developed some software, you must know that we just can’t build an application from the very beginning and dependencies are always needed. Some of them could be distributed with the system software, while the others must be installed yourself. In Windows, you should see some dll files missing in some cases. In UNIX-like system, some missing packages are always handled by <code>apt-get</code> or <code>yum</code>.</p>
+<p>When you use high level languish like R, the R packages could be handled by <code>install.packages</code>. For R packages, <a href="http://rstudio.github.io/packrat/?version=1.1.383&amp;mode=desktop">packrat</a> package could be used to build a isolated dependency management system. However, some R packages need other system level packages to run. For example, <code>netcdf</code> is needed to import cdf files for <code>mzR</code> packages in metabolomics studies. However, if you don’t know this package should be installed outside R, you might blame the package and turn to GUI software, which is hard to be reproduced by other people.</p>
+<p>In fact, when you want to reproduce others’ data analysis, such development environment should be kept constant. Otherwise, it’s hard to know the origin of reproducible issues: the analysis itself or other hidden technique differences. Also, by comparing the differences in the results among different developed environment, we could know the influences of developed environments.</p>
+<p><a href="https://www.docker.com/">Docker</a> could make such analysis work. They could pack all the developed environments in a minimized size and make the analysis shaerable as a whole. If you are familiar with online consistent integration tools like <a href="https://travis-ci.org/">Travis-CI</a> or <a href="https://circleci.com/">CircleCI</a> to test your software, you might find they actually install a mini OS to trigger the test.</p>
+<p>In Docker, you could get such environmental directly and distribute them as a image. Such image could be installed in any computer and furthermore on cloud. You could just rent a cloud server to make data analysis and the annoying OS installation could be replaced by a docker image with everything done. The major difference between docker container and virtual machine image is that docker image do not rely on a guest OS, which reduce the resources for extra useless software. More technique details could be found on their official websites.</p>
+<p>I am always not the first one to find the potential of such tools. Biocuductor has built such Docker for certain types of the data analysis <a href="https://www.bioconductor.org/help/docker/">here</a>. Carl Boettiger and Dirk Eddelbuettel wrote a nice <a href="https://arxiv.org/abs/1710.03675">piece</a> on arXiv to introduce Rocker for R developer. My idea is that the combination of those ideas.</p>
+<p>For the metabolomics images on Bioconductor, only packages hosted on Bioconductor were contained. Some packages for metabolomics data analysis are not released on CRAN or Bioconductor while got published as part of the papers. I actually collected them on github. Another trends is that tidyverse data analysis is really popular and the metabolomics images should start in a tidyverse way. Thus I started to build my docker images for metabolomics studies <a href="https://github.com/yufree/xcmsrocker">here</a>. Now you could use the following command to get my data analysis environment after you <a href="https://www.docker.com/docker-mac">install</a> the docker:</p>
+<blockquote>
+<p>docker pull yufree/xcmsrocker:latest</p>
+</blockquote>
+<p>Then all you need to do is run this command:</p>
+<blockquote>
+<p>docker run –rm -p 8787:8787 yufree/xcmsrocker</p>
+</blockquote>
+<p>And open your favourite browser open <a href="http://localhost:8787" class="uri">http://localhost:8787</a> to start your data analysis. The default user and password are both rstudio.</p>
+<p>Three major reasons to use docker for metabolomics are:</p>
+<ul>
+<li><p>Everyone could reproduce your results in exactly the same development environment you find the reported results</p></li>
+<li><p>You could write your papers in Rtsudio with the help of <code>rticles</code> packages. The journal templates for American Chemistry Society are added by me (you could always send me the feedback when you are in trouble) and you could write your paper in Rmarkdown way which could also be associated with the data. Such docker with your paper manuscripts and raw data is much easy for reviewers or readers to follow your idea</p></li>
+<li><p>The total size of the Docker is merely 1G including a tiny LaTex distribution TinyTex provided by <a href="https://yihui.name">Yihui Xie</a>. You could make it portable on Dropbox or directly pull the image from the <a href="https://hub.docker.com/">Docker Hub</a> anytime you wanted. In fact, they also support <a href="https://docs.docker.com/engine/swarm/">swarm mode</a></p></li>
+</ul>
+<p>In the most updated image, you could find the packages powered by xcms or apLCMS workflow or metaboanalystR which behind the metaboanalyst server. Such image might help you to get the data analysis tools I used in half an hour and deploy it on your computer. Then you might only need to copy and paste to run your metabolomics data in a Rstudio server.</p>
+<p>Hopefully, we could share such image for research to reduce the time and pain on reproduce the same data analysis environment in the near future.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="../../../../../en/2018/01/12/get-rid-of-bibliography/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Get rid of bibliography with R</div>
+    </a>
+    
+
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/en\/2018\/01\/12\/get-rid-of-bibliography\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  (function() {
+   var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2018</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="../../../../../js/center-img.js"></script>
+    
+    <script async src="../../../../../js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43118729-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

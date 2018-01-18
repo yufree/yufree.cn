@@ -1,0 +1,37 @@
+---
+title: Use docker to package your metabolomics study
+author: ''
+date: '2018-01-17'
+slug: use-docker-to-package-your-metabolomics-study
+categories: []
+tags:
+  - R
+  - metabolomics
+---
+
+
+
+<p>One of the most annoying thing during data analysis is that the technique barrier between the authors and the users. For example, you could share your raw data, script and reports online while other people just can’t reproduce your results. Actually, the development environment matters.</p>
+<p>If you have developed some software, you must know that we just can’t build an application from the very beginning and dependencies are always needed. Some of them could be distributed with the system software, while the others must be installed yourself. In Windows, you should see some dll files missing in some cases. In UNIX-like system, some missing packages are always handled by <code>apt-get</code> or <code>yum</code>.</p>
+<p>When you use high level languish like R, the R packages could be handled by <code>install.packages</code>. For R packages, <a href="http://rstudio.github.io/packrat/?version=1.1.383&amp;mode=desktop">packrat</a> package could be used to build a isolated dependency management system. However, some R packages need other system level packages to run. For example, <code>netcdf</code> is needed to import cdf files for <code>mzR</code> packages in metabolomics studies. However, if you don’t know this package should be installed outside R, you might blame the package and turn to GUI software, which is hard to be reproduced by other people.</p>
+<p>In fact, when you want to reproduce others’ data analysis, such development environment should be kept constant. Otherwise, it’s hard to know the origin of reproducible issues: the analysis itself or other hidden technique differences. Also, by comparing the differences in the results among different developed environment, we could know the influences of developed environments.</p>
+<p><a href="https://www.docker.com/">Docker</a> could make such analysis work. They could pack all the developed environments in a minimized size and make the analysis shaerable as a whole. If you are familiar with online consistent integration tools like <a href="https://travis-ci.org/">Travis-CI</a> or <a href="https://circleci.com/">CircleCI</a> to test your software, you might find they actually install a mini OS to trigger the test.</p>
+<p>In Docker, you could get such environmental directly and distribute them as a image. Such image could be installed in any computer and furthermore on cloud. You could just rent a cloud server to make data analysis and the annoying OS installation could be replaced by a docker image with everything done. The major difference between docker container and virtual machine image is that docker image do not rely on a guest OS, which reduce the resources for extra useless software. More technique details could be found on their official websites.</p>
+<p>I am always not the first one to find the potential of such tools. Biocuductor has built such Docker for certain types of the data analysis <a href="https://www.bioconductor.org/help/docker/">here</a>. Carl Boettiger and Dirk Eddelbuettel wrote a nice <a href="https://arxiv.org/abs/1710.03675">piece</a> on arXiv to introduce Rocker for R developer. My idea is that the combination of those ideas.</p>
+<p>For the metabolomics images on Bioconductor, only packages hosted on Bioconductor were contained. Some packages for metabolomics data analysis are not released on CRAN or Bioconductor while got published as part of the papers. I actually collected them on github. Another trends is that tidyverse data analysis is really popular and the metabolomics images should start in a tidyverse way. Thus I started to build my docker images for metabolomics studies <a href="https://github.com/yufree/xcmsrocker">here</a>. Now you could use the following command to get my data analysis environment after you <a href="https://www.docker.com/docker-mac">install</a> the docker:</p>
+<blockquote>
+<p>docker pull yufree/xcmsrocker:latest</p>
+</blockquote>
+<p>Then all you need to do is run this command:</p>
+<blockquote>
+<p>docker run –rm -p 8787:8787 yufree/xcmsrocker</p>
+</blockquote>
+<p>And open your favourite browser open <a href="http://localhost:8787" class="uri">http://localhost:8787</a> to start your data analysis. The default user and password are both rstudio.</p>
+<p>Three major reasons to use docker for metabolomics are:</p>
+<ul>
+<li><p>Everyone could reproduce your results in exactly the same development environment you find the reported results</p></li>
+<li><p>You could write your papers in Rtsudio with the help of <code>rticles</code> packages. The journal templates for American Chemistry Society are added by me (you could always send me the feedback when you are in trouble) and you could write your paper in Rmarkdown way which could also be associated with the data. Such docker with your paper manuscripts and raw data is much easy for reviewers or readers to follow your idea</p></li>
+<li><p>The total size of the Docker is merely 1G including a tiny LaTex distribution TinyTex provided by <a href="https://yihui.name">Yihui Xie</a>. You could make it portable on Dropbox or directly pull the image from the <a href="https://hub.docker.com/">Docker Hub</a> anytime you wanted. In fact, they also support <a href="https://docs.docker.com/engine/swarm/">swarm mode</a></p></li>
+</ul>
+<p>In the most updated image, you could find the packages powered by xcms or apLCMS workflow or metaboanalystR which behind the metaboanalyst server. Such image might help you to get the data analysis tools I used in half an hour and deploy it on your computer. Then you might only need to copy and paste to run your metabolomics data in a Rstudio server.</p>
+<p>Hopefully, we could share such image for research to reduce the time and pain on reproduce the same data analysis environment in the near future.</p>

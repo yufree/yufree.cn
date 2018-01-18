@@ -21,7 +21,7 @@ In fact, when you want to reproduce others' data analysis, such development envi
 
 In Docker, you could get such environmental directly and distribute them as a image. Such image could be installed in any computer and furthermore on cloud. You could just rent a cloud server to make data analysis and the annoying OS installation could be replaced by a docker image with everything done. The major difference between docker container and virtual machine image is that docker image do not rely on a guest OS, which reduce the resources for extra useless software. More technique details could be found on their official websites.
 
-I am always not the first one to find the potential of such tools. Biocuductor has built such Docker for certain types of the data analysis [here](https://www.bioconductor.org/help/docker/). Carl Boettiger and Dirk Eddelbuettel wrote a nice [piece](https://arxiv.org/abs/1710.03675) on arXiv to introduce Rocker for R developer. My idea is that the combination of those ideas. 
+I am always not the first one to find the potential of such tools. Biocuductor has built such Docker for certain types of the data analysis [here](https://www.bioconductor.org/help/docker/). Carl Boettiger and Dirk Eddelbuettel wrote a nice [piece](https://arxiv.org/abs/1710.03675) on arXiv to introduce Rocker for R developer. My way is that the combination of those ideas. 
 
 For the metabolomics images on Bioconductor, only packages hosted on Bioconductor were contained. Some packages for metabolomics data analysis are not released on CRAN or Bioconductor while got published as part of the papers. I actually collected them on github. Another trends is that tidyverse data analysis is really popular and the metabolomics images should start in a tidyverse way. Thus I started to build my docker images for metabolomics studies [here](https://github.com/yufree/xcmsrocker). Now you could use the following command to get my data analysis environment after you [install](https://www.docker.com/docker-mac) the docker:
 
@@ -45,4 +45,4 @@ In the most updated image, you could find the packages powered by xcms or apLCMS
 
 Hopefully, we could share such image for research to reduce the time and pain on reproduce the same data analysis environment in the near future.
 
-If you want to learn more about R based docker, check this [tutorial](http://ropenscilabs.github.io/r-docker-tutorial/) from [rOpenSci](https://ropensci.org).
+If you want to learn more about R based docker, check this [tutorial](http://ropenscilabs.github.io/r-docker-tutorial/) from [rOpenSci](https://ropensci.org). For extra packages, you could check [Meta-Workflow](https://bookdown.org/yufree/Metabolomics/) and/or report an issue to this github [repo](https://github.com/yufree/xcmsrocker/issues), then I will add new features for this image.

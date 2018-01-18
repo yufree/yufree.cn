@@ -18,7 +18,7 @@ slug: "cn/about"
 
 - [ResearchGate](https://www.researchgate.net/profile/Miao_Yu21): 项目管理&追随导师的脚步
 
-- [linkedin](https://www.linkedin.com/in/yufree): 我毕业了！！！
+- [linkedin](https://www.linkedin.com/in/yufree): 开始找下家了
 
 ## 兴趣爱好
 

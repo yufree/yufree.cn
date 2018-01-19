@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="images/cover.png" />
   <meta property="og:description" content="This is a workflow for metabolomics studies." />
   <meta name="github-repo" content="yufree/metaworkflow" />
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Meta-Workflow" />
   
   <meta name="twitter:description" content="This is a workflow for metabolomics studies." />
-  
+  <meta name="twitter:image" content="images/cover.png" />
 
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-12">
+<meta name="date" content="2018-01-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="demo.html">
-<link rel="next" href="batch-effect.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,6 +47,10 @@
 
 
 
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-0.9.2/grViz.js"></script>
 
 
 <style type="text/css">
@@ -126,6 +130,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#compounds-database"><i class="fa fa-check"></i><b>1.5.3</b> Compounds Database</a></li>
 <li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#pathway-database"><i class="fa fa-check"></i><b>1.5.4</b> Pathway Database</a></li>
 </ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#workflow"><i class="fa fa-check"></i><b>1.6</b> Workflow</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
 <li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a><ul>
@@ -134,24 +139,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a><ul>
 <li class="chapter" data-level="4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#spectral-deconvolution"><i class="fa fa-check"></i><b>4.1</b> Spectral deconvolution</a></li>
-<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#correction"><i class="fa fa-check"></i><b>4.2</b> Correction</a></li>
+<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#retention-time-correction"><i class="fa fa-check"></i><b>4.2</b> Retention Time Correction</a></li>
 <li class="chapter" data-level="4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#dynamic-range"><i class="fa fa-check"></i><b>4.3</b> Dynamic Range</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#non-detects"><i class="fa fa-check"></i><b>4.3.1</b> Non-detects</a></li>
-<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over detection limit</a></li>
+<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over Detection Limit</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variances-with-known-batch"><i class="fa fa-check"></i><b>4.4</b> Adjust for unwanted variances with known batch</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#centering"><i class="fa fa-check"></i><b>4.4.1</b> Centering</a></li>
-<li class="chapter" data-level="4.4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#scaling"><i class="fa fa-check"></i><b>4.4.2</b> Scaling</a></li>
-<li class="chapter" data-level="4.4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#quantile"><i class="fa fa-check"></i><b>4.4.3</b> Quantile</a></li>
-<li class="chapter" data-level="4.4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ratio-based-calibraton"><i class="fa fa-check"></i><b>4.4.4</b> Ratio based calibraton</a></li>
-<li class="chapter" data-level="4.4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#linear-normalizer"><i class="fa fa-check"></i><b>4.4.5</b> Linear Normalizer</a></li>
-<li class="chapter" data-level="4.4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#regression-calibration"><i class="fa fa-check"></i><b>4.4.6</b> Regression calibration</a></li>
-<li class="chapter" data-level="4.4.7" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#batch-normalizer"><i class="fa fa-check"></i><b>4.4.7</b> Batch Normalizer</a></li>
-<li class="chapter" data-level="4.4.8" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#internal-standards"><i class="fa fa-check"></i><b>4.4.8</b> Internal standards</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variance-with-unknown-batch"><i class="fa fa-check"></i><b>4.5</b> Adjust for unwanted variance with unknown batch</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#sva"><i class="fa fa-check"></i><b>4.5.1</b> SVA</a></li>
-<li class="chapter" data-level="4.5.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ruv"><i class="fa fa-check"></i><b>4.5.2</b> RUV</a></li>
+<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#rsd-filter"><i class="fa fa-check"></i><b>4.4</b> RSD Filter</a></li>
+<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#power-analysis-filter"><i class="fa fa-check"></i><b>4.5</b> Power Analysis Filter</a></li>
+<li class="chapter" data-level="4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#normalization"><i class="fa fa-check"></i><b>4.6</b> Normalization</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#unsupervised-methods"><i class="fa fa-check"></i><b>4.6.1</b> Unsupervised methods</a></li>
+<li class="chapter" data-level="4.6.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#supervised-methods"><i class="fa fa-check"></i><b>4.6.2</b> Supervised methods</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>5</b> Peaks selection</a><ul>
@@ -190,11 +187,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
 <li class="chapter" data-level="10.2" data-path="case-studyselected.html"><a href="case-studyselected.html#mental-health"><i class="fa fa-check"></i><b>10.2</b> Mental Health</a></li>
 <li class="chapter" data-level="10.3" data-path="case-studyselected.html"><a href="case-studyselected.html#interestion-papers"><i class="fa fa-check"></i><b>10.3</b> Interestion papers</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>11</b> Batch effect</a><ul>
-<li class="chapter" data-level="11.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>11.0.1</b> Detection of unmodeled factors</a></li>
-<li class="chapter" data-level="11.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>11.0.2</b> Construction of surrogate variables</a></li>
-<li class="chapter" data-level="11.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>11.0.3</b> Case study</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -244,16 +236,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-li2016">
-<p>Li, Lili, Jieyu Zhao, Yanni Zhao, Xin Lu, Zhihui Zhou, Chunxia Zhao, and Guowang Xu. 2016. “Comprehensive Investigation of Tobacco Leaves During Natural Early Senescence via Multi-Platform Metabolomics Analyses.” <em>Scientific Reports</em> 6 (November). doi:<a href="https://doi.org/10.1038/srep37976">10.1038/srep37976</a>.</p>
+<p>Li, Lili, Jieyu Zhao, Yanni Zhao, Xin Lu, Zhihui Zhou, Chunxia Zhao, and Guowang Xu. 2016. “Comprehensive Investigation of Tobacco Leaves During Natural Early Senescence via Multi-Platform Metabolomics Analyses.” <em>Sci Rep</em> 6 (November). doi:<a href="https://doi.org/10.1038/srep37976">10.1038/srep37976</a>.</p>
 </div>
 <div id="ref-itoi2017">
-<p>Itoi, Takao, Masahiro Sugimoto, Junko Umeda, Atsushi Sofuni, Takayoshi Tsuchiya, Shujiro Tsuji, Reina Tanaka, et al. 2017. “Serum Metabolomic Profiles for Human Pancreatic Cancer Discrimination.” <em>International Journal of Molecular Sciences</em> 18 (4): 767. doi:<a href="https://doi.org/10.3390/ijms18040767">10.3390/ijms18040767</a>.</p>
+<p>Itoi, Takao, Masahiro Sugimoto, Junko Umeda, Atsushi Sofuni, Takayoshi Tsuchiya, Shujiro Tsuji, Reina Tanaka, et al. 2017. “Serum Metabolomic Profiles for Human Pancreatic Cancer Discrimination.” <em>Int. J. Mol. Sci.</em> 18 (4): 767. doi:<a href="https://doi.org/10.3390/ijms18040767">10.3390/ijms18040767</a>.</p>
 </div>
 <div id="ref-cho2017">
 <p>Cho, Yeo Ul, Deokjong Lee, Jung-Eun Lee, Kyoung Heon Kim, Do Yup Lee, and Young-Chul Jung. 2017. “Exploratory Metabolomics of Biomarker Identification for the Internet Gaming Disorder in Young Korean Males.” <em>Journal of Chromatography B</em> 1057 (July): 24–31. doi:<a href="https://doi.org/10.1016/j.jchromb.2017.04.046">10.1016/j.jchromb.2017.04.046</a>.</p>
 </div>
 <div id="ref-konz2017">
-<p>Konz, Tobias, Eugenia Migliavacca, Loïc Dayon, Gene Bowman, Aikaterini Oikonomidi, Julius Popp, and Serge Rezzi. 2017. “ICP-MS/MS-Based Ionomics: A Validated Methodology to Investigate the Biological Variability of the Human Ionome.” <em>Journal of Proteome Research</em> 16 (5): 2080–90. doi:<a href="https://doi.org/10.1021/acs.jproteome.7b00055">10.1021/acs.jproteome.7b00055</a>.</p>
+<p>Konz, Tobias, Eugenia Migliavacca, Loïc Dayon, Gene Bowman, Aikaterini Oikonomidi, Julius Popp, and Serge Rezzi. 2017. “ICP-MS/MS-Based Ionomics: A Validated Methodology to Investigate the Biological Variability of the Human Ionome.” <em>J. Proteome Res.</em> 16 (5): 2080–90. doi:<a href="https://doi.org/10.1021/acs.jproteome.7b00055">10.1021/acs.jproteome.7b00055</a>.</p>
 </div>
 </div>
             </section>
@@ -262,7 +254,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="demo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="batch-effect.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -273,7 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -294,7 +286,7 @@ gitbook.start({
 "link": "https://github.com/yufree/metaworkflow/edit/master/11-casestudy.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["Metabolomics.pdf", "Metabolomics.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="images/cover.png" />
   <meta property="og:description" content="This is a workflow for metabolomics studies." />
   <meta name="github-repo" content="yufree/metaworkflow" />
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Meta-Workflow" />
   
   <meta name="twitter:description" content="This is a workflow for metabolomics studies." />
-  
+  <meta name="twitter:image" content="images/cover.png" />
 
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-12">
+<meta name="date" content="2018-01-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,10 @@
 
 
 
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-0.9.2/grViz.js"></script>
 
 
 <style type="text/css">
@@ -126,6 +130,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#compounds-database"><i class="fa fa-check"></i><b>1.5.3</b> Compounds Database</a></li>
 <li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#pathway-database"><i class="fa fa-check"></i><b>1.5.4</b> Pathway Database</a></li>
 </ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#workflow"><i class="fa fa-check"></i><b>1.6</b> Workflow</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
 <li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a><ul>
@@ -134,24 +139,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a><ul>
 <li class="chapter" data-level="4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#spectral-deconvolution"><i class="fa fa-check"></i><b>4.1</b> Spectral deconvolution</a></li>
-<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#correction"><i class="fa fa-check"></i><b>4.2</b> Correction</a></li>
+<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#retention-time-correction"><i class="fa fa-check"></i><b>4.2</b> Retention Time Correction</a></li>
 <li class="chapter" data-level="4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#dynamic-range"><i class="fa fa-check"></i><b>4.3</b> Dynamic Range</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#non-detects"><i class="fa fa-check"></i><b>4.3.1</b> Non-detects</a></li>
-<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over detection limit</a></li>
+<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over Detection Limit</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variances-with-known-batch"><i class="fa fa-check"></i><b>4.4</b> Adjust for unwanted variances with known batch</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#centering"><i class="fa fa-check"></i><b>4.4.1</b> Centering</a></li>
-<li class="chapter" data-level="4.4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#scaling"><i class="fa fa-check"></i><b>4.4.2</b> Scaling</a></li>
-<li class="chapter" data-level="4.4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#quantile"><i class="fa fa-check"></i><b>4.4.3</b> Quantile</a></li>
-<li class="chapter" data-level="4.4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ratio-based-calibraton"><i class="fa fa-check"></i><b>4.4.4</b> Ratio based calibraton</a></li>
-<li class="chapter" data-level="4.4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#linear-normalizer"><i class="fa fa-check"></i><b>4.4.5</b> Linear Normalizer</a></li>
-<li class="chapter" data-level="4.4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#regression-calibration"><i class="fa fa-check"></i><b>4.4.6</b> Regression calibration</a></li>
-<li class="chapter" data-level="4.4.7" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#batch-normalizer"><i class="fa fa-check"></i><b>4.4.7</b> Batch Normalizer</a></li>
-<li class="chapter" data-level="4.4.8" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#internal-standards"><i class="fa fa-check"></i><b>4.4.8</b> Internal standards</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variance-with-unknown-batch"><i class="fa fa-check"></i><b>4.5</b> Adjust for unwanted variance with unknown batch</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#sva"><i class="fa fa-check"></i><b>4.5.1</b> SVA</a></li>
-<li class="chapter" data-level="4.5.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ruv"><i class="fa fa-check"></i><b>4.5.2</b> RUV</a></li>
+<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#rsd-filter"><i class="fa fa-check"></i><b>4.4</b> RSD Filter</a></li>
+<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#power-analysis-filter"><i class="fa fa-check"></i><b>4.5</b> Power Analysis Filter</a></li>
+<li class="chapter" data-level="4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#normalization"><i class="fa fa-check"></i><b>4.6</b> Normalization</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#unsupervised-methods"><i class="fa fa-check"></i><b>4.6.1</b> Unsupervised methods</a></li>
+<li class="chapter" data-level="4.6.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#supervised-methods"><i class="fa fa-check"></i><b>4.6.2</b> Supervised methods</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>5</b> Peaks selection</a><ul>
@@ -190,11 +187,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1" data-path="case-studyselected.html"><a href="case-studyselected.html#cancer"><i class="fa fa-check"></i><b>10.1</b> Cancer</a></li>
 <li class="chapter" data-level="10.2" data-path="case-studyselected.html"><a href="case-studyselected.html#mental-health"><i class="fa fa-check"></i><b>10.2</b> Mental Health</a></li>
 <li class="chapter" data-level="10.3" data-path="case-studyselected.html"><a href="case-studyselected.html#interestion-papers"><i class="fa fa-check"></i><b>10.3</b> Interestion papers</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>11</b> Batch effect</a><ul>
-<li class="chapter" data-level="11.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>11.0.1</b> Detection of unmodeled factors</a></li>
-<li class="chapter" data-level="11.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>11.0.2</b> Construction of surrogate variables</a></li>
-<li class="chapter" data-level="11.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>11.0.3</b> Case study</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -250,16 +242,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-kuhl2012">
-<p>Kuhl, Carsten, Ralf Tautenhahn, Christoph Böttcher, Tony R. Larson, and Steffen Neumann. 2012. “CAMERA: An Integrated Strategy for Compound Spectra Extraction and Annotation of Liquid Chromatography/Mass Spectrometry Data Sets.” <em>Analytical Chemistry</em> 84 (1): 283–89. doi:<a href="https://doi.org/10.1021/ac202450g">10.1021/ac202450g</a>.</p>
+<p>Kuhl, Carsten, Ralf Tautenhahn, Christoph Böttcher, Tony R. Larson, and Steffen Neumann. 2012. “CAMERA: An Integrated Strategy for Compound Spectra Extraction and Annotation of Liquid Chromatography/Mass Spectrometry Data Sets.” <em>Anal. Chem.</em> 84 (1): 283–89. doi:<a href="https://doi.org/10.1021/ac202450g">10.1021/ac202450g</a>.</p>
 </div>
 <div id="ref-broeckling2014">
-<p>Broeckling, C. D., F. A. Afsar, S. Neumann, A. Ben-Hur, and J. E. Prenni. 2014. “RAMClust: A Novel Feature Clustering Method Enables Spectral-Matching-Based Annotation for Metabolomics Data.” <em>Analytical Chemistry</em> 86 (14): 6812–7. doi:<a href="https://doi.org/10.1021/ac501530d">10.1021/ac501530d</a>.</p>
+<p>Broeckling, C. D., F. A. Afsar, S. Neumann, A. Ben-Hur, and J. E. Prenni. 2014. “RAMClust: A Novel Feature Clustering Method Enables Spectral-Matching-Based Annotation for Metabolomics Data.” <em>Anal. Chem.</em> 86 (14): 6812–7. doi:<a href="https://doi.org/10.1021/ac501530d">10.1021/ac501530d</a>.</p>
 </div>
 <div id="ref-allard2017">
 <p>Allard, Pierre-Marie, Grégory Genta-Jouve, and Jean-Luc Wolfender. 2017. “Deep Metabolome Annotation in Natural Products Research: Towards a Virtuous Cycle in Metabolite Identification.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 40–49. doi:<a href="https://doi.org/10.1016/j.cbpa.2016.12.022">10.1016/j.cbpa.2016.12.022</a>.</p>
 </div>
 <div id="ref-sumner2007">
-<p>Sumner, Lloyd W., Alexander Amberg, Dave Barrett, Michael H. Beale, Richard Beger, Clare A. Daykin, Teresa W.-M. Fan, et al. 2007. “Proposed Minimum Reporting Standards for Chemical Analysis Chemical Analysis Working Group (CAWG) Metabolomics Standards Initiative (MSI).” <em>Metabolomics : Official Journal of the Metabolomic Society</em> 3 (3): 211–21. doi:<a href="https://doi.org/10.1007/s11306-007-0082-2">10.1007/s11306-007-0082-2</a>.</p>
+<p>Sumner, Lloyd W., Alexander Amberg, Dave Barrett, Michael H. Beale, Richard Beger, Clare A. Daykin, Teresa W.-M. Fan, et al. 2007. “Proposed Minimum Reporting Standards for Chemical Analysis Chemical Analysis Working Group (CAWG) Metabolomics Standards Initiative (MSI).” <em>Metabolomics</em> 3 (3): 211–21. doi:<a href="https://doi.org/10.1007/s11306-007-0082-2">10.1007/s11306-007-0082-2</a>.</p>
 </div>
 <div id="ref-viant2017">
 <p>Viant, Mark R, Irwin J Kurland, Martin R Jones, and Warwick B Dunn. 2017. “How Close Are We to Complete Annotation of Metabolomes?” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 64–69. doi:<a href="https://doi.org/10.1016/j.cbpa.2017.01.001">10.1016/j.cbpa.2017.01.001</a>.</p>
@@ -268,13 +260,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Basu, Sumanta, William Duren, Charles R. Evans, Charles F. Burant, George Michailidis, and Alla Karnovsky. 2017. “Sparse Network Modeling and Metscape-Based Visualization Methods for the Analysis of Large-Scale Metabolomics Data.” <em>Bioinformatics</em> 33 (10): 1545–53. doi:<a href="https://doi.org/10.1093/bioinformatics/btx012">10.1093/bioinformatics/btx012</a>.</p>
 </div>
 <div id="ref-qiu2016">
-<p>Qiu, Feng, Dennis D. Fine, Daniel J. Wherritt, Zhentian Lei, and Lloyd W. Sumner. 2016. “PlantMAT: A Metabolomics Tool for Predicting the Specialized Metabolic Potential of a System and for Large-Scale Metabolite Identifications.” <em>Analytical Chemistry</em> 88 (23): 11373–83. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00906">10.1021/acs.analchem.6b00906</a>.</p>
+<p>Qiu, Feng, Dennis D. Fine, Daniel J. Wherritt, Zhentian Lei, and Lloyd W. Sumner. 2016. “PlantMAT: A Metabolomics Tool for Predicting the Specialized Metabolic Potential of a System and for Large-Scale Metabolite Identifications.” <em>Anal. Chem.</em> 88 (23): 11373–83. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00906">10.1021/acs.analchem.6b00906</a>.</p>
 </div>
 <div id="ref-treutler2016c">
-<p>Treutler, Hendrik, Hiroshi Tsugawa, Andrea Porzel, Karin Gorzolka, Alain Tissier, Steffen Neumann, and Gerd Ulrich Balcke. 2016. “Discovering Regulated Metabolite Families in Untargeted Metabolomics Studies.” <em>Analytical Chemistry</em> 88 (16): 8082–90. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01569">10.1021/acs.analchem.6b01569</a>.</p>
+<p>Treutler, Hendrik, Hiroshi Tsugawa, Andrea Porzel, Karin Gorzolka, Alain Tissier, Steffen Neumann, and Gerd Ulrich Balcke. 2016. “Discovering Regulated Metabolite Families in Untargeted Metabolomics Studies.” <em>Anal. Chem.</em> 88 (16): 8082–90. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01569">10.1021/acs.analchem.6b01569</a>.</p>
 </div>
 <div id="ref-uppal2017">
-<p>Uppal, Karan, Douglas I. Walker, and Dean P. Jones. 2017. “XMSannotator: An R Package for Network-Based Annotation of High-Resolution Metabolomics Data.” <em>Analytical Chemistry</em> 89 (2): 1063–7. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01214">10.1021/acs.analchem.6b01214</a>.</p>
+<p>Uppal, Karan, Douglas I. Walker, and Dean P. Jones. 2017. “XMSannotator: An R Package for Network-Based Annotation of High-Resolution Metabolomics Data.” <em>Anal. Chem.</em> 89 (2): 1063–7. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01214">10.1021/acs.analchem.6b01214</a>.</p>
 </div>
 <div id="ref-koelmel2017">
 <p>Koelmel, Jeremy P., Nicholas M. Kroeger, Candice Z. Ulmer, John A. Bowden, Rainey E. Patterson, Jason A. Cochran, Christopher W. W. Beecher, Timothy J. Garrett, and Richard A. Yost. 2017. “LipidMatch: An Automated Workflow for Rule-Based Lipid Identification Using Untargeted High-Resolution Tandem Mass Spectrometry Data.” <em>BMC Bioinformatics</em> 18 (July): 331. doi:<a href="https://doi.org/10.1186/s12859-017-1744-3">10.1186/s12859-017-1744-3</a>.</p>
@@ -297,7 +289,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -318,7 +310,7 @@ gitbook.start({
 "link": "https://github.com/yufree/metaworkflow/edit/master/06-annotation.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["Metabolomics.pdf", "Metabolomics.epub"],
 "toc": {
 "collapse": "subsection"
 }

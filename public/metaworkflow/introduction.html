@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="images/cover.png" />
   <meta property="og:description" content="This is a workflow for metabolomics studies." />
   <meta name="github-repo" content="yufree/metaworkflow" />
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Meta-Workflow" />
   
   <meta name="twitter:description" content="This is a workflow for metabolomics studies." />
-  
+  <meta name="twitter:image" content="images/cover.png" />
 
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-12">
+<meta name="date" content="2018-01-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,10 @@
 
 
 
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-0.9.2/grViz.js"></script>
 
 
 <style type="text/css">
@@ -126,6 +130,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#compounds-database"><i class="fa fa-check"></i><b>1.5.3</b> Compounds Database</a></li>
 <li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#pathway-database"><i class="fa fa-check"></i><b>1.5.4</b> Pathway Database</a></li>
 </ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#workflow"><i class="fa fa-check"></i><b>1.6</b> Workflow</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
 <li class="chapter" data-level="3" data-path="pretreatment.html"><a href="pretreatment.html"><i class="fa fa-check"></i><b>3</b> Pretreatment</a><ul>
@@ -134,24 +139,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a><ul>
 <li class="chapter" data-level="4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#spectral-deconvolution"><i class="fa fa-check"></i><b>4.1</b> Spectral deconvolution</a></li>
-<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#correction"><i class="fa fa-check"></i><b>4.2</b> Correction</a></li>
+<li class="chapter" data-level="4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#retention-time-correction"><i class="fa fa-check"></i><b>4.2</b> Retention Time Correction</a></li>
 <li class="chapter" data-level="4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#dynamic-range"><i class="fa fa-check"></i><b>4.3</b> Dynamic Range</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#non-detects"><i class="fa fa-check"></i><b>4.3.1</b> Non-detects</a></li>
-<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over detection limit</a></li>
+<li class="chapter" data-level="4.3.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#over-detection-limit"><i class="fa fa-check"></i><b>4.3.2</b> Over Detection Limit</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variances-with-known-batch"><i class="fa fa-check"></i><b>4.4</b> Adjust for unwanted variances with known batch</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#centering"><i class="fa fa-check"></i><b>4.4.1</b> Centering</a></li>
-<li class="chapter" data-level="4.4.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#scaling"><i class="fa fa-check"></i><b>4.4.2</b> Scaling</a></li>
-<li class="chapter" data-level="4.4.3" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#quantile"><i class="fa fa-check"></i><b>4.4.3</b> Quantile</a></li>
-<li class="chapter" data-level="4.4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ratio-based-calibraton"><i class="fa fa-check"></i><b>4.4.4</b> Ratio based calibraton</a></li>
-<li class="chapter" data-level="4.4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#linear-normalizer"><i class="fa fa-check"></i><b>4.4.5</b> Linear Normalizer</a></li>
-<li class="chapter" data-level="4.4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#regression-calibration"><i class="fa fa-check"></i><b>4.4.6</b> Regression calibration</a></li>
-<li class="chapter" data-level="4.4.7" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#batch-normalizer"><i class="fa fa-check"></i><b>4.4.7</b> Batch Normalizer</a></li>
-<li class="chapter" data-level="4.4.8" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#internal-standards"><i class="fa fa-check"></i><b>4.4.8</b> Internal standards</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#adjust-for-unwanted-variance-with-unknown-batch"><i class="fa fa-check"></i><b>4.5</b> Adjust for unwanted variance with unknown batch</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#sva"><i class="fa fa-check"></i><b>4.5.1</b> SVA</a></li>
-<li class="chapter" data-level="4.5.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#ruv"><i class="fa fa-check"></i><b>4.5.2</b> RUV</a></li>
+<li class="chapter" data-level="4.4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#rsd-filter"><i class="fa fa-check"></i><b>4.4</b> RSD Filter</a></li>
+<li class="chapter" data-level="4.5" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#power-analysis-filter"><i class="fa fa-check"></i><b>4.5</b> Power Analysis Filter</a></li>
+<li class="chapter" data-level="4.6" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#normalization"><i class="fa fa-check"></i><b>4.6</b> Normalization</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#unsupervised-methods"><i class="fa fa-check"></i><b>4.6.1</b> Unsupervised methods</a></li>
+<li class="chapter" data-level="4.6.2" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html#supervised-methods"><i class="fa fa-check"></i><b>4.6.2</b> Supervised methods</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>5</b> Peaks selection</a><ul>
@@ -191,11 +188,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.2" data-path="case-studyselected.html"><a href="case-studyselected.html#mental-health"><i class="fa fa-check"></i><b>10.2</b> Mental Health</a></li>
 <li class="chapter" data-level="10.3" data-path="case-studyselected.html"><a href="case-studyselected.html#interestion-papers"><i class="fa fa-check"></i><b>10.3</b> Interestion papers</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>11</b> Batch effect</a><ul>
-<li class="chapter" data-level="11.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>11.0.1</b> Detection of unmodeled factors</a></li>
-<li class="chapter" data-level="11.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>11.0.2</b> Construction of surrogate variables</a></li>
-<li class="chapter" data-level="11.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>11.0.3</b> Case study</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
@@ -224,7 +216,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">1.1</span> History</h2>
 <p>According to this book section<span class="citation">(Kusonmano, Vongsangnak, and Chumnanpuen <a href="#ref-kusonmano2016">2016</a>)</span>:</p>
 <div class="figure"><span id="fig:history"></span>
-<img src="images/metahistory.gif" alt="Metabolomics timeline during pre- and post-metabolomics era"  />
+<img src="images/metahistory.jpg" alt="Metabolomics timeline during pre- and post-metabolomics era"  />
 <p class="caption">
 Figure 1.1: Metabolomics timeline during pre- and post-metabolomics era
 </p>
@@ -245,6 +237,7 @@ Figure 1.1: Metabolomics timeline during pre- and post-metabolomics era
 <h2><span class="header-section-number">1.2</span> Reviews and tutorials</h2>
 <p>Some new reviews and tutorials related to this workflow could be found in those papers<span class="citation">(Alonso, Marsal, and Julià <a href="#ref-alonso2015">2015</a>; Cajka and Fiehn <a href="#ref-cajka2016">2016</a>; Lu and Xu <a href="#ref-lu2008">2008</a>; Schrimpe-Rutledge et al. <a href="#ref-schrimpe-rutledge2016">2016</a>; Townsend et al. <a href="#ref-townsend2016">2016</a>; Barnes et al. <a href="#ref-barnes2016">2016</a><a href="#ref-barnes2016">b</a>; Barnes et al. <a href="#ref-barnes2016a">2016</a><a href="#ref-barnes2016a">a</a>)</span>.</p>
 <p>Also I noticed more and more papers showed a bunch of data process methods as strategy for metabolomics<span class="citation">(Watrous et al. <a href="#ref-watrous2017">2017</a>; Robbat Jr. et al. <a href="#ref-robbatjr.2017">2017</a>)</span>. If you only need metabolomics as tools to tell your story, such stratrgy could be a quick start for you.</p>
+<p>For software, check this review<span class="citation">(Misra and van der Hooft <a href="#ref-misra2016">2016</a>)</span>.</p>
 </div>
 <div id="platform-for-metabolomics" class="section level2">
 <h2><span class="header-section-number">1.3</span> Platform for metabolomics</h2>
@@ -290,6 +283,22 @@ Figure 1.1: Metabolomics timeline during pre- and post-metabolomics era
 res &lt;-<span class="st"> </span><span class="kw">gtrends</span>(<span class="kw">c</span>(<span class="st">&quot;metabolomics&quot;</span>, <span class="st">&quot;metabolomics&quot;</span>), <span class="dt">geo =</span> <span class="kw">c</span>(<span class="st">&quot;CA&quot;</span>,<span class="st">&quot;US&quot;</span>))
 <span class="kw">plot</span>(res)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/gtrends-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rentrez)
+papers_by_year &lt;-<span class="st"> </span>function(years, search_term){
+    <span class="kw">return</span>(<span class="kw">sapply</span>(years, function(y) <span class="kw">entrez_search</span>(<span class="dt">db=</span><span class="st">&quot;pubmed&quot;</span>,<span class="dt">term=</span>search_term, <span class="dt">mindate=</span>y, <span class="dt">maxdate=</span>y, <span class="dt">retmax=</span><span class="dv">0</span>)$count))
+}
+years &lt;-<span class="st"> </span><span class="dv">1987</span>:<span class="dv">2017</span>
+total_papers &lt;-<span class="st"> </span><span class="kw">papers_by_year</span>(years, <span class="st">&quot;&quot;</span>)
+omics &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;genomic&quot;</span>, <span class="st">&quot;epigenomic&quot;</span>, <span class="st">&quot;metabolomics&quot;</span>, <span class="st">&quot;metagenomic&quot;</span>, <span class="st">&quot;proteomic&quot;</span>, <span class="st">&quot;transcriptomic&quot;</span>, <span class="st">&quot;pharmacogenomic&quot;</span>, <span class="st">&quot;connectomic&quot;</span>)
+trend_data &lt;-<span class="st"> </span><span class="kw">sapply</span>(omics, function(t) <span class="kw">papers_by_year</span>(years, t))
+trend_props &lt;-<span class="st"> </span>trend_data/total_papers
+<span class="kw">library</span>(reshape)
+<span class="kw">library</span>(ggplot2)
+trend_df &lt;-<span class="st"> </span><span class="kw">melt</span>(<span class="kw">data.frame</span>(years, trend_data), <span class="dt">id.vars=</span><span class="st">&quot;years&quot;</span>)
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(trend_df, <span class="kw">aes</span>(years, value, <span class="dt">colour=</span>variable))
+p +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>) +<span class="st"> </span><span class="kw">scale_y_log10</span>(<span class="st">&quot;number of papers&quot;</span>)</code></pre></div>
+<pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
+<p><img src="Metabolomics_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <div id="quantitative-metabolomics" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Quantitative Metabolomics</h3>
 <p>Those papers <span class="citation">(Kapoore and Vaidyanathan <a href="#ref-kapoore2016b">2016</a>; Jorge, Mata, and António <a href="#ref-jorge2016a">2016</a>)</span>.</p>
@@ -313,6 +322,7 @@ res &lt;-<span class="st"> </span><span class="kw">gtrends</span>(<span class="k
 <li><p><a href="http://www.ebi.ac.uk/metabolights/">MetaboLights</a> EU based</p></li>
 <li><p><a href="http://www.metabolomicsworkbench.org/">The Metabolomics Workbench</a> US based</p></li>
 <li><p><a href="http://www.metabolomexchange.org/site/">MetabolomeXchange</a> search engine</p></li>
+<li><p><a href="http://workflow4metabolomics.org/">W4M<span class="citation">(Guitton et al. <a href="#ref-guitton2017">2017</a>)</span></a></p></li>
 </ul>
 </div>
 <div id="ms-database-with-annotation" class="section level3">
@@ -350,47 +360,55 @@ res &lt;-<span class="st"> </span><span class="kw">gtrends</span>(<span class="k
 </div>
 <div id="pathway-database" class="section level3">
 <h3><span class="header-section-number">1.5.4</span> Pathway Database</h3>
-
 </div>
+</div>
+<div id="workflow" class="section level2">
+<h2><span class="header-section-number">1.6</span> Workflow</h2>
+<div id="htmlwidget-ac89dea5fbc1c229177a" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ac89dea5fbc1c229177a">{"x":{"diagram":"digraph workflow {\nnode [shape = box]\nA [label = \"Raw data\"]\nB [label = \"mzxml or CDF\"]\nC [label = \"DoE folder\"]\nD [label = \"peaks list\"]\nE [label = \"retention time correction\"]\nF [label = \"peaks grouping\"]\nG [label = \"peaks filling\"]\nH [label = \"raw peaks\"]\nI [label = \"data visulization\"]\nJ [label = \"batch effects correction\"]\nK [label = \"corrected peaks\"]\nL [label = \"annotation\"]\nM [label = \"metabolomics pathway analysis\"]\nN [label = \"omics analysis\"]\nO [label = \"biomarkers discovery/diagnoise\"]\n\nA -> B -> C -> D -> E -> F -> G -> H\nH -> I\nI -> J\nH -> J -> K -> L\nL -> M -> N\nL -> O\n                  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-tian2016">
-<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Analytical Chemistry</em> 88 (21): 10395–10403. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00755">10.1021/acs.analchem.6b00755</a>.</p>
+<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Anal. Chem.</em> 88 (21): 10395–10403. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00755">10.1021/acs.analchem.6b00755</a>.</p>
 </div>
 <div id="ref-kusonmano2016">
 <p>Kusonmano, Kanthida, Wanwipa Vongsangnak, and Pramote Chumnanpuen. 2016. “Informatics for Metabolomics.” In <em>Translational Biomedical Informatics</em>, 91–115. Advances in Experimental Medicine and Biology. Springer, Singapore. doi:<a href="https://doi.org/10.1007/978-981-10-1503-8_5">10.1007/978-981-10-1503-8_5</a>.</p>
 </div>
 <div id="ref-alonso2015">
-<p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Frontiers in Bioengineering and Biotechnology</em> 3 (March). doi:<a href="https://doi.org/10.3389/fbioe.2015.00023">10.3389/fbioe.2015.00023</a>.</p>
+<p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Front Bioeng Biotechnol</em> 3 (March). doi:<a href="https://doi.org/10.3389/fbioe.2015.00023">10.3389/fbioe.2015.00023</a>.</p>
 </div>
 <div id="ref-cajka2016">
-<p>Cajka, Tomas, and Oliver Fiehn. 2016. “Toward Merging Untargeted and Targeted Methods in Mass Spectrometry-Based Metabolomics and Lipidomics.” <em>Analytical Chemistry</em> 88 (1): 524–45. doi:<a href="https://doi.org/10.1021/acs.analchem.5b04491">10.1021/acs.analchem.5b04491</a>.</p>
+<p>Cajka, Tomas, and Oliver Fiehn. 2016. “Toward Merging Untargeted and Targeted Methods in Mass Spectrometry-Based Metabolomics and Lipidomics.” <em>Anal. Chem.</em> 88 (1): 524–45. doi:<a href="https://doi.org/10.1021/acs.analchem.5b04491">10.1021/acs.analchem.5b04491</a>.</p>
 </div>
 <div id="ref-lu2008">
 <p>Lu, Xin, and Guowang Xu. 2008. “LC-MS Metabonomics Methodology in Biomarker Discovery.” In <em>Biomarker Methods in Drug Discovery and Development</em>, edited by Feng Wang, 291–315. Methods in Pharmacology and Toxicology. Humana Press. doi:<a href="https://doi.org/10.1007/978-1-59745-463-6_14">10.1007/978-1-59745-463-6_14</a>.</p>
 </div>
 <div id="ref-schrimpe-rutledge2016">
-<p>Schrimpe-Rutledge, Alexandra C., Simona G. Codreanu, Stacy D. Sherrod, and John A. McLean. 2016. “Untargeted Metabolomics Strategies and Emerging Directions.” <em>Journal of The American Society for Mass Spectrometry</em> 27 (12): 1897–1905. doi:<a href="https://doi.org/10.1007/s13361-016-1469-y">10.1007/s13361-016-1469-y</a>.</p>
+<p>Schrimpe-Rutledge, Alexandra C., Simona G. Codreanu, Stacy D. Sherrod, and John A. McLean. 2016. “Untargeted Metabolomics Strategies and Emerging Directions.” <em>J. Am. Soc. Mass Spectrom.</em> 27 (12): 1897–1905. doi:<a href="https://doi.org/10.1007/s13361-016-1469-y">10.1007/s13361-016-1469-y</a>.</p>
 </div>
 <div id="ref-townsend2016">
-<p>Townsend, Mary K., Hugues Aschard, Immaculata De Vivo, Karin B. Michels, and Peter Kraft. 2016. “Genomics, Telomere Length, Epigenetics, and Metabolomics in the Nurses’ Health Studies.” <em>American Journal of Public Health</em> 106 (9): 1663–8. doi:<a href="https://doi.org/10.2105/AJPH.2016.303344">10.2105/AJPH.2016.303344</a>.</p>
+<p>Townsend, Mary K., Hugues Aschard, Immaculata De Vivo, Karin B. Michels, and Peter Kraft. 2016. “Genomics, Telomere Length, Epigenetics, and Metabolomics in the Nurses’ Health Studies.” <em>Am J Public Health</em> 106 (9): 1663–8. doi:<a href="https://doi.org/10.2105/AJPH.2016.303344">10.2105/AJPH.2016.303344</a>.</p>
 </div>
 <div id="ref-barnes2016">
-<p>Barnes, Stephen, H. 2016b. “Training in Metabolomics Research. II. Processing and Statistical Analysis of Metabolomics Data, Metabolite Identification, Pathway Analysis, Applications of Metabolomics and Its Future.” <em>Journal of Mass Spectrometry</em> 51 (8): 535–48. doi:<a href="https://doi.org/10.1002/jms.3780">10.1002/jms.3780</a>.</p>
+<p>Barnes, Stephen, H. 2016b. “Training in Metabolomics Research. II. Processing and Statistical Analysis of Metabolomics Data, Metabolite Identification, Pathway Analysis, Applications of Metabolomics and Its Future.” <em>J. Mass Spectrom.</em> 51 (8): 535–48. doi:<a href="https://doi.org/10.1002/jms.3780">10.1002/jms.3780</a>.</p>
 </div>
 <div id="ref-barnes2016a">
-<p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>Journal of Mass Spectrometry</em> 51 (7): 461–75. doi:<a href="https://doi.org/10.1002/jms.3782">10.1002/jms.3782</a>.</p>
+<p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>J. Mass Spectrom.</em> 51 (7): 461–75. doi:<a href="https://doi.org/10.1002/jms.3782">10.1002/jms.3782</a>.</p>
 </div>
 <div id="ref-watrous2017">
-<p>Watrous, Jeramie D., Mir Henglin, Brian Claggett, Kim A. Lehmann, Martin G. Larson, Susan Cheng, and Mohit Jain. 2017. “Visualization, Quantification, and Alignment of Spectral Drift in Population Scale Untargeted Metabolomics Data.” <em>Analytical Chemistry</em> 89 (3): 1399–1404. doi:<a href="https://doi.org/10.1021/acs.analchem.6b04337">10.1021/acs.analchem.6b04337</a>.</p>
+<p>Watrous, Jeramie D., Mir Henglin, Brian Claggett, Kim A. Lehmann, Martin G. Larson, Susan Cheng, and Mohit Jain. 2017. “Visualization, Quantification, and Alignment of Spectral Drift in Population Scale Untargeted Metabolomics Data.” <em>Anal. Chem.</em> 89 (3): 1399–1404. doi:<a href="https://doi.org/10.1021/acs.analchem.6b04337">10.1021/acs.analchem.6b04337</a>.</p>
 </div>
 <div id="ref-robbatjr.2017">
 <p>Robbat Jr., Albert, Nicole Kfoury, Eugene Baydakov, and Yuriy Gankin. 2017. “Optimizing Targeted/Untargeted Metabolomics by Automating Gas Chromatography/Mass Spectrometry Workflows.” <em>Journal of Chromatography A</em> 1505 (July): 96–105. doi:<a href="https://doi.org/10.1016/j.chroma.2017.05.017">10.1016/j.chroma.2017.05.017</a>.</p>
 </div>
+<div id="ref-misra2016">
+<p>Misra, Biswapriya B., and Justin J. J. van der Hooft. 2016. “Updates in Metabolomics Tools and Resources: 20142015.” <em>ELECTROPHORESIS</em> 37 (1): 86–110. doi:<a href="https://doi.org/10.1002/elps.201500417">10.1002/elps.201500417</a>.</p>
+</div>
 <div id="ref-matsuo2017">
-<p>Matsuo, Teruko, Hiroshi Tsugawa, Hiromi Miyagawa, and Eiichiro Fukusaki. 2017. “Integrated Strategy for Unknown EI, Multivariate Analysis, EI, and Retention Index Prediction.” <em>Analytical Chemistry</em> 89 (12): 6766–73. doi:<a href="https://doi.org/10.1021/acs.analchem.7b01010">10.1021/acs.analchem.7b01010</a>.</p>
+<p>Matsuo, Teruko, Hiroshi Tsugawa, Hiromi Miyagawa, and Eiichiro Fukusaki. 2017. “Integrated Strategy for Unknown EI, Multivariate Analysis, EI, and Retention Index Prediction.” <em>Anal. Chem.</em> 89 (12): 6766–73. doi:<a href="https://doi.org/10.1021/acs.analchem.7b01010">10.1021/acs.analchem.7b01010</a>.</p>
 </div>
 <div id="ref-kapoore2016b">
 <p>Kapoore, Rahul Vijay, and Seetharaman Vaidyanathan. 2016. “Towards Quantitative Mass Spectrometry-Based Metabolomics in Microbial and Mammalian Systems.” <em>Phil. Trans. R. Soc. A</em> 374 (2079): 20150363. doi:<a href="https://doi.org/10.1098/rsta.2015.0363">10.1098/rsta.2015.0363</a>.</p>
@@ -403,6 +421,9 @@ res &lt;-<span class="st"> </span><span class="kw">gtrends</span>(<span class="k
 </div>
 <div id="ref-haug2017">
 <p>Haug, Kenneth, Reza M Salek, and Christoph Steinbeck. 2017. “Global Open Data Management in Metabolomics.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 58–63. doi:<a href="https://doi.org/10.1016/j.cbpa.2016.12.024">10.1016/j.cbpa.2016.12.024</a>.</p>
+</div>
+<div id="ref-guitton2017">
+<p>Guitton, Yann, Marie Tremblay-Franco, Gildas Le Corguillé, Jean-François Martin, Mélanie Pétéra, Pierrick Roger-Mele, Alexis Delabrière, et al. 2017. “Create, Run, Share, Publish, and Reference Your LC, FIA, GC, and NMR Data Analysis Workflows with the Workflow4Metabolomics 3.0 Galaxy Online Infrastructure for Metabolomics.” <em>The International Journal of Biochemistry &amp; Cell Biology</em> 93 (Supplement C): 89–101. doi:<a href="https://doi.org/10.1016/j.biocel.2017.07.002">10.1016/j.biocel.2017.07.002</a>.</p>
 </div>
 </div>
             </section>
@@ -422,7 +443,7 @@ res &lt;-<span class="st"> </span><span class="kw">gtrends</span>(<span class="k
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -443,7 +464,7 @@ gitbook.start({
 "link": "https://github.com/yufree/metaworkflow/edit/master/01-introduction.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["Metabolomics.pdf", "Metabolomics.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Notes</title>
   <meta name="description" content="This is notes from yufree">
-  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
 
   <meta property="og:title" content="Notes" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-12">
+<meta name="date" content="2018-01-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1170,7 +1170,7 @@ xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(-<span class="dv
 <span class="kw">lines</span>(xvals, <span class="kw">dnorm</span>(xvals), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)
 <span class="kw">lines</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dt">mean =</span> <span class="kw">sqrt</span>(n) *<span class="st"> </span>(mu_a -<span class="st"> </span>mu_0) /<span class="st"> </span>sigma), <span class="dt">lwd =</span><span class="dv">3</span>)
 <span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">qnorm</span>(<span class="dv">1</span> -<span class="st"> </span>alpha))</code></pre></div>
-<p><img src="/home/travis/build/yufree/figure/power-1.png" width="672" /> - 计算步骤 - 考虑 <span class="math inline">\(H_0 : \mu = \mu_0\)</span> 与 <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span> 且在<span class="math inline">\(H_a\)</span>下 <span class="math inline">\(\mu = \mu_a\)</span> - 在 <span class="math inline">\(H_0\)</span> 下统计量 <span class="math inline">\(Z = \frac{\sqrt{n}(\bar X - \mu_0)}{\sigma}\)</span> 符合 <span class="math inline">\(N(0, 1)\)</span> - 在<span class="math inline">\(H_a\)</span>下 <span class="math inline">\(Z\)</span> 是 <span class="math inline">\(N\left( \frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma}, 1\right)\)</span> - 如果 <span class="math inline">\(Z &gt; Z_{1-\alpha}\)</span> 拒绝空假设 也就是给定条件下功效不够 - 当检验 <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, 如果功效为 <span class="math inline">\(1 - \beta\)</span> 那么 <span class="math inline">\(1 - \beta = P\left(Z &gt; z_{1-\alpha} - \frac{\mu_a - \mu_0}{\sigma /\sqrt{n}} ~|~ \mu = \mu_a \right) = P(Z &gt; z_{\beta})\)</span> 也就是 <span class="math inline">\(z_{1-\alpha} - \frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma} = z_{\beta}\)</span> - <span class="math inline">\(\mu_a\)</span>, <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(n\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(\alpha\)</span> 给定五个可解出剩余的 - 两尾检验考虑 <span class="math inline">\(\alpha / 2\)</span> - 功效在 <span class="math inline">\(\alpha\)</span> 提高 单尾检验功效高于两尾 <span class="math inline">\(\mu_1\)</span> 距离 <span class="math inline">\(\mu_0\)</span> 远功效大 样本数提高功效高 - 计算功效不需要特定样本 只需要指定 <span class="math inline">\(\frac{\mu_a - \mu_0}{\sigma}\)</span> 也就是有效样本大小 无单位 - R 中使用 <code>power.t.test</code> 来计算 <span class="math inline">\(t\)</span> 检验功效相关参数 指定多数求一个</p>
+<p><img src="../figure/power-1.png" width="672" /> - 计算步骤 - 考虑 <span class="math inline">\(H_0 : \mu = \mu_0\)</span> 与 <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span> 且在<span class="math inline">\(H_a\)</span>下 <span class="math inline">\(\mu = \mu_a\)</span> - 在 <span class="math inline">\(H_0\)</span> 下统计量 <span class="math inline">\(Z = \frac{\sqrt{n}(\bar X - \mu_0)}{\sigma}\)</span> 符合 <span class="math inline">\(N(0, 1)\)</span> - 在<span class="math inline">\(H_a\)</span>下 <span class="math inline">\(Z\)</span> 是 <span class="math inline">\(N\left( \frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma}, 1\right)\)</span> - 如果 <span class="math inline">\(Z &gt; Z_{1-\alpha}\)</span> 拒绝空假设 也就是给定条件下功效不够 - 当检验 <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, 如果功效为 <span class="math inline">\(1 - \beta\)</span> 那么 <span class="math inline">\(1 - \beta = P\left(Z &gt; z_{1-\alpha} - \frac{\mu_a - \mu_0}{\sigma /\sqrt{n}} ~|~ \mu = \mu_a \right) = P(Z &gt; z_{\beta})\)</span> 也就是 <span class="math inline">\(z_{1-\alpha} - \frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma} = z_{\beta}\)</span> - <span class="math inline">\(\mu_a\)</span>, <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(n\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(\alpha\)</span> 给定五个可解出剩余的 - 两尾检验考虑 <span class="math inline">\(\alpha / 2\)</span> - 功效在 <span class="math inline">\(\alpha\)</span> 提高 单尾检验功效高于两尾 <span class="math inline">\(\mu_1\)</span> 距离 <span class="math inline">\(\mu_0\)</span> 远功效大 样本数提高功效高 - 计算功效不需要特定样本 只需要指定 <span class="math inline">\(\frac{\mu_a - \mu_0}{\sigma}\)</span> 也就是有效样本大小 无单位 - R 中使用 <code>power.t.test</code> 来计算 <span class="math inline">\(t\)</span> 检验功效相关参数 指定多数求一个</p>
 </div>
 <div id="section-7.17" class="section level2">
 <h2><span class="header-section-number">7.17</span> 多重比较</h2>
@@ -1265,9 +1265,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

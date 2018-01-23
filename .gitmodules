@@ -6,3 +6,6 @@
 	path = static/metaworkflow
 	url = git@github.com:yufree/metaworkflow.git
 	branch = gh-pages
+[submodule "themes/hugo-lithium-theme"]
+	path = themes/hugo-lithium-theme
+	url = git@github.com:yufree/hugo-lithium-theme.git

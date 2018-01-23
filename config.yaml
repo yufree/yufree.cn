@@ -1,5 +1,4 @@
-baseurl: "/"
-relativeurls: true
+baseurl: "https://yufree.cn/"
 languageCode: "en-us"
 title: "Miao Yu | 于淼 "
 theme: "hugo-lithium-theme"

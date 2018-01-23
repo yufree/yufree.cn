@@ -24,8 +24,8 @@
 
 
 
-<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
-<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
 
 <script async src="https://use.fontawesome.com/32c3d13def.js"></script>
 
@@ -35,8 +35,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="../../../../../" class="nav-logo">
-    <img src="../../../../../images/fish.png"
+  <a href="/" class="nav-logo">
+    <img src="/images/fish.png"
          width="50"
          height="50"
          alt="Yufree">
@@ -46,17 +46,17 @@
     
     
     
-    <li class=""><a href="../../../../../"> Home </a></li>
+    <li class=""><a href="/"> Home </a></li>
     
-    <li class=""><a href="../../../../../en/about/"> About </a></li>
+    <li class=""><a href="/en/about/"> About </a></li>
     
-    <li class=""><a href="../../../../../en/"> Blog </a></li>
+    <li class=""><a href="/en/"> Blog </a></li>
     
-    <li class=""><a href="../../../../../en/vitae/"> Vitae </a></li>
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
     
-    <li class=""><a href="../../../../../metaworkflow/"> MetaWorkflow </a></li>
+    <li class=""><a href="/metaworkflow/"> MetaWorkflow </a></li>
     
-    <li class=""><a href="../../../../../cn/"> 中文 </a></li>
+    <li class=""><a href="/cn/"> 中文 </a></li>
     
   </ul>
 </nav>
@@ -79,7 +79,7 @@
   <span> Miao Yu ·   2017/07/07</span>
   <span class="article-toolbar">
     
-    <a href="../../../../../en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
     
     <a href="https://twitter.com/home?status=Text&#43;mining&#43;for&#43;top&#43;academic&#43;journals&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2017%2F07%2F07%2Ftext-mining%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
     <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Text&#43;mining&#43;for&#43;top&#43;academic&#43;journals&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2017%2F07%2F07%2Ftext-mining%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
@@ -103,7 +103,7 @@
 <h2>Data collection</h2>
 <p>Here I collected the information from all the papers published in SNP i.e. science, nature and PNAS in the past three years as xml format and clean them into a dataframe for further text mining. The search grammar could be find from <a href="https://www.ncbi.nlm.nih.gov/books/NBK3827/">NCBI websites</a> and a cheat sheet here.</p>
 <div class="figure">
-<img src="../../../../../images/cheatsheetpubmed.png" />
+<img src="/images/cheatsheetpubmed.png" />
 
 </div>
 <p>There are 26559 papers and I will use such data for text mining. PubMed has a limitation for 10000 records per query. So we need to fetch the data multiple times.</p>
@@ -126,16 +126,16 @@
 <div id="description-statistics" class="section level2">
 <h2>Description statistics</h2>
 <p>Firstly, let’s see the papers by journal:</p>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/sum-1.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/sum-1.png" width="672" /></p>
 <p>Then we could check the high frequency terms in the title and abstract of these papers.</p>
 <div id="title" class="section level3">
 <h3>Title</h3>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordtitle-1.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordtitle-1.png" width="672" /></p>
 <p>As top journals, one of the most obvious features is that they all need correction and reply. With high influences, those journals would be the best place to discuss the leading edge techniques and findings. However, Science likes U.S., glance and paleoanthropology more while Nature and PNAS like tumor to be used in the titles.</p>
 </div>
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordabs-1.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordabs-1.png" width="672" /></p>
 <p>Well, when we focused on the abstracts, something interesting happens:</p>
 <ul>
 <li><p>They all focused on tumor while Nature use ‘tumour’ as a journal from U.K.</p></li>
@@ -150,22 +150,22 @@
 <p>Here we use logistic regression to examine whether the frequency of each word is increasing or decreasing over time. Every term will then have a growth rate associated with it.</p>
 <div id="title-1" class="section level3">
 <h3>Title</h3>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png" width="672" /><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png" width="672" /><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png" width="672" /></p>
 <p>Here we could find some trending terms like CRISPR, gut, and corrigendum are ‘promising’. However, some topics like Ebola, Hiv and cell differentiation would leave us. Another interesting trending is that the names of certain subjects is disappearing in those top journals like biology, chemistry, neuroscience, ecology and policy. Maybe most titles would like to focus on specific topics or certain problems.</p>
 </div>
 <div id="abstract-1" class="section level3">
 <h3>Abstract</h3>
 <p>Now let’s review the temporal trends of terms in abstracts during the past three years by months.</p>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png" width="672" /><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png" width="672" /><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png" width="672" /></p>
 <p>It’s hard to find a clear pattern in growing words in abstracts. Maybe the abstracts focused more on technique details. However, shrinking words like viral, gene expression and pathway showed clear trends. Meanwhile, we could find some words like suggests, previously and production are discarded by the top scientist.</p>
 </div>
 </div>
 <div id="relationship-among-words" class="section level2">
 <h2>Relationship among words</h2>
 <p>N-gram analysis could be used to find a meaningful terms in those papers.</p>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png" width="672" /></p>
 <div class="figure">
-<img src="../../../../../images/biabs.png" />
+<img src="/images/biabs.png" />
 
 </div>
 <p>Well, climate change, transcription factor, stem cell and cancer would always be the favorite bigrams in the titles of top journals. For the abstracts, cell related topics such as function, protein and expression are always preferred. Anyway, life science is always the center of trending sciences.</p>
@@ -173,12 +173,12 @@
 <div id="topic-modeling" class="section level2">
 <h2>Topic modeling</h2>
 <p>Relationships among words could show us some trending. However, we could employ topic modeling to explore the topics as a bunch of words in the abstracts of those top journals.</p>
-<p><img src="../../../../../images/tm.png" /> This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.</p>
+<p><img src="/images/tm.png" /> This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.</p>
 </div>
 <div id="sentiment-analysis" class="section level2">
 <h2>Sentiment analysis</h2>
 <p>Text mining could also be used to find the sentiment behind those journal papers or the customs using certain words.</p>
-<p><img src="../../../../../en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/SA-1.png" width="672" /></p>
+<p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/SA-1.png" width="672" /></p>
 <p>Well, I think the afinn word list for sentiment analysis is not suitable for scientific literature. Some words is actually neutral in academic journals. If someone could develop a specific word list for scientists, we might find something ignored by the writing lessons on campus.</p>
 </div>
 <div id="summary" class="section level2">
@@ -193,13 +193,13 @@
 
 <nav id="article-nav">
     
-    <a href="../../../../../en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Selection of open source software platform for metabolomics or lipidomics</div>
     </a>
     
 
     
-    <a href="../../../../../en/2017/07/09/real-high-throughput-for-lc-gc-ms/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/en/2017/07/09/real-high-throughput-for-lc-gc-ms/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-title">Real high-throughput for LC/GC-MS <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
     </a>
     
@@ -263,14 +263,14 @@ document.addEventListener('keyup', function(e) {
           <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
           
           <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
-          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2018</a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2018</a></li>
         </ul>
       </footer>
     </div>
     
-    <script async src="../../../../../js/center-img.js"></script>
+    <script async src="/js/center-img.js"></script>
     
-    <script async src="../../../../../js/fix-footnote.js"></script>
+    <script async src="/js/fix-footnote.js"></script>
     
     
 

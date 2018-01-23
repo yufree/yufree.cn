@@ -24,8 +24,8 @@
 
 
 
-<link rel="stylesheet" href="../../../../../css/fonts.css" media="all">
-<link rel="stylesheet" href="../../../../../css/main.css" media="all">
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
 
 <script async src="https://use.fontawesome.com/32c3d13def.js"></script>
 
@@ -35,8 +35,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="../../../../../" class="nav-logo">
-    <img src="../../../../../images/fish.png"
+  <a href="/" class="nav-logo">
+    <img src="/images/fish.png"
          width="50"
          height="50"
          alt="Yufree">
@@ -46,17 +46,17 @@
     
     
     
-    <li class=""><a href="../../../../../"> 首页 </a></li>
+    <li class=""><a href="/"> 首页 </a></li>
     
-    <li class=""><a href="../../../../../cn/about/"> 关于 </a></li>
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
     
-    <li class=""><a href="../../../../../cn/"> 博客 </a></li>
+    <li class=""><a href="/cn/"> 博客 </a></li>
     
-    <li class=""><a href="../../../../../cn/vitae/"> 简历 </a></li>
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
     
-    <li class=""><a href="../../../../../notes/"> 笔记 </a></li>
+    <li class=""><a href="/notes/"> 笔记 </a></li>
     
-    <li class=""><a href="../../../../../en/"> English </a></li>
+    <li class=""><a href="/en/"> English </a></li>
     
   </ul>
 </nav>
@@ -79,7 +79,7 @@
   <span> 于淼 ·   2017/06/16</span>
   <span class="article-toolbar">
     
-    <a href="../../../../../cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
     
     <a href="https://twitter.com/home?status=%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E6%B5%81%E6%B4%BE&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F06%2F16%2Fnlp-literature%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
     <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E6%B5%81%E6%B4%BE&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F06%2F16%2Fnlp-literature%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
@@ -120,33 +120,33 @@
 <div class="section level2">
 <h2>发文量</h2>
 <p>首先我们先看看着三份期刊的发文量：</p>
-<p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/sum-1.png" width="672" /></p>
+<p><img src="/cn/2017-06-16-nlp_files/figure-html/sum-1.png" width="672" /></p>
 <p>这三份期刊里，PNAS发文量最大，占总数一半。</p>
 </div>
 <div class="section level2">
 <h2>高频词</h2>
 <p>然后我们看一下各期刊的前十大摘要高频词：</p>
-<p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/abs-1.png" width="672" /></p>
+<p><img src="/cn/2017-06-16-nlp_files/figure-html/abs-1.png" width="672" /></p>
 <p>这里解释一下，如果我们单纯寻找高频词其实这几个期刊都应该差不多，但这里我们用的是TF-IDF来加权筛选，这个加权不严谨的说就是这个词出现在该期刊的词频与出现在所有期刊词频的比例，通过这个值我们可以找到单个期刊比较重要的词。我们可以看到肿瘤与行为均出现在三个期刊的十大关键词中，推测相关研究应该是去年的重点。此外，《自然》与《美国科学院院刊》都出现了模型这个词。就特色而言，《自然》去年更关注造血过程、信号传递与衰老问题；《科学》杂志则关心磷酸化、spo11蛋白与火山口还有小尺度问题；《美国科学院院刊》主题特色不算明显，但比较喜欢强调研究重要性。</p>
 <p>如果我们只考虑题目里的文字呢？</p>
-<p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/title-1.png" width="672" /></p>
+<p><img src="/cn/2017-06-16-nlp_files/figure-html/title-1.png" width="672" /></p>
 <p>这里我们可以看出，《自然》上的论文题目跟摘要内容契合度比较高；《科学》上论文题目喜欢出现中美的国家标签；《美国科学院院刊》看意思题目里专业名词比较多。此外，三份期刊的题目里都出现了勘误，这倒是前沿高影响力期刊的特点：容易被质疑。</p>
 </div>
 <div class="section level2">
 <h2>词关系</h2>
 <p>看完整体你应该想到，单个词并非孤立，那么这些词之间会不会有相关性呢？这个问题我们也可以用NLP工具来研究：</p>
-<p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/termrelation-1.png" width="672" /><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/termrelation-2.png" width="672" /> 其实这个技术更常见，平时你用的输入法就实现去考察一些字词的关系，然后让其出现的排序更符合常识。这里我们可以看到，从题目里我们能看到气候变化、干细胞以及前面提到的勘误问题。从摘要里我们则会发现大多数是生物相关的主题，也就是前沿科研应该是生命科学在导向。但到目前为止我们都是把这一些文本当成一个整体，但科学是分科的，也就是有不同的主题，此时我们就要用到主题模型来探索去年前沿科研关注的主题分类。</p>
+<p><img src="/cn/2017-06-16-nlp_files/figure-html/termrelation-1.png" width="672" /><img src="/cn/2017-06-16-nlp_files/figure-html/termrelation-2.png" width="672" /> 其实这个技术更常见，平时你用的输入法就实现去考察一些字词的关系，然后让其出现的排序更符合常识。这里我们可以看到，从题目里我们能看到气候变化、干细胞以及前面提到的勘误问题。从摘要里我们则会发现大多数是生物相关的主题，也就是前沿科研应该是生命科学在导向。但到目前为止我们都是把这一些文本当成一个整体，但科学是分科的，也就是有不同的主题，此时我们就要用到主题模型来探索去年前沿科研关注的主题分类。</p>
 </div>
 <div class="section level2">
 <h2>主题模型分类</h2>
 <p>所谓主题模型，就是通过探索字词间内部关系对文本进行分类的模型，举例来说某个潜在的主题包含7个关键词，如果某篇文章命中6个，那么这篇文章大概率就属于这个潜在主题。当然，现实生活我们并不知道这些潜在主题会是什么，但通过隐含狄利克雷分布，也就是LDA方法我们就可以去探索结构，然后去拟合实际经验。</p>
-<p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/topic-1.png" width="672" /></p>
+<p><img src="/cn/2017-06-16-nlp_files/figure-html/topic-1.png" width="672" /></p>
 <p>从上面我们可以看出，有些探索出来的主题大概我们知道是哪个领域的，有些则属于误判或者说界限不明显的综合领域，这说明跨学科研究正在崛起。其中，我能识别出来的主题大体有癌症、脑科学、病毒、社会行为、基因组、膜蛋白结构、气候变化、进化、动态系统、材料。总体来看，细胞生物学与分子生物学还是主流，但病毒、气候变化等问题导向的学科也在发展。其实也可以直接分析10年的时间变化趋势，不过这个就留成课后题吧（其实是我个人电脑跑不动）。</p>
 </div>
 <div class="section level2">
 <h2>情感分析</h2>
 <p>一般认为科研人员都是比较乐观的，但其实文字背后究竟是否乐观可以用文本的情感分析来回答。这个分析的原理就是事先找个标注过情感的语料库，然后通过语料库与词频来分析具体文本的情感倾向性。正常这个语料库是要自己根据语境去构建的，例如商品的好评差评，但作为资深懒汉，我直接用了现成的AFINN语料库：</p>
-<p><img src="../../../../../cn/2017-06-16-nlp_files/figure-html/sen-1.png" width="672" /></p>
+<p><img src="/cn/2017-06-16-nlp_files/figure-html/sen-1.png" width="672" /></p>
 <p>结果基本符合乐观为主的预期，不过按说有些词在科研中属于中性词，我们可以通过这个分析来考虑论文写作的用词方法。</p>
 </div>
 <div class="section level2">
@@ -169,13 +169,13 @@
 
 <nav id="article-nav">
     
-    <a href="../../../../../cn/2017/05/22/study-aboard/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/cn/2017/05/22/study-aboard/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 留学生、隔离与适应</div>
     </a>
     
 
     
-    <a href="../../../../../cn/2017/07/24/boltzmann-distribution-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/cn/2017/07/24/boltzmann-distribution-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-title">从真空里的球形鸡到社会财富分配（一） <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
     </a>
     
@@ -239,14 +239,14 @@ document.addEventListener('keyup', function(e) {
           <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
           
           <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
-          <li><a href="../../../../../"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2018</a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2018</a></li>
         </ul>
       </footer>
     </div>
     
-    <script async src="../../../../../js/center-img.js"></script>
+    <script async src="/js/center-img.js"></script>
     
-    <script async src="../../../../../js/fix-footnote.js"></script>
+    <script async src="/js/fix-footnote.js"></script>
     
     
 

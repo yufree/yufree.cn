@@ -37,3 +37,7 @@ See you at poster zone between 1:00pm and 3:00pm.
 Our SPME courses are canceled just before this conference. So Prof. Pawliszyn asked all the group members to present the flyer about two days SPME course in Waterloo between April 26th and 27th. Here is the flyer and you could contact Nikita for more infomation.
 
 ![](https://yufree.cn/images/pittcon2018flyer.jpg)
+
+## Hire me
+
+My PostDoc contract would end at the end of July, 2018. I want to find a new PostDoc or research scientist position in U.S. because my girlfriend is here and travels between U.S. and Canada are really not so convenient for me. If you are interested in me or my research, you could find everything including referee and cv on this website and contact me [here](mailto:42@yufree.cn).

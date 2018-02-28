@@ -34,4 +34,6 @@ See you at poster zone between 1:00pm and 3:00pm.
 
 ## Flyer about SPME courses
 
-Our SPME courses are canceled just before this conference. So Prof. Pawliszyn asked all the group members to present the flyer about two days SPME course in Waterloo between April 26th and 27th.
+Our SPME courses are canceled just before this conference. So Prof. Pawliszyn asked all the group members to present the flyer about two days SPME course in Waterloo between April 26th and 27th. Here is the flyer and you could contact Nikita for more infomation.
+
+![](https://yufree.cn/images/pittcon2018flyer.jpg)

@@ -68,7 +68,8 @@ write.csv(table,file = &#39;hmdb.csv&#39;)</code></pre>
 <p>Then I thought I could use <code>bash</code> to process such xml. Although I finally get the files via <code>xmlstarlet</code>, I think the waiting time is too long.</p>
 <pre class="bash"><code>xmlstarlet sel -N hmdb=http://www.hmdb.ca -T -t -m //hmdb:metabolite -v &quot;concat(//hmdb:metabolite//hmdb:accession,&#39;,&#39;,//hmdb:metabolite//hmdb:monisotopic_molecular_weight,&#39;,&#39;,//hmdb:metabolite//hmdb:iupac_name,&#39;,&#39;,//hmdb:metabolite//hmdb:name,&#39;,&#39;,//hmdb:metabolite//hmdb:chemical_formula,&#39;,&#39;,//hmdb:metabolite//hmdb:cas_registry_number,&#39;,&#39;,//hmdb:metabolite//hmdb:smiles,&#39;,&#39;,//hmdb:metabolite//hmdb:kingdom,&#39;,&#39;,//hmdb:metabolite//hmdb:direct_parent,&#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:super_class,&#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:class,&#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:sub_class, &#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:molecular_framework)&quot; -n hmdb_metabolites.xml &gt; hmdb.csv</code></pre>
 <p>Then I think it’s time for <code>python</code>. I didn’t use python too much. After struglling with some issues between <code>python 2</code> and <code>python 3</code> , finally I make a dirty code as follows:</p>
-<pre class="python"><code>from lxml import etree
+<pre class="python"><code># delete the xmlns=&quot;http://www.hmdb.ca&quot; in the second line of xml space
+from lxml import etree
 import csv
 xml = &#39;hmdb.xml&#39;
 

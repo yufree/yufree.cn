@@ -78,6 +78,7 @@ xmlstarlet sel -N hmdb=http://www.hmdb.ca -T -t -m //hmdb:metabolite -v "concat(
 Then I think it's time for `python`. I didn't use python too much. After struglling with some issues between `python 2` and `python 3` , finally I make a dirty code as follows:
 
 ```{python python.reticulate = FALSE, eval = F}
+# delete the xmlns="http://www.hmdb.ca" in the second line of xml space
 from lxml import etree
 import csv
 xml = 'hmdb.xml'

@@ -106,7 +106,7 @@ Waterloo, Ontario, Canada
 
 - [R包 - rgabriel](http://cran.r-project.org/web/packages/rgabriel/index.html): Gabriel多重比较及其可视化
 
-- [R包 - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html): GC-MS数据在环境科学中的应用
+- [R包 - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html): GC/LC-MS数据在环境科学中的应用
 
 - [Shiny在线应用 - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)：极简在线输入法
 

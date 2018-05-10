@@ -45,7 +45,7 @@ menu:
       url: "/en/vitae/"
       weight: 4
     - name: "MetaWorkflow"
-      url: "/metaworkflow/"
+      url: "https://bookdown.org/yufree/Metabolomics/"
       weight: 5
     - name: "中文"
       url: "/cn/"
@@ -64,7 +64,7 @@ menu:
       url: "/cn/vitae/"
       weight: 4
     - name: "笔记"
-      url: "/notes/"
+      url: "https://bookdown.org/yufree/Notes/"
       weight: 5
     - name: "English"
       url: "/en/"

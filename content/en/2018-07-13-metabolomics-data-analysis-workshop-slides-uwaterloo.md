@@ -26,5 +26,5 @@ As I promised, here is the slides for the workshop:
 
 Those slides are wroten by [xaringan](https://github.com/yihui/xaringan), which means they support full screen (press f) and notes (press p). The source file could be found [here](https://github.com/yufree/presentation) under subfolder 'metabolomics'. You might find amusing images or GIF at the beginning of each slides and I found such way could really help to relax both the reporter and the audiences (I stole this idea and some GIF from [Yihui](https://yihui.name/en/2017/05/gifs/)).
 
-Since it's already public availiable, you could also use them as your wishes. I will appreciate if you could send some feedbacks or enhencements for those slides. Those slides would be updated with [Meta-Workflow](https://yufree.cn/metaworkflow/) which you could also comment on the source [file](https://github.com/yufree/metaworkflow).
+Since it's already public availiable, you could also use them as your wishes. No Guarantee. I will appreciate if you could send some feedbacks or enhencements for those slides. Those slides would be updated with [Meta-Workflow](https://yufree.cn/metaworkflow/) which you could also comment on the source [file](https://github.com/yufree/metaworkflow).
 

@@ -28,3 +28,4 @@ Those slides are wroten by [xaringan](https://github.com/yihui/xaringan), which 
 
 Since it's already public availiable, you could also use them as your wishes. No Guarantee. I will appreciate if you could send some feedbacks or enhencements for those slides. Those slides would be updated with [Meta-Workflow](https://yufree.cn/metaworkflow/) which you could also comment on the source [file](https://github.com/yufree/metaworkflow).
 
+Enjoy your Friday 13rd!

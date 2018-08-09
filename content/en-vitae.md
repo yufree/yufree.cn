@@ -34,7 +34,7 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 # Professional Experience
 
-- 2016.08 ~ now, Postdoctoral Fellow in University of Waterloo, Canada.
+- 2016.08 ~ 2018.08, Postdoctoral Fellow in University of Waterloo, Canada.
 
 # Honors & Awards
 

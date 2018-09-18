@@ -8,19 +8,18 @@ disable_comments: true
 
 - 地址: 
 
-Department of Chemistry
-University of Waterloo
-200 University Avenue West
-Waterloo, Ontario, Canada 
+Department of Environmental Medicine and Public Health
+Icahn School of Medicine at Mount Sinai
+One Gustave L.Levy Place, Box 1057
+New York, NY, USA. 
 
-- 邮编: N2L 3G1
-
-- 联系电话: +1 519-888-4567 ext. 31266
+- 邮编: 10029
 
 - Email: 42@yufree.cn
 
 ## 工作信息
 
+- 2018.09至今 美国西奈山医学院 博士后
 - 2016.08-2018.08 加拿大滑铁卢大学 博士后
 - 2014.09-2016.07 美国化学会 初级网络分析师（兼职）
 

@@ -34,6 +34,8 @@ toxicity for certain compounds
 
 ## Compounds database on certain topic
 
+- [RefMet](http://www.metabolomicsworkbench.org/databases/refmet/index.php) A Reference list of Metabolite names.
+
 - [CompTox](https://comptox.epa.gov/dashboard) compounds, exposure and toxicity database. [Here](https://www.epa.gov/chemical-research/downloadable-computational-toxicology-data) is related data. This is for environmental study.
 
 - [T3DB](http://www.t3db.ca/) is a unique bioinformatics resource that combines detailed toxin data with comprehensive toxin target information.
@@ -41,6 +43,8 @@ toxicity for certain compounds
 - [HMDB](http://www.hmdb.ca/) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body.
 
 - [Lipid Maps](http://www.lipidmaps.org/)
+
+- [GMDB](https://jcggdb.jp/rcmg/glycodb/Ms_ResultSearch) a multistage tandem mass spectral database using a variety of structurally defined glycans.
 
 - [KEGG](https://www.genome.jp/kegg/compound/) is a collection of small molecules, biopolymers, and other chemical substances that are relevant to biological systems.
 

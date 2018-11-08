@@ -10,8 +10,11 @@ disable_comments: true
 - Address
 
 Department of Environmental Medicine and Public Health
+
 Icahn School of Medicine at Mount Sinai
+
 One Gustave L.Levy Place, Box 1057
+
 New York, NY 10029, USA.
   
 - Email
@@ -169,12 +172,12 @@ This application is used to show the database of PBDEs' RRTs on DB-5ms and predi
 
 - Slides
         
-        - [Introduction](http://yufree.github.io/presentation/metabolomics/introduction#1)
-        - [Statistical Analysis](http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1)
-        - [Batch Correction](http://yufree.github.io/presentation/metabolomics/BatchCorrection#1)
-        - [Annotation](http://yufree.github.io/presentation/metabolomics/Annotation#1) 
-        - [Demo](http://yufree.github.io/presentation/metabolomics/demo#1) 
-        - [Source code for slides](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
+    - [Introduction](http://yufree.github.io/presentation/metabolomics/introduction#1)
+    - [Statistical Analysis](http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1)
+    - [Batch Correction](http://yufree.github.io/presentation/metabolomics/BatchCorrection#1)
+    - [Annotation](http://yufree.github.io/presentation/metabolomics/Annotation#1) 
+    - [Demo](http://yufree.github.io/presentation/metabolomics/demo#1) 
+    - [Source code for slides](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
 
 - University of Waterloo, Waterloo, ON, Canada, 2018.7
 

@@ -9,8 +9,11 @@ disable_comments: true
 - 地址: 
 
 Department of Environmental Medicine and Public Health
+
 Icahn School of Medicine at Mount Sinai
+
 One Gustave L.Levy Place, Box 1057
+
 New York, NY, USA. 
 
 - 邮编: 10029
@@ -139,12 +142,12 @@ New York, NY, USA.
 
 - 幻灯片
         
-        - [导论](http://yufree.github.io/presentation/metabolomics/introduction#1)
-        - [统计分析](http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1)
-        - [批次效应](http://yufree.github.io/presentation/metabolomics/BatchCorrection#1)
-        - [注释](http://yufree.github.io/presentation/metabolomics/Annotation#1) 
-        - [演示](http://yufree.github.io/presentation/metabolomics/demo#1) 
-        - [幻灯片源码](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
+  - [导论](http://yufree.github.io/presentation/metabolomics/introduction#1)
+  - [统计分析](http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1)
+  - [批次效应](http://yufree.github.io/presentation/metabolomics/BatchCorrection#1)
+  - [注释](http://yufree.github.io/presentation/metabolomics/Annotation#1) 
+  - [演示](http://yufree.github.io/presentation/metabolomics/demo#1) 
+  - [幻灯片源码](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
 
 - University of Waterloo, Waterloo, ON, Canada, 2018.7
 

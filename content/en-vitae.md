@@ -71,9 +71,19 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
 
+- Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272
+
+- Yu, M., Olkowicz, M., Pawliszyn, J., 2018. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta. https://doi.org/10.1016/j.aca.2018.10.062
+
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. https://doi.org/10.1038/s41598-018-25428-2
 
+- Hou, X., Yu, M., Liu, A., Li, Y., Ruan, T., Liu, J., Schnoor, J.L., Jiang, G., 2018. Biotransformation of tetrabromobisphenol A dimethyl ether back to tetrabromobisphenol A in whole pumpkin plants. Environmental Pollution 241, 331–338. https://doi.org/10.1016/j.envpol.2018.05.075
+
+- Tian, Z., Vila, J., Yu, M., Bodnar, W., Aitken, M.D., 2018. Tracing the Biotransformation of Polycyclic Aromatic Hydrocarbons in Contaminated Soil Using Stable Isotope-Assisted Metabolomics. Environ. Sci. Technol. Lett. https://doi.org/10.1021/acs.estlett.7b00554
+
 - Liu, Y., Liu, J., Yu, M., Zhou, Q., Jiang, G., 2018. Hydroxylated and methoxylated polybrominated diphenyl ethers in a marine food web of Chinese Bohai Sea and their human dietary exposure. Environmental Pollution 233, 604–611. doi:10.1016/j.envpol.2017.10.105
+
+- Lu, D., Liu, Q., Yu, M., Yang, X., Fu, Q., Zhang, X., Mu, Y., Jiang, G., 2017. Natural Silicon Isotopic Signatures Reveal the Sources of Airborne Fine Particulate Matter. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.7b06317
 
 - Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017. Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after waterborne exposure. Environmental Science: Processes & Impacts 19, 1327–1335. doi:10.1039/C7EM00304H
 
@@ -155,7 +165,26 @@ This application is used to show the database of PBDEs' RRTs on DB-5ms and predi
 
 - [Spiral suspended type red mud membrane bag adsorption and dephosphorization apparatus](https://www.google.com/patents/CN101456602B) Invention
 
+# Metabolomics Data Analysis Workshop
+
+- Slides
+        
+        - [Introduction](http://yufree.github.io/presentation/metabolomics/introduction#1)
+        - [Statistical Analysis](http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1)
+        - [Batch Correction](http://yufree.github.io/presentation/metabolomics/BatchCorrection#1)
+        - [Annotation](http://yufree.github.io/presentation/metabolomics/Annotation#1) 
+        - [Demo](http://yufree.github.io/presentation/metabolomics/demo#1) 
+        - [Source code for slides](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
+
+- University of Waterloo, Waterloo, ON, Canada, 2018.7
+
+- University of California, Irvine, Irvine, CA, USA, 2018.8
+
 # Presentations
+
+- Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
+
+- Miao Yu, Anna Roszkowska, Janusz Pawliszyn, 2018, Tissue Storage Affects Global Metabolic Profiling in Comparison to in vivo Microsampling Approach, Pittcon 2018, Orlando, FL, USA. ([poster](https://docs.google.com/presentation/d/1cziiGcQb60GLyBce8hEQy3Y02MqQk0-9Kih1nl-BCPE/edit?usp=sharing))
 
 - Miao Yu, 2017, Text Mining for Academic Journals: Science Café @ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
 
@@ -168,6 +197,7 @@ This application is used to show the database of PBDEs' RRTs on DB-5ms and predi
 - Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
 
 - Miao YU, 2014, Digging the thresholds in environmental data, 2nd Environmental pollution and health forum for Graduate students, Beijing, China.([slides](http://yufree.github.io/presentation/threshold/threshold))
+
 # Recommendation
 
 [Prof. Guibin Jiang](http://sourcedb.cas.cn/sourcedb_rcees_cas/yw/cm/200906/t20090612_1038265.html)

@@ -40,6 +40,8 @@ New York, NY, USA.
 - 于淼,2015,单甲氧基取代多溴联苯醚定性分析方法,中国化学会第十八届全国有机分析及生物分析学术研讨会(上海).
 - Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015(Jerusalem, Israel).
 - 于淼,2015,GC-MS数据可视化在环境分析中的应用,第八届全国环境化学大会(广州).
+- Miao Yu, 2017, Text Mining for Academic Journals: Science Café @ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
+- Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
 
 ## 计算机水平
 
@@ -65,9 +67,19 @@ New York, NY, USA.
 
 - Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
 
+- Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272
+
+- Yu, M., Olkowicz, M., Pawliszyn, J., 2018. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta. https://doi.org/10.1016/j.aca.2018.10.062
+
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. https://doi.org/10.1038/s41598-018-25428-2
 
+- Hou, X., Yu, M., Liu, A., Li, Y., Ruan, T., Liu, J., Schnoor, J.L., Jiang, G., 2018. Biotransformation of tetrabromobisphenol A dimethyl ether back to tetrabromobisphenol A in whole pumpkin plants. Environmental Pollution 241, 331–338. https://doi.org/10.1016/j.envpol.2018.05.075
+
+- Tian, Z., Vila, J., Yu, M., Bodnar, W., Aitken, M.D., 2018. Tracing the Biotransformation of Polycyclic Aromatic Hydrocarbons in Contaminated Soil Using Stable Isotope-Assisted Metabolomics. Environ. Sci. Technol. Lett. https://doi.org/10.1021/acs.estlett.7b00554
+
 - Liu, Y., Liu, J., Yu, M., Zhou, Q., Jiang, G., 2018. Hydroxylated and methoxylated polybrominated diphenyl ethers in a marine food web of Chinese Bohai Sea and their human dietary exposure. Environmental Pollution 233, 604–611. doi:10.1016/j.envpol.2017.10.105
+
+- Lu, D., Liu, Q., Yu, M., Yang, X., Fu, Q., Zhang, X., Mu, Y., Jiang, G., 2017. Natural Silicon Isotopic Signatures Reveal the Sources of Airborne Fine Particulate Matter. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.7b06317
 
 - Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017. Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after waterborne exposure. Environmental Science: Processes & Impacts 19, 1327–1335. doi:10.1039/C7EM00304H
 
@@ -123,6 +135,21 @@ New York, NY, USA.
 
 - [Shiny app - ShinyBDE](https://yufree.shinyapps.io/shinyBDE)：多溴联苯醚保留时间预测
 
+## 代谢组学数据分析培训
+
+- 幻灯片
+        
+        - [导论](http://yufree.github.io/presentation/metabolomics/introduction#1)
+        - [统计分析](http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1)
+        - [批次效应](http://yufree.github.io/presentation/metabolomics/BatchCorrection#1)
+        - [注释](http://yufree.github.io/presentation/metabolomics/Annotation#1) 
+        - [演示](http://yufree.github.io/presentation/metabolomics/demo#1) 
+        - [幻灯片源码](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
+
+- University of Waterloo, Waterloo, ON, Canada, 2018.7
+
+- University of California, Irvine, Irvine, CA, USA, 2018.8
+
 ## 会议论文
 
 - Jiyan Liu*, Jianteng Sun, Miao Yu, Guibin Jiang. Uptake, translocation and transformation of polybrominated diphenyl ethers in whole pumpkin seedlings. 32nd International Symposium on Halogenated Persistent Organic Pollutants, Cairns, Australia, 2012.8.26-31, G8.103
@@ -142,6 +169,10 @@ New York, NY, USA.
 - Miao Yu, Aifeng Liu, Jiyan Liu, Guibin Jiang. 2015, Kow Directed Analysis For Brominated Containment in Environmental Samples, the 43rd Symposium of HPLC and related techniques, Beijing, China
 
 - 于淼,刘稷燕, 江桂斌,GC-MS数据可视化在环境分析中的应用,第八届全国环境化学大会,2015,广州,中国(口头报告)
+
+- Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
+
+- Miao Yu, Anna Roszkowska, Janusz Pawliszyn, 2018, Tissue Storage Affects Global Metabolic Profiling in Comparison to in vivo Microsampling Approach, Pittcon 2018, Orlando, FL, USA. ([poster](https://docs.google.com/presentation/d/1cziiGcQb60GLyBce8hEQy3Y02MqQk0-9Kih1nl-BCPE/edit?usp=sharing))
 
 ## 授权专利
 

@@ -233,20 +233,18 @@ Recommendation: [Click Here](https://github.com/yufree/blog/blob/gh-pages/vitae/
 
 # Computer Skills
 
-- I use Tex(lyx) to layout my papers but sometimes I have to use Word and I am skilled at both of them;
+- I use RMarkdown to layout my papers but sometimes I have to use Google Doc/TeX/Word and I am skilled at all of them;
 
 - Most of my data analysis is done under RStudio wiht Knitr and I think repeatability studies are important for every scientist and I know how to use Excle, origin, SPSS, Octave... but I just prefer R;
 
-- Beamer is simple and Powerpoint is beautiful but recently I found html5 could be used to show a bettter presentation;
+- Beamer is simple and Powerpoint is beautiful but recently I found html5 could be a bettter option;
 
-- I use Zotero to manage my literatures and use 4share as webdev for attachment;
+- I use Zotero to manage my literatures;
 
 - I learned C when I was a freshman then I also learned S, python and Matlab for simple programming in my research but I think shell is more powerful;
 
-- I could read stuctured codes and guess the usages of some functions by their names. For most of the time, it works;
+- I could read stuctured codes and guess the usages of some functions by their names. 90% of the time, it works;
 
-- I tried to learn PS many times and finally chose ImageJ;
-
-- I am also skilled to get aross the great firewall so never worried about it.
+- <s>I am also skilled to get aross the great firewall so never worried about it.</s>
 
 _I love open source software!_

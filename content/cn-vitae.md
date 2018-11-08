@@ -50,7 +50,7 @@ New York, NY, USA.
 
 - 语言(业余)：R > Tex > python > Octave >> C
 
-- 软件：RStudio, lyx, 终端
+- 软件：RStudio, Docker, 终端
 
 - 操作系统：早年windows 后来ubuntu 近期Mac OS X
 

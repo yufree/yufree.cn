@@ -15,7 +15,7 @@ tags: []
 
 ## 研究增长的极限
 
-```{r pm, echo=FALSE}
+```{r pm, echo=FALSE,eval=FALSE}
 library(tidyverse)
 timeline <- read.csv("../../data/timeline.csv", skip = 1)
 timeline %>%
@@ -28,7 +28,7 @@ timeline %>%
 
 这个现象可能有点反直觉，因为近几年大气环境污染的公众关注度非常高，经费投放也很可观，但学术界却降低了学术交流频次。无独有偶，使用传统研究热点例如汞、铬、二恶英、基因组、纳米颗粒去进行检索，都会发现研究在2014-2015年间出现了峰值。但同时如果去看一些新兴研究例如3D打印，颗粒物中的细颗粒物（fine particulate matter），则增长还是非常迅速的。
 
-```{r sub, echo=FALSE}
+```{r sub, echo=FALSE,eval=F}
 timelinefine <- read.csv("../../data/timelinefine.csv", skip = 1)
 timelinefine[-1,] %>%
         ggplot(aes(year,count)) + 

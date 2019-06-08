@@ -74,9 +74,11 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
 
-- Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272
+- Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272  (**2018 ES&T Letter Best Paper**, co-first)
 
 - Yu, M., Olkowicz, M., Pawliszyn, J., 2018. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta. https://doi.org/10.1016/j.aca.2018.10.062
+
+- Roszkowska, A., Yu, M., Bessonneau, V., Ings, J., McMaster, M., Smith, R., Bragg, L., Servos, M., Pawliszyn, J., 2019. In vivo solid-phase microextraction sampling combined with metabolomics and toxicological studies for the non-lethal monitoring of the exposome in fish tissue. Environmental Pollution 249, 109–115. https://doi.org/10.1016/j.envpol.2019.03.024
 
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. https://doi.org/10.1038/s41598-018-25428-2
 
@@ -106,13 +108,13 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Liu, Y., Ruan, T., Lin, Y., Liu, A., Yu, M., Liu, R., Meng, M., Wang, Y., Liu, J., Jiang, G., 2017. Chlorinated Polyfluoroalkyl Ether Sulfonic Acids in Marine Organisms from Bohai Sea, China: Occurrence, Temporal Variations, and Trophic Transfer Behavior. Environ. Sci. Technol. 51, 4407–4414. doi:10.1021/acs.est.6b06593
 
-- Poole, J.J., Grandy, J.J., Yu, M., Boyaci, E., Gómez-Ríos, G.A., Reyes-Garcés, N., Bojko, B., Heide, H.V., Pawliszyn, J., 2017. Deposition of a Sorbent into a Recession on a Solid Support To Provide a New, Mechanically Robust Solid-Phase Microextraction Device. Anal. Chem. doi:10.1021/acs.analchem.7b01382 (Cover paper)
+- Poole, J.J., Grandy, J.J., Yu, M., Boyaci, E., Gómez-Ríos, G.A., Reyes-Garcés, N., Bojko, B., Heide, H.V., Pawliszyn, J., 2017. Deposition of a Sorbent into a Recession on a Solid Support To Provide a New, Mechanically Robust Solid-Phase Microextraction Device. Anal. Chem. doi:10.1021/acs.analchem.7b01382 (**Cover paper**)
 
 - Qu, G., Liu, A., Wang, T., Zhang, C., Fu, J., Yu, M., Sun, J., Zhu, N., Li, Z., Wei, G., Du, Y., Shi, J., Liu, S., Jiang, G., 2013. Identification of Tetrabromobisphenol A Allyl Ether and Tetrabromobisphenol A 2,3-Dibromopropyl Ether in the Ambient Environment near a Manufacturing Site and in Mollusks at a Coastal Region. Environ. Sci. Technol. 47, 4760–4767. doi:10.1021/es3049916
 
 - Sun, J., Liu, J., Liu, Q., Ruan, T., Yu, M., Wang, Y., Wang, T., Jiang, G., 2013a. Hydroxylated polybrominated diphenyl ethers (OH-PBDEs) in biosolids from municipal wastewater treatment plants in China. Chemosphere 90, 2388–2395. doi:10.1016/j.chemosphere.2012.10.034
 
-- Sun, J., Liu, J., Liu, Y., Yu, M., Jiang, G., 2014. Reciprocal Transformation between Hydroxylated and Methoxylated Polybrominated Diphenyl Ethers in Young Whole Pumpkin Plants. Environ. Sci. Technol. Lett. 1, 236–241. doi:10.1021/ez500068q (Cover paper)
+- Sun, J., Liu, J., Liu, Y., Yu, M., Jiang, G., 2014. Reciprocal Transformation between Hydroxylated and Methoxylated Polybrominated Diphenyl Ethers in Young Whole Pumpkin Plants. Environ. Sci. Technol. Lett. 1, 236–241. doi:10.1021/ez500068q (**Cover paper**)
 
 - Sun, J., Liu, J., Yu, M., Wang, C., Sun, Y., Zhang, A., Wang, T., Lei, Z., Jiang, G., 2013b. In Vivo Metabolism of 2,2′,4,4′-Tetrabromodiphenyl Ether (BDE-47) in Young Whole Pumpkin Plant. Environ. Sci. Technol. 47, 3701–3707. doi:10.1021/es4003263
 
@@ -131,6 +133,10 @@ Gabriel Multiple Comparison Test and Plot the Confidence Interval on Barplot
 - [R package - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html)
 
 LC/GC-MS Data Analysis for Environmental Science
+
+- [R package - pmd](http://cran.r-project.org/web/packages/pmd/index.html)
+
+Paired Mass Distance Analysis for GC/LC-MS Based Non-Targeted Analysis
 
 - [Shiny app - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)
 

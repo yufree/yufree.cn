@@ -76,6 +76,8 @@ New York, NY, USA.
 
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. https://doi.org/10.1038/s41598-018-25428-2
 
+- Roszkowska, A., Yu, M., Bessonneau, V., Ings, J., McMaster, M., Smith, R., Bragg, L., Servos, M., Pawliszyn, J., 2019. In vivo solid-phase microextraction sampling combined with metabolomics and toxicological studies for the non-lethal monitoring of the exposome in fish tissue. Environmental Pollution 249, 109–115. https://doi.org/10.1016/j.envpol.2019.03.024
+
 - Hou, X., Yu, M., Liu, A., Li, Y., Ruan, T., Liu, J., Schnoor, J.L., Jiang, G., 2018. Biotransformation of tetrabromobisphenol A dimethyl ether back to tetrabromobisphenol A in whole pumpkin plants. Environmental Pollution 241, 331–338. https://doi.org/10.1016/j.envpol.2018.05.075
 
 - Tian, Z., Vila, J., Yu, M., Bodnar, W., Aitken, M.D., 2018. Tracing the Biotransformation of Polycyclic Aromatic Hydrocarbons in Contaminated Soil Using Stable Isotope-Assisted Metabolomics. Environ. Sci. Technol. Lett. https://doi.org/10.1021/acs.estlett.7b00554
@@ -123,6 +125,8 @@ New York, NY, USA.
 - [R包 - rgabriel](http://cran.r-project.org/web/packages/rgabriel/index.html): Gabriel多重比较及其可视化
 
 - [R包 - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html): GC/LC-MS数据在环境科学中的应用
+
+- [R包 - pmd](http://cran.r-project.org/web/packages/pmd/index.html)：基于GC/LC-MS数据的非目的质量差分析
 
 - [Shiny在线应用 - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)：极简在线输入法
 

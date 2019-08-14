@@ -76,7 +76,7 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272  (**2018 ES&T Letter Best Paper**, co-first)
 
-- Yu, M., Olkowicz, M., Pawliszyn, J., 2018. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta. https://doi.org/10.1016/j.aca.2018.10.062
+- Yu, M., Olkowicz, M., Pawliszyn, J., 2019. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta 1050, 16–24. https://doi.org/10.1016/j.aca.2018.10.062
 
 - Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.9b02122
 

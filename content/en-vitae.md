@@ -78,6 +78,8 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 
 - Yu, M., Olkowicz, M., Pawliszyn, J., 2018. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta. https://doi.org/10.1016/j.aca.2018.10.062
 
+- Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.9b02122
+
 - Roszkowska, A., Yu, M., Bessonneau, V., Ings, J., McMaster, M., Smith, R., Bragg, L., Servos, M., Pawliszyn, J., 2019. In vivo solid-phase microextraction sampling combined with metabolomics and toxicological studies for the non-lethal monitoring of the exposome in fish tissue. Environmental Pollution 249, 109–115. https://doi.org/10.1016/j.envpol.2019.03.024
 
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. https://doi.org/10.1038/s41598-018-25428-2
@@ -123,6 +125,10 @@ POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
 - Zhang, H., Wang, Y., Sun, C., Yu, M., Gao, Y., Wang, T., Liu, J., Jiang, G., 2014. Levels and Distributions of Hexachlorobutadiene and Three Chlorobenzenes in Biosolids from Wastewater Treatment Plants and in Soils within and Surrounding a Chemical Plant in China. Environ. Sci. Technol. 48, 1525–1531. doi:10.1021/es405171t
 
 - Zhao, X., Yu, M., Xu, D., Liu, A., Hou, X., Hao, F., Long, Y., Zhou, Q., Jiang, G., 2017. Distribution, Bioaccumulation, Trophic Transfer, and Influences of CeO2 Nanoparticles in a Constructed Aquatic Food Web. Environ. Sci. Technol. 51, 5205–5214. doi:10.1021/acs.est.6b05875
+
+## Book chapter
+
+- Roszkowska, A., Yu, M., Pawliszyn, J., 2020. In Vivo SPME for Bioanalysis in Environmental Monitoring and Toxicology, in: Jiang, G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and Toxicology: From Concepts to Insights. Springer Singapore, Singapore, pp. 23–31. https://doi.org/10.1007/978-981-13-9447-8_3
 
 ## Software Package
 

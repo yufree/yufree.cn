@@ -74,6 +74,8 @@ New York, NY, USA.
 
 - Yu, M., Olkowicz, M., Pawliszyn, J., 2018. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta. https://doi.org/10.1016/j.aca.2018.10.062
 
+- Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.9b02122
+
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. https://doi.org/10.1038/s41598-018-25428-2
 
 - Roszkowska, A., Yu, M., Bessonneau, V., Ings, J., McMaster, M., Smith, R., Bragg, L., Servos, M., Pawliszyn, J., 2019. In vivo solid-phase microextraction sampling combined with metabolomics and toxicological studies for the non-lethal monitoring of the exposome in fish tissue. Environmental Pollution 249, 109–115. https://doi.org/10.1016/j.envpol.2019.03.024
@@ -141,6 +143,10 @@ New York, NY, USA.
 - [Shiny在线应用 - SP-ICP-MS](https://yufree.shinyapps.io/spicpmsshiny)：基于ICP-MS的纳米粒子颗粒分布分析
 
 - [Shiny app - ShinyBDE](https://yufree.shinyapps.io/shinyBDE)：多溴联苯醚保留时间预测
+
+## 书
+
+- Roszkowska, A., Yu, M., Pawliszyn, J., 2020. In Vivo SPME for Bioanalysis in Environmental Monitoring and Toxicology, in: Jiang, G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and Toxicology: From Concepts to Insights. Springer Singapore, Singapore, pp. 23–31. https://doi.org/10.1007/978-981-13-9447-8_3
 
 ## 代谢组学数据分析培训
 

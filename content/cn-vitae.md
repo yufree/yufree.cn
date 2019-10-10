@@ -132,17 +132,17 @@ New York, NY, USA.
 
 - [Shiny在线应用 - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)：极简在线输入法
 
-- [Shiny在线应用 - JournalTone](https://yufreecas.shinyapps.io/journaltone)：基于PubMed关键词或期刊的文本趋势挖掘
+- [Shiny在线应用 - JournalTone](http://r.yufree.cn/JournalTone/)：基于PubMed关键词或期刊的文本趋势挖掘
 
 - [Shiny在线应用 - XcmsPlus](https://yufreecas.shinyapps.io/xcmsplus)：代谢组学数据分析与可视化
 
-- [Shiny在线应用 - MSCCP](https://yufreecas.shinyapps.io/msccp)：短链氯化石蜡定量
+- [Shiny在线应用 - MSCCP](http://r.yufree.cn/msccpol/)：短链氯化石蜡定量
 
-- [Shiny在线应用 - Molecular isotope ratio tools](https://yufree.shinyapps.io/MIRtools/)：分子同位素分析
+- [Shiny在线应用 - Molecular isotope ratio tools](http://r.yufree.cn/MIR/)：分子同位素分析
 
-- [Shiny在线应用 - SP-ICP-MS](https://yufree.shinyapps.io/spicpmsshiny)：基于ICP-MS的纳米粒子颗粒分布分析
+- [Shiny在线应用 - SP-ICP-MS](http://r.yufree.cn/spicpms/)：基于ICP-MS的纳米粒子颗粒分布分析
 
-- [Shiny app - ShinyBDE](https://yufree.shinyapps.io/shinyBDE)：多溴联苯醚保留时间预测
+- [Shiny app - ShinyBDE](http://r.yufree.cn/shinyBDE)：多溴联苯醚保留时间预测
 
 ## 书
 

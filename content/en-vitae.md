@@ -144,11 +144,11 @@ LC/GC-MS Data Analysis for Environmental Science
 
 Paired Mass Distance Analysis for GC/LC-MS Based Non-Targeted Analysis
 
-- [Shiny app - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)
+- [Shiny app - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny/)
 
 This application is used to predict next words based on your imput words. 
 
-- [Shiny app - JournalTone](https://yufreecas.shinyapps.io/journaltone)
+- [Shiny app - JournalTone](http://r.yufree.cn/JournalTone/)
 
 This application is used to explore new trend for certain keywords and journal by text mining for the title and abstract via data from PubMed.
 
@@ -156,19 +156,19 @@ This application is used to explore new trend for certain keywords and journal b
 
 This application is used for visulization, DART, and Batch correction & simulation of metabolomics data.
 
-- [Shiny app - MSCCP](https://yufreecas.shinyapps.io/msccp)
+- [Shiny app - MSCCP](http://r.yufree.cn/msccpol/)
 
 This application is used to quantitative analysis of Short Chain Chlorinated Paraffins (SCCPs).
 
-- [Shiny app - Molecular isotope ratio tools](https://yufree.shinyapps.io/MIRtools/)
+- [Shiny app - Molecular isotope ratio tools](http://r.yufree.cn/MIR/)
 
 This application is used to get molecular isotope ratio and related information.
 
-- [Shiny app - SP-ICP-MS](https://yufree.shinyapps.io/spicpmsshiny)
+- [Shiny app - SP-ICP-MS](http://r.yufree.cn/spicpms/)
 
 This application is used to get the distribution of nano-particles when you perform the analysis on ICP-MS.
 
-- [Shiny app - ShinyBDE](https://yufree.shinyapps.io/shinyBDE)
+- [Shiny app - ShinyBDE](http://r.yufree.cn/shinyBDE)
 
 This application is used to show the database of PBDEs' RRTs on DB-5ms and prediction values by various machine learning algorithms.
 

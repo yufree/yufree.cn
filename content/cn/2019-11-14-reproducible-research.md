@@ -2,7 +2,7 @@
 title: 可重复性研究的框架
 author: ''
 date: '2019-11-14'
-slug: ge-chong-fu-xing-xing-jiu
+slug: reproducible-research
 categories: []
 tags: []
 ---

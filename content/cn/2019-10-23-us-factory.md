@@ -2,7 +2,7 @@
 title: 美国工厂
 author: ''
 date: '2019-10-23'
-slug: mei-guo-gong-chang
+slug: us-factory
 categories: []
 tags: []
 ---

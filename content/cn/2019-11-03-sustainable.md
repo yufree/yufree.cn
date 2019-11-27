@@ -2,7 +2,7 @@
 title: 可持续性
 author: ''
 date: '2019-11-03'
-slug: ke-chi-xu-xing
+slug: sustainable
 categories: []
 tags: []
 ---

@@ -22,7 +22,7 @@ para B</code></pre>
 
 Say [hello](#id)</code></pre>
 </div>
-<div class="section level2">
+<div id="代码块" class="section level2">
 <h2>代码块</h2>
 <p>扩展功能，可折叠代码块直接段落开头使用<code>tab</code>键就可以了，默认不折叠。</p>
 <pre><code>  a &lt;- c(1:100) #宇宙最高司令教导我们说可以把一行代码写的尽量长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长一些
@@ -31,11 +31,11 @@ Say [hello](#id)</code></pre>
   c &lt;- b-a</code></pre>
 <p>相连代码块用<code>^</code>分割</p>
 </div>
-<div class="section level2">
+<div id="围栏代码块" class="section level2">
 <h2>围栏代码块</h2>
 <p>扩展功能，用<code>~~~</code>跟<code>~~~</code>围起来就可以了。</p>
 </div>
-<div class="section level2">
+<div id="列表" class="section level2">
 <h2>列表</h2>
 <p>不允许混合无序列表与数字列表，标准版两个不同列表容易产生一个无序列表：</p>
 <pre><code>* kram
@@ -47,7 +47,7 @@ Say [hello](#id)</code></pre>
 3. now</code></pre>
 <p>同级别列表不允许有不同缩进。</p>
 </div>
-<div class="section level2">
+<div id="定义列表" class="section level2">
 <h2>定义列表</h2>
 <p>扩展功能。</p>
 <pre><code>kramdown
@@ -64,7 +64,7 @@ Maruku
 </dd>
 </dl>
 </div>
-<div class="section level2">
+<div id="表格" class="section level2">
 <h2>表格</h2>
 <p>扩展功能。</p>
 <pre><code>|-----------------+------------+-----------------+----------------|
@@ -80,7 +80,7 @@ Maruku
 | Footer row      |            |                 |                |
 |-----------------+------------+-----------------+----------------|</code></pre>
 </div>
-<div class="section level2">
+<div id="数学公式支持" class="section level2">
 <h2>数学公式支持</h2>
 <p>扩展功能。</p>
 <pre><code>$$
@@ -116,11 +116,11 @@ $$</code></pre>
 \end{align*}
 \]</span></p>
 </div>
-<div id="html" class="section level2">
+<div id="html支持" class="section level2">
 <h2>HTML支持</h2>
 <p>比标准更宽泛，支持任意位置插入<code>html</code>代码并允许嵌套<code>markdown</code>语句</p>
 </div>
-<div class="section level2">
+<div id="脚注" class="section level2">
 <h2>脚注</h2>
 <p>扩展功能，其实就是加了上标的链接。</p>
 <pre><code>That&#39;s some text with a footnote.[^1]
@@ -128,13 +128,13 @@ $$</code></pre>
 [^1]: And that&#39;s the footnote.
 
 That&#39;s the second paragraph.</code></pre>
-<p>That’s some text with a footnote.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>That’s some text with a footnote.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>That’s the second paragraph.</p>
 <p>以上为常见功能的支持，有了这些写一篇带点公式代码的文章就不难了。</p>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>And that’s the footnote.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>And that’s the footnote.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

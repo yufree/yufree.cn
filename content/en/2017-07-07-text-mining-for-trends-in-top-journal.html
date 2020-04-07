@@ -15,10 +15,7 @@ tags: [R]
 <div id="data-collection" class="section level2">
 <h2>Data collection</h2>
 <p>Here I collected the information from all the papers published in SNP i.e. science, nature and PNAS in the past three years as xml format and clean them into a dataframe for further text mining. The search grammar could be find from <a href="https://www.ncbi.nlm.nih.gov/books/NBK3827/">NCBI websites</a> and a cheat sheet here.</p>
-<div class="figure">
-<img src="/images/cheatsheetpubmed.png" />
-
-</div>
+<p><img src="/images/cheatsheetpubmed.png" /></p>
 <p>There are 26559 papers and I will use such data for text mining. PubMed has a limitation for 10000 records per query. So we need to fetch the data multiple times.</p>
 <pre><code>## # A tibble: 26,557 x 7
 ##                          journal
@@ -77,16 +74,14 @@ tags: [R]
 <h2>Relationship among words</h2>
 <p>N-gram analysis could be used to find a meaningful terms in those papers.</p>
 <p><img src="/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png" width="672" /></p>
-<div class="figure">
-<img src="/images/biabs.png" />
-
-</div>
+<p><img src="/images/biabs.png" /></p>
 <p>Well, climate change, transcription factor, stem cell and cancer would always be the favorite bigrams in the titles of top journals. For the abstracts, cell related topics such as function, protein and expression are always preferred. Anyway, life science is always the center of trending sciences.</p>
 </div>
 <div id="topic-modeling" class="section level2">
 <h2>Topic modeling</h2>
 <p>Relationships among words could show us some trending. However, we could employ topic modeling to explore the topics as a bunch of words in the abstracts of those top journals.</p>
-<p><img src="/images/tm.png" /> This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.</p>
+<p><img src="/images/tm.png" />
+This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.</p>
 </div>
 <div id="sentiment-analysis" class="section level2">
 <h2>Sentiment analysis</h2>

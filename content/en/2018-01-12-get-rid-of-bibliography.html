@@ -19,14 +19,8 @@ tags: [r]
 <h2>Method</h2>
 <p>Firstly, I need a fast copy support for literature management software such as Zotero. All I need to do is the creation of a <a href="http://citationstyles.org/">CSL files</a> with citation format as DOI. Furthermore, make the DOI into a HTTP link. Here is <a href="https://github.com/yufree/democode/blob/master/doi/doi.csl">it</a>. Such CSL could output a bibliography with DOI links only and you could always use the links to find the original papers.</p>
 <p>For zotero, download or copy&amp;save this CSL file and then install this file according to the following two screenshot:</p>
-<div class="figure">
-<img src="\images\doi1.png" />
-
-</div>
-<div class="figure">
-<img src="\images\doi2.png" />
-
-</div>
+<p><img src="\images\doi1.png" /></p>
+<p><img src="\images\doi2.png" /></p>
 <p>Then you could directly drag your items( hold the shift to use citation instead of bibliography) in the local library to any text editor. Of course you need to ensure your literature information contain a DOI. In this step, your manuscript would contain the DOI links to the cited papers. I think we could stop here while you might not like it since the bibliography are still needed for the print version of your paper.</p>
 <p>OK. The following step is to process the text file with DOI and output a text file with bibliography. Here is the script:</p>
 <pre class="r"><code>library(&#39;stringr&#39;)

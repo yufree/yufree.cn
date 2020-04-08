@@ -15,7 +15,7 @@ tags:
 ```{r}
 library(tidycensus)
 library(tidyverse)
-census_api_key("955d782868c2e50d86ed2619d3733fa3afc78779")
+census_api_key("USE YOUR KEY")
 # 纽约市各邮编确诊数据
 covid19nyc <- read.csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/tests-by-zcta.csv')
 # 提取2018年人口普查数据

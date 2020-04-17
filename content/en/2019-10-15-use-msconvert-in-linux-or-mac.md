@@ -19,7 +19,7 @@ docker pull chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
 The usage is quite clear  You could use the following code to convert all the files in a folder:
 
 ```bash
-docker run -it --rm -e WINEDEBUG=-all -v /your/data/path/*.RAW:/data chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine msconvert /data/
+docker run -it --rm -e WINEDEBUG=-all -v /your/data/path/:/data chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine msconvert /data/*.RAW
 ```
 
 There is small problem for Agilent files: `.d` format is actually a folder. If you use previous code, you will get Then a `for` trick could solve this issue:

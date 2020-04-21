@@ -21,25 +21,26 @@ I think three signals are crucial for community level data and every community  
 
 Data source is New York Times.
 
-```{r}
+```{r warning=FALSE,message=FALSE}
 library(tidyverse)
+
 file <- read.csv('https://github.com/nytimes/covid-19-data/raw/master/us-states.csv',stringsAsFactors = F)
 file$date <- as.Date(file$date)
 
-# Check States with max case larger than 1000 and more than 50 deaths
+# Check States with max case larger than 10000 and more than 100 deaths
 df <- file%>%
     group_by(state)%>%
     mutate(change=c(0,diff(cases)),change2=c(0,diff(deaths)))%>%
-    filter(max(cases)>1000 & max(deaths)>50)%>%
+    filter(max(cases)>10000 & max(deaths)>100)%>%
     ungroup() 
 
-df2 %>%
+df %>%
     ggplot(aes(x=date,y=change,fill=state)) +
     geom_point() +
     geom_smooth() +
     facet_wrap(~state,scales = 'free') 
 
-df2 %>%
+df %>%
     ggplot(aes(x=date,y=change2,fill=state)) +
     geom_point() +
     geom_smooth() +
@@ -50,16 +51,16 @@ df2 %>%
 
 Data source is New York Times.
 
-```{r}
+```{r warning=FALSE,message=FALSE}
 file <- read.csv('https://github.com/nytimes/covid-19-data/raw/master/us-counties.csv',stringsAsFactors = F)
 file$date <- as.Date(file$date)
 
 library(tidyverse)
-# Check Counties with max case larger than 1000 and more than 50 deaths
+# Check Counties with max case larger than 10000 and more than 100 deaths
 df <- file%>%
     group_by(county,state)%>%
     mutate(CaseChange=c(0,diff(cases)),DeathChange=c(0,diff(deaths)))%>%
-    filter(max(cases)>1000 & max(deaths)>50)%>%
+    filter(max(cases)>10000 & max(deaths)>100)%>%
     ungroup() 
 
 df %>%
@@ -73,7 +74,6 @@ df %>%
     geom_point() +
     geom_smooth() +
     facet_wrap(~county+state,scales = 'free') 
-
 ## NYC zipcode
 ## covid19nyc <- read.csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/tests-by-zcta.csv')
 ```
@@ -82,7 +82,7 @@ df %>%
 
 Data source is [covidtracking.com](https://covidtracking.com)
 
-```{r}
+```{r warning=FALSE,message=FALSE}
 daily <- read.csv('https://covidtracking.com/api/v1/states/daily.csv',stringsAsFactors = T,header = T)
 daily$date <- as.Date(daily$dateChecked)
 
@@ -113,7 +113,6 @@ dd %>%
     geom_point(aes(col=condition)) +
     geom_smooth()+
     facet_wrap(~state,scales = 'free')
-
 ```
 
 Those numbers are real people.

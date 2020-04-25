@@ -52,4 +52,4 @@ plot(reg$fitted,reg$resid,pch=16,main="Residual plot from data")
 
 附一个logo成品：
 
-![](http://yufree.github.io/blogcn/figure/fish.png)
+![](https://yufree.github.io/blogcn/figure/fish.png)

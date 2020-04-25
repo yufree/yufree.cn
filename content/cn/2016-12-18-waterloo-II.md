@@ -7,7 +7,7 @@ slug: waterloo II
 11
 川普当选时作为学校还是很政治正确的嘲讽了一把美国人，但真要问他们移民过来怎么办？他们马上会说不行！这不是抢我们饭碗吗？
 
-![](http://yufree.github.io/blogcn/figure/waterloo2.JPG)
+![](https://yufree.github.io/blogcn/figure/waterloo2.JPG)
 
 
 12
@@ -27,13 +27,13 @@ slug: waterloo II
 开学时作为路盲申请了引路志愿者，活动结束时我基本搞清楚学校里的路了，只是苦了那些跟我瞎转的学生。
 
 
-![](http://yufree.github.io/blogcn/figure/waterloo1.JPG)
+![](https://yufree.github.io/blogcn/figure/waterloo1.JPG)
 
 16
 
 为了认识更多的中国人，参与了一个面向薄厚跟访学的英语课，主讲是个德国老太太，助教是她退休的英国老公，老两口从2002年开始开课，不收学费，也很敬业，学生多来自国内，哈工大居多，大概那边比较耐寒。
 
-![](http://yufree.github.io/blogcn/figure/waterloo4.JPG)
+![](https://yufree.github.io/blogcn/figure/waterloo4.JPG)
 
 
 17
@@ -48,10 +48,10 @@ slug: waterloo II
 
 一下雪，中国留学生的二代属性就不自觉的暴露了，满眼都是加拿大鹅极地科考的标志，当之无愧的雪龙号船员培训基地，起码制服统一了。不过暴雪临门时，路上昏昏沉沉，竟有种回到帝都吸霾的感觉。
 
-![](http://yufree.github.io/blogcn/figure/waterloo5.JPG)
+![](https://yufree.github.io/blogcn/figure/waterloo5.JPG)
 
 20
 
 年末学校发邮件请所有员工临时工吃午餐，本着蹭饭的目的去了，结果队伍奇长，想退出来结果已经有人跟你聊天做social了，好容易吃完走小道跑路，发现校长躲小道角落里休息，很亲切的握了手说welcome，等出门总觉得有点不对，大概是吃猪排搞了一手油，然后都蹭校长手上了。
 
-![](http://yufree.github.io/blogcn/figure/waterloo3.JPG)
+![](https://yufree.github.io/blogcn/figure/waterloo3.JPG)

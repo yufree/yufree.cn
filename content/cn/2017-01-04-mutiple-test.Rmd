@@ -31,7 +31,7 @@ for (i in 1:10000){
 hist(pvalue)
 ```
 
-![plot of chunk null](http://yufree.github.io/blogcn/figure/null-1.png)
+![plot of chunk null](https://yufree.github.io/blogcn/figure/null-1.png)
 
 ```r
 # 小于0.05的个数
@@ -67,7 +67,7 @@ for (i in 1:10000){
 hist(pvalue)
 ```
 
-![plot of chunk diff](http://yufree.github.io/blogcn/figure/diff-1.png)
+![plot of chunk diff](https://yufree.github.io/blogcn/figure/diff-1.png)
 
 ```r
 # 小于0.05的个数
@@ -111,7 +111,7 @@ for (i in 1:5000){
 hist(pvalue)
 ```
 
-![plot of chunk mix](http://yufree.github.io/blogcn/figure/mix-1.png)
+![plot of chunk mix](https://yufree.github.io/blogcn/figure/mix-1.png)
 
 ```r
 # 小于0.05的个数
@@ -160,7 +160,7 @@ plot(p0~n,ylim = c(0,1))
 points(p~n,pch=19)
 ```
 
-![plot of chunk Bonferroni](http://yufree.github.io/blogcn/figure/Bonferroni-1.png)
+![plot of chunk Bonferroni](https://yufree.github.io/blogcn/figure/Bonferroni-1.png)
 
 其实，这样的控制得到的整体错误率是略低于0.05的，并且数目越大，整体错误率越低。这个方法十分保守，有可能什么差异你都看不到，因为都变成假阴性了。在实际应用中一般不调节p值的假阳性比率而直接调节p值，取原始p值跟整体检验数目的乘积与1的最小值作为调节p值，还可以用0.05或0.01进行判断，不过这时候控制的整体而不是单一检验了。
 
@@ -266,7 +266,7 @@ plot(pbh~pvalue)
 points(ph~pvalue,col='red')
 ```
 
-![plot of chunk BH](http://yufree.github.io/blogcn/figure/BH-1.png)
+![plot of chunk BH](https://yufree.github.io/blogcn/figure/BH-1.png)
 
 从上面图我们可以看出，如果控制整体错误率（红色），那么p值很容易就到1了，过于严格。而如果用BH方法控制错误发现率，那么原始p值越大，调节后的错误发现率也逐渐递增，这就符合了区分真实差异与随机差异就要假设真实差异更可能出现更小的p值这个现象。当然至于这个方法的推演细节，可以去读原始论文。值得注意的是这个错误发现率求的是有差异存在的情况，不然零发现就出现除数为零了。
 
@@ -288,7 +288,7 @@ q <- qvalue(pvalue)
 plot(q$qvalues~pvalue,col='blue')
 ```
 
-![plot of chunk qvalues](http://yufree.github.io/blogcn/figure/qvalues-1.png)
+![plot of chunk qvalues](https://yufree.github.io/blogcn/figure/qvalues-1.png)
 
 如上图所示，q值增大后会最终逼近到0.5，而我们的模拟中空假设的比例就设定就是50%。我们重新模拟一个空假设比例5%的实验：
 
@@ -318,7 +318,7 @@ points(ph~pvalue,col='red')
 points(q$qvalues~pvalue,col='blue')
 ```
 
-![plot of chunk qbh](http://yufree.github.io/blogcn/figure/qbh-1.png)
+![plot of chunk qbh](https://yufree.github.io/blogcn/figure/qbh-1.png)
 
 此时我们可以看到两者结果较为接近，q值理论上更完备，功效也更强，但算法上对$\hat\pi_0$的估计并不稳定，特别是比例靠近1的时候，所以BH方法可能还是更容易让人接受的保守错误发现率控制。详细的估计方法还得去啃Storey的[论文](http://www.pnas.org/content/100/16/9440.full)。
 

@@ -21,7 +21,7 @@ Meanwhile, I need to say such model might not be suitable for high-resolution ma
 
 Here is the graphical summary for the whole methods and I think more patterns could be mined from the data of GC-MS:
 
-![](http://yufree.cn/blogcn/figure/MorF.jpg)
+![](https://yufree.cn/blogcn/figure/MorF.jpg)
 
 Also I developed a package to perform this kind of analysis in R. Check [here](https://github.com/yufree/enviGCMS). This package has been published on [CRAN](https://cran.r-project.org/web/packages/enviGCMS/index.html) and you could install and load it by:
 

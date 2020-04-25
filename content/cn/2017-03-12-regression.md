@@ -22,15 +22,15 @@ $$y = 0.9x+error$$
 
 这个error我们假定为均值10，方差10的正态分布噪音，也就是说对于一个人群，吃安慰剂前后血糖变化应该是长这样：
 
-![](http://yufree.github.io/blogcn/figure/galton1.png)
+![](https://yufree.github.io/blogcn/figure/galton1.png)
 
 同时我们认为高于110的人是高血糖，也就是新药与安慰剂实际只会在存在高血糖的人中使用，也就是这一部分：
 
-![](http://yufree.github.io/blogcn/figure/galton2.png)
+![](https://yufree.github.io/blogcn/figure/galton2.png)
 
 这样我们会看到无论是否治疗，总有下图的部分患者自然恢复了。
 
-![](http://yufree.github.io/blogcn/figure/galton3.png)
+![](https://yufree.github.io/blogcn/figure/galton3.png)
 
 那么这部分算不算安慰剂效应呢？自然是不应该算，因为安慰剂效应是要基于病人的期望的，而真实的情况却是因为存在“回归到均值”的现象，哪怕病人不想康复或不相信治疗，他还是有可能好转的。由于药物试验一般都会去选择人群中的病人进行双盲对照试验，那么可以预期的是安慰剂效应被天然高估了。同理，药物治疗过程中的药效也会因为存在向均值回归的现象而被天然高估。用一个更常见的中西医争论来说就是不论中西医是否真的有效，对于有些疾病，本来就会自然而然痊愈，如果这个比例本来就很高，那么很多治疗手段根本就是多余。
 

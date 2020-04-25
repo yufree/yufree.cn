@@ -6,7 +6,7 @@ slug: anscombe quartet
 
 [安斯库姆四重奏](http://zh.wikipedia.org/wiki/%E5%AE%89%E6%96%AF%E5%BA%93%E5%A7%86%E5%9B%9B%E9%87%8D%E5%A5%8F)算得上数据可视化里最经典的案例了，四组不同的数据做线性相关，得到相关系数一样（0.816）但实际作图可以看出很大差异。
 
-![](http://yufree.github.io/blogcn/figure/anscombe.jpeg)
+![](https://yufree.github.io/blogcn/figure/anscombe.jpeg)
 
 第一次看到这图的时候有人就说这辈子能搞出个类似的数据集就名留青史了，而我当时觉得作为一个外行这辈子能再看到个类似的可视化案例也算不虚此生了，前天还真看到了。
 
@@ -29,7 +29,7 @@ Plos Biology 上刚发表了一篇PERSPECTIVE来吐槽条形图，作者收集�
 
 上面这些缺少直观理解，请看下图：
 
-![](http://yufree.github.io/blogcn/figure/bar3.PNG)
+![](https://yufree.github.io/blogcn/figure/bar3.PNG)
 
 散点图完全不同的数据画成条形图是一样的，误差线一样长，看下面的检验结果，参数方法与非参方法完全不同。这副图与安斯库姆四重奏有异曲同工之处，本质上都是在表示没有图形展示的假设检验可能会遗漏重要信息。其实对于一个实验设计良好的工作是不该出现上面的问题的，但现在很多人在论文撰写或数据展示及检验时喜欢套用别人的展示方法，完全不明就里。更尴尬的是你就算告诉他们数据有问题，他们也不知道怎么改，非参方法要么没听说过，要么仅仅是听说过没用过。至于数据展示，这种所谓 Univariate scatterplots 的图根本不知道怎么画，不过作者算得上宅心仁厚，亲自做了一个[excel模版](https://www.ctspedia.org/do/view/CTSpedia/TemplateTesting)供其他人使用。
 
@@ -48,14 +48,14 @@ par(mfrow=c(1,2))
   boxplot(bimodal,uniform,normal)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/vioplot.png)
+![](https://yufree.github.io/blogcn/figure/vioplot.png)
 
 - 差异散点图
 
 ~~~ r
 # 这个太简单了，就是当要展示的两组数据为配对数据时，直接对其差异作普通散点图并附上参考线
 ~~~
-![](http://yufree.github.io/blogcn/figure/drr2.png)
+![](https://yufree.github.io/blogcn/figure/drr2.png)
 
 - 抖动散点图
 
@@ -67,7 +67,7 @@ plot(number1,number2)
 plot(jitter(number1),jitter(number2))
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/jitter.png)
+![](https://yufree.github.io/blogcn/figure/jitter.png)
 
 - 平滑散点图
 
@@ -78,7 +78,7 @@ number2 <- rhyper(30,4,5,4)
 smoothScatter(number1,number2)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/smplot.png)
+![](https://yufree.github.io/blogcn/figure/smplot.png)
 
 其实数据展示在能表意清晰的条件下越原始越好，这样能更好的展示原始数据的意义，如果加入过多的总结性描述，总有种隐藏信息的感觉。
 

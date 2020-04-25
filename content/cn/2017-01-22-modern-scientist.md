@@ -14,21 +14,21 @@ slug: modern scientist
 
 原始数据：
 
-![](http://yufree.github.io/blogcn/figure/usnwm1.png)
+![](https://yufree.github.io/blogcn/figure/usnwm1.png)
 
 我来解释下这个校正，举例来说我有100个人年龄段在45到54岁，那么在这个15年的研究时间段里，每一年进入这个年龄段的人数应该是差不多一样的才好跟其他的地方去比。但恰恰这个年龄段包括了二战后的婴儿潮，也就是说，每年这个死亡率的基数在变，该年龄段整体平均年龄被拖大了，按照自然规律，年龄大本来就死亡率高。所以应该对每一年的数据除以其人数，也就是认为这个年龄段的人数应该差不多才合适。
 
 校正后数据：
 
-![](http://yufree.github.io/blogcn/figure/usnwm2.png)
+![](https://yufree.github.io/blogcn/figure/usnwm2.png)
 
 额，从这个结果上看那个上升趋势就不明显了。 Gelman 教授进一步分析了其他国家数据，发现其他国家同年龄段死亡率校正后还是一直下跌，那么美国非拉美裔中年白人比较诡异的死亡率确实是存在的，也就是说原文主要结论没啥问题。然后Gelman 教授又想到会不会性别上有差异？然后得到了下面这个图：
 
-![](http://yufree.github.io/blogcn/figure/usnwm3.png)
+![](https://yufree.github.io/blogcn/figure/usnwm3.png)
 
 感情白人男性其实没怎么变，女性死亡率倒是一直在提高。然后Gelman 教授又计算了一下相对死亡率，用1999年为基准，看了下不同年龄段的[分布](http://www.slate.com/blogs/bad_astronomy/2017/01/20/if_you_need_to_find_some_strength_saturn_s_moon_daphnis_may_help.html)：
 
-![](http://yufree.github.io/blogcn/figure/usnwm4.png)
+![](https://yufree.github.io/blogcn/figure/usnwm4.png)
 
 结果发现不仅仅45-54岁女性非拉美裔白人死亡率在上升，35-44岁这个年龄段也在上升。那么问题来了，为什么当初不去说这个年龄段呢？会不会原文属于一种发表歧视呢？也就是说对比了半天终于发现了一个显著的，而其实如果在处理数据时男女分开，这篇报道的题目会不会就成了“35-54岁女性非拉美裔白人死亡率在上升”呢？
 

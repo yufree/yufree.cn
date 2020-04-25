@@ -4,7 +4,7 @@ date: 2014-10-17
 slug: history of clean air act
 ---
 
-![](http://yufree.github.io/blogcn/figure/caa1.jpg)
+![](https://yufree.github.io/blogcn/figure/caa1.jpg)
 
 看图，这是加拿大科学家 Aaron van Donkelaar 与 Randall Martin用[NASA](http://www.nasa.gov/topics/earth/features/health-sapping.html)卫星遥感数据做出的图，相关文章发表在[《环境健康与展望》](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2898863/)上。该研究首次把全世界的PM2.5状况来了个大曝光，抛开遥感数据在预测PM2.5上的技术细节不谈，相信大家都看到那个红得发紫的地方了吧。别紧张，打开随意一个预报空气质量的网站查下数据，80在我国不算严重污染的，超过75不到115那叫轻度污染（新标准，老标准里只有PM10的）。另外这是2001到2006年的数据，那年头各位可能还没听说过PM2.5是个啥，没关系，现在我们已经知道了，这是中国人民的老朋友。
 
@@ -14,13 +14,13 @@ slug: history of clean air act
 
 其实不管装不装英雄，热不热爱生活，反正真相已经满朋友圈都是了，躲都躲不开。那就看看危害吧：
 
-![](http://yufree.github.io/blogcn/figure/caa2.png)
+![](https://yufree.github.io/blogcn/figure/caa2.png)
 
 这是10年导致疾病外在风险的前20及其对寿命的影响的图示，该研究发表于[《柳叶刀》](http://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)60844-8/fulltext)，顺带一提，有晚上睡不着的同学可以数数这篇文章的作者。睡得着的我们看看那两个箭头，一个是室内固体燃料燃烧造成的空气污染（做个烧煤的厨子也是要折寿的），另一个是室外颗粒物污染，这哥俩都进了前十。所以基于数据我们可以说空气污染不是好东西。
 
 但一开始我们只能看到污染问题或事件，对其研究又是如何进行的呢？我们看看米帝走的路：
 
-![](http://yufree.github.io/blogcn/figure/caa3.png)
+![](https://yufree.github.io/blogcn/figure/caa3.png)
 
 这也是环境科学的研究历史概述，一开始大家都是做调查看现象去确认究竟某种污染物是否产生了危害。有人会说都死人了还说这没用的，但科学研究要求严谨，要控制变量去从现象数据中提炼主要因素去控制，去进行实验室随机试验，这样的结果大概是科研人员认为靠谱的。第二阶段是相关毒理学研究与暴露评价，确定污染组分的效应与环境暴露水平，基于此进行风险评价。这里要说清楚，确定某种污染物的环境暴露水平与危害是科学问题，但风险评价不是自然科学问题，属于决策与管理问题。第三阶段就着手控制了，这一阶段要解决来源问题，另一个需要解决的问题就是复合毒性问题，也就是说你搞清了其中一种或几种组分的危害，他们实际是否能产生危害是需要另外考察的，可能有增强，也可能有拮抗。
 
@@ -28,19 +28,19 @@ slug: history of clean air act
 
 那么这个《清洁空气法案》究竟管不管用？要知道有标准就有牺牲，实用观点上看不能做亏本的买卖。结果如下：
 
-![](http://yufree.github.io/blogcn/figure/caa4.png)
+![](https://yufree.github.io/blogcn/figure/caa4.png)
 
 我们可以看到，米帝的GDP，人口，能源消费，机动车都增长了，但氮氧化物，硫氧化物，一氧化碳及挥发性有机物的排放都下降了。其实不止米帝，你有兴趣可以查下我国的这20年的数据，也是下降的，除了PM2.5跟PM10。因为国内控硫控硝其实开展的也不晚，技术上也有保障，但这PM10与PM2.5的控制技术其实技术也应该是成熟的，但估计经济上不合算或现行产业能源结构有问题，但从前景看，只要法规严格，还是很不错的。
 
 但标准都是有假设的，浓度越低影响越小，但这个正相关是不是线性还是需要研究的，这又回到了风险评价，现行清洁空气法案修正的难点也在这里：
 
-![](http://yufree.github.io/blogcn/figure/caa5.png)
+![](https://yufree.github.io/blogcn/figure/caa5.png)
 
 降低同样浓度降低的风险在不同浓度尺度下是不一样的，这笔账一般是决策者自己去算，里面的文章比较多。
 
 最后来点直观的数据：
 
-![](http://yufree.github.io/blogcn/figure/caa6.png)
+![](https://yufree.github.io/blogcn/figure/caa6.png)
 
 这是米帝，三三，天朝2010年因颗粒物污染致死的数据，123万，且不论数据真实性，我们确乎已经在一个严重的污染的历史事件之中了。
 

@@ -15,7 +15,7 @@ slug: reproducible research 0
 
 可复算性研究（其实有时也被翻译为可重复性研究）关注的重心在得到数据后的阶段，也就是从得到数据到文章发表的阶段。平时我们能看到的是图，表及文中的数据描述，这些算是数据可视化的部分，产生这些数据描述需要对原始测量数据进行预处理，分析与计算，每一步的处理代码脚本都应该随文章与原始数据一同发表或提交给审稿人进行评估，这样可以最小化数据产生后的问题。
 
-![处理流程](http://yufree.github.io/blogcn/figure/researchpipeline.png)
+![处理流程](https://yufree.github.io/blogcn/figure/researchpipeline.png)
 
 前面谈的是可复算性研究的起源与概念，而真正意义上的实现需要依赖动态报告系统。动态报告是文学编程（Literate programming）的产品，而文学编程思想是Tex语言的开发者高纳德提出的。现在我们把这些概念一个一个串起来。
 

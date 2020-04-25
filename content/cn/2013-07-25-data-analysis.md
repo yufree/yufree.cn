@@ -7,7 +7,7 @@ slug: data analysis
 问题提出
 --------
 
-![](http://yufree.github.io/blogcn/figure/finaldoc.jpg)
+![](https://yufree.github.io/blogcn/figure/finaldoc.jpg)
 
 谁都不想自己的论文版本乱的一塌糊涂，但现实就是喜欢跟你开玩笑，最终的版本一环套一环很没有条理。
 

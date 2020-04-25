@@ -87,7 +87,7 @@ plot(nullresults$dm,-log10(nullpvals),
      xlab="Effect size",ylab="- log (base 10) p-values")
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/volcano.png)
+![](https://yufree.github.io/blogcn/figure/volcano.png)
 
 从上面的分析我们可以看出p值的分布在实际样品与随机数据是有差异的。随机数据中p值的分布是均匀分布，但样品中明显是偏态分布，而且火山图可以看出均值差较小时出现了很多有显著性差异的数值。毋庸置疑，这会干扰我们后续的通路分析。
 

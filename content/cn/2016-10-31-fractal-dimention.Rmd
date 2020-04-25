@@ -6,17 +6,17 @@ slug: fractal dimention
 
 所谓分形，其首要特点就是自我相似性，整体与部分同构。我们考虑一条线段，把它三等分，然后中间一段去掉，换成两段等长夹角60度的线段，然后迭代这个过程就可以得到一个简单的分形——Koch Curve。如下：
 
-![](http://yufree.github.io/blogcn/figure/fractal.png)
+![](https://yufree.github.io/blogcn/figure/fractal.png)
 
-![](http://yufree.github.io/blogcn/figure/fractal2.png)
+![](https://yufree.github.io/blogcn/figure/fractal2.png)
 
-![](http://yufree.github.io/blogcn/figure/fractal3.png)
+![](https://yufree.github.io/blogcn/figure/fractal3.png)
 
-![](http://yufree.github.io/blogcn/figure/fractal4.png)
+![](https://yufree.github.io/blogcn/figure/fractal4.png)
 
 多迭代几次，有：
 
-![](http://yufree.github.io/blogcn/figure/fractal5.png)
+![](https://yufree.github.io/blogcn/figure/fractal5.png)
 
 这条线原来是一维的，现在是几维呢？二维？
 
@@ -32,7 +32,7 @@ $D = \frac{logN}{logM}$。
 
 > 海岸线的实际长度不取决于其真实长度而是取决于你尺子的精度。
 
-![](http://yufree.github.io/blogcn/figure/fractal6.png)
+![](https://yufree.github.io/blogcn/figure/fractal6.png)
 
 其实海岸线可以看作一个具有类似分形结构的线，其维度高于一，所以你用低维度的度量衡去测量高纬度自然怎么都测不出来，那么问题来了，长度我测不了，维度又怎么测？
 
@@ -44,8 +44,8 @@ $log[总长度尺子数] = D log[1/尺子的长度]$
 
 好了，我们再考虑一个具有分形结构的实体——菜花，菜花可不是空间两维的，又如何测量？Sang-Hoon Kim的[文章](http://each.uspnet.usp.br/sistcomplexos/SC1/Fractal/Brocoli.pdf)简单明了计算了菜花的维度，那么他是如何从二维走向三维的呢？还是分形，我对一个立方体做横切观察断面，那么很自然断面的维度跟立方体比例是2/3，我对菜花横切，计算出断面维度后直接除二乘三就可以了。理论上我应该切无数刀取均值，但近似认为每一刀都是独立且期望一致就OK了。于是作者就开始了伟大的切菜花工程，最后发现，菜花的横切面的分形维度大概是1.88维，而菜花本体大概是2.8维的。测完后意犹未尽又搞了一把建模：
 
-![](http://yufree.github.io/blogcn/figure/fractal7.png)
-![](http://yufree.github.io/blogcn/figure/fractal8.png)
+![](https://yufree.github.io/blogcn/figure/fractal7.png)
+![](https://yufree.github.io/blogcn/figure/fractal8.png)
 
 我们可以看到，实际物体虽然也存在分形结构，但是其个体切割结构要更复杂。
 

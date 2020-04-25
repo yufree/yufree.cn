@@ -123,7 +123,7 @@ OK，目前正确率77%，大概排1800+。
 hist(train$Age)
 ~~~
 
-![plot](http://yufree.github.io/blogcn/figure/titanichist.png) 
+![plot](https://yufree.github.io/blogcn/figure/titanichist.png) 
 
 按照当年看过的电影，妇女，老人，小孩应该是优先上救生船的，因此我们认为小于20岁跟大于60岁的乘客更容易幸存，探索下。
 
@@ -175,7 +175,7 @@ plot(fit)
 text(fit)
 ~~~
 
-![plot](http://yufree.github.io/blogcn/figure/titanictree.png) 
+![plot](https://yufree.github.io/blogcn/figure/titanictree.png) 
 
 从结果上看，第一变量是性别：对男性而言，年龄是第二分割点；对女性而言，仓位则成了第二分割点，所以决策树的分割相对还是比较精细的。我们用预测函数得到结果看看：
 

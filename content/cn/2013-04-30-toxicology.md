@@ -14,7 +14,7 @@ slug: toxicology
 
 该图出自扩展阅读最后一篇
 
-![](http://yufree.github.io/blogcn/figure/toxic.jpg)
+![](https://yufree.github.io/blogcn/figure/toxic.jpg)
 
 但如大家所感觉的，这个观点似乎没什么人提（毕竟记者没必要都是科研一线呆过的 同时国内相关研究开展也很少）。个人感觉一方面这个观点在学术界是存在一定争议的；另一方面这种思路与一种臭名昭著的伪科学——顺势疗法（国内还没开始流行，不过市场很大）有点相似，学界持谨慎态度也是正常的。但多个独立的实验室都重复过类似的实验结果，这种现象是真实存在的。前面说的Edward Calabrese教授认为这是毒理学的一次revolution，并认为大多数外源物都有或多或少的Hormesis现象。
 

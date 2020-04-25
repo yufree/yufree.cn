@@ -18,8 +18,8 @@ How about TIC in microarray? I don't think such plot has meanings because there 
 
 But when the data could be shown in heatmap, we might employ some noise reduction methods to ease the matrix effect. The following two heatmaps were a native "before and after" results processed by some microarray data analysis methods. Yeah, now I think it is OK to use such method to reduce the matrix effect in environmental samples.
 
-![](http://yufree.cn/blogcn/figure/h2585bg.png)
+![](https://yufree.cn/blogcn/figure/h2585bg.png)
 
-![](http://yufree.cn/blogcn/figure/h2585diffgcms.png)
+![](https://yufree.cn/blogcn/figure/h2585diffgcms.png)
 
 Wait, my paper is writing. And I will show the details of such method soon(maybe or might be).

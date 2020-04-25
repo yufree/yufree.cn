@@ -20,7 +20,7 @@ vioplot(bimodal, uniform, normal)
 boxplot(bimodal, uniform, normal)
 ~~~
 
-![plot of chunk vs](http://yufree.github.io/blogcn/figure/vs.png) 
+![plot of chunk vs](https://yufree.github.io/blogcn/figure/vs.png) 
 
 
 So obviously, the violin plot can show more information than box plot. When we perform an exploratory analysis, nothing about the samples could be known. So the distribution of the samples can not be assumed to a normal distribution and usually when you get a big data, the normal distribution will show some out liars in box plot. Referring to the paper by Hintze, J. L. and R. D. Nelson (1998), the violin plot combines the box plot and the density trace, so it seems that the box plot may give the place to the violin plot and I said this in the seminar from a viewpoint of environmental science. But after the seminar, I really doubt that no environmental scientists use this plot. Of course, the violin plot is young comparing with the box plot introduced by Tukey(1977), but there also exist some reasons which stop the spread of violin plot. Here I list it as follows:

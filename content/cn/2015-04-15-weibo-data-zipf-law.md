@@ -8,7 +8,7 @@ slug: weibo data zipf law
 
 首先找一个开源的微博语料库，我找到的是[NLPIR微博内容语料库](http://www.nlpir.org/?action-viewnews-itemid-231)，里面有23万条微博内容。然后从里面提取词汇与词频，目的是用来验证下文献计量学中的[齐普夫定律](http://zh.wikipedia.org/zh/%E9%BD%8A%E5%A4%AB%E5%AE%9A%E5%BE%8B)，也就是发现字词的使用次数（f）与字词的使次数排名（r）之乘积，会等于常数C。
 
-![](http://yufree.github.io/blogcn/figure/Zipf.png)
+![](https://yufree.github.io/blogcn/figure/Zipf.png)
 
 上图来自维基百科
 
@@ -89,9 +89,9 @@ plot(order5*freq50,main="word length: 5")
 dev.off()
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/logzipfplot.png)
+![](https://yufree.github.io/blogcn/figure/logzipfplot.png)
 
-![](http://yufree.github.io/blogcn/figure/czipfplot.png)
+![](https://yufree.github.io/blogcn/figure/czipfplot.png)
 
 ## 现象描述与讨论
 

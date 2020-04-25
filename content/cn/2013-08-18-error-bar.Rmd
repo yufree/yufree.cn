@@ -39,9 +39,9 @@ slug: error bar
 
 > 置信区间是统计估计问题，显著性是统计推断问题，这是首先需要分清楚的，然后看下面这个来自原文的图就很清楚了。通过间距判断就可以，这里需要纠正的问题就是一定要间距完全分开才有显著性差异，根据情况来。
 
-> ![alt text](http://yufree.github.io/blogcn/figure/cisig.jpg)
+> ![alt text](https://yufree.github.io/blogcn/figure/cisig.jpg)
 
-> ![alt text](http://yufree.github.io/blogcn/figure/cisig2.jpg)
+> ![alt text](https://yufree.github.io/blogcn/figure/cisig2.jpg)
 
 - 样本数
 

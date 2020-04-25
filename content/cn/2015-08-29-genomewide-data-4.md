@@ -260,7 +260,7 @@ levels(e$condition) <- c("dex24","dex4","control")
 boxplot(exprs(e), range=0)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome7.png) 
+![](https://yufree.github.io/blogcn/figure/genome7.png) 
 
 ~~~
 # 选取两个分组进行对比

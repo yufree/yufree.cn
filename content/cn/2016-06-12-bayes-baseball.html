@@ -17,7 +17,7 @@ x &lt;- seq(0,1,length=100)
 db &lt;- dbeta(x, 81, 219)
 ggplot() + geom_line(aes(x,db)) + ylab(&quot;Density of beta&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/beta-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/beta-1.png" alt="" />
 <p class="caption">plot of chunk beta</p>
 </div>
 <p>观察这个概率密度分布图可以看出一个大约在0.2-0.35的概率区间，表示击球率可能的取值空间。</p>
@@ -38,7 +38,7 @@ ggplot() + geom_line(aes(x,db)) + ylab(&quot;Density of beta&quot;)</code></pre>
 db &lt;- dbeta(x, 81+1, 219)
 ggplot() + geom_line(aes(x,db)) + ylab(&quot;Density of beta&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/beta1-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/beta1-1.png" alt="" />
 <p class="caption">plot of chunk beta1</p>
 </div>
 <p>如果后续观察了大量的击球都中了，那么概率会偏向后面数据所提供的击球率：</p>
@@ -46,7 +46,7 @@ ggplot() + geom_line(aes(x,db)) + ylab(&quot;Density of beta&quot;)</code></pre>
 db &lt;- dbeta(x, 81+1000, 219)
 ggplot() + geom_line(aes(x,db)) + ylab(&quot;Density of beta&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/beta2-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/beta2-1.png" alt="" />
 <p class="caption">plot of chunk beta2</p>
 </div>
 <p>这是贝叶斯分析的核心思想，通过证据更新经验。经验是主观的或先验的，当证据足够多，结果就偏向事实。因此，最后得到的均值（后验0.83）一定是介于经验值（先验0.27）与证据值（全击中就是1）之间。</p>
@@ -215,7 +215,7 @@ ggplot(career_filtered) +
                 size = 1) +
   xlab(&quot;Batting average&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ebayes-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ebayes-1.png" alt="" />
 <p class="caption">plot of chunk ebayes</p>
 </div>
 <p>当我们估计个人的击球率时，整体可以作为先验函数，个人的数据可以通过贝塔分布更新到个体。那么如果一个人数据少，我们倾向于认为他是平均水平；数据多则认为符合个人表现。这事实上是一个分层结构，贝叶斯推断里隐含了这么一个从整体到个人的过程</p>
@@ -348,7 +348,7 @@ ggplot(career_eb, aes(average, eb_estimate, color = AB)) +
   xlab(&quot;Batting average&quot;) +
   ylab(&quot;Empirical Bayes batting average&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ebayes2-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ebayes2-1.png" alt="" />
 <p class="caption">plot of chunk ebayes2</p>
 </div>
 <p>数据点多会收缩到<span class="math inline">\(x=y\)</span>，也就是个人的击球率；数据点少则回归到整体击球率。这就是经验贝叶斯方法的全貌：先估计整体的参数，然后把整体参数作为先验概率估计个人参数。</p>
@@ -380,7 +380,7 @@ ggplot(yankee_beta, aes(x, density, color = name)) +
     stat_function(fun = function(x) dbeta(x, alpha0, beta0),
                   lty = 2, color = &quot;black&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ci-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ci-1.png" alt="" />
 <p class="caption">plot of chunk ci</p>
 </div>
 <pre class="r"><code># 提取可信区间
@@ -478,7 +478,7 @@ yankee_1998_career %&gt;%
     xlab(&quot;Estimated batting average (w/ 95% interval)&quot;) +
     ylab(&quot;Player&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ci-2.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ci-2.png" alt="" />
 <p class="caption">plot of chunk ci</p>
 </div>
 <pre class="r"><code># 对比置信区间与可信区间
@@ -515,7 +515,7 @@ combined %&gt;%
     ylab(&quot;Player&quot;) +
     labs(color = &quot;&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ci-3.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ci-3.png" alt="" />
 <p class="caption">plot of chunk ci</p>
 </div>
 <p>可信区间与置信区间（二项式比例估计）很大的区别在于前者考虑了先验概率进而实现了区间的收缩，后者则可看作无先验贝塔分布给出的区间估计，频率学派目前没有很好的收缩区间估计的方法。</p>
@@ -534,7 +534,7 @@ career_eb %&gt;%
                 alpha = .1, fill = &quot;red&quot;) +
     geom_vline(color = &quot;red&quot;, lty = 2, xintercept = .3)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/lp-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/lp-1.png" alt="" />
 <p class="caption">plot of chunk lp</p>
 </div>
 <pre class="r"><code># 提取该球员数据
@@ -557,7 +557,7 @@ ggplot(career_eb, aes(PEP)) +
     xlab(&quot;Posterior Error Probability (PEP)&quot;) +
     xlim(0, 1)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ap-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ap-1.png" alt="" />
 <p class="caption">plot of chunk ap</p>
 </div>
 <pre class="r"><code># 后验错误率与击球率的关系
@@ -569,7 +569,7 @@ career_eb %&gt;%
     geom_vline(color = &quot;red&quot;, lty = 2, xintercept = .3) +
     scale_colour_gradient(trans = &quot;log&quot;, breaks = 10 ^ (1:5))</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ap-2.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ap-2.png" alt="" />
 <p class="caption">plot of chunk ap</p>
 </div>
 <p>后验错误率高于0.3的多数是击球率与击球数都高的人，因为经验贝叶斯方法惩罚了击球数低的人。</p>
@@ -611,7 +611,7 @@ career_eb %&gt;%
     xlab(&quot;q-value cutoff&quot;) +
     ylab(&quot;Number of players included&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/qvalue-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/qvalue-1.png" alt="" />
 <p class="caption">plot of chunk qvalue</p>
 </div>
 <pre class="r"><code># 观察小q值部分
@@ -622,7 +622,7 @@ career_eb %&gt;%
     xlab(&quot;q-value cutoff&quot;) +
     ylab(&quot;Number of players included&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/qvalue-2.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/qvalue-2.png" alt="" />
 <p class="caption">plot of chunk qvalue</p>
 </div>
 <p>200个人进入名人堂可能有1/4的球员不合适，如果是50个人进入名人堂那么基本不会犯错。</p>
@@ -640,7 +640,7 @@ career_eb %&gt;%
   geom_line() +
   labs(x = &quot;Batting average&quot;, color = &quot;&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ht-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ht-1.png" alt="" />
 <p class="caption">plot of chunk ht</p>
 </div>
 <p>如果两个球员击球率的概率密度曲线比较接近，那么即便均值有不同我们也无法进行区分；如果重叠比较少，那么我们有理由认为他们之间的差异显著。那么贝叶斯视角下如何定量描述这个差异是否显著？</p>
@@ -795,7 +795,7 @@ ggplot(all_intervals, aes(x = estimate, y = name, color = type)) +
   xlab(&quot;Piazza average - player average&quot;) +
   ylab(&quot;Player&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/mp-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/mp-1.png" alt="" />
 <p class="caption">plot of chunk mp</p>
 </div>
 <p>由此，置信区间与可信区间的主要差异来自于经验贝叶斯的区间收敛，也就是对整体先验概率的考虑。</p>
@@ -863,7 +863,7 @@ better</code></pre>
   geom_smooth(method = &quot;lm&quot;, se = FALSE) +
   scale_x_log10()</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/if-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/if-1.png" alt="" />
 <p class="caption">plot of chunk if</p>
 </div>
 <p>击球数低方差会大，这比较正常，很多人挂在起跑线上了。直接使用经验贝叶斯方法会导致整体向均值收敛，这高估了新手的数据：</p>
@@ -881,7 +881,7 @@ career_eb %&gt;%
   ylab(&quot;average&quot;) +
     geom_smooth(method = &quot;lm&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/ife-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/ife-1.png" alt="" />
 <p class="caption">plot of chunk ife</p>
 </div>
 <p>为了如实反应这种情况，我们应该认为击球率符合贝塔分布，但同时贝塔分布的两个参数受击球数的影响，击球数越多，越可能击中。这个模型可以用贝塔－二项式回归来描述：</p>
@@ -926,7 +926,7 @@ crossing(x = seq(0.08, .35, .001), AB = c(1, 10, 100, 1000, 10000)) %&gt;%
   xlab(&quot;Batting average&quot;) +
   ylab(&quot;Prior density&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/fitbb-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/fitbb-1.png" alt="" />
 <p class="caption">plot of chunk fitbb</p>
 </div>
 </div>
@@ -952,7 +952,7 @@ ggplot(career_eb_wAB, aes(original_eb, new_eb, color = AB)) +
   ylab(&quot;EB Estimate w/ AB term&quot;) +
   scale_color_continuous(trans = &quot;log&quot;, breaks = 10 ^ (0:4))</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/fitpo-1.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/fitpo-1.png" alt="" />
 <p class="caption">plot of chunk fitpo</p>
 </div>
 <pre class="r"><code># 对比
@@ -975,7 +975,7 @@ career_eb_wAB %&gt;%
   xlab(&quot;At-Bats (AB)&quot;) +
   ylab(&quot;Estimate&quot;)</code></pre>
 <div class="figure">
-<img src="http://yufree.github.io/blogcn/figure/fitpo-2.png" alt="" />
+<img src="https://yufree.github.io/blogcn/figure/fitpo-2.png" alt="" />
 <p class="caption">plot of chunk fitpo</p>
 </div>
 <p>矫正后我们的数据更复合现实了，其实这是贝叶斯分层模型的一个简单版本，通过考虑更多因素，我们可以构建更复杂的模型来挖掘出我们所需要的信息。</p>

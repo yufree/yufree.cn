@@ -133,7 +133,7 @@ axis(2,1:ncol(y),sex,las=2)
 axis(1,1:ncol(y),sex,las=2)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome.png) 
+![](https://yufree.github.io/blogcn/figure/genome.png) 
 
 这张图上我们可以看出原始数据上面至少有两种模式可用来校准偏差，单纯考虑年份影响并不能解决所有的混杂模式，另外样品按性别去看相关也很难看出单一的趋势。那么如何把这些看得到但不好用分类或连续变量剔除的混杂因素给找出来呢？
 
@@ -182,7 +182,7 @@ image(t(Batch),col=icolors,zlim=c(-5,5),xaxt="n",yaxt="n")
 image(t(error),col=icolors,zlim=c(-5,5),xaxt="n",yaxt="n")
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome1.png) 
+![](https://yufree.github.io/blogcn/figure/genome1.png) 
 
 可以看出，通过替代变量分析我们最大程度上保留了原有效应并剔除了替代变量。在这个基础上配合前文提到的经验贝叶斯方法进行基因筛选，得到的基因为我们比较感兴趣的部分了，下一篇将在此基础上讨论如何对结果进行注释或者基因组序列比对。
 
@@ -226,7 +226,7 @@ plot(r,g,lwd=2,cex=0.2,pch=16,
 abline(0,1,col=2,lwd=2)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome2.png) 
+![](https://yufree.github.io/blogcn/figure/genome2.png) 
 
 从上面的图中我们可以看出基因组技术重复数据大部分位于低响应区，且数值越小，方差越大。这种情况得到的相关性可能被少数数据所影响，因而我们采用绝对差值与均值做图给出比较。
 
@@ -240,7 +240,7 @@ plot((r+g)/2,(r-g),lwd=2,cex=0.2,pch=16,
 abline(h=0,col=2,lwd=2)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome3.png) 
+![](https://yufree.github.io/blogcn/figure/genome3.png) 
 
 这样的图叫做MA-plot或者说Bland-Altman plot，在基因组数据分析文章中算是比较常见。从图上我们知道，两者对数差的平均方差为1，也就是说差距约为2倍。这个2倍所说明的重复性问题需要按实际情况来看。
 
@@ -258,7 +258,7 @@ mypar(1,1)
 boxplot(ge,range=0,names=1:ncol(ge),col=ifelse(1:ncol(ge)==42,1,2))
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome4.png) 
+![](https://yufree.github.io/blogcn/figure/genome4.png) 
 
 ~~~
 # 用matplot绘制分位数曲线
@@ -266,14 +266,14 @@ qs <- t(apply(ge,2,quantile,prob=c(0.05,0.25,0.5,0.75,0.95)))
 matplot(qs,type="l",lty=1)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome5.png) 
+![](https://yufree.github.io/blogcn/figure/genome5.png) 
 
 ~~~
 # 绘制平滑直方图
 shist(ge,unit=0.5)
 ~~~
 
-![](http://yufree.github.io/blogcn/figure/genome6.png) 
+![](https://yufree.github.io/blogcn/figure/genome6.png) 
 
 ### 高维数据展示
 

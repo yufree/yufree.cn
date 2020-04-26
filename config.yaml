@@ -113,3 +113,8 @@ params:
     edit:
       en: "Suggest an edit of this page"
       cn: "编辑本页"
+markup:
+  goldmark:
+    rederer:
+      unsafe: true
+      

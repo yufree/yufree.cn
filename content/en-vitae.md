@@ -27,7 +27,7 @@ New York, NY 10029, USA.
 
 # Research Interest
 
-POPs, Environmental Processes, Non-targeted Analysis, CSIA, Data Science
+POPs, Environmental Processes, Non-targeted Analysis, Data Science
 
 # Education Background
 

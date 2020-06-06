@@ -36,7 +36,7 @@ New York, NY, USA.
 
 持久性有机污染物, 环境过程, 非目的检测, 数据科学，环境暴露组学
 
-## 报告
+## 口头报告
 
 - 于淼,2014,多溴联苯醚气相色谱保留时间的模型预测与选择, 第十届全国生物医药色谱及相关技术学术交流会(威海).([幻灯片](https://github.com/yufree/presentation/blob/master/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
 - 于淼,2014,环境数据的阈值探索, 第二届环境污染与健康研究生论坛(北京). ([幻灯片](http://yufree.github.io/presentation/threshold/threshold))
@@ -45,6 +45,9 @@ New York, NY, USA.
 - 于淼,2015,GC-MS数据可视化在环境分析中的应用,第八届全国环境化学大会(广州).
 - Miao Yu, 2017, Text Mining for Academic Journals: Science Café @ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
 - Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
+- Miao Yu, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
+- Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector
+ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-asms.html) and [video](https://youtu.be/-mT3HcVygHE))
 
 ## 计算机水平
 
@@ -73,6 +76,8 @@ New York, NY, USA.
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272
 
 - Yu, M., Olkowicz, M., Pawliszyn, J., 2019. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta 1050, 16–24. https://doi.org/10.1016/j.aca.2018.10.062
+
+- Lendor, S., Olkowicz, M., Boyaci, E., Yu, M., Diwan, M., Hamani, C., Palmer, M., Reyes-Garcés, N., Gómez-Ríos, G.A., Pawliszyn, J., 2020. Investigation of Early Death-Induced Changes in Rat Brain by Solid Phase Microextraction via Untargeted High Resolution Mass Spectrometry: In Vivo versus Postmortem Comparative Study. ACS Chem. Neurosci. https://doi.org/10.1021/acschemneuro.0c00270
 
 - Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.9b02122
 
@@ -186,6 +191,16 @@ New York, NY, USA.
 - Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
 
 - Miao Yu, Anna Roszkowska, Janusz Pawliszyn, 2018, Tissue Storage Affects Global Metabolic Profiling in Comparison to in vivo Microsampling Approach, Pittcon 2018, Orlando, FL, USA. ([poster](https://docs.google.com/presentation/d/1cziiGcQb60GLyBce8hEQy3Y02MqQk0-9Kih1nl-BCPE/edit?usp=sharing))
+
+- Miao Yu, Sofia Lendor, Mariola Olkowicz, Leslie Bragg, Anna Roszkowska1, Mark Servos, Janusz Pawliszyn, 2019, Reacomics for LC-MS based untargeted analysis, ASMS 2019, Atlanta, GA, USA. ([poster](https://docs.google.com/presentation/d/1dMXnE-KLVlTWXXuhQzZzWKXImYV6DvjxuYsLGNW7QaQ/edit?usp=sharing))
+
+- Miao Yu, Georgia Dolios, Lauren Petrick, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
+
+- Miao Yu, Georgia Dolios, Lauren Petrick, 2020, Global non-targeted metabolomics data analysis workflow for Paired Mass Distance Dependent Analysis (PMDDA), 2020 Exposome Symposium, New York, NY, USA. ([poster](https://docs.google.com/presentation/d/13iCu1UnQVIAgylT6MkMoTJBPAmNejf5x0N_Yjakno1E/edit?usp=sharing))
+
+- Miao Yu, Lauren Petrick, 2020, reactomics: using mass sepctrometry as chemical reaction detector, ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-asms.html))
+
+- Miao Yu, Georgia Dolios, Lauren Petrick, 2020,Paired mass distance dependent analysis (PMDDA) for robust untargeted compound identification, 2020 Exposome Symposium, ASMS 2020 Reboot, USA. ([poster](https://docs.google.com/presentation/d/18qDbjy1PYuLZgOOlbSgzkpFBQnc3k-H5XhQPHjszfHA/edit?usp=sharing))
 
 ## 授权专利
 

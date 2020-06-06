@@ -27,7 +27,7 @@ New York, NY 10029, USA.
 
 # Research Interest
 
-POPs, Environmental Processes, Non-targeted Analysis, Data Science
+POPs, Environmental Processes, Non-targeted Analysis, Data Science, Exposomics
 
 # Education Background
 
@@ -77,6 +77,8 @@ POPs, Environmental Processes, Non-targeted Analysis, Data Science
 - Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272  (**2018 ES&T Letter Best Paper**, co-first)
 
 - Yu, M., Olkowicz, M., Pawliszyn, J., 2019. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta 1050, 16–24. https://doi.org/10.1016/j.aca.2018.10.062
+
+- Lendor, S., Olkowicz, M., Boyaci, E., Yu, M., Diwan, M., Hamani, C., Palmer, M., Reyes-Garcés, N., Gómez-Ríos, G.A., Pawliszyn, J., 2020. Investigation of Early Death-Induced Changes in Rat Brain by Solid Phase Microextraction via Untargeted High Resolution Mass Spectrometry: In Vivo versus Postmortem Comparative Study. ACS Chem. Neurosci. https://doi.org/10.1021/acschemneuro.0c00270
 
 - Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.9b02122
 
@@ -197,9 +199,13 @@ This application is used to show the database of PBDEs' RRTs on DB-5ms and predi
 
 # Presentations
 
-- Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
+- Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector
+ASMS 2020 Reboot, USA. [slides](http://yufree.github.io/presentation/reactomics/pres-asms.html)
+[video](https://youtu.be/-mT3HcVygHE)
 
-- Miao Yu, Anna Roszkowska, Janusz Pawliszyn, 2018, Tissue Storage Affects Global Metabolic Profiling in Comparison to in vivo Microsampling Approach, Pittcon 2018, Orlando, FL, USA. ([poster](https://docs.google.com/presentation/d/1cziiGcQb60GLyBce8hEQy3Y02MqQk0-9Kih1nl-BCPE/edit?usp=sharing))
+- Miao Yu, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
+
+- Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
 
 - Miao Yu, 2017, Text Mining for Academic Journals: Science Café @ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
 

@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 
-I will be in the Q&A session for ASMS 2020 Reboot MOB pm: Exposomics, Toxicology, and Health Outcomes tomorrow. 20 minutes might not be enough to cover all the details of "Reactomics: using mass spectrometry as chemical reaction detector". I will put some resources for this presentation and I will update the Q&A after the online session in this post.
+I will be in the Q&A session for ASMS 2020 Reboot MOB pm: Exposomics, Toxicology, and Health Outcomes tomorrow. 20 minutes might not be enough to cover all the details of "Reactomics: using mass spectrometry as chemical reaction detector". Here I list some useful resources for this presentation and I will update the Q&A after the online session in this post.
 
 ### Resources
 

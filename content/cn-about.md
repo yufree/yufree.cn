@@ -22,8 +22,6 @@ slug: "cn/about"
 
 ## 兴趣爱好
 
-- [自学笔记](http://yufree.github.io/notes): 亦可参见博客笔记板块 实质等同
-
 - [刷公开课](https://github.com/yufree/MOOC): 42门目标完成
 
 - [Github](https://github.com/yufree): 伪码农是我另一个身份
@@ -33,8 +31,6 @@ slug: "cn/about"
 - [知乎专栏](http://zhuanlan.zhihu.com/yufree): 土鳖的论文修养
 
 - [摄影](https://instagram.com/yufree/): 半瓶醋水平 从点点转乐乎最后落脚Instagram
-
-- [读书笔记](https://yufreecas.blogspot.com/): 沥青下滴速更新
 
 ## 吐槽
 
@@ -46,8 +42,8 @@ slug: "cn/about"
 
 ## 寻人诀
 
-- [约时间](https://doodle.com/yufree)
+- 行程安排
 
-- [约视频](https://appear.in/yufree)
+<iframe src="https://calendar.google.com/calendar/embed?src=yufreecas%40gmail.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 - [Slack群组](https://join.slack.com/t/yufree/shared_invite/enQtMjk0NjcyNjQ3MDc0LTMxY2ZjZGQ1ZDA0N2EyYTExYTg5ODEwNWRlNTJmNzUwMTA4ODBlYjQzNzFiY2U3OTJjMWUyODIwMGI1MWMzNDY)

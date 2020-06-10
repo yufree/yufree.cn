@@ -20,6 +20,8 @@ New York, NY, USA.
 
 - Email: 42@yufree.cn
 
+- [ORCID](http://orcid.org/0000-0002-2804-6014)
+
 ## 工作信息
 
 - 2018.09至今 美国西奈山医学院 博士后

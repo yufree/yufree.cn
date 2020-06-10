@@ -39,11 +39,3 @@ slug: "cn/about"
 - [英文版](http://yufree.cn/en/): 跟中文版区别很大
 
 - [气宇轩](http://blog.sciencenet.cn/u/yufree): 科学网博客
-
-## 寻人诀
-
-- 行程安排
-
-<iframe src="https://calendar.google.com/calendar/embed?src=yufreecas%40gmail.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
-- [Slack群组](https://join.slack.com/t/yufree/shared_invite/enQtMjk0NjcyNjQ3MDc0LTMxY2ZjZGQ1ZDA0N2EyYTExYTg5ODEwNWRlNTJmNzUwMTA4ODBlYjQzNzFiY2U3OTJjMWUyODIwMGI1MWMzNDY)

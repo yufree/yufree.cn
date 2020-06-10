@@ -6,7 +6,7 @@ Hi, My name is YU Miao and I am currently a Postdoctoral Fellow in [Icahn School
 
 My major is Environmental Science so I am a dabbler in many science topics. I have board interests such as cook, photograph, programming... but they are just hobbies, not special talents. So you know I am a dabbler in life, too. 
 
-I am lazy, so I just modified [Yihui's pages](http://yihui.name) to show this blog(in fact, I just got the parts which I could figure out the meanings and thanks a lot, Yihui). But I am easy-going and willing to learn something new, so this blog will be focused on something interesting in my life in English. 
+I am lazy, so I just modified [Yihui's pages](http://yihui.name) to show this blog(in fact, I just got the parts which I could figure out the meanings and thanks a lot, Yihui). But I am always willing to learn something new and this blog will be focused on something interesting in my life in English. 
 
 For English is not my mother tongue, you have to bear my tongue to read my articles.
 
@@ -29,5 +29,3 @@ Here is some links related to this website:
 - [Twitter](https://twitter.com/yu_free): My twitter
 
 - [Facebook](https://www.facebook.com/yufreecas): My Facebook
-
-- [Slack](https://join.slack.com/t/yufree/shared_invite/enQtMjk0NjcyNjQ3MDc0LTMxY2ZjZGQ1ZDA0N2EyYTExYTg5ODEwNWRlNTJmNzUwMTA4ODBlYjQzNzFiY2U3OTJjMWUyODIwMGI1MWMzNDY)

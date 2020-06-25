@@ -98,7 +98,6 @@ params:
     weibo: "贫道yufree"
     weibo_url: "yufreecas"
     github: "yufree"
-
   logo:
     url: "fish.png"
     width: 50

@@ -20,7 +20,8 @@ tags:
 <p>好了，说这么多还是要给点最直观的例子。下面我就手工生成几个网络并做下基础可视化，这里我不会用最常见的那种起点终点数据结构，因为这个东西是需要从原始数据生成的，很少有原始数据本身就是这种关系结构，而且此处我也不涉及 <code>ggplot2</code> 风格的绘图包，用基础绘图系统来做，函数统一为<code>plot</code>，当然不同的对象类型会有不同的绘图参数。</p>
 <div id="network-版" class="section level2">
 <h2><code>network</code> 版</h2>
-<pre class="r"><code>library(network)
+<pre class="r"><code>set.seed(110)
+library(network)
 # 生成一个3节点网络
 net &lt;- network.initialize(3)
 # 画出来
@@ -54,7 +55,8 @@ plot(netcor,vertex.cex=5,vertex.col=get.vertex.attribute(netcor,&quot;class&quot
 </div>
 <div id="igraph-版" class="section level2">
 <h2><code>igraph</code> 版</h2>
-<pre class="r"><code>library(igraph)
+<pre class="r"><code>set.seed(110)
+library(igraph)
 # 生成一个3节点网络
 net &lt;- graph.empty(n=3, directed=TRUE)
 # 画出来

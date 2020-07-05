@@ -26,7 +26,8 @@ tags:
 
 ## `network` 版
 
-```{r message=FALSE,warning=FALSE}
+```{r message=FALSE,warning=FALSE,cache=F}
+set.seed(110)
 library(network)
 # 生成一个3节点网络
 net <- network.initialize(3)
@@ -57,7 +58,8 @@ plot(netcor,vertex.cex=5,vertex.col=get.vertex.attribute(netcor,"class"),edge.co
 
 ## `igraph` 版
 
-```{r message=FALSE,warning=FALSE}
+```{r message=FALSE,warning=FALSE,cache=F}
+set.seed(110)
 library(igraph)
 # 生成一个3节点网络
 net <- graph.empty(n=3, directed=TRUE)

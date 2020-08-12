@@ -1,0 +1,71 @@
+---
+title: Independent peaks selection algorithms
+author: Miao Yu
+date: '2020-08-12'
+slug: independent-peaks-selection-algorithms
+categories: []
+tags: []
+---
+
+In mass spectrometry based untargeted analysis, raw data from instrument contain peaks level information. However, we actually care about compounds level information. For target analysis, we accepted the facts that quantitative and qualitative ions could stand for the target compounds. In untargeted analysis, full scan mode will collect all the charged compounds' ions. One compound could generate multiple ions such as adducts, neutral loss, multiple charged ions, isotopougue and/or fragmental ions and those peaks are highly correlated with each other. If we will perform the statistical analysis at compounds level, those highly correlated ions will disturbe the independent assumption of those statistical analysis. In this case, we need algorithm to remove such redundant peaks or select pseudo targeted ions for unknown compounds. Ideally, selection of molecular ion will make the following analysis much easier.
+
+To detect such redundant peaks, two relationships could be used: paired mass distance (PMD) and paired correlation. I developed GlobalStd algorithm to remove such redundant peaks based on PMD relationship. However, I actually added the function to use correlation along with PMD in this algorithm. To make the details clear, I also added functions to extract independent peaks based on correlation, as well as the ions clusters extraction function. The ions clusters could be treated the pseudo spectra detection algorithm. In this case, we could not only extract the independent ions for compounds level analysis, but also grab the pseudo specturm of this compounds for annotation purpose.
+
+Here I will demo how to perform such analysis based on PMD package:
+
+```{r}
+# use dev version of PMD package
+# remotes::install_github('yufree/pmd')
+library(pmd)
+library(enviGCMS)
+# load demo data
+data(spmeinvivo)
+# perform GlobalStd algorithm
+list <- globalstd(spmeinvivo)
+# get new list with independent peaks
+listi <- getfilter(list,rowindex = list$stdmassindex)
+```
+
+Here we have `r sum(list$stdmassindex)` peaks compared with original `r length(list$mz)` peaks. If we removed the right redundant peaks, the PCA score plot will not change too much with a much smaller data set.
+
+```{r}
+# plot the comparision
+par(mfrow = c(1,2),mar = c(4,4,2,1)+0.1)
+plotpca(list$data,lv = as.numeric(as.factor(list$group)),main = "all peaks")
+plotpca(listi$data,lv = as.numeric(as.factor(listi$group)),main = " independent peaks")
+```
+
+The GlobalStd algorithm with default setting will not use intensity data. However, if we could use intensity data to refine the result, we could select the base peaks of each pseudo spectrum. After consideration of correlation relationship, we could further select the base independent peaks.
+
+```{r}
+base <- getcluster(list)
+# get the new list with base peaks
+listb <- getfilter(list,rowindex = base$stdmassindex2)
+# get the new list with independent base peaks
+basei <- getcluster(list,corcutoff = 0.9)
+listib <- getfilter(list,rowindex = basei$stdmassindex2)
+```
+
+If we didn't use PMD, we could also detect the correlation cluster within narrow retention time window as pseudo spectra. I also supplied function to select the correlation independent peaks and base correlation independent peaks.
+
+```{r}
+ci <- getcorcluster(spmeinvivo)
+# get the new list with correlation independent peaks
+listci <- getfilter(list,rowindex = ci$stdmassindex)
+# get the new list with base correlation independent peaks
+listcib <- getfilter(list,rowindex = ci$stdmassindex)
+```
+
+We could compare the compare reduced result using PCA similarity factor. A good peak selection algorithm could show a high PCA similarity factor compared with original data set while retain the minmized number of peaks.
+
+```{r}
+par(mfrow = c(2,3),mar = c(4,4,2,1)+0.1)
+plotpca(listi$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(list$stdmassindex),"independent peaks"))
+plotpca(listb$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(stdcluster$stdmassindex2),"base peaks"))
+plotpca(listb$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(stdcluster2$stdmassindex2),"independent base peaks"))
+plotpca(listci$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(ci$stdmassindex),"peaks without correlationship"))
+plotpca(listcib$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(ci$stdmassindex2),"base peaks without correlationship"))
+plotpca(list$data,lv = as.numeric(as.factor(list$group)),main = paste(nrow(list$data),"all peaks"))
+```
+
+In this case, five peaks selection algorithms are fine to stand for the original peaks with PCA similarity score larger than 0.9. However, the independent base peaks retain the most information with relative low numbers of peaks.

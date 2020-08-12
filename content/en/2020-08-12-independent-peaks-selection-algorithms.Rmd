@@ -61,8 +61,8 @@ We could compare the compare reduced result using PCA similarity factor. A good 
 ```{r}
 par(mfrow = c(2,3),mar = c(4,4,2,1)+0.1)
 plotpca(listi$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(list$stdmassindex),"independent peaks"))
-plotpca(listb$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(stdcluster$stdmassindex2),"base peaks"))
-plotpca(listb$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(stdcluster2$stdmassindex2),"independent base peaks"))
+plotpca(listb$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(listb$stdmassindex2),"base peaks"))
+plotpca(listib$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(listib$stdmassindex2),"independent base peaks"))
 plotpca(listci$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(ci$stdmassindex),"peaks without correlationship"))
 plotpca(listcib$data,lv = as.numeric(as.factor(list$group)),main = paste(sum(ci$stdmassindex2),"base peaks without correlationship"))
 plotpca(list$data,lv = as.numeric(as.factor(list$group)),main = paste(nrow(list$data),"all peaks"))

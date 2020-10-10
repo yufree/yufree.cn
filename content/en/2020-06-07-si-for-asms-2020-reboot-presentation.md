@@ -11,7 +11,7 @@ I will be in the Q&A session for ASMS 2020 Reboot MOB pm: Exposomics, Toxicology
 
 ### Resources
 
-- [Vedio](https://youtu.be/-mT3HcVygHE). If you didn't register for ASMS 2020 Reboot, here is the link to unlisted video on YouTube.
+- [Video](https://youtu.be/-mT3HcVygHE). If you didn't register for ASMS 2020 Reboot, here is the link to unlisted video on YouTube.
 
 - [Slides](http://yufree.github.io/presentation/reactomics/pres-asms.html). This is the slides for ASMS 2020 Reboot. Press "P" and you will see the notes for each slide with details. Another full version of reactomics presentation for one hour presentation could be found [here](http://yufree.github.io/presentation/reactomics/pres). I will not update the conference presentation while I will add new contents for the full version of reactomics presentation whenever I have new results.
 

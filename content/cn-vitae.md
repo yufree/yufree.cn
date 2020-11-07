@@ -69,17 +69,25 @@ ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics
 
 ## 论文
 
-- Yu, M., Hou, X., Liu, Q., Wang, Y., Liu, J., Jiang, G., 2017. Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model. Talanta 164, 141–147. doi:10.1016/j.talanta.2016.11.046
+- Yu, M., Petrick, L., 2020. Untargeted high-resolution paired mass distance data mining for retrieving general chemical relationships. Communications Chemistry 3, 1–6. https://doi.org/10.1038/s42004-020-00403-z
 
-- Yu, M., Liu, J., Wang, T., Sun, J., Liu, R., Jiang, G., 2013. Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol. 47, 13494–13501. doi:10.1021/es404144p
+- Yu, M., Dolios, G., Yong-Gonzalez, V., Björkqvist, O., Colicino, E., Halfvarson, J., Petrick, L., 2020. Untargeted metabolomics profiling and hemoglobin normalization for archived newborn dried blood spots from a refrigerated biorepository. Journal of Pharmaceutical and Biomedical Analysis 191, 113574. https://doi.org/10.1016/j.jpba.2020.113574
 
-- Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
-
-- Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018b. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272
+- Yu, M., Lendor, S., Roszkowska, A., Olkowicz, M., Bragg, L., Servos, M., Pawliszyn, J., 2020. Metabolic profile of fish muscle tissue changes with sampling method, storage strategy and time. Analytica Chimica Acta 1136, 42–50. https://doi.org/10.1016/j.aca.2020.08.050
 
 - Yu, M., Olkowicz, M., Pawliszyn, J., 2019. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta 1050, 16–24. https://doi.org/10.1016/j.aca.2018.10.062
 
-- Lendor, S., Olkowicz, M., Boyaci, E., Yu, M., Diwan, M., Hamani, C., Palmer, M., Reyes-Garcés, N., Gómez-Ríos, G.A., Pawliszyn, J., 2020. Investigation of Early Death-Induced Changes in Rat Brain by Solid Phase Microextraction via Untargeted High Resolution Mass Spectrometry: In Vivo versus Postmortem Comparative Study. ACS Chem. Neurosci. https://doi.org/10.1021/acschemneuro.0c00270
+- Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431–435. https://doi.org/10.1021/acs.estlett.8b00272
+
+- Yu, M., Hou, X., Liu, Q., Wang, Y., Liu, J., Jiang, G., 2017. Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model. Talanta 164, 141–147. doi:10.1016/j.talanta.2016.11.046
+
+- Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC–MS analysis of their corresponding PBDEs. Talanta 152, 9–14. doi:10.1016/j.talanta.2016.01.047
+
+- Yu, M., Liu, J., Wang, T., Sun, J., Liu, R., Jiang, G., 2013. Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol. 47, 13494–13501. doi:10.1021/es404144p
+
+- Chen, W., Yu, M., Zhang, Q., Hou, X., Kong, W., Wei, L., Mao, X., Liu, J., Schnoor, J.L., Jiang, G., 2020. Metabolism of SCCPs and MCCPs in Suspension Rice Cells Based on Paired Mass Distance (PMD) Analysis. Environ. Sci. Technol. 54, 9990–9999. https://doi.org/10.1021/acs.est.0c01830
+
+- Lendor, S., Olkowicz, M., Boyaci, E., Yu, M., Diwan, M., Hamani, C., Palmer, M., Reyes-Garcés, N., Gómez-Ríos, G.A., Pawliszyn, J., 2020. Investigation of Early Death-Induced Changes in Rat Brain by Solid Phase Microextraction via Untargeted High Resolution Mass Spectrometry: In Vivo versus Postmortem Comparative Study. ACS Chem. Neurosci. 11, 1827–1840. https://doi.org/10.1021/acschemneuro.0c00270
 
 - Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. https://doi.org/10.1021/acs.est.9b02122
 

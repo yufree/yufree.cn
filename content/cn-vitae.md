@@ -210,7 +210,7 @@ ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics
 
 - Miao Yu, Lauren Petrick, 2020, reactomics: using mass sepctrometry as chemical reaction detector, ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-asms.html))
 
-- Miao Yu, Georgia Dolios, Lauren Petrick, 2020,Paired mass distance dependent analysis (PMDDA) for robust untargeted compound identification, 2020 Exposome Symposium, ASMS 2020 Reboot, USA. ([poster](https://docs.google.com/presentation/d/18qDbjy1PYuLZgOOlbSgzkpFBQnc3k-H5XhQPHjszfHA/edit?usp=sharing))
+- Miao Yu, Georgia Dolios, Lauren Petrick, 2020,Paired mass distance dependent analysis (PMDDA) for robust untargeted compound identification, ASMS 2020 Reboot, USA. ([poster](https://docs.google.com/presentation/d/18qDbjy1PYuLZgOOlbSgzkpFBQnc3k-H5XhQPHjszfHA/edit?usp=sharing))
 
 ## 授权专利
 

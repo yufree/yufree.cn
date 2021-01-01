@@ -42,6 +42,6 @@ tags: []
 - 如果沉迷视频，可以用watch later功能，很多算法推荐给你的东西进了 watch later就会 watch never
 - 今年我一共用掉了57只一次性口罩，每一次打开门都像是一次冒险
 
-<img src="/2020-12-31-33/index_files/IMG_0225.JPG" alt="" width="400px"/>
+![IMG_0198](https://raw.githubusercontent.com/yufree/yufree.cn/master/static/cn/2020-12-31-33/index_files/IMG_0225.JPG)
 
 2020年在幸存者眼里是个做出改变的时机，让疫情去为很多之前的矛盾背锅，但重要的不是合理化自己，而是正面解决问题。2021年我自己又要进入找工作状态了，隔着太平洋，不知道会发生什么，但不论发生什么都不会四平八稳，也好，那就来吧。

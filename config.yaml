@@ -63,8 +63,8 @@ menu:
     - name: "简历"
       url: "/cn/vitae/"
       weight: 4
-    - name: "笔记"
-      url: "/notes/"
+    - name: "《现代科研指北》"
+      url: "/sciguide/"
       weight: 5
     - name: "English"
       url: "/en/"

@@ -8,4 +8,4 @@
 [submodule "static/sciguide"]
 	path = static/sciguide
 	url = git@github.com:yufree/sciguide.git
-    branch = gh-pages
+	branch = gh-pages

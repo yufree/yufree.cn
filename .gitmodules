@@ -1,7 +1,3 @@
-[submodule "static/notes"]
-	path = static/notes
-	url = git@github.com:yufree/notes.git
-	branch = gh-pages
 [submodule "static/metaworkflow"]
 	path = static/metaworkflow
 	url = git@github.com:yufree/metaworkflow.git
@@ -9,3 +5,7 @@
 [submodule "themes/hugo-lithium-theme"]
 	path = themes/hugo-lithium-theme
 	url = git@github.com:yufree/hugo-lithium-theme.git
+[submodule "static/sciguide"]
+	path = static/sciguide
+	url = git@github.com:yufree/sciguide.git
+    branch = gh-pages

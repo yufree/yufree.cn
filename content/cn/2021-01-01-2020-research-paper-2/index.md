@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 
-这是公众号[环境黑板报](https://bookdown.org/yufree/hjhbb/)上半年所有研究速递的汇总。研究速递是关于环境相关的研究吐槽，主要关注期刊是ES&T与ES&T letter，也有其他综合类期刊的条目。目前投稿都是在github上完成的，每月总结一次推送到公众号，欢迎各位同学来此投稿：https://github.com/yufree/hjhbb/issues/41 （2021年1月）
+这是公众号[环境黑板报](https://bookdown.org/yufree/hjhbb/)下半年所有研究速递的汇总。研究速递是关于环境相关的研究吐槽，主要关注期刊是ES&T与ES&T letter，也有其他综合类期刊的条目。目前投稿都是在github上完成的，每月总结一次推送到公众号，欢迎各位同学来此投稿：https://github.com/yufree/hjhbb/issues/41 （2021年1月）
 
 ## 七月 
 

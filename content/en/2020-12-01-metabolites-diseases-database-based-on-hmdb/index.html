@@ -1,0 +1,137 @@
+---
+title: Local Metabolites-diseases database based on HMDB
+author: ''
+date: '2020-12-01'
+slug: metabolites-diseases-database-based-on-hmdb
+categories: []
+tags: []
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Human Metabolites Database(HMDB) is a great tool to access human related metabolites or small molecular. You could access metabolites’ information about disease, which is important for public health related studies. However, it’s not easy to search multiple metabolites at the same time. Here I will show a demo to locally access multiple metabolites’ disease information.</p>
+<div id="step-1-annotate-the-mz-with-hmdb-id" class="section level2">
+<h2>Step 1: Annotate the m/z with HMDB ID</h2>
+<pre class="r"><code>library(rmwf)
+library(enviGCMS)
+data(&quot;mzrt&quot;)
+data(&quot;hr&quot;)
+re &lt;- enviGCMS::getms1anno(pmd = c(&#39;Na-H&#39;,&#39;H&#39;,&#39;Na&#39;), mz = mzrt$mz[1:10], ppm = 5, db=hr)</code></pre>
+<pre><code>## No retention time information!
+## No retention time information!
+## No retention time information!</code></pre>
+<pre class="r"><code># Only check [M+H]+
+name &lt;- unique(re[[2]]$name)
+# from name to HMDB ID
+HMDBID &lt;- webchem::cts_convert(name,&#39;name&#39;,&#39;human metabolome database&#39;)</code></pre>
+<pre><code>## Querying Diethanolamine.</code></pre>
+<pre><code>## OK (HTTP 200).
+## Querying 2-Piperidinone. OK (HTTP 200).
+## Querying S-Ethyl thioacetate. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying S-Methyl propanethioate. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying N-Nitroso-pyrrolidine. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying 3-(Methylthio)propanal. OK (HTTP 200).
+## Querying 3-Mercapto-2-butanone. OK (HTTP 200).
+## Querying Gyromitrin. OK (HTTP 200).
+## Querying 1-Pyrrolidinecarboxaldehyde. OK (HTTP 200).
+## Querying (Methylthio)acetone. OK (HTTP 200).
+## Querying 2,5-Dihydro-2,4-dimethyloxazole. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying 4-Mercapto-2-butanone. OK (HTTP 200).
+## Querying (2R)-2-Hydroxy-2-methylbutanenitrile. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying cis-3-Chloroacrylic acid. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying trans-3-Chloroacrylic acid. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying Allyl methyl sulfoxide. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying Neurine. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying 2-Hydroxy-2-methylbutanenitrile. OK (HTTP 200).
+## Querying N-Methylpyrrolidin-2-one. OK (HTTP 200).
+##  Not found. Returning NA.
+## Querying Tetrahydrothiophene-1-oxide. OK (HTTP 200).
+##  Not found. Returning NA.</code></pre>
+<pre class="r"><code>HID &lt;- unlist(HMDBID)[!is.na(unlist(HMDBID))]
+# Check the results
+HID</code></pre>
+<pre><code>##                  Diethanolamine                  2-Piperidinone 
+##                   &quot;HMDB0004437&quot;                   &quot;HMDB0011749&quot; 
+##          3-(Methylthio)propanal           3-Mercapto-2-butanone 
+##                   &quot;HMDB0031857&quot;                   &quot;HMDB0031982&quot; 
+##                      Gyromitrin     1-Pyrrolidinecarboxaldehyde 
+##                   &quot;HMDB0033952&quot;                   &quot;HMDB0034587&quot; 
+##             (Methylthio)acetone           4-Mercapto-2-butanone 
+##                   &quot;HMDB0040170&quot;                   &quot;HMDB0041015&quot; 
+## 2-Hydroxy-2-methylbutanenitrile 
+##                   &quot;HMDB0060309&quot;</code></pre>
+</div>
+<div id="step-2-build-local-hmdb-disease-database-and-search-id" class="section level2">
+<h2>Step 2: Build local HMDB disease database and search ID</h2>
+<p>Here is the python code to extract disease related information:</p>
+<pre class="python"><code>from io import StringIO
+from lxml import etree
+import csv
+def hmdbpextract(name, file):
+  ns = {&#39;hmdb&#39;: &#39;http://www.hmdb.ca&#39;}
+  context = etree.iterparse(name, tag=&#39;{http://www.hmdb.ca}metabolite&#39;)
+  csvfile = open(file, &#39;w&#39;)
+  fieldnames = [&#39;accession&#39;, &#39;dname&#39;]
+  writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+  writer.writeheader()
+  for event, elem in context:
+
+    accession = elem.xpath(&#39;hmdb:accession/text()&#39;, namespaces=ns)[0]
+    try:
+        dname = elem.xpath(&#39;hmdb:diseases/hmdb:disease/hmdb:name/text()&#39;, namespaces=ns)
+    except:
+        dname = &#39;NA&#39;
+    writer.writerow({&#39;accession&#39;: accession, &#39;dname&#39;: dname})
+    # It&#39;s safe to call clear() here because no descendants will be
+    # accessed
+    elem.clear()
+# Also eliminate now-empty references from the root node to elem
+    for ancestor in elem.xpath(&#39;ancestor-or-self::*&#39;):
+        while ancestor.getprevious() is not None:
+            del ancestor.getparent()[0]
+  del context
+  return;
+hmdbpextract(&#39;hmdb_metabolites.xml&#39;,&#39;hmdbd.csv&#39;)</code></pre>
+<p>If you download HMDB xml file, you could get csv file with disease related information with above code.</p>
+<p>However, we need to make this csv file friendly for batch search.</p>
+<pre class="r"><code>hmdb &lt;- read.csv(&#39;hmdbd.csv&#39;)
+hmdb2 &lt;- t(apply(hmdb,1,function(x) gsub( &quot;^\\[|]$&quot;, &quot;&quot;, as.character(x))))
+hmdb2 &lt;- as.data.frame(hmdb2)
+colnames(hmdb2) &lt;- colnames(hmdb)
+
+disease &lt;- hmdb2[,c(&quot;accession&quot;,&quot;dname&quot;)]
+
+g &lt;- strsplit(as.character(hmdb2$dname), &quot;,&quot;)
+dname &lt;- data.frame(accession = rep(hmdb2$accession, lapply(g, length)), dname = unlist(g))
+dname$dname &lt;- gsub( &#39;^ &#39;, &quot;&quot;, as.character(dname$dname))
+dname$dname &lt;- gsub( &quot;^&#39;|&#39;$&quot;, &quot;&quot;, as.character(dname$dname))
+dname$dname &lt;- gsub( &#39;^&quot;|&quot;$&#39;, &quot;&quot;, as.character(dname$dname))
+
+write.csv(dname,&#39;hmdbdname.csv&#39;)</code></pre>
+<p>This part need to download HMDB database and extract the disease information. I know it’s too much for user and I already did this for you.</p>
+<pre class="r"><code># download HMDB disease database
+db &lt;- read.csv(&#39;https://raw.githubusercontent.com/yufree/expodb/master/hmdb/hmdbdname.csv&#39;)
+alld &lt;- db[db$accession%in%HID,]</code></pre>
+</div>
+<div id="step-3-search-hmdb-id-for-disease-information" class="section level2">
+<h2>Step 3: Search HMDB ID for disease information</h2>
+<pre class="r"><code>alld</code></pre>
+<pre><code>##         X   accession                            dname
+## 6908 6908 HMDB0011749                   Ovarian cancer
+## 6909 6909 HMDB0011749                  Crohn&#39;s disease
+## 6910 6910 HMDB0011749               Ulcerative colitis
+## 6911 6911 HMDB0011749                Colorectal cancer
+## 7625 7625 HMDB0031857 Nonalcoholic fatty liver disease</code></pre>
+<p>Then we could find two compounds might relate to five disease.</p>
+<p>This is a very simple example from m/z to disease and you could hack the code to find new world.</p>
+</div>

@@ -1,0 +1,38 @@
+---
+title: MS/MS annotation by paired mass distances analysis
+author: ''
+date: '2021-01-17'
+slug: ms-ms-annotation-by-paired-mass-distances
+categories: []
+tags:
+  - R
+---
+
+Last year I make a poster presentation for MS/MS annotation by paired mass distance(PMD) analysis. It's already been included as `pmdanno` function in pmd package. Here I will explain the principle of PMD annotation.
+
+Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as an example. Then you will get a list with each compound as element. The list should have a element of spectra with mz and ins, an element of name, an element of prec for precursor ions. I have included this database in rmwf package.
+
+```{r}
+# remotes::install_github('yufree/rmwf')
+# remotes::install_github('yufree/pmd')
+library(rmwf)
+data("qtof")
+str(qtof)
+```
+
+This database has included all of the 5062 Q-ToF spectra from 1259 compounds in HMDB. We only considered the peaks larger than 10% of the base peak and calculated all of the paired mass distances within the spectra. For example, for compound HMDB0000014, the MS/MS spectra should be (112.1, 228.1) with intensity (69.97, 100). Then the PMD spectra for annotation should be 116 for this compounds.
+
+For the PMD annotation, we will also compute the PMDs of input spectra. Then we compare the input PMDs with the database. Here we need three parameters to refine the candidates. The first parameter is ppm for mass accuracy of precursor ions. The second parameter is the range of precursor ions, the default setting should be 1.1 to include M+H or M-H. The third parameter is the pmd length percentage cutoff for annotation. 0.6(default) means 60 percentage of the pmds in your sample could be found in certain compound pmd database. The fourth parameter is the relative intensity cutoff for input spectra for pmd analysis, default 0.1 for 10 % of the base peak.
+
+```{r}
+# this is the sepctra of HMDB0034004
+file <- system.file("extdata", "challenge-msms.mgf", package = "rmwf")
+# pmd msms annotation
+anno <- pmd::pmdanno(file,db=qtof)
+unique(anno$name)
+enviGCMS::plotanno(anno)
+```
+
+The score rule for pmd annotation is that the candidates will be ordered according to the overlapped pmd numbers. In this case, if two candidates have 3 and 4 pmd overlapped with the input spectra, the latter one will be the first candidate.
+
+Such annotation could be used for MS1 annotation. However, without precursor ion to refine the candidates. It's better to find the M+H or M-H in advance. In this case, the input spectra should be processed by isotope, adducts or neutral loss detection by pmd of 1.006Da, 22.98Da, etc. Then the following step should be the same as MS2 pmd annotation.

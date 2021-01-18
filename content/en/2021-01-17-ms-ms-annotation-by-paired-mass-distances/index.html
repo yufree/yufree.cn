@@ -430,6 +430,6 @@ anno &lt;- pmd::pmdanno(file,db=qtof)
 unique(anno$name)</code></pre>
 <pre><code>## [1] &quot;HMDB0034004&quot; &quot;HMDB0003217&quot;</code></pre>
 <pre class="r"><code>enviGCMS::plotanno(anno)</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /><img src="index_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
 <p>The score rule for pmd annotation is that the candidates will be ordered according to the overlapped pmd numbers. In this case, if two candidates have 3 and 4 pmd overlapped with the input spectra, the latter one will be the first candidate.</p>
 <p>Such annotation could be used for MS1 annotation. However, without precursor ion to refine the candidates. It’s better to find the M+H or M-H in advance. In this case, the input spectra should be processed by isotope, adducts or neutral loss detection by pmd of 1.006Da, 22.98Da, etc. Then the following step should be the same as MS2 pmd annotation.</p>

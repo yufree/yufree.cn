@@ -18,7 +18,7 @@ New York, NY, USA.
 
 - 邮编: 10029
 
-- Email: 42@yufree.cn
+- Email: yufreecas at gmail.com
 
 - [ORCID](http://orcid.org/0000-0002-2804-6014)
 

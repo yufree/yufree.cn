@@ -20,7 +20,7 @@ New York, NY 10029, USA.
 
 -   Email
 
-[42\@yufree.cn](mailto:42@yufree.cn)
+[yufreecas\@gmail.com](mailto:yufreecas@gmail.com)
 
 -   Pages
 

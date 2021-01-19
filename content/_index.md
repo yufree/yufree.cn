@@ -5,7 +5,7 @@ disable_mathjax: true
 disable_highlight: true
 ---
 
-I am a Postdoctoral Fellow at [Icahn School of Medicine at Mount Sinai](https://icahn.mssm.edu/about/departments/environmental-public-health). My research interests are environmental chemistry, data analysis and exposomics. Contact me via [blog](http://yufree.cn/en) or [Email](mailto:42@yufree.cn) if you have questions about and my cv is [here](https://yufree.cn/en/vitae/). 
+I am a Postdoctoral Fellow at [Icahn School of Medicine at Mount Sinai](https://icahn.mssm.edu/about/departments/environmental-public-health). My research interests are environmental chemistry, data analysis and exposomics. Contact me via [blog](http://yufree.cn/en) or [Email](mailto:yufreecas@gmail.com) if you have questions about and my cv is [here](https://yufree.cn/en/vitae/). 
 
 贫道满脑不合时宜，好诙谐吐槽，浏览[本博](http://yufree.cn/cn)勿认真于字句之间。
 

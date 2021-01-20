@@ -4,7 +4,7 @@ title: "Miao Yu | 于淼 "
 theme: "hugo-lithium-theme"
 googleAnalytics: "UA-43118729-1"
 disqusShortname: "yufree"
-ignoreFiles: ["\\.Rmd$", "_files$", "_cache$","\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+ignoreFiles: ["\\.Rmd$", "_cache$","\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 hasCJKLanguage: true
 enableEmoji: true
 footnotereturnlinkcontents: "↩"

@@ -67,6 +67,30 @@ POPs, Environmental Processes, Non-targeted Analysis, Data Science, Exposomics
 
 -   Outstanding Member of Students Union in School of Environmental Science and Technology, Shandong University, 2006-2007
 
+# Presentations
+
+-   Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-pittcon.html) and [video](https://youtu.be/xYHW5Z5q_A8))
+
+-   Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector ASMS 2020 Reboot, USA. [slides](http://yufree.github.io/presentation/reactomics/pres-asms.html) [video](https://youtu.be/-mT3HcVygHE)
+
+- Miao Yu, 2019, Reactomics: possibility of using mass spectrometry as reaction detector, Materials Energy EnvironmenT Seminar, University at Buffalo, Buffalo, NY, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-UB.html))
+
+-   Miao Yu, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
+
+-   Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
+
+-   Miao Yu, 2017, Text Mining for Academic Journals: Science Café \@ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
+
+-   Miao Yu, 2015, Analysis method for unknown Mono-MeO-PBDEs based on GC-qMS, Chinese Chemical Society: The 18th National Conference on Organic Analysis and Bioanalysis, Shanghai, China.([slides](http://yufree.github.io/presentation/fishingnet/fishingnet))
+
+-   Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015, Jerusalem, Israel.([slides](https://github.com/yufree/presentation/blob/gh-pages/isotope/isotope2015.pdf))
+
+-   Miao Yu, 2015, Data visualization of GC-MS and its application in environmental analysis, The 8th National Conference on Environmental Chemistry, Guangzhou, China([slides](http://yufree.github.io/presentation/GCMS/GCMS))
+
+-   Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
+
+-   Miao YU, 2014, Digging the thresholds in environmental data, 2nd Environmental pollution and health forum for Graduate students, Beijing, China.([slides](http://yufree.github.io/presentation/threshold/threshold))
+
 # Publication
 
 ## Papers
@@ -207,30 +231,6 @@ This application is used to show the database of PBDEs' RRTs on DB-5ms and predi
 -   University of Waterloo, Waterloo, ON, Canada, 2018.7
 
 -   University of California, Irvine, Irvine, CA, USA, 2018.8
-
-# Presentations
-
-- Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-pittcon.html) and [video](https://youtu.be/xYHW5Z5q_A8))
-
--   Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector ASMS 2020 Reboot, USA. [slides](http://yufree.github.io/presentation/reactomics/pres-asms.html) [video](https://youtu.be/-mT3HcVygHE)
-
-- Miao Yu, 2019, Reactomics: possibility of using mass spectrometry as reaction detector, Materials Energy EnvironmenT Seminar, University at Buffalo, Buffalo, NY, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-UB.html))
-
--   Miao Yu, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
-
--   Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
-
--   Miao Yu, 2017, Text Mining for Academic Journals: Science Café \@ UWaterloo, ON, Canada. ([slides](https://yufree.github.io/presentation/textmining/textmining.html))
-
--   Miao Yu, 2015, Analysis method for unknown Mono-MeO-PBDEs based on GC-qMS, Chinese Chemical Society: The 18th National Conference on Organic Analysis and Bioanalysis, Shanghai, China.([slides](http://yufree.github.io/presentation/fishingnet/fishingnet))
-
--   Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015, Jerusalem, Israel.([slides](https://github.com/yufree/presentation/blob/gh-pages/isotope/isotope2015.pdf))
-
--   Miao Yu, 2015, Data visualization of GC-MS and its application in environmental analysis, The 8th National Conference on Environmental Chemistry, Guangzhou, China([slides](http://yufree.github.io/presentation/GCMS/GCMS))
-
--   Miao YU,2014,Model selection and prediction of retention time of PBDEs on DB-5ms column, 10th conference of bio-medicine chromatograph(China), Weihai, China.([slides](https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf),[shinyBDE](https://github.com/yufree/shinyBDE))
-
--   Miao YU, 2014, Digging the thresholds in environmental data, 2nd Environmental pollution and health forum for Graduate students, Beijing, China.([slides](http://yufree.github.io/presentation/threshold/threshold))
 
 # Recommendation
 

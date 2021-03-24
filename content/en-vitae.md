@@ -210,7 +210,11 @@ This application is used to show the database of PBDEs' RRTs on DB-5ms and predi
 
 # Presentations
 
+- Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-pittcon.html) and [video](https://youtu.be/xYHW5Z5q_A8))
+
 -   Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector ASMS 2020 Reboot, USA. [slides](http://yufree.github.io/presentation/reactomics/pres-asms.html) [video](https://youtu.be/-mT3HcVygHE)
+
+- Miao Yu, 2019, Reactomics: possibility of using mass spectrometry as reaction detector, Materials Energy EnvironmenT Seminar, University at Buffalo, Buffalo, NY, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-UB.html))
 
 -   Miao Yu, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
 

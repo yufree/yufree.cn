@@ -51,6 +51,7 @@ New York, NY, USA.
 - Miao Yu, 2019, Reactomics: possibility of using mass spectrometry as reaction detector, Materials Energy EnvironmenT Seminar, University at Buffalo, Buffalo, NY, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-UB.html))
 - Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector, ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-asms.html) and [video](https://youtu.be/-mT3HcVygHE))
 - Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-pittcon.html) and [video](https://youtu.be/xYHW5Z5q_A8))
+- Miao Yu, 2021, Molecular gatekeeper discovery for multiple exposure groups in adolescent girls, ACS Spring 2021, USA. ([slides](http://yufree.github.io/presentation/gatekeeper/gatekeeper-acs.html) 
 
 ## 计算机水平
 
@@ -179,7 +180,7 @@ New York, NY, USA.
 
 - University of California, Irvine, Irvine, CA, USA, 2018.8
 
-## 会议论文
+## 会议论文（除口头报告外）
 
 - Jiyan Liu*, Jianteng Sun, Miao Yu, Guibin Jiang. Uptake, translocation and transformation of polybrominated diphenyl ethers in whole pumpkin seedlings. 32nd International Symposium on Halogenated Persistent Organic Pollutants, Cairns, Australia, 2012.8.26-31, G8.103
 
@@ -187,17 +188,7 @@ New York, NY, USA.
 
 - 于淼, 刘稷燕, 多溴联苯醚植物代谢产物分析方法的建立及应用, 第七届环境化学大会, 2013, 贵阳, 中国
 
-- 于淼, 多溴联苯醚气相色谱保留时间的模型预测与选择, 2014, 威海, 中国（口头报告）
-
-- 于淼,环境数据的阈值探索, 第二届环境污染与健康研究生论坛, 2014, 北京, 中国 (口头报告)
-
-- 于淼, 单甲氧基取代多溴联苯醚定性分析方法,中国化学会第十八届全国有机分析及生物分析学术研讨会, 2015, 上海, 中国 (口头报告)
-
-- Miao Yu, Jiyan Liu, Guibin Jiang. 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015, Jerusalem, Israel (口头报告)
-
 - Miao Yu, Aifeng Liu, Jiyan Liu, Guibin Jiang. 2015, Kow Directed Analysis For Brominated Containment in Environmental Samples, the 43rd Symposium of HPLC and related techniques, Beijing, China
-
-- 于淼,刘稷燕, 江桂斌,GC-MS数据可视化在环境分析中的应用,第八届全国环境化学大会,2015,广州,中国(口头报告)
 
 - Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. ([slides](https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing))
 
@@ -205,11 +196,7 @@ New York, NY, USA.
 
 - Miao Yu, Sofia Lendor, Mariola Olkowicz, Leslie Bragg, Anna Roszkowska1, Mark Servos, Janusz Pawliszyn, 2019, Reacomics for LC-MS based untargeted analysis, ASMS 2019, Atlanta, GA, USA. ([poster](https://docs.google.com/presentation/d/1dMXnE-KLVlTWXXuhQzZzWKXImYV6DvjxuYsLGNW7QaQ/edit?usp=sharing))
 
-- Miao Yu, Georgia Dolios, Lauren Petrick, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting & Expo, San Diego, CA, USA. ([slides](http://yufree.github.io/presentation/srda/acs-MiaoYu.html))
-
 - Miao Yu, Georgia Dolios, Lauren Petrick, 2020, Global non-targeted metabolomics data analysis workflow for Paired Mass Distance Dependent Analysis (PMDDA), 2020 Exposome Symposium, New York, NY, USA. ([poster](https://docs.google.com/presentation/d/13iCu1UnQVIAgylT6MkMoTJBPAmNejf5x0N_Yjakno1E/edit?usp=sharing))
-
-- Miao Yu, Lauren Petrick, 2020, reactomics: using mass sepctrometry as chemical reaction detector, ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-asms.html))
 
 - Miao Yu, Georgia Dolios, Lauren Petrick, 2020,Paired mass distance dependent analysis (PMDDA) for robust untargeted compound identification, ASMS 2020 Reboot, USA. ([poster](https://docs.google.com/presentation/d/18qDbjy1PYuLZgOOlbSgzkpFBQnc3k-H5XhQPHjszfHA/edit?usp=sharing))
 

@@ -69,6 +69,8 @@ POPs, Environmental Processes, Non-targeted Analysis, Data Science, Exposomics
 
 # Presentations
 
+- Miao Yu, 2021, Molecular gatekeeper discovery for multiple exposure groups in adolescent girls, ACS Spring 2021, USA. ([slides](http://yufree.github.io/presentation/gatekeeper/gatekeeper-acs.html) 
+
 -   Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-pittcon.html) and [video](https://youtu.be/xYHW5Z5q_A8))
 
 -   Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector ASMS 2020 Reboot, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-asms.html) and [video](https://youtu.be/-mT3HcVygHE))

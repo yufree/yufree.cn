@@ -8,13 +8,13 @@ disable_comments: true
 
 - 地址: 
 
-Department of Environmental Medicine and Public Health
+    Department of Environmental Medicine and Public Health
 
-Icahn School of Medicine at Mount Sinai
+    Icahn School of Medicine at Mount Sinai
 
-One Gustave L.Levy Place, Box 1057
+    One Gustave L.Levy Place, Box 1057
 
-New York, NY, USA. 
+    New York, NY, USA. 
 
 - 邮编: 10029
 

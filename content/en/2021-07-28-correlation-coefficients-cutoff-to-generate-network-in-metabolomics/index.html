@@ -1,0 +1,125 @@
+---
+title: Correlation coefficients cutoff to generate network in metabolomics
+author: Miao Yu
+date: '2021-07-28'
+slug: correlation-coefficients-cutoff-to-generate-network-in-metabolomics
+categories: []
+tags:
+  - metabolomics
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>One common research purpose in metabolomics is to check the relations among the metabolites. Correlation network is one of the most popular way to show such relations. However, such network will change with different selection of the cutoff of correlation coefficients.</p>
+<p>Let’s check some real world data.</p>
+<pre class="r"><code>library(pmd)
+library(enviGCMS)
+data(spmeinvivo)
+# remove redundant peaks
+newmet &lt;- globalstd(spmeinvivo)</code></pre>
+<pre><code>## 75 retention time cluster found.</code></pre>
+<pre><code>## 369 paired masses found</code></pre>
+<pre><code>## 5 unique within RT clusters high frequency PMD(s) used for further investigation.</code></pre>
+<pre><code>## The unique within RT clusters high frequency PMD(s) is(are)  28.03 21.98 44.03 17.03 18.01.</code></pre>
+<pre><code>## 719 isotopologue(s) related paired mass found.</code></pre>
+<pre><code>## 492 multi-charger(s) related paired mass found.</code></pre>
+<pre><code>## 8 retention group(s) have single peaks. 14 23 32 33 54 55 56 75</code></pre>
+<pre><code>## 11 group(s) with multiple peaks while no isotope/paired relationship 4 5 7 8 11 41 42 49 68 72 73</code></pre>
+<pre><code>## 9 group(s) with multiple peaks with isotope without paired relationship 2 9 22 26 52 62 64 66 70</code></pre>
+<pre><code>## 4 group(s) with paired relationship without isotope 1 10 15 18</code></pre>
+<pre><code>## 43 group(s) with paired relationship and isotope 3 6 12 13 16 17 19 20 21 24 25 27 28 29 30 31 34 35 36 37 38 39 40 43 44 45 46 47 48 50 51 53 57 58 59 60 61 63 65 67 69 71 74</code></pre>
+<pre><code>## 291 std mass found.</code></pre>
+<pre class="r"><code>metabolites &lt;- getfilter(spmeinvivo,rowindex = newmet$stdmassindex)</code></pre>
+<p>Originally we have 1459 peaks. After removal of redundant peaks such as isotope, adducts and Neutral losses by globalstd algorithm, we have 291 peaks as the number of potential metabolites. To check their relations, we will calculate the paired correlation coefficients among their intensities.</p>
+<pre class="r"><code>metcor &lt;- cor(t(metabolites$data))</code></pre>
+<p>Let’s check the distribution of correlation coefficients:</p>
+<pre class="r"><code>hist(metcor)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Since correlation coefficients are also associated with a p value, we can also check the distribution of p values.</p>
+<pre class="r"><code>cor.test.p &lt;- function(x){
+    FUN &lt;- function(x, y) cor.test(x, y)[[&quot;p.value&quot;]]
+    z &lt;- outer(
+      colnames(x), 
+      colnames(x), 
+      Vectorize(function(i,j) FUN(x[,i], x[,j]))
+    )
+    dimnames(z) &lt;- list(colnames(x), colnames(x))
+    z
+}
+
+pmat &lt;- cor.test.p(t(metabolites$data))
+hist(pmat)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>sum(pmat&lt;0.05)/length(pmat)</code></pre>
+<pre><code>## [1] 0.4145</code></pre>
+<p>41% original p values are less than 0.05. We can filter the correlation coefficients based on this rule.</p>
+<pre class="r"><code>metcor2 &lt;- metcor[pmat&lt;0.05]
+hist(metcor2)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>range(abs(metcor2))</code></pre>
+<pre><code>## [1] 0.6664 1.0000</code></pre>
+<p>Here we can find the cutoff is around +/-0.67. However, we didn’t perform FDR control. If we use BH method to correct the p value, we will have a different cutoff.</p>
+<pre class="r"><code>pmat_adj &lt;- p.adjust(pmat)
+metcor3 &lt;- metcor[pmat_adj&lt;0.05]
+range(abs(metcor3))</code></pre>
+<pre><code>## [1] 0.9881 1.0000</code></pre>
+<p>Now the cutoff is 0.99. We can display the data as network:</p>
+<pre class="r"><code>metcor[pmat&gt;=0.05] &lt;- 0
+library(igraph)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;igraph&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     decompose, spectrum</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     union</code></pre>
+<pre class="r"><code>net &lt;- graph.adjacency(metcor,weighted=TRUE,diag=FALSE,mode = &#39;undirected&#39;)
+plot(net,vertex.size=1,edge.width=1,vertex.label=&quot;&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Here it seems all metabolites are connected and FDR control will solve this issue.</p>
+<pre class="r"><code>metcor &lt;- cor(t(metabolites$data))
+metcor[pmat_adj&gt;=0.05] &lt;- 0
+net &lt;- graph.adjacency(metcor,weighted=TRUE,diag=FALSE,mode = &#39;undirected&#39;)
+plot(net,vertex.size=1,edge.width=1,vertex.label=&quot;&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Here we will see the networks with few large clusters and lots of single metabolites without any association with each other.</p>
+<p>If we didn’t consider the p values, we can also check the networks with different cutoffs.</p>
+<pre class="r"><code>n &lt;- c()
+for (i in seq(0,1,0.1)) {
+        metcor &lt;- cor(t(metabolites$data))
+        metcor[metcor&lt;i] &lt;- 0
+        net &lt;- graph.adjacency(metcor,weighted=TRUE,diag=FALSE,mode = &#39;undirected&#39;)
+        # plot(net,vertex.size=1,edge.width=1,vertex.label=&quot;&quot;)
+        cn &lt;- components(net)
+        # check the numbers of cluster
+        n &lt;- c(n,length(table(membership(cn))[table(membership(cn))&gt;1]))
+}
+plot(seq(0,1,0.1),n,xlab=&#39;cutoff&#39;,ylab = &#39;cluster number&#39;,type = &#39;l&#39;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Here we can see the cluster numbers will firstly increase and then decrease. Let’s check <span class="math display">\[0.8,1\]</span> carefully.</p>
+<pre class="r"><code>n &lt;- c()
+for (i in seq(0.8,1,0.001)) {
+        metcor &lt;- cor(t(metabolites$data))
+        metcor[metcor&lt;i] &lt;- 0
+        net &lt;- graph.adjacency(metcor,weighted=TRUE,diag=FALSE,mode = &#39;undirected&#39;)
+        # plot(net,vertex.size=1,edge.width=1,vertex.label=&quot;&quot;)
+        cn &lt;- components(net)
+        # check the numbers of cluster
+        n &lt;- c(n,length(table(membership(cn))[table(membership(cn))&gt;1]))
+}
+plot(seq(0.8,1,0.001),n,xlab=&#39;cutoff&#39;,ylab = &#39;cluster number&#39;,type = &#39;l&#39;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code># display the cutoff
+seq(0.8,1,0.001)[which.max(n)]</code></pre>
+<pre><code>## [1] 0.988</code></pre>
+<p>Here we find the max number of network clusters has a similar cutoff of p value cutoff with FDR control. However, the computation process is much faster. When the cutoff is small, all metabolites are connected. When the cutoff is large, few metabolites will be covered. In terms of physics, largest number of network clusters means the coverage of largest numbers of connected metabolites with largest clusters separations. I think this should be the fastest way to select cutoff from the real world data.</p>
+<p>Actually, I add a function called `getcf()` into `enet` package to automate find this cutoff of correlation network analysis. Here is the network for our demo data:</p>
+<pre class="r"><code>metcor &lt;- cor(t(metabolites$data))
+metcor[metcor&lt;seq(0.8,1,0.001)[which.max(n)]] &lt;- 0
+net &lt;- graph.adjacency(metcor,weighted=TRUE,diag=FALSE,mode = &#39;undirected&#39;)
+plot(net,vertex.size=1,edge.width=1,vertex.label=&quot;&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>The reason to avoid using p values or adjust p values of correlation test is not only the slow speed of computation, but also cutoff selection of p values or adjust p values is determined by the researcher instead of the data themselves. p value cutoff will not help us to find biological functional modules when all the metabolites are connected. In my opinion, each data sets can speak for itself by an automated cutoff selection process and I think the network cluster numbers can just take this job.</p>
+<p>PS. I actually use the same idea to generate PMD metabolites network, which can be treated as another relation among metabolites with chemical meanings.</p>

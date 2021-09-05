@@ -25,12 +25,12 @@ Epi &lt;- E*0.1+G*0.9+rnorm(1000)
 Asthma &lt;- 0.6*M+0.4*Epi+rnorm(1000)
 data &lt;- cbind.data.frame(E,G,M,Epi,Asthma)
 cor(data)</code></pre>
-<pre><code>##             E      G      M    Epi Asthma
-## E      1.0000 0.0644 0.9638 0.3109 0.8584
-## G      0.0644 1.0000 0.2136 0.8788 0.4186
-## M      0.9638 0.2136 1.0000 0.4292 0.9196
-## Epi    0.3109 0.8788 0.4292 1.0000 0.6229
-## Asthma 0.8584 0.4186 0.9196 0.6229 1.0000</code></pre>
+<pre><code>##               E        G      M    Epi Asthma
+## E       1.00000 -0.02042 0.9647 0.2565 0.8551
+## G      -0.02042  1.00000 0.1314 0.8550 0.3549
+## M       0.96474  0.13144 1.0000 0.3733 0.9159
+## Epi     0.25647  0.85500 0.3733 1.0000 0.5888
+## Asthma  0.85509  0.35488 0.9159 0.5888 1.0000</code></pre>
 <pre class="r"><code>pairs(data)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code>cor.test(Asthma,E)</code></pre>
@@ -38,130 +38,130 @@ cor(data)</code></pre>
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  Asthma and E
-## t = 53, df = 998, p-value &lt;2e-16
+## t = 52, df = 998, p-value &lt;2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  0.8411 0.8739
+##  0.8375 0.8709
 ## sample estimates:
 ##    cor 
-## 0.8584</code></pre>
+## 0.8551</code></pre>
 <pre class="r"><code>cor.test(Asthma,G)</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  Asthma and G
-## t = 15, df = 998, p-value &lt;2e-16
+## t = 12, df = 998, p-value &lt;2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  0.3661 0.4684
+##  0.2995 0.4079
 ## sample estimates:
 ##    cor 
-## 0.4186</code></pre>
-<p>这里E代表暴露组、G代表基因组、M代表代谢组、Epi代表表观组、Asthma代表疾病，仿真中设定疾病六成可以被代谢组解释而四成可以用表观组解释，然而代谢组里七成是环境影响而三成是基因影响，表观组则是一成环境影响而九成基因影响。这里我们可以看到如果进行简单回归，基本就是一团乱码，</p>
+## 0.3549</code></pre>
+<p>这里E代表暴露组、G代表基因组、M代表代谢组、Epi代表表观组、Asthma代表疾病，仿真中设定疾病六成可以被代谢组解释而四成可以用表观组解释，然而代谢组里七成是环境影响而三成是基因影响，表观组则是一成环境影响而九成基因影响。这里我们可以看到如果进行简单回归，基本就是一团乱码。</p>
 <p>下面我们用PC算法拟合一下试试：</p>
 <pre class="r"><code>library(pcalg)
 suffStat &lt;- list(C=cor(data), n = nrow(data))
 pc.fit &lt;- pc(suffStat, gaussCItest, p = ncol(data), alpha = 0.01, verbose = TRUE)</code></pre>
 <pre><code>## Order=0; remaining edges:20
-## x= 1  y= 2  S=  : pval = 0.04174 
+## x= 1  y= 2  S=  : pval = 0.519 
 ## x= 1  y= 3  S=  : pval = 0 
-## x= 1  y= 4  S=  : pval = 3.213e-24 
+## x= 1  y= 4  S=  : pval = 1.2e-16 
 ## x= 1  y= 5  S=  : pval = 0 
-## x= 2  y= 3  S=  : pval = 7.352e-12 
+## x= 2  y= 3  S=  : pval = 2.987e-05 
 ## x= 2  y= 4  S=  : pval = 0 
-## x= 2  y= 5  S=  : pval = 4.892e-45 
+## x= 2  y= 5  S=  : pval = 1.067e-31 
 ## x= 3  y= 1  S=  : pval = 0 
-## x= 3  y= 2  S=  : pval = 7.352e-12 
-## x= 3  y= 4  S=  : pval = 1.404e-47 
+## x= 3  y= 2  S=  : pval = 2.987e-05 
+## x= 3  y= 4  S=  : pval = 3.173e-35 
 ## x= 3  y= 5  S=  : pval = 0 
-## x= 4  y= 1  S=  : pval = 3.213e-24 
+## x= 4  y= 1  S=  : pval = 1.2e-16 
 ## x= 4  y= 2  S=  : pval = 0 
-## x= 4  y= 3  S=  : pval = 1.404e-47 
-## x= 4  y= 5  S=  : pval = 1.824e-117 
+## x= 4  y= 3  S=  : pval = 3.173e-35 
+## x= 4  y= 5  S=  : pval = 4.855e-101 
 ## x= 5  y= 1  S=  : pval = 0 
-## x= 5  y= 2  S=  : pval = 4.892e-45 
+## x= 5  y= 2  S=  : pval = 1.067e-31 
 ## x= 5  y= 3  S=  : pval = 0 
-## x= 5  y= 4  S=  : pval = 1.824e-117 
+## x= 5  y= 4  S=  : pval = 4.855e-101 
 ## Order=1; remaining edges:18
 ## x= 1  y= 3  S= 4 : pval = 0 
 ## x= 1  y= 3  S= 5 : pval = 0 
-## x= 1  y= 4  S= 3 : pval = 7.576e-47 
-## x= 1  y= 4  S= 5 : pval = 9.516e-88 
-## x= 1  y= 5  S= 3 : pval = 6.218e-18 
+## x= 1  y= 4  S= 3 : pval = 2.175e-46 
+## x= 1  y= 4  S= 5 : pval = 3.191e-101 
+## x= 1  y= 5  S= 3 : pval = 2.84e-18 
 ## x= 1  y= 5  S= 4 : pval = 0 
-## x= 2  y= 3  S= 4 : pval = 1.977e-36 
-## x= 2  y= 3  S= 5 : pval = 2.662e-61 
+## x= 2  y= 3  S= 4 : pval = 1.207e-38 
+## x= 2  y= 3  S= 5 : pval = 1.84e-72 
 ## x= 2  y= 4  S= 3 : pval = 0 
 ## x= 2  y= 4  S= 5 : pval = 0 
-## x= 2  y= 5  S= 3 : pval = 1.31e-96 
-## x= 2  y= 5  S= 4 : pval = 7.11e-30 
+## x= 2  y= 5  S= 3 : pval = 4.245e-101 
+## x= 2  y= 5  S= 4 : pval = 1.425e-31 
 ## x= 3  y= 1  S= 2 : pval = 0 
 ## x= 3  y= 1  S= 4 : pval = 0 
 ## x= 3  y= 1  S= 5 : pval = 0 
-## x= 3  y= 2  S= 1 : pval = 1.523e-92 
-## x= 3  y= 2  S= 4 : pval = 1.977e-36 
-## x= 3  y= 2  S= 5 : pval = 2.662e-61 
-## x= 3  y= 4  S= 1 : pval = 7.036e-71 
-## x= 3  y= 4  S= 2 : pval = 3.176e-73 
-## x= 3  y= 4  S= 5 : pval = 1.348e-57 
-## x= 3  y= 5  S= 1 : pval = 1.26e-147 
+## x= 3  y= 2  S= 1 : pval = 1.174e-94 
+## x= 3  y= 2  S= 4 : pval = 1.207e-38 
+## x= 3  y= 2  S= 5 : pval = 1.84e-72 
+## x= 3  y= 4  S= 1 : pval = 1.184e-65 
+## x= 3  y= 4  S= 2 : pval = 1.006e-69 
+## x= 3  y= 4  S= 5 : pval = 4.762e-71 
+## x= 3  y= 5  S= 1 : pval = 5.469e-142 
 ## x= 3  y= 5  S= 2 : pval = 0 
 ## x= 3  y= 5  S= 4 : pval = 0 
-## x= 4  y= 1  S= 2 : pval = 7.178e-79 
-## x= 4  y= 1  S= 3 : pval = 7.576e-47 
-## x= 4  y= 1  S= 5 : pval = 9.516e-88 
+## x= 4  y= 1  S= 2 : pval = 8.164e-77 
+## x= 4  y= 1  S= 3 : pval = 2.175e-46 
+## x= 4  y= 1  S= 5 : pval = 3.191e-101 
 ## x= 4  y= 2  S= 1 : pval = 0 
 ## x= 4  y= 2  S= 3 : pval = 0 
 ## x= 4  y= 2  S= 5 : pval = 0 
-## x= 4  y= 3  S= 1 : pval = 7.036e-71 
-## x= 4  y= 3  S= 2 : pval = 3.176e-73 
-## x= 4  y= 3  S= 5 : pval = 1.348e-57 
-## x= 4  y= 5  S= 1 : pval = 6.097e-189 
-## x= 4  y= 5  S= 2 : pval = 8.716e-101 
-## x= 4  y= 5  S= 3 : pval = 2.404e-128 
+## x= 4  y= 3  S= 1 : pval = 1.184e-65 
+## x= 4  y= 3  S= 2 : pval = 1.006e-69 
+## x= 4  y= 3  S= 5 : pval = 4.762e-71 
+## x= 4  y= 5  S= 1 : pval = 2.8e-195 
+## x= 4  y= 5  S= 2 : pval = 7.757e-101 
+## x= 4  y= 5  S= 3 : pval = 5.666e-140 
 ## x= 5  y= 1  S= 2 : pval = 0 
-## x= 5  y= 1  S= 3 : pval = 6.218e-18 
+## x= 5  y= 1  S= 3 : pval = 2.84e-18 
 ## x= 5  y= 1  S= 4 : pval = 0 
-## x= 5  y= 2  S= 1 : pval = 3.131e-172 
-## x= 5  y= 2  S= 3 : pval = 1.31e-96 
-## x= 5  y= 2  S= 4 : pval = 7.11e-30 
-## x= 5  y= 3  S= 1 : pval = 1.26e-147 
+## x= 5  y= 2  S= 1 : pval = 4.455e-179 
+## x= 5  y= 2  S= 3 : pval = 4.245e-101 
+## x= 5  y= 2  S= 4 : pval = 1.425e-31 
+## x= 5  y= 3  S= 1 : pval = 5.469e-142 
 ## x= 5  y= 3  S= 2 : pval = 0 
 ## x= 5  y= 3  S= 4 : pval = 0 
-## x= 5  y= 4  S= 1 : pval = 6.097e-189 
-## x= 5  y= 4  S= 2 : pval = 8.716e-101 
-## x= 5  y= 4  S= 3 : pval = 2.404e-128 
+## x= 5  y= 4  S= 1 : pval = 2.8e-195 
+## x= 5  y= 4  S= 2 : pval = 7.757e-101 
+## x= 5  y= 4  S= 3 : pval = 5.666e-140 
 ## Order=2; remaining edges:18
-## x= 1  y= 3  S= 4 5 : pval = 8.039e-298 
-## x= 1  y= 4  S= 3 5 : pval = 6.879e-30 
-## x= 1  y= 5  S= 3 4 : pval = 0.7337 
-## x= 2  y= 3  S= 4 5 : pval = 7.426e-08 
-## x= 2  y= 4  S= 3 5 : pval = 0 
-## x= 2  y= 5  S= 3 4 : pval = 0.6388 
+## x= 1  y= 3  S= 4 5 : pval = 2.984e-295 
+## x= 1  y= 4  S= 3 5 : pval = 3.844e-29 
+## x= 1  y= 5  S= 3 4 : pval = 0.577 
+## x= 2  y= 3  S= 4 5 : pval = 2.05e-08 
+## x= 2  y= 4  S= 3 5 : pval = 4.093e-267 
+## x= 2  y= 5  S= 3 4 : pval = 0.4735 
 ## x= 3  y= 1  S= 2 4 : pval = 0 
-## x= 3  y= 1  S= 2 5 : pval = 5.074e-302 
-## x= 3  y= 1  S= 4 5 : pval = 8.039e-298 
-## x= 3  y= 2  S= 1 4 : pval = 2.074e-21 
-## x= 3  y= 2  S= 1 5 : pval = 3.081e-08 
-## x= 3  y= 2  S= 4 5 : pval = 7.426e-08 
-## x= 3  y= 4  S= 1 2 : pval = 0.6814 
-## x= 3  y= 5  S= 1 2 : pval = 1.233e-57 
-## x= 3  y= 5  S= 1 4 : pval = 7.63e-72 
+## x= 3  y= 1  S= 2 5 : pval = 4.25e-304 
+## x= 3  y= 1  S= 4 5 : pval = 2.984e-295 
+## x= 3  y= 2  S= 1 4 : pval = 1.062e-28 
+## x= 3  y= 2  S= 1 5 : pval = 3.746e-09 
+## x= 3  y= 2  S= 4 5 : pval = 2.05e-08 
+## x= 3  y= 4  S= 1 2 : pval = 0.1595 
+## x= 3  y= 5  S= 1 2 : pval = 1.519e-51 
+## x= 3  y= 5  S= 1 4 : pval = 1.218e-71 
 ## x= 3  y= 5  S= 2 4 : pval = 0 
-## x= 4  y= 1  S= 2 3 : pval = 1.209e-06 
-## x= 4  y= 1  S= 2 5 : pval = 0.5697 
+## x= 4  y= 1  S= 2 3 : pval = 1.981e-08 
+## x= 4  y= 1  S= 2 5 : pval = 0.1367 
 ## x= 4  y= 2  S= 1 3 : pval = 0 
-## x= 4  y= 2  S= 1 5 : pval = 3.83e-269 
-## x= 4  y= 2  S= 3 5 : pval = 0 
-## x= 4  y= 5  S= 1 2 : pval = 1.807e-21 
-## x= 4  y= 5  S= 1 3 : pval = 1.731e-109 
-## x= 4  y= 5  S= 2 3 : pval = 1.106e-29 
-## x= 5  y= 3  S= 1 2 : pval = 1.233e-57 
-## x= 5  y= 3  S= 1 4 : pval = 7.63e-72 
+## x= 4  y= 2  S= 1 5 : pval = 3.064e-224 
+## x= 4  y= 2  S= 3 5 : pval = 4.093e-267 
+## x= 4  y= 5  S= 1 2 : pval = 7.358e-24 
+## x= 4  y= 5  S= 1 3 : pval = 1.651e-120 
+## x= 4  y= 5  S= 2 3 : pval = 7.409e-36 
+## x= 5  y= 3  S= 1 2 : pval = 1.519e-51 
+## x= 5  y= 3  S= 1 4 : pval = 1.218e-71 
 ## x= 5  y= 3  S= 2 4 : pval = 0 
-## x= 5  y= 4  S= 1 2 : pval = 1.807e-21 
-## x= 5  y= 4  S= 1 3 : pval = 1.731e-109 
-## x= 5  y= 4  S= 2 3 : pval = 1.106e-29 
+## x= 5  y= 4  S= 1 2 : pval = 7.358e-24 
+## x= 5  y= 4  S= 1 3 : pval = 1.651e-120 
+## x= 5  y= 4  S= 2 3 : pval = 7.409e-36 
 ## Order=3; remaining edges:10</code></pre>
 <pre class="r"><code>plot(pc.fit,main=&#39;Demo&#39;,labels=c(&quot;E&quot;,&quot;G&quot;,&quot;M&quot;,&quot;Epi&quot;,&quot;Asthma&quot;))</code></pre>
 <pre><code>## Loading required namespace: Rgraphviz</code></pre>

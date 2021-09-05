@@ -17,7 +17,7 @@ jobs:
           R -e 'install.packages("blogdown")'
       - name: Install hugo
         run: |
-          R -e 'blogdown::install_hugo()'
+          R -e 'blogdown::install_hugo("0.79.1")'
       - name: Build site
         run: |
           R -e 'blogdown::build_site(TRUE)'

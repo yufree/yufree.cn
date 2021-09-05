@@ -11,11 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v1
-        with:
-          use-public-rspm: true
-
-      - uses: r-lib/actions/setup-renv@v1
-
       - name: Install hugo
         run: |
           R -e 'blogdown::install_hugo()'

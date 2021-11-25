@@ -3,13 +3,13 @@ title: About Me
 slug: "en/about"
 ---
 
-Hi, My name is YU Miao and I am currently a Postdoctoral Fellow in [Icahn School of Medicine at Mount Sinai](https://icahn.mssm.edu/about/departments/environmental-public-health).
+Hi, My name is YU Miao and I am currently a Postdoctoral Fellow at [Icahn School of Medicine at Mount Sinai](https://icahn.mssm.edu/about/departments/environmental-public-health).
 
-My major is Environmental Science so I am a dabbler in many science topics. I have board interests such as cook, photograph, programming... but they are just hobbies, not special talents. So you know I am a dabbler in life, too.
+My major is Environmental Science and I have to learn lots of knowledge to investigate a specific environmental question. In this case, I have to be a dabbler in many science topics. I also like cooking, photography, programming, solving puzzles, reading,... However, I am good at none of them. In this cas, I am a dabbler in life, too.
 
-I am lazy, so I just modified [Yihui's pages](http://yihui.name) to show this blog(in fact, I just got the parts which I could figure out the meanings and thanks a lot, Yihui). But I am always willing to learn something new and this blog will be focused on something interesting in my life in English.
+I am lazy, so I just modified [Yihui's pages](http://yihui.name) to show this blog(in fact, I just got the parts which I could figure out the meanings and thanks a lot, Yihui). But I am always willing to learn something new and this blog will be focused on something interesting in my life.
 
-For English is not my mother tongue, you have to bear my tongue to read my articles.
+Since English is not my mother tongue, you have to bear my tongue to read my articles.
 
 Don't panic!
 

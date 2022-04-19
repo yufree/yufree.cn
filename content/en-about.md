@@ -3,7 +3,7 @@ title: About Me
 slug: "en/about"
 ---
 
-Hi, My name is YU Miao and I am currently a Postdoctoral Fellow at [Icahn School of Medicine at Mount Sinai](https://icahn.mssm.edu/about/departments/environmental-public-health).
+Hi, My name is YU Miao and I am currently a scientist at the Jackson Laboratory.
 
 My major is Environmental Science and I have to learn lots of knowledge to investigate a specific environmental question. In this case, I have to be a dabbler in many science topics. I also like cooking, photography, programming, solving puzzles, reading,... However, I am good at none of them. In this cas, I am a dabbler in life, too.
 

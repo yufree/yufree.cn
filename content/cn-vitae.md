@@ -6,18 +6,15 @@ disable_comments: true
 
 ## 联系信息
 
-- 地址:  
-    Department of Environmental Medicine and Public Health, 
-    Icahn School of Medicine at Mount Sinai, 
-    One Gustave L.Levy Place, Box 1057 
-    New York, NY, USA. 
-- 邮编: 10029
+- 地址: 10 Discovery Dr, Farmington, CT 
+- 邮编: 06032
 - Email: yufreecas at gmail.com
 - [ORCID](http://orcid.org/0000-0002-2804-6014)
 
 ## 工作信息
 
-- 2018.09至今 美国西奈山医学院 博士后
+- 2022.04至今 美国杰克逊实验室 科学家
+- 2018.09-2022.04 美国西奈山医学院 博士后
 - 2016.08-2018.08 加拿大滑铁卢大学 博士后
 - 2014.09-2016.07 美国化学会 初级网络分析师（兼职）
 

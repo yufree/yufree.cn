@@ -8,11 +8,7 @@ disable_comments: true
 
 # Contact Information
 
--   Address: 
-Department of Environmental Medicine and Public Health
-Icahn School of Medicine at Mount Sinai
-One Gustave L.Levy Place, Box 1057
-New York, NY 10029, USA.
+-   Address: 10 Discovery Dr, Farmington, CT, 06032 
 -   Email: 
 [yufreecas\@gmail.com](mailto:yufreecas@gmail.com)
 -   Pages:
@@ -30,8 +26,9 @@ POPs, Environmental Processes, Non-targeted Analysis, Data Science, Exposomics
 
 # Professional Experience
 
--   2018.09 \~ present, Postdoctoral Fellow in Icahn School of Medicine at Mount Sinai, USA
--   2016.08 \~ 2018.08, Postdoctoral Fellow in University of Waterloo, Canada.
+-   2022.04 \~ now, Scientist, The Jackson Laboratory, USA 
+-   2018.09 \~ 2022.04, Postdoctoral Fellow, Icahn School of Medicine at Mount Sinai, USA
+-   2016.08 \~ 2018.08, Postdoctoral Fellow, University of Waterloo, Canada.
 
 # Honors & Awards
 

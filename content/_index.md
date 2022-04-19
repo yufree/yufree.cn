@@ -5,13 +5,13 @@ disable_mathjax: true
 disable_highlight: true
 ---
 
-I am a Postdoctoral Fellow at [Icahn School of Medicine at Mount Sinai](https://icahn.mssm.edu/about/departments/environmental-public-health). My research interests are environmental chemistry, data analysis and exposomics. Contact me via [blog](http://yufree.cn/en) or [Email](mailto:yufreecas@gmail.com) if you have questions about and my cv is [here](https://yufree.cn/en/vitae/). 
+I am a scientist at the Jackson Laboratory. My research interests are environmental chemistry, data analysis and exposomics. Contact me via [blog](http://yufree.cn/en) or [Email](mailto:yufreecas@gmail.com) if you have questions about and my cv is [here](https://yufree.cn/en/vitae/). 
 
 贫道满脑不合时宜，好诙谐吐槽，浏览[本博](http://yufree.cn/cn)勿认真于字句之间。
 
-现以博后身份修行于灯塔国西奈山医学院。
+现以科学家身份于灯塔国要饭。
 
-每日往来寝室实验室之间，试错不止。
+每日往来科研数据之间，试错不止。
 
 如有闲暇，绘光影于RGB间，然罕有称心之作。
 

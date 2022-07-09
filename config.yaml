@@ -64,7 +64,7 @@ menu:
       url: "/cn/vitae/"
       weight: 4
     - name: "《现代科研指北》"
-      url: https://github.com/yufree/sciguide
+      url: https://bookdown.org/yufree/sciguide/
       weight: 5
     - name: "English"
       url: "/en/"

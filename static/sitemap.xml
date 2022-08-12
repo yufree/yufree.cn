@@ -1,0 +1,2092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://yufree.cn/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/about/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/about/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/app/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/vitae/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2022/07/11/invitation-to-submit-manuscripts-for-a-special-issue-of-chemosphere/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2022/05/26/using-xcmsrocker-on-hpc-via-singularity/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2021/09/23/i-am-looking-for-a-faculty-position/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2021/07/28/correlation-coefficients-cutoff-to-generate-network-in-metabolomics/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2020/12/16/retention-time-alignment-for-peaks-list/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2020/12/01/metabolites-diseases-database-based-on-hmdb/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2020/08/12/independent-peaks-selection-algorithms/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2020/06/07/si-for-asms-2020-reboot-presentation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2020/04/17/daily-check-for-coronavirus-data/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2019/11/27/run-order-effect-for-metabolomics-studies/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2019/10/15/use-msconvert-in-linux-or-mac/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2019/07/26/metabolites-network-by-pmd-analysis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2019/03/10/quantum-effect-for-paired-mass-distances/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/12/11/biomarker-compounds-reactions/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/10/14/online-tools-for-chemical-research/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/07/13/metabolomics-data-analysis-workshop-slides-uwaterloo/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/04/22/play-with-hmdb-datasets-part-ii/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/04/11/play-with-hmdb-datasets/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/03/13/workflow-for-r-based-research-environment/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/02/27/see-you-pittcon-2018/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/01/17/use-docker-to-package-your-metabolomics-study/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2018/01/12/get-rid-of-bibliography/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/12/17/blockchain-based-journal/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/07/09/real-high-throughput-for-lc-gc-ms/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/07/07/text-mining/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/06/12/selection-of-software-platform-for-metabolomics-or-lipidomics/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/05/11/data-analysis-for-desorption-electrospray-ionization/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/05/02/using-xcms-offline-for-metabolomics-study/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/03/29/metaboanalyst/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2017/01/15/sd-isotope-ratio/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2016/11/29/my-third-paper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2016/09/19/beamer-in-chinese/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2016/09/11/basic-idea-cluster/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2016/08/31/basic-idea-pca/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2016/08/21/meta-workflow/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2016/02/11/my-second-paper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2015/09/30/hplc-2015/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2015/09/11/microarry-vs-ms/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2015/09/05/loq/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2015/06/30/isotopes-2015/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2015/01/03/intro-sp-icp-ms/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2014/11/26/recommender-system/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2014/07/21/rmd-to-pdf/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2014/05/30/qspr-rcdk/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2014/03/23/intro-of-shiny/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/12/07/mean-and-variance/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/12/04/my-first-paper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/10/10/halogen-bond/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/09/02/causal-inference/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/08/15/boxplot-vs-violinplot/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/06/19/statistics-tips/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/06/08/cloned-websites/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/06/03/nomograph-intro/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/05/27/my-data/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/05/24/rules-of-ignoring/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/05/23/pic-cipher/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/en/2013/05/20/hello-world/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/vitae/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/07/30/recommendation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/07/22/automl/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/07/18/major-selection/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/07/11/chemosphere/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/07/01/2022-research-paper-1/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/06/29/impact-factor-inflation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/06/19/keng-scholarship/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/06/11/minneapolis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/05/30/personal-capitalist/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/05/21/deconvolution/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/05/18/one-piece/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/05/10/p-value-for-life/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/05/06/forest-thinking/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/05/03/citation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/04/24/accent/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/04/17/the-great-xyz/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/04/10/name/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/04/03/world-citizen/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/03/26/cash-only/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/03/19/noise/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/03/13/nation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/03/05/instrumental-variable/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/02/26/end-of-war/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/02/17/exhaustive-nontargeted-analysis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/02/12/population/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/02/05/education-investment/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/01/27/ms-data-batch-effect/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/01/22/hypnosis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/01/10/sense-of-ceremony/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2022/01/01/2021-research-paper-2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/12/31/34/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/12/18/base-r-ggplot2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/12/06/be-yourself/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/12/01/fly/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/11/15/expire-cash-account/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/11/06/spit/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/10/25/fountain/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/10/18/risk-again/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/10/09/reading-books/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/10/04/decimalism/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/09/26/first-aid/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/09/20/mostly-harmless/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/09/13/subway-sequence/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/09/04/adult-code/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/08/27/simpson-paradox/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/08/18/pygmalion-effect/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/08/04/sci-communication/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/07/25/like-and-recommendation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/07/11/popular-science/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/07/01/2021-research-paper-one/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/06/27/durable/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/06/17/gatekeeper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/06/10/his-story/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/06/01/karl-broman/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/05/21/statistical-inference-in-parallel-world/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/05/14/know/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/05/08/security/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/05/01/morden-society/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/04/22/emotion/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/04/09/grand-remplacement/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/03/30/weaken/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/03/27/exposome-challenge/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/03/15/pc-algorithm/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/03/11/pandemic/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/03/07/demo-ml-metabolomics/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/02/24/cloze-test/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/02/16/risk/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/02/01/izambard/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/01/28/container/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/01/18/chinese-americans/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/01/09/covid-vaccine/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2021/01/01/2020-research-paper-2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/12/31/33/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/12/25/mediation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/12/13/preppy/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/12/07/museum/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/11/21/sciguide/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/11/14/open-science-practice/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/11/02/am1380/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/10/28/dimension-reduction/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/10/20/narrative/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/10/12/linear-model/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/10/04/bo-shan-cai/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/09/30/a-song-of-ice-and-carbon/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/09/20/project-management/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/09/05/excess-deaths/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/09/01/metaphor/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/08/24/heuristic/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/08/16/node-immunity/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/08/12/waterloo-iii/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/08/04/tropical-storm-isaias/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/08/01/life-sci-manual/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/07/22/single-cooking/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/07/13/hobby-as-career/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/07/01/2020-research-paper-1/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/06/27/online-conference/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/06/24/r-network-analysis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/06/21/sci-software/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/06/10/shutdowm-stem/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/05/31/haircut/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/05/20/personalized-model/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/05/09/drift/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/04/25/fernando-gonzalez/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/04/15/magic-eye/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/04/08/nomography/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/04/07/covid-19-community/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/03/23/nyc-coronavirus-ten-days/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/03/14/scale-free-network/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/03/08/nyc-exposome-symposium/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/03/05/exp/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/02/28/d-model/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/02/12/intj/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/02/03/two-causality/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/02/01/mask-price/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/01/25/unknown/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/01/20/modeling-models/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/01/13/town-and-city/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/01/05/price/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2020/01/01/2019-research-paper-2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/12/31/32/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/12/16/rpi/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/12/01/wcub/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/11/26/reactomics/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/11/14/reproducible-research/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/11/09/polarity/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/11/03/sustainable/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/10/23/us-factory/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/09/29/why/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/09/20/efficiency-division-labor/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/09/03/exposure-paradigm/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/08/25/sci-future-telling/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/08/14/history-of-dwb/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/08/04/skin-in-the-game/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/07/27/punk/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/07/14/patent/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/07/01/2019-reseach-paper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/06/28/r-conf-19/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/06/24/ouroboros/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/06/15/general-wang/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/06/08/atlanta/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/05/23/overseas-student-dictionary/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/05/10/phishing-for-phools/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/05/03/economics/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/04/09/measles/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/03/29/hong-kong/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/03/16/traveling-notes/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/03/09/reserch-ip/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/03/06/business-trick/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/02/23/i-have-no-idea/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/02/17/comic-dialogue/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/02/14/compiler/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/02/05/doe/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/01/29/full-stack-scientist-quiz/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/01/27/rk/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/01/19/city-as-country/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/01/12/graduate-rhinoceros/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/01/08/full-stack-scientist/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2019/01/01/2018-research-paper-one/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/12/31/31/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/12/01/anxiety/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/11/20/think-before-decision/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/11/07/exposome/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/11/01/reincarnation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/10/22/reference/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/10/16/sub-area-estimation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/10/07/console-game/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/09/24/programming-think/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/09/16/risk-management/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/09/10/recall-gtd/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/09/01/california-ii/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/08/26/california-i/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/08/19/controversial-issue/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/08/17/leaving-canada/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/08/07/eat-in-canada/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/08/06/sccp/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/29/audience/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/25/p-n-cycle/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/20/estimation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/14/sci-tools/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/13/fruit-fly/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/08/graduate-dictionary/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/07/vertical-search-engine/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/07/02/2018-research-paper-half/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/06/30/turing-machine/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/06/15/selection-of-major/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/06/10/the-sixth-extinction/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/06/07/r-conf-18/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/05/28/from-starter-to-quit/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/05/17/type-sm/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/05/10/graduate-daily/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/05/07/fox-or-hedgehog/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/05/03/clean-lab/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/04/23/grocery-game/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/04/17/eight-hour/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/03/31/invisible-religion/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/03/24/blogdown-rss/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/03/08/back2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/03/06/pittcon/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/02/24/professional/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/02/22/sci-startup/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/02/17/tale-of-wuxia/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/02/13/naturalis-principia-mathematica-vitae/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/02/12/back-1/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/01/25/think-like-designer/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/01/12/statistic-view/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/01/11/doi/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/01/05/literature-phase-3/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2018/01/01/input-output/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/12/31/30/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/12/17/hacker/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/10/28/nhst/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/10/23/joyplot/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/10/01/popularization-of-science/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/09/24/ecmb/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/09/14/pca/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/09/04/sci-blog-discussion/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/08/07/tontine-insurance/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/07/29/%E4%BB%8E%E7%9C%9F%E7%A9%BA%E9%87%8C%E7%9A%84%E7%90%83%E5%BD%A2%E9%B8%A1%E5%88%B0%E7%A4%BE%E4%BC%9A%E8%B4%A2%E5%AF%8C%E5%88%86%E9%85%8D%E4%B8%8B/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/07/24/boltzmann-distribution-1/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/06/16/nlp-literature/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/05/22/study-aboard/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/05/21/omics-power-analysis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/05/17/pattern/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/05/06/social-sense/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/04/21/es-team/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/04/13/virtual/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/04/08/rates/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/04/08/movingagain/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/04/02/cake/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/03/25/abm/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/03/18/estimation/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/03/12/regression/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/03/05/beauty-tax/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/02/19/phd-extend/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/02/04/fermi-estimate/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/01/27/modern-scientist-weapon/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/01/22/modern-scientist/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/01/15/iris-dataset/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2017/01/04/mutiple-test/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/12/18/waterloo-ii/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/12/18/scale/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/12/04/clp/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/10/31/fractal-dimention/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/08/28/waterloo-i/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/07/28/moocs-2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/07/08/prediction/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/07/02/gap-delay/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/06/29/leave-rcees/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/06/19/nature-nurture/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/06/17/currency-crush/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/06/12/bayes-baseball/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/06/01/evolution/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/05/01/go/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/04/15/harvard-six-city/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/04/02/destroy/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/03/04/canada-visa/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/02/28/determinism/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/02/06/logistic-history/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/01/30/wind/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/01/23/two-tide/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/01/16/change/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/01/09/e-butler/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2016/01/02/forest/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/11/29/yu/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/10/31/outstanding/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/10/11/tree/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/10/10/roomba/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/08/29/genomewide-data-4/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/08/28/genomewide-data-3/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/08/27/genomewide-data-2/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/08/18/effective-altruists/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/08/10/read-epi-paper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/07/02/shalom/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/06/18/spark-concept/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/06/07/fishing-chocolate/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/04/24/anscombe-quartet/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/04/15/weibo-data-zipf-law/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/03/16/genomewide-data/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/03/07/chai-influence/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/02/22/markov/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2015/02/14/bad-graph/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/12/18/hide-in-date/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/12/09/github-pages/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/12/07/kaggle-titanic/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/11/30/harm-source/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/11/22/bt-source/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/10/25/kramdown/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/10/17/history-of-clean-air-act/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/08/24/science-global-warming/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/07/24/reproducible-research-1/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/07/23/reproducible-research-0/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/05/11/outliar/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/04/27/26-code/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/03/29/pee-in-pool/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/03/16/plos-one-quilt/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/03/02/haze/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/02/28/jofnr/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/02/19/teos/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/02/18/2by2-table/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/02/17/bias-variance/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2014/01/08/obesity-paradox/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/12/16/rgabriel-package/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/11/29/jofur/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/11/25/boring-paper/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/11/20/write-in-english/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/10/22/r-ec50/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/10/19/alan-sokal/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/10/17/pencil/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/10/10/photograph-start/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/08/29/fromctod/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/08/26/brife-philosophy-of-science/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/08/21/class-problem0/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/08/18/error-bar/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/08/13/moving/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/08/11/yanxinqigong/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/07/25/data-analysis/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/07/20/moocs/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/04/30/toxicology/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/03/31/median/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/03/09/rumor/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2013/02/21/cancer/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/12/23/flash-disk/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/11/13/water-oil/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/10/12/mean/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/08/08/frombtoc/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/07/09/fromatob/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/06/16/cipher/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/06/07/think/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/06/01/luo-ji-de-yin-qing/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/05/01/xi-fang-wei-ke-xue-zhong-zhong/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/04/29/floors/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/04/01/tui-li-de-mi-gong/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/03/01/liang-zi-wu-li-shi-hua/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/cn/2012/02/01/quan-qiu-tong-shi/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/index.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/introduction.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/experimental-designdoe.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/pretreatment.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/instrumental-analysis.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/workflow-2.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/raw-data-pretreatment.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/annotation.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/omics-analysis.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/peaks-normalization.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/statistical-analysis.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/exposome.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://yufree.cn/metaworkflow/references.html</loc>
+  <lastmod>2022-08-12T20:53:11+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>

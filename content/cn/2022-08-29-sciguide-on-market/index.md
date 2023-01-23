@@ -3,8 +3,8 @@ title: 《现代科研指北》已上市
 author: Miao Yu
 date: '2022-08-29'
 slug: sciguide-on-market
-categories: []
-tags: []
+tags:
+  - sci
 ---
 
 《现代科研指北》已经上市，指北奖学金计划细则也公布在了开源版的issue[里](https://github.com/yufree/sciguide/issues/13)了。老实说，如果没有指北奖学金，我可能并没有多少动力去推广这本网上有免费版的书，现在就当众筹做实验了，心理平衡多了。

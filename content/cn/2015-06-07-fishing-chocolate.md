@@ -2,6 +2,8 @@
 title: 科研钓鱼-巧克力减肥事件
 date: 2015-06-07
 slug: fishing chocolate
+tags:
+  - paper
 ---
 
 不想读全文可以直接看文末结论。

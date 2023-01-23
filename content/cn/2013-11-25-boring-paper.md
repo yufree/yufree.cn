@@ -2,6 +2,8 @@
 title: 如何写一篇坏论文
 date: 2013-11-25
 slug: boring paper
+tags:
+  - paper
 ---
 
 承认也好，不承认也罢，写论文跟读论文是两回事。当读论文时，你会期望论文越简约流畅越好；但写论文时就会有各种小心思了。长此以往，我们最终读到的论文往往是一种晦涩难懂且让人昏昏欲睡的版本。哥本哈根大学的Kaj Sand-Jensen教授就注意到了这一现象并为此在生态学杂志《Oikos》发表了一篇题为“How to write consistently boring scientific literature”的文章，总结出了10条策略来写出一篇boring的科技论文，不得不说是学术界的高端黑（以下解释掺杂个人演绎，非原汁原味）：

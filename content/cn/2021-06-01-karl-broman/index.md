@@ -4,7 +4,9 @@ author: Miao Yu
 date: '2021-06-01'
 slug: karl-broman
 categories: []
-tags: []
+tags:
+  - sci
+  - writing
 ---
 
 最近一口气读完 Karl Broman 对自己大学的[吐槽](https://kbroman.org/blog/2021/05/06/wtf-uw-1/)，很多体会感同身受，同时我也发现现在学术界能公开讨论这些问题的人实在太少了，大家都在为自己的前程奔波，这里也顺道聊下我的一些感受。

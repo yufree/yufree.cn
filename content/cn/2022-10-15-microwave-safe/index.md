@@ -3,8 +3,8 @@ title: 微波炉·适用
 author: Miao Yu
 date: '2022-10-15'
 slug: microwave-safe
-categories: []
-tags: []
+tags:
+  - fiction
 ---
 
 各位专家大家好，我仅代表史丹利文明报告下我们对地球文明的微波炉·适用纪元的研究摘要。

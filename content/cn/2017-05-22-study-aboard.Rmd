@@ -4,7 +4,8 @@ author: ''
 date: '2017-05-22'
 slug: study-aboard
 categories: []
-tags: []
+tags:
+  - writing
 ---
 
 # 留学生

@@ -4,7 +4,8 @@ author: ''
 date: '2020-04-25'
 slug: Fernando-Gonzalez
 categories: []
-tags: []
+tags:
+  - covid
 ---
 我刚刚失去了一位朋友。
 

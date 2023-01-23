@@ -2,6 +2,9 @@
 title: Spark中关键概念的理解
 date: 2015-06-18
 slug: spark concept
+tags:
+  - tech
+  - data
 ---
 
 其实我自己对spark的应用场景是没什么需求的，但几个月前不知道怎么想的在edx上选了一门伯克利的[spark课](https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info)，所以就入了坑。一共五周，现在开到第三周，因为对python不熟加上记性也不好，先把其中比较干货的东西捡出来，此外剩下两周的课可能由于外出开会耽误。我没有计算机科学背景，所以仅按照自己理解与讲义来写，疏漏之处见谅。

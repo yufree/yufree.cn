@@ -3,8 +3,8 @@ title: 自动化机器学习
 author: Miao Yu
 date: '2022-07-22'
 slug: autoML
-categories: []
-tags: []
+tags:
+  - data
 ---
 
 自动化机器学习（AutoML）大概在四五年前非常火，现在基本熄火进入平稳期与实用期了，是时候回顾下了。

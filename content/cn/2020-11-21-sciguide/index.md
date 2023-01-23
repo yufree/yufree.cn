@@ -6,6 +6,7 @@ slug: sciguide
 categories: []
 tags:
   - reading
+  - sci
 ---
 
 《现代科研指北》这本书目前初稿完成，现在把前言放在这里做个导读。这本书可在[bookdown](https://bookdown.org/yufree/sciguide/)上在线浏览，也可点击[下载](https://bookdown.org/yufree/sciguide/sciguide.pdf)全文PDF文档离线阅读。书里面有些内容在博客发过了，这里算是个总结，各章节相对独立，应该是本不错的厕所读物。目前网上有个半成品版本在流传，但那时候有些坑我后来或者弃了或者填了，还是以这个2.7版为准。下面是前言：

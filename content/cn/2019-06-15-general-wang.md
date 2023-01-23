@@ -6,6 +6,7 @@ slug: general-wang
 categories: []
 tags:
   - writing
+  - life
 ---
 
 将军之所以得名将军，主要是因为他慢，慢出了大将风度。

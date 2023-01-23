@@ -3,8 +3,8 @@ title: 我的名字
 author: Miao Yu
 date: '2022-04-10'
 slug: name
-categories: []
-tags: []
+tags:
+  - life
 ---
 
 写这篇主要是为了永久性解决一个别人常问我的问题：你是不是五行缺水？

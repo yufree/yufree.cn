@@ -2,6 +2,8 @@
 title: final8-最终版5-修正篇3-我要毕业2-准备延期1.doc
 date: 2013-07-25
 slug: data analysis
+tags:
+  - data
 ---
 
 问题提出

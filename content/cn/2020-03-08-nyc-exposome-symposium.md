@@ -6,6 +6,7 @@ slug: nyc-exposome-symposium
 categories: []
 tags:
   - conf
+  - life
 ---
 
 作为一个中老年人，开会越来越记不住东西了，这周周四周五在纽约参加了我们研究所主办的纽约暴露组学研讨会，现在做个纪要。

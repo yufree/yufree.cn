@@ -2,6 +2,8 @@
 title: 水卢流水（一）
 date: 2016-08-28
 slug: waterloo I
+tags:
+  - life
 ---
 
 1

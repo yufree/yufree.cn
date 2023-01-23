@@ -5,7 +5,8 @@ date: '2020-06-24'
 slug: r-network-analysis
 categories: []
 tags:
-  - r
+  - R
+  - data
 ---
 
 这个问题反复掉坑，在这总结下，省的记吃不记打。

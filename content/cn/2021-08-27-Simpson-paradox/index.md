@@ -4,7 +4,9 @@ author: Miao Yu
 date: '2021-08-27'
 slug: Simpson-paradox
 categories: []
-tags: []
+tags:
+  - popsci
+  - data
 ---
 
 曾经有两本书伴我度过了无数漫漫长夜，毕竟每次鼓起勇气看不超过10页就会睡过去，一本是[前面](https://yufree.cn/cn/2020/09/01/metaphor/)写过的 **metaphors we live by**，另一本就是《悖论简史》。这种书的一大特色就是读的时候如果不带脑子看不懂，带脑子就头疼，但可气的是写的还挺有趣。

@@ -4,7 +4,8 @@ author: ''
 date: '2017-04-08'
 slug: movingagain
 categories: []
-tags: []
+tags:
+  - life
 ---
 
 经过长期跟拖延症的斗争与谢大的[指引](https://yihui.name/cn/2017/04/url-to-content/)，我终于在这周把个人网站进行了blogdown一站式处理。

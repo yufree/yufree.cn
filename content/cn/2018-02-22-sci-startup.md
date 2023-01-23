@@ -4,7 +4,8 @@ author: ''
 date: '2018-02-22'
 slug: sci-startup
 categories: []
-tags: []
+tags:
+  - sci
 ---
 
 其实科研，特别是理工科科研，很像是创业过程。互动的理解这个过程有助于青年科研人员知道自己究竟在干什么。

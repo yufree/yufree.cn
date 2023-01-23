@@ -2,6 +2,9 @@
 title: 大隐隐于数
 date: 2014-12-18
 slug: hide in date
+tags:
+  - data
+  - idea
 ---
 
 最小二乘法有个“基本假设”：残差要符合正态分布。结果最近读《Advanced Data Analysis from an Elementary Point of View》时，作者来了句：

@@ -5,6 +5,7 @@ date: '2019-01-12'
 slug: graduate-rhinoceros
 categories: []
 tags:
+  - edu
   - sci
 ---
 

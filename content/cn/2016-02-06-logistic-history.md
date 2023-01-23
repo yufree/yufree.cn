@@ -2,6 +2,8 @@
 title: 逻辑与历史
 date: 2016-02-06
 slug: logistic history
+tags:
+  - writing
 ---
 
 年末这一篇就扯点假大空虚的吧，虽然之前的也是。

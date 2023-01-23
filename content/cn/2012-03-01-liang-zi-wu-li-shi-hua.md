@@ -6,6 +6,7 @@ slug: liang-zi-wu-li-shi-hua
 categories: []
 tags:
   - reading
+  - popsci
 ---
 注：该笔记写于近十年前，现于2020疫情居家令期间重新发布，仅代表当时观点，原始发布在科学网博客。
 

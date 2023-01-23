@@ -4,7 +4,8 @@ author: Miao Yu
 date: '2021-09-20'
 slug: mostly-harmless
 categories: []
-tags: []
+tags:
+  - sci
 ---
 
 “基本上无害”既是《银河系漫游指南》五部曲的最后一本的书名，也是《银河系漫游指南》里对地球的描述，最近我是越来越体会到这个描述的准确了。

@@ -2,6 +2,8 @@
 title: Enough is enough
 date: 2014-11-30
 slug: harm source
+tags:
+  - paper
 ---
 
 究竟是污染物本身的危害大还是畏惧污染物所造成的危害大？Toxicology Letters 上的一篇小[综述](http://www.sciencedirect.com/science/article/pii/S037842741200063X)讨论了这个问题。拜广大媒体所赐，现在大家都知道污染物致癌的IARC评级，例如手机辐射就属于2B类，也就是可能属于下面三种情况：

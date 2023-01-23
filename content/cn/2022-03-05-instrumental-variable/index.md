@@ -3,7 +3,6 @@ title: 工具变量
 author: Miao Yu
 date: '2022-03-05'
 slug: instrumental-variable
-categories: []
 tags:
   - sci
 ---

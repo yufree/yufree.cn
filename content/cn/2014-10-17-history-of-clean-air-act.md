@@ -2,6 +2,9 @@
 title: 清洁空气法案的故事
 date: 2014-10-17
 slug: history of clean air act
+tags:
+  - popsci
+  - sci
 ---
 
 ![](https://yufree.github.io/blogcn/figure/caa1.jpg)

@@ -2,6 +2,8 @@
 title: 水卢流水（二）
 date: 2016-12-18
 slug: waterloo II
+tags:
+  - life
 ---
 
 11

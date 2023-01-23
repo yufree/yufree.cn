@@ -4,7 +4,8 @@ author: Miao Yu
 date: '2021-07-11'
 slug: popular-science
 categories: []
-tags: []
+tags:
+  - popsci
 ---
 
 我也是最近才知道在互联网上“科普”成了贬义词，虽然并不意外但查了下发现原因跟我想的不太一样，不过这里也大致从我个人经历回顾下最近二十年的科普发展吧。

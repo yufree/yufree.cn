@@ -3,8 +3,8 @@ title: Fountain 标记语言
 author: Miao Yu
 date: '2021-10-25'
 slug: fountain
-categories: []
-tags: []
+tags:
+  - tech
 ---
 
 这是去年留的一个坑，眼看着挖土填是来不及了，就灌水来填了。

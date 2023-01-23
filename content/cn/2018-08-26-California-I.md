@@ -4,7 +4,8 @@ author: ''
 date: '2018-08-26'
 slug: California-I
 categories: []
-tags: []
+tags:
+  - life
 ---
 1
 

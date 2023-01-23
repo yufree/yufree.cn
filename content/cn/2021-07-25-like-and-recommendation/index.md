@@ -4,7 +4,8 @@ author: Miao Yu
 date: '2021-07-25'
 slug: like-and-recommendation
 categories: []
-tags: []
+tags:
+  - writing
 ---
 
 最近看到推特要开始学红迪测试增加回复的赞同与反对按钮，然而只展示赞同数，其实社交网络里设计一个表达观点的功能本就不是什么好东西，不过做事应该做全套，只给赞同不给反对本来就有问题，虽然这个改动基本还是原地打转。

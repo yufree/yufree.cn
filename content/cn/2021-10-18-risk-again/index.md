@@ -6,6 +6,7 @@ slug: risk-again
 categories: []
 tags:
   - reading
+  - writing
 ---
 
 书接上回，上回完全可以不看。

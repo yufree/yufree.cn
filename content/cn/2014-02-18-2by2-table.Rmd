@@ -2,6 +2,8 @@
 title: 列联表分析那点事儿
 date: 2014-02-18
 slug: 2by2 table
+tags:
+  - data
 ---
 
 [列联表](https://en.wikipedia.org/wiki/Contingency_table)是一类常见表格，其行与列代表了两种分类变量，行列交织给出分别隶属两个分类的频数或者概率，其基本形式如下：

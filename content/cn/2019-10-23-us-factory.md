@@ -4,7 +4,8 @@ author: ''
 date: '2019-10-23'
 slug: us-factory
 categories: []
-tags: []
+tags:
+  - writing
 ---
 
 《美国工厂》这部纪录片想必很多人都看过了，影片开头提到了通用汽车公司工厂的关闭，那么通用汽车真的到了要关工厂的节骨眼上了吗？最近 vox 讨论了一下这个[话题](https://youtu.be/ylLTMYt24lA?list=PL3l4wTz7XdxY3NkBNct02JpgOuNqrqgLj)，有很多有意思的观点这里分析下。

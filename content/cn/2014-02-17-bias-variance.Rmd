@@ -2,6 +2,8 @@
 title: 漫谈统计学习中的 Bias-Variance Trade-Off思想
 date: 2014-02-17
 slug: bias variance
+tags:
+  - data
 ---
 最近在听一门统计学习的公开课，由[ESL](http://statweb.stanford.edu/~tibs/ElemStatLearn/)的两个作者Trevor Hastie与Robert Tibshirani讲授，不过使用的教材是ESL的简化版——[《An Introduction to Statistical Learning》](http://www-bcf.usc.edu/~gareth/ISL/)。虽说是简化版但写作风格明显是面对不同群体的，ISL偏应用，ESL更侧重数学原理解析，更抽象些。但这两本书的核心都是围着统计学习转的，而统计学习的一个核心论题就在Bias-Variance的取舍上，简单说就是偏差与方差的取舍。
 

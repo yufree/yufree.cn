@@ -2,6 +2,8 @@
 title: 理解基因组数据分析之数据读取与数据结构篇
 date: 2015-03-16
 slug: genomewide data
+tags:
+  - data
 ---
 
 这一系列的文章源于edx上PH525这一系列[课程](https://www.edx.org/course/statistics-r-life-sciences-harvardx-ph525-1x)，从实用角度出发分为四部分：

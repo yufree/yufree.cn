@@ -3,8 +3,8 @@ title: 科研助理
 author: Miao Yu
 date: '2022-09-26'
 slug: research-assistant
-categories: []
-tags: []
+tags:
+  - sci
 ---
 最近看到国内的[新闻](https://www.bjnews.com.cn/detail/1662379079169302.html)说今年科研助理岗吸引14万人就业，其中应届毕业生超12万。其实这是个对国内科研挺重要的消息，说明国家开始有意发展职业化科研了。
 

@@ -2,6 +2,8 @@
 title: 现代科研的兴起
 date: 2017-01-22
 slug: modern scientist
+tags:
+  - sci
 ---
 
 今天先讲个论文故事，然后讨论下科研领域正在发生的信息化过程。

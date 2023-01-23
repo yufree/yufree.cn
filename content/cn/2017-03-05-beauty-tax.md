@@ -2,6 +2,9 @@
 title: 美人税、人工智能与知识经济
 date: 2017-03-05
 slug: beauty tax
+tags:
+  - writing
+  - popsci
 ---
 
 ## 美人税

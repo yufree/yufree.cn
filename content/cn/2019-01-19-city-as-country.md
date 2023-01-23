@@ -4,7 +4,9 @@ author: ''
 date: '2019-01-19'
 slug: city-as-country
 categories: []
-tags: []
+tags:
+  - writing
+  - idea
 ---
 
 1

@@ -3,8 +3,8 @@ title: 报志愿
 author: Miao Yu
 date: '2022-07-18'
 slug: major-selection
-categories: []
-tags: []
+tags:
+  - edu
 ---
 最近听到有人说填志愿要找专家咨询，我当时差点绷不住了。简单说就是报志愿其实跟买股票差不多，你要是听专家买股票能赚，那就当我啥也没说，time the market 这种事对绝大多数普通人而言都是幻觉，而给这事增加讽刺性的地方在于大多数人都认为自己不是那绝大多数人的一部分。
 

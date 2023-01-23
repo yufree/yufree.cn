@@ -3,8 +3,8 @@ title: 自定义大学排行榜
 author: Miao Yu
 date: '2023-01-17'
 slug: custom-ranking-us
-categories: []
-tags: []
+tags:
+  - data
 ---
 
 ## 比赛介绍

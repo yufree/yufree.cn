@@ -4,7 +4,9 @@ author: ''
 date: '2017-04-13'
 slug: virtual
 categories: []
-tags: []
+tags:
+  - popsci
+  - writing
 ---
 ## Virtual
 

@@ -2,6 +2,9 @@
 title: 现代科研人员的日常
 date: 2017-01-27
 slug: modern scientist weapon
+tags:
+  - life
+  - sci
 ---
 
 8:00AM-9:00AM

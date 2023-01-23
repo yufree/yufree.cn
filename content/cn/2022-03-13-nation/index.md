@@ -3,8 +3,8 @@ title: 国家的概念
 author: Miao Yu
 date: '2022-03-13'
 slug: nation
-categories: []
-tags: []
+tags:
+  - writing
 ---
 
 > 本文可看作一篇近未来科幻小说的设定。

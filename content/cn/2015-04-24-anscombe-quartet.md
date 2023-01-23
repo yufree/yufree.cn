@@ -2,6 +2,9 @@
 title: 另一个安斯库姆四重奏？ 
 date: 2015-04-24
 slug: anscombe quartet
+tags:
+  - data
+  - paper
 ---
 
 [安斯库姆四重奏](http://zh.wikipedia.org/wiki/%E5%AE%89%E6%96%AF%E5%BA%93%E5%A7%86%E5%9B%9B%E9%87%8D%E5%A5%8F)算得上数据可视化里最经典的案例了，四组不同的数据做线性相关，得到相关系数一样（0.816）但实际作图可以看出很大差异。

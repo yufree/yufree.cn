@@ -3,8 +3,8 @@ title: 社会化抚养
 author: Miao Yu
 date: '2023-01-04'
 slug: bring-up-by-professional
-categories: []
-tags: []
+tags:
+  - writing
 ---
 
 社会化抚养是马超这两年反复吟唱搞出来的“新”词，不过其指代的内容与问题很早就有，早到《共产党宣言》里就有类似表述：

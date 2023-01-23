@@ -2,6 +2,9 @@
 title: 帕斯卡的钱包
 date: 2015-08-18
 slug: effective altruists
+tags:
+  - popsci
+  - data
 ---
 
 如何做慈善？是跑到穷苦山沟里建学校？初一十五舍粥？还是说——做科研？这周Vox的一篇[文章](http://www.vox.com/2015/8/10/9124145/effective-altruism-global-ai)给我安利了一个概念：有效利他。

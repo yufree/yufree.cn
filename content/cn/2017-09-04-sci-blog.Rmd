@@ -4,7 +4,9 @@ author: ''
 date: '2017-09-04'
 slug: sci-blog-discussion
 categories: []
-tags: []
+tags:
+  - paper
+  - sci
 ---
 
 有人的地方就有江湖。

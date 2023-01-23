@@ -3,8 +3,8 @@ title: 2021下半年研究速递
 author: Miao Yu
 date: '2022-01-01'
 slug: 2021-research-paper-2
-categories: []
-tags: []
+tags:
+  - paper
 ---
 
 这是公众号[环境黑板报](https://bookdown.org/yufree/hjhbb/)下半年所有研究速递的汇总。研究速递是关于环境相关的研究吐槽，主要关注期刊是ES&T与ES&T letter，也有其他综合类期刊的条目。目前投稿都是在github上完成的，每月总结一次推送到公众号，欢迎各位同学来此投稿：https://github.com/yufree/hjhbb/issues/53 （2022年1月）

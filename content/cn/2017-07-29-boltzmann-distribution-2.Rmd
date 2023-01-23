@@ -4,7 +4,9 @@ author: ''
 date: '2017-07-29'
 slug: ''
 categories: []
-tags: []
+tags:
+  - popsci
+  - writing
 ---
 
 前面说到在一个理想自发交易的稳态环境下，社会财富的分配会符合小球模型里的玻尔兹曼分布：

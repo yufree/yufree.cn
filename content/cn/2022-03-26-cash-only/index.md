@@ -3,8 +3,8 @@ title: 只收现金
 author: Miao Yu
 date: '2022-03-26'
 slug: cash-only
-categories: []
-tags: []
+tags:
+  - life
 ---
 
 我出国前对三明治的印象就是两片面包夹火腿然后切成三角形，出国后在便利店见到的也确实是这样，基本都当快餐卖。不过，赛百味（subway）里的那种三明治用的不是切片面包，而是类似法棍的长条面包，subway里的sub指的就是submarines，也就是潜艇堡。做法大概就是长条面包横切，然后一层层铺上酱料、蔬菜、火腿还有奶酪。

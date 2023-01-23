@@ -4,7 +4,9 @@ author: Miao Yu
 date: '2021-03-27'
 slug: exposome-challenge
 categories: []
-tags: []
+tags:
+  - sci
+  - data
 ---
 
 最近做了次闭门分享，是关于暴露组学中存在的数据挑战，也借机整理了下暴露组学的资料，这里也留个底。

@@ -3,8 +3,8 @@ title: 小议论文致谢
 author: Miao Yu
 date: '2023-01-08'
 slug: acknowledgement
-categories: []
-tags: []
+tags:
+  - sci
 ---
 
 研究人员读论文或审稿通常是关注内容本身，但论文致谢里面其实也隐含了一些信息，这些信息对于内容评价是没用的，但却大概能反映出作者要钱的能力与发钱机构对个人或研究的支持力度。

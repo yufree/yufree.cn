@@ -4,7 +4,8 @@ author: ''
 date: '2019-01-29'
 slug: full-stack-scientist-quiz
 categories: []
-tags: []
+tags:
+  - sci
 ---
 
 - 定性定量分子量100-100万的物质需要用到哪些仪器？优缺点是什么

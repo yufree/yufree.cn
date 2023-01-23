@@ -2,6 +2,9 @@
 title: Kaggle 入门：泰坦尼克号幸存者项目
 date: 2014-12-07
 slug: kaggle Titanic
+tags:
+  - R
+  - data
 ---
 
 ## 背景

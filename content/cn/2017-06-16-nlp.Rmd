@@ -4,7 +4,9 @@ author: ''
 date: '2017-06-16'
 slug: nlp-literature
 categories: []
-tags: []
+tags:
+  - paper
+  - data
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE,echo = F,warning = F,message = F)

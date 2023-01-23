@@ -4,7 +4,9 @@ author: ''
 date: '2018-11-01'
 slug: reincarnation
 categories: []
-tags: []
+tags:
+  - popsci
+  - idea
 ---
 
 伟大的革命导师奥夫考斯·IM·澈丹隐仁波切曾预言，转世问题将成为21世纪的显学，一语成谶。

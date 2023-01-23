@@ -4,7 +4,8 @@ author: ''
 date: '2018-10-22'
 slug: reference
 categories: []
-tags: []
+tags:
+  - sci
 ---
 
 你能分清BibTeX、Natbib、BiblateX、biber、Better Bib(La)TeX、bst、bbl、bib、ris、csl、sty、cls…吗？如果能，这篇不用看了。最近要把文件迁移到工作电脑里，不得不去整理Zotero。因为我之前用的时候都是想到哪就去尝试，所以不迁移还好，一换新环境就要重新配置插件。这里面我最不愿折腾的就是bib文件，生怕配置错了key一换，后面的编译都出问题。不过我知道有类似体会的肯定不止我一个，那就来考考古，说下参考文献那些事。

@@ -5,7 +5,8 @@ date: '2018-07-08'
 slug: graduate-dictionary
 categories: []
 tags:
-  - writing
+  - life
+  - idea
 ---
 
 这个是国内版，海外版等我再体会一段时间再说。

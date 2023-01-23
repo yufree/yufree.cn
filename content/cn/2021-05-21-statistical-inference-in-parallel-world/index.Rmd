@@ -4,7 +4,9 @@ author: Miao Yu
 date: '2021-05-21'
 slug: statistical-inference-in-parallel-world
 categories: []
-tags: []
+tags:
+  - sci
+  - data
 ---
 
 最近重新看了下之前对p值的笔记，突然对零假设充满了陌生感。在p值的语境里，当我们看到数据D在零假设下发生的概率低就会做出数据D不支持零假设的判断，这是一个条件概率等价替换的问题：

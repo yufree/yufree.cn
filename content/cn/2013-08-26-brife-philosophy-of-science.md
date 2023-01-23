@@ -2,6 +2,8 @@
 title: 闲话科学哲学
 date: 2013-08-26
 slug: brife philosophy of science
+tags:
+  - popsci
 ---
 做科研一般都不讨论哲学，太多形而上的东西，说也说不清道也道不明，但懂一点科学哲学还是很有必要的，闲言碎语说不明白，就当是聊天了。
 

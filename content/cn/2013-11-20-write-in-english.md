@@ -2,6 +2,8 @@
 title: 重温科技论文写作笔记
 date: 2013-11-20
 slug: write in english
+tags:
+  - paper
 ---
 去年这个时候，我在coursera听了斯坦福的一门科技论文写作的课，导师是Dr. Kristin Sainani，当时感触颇多并记了笔记。时隔一年，我的第一篇文章也已经接受，审稿人表示“Overall the manuscript is well written and easily understood” 这对于一个上了大学就再也没背过单词的我而言还是很高兴的，近期重温了当时的笔记，感觉还是很有启发。现提取精华总结如下：
 

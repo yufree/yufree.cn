@@ -3,8 +3,9 @@ title: 怪人乱世寻宝
 author: Miao Yu
 date: '2022-12-02'
 slug: weirdo-treasure-hunt-in-chaos
-categories: []
-tags: []
+tags:
+  - idea
+  - reading
 ---
 
 我名义上很长一段时间都没读虚构类的书，但其实看漫画、电影、玩游戏其实都是虚构类的，读虚构的故事其实可以看成一种放松。但虚构这件事是很技术的，我总结绝大多数能吸引读者的虚构作品或者说爽文其实都符合一个框架，那就是怪人乱世寻宝。

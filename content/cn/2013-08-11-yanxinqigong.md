@@ -2,6 +2,8 @@
 title: 王林算什么？看看人严新
 date: 2013-08-11
 slug: yanxinqigong
+tags:
+  - paper
 ---
 
 前几日师姐发微博说日子没法过了，她辛辛苦苦做一年实验还不如个练气功的，彼时有点忙没顾上详查，今日得空跑到web of science上搜了下Yan Xin Qigong，顿觉天雷滚滚。闲言少叙，直接上表：

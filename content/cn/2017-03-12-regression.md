@@ -2,6 +2,9 @@
 title: 回归、安慰剂与流行
 date: 2017-03-12
 slug: regression
+tags:
+  - popsci
+  - writing
 ---
 
 ## 回归

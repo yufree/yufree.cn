@@ -4,7 +4,9 @@ author: ''
 date: '2019-05-23'
 slug: overseas-student-dictionary
 categories: []
-tags: []
+tags:
+  - idea
+  - life
 ---
 
 - 三件套：Costco会员卡、宜家家具与二手车或二十手车

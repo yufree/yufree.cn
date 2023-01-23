@@ -2,6 +2,8 @@
 title: kramdown 语法简介
 date: 2014-10-25
 slug: kramdown
+tags:
+  - tech
 ---
 
 偶然发现之前文章的`markdown`输出有问题，追根溯源发现是`Github Pages`的解释器有问题。当年建站是东拼西凑的代码，其实对`jeklly`没仔细学习，当时就觉得拿`markdown`语法写就没问题了，其实这货也是有方言的。不同的人按自己的需要对标准语法缝缝补补以适应新的要求，[据说](http://commonmark.org)有些大牛开始着手`markdown`的标准化问题了。不过`Github Pages`目前只支持包括Maruku（默认），Redcarpet	和Kramdown在内为数不多的解释器。换言之，像我这种本地不装`jeklly`而纯依赖推送原始`md`文件的做法想要得到数学公式表格啥的支持就需要从这些解释器中找个最合适的用。如果你足够寂寞，装个`jeklly`然后使用`pandoc`的插件来本地生成`html`文档去推送也没关系。但我足够懒，所以我选择找一个最接近`pandoc`功能的解释器，也就是kramdown来凑合。本文旨在总结其与标准`markdown`的区别，方便以后写作。

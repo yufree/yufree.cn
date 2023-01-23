@@ -2,6 +2,8 @@
 title: nature or nurture？
 date: 2016-06-19
 slug: nature nurture
+tags:
+  - writing
 ---
 
 自然科学里关于一个人的心理与行为究竟是怎么来的有着各式各样的讨论，但总而言之就是两个考虑：天生的或者后天培养的。

@@ -4,7 +4,9 @@ author: ''
 date: '2020-06-27'
 slug: online-conference
 categories: []
-tags: []
+tags:
+  - covid
+  - conf
 ---
 
 在美国人民的辛勤努力下，疫情这条日增曲线果然被头尾放平了，走出了一条特色的倒U曲线，各州轮流坐庄，凭实力争疫情中心。不过对于学术界，最大的改变应该就是学术会议的加速云端化了。

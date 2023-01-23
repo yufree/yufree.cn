@@ -2,6 +2,8 @@
 title: 多重比较从原理到应用
 date: 2013-12-16
 slug: rgabriel package
+tags:
+  - data
 ---
 # 多重比较概论
 

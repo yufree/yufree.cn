@@ -2,6 +2,8 @@
 title: 贝叶斯棒球
 date: 2016-06-12
 slug: bayes baseball
+tags:
+  - data
 ---
 
 最近看到一系列以棒球为主题的关于贝叶斯分析的[文章](http://varianceexplained.org/posts/)，赶忙总结了一下，省的忘了。我非常喜欢这类通过实际案例来进行分析的讲解方法，很容易举一反三。

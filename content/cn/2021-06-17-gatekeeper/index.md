@@ -6,7 +6,7 @@ slug: gatekeeper
 categories: []
 tags:
   - sci
-  - rconf
+  - tech
 ---
 今年ACS春季会议我做了一个口头报告，提出了“看门人分子”的概念。这大概是我又双叒叕挖坑的一个开端，现在预印本已经放到[网上](https://chemrxiv.org/engage/chemrxiv/article-details/60c9e3b13fc2cb674c000d4e)了，这里做下解释。
 

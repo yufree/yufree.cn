@@ -2,7 +2,7 @@ baseurl: "https://yufree.cn/"
 languageCode: "en-us"
 title: "Miao Yu | 于淼 "
 theme: "hugo-lithium-theme"
-googleAnalytics: "UA-43118729-1"
+googleAnalytics: "G-6S0CPNLV6R"
 disqusShortname: "yufree"
 ignoreFiles: ["\\.Rmd$", "_cache$","\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 hasCJKLanguage: true

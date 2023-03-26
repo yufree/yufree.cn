@@ -92,7 +92,7 @@ tags:
         - 准备好模版
         - 版本号 SemVer CalVer
         
-        ![https://www.geeksforgeeks.org/introduction-semantic-versioning](images/semver.png)
+![https://www.geeksforgeeks.org/introduction-semantic-versioning](images/semver.png)
         
 这个课程项目本身在 GitHub 上[托管](https://github.com/carpentries-incubator/fair-bio-practice)，大概是12个学时的内容，思考题、版权、引用这些信息网站上很全，里面大部分内容《指北》里都有，不过也有些我之前没考虑到的东西，后面我也会整合补充到《指北》里。这里建议对开放科学感兴趣的朋友可以抽个半天左右的时间看看，毕竟我这边更新会很慢。
         

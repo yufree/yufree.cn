@@ -34,3 +34,43 @@ done
 Then you will see the converted mzML in the same directory of your raw data folder.
 
 There are three vendor formats not supporting by this image: ABI T2D, Bruker FID/YEP and Waters UNIFI.
+
+-----
+
+Updates on 2023-04-23
+
+- Errors for Thermos Fisher Raw files
+
+Try [ThermoRawFileParser](https://github.com/compomics/ThermoRawFileParser) and they also shared a docker image:
+
+```
+docker run -i -t -v /home/user/raw:/data_input quay.io/biocontainers/thermorawfileparser:<tag> ThermoRawFileParser.sh --help
+```
+
+The <tag> could be *1.4.2--ha8f3691_0* and you could check here for [details](https://quay.io/repository/biocontainers/thermorawfileparser?tab=tags).
+
+- Singularity
+
+For msconvert, you need to build the singularity image through Dockerhub:
+
+```
+singularity pull docker://chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+```
+
+Then use the following code to convert the file:
+
+```
+singularity exec --cleanenv -B ~:/mywineprefix --writable-tmpfs pwiz-skyline-i-agree-to-the-vendor-licenses_latest.sif mywine msconvert --32 --zlib --filter "peakPicking true 1-" --filter "zeroSamples removeExtra" 'test.RAW'
+```
+
+Or you might choose ThermoRawFileParser:
+
+```
+singularity pull docker://globusgenomics/thermorawfileparser
+```
+
+Then use the following code to convert files in certain folder:
+
+```
+singularity exec --cleanenv thermorawfileparser_latest.sif ThermoRawFileParser.sh -d PATH_OF_RAW_FILES
+```

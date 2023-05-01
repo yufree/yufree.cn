@@ -8,7 +8,7 @@ ignoreFiles: ["\\.Rmd$", "_cache$","\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.
 hasCJKLanguage: true
 enableEmoji: true
 footnotereturnlinkcontents: "↩"
-rssLimit: 30
+rssLimit: 10
 
 permalinks:
   cn: "/cn/:year/:month/:day/:slug/"

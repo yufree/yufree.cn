@@ -1,5 +1,5 @@
 ---
-title: 南极谋杀案（四）
+title: 南极谋杀案（四）- 导游词
 author: Miao Yu
 date: '2023-04-28'
 slug: anterctic-murder

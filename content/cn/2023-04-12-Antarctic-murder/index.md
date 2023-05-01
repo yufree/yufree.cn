@@ -1,5 +1,5 @@
 ---
-title: 南极谋杀案（二）
+title: 南极谋杀案（二）- 肢解快递
 author: Miao Yu
 date: '2023-04-12'
 slug: Antarctic-murder

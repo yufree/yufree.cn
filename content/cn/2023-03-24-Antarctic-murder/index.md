@@ -1,5 +1,5 @@
 ---
-title: 南极谋杀案
+title: 南极谋杀案 - 无人战争
 author: Miao Yu
 date: '2023-03-24'
 slug: Antarctic-murder

@@ -1,5 +1,5 @@
 ---
-title: 南极谋杀案（三）
+title: 南极谋杀案（三）- AGO测试
 author: Miao Yu
 date: '2023-04-20'
 slug: anterctic-murder

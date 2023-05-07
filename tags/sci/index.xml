@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sci on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/tags/sci/</link>
+    <description>Recent content in sci on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/sci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开放科学课程笔记</title>
+      <link>https://yufree.cn/cn/2023/03/26/open-sci/</link>
+      <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2023/03/26/open-sci/</guid>
+      <description>开放科学这个主题我在《现代科研指北》里做过总结，最近研究所例行培训里又推送了个一天的开放科学课程，但我那天已经报名了另外一个课，所以就去查了</description>
+    </item>
+    
+    <item>
+      <title>小议论文致谢</title>
+      <link>https://yufree.cn/cn/2023/01/08/acknowledgement/</link>
+      <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2023/01/08/acknowledgement/</guid>
+      <description>研究人员读论文或审稿通常是关注内容本身，但论文致谢里面其实也隐含了一些信息，这些信息对于内容评价是没用的，但却大概能反映出作者要钱的能力与发</description>
+    </item>
+    
+    <item>
+      <title>科研助理</title>
+      <link>https://yufree.cn/cn/2022/09/26/research-assistant/</link>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/09/26/research-assistant/</guid>
+      <description>最近看到国内的新闻说今年科研助理岗吸引14万人就业，其中应届毕业生超12万。其实这是个对国内科研挺重要的消息，说明国家开始有意发展职业化科研</description>
+    </item>
+    
+    <item>
+      <title>《现代科研指北》已上市</title>
+      <link>https://yufree.cn/cn/2022/08/29/sciguide-on-market/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/08/29/sciguide-on-market/</guid>
+      <description>《现代科研指北》已经上市，指北奖学金计划细则也公布在了开源版的issue里了。老实说，如果没有指北奖学金，我可能并没有多少动力去推广这本网上</description>
+    </item>
+    
+    <item>
+      <title>学术自由</title>
+      <link>https://yufree.cn/cn/2022/08/14/academia-freedom/</link>
+      <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/08/14/academia-freedom/</guid>
+      <description>人到中年大都对之前有点遗憾，对未来又有很多期许，亟需一些指标来定位自己在地球online上剧情模式的进度条。青少年时期大多数人进度条都差不多</description>
+    </item>
+    
+    <item>
+      <title>通引膨胀</title>
+      <link>https://yufree.cn/cn/2022/06/29/impact-factor-inflation/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/06/29/impact-factor-inflation/</guid>
+      <description>每到六月底学术界就跟过年差不多，主要原因是前一年的期刊影响因子会公布。不出意外又是个皆大欢喜，大部分期刊影响因子都有提高。这里我们就来梳理下</description>
+    </item>
+    
+    <item>
+      <title>指北奖学金</title>
+      <link>https://yufree.cn/cn/2022/06/19/keng-scholarship/</link>
+      <pubDate>Sun, 19 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/06/19/keng-scholarship/</guid>
+      <description>《现代科研指北》如果不出意外应该会在今年夏天上市，但出版前我需要做下面三件事： 第一就是收集对这本书的吐槽。这主要是为了配合新书宣发，到时文案</description>
+    </item>
+    
+    <item>
+      <title>引用</title>
+      <link>https://yufree.cn/cn/2022/05/03/citation/</link>
+      <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/05/03/citation/</guid>
+      <description>今天打开谷歌学术，发现多了个里程碑，引用超过了1000。说来惭愧，我用了十年时间才累积到这个数，但里面没有一篇引用超过100，而且大多数引用</description>
+    </item>
+    
+    <item>
+      <title>工具变量</title>
+      <link>https://yufree.cn/cn/2022/03/05/instrumental-variable/</link>
+      <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/03/05/instrumental-variable/</guid>
+      <description>最近审了一篇代谢组学文章，作者使用了 Mendelian randomisation 分析并将其作为文章亮点。尴尬的是我没听说过孟德尔随机分析，不过一看描述就知道这是工具变量加壳，再次不</description>
+    </item>
+    
+    <item>
+      <title>质谱组学数据的批次效应</title>
+      <link>https://yufree.cn/cn/2022/01/27/ms-data-batch-effect/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/01/27/ms-data-batch-effect/</guid>
+      <description>组学数据的一个显著特征就是需要同时测定一个样本里成千上万的信号，这个信号可以是基因、蛋白或代谢物。但这是说给外行听的，真实数据对于基因组来说</description>
+    </item>
+    
+  </channel>
+</rss>

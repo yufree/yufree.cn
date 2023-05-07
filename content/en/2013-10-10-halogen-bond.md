@@ -1,7 +1,0 @@
----
-title: Halogen Bond for separation
-date: 2013-10-10
-slug: halogen bond
----
-
-As shown in [wikipedia](http://en.wikipedia.org/wiki/Halogen_bond), the Halogen bond is the non-covalent interaction that occurs between a halogen atom (Lewis acid) and a Lewis base. The Hydrogen bond could be seen as a special case of halogen bond — they all need electron-donor while the hydrogen may also need electron-receptor. In fact, some Organic Halogen Compounds such as PCBs, PBDEs,PFCs,SCCPs... were hard to analysis for they have so many congeners. Most of time, the capillary columns were used to separate those compounds. However, when we use the capillary columns for a long time, the basic principles of the separation were still the interaction between the packing material and our target compounds, also some other parameters such as temperature and flow rate of carrier gas. The separation only need a delta instead of so much theory. But if we figure out some principle, we could design a column to separate interesting things. I think the halogen bond is interesting for those bond has a direction and make use of those direction we could achieve a high resolution. Well, I admit it is just an idea and some real separation processes may have used those interactions. We could also use hundreds of molecular descriptor to predict the retention action, but I am still want to figure out the most important, maybe simple rules behind those phenomenon.

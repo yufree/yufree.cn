@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>conf on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/tags/conf/</link>
+    <description>Recent content in conf on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/conf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>明尼阿波利斯</title>
+      <link>https://yufree.cn/cn/2022/06/11/minneapolis/</link>
+      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/06/11/minneapolis/</guid>
+      <description>1 去年11月在费城开了ASMS年会，时隔半年又是年会，算是宣告了这个开了70次的会议回归正轨了。这次参会虽然还是线上线下混开，但明显更强调线</description>
+    </item>
+    
+    <item>
+      <title>云会议</title>
+      <link>https://yufree.cn/cn/2020/06/27/online-conference/</link>
+      <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/06/27/online-conference/</guid>
+      <description>在美国人民的辛勤努力下，疫情这条日增曲线果然被头尾放平了，走出了一条特色的倒U曲线，各州轮流坐庄，凭实力争疫情中心。不过对于学术界，最大的改</description>
+    </item>
+    
+    <item>
+      <title>纽约暴露组学研讨会纪要</title>
+      <link>https://yufree.cn/cn/2020/03/08/nyc-exposome-symposium/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/03/08/nyc-exposome-symposium/</guid>
+      <description>作为一个中老年人，开会越来越记不住东西了，这周周四周五在纽约参加了我们研究所主办的纽约暴露组学研讨会，现在做个纪要。 首先，我得说下背景，不是</description>
+    </item>
+    
+    <item>
+      <title>WCUB 见闻录</title>
+      <link>https://yufree.cn/cn/2019/12/01/wcub/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2019/12/01/wcub/</guid>
+      <description>What Can You Be With a PhD 是一个在纽约大都会地区两年召开一次的会议，参会人员主要是生物医药口的博士生与博后，会议主题主要是讨论这些参会人员的就业问题。其</description>
+    </item>
+    
+    <item>
+      <title>Metabolites network by PMD analysis</title>
+      <link>https://yufree.cn/en/2019/07/26/metabolites-network-by-pmd-analysis/</link>
+      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2019/07/26/metabolites-network-by-pmd-analysis/</guid>
+      <description>Recently, my colleagues from Chinese Academy of Sciences published a paper about pumpkin TBBPA metabolites. I am one of the co-authors since I wrote the code to screen bronimated compounds. Later I wrote a formal function findohc in enviGCMS package to screen those compounds. The code design is slightly different with the original paper while it works fine. However, today my topic will not be about screen metabolites by mass defect clusters.</description>
+    </item>
+    
+    <item>
+      <title>R语言会议幻灯片读后感</title>
+      <link>https://yufree.cn/cn/2019/06/28/r-conf-19/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2019/06/28/r-conf-19/</guid>
+      <description>今年的R会议幻灯片我直到这周才看，而且幻灯片体积着实不小，我这边下载好久才搞下来。先声明，读后感纯属个人感受，不代表统计之都主编意见，而且因</description>
+    </item>
+    
+    <item>
+      <title>亚特兰大</title>
+      <link>https://yufree.cn/cn/2019/06/08/atlanta/</link>
+      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2019/06/08/atlanta/</guid>
+      <description>1 ASMS 算是物美价廉的质谱类分析化学会议了，注册费跟国内会议差不多，而赞助商基本都是不差钱的大户。对比匹斯堡会议的规模来说差不多少了一半，不过这</description>
+    </item>
+    
+    <item>
+      <title>暴露组学的黎明</title>
+      <link>https://yufree.cn/cn/2018/11/07/exposome/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/11/07/exposome/</guid>
+      <description>最近参加了西奈山医学院举办的第二届暴露组学会议，其实我并没注册，只是实验室有位老师身体不适不想去了我去顶的包。暴露组学从名词提出了到现在大概</description>
+    </item>
+    
+    <item>
+      <title>R语言会议幻灯片读后感</title>
+      <link>https://yufree.cn/cn/2018/06/07/r-conf-18/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/06/07/r-conf-18/</guid>
+      <description>这两天抽空看了11届R语言会议的公开幻灯片，信息量还是比较大的，在技术这块那些放在我待办事项里的东西还没来得及看，下一代技术就已经出来了。有</description>
+    </item>
+    
+    <item>
+      <title>匹斯堡会议见闻录</title>
+      <link>https://yufree.cn/cn/2018/03/06/pittcon/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/03/06/pittcon/</guid>
+      <description>匹斯堡会议可能是分析化学领域里最大的学术交流会与仪器展览会，这个会议起源于美国宾州匹斯堡市，每年春天召开，基本就在几个美国会展城市里轮转。匹</description>
+    </item>
+    
+  </channel>
+</rss>

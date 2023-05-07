@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/tags/data/</link>
+    <description>Recent content in data on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自定义大学排行榜</title>
+      <link>https://yufree.cn/cn/2023/01/17/custom-ranking-us/</link>
+      <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2023/01/17/custom-ranking-us/</guid>
+      <description>比赛介绍 这是和鲸社区与 COS 统计之都联合举办的云讲堂实战系列活动第一场，本活动旨在从实际问题出发训练某综合性数据分析技能，优秀选手将通过统计之都</description>
+    </item>
+    
+    <item>
+      <title>解卷积</title>
+      <link>https://yufree.cn/cn/2022/05/21/deconvolution/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/05/21/deconvolution/</guid>
+      <description>解卷积本来是指反解卷积，但在色谱质谱联用里特指从多物质混合的色谱图里分离出单独物质的色谱。不用说，这跟卷积原始概念已经八杆子打不着了，就是个</description>
+    </item>
+    
+    <item>
+      <title>漫谈 base R 与 ggplot2 </title>
+      <link>https://yufree.cn/cn/2021/12/18/base-r-ggplot2/</link>
+      <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/12/18/base-r-ggplot2/</guid>
+      <description>这几天心里颇不宁静。纽约的单日新冠确诊数又出了新纪录，工作邮箱里好几封通知群聚感染的邮件，很多还是完全免疫甚至打了加强针的。感觉新变种可以自</description>
+    </item>
+    
+    <item>
+      <title>辛普森悖论</title>
+      <link>https://yufree.cn/cn/2021/08/27/simpson-paradox/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/08/27/simpson-paradox/</guid>
+      <description>曾经有两本书伴我度过了无数漫漫长夜，毕竟每次鼓起勇气看不超过10页就会睡过去，一本是前面写过的 metaphors we live by，另一本就是《悖论简史》。这种书的一</description>
+    </item>
+    
+    <item>
+      <title>平行世界的统计推断</title>
+      <link>https://yufree.cn/cn/2021/05/21/statistical-inference-in-parallel-world/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/05/21/statistical-inference-in-parallel-world/</guid>
+      <description>最近重新看了下之前对p值的笔记，突然对零假设充满了陌生感。在p值的语境里，当我们看到数据D在零假设下发生的概率低就会做出数据D不支持零假设的</description>
+    </item>
+    
+    <item>
+      <title>暴露组学中的数据挑战</title>
+      <link>https://yufree.cn/cn/2021/03/27/exposome-challenge/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/03/27/exposome-challenge/</guid>
+      <description>最近做了次闭门分享，是关于暴露组学中存在的数据挑战，也借机整理了下暴露组学的资料，这里也留个底。 暴露组学认为生物表型或疾病是环境与基因在时间</description>
+    </item>
+    
+    <item>
+      <title>jupyter与容器技术</title>
+      <link>https://yufree.cn/cn/2021/01/28/container/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/01/28/container/</guid>
+      <description>我们现在评价科研成果，经常喜欢用当前的共识这个表述，但前沿领域的共识不见得是对的。更严格说，所有涉及观点站队问题的讨论都不属于科学讨论，面对</description>
+    </item>
+    
+    <item>
+      <title>中介分析</title>
+      <link>https://yufree.cn/cn/2020/12/25/mediation/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/12/25/mediation/</guid>
+      <description>最近看到有研究开始把中介分析引入到环境健康分析里来了，考虑到实验学科的数据分析能力长期落后统计分析，我这里也做个中介，把这种方法通过问题导向</description>
+    </item>
+    
+    <item>
+      <title>降维可视化</title>
+      <link>https://yufree.cn/cn/2020/10/28/dimension-reduction/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/10/28/dimension-reduction/</guid>
+      <description>高维数据的降维可视化是其探索性分析的起点，无法直观显示的模式或规律很难令人信服，当然能直观显示并不代表对应模式或规律的真实存在。这里我们关注</description>
+    </item>
+    
+    <item>
+      <title>线性模型</title>
+      <link>https://yufree.cn/cn/2020/10/12/linear-model/</link>
+      <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/10/12/linear-model/</guid>
+      <description>线性模型的基本形式就是因变量是由自变量作用加和而成，在这个语境下，其实把自变量改为变量，放宽独立性限制，也能将一些非线性部分，例如高幂次的自</description>
+    </item>
+    
+  </channel>
+</rss>

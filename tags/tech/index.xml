@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/tags/tech/</link>
+    <description>Recent content in tech on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>竭泽而渔式非目的分析</title>
+      <link>https://yufree.cn/cn/2022/02/17/exhaustive-nontargeted-analysis/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/02/17/exhaustive-nontargeted-analysis/</guid>
+      <description>在高分辨质谱分析领域，偏生物样本的代谢组学与偏环境样本的非目的分析都是近期比较火的研究方向。这里关注的待测物一般是分子量1500Da或200</description>
+    </item>
+    
+    <item>
+      <title>质谱组学数据的批次效应</title>
+      <link>https://yufree.cn/cn/2022/01/27/ms-data-batch-effect/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/01/27/ms-data-batch-effect/</guid>
+      <description>组学数据的一个显著特征就是需要同时测定一个样本里成千上万的信号，这个信号可以是基因、蛋白或代谢物。但这是说给外行听的，真实数据对于基因组来说</description>
+    </item>
+    
+    <item>
+      <title>Fountain 标记语言</title>
+      <link>https://yufree.cn/cn/2021/10/25/fountain/</link>
+      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/10/25/fountain/</guid>
+      <description>这是去年留的一个坑，眼看着挖土填是来不及了，就灌水来填了。 标记语言里最经典的是 HTML，但最出圈的应该是 Markdown。所谓标记语言，可近</description>
+    </item>
+    
+    <item>
+      <title>看门人分子</title>
+      <link>https://yufree.cn/cn/2021/06/17/gatekeeper/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/06/17/gatekeeper/</guid>
+      <description>今年ACS春季会议我做了一个口头报告，提出了“看门人分子”的概念。这大概是我又双叒叕挖坑的一个开端，现在预印本已经放到网上了，这里做下解释。</description>
+    </item>
+    
+    <item>
+      <title>jupyter与容器技术</title>
+      <link>https://yufree.cn/cn/2021/01/28/container/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/01/28/container/</guid>
+      <description>我们现在评价科研成果，经常喜欢用当前的共识这个表述，但前沿领域的共识不见得是对的。更严格说，所有涉及观点站队问题的讨论都不属于科学讨论，面对</description>
+    </item>
+    
+    <item>
+      <title>诺谟图</title>
+      <link>https://yufree.cn/cn/2020/04/08/nomography/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/04/08/nomography/</guid>
+      <description>诺谟图（Nomography），又称列线图解法，于1884年由Philbert Maurice d&amp;rsquo;Ocagne (1862-1938)发明来用图形化计算解决复杂函数的求值</description>
+    </item>
+    
+    <item>
+      <title>网速与树莓派</title>
+      <link>https://yufree.cn/cn/2019/12/16/rpi/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2019/12/16/rpi/</guid>
+      <description>从大概五年前开始，4G网络开始普及，到今天5G报道满天飞，其实改变了很多人的生活方式。有时我在想，如果我们的网速停在3G时代，智能手机可能不</description>
+    </item>
+    
+    <item>
+      <title>编译器漫谈</title>
+      <link>https://yufree.cn/cn/2019/02/14/compiler/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2019/02/14/compiler/</guid>
+      <description>最近借由一次R包安装失败，我又重新收集了下关于编译的概念与知识，为了让下一次失忆的我不至于再折腾半天，就归纳到这里。 C语言源码编译运行过程是</description>
+    </item>
+    
+    <item>
+      <title>短链氯化石蜡的定量方法</title>
+      <link>https://yufree.cn/cn/2018/08/06/sccp/</link>
+      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/08/06/sccp/</guid>
+      <description>短链氯化石蜡的定量在环境分析化学中属于难度比较高的，在目的性分析里也算是最非传统的了，不过理解了这类物质的定量对于理解环境分析的复杂性很有帮</description>
+    </item>
+    
+    <item>
+      <title>现代科研兵刃谱</title>
+      <link>https://yufree.cn/cn/2018/07/14/sci-tools/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/07/14/sci-tools/</guid>
+      <description>工欲善其事，必先利其器。今天绝大多数知识都是工具生产出来的，也就是想使用知识，肯定要先学工具，而工具又需要知识铺垫，这就成了一个鸡生蛋蛋生鸡</description>
+    </item>
+    
+  </channel>
+</rss>

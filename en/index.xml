@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/en/</link>
+    <description>Recent content in blog on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Invitation to Submit Manuscripts for a Special Issue of Chemosphere</title>
+      <link>https://yufree.cn/en/2022/07/11/invitation-to-submit-manuscripts-for-a-special-issue-of-chemosphere/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2022/07/11/invitation-to-submit-manuscripts-for-a-special-issue-of-chemosphere/</guid>
+      <description>The prestigious journal Chemosphere is currently running a special issue entitled &amp;quot; Human Health Effects of Chemical Mixture Exposures&amp;quot;. As we are acting as guest editors for this issue, we would like to welcome contributions from various disciplines. We kindly invite you to consider submitting your full paper to this special issue.
+Guest editors
+  Prof. Dr. Peng Gao University of Pittsburgh School of Public Health peg47@pitt.edu
+  Prof.</description>
+    </item>
+    
+    <item>
+      <title>Using xcmsrocker on HPC via Singularity</title>
+      <link>https://yufree.cn/en/2022/05/26/using-xcmsrocker-on-hpc-via-singularity/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2022/05/26/using-xcmsrocker-on-hpc-via-singularity/</guid>
+      <description>Docker should be the most popular container platform. Container distribution via dockerhub makes it easy to provide all-in-one development/data analysis environment for scientist. It&amp;rsquo;s always a good idea to use container on the high performance computing (HPC) cluster to accelerate data processing. Since Docker provides root access to the system they are running on, it&amp;rsquo;s always not allowed to be used on HPC. On the other hand, Singularity is more friendly to scientific research with MPI support, as well as security restriction.</description>
+    </item>
+    
+    <item>
+      <title>I am looking for a faculty position</title>
+      <link>https://yufree.cn/en/2021/09/23/i-am-looking-for-a-faculty-position/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/09/23/i-am-looking-for-a-faculty-position/</guid>
+      <description>I am looking for a faculty position on earth. It&amp;rsquo;s always right to fit the position with your skill sets. However, after sending a dozen of applications with tailored resume or research statements, I decide to leave my cover letter online with my desired research interests.
+I am trained as an environmental analytical chemist from a state key laboratory under the supervision of Prof. Guibin Jiang in China. Then I worked with Prof.</description>
+    </item>
+    
+    <item>
+      <title>Correlation coefficients cutoff to generate network in metabolomics</title>
+      <link>https://yufree.cn/en/2021/07/28/correlation-coefficients-cutoff-to-generate-network-in-metabolomics/</link>
+      <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/07/28/correlation-coefficients-cutoff-to-generate-network-in-metabolomics/</guid>
+      <description>One common research purpose in metabolomics is to check the relations among the metabolites. Correlation network is one of the most popular way to show such relations. However, such network will change with different selection of the cutoff of correlation coefficients.
+Let’s check some real world data.
+library(pmd) library(enviGCMS) data(spmeinvivo) # remove redundant peaks newmet &amp;lt;- globalstd(spmeinvivo) ## 75 retention time cluster found. ## 369 paired masses found ## 5 unique within RT clusters high frequency PMD(s) used for further investigation.</description>
+    </item>
+    
+    <item>
+      <title>reactomics data analysis template within rmwf package</title>
+      <link>https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/</link>
+      <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/</guid>
+      <description>To make reactomics data analysis more transparent and reproducible, I included one template in rmwf package. You could install the package from Github.
+install.packages(&amp;#39;remotes&amp;#39;) remotes::install_github(&amp;quot;yufree/rmwf&amp;quot;) If you use RStudio, you could try:
+File-New file-R Markdown-from template
+Then select ‘reactomics’ to use template for reactomics analysis. Here is a preview for data analysis of this study:
+Demo data path &amp;lt;- system.file(&amp;quot;demodata/untarget&amp;quot;, package = &amp;quot;rmwf&amp;quot;) files &amp;lt;- list.files(path,recursive = T,full.names = T) ST000560pos &amp;lt;- enviGCMS::getmzrtcsv(files[grepl(&amp;#39;ST000560mzrt&amp;#39;,files)])  Remove the redundant peaks # check the paired mass distance relationship pmd &amp;lt;- pmd::getpaired(ST000560pos) ## 56 retention time cluster found.</description>
+    </item>
+    
+    <item>
+      <title>MS/MS annotation by paired mass distances analysis</title>
+      <link>https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/</link>
+      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/</guid>
+      <description>Last year I make a poster presentation for MS/MS annotation by paired mass distance(PMD) analysis. It’s already been included as pmdanno function in pmd package. Here I will explain the principle of PMD annotation.
+Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as an example. Then you will get a list with each compound as element. The list should have a element of spectra with mz and ins, an element of name, an element of prec for precursor ions.</description>
+    </item>
+    
+    <item>
+      <title>Retention time alignment for peaks list</title>
+      <link>https://yufree.cn/en/2020/12/16/retention-time-alignment-for-peaks-list/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2020/12/16/retention-time-alignment-for-peaks-list/</guid>
+      <description>A regular open source metabolomics workflow could start from the open source format of RAW data. For xcms or other software, algorithm like obiwarp could be used to align the peaks into features. However, some workflows will start from the exported csv files from the instruments. The major issue is that peaks list is not features table and multiple samples should be aligned. Here I will show a native method to align peaks across samples in R considering the mass accuracy and pre-defined retention time shift.</description>
+    </item>
+    
+    <item>
+      <title>Local Metabolites-diseases database based on HMDB</title>
+      <link>https://yufree.cn/en/2020/12/01/metabolites-diseases-database-based-on-hmdb/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2020/12/01/metabolites-diseases-database-based-on-hmdb/</guid>
+      <description>Human Metabolites Database(HMDB) is a great tool to access human related metabolites or small molecular. You could access metabolites’ information about disease, which is important for public health related studies. However, it’s not easy to search multiple metabolites at the same time. Here I will show a demo to locally access multiple metabolites’ disease information.
+Step 1: Annotate the m/z with HMDB ID library(rmwf) library(enviGCMS) data(&amp;quot;mzrt&amp;quot;) data(&amp;quot;hr&amp;quot;) re &amp;lt;- enviGCMS::getms1anno(pmd = c(&amp;#39;Na-H&amp;#39;,&amp;#39;H&amp;#39;,&amp;#39;Na&amp;#39;), mz = mzrt$mz[1:10], ppm = 5, db=hr) ## No retention time information!</description>
+    </item>
+    
+    <item>
+      <title>Independent peaks selection algorithms</title>
+      <link>https://yufree.cn/en/2020/08/12/independent-peaks-selection-algorithms/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2020/08/12/independent-peaks-selection-algorithms/</guid>
+      <description>In mass spectrometry based untargeted analysis, raw data from instrument contain peaks level information. However, we actually care about compounds level information. For target analysis, quantitative and qualitative ions could stand for the target compounds. However, in untargeted analysis, full scan mode will collect all the charged compounds’ ions. One compound could generate multiple ions such as adducts, neutral loss, multiple charged ions, isotopougue and/or fragmental ions and those peaks are highly correlated with each other.</description>
+    </item>
+    
+    <item>
+      <title>SI for ASMS 2020 Reboot Reactomics Presentation</title>
+      <link>https://yufree.cn/en/2020/06/07/si-for-asms-2020-reboot-presentation/</link>
+      <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2020/06/07/si-for-asms-2020-reboot-presentation/</guid>
+      <description>I will be in the Q&amp;amp;A session for ASMS 2020 Reboot MOB pm: Exposomics, Toxicology, and Health Outcomes tomorrow. 20 minutes might not be enough to cover all the details of &amp;ldquo;Reactomics: using mass spectrometry as chemical reaction detector&amp;rdquo;. Here I list some useful resources for this presentation and I will update the Q&amp;amp;A after the online session in this post.
+Resources   Video. If you didn&amp;rsquo;t register for ASMS 2020 Reboot, here is the link to unlisted video on YouTube.</description>
+    </item>
+    
+  </channel>
+</rss>

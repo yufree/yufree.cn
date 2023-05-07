@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/tags/r/</link>
+    <description>Recent content in R on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1997-2020中国研究生数据分析</title>
+      <link>https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/</guid>
+      <description>最近还在处理《现代科研指北》的书稿，可以确定的是正式出版应该不会用这个名字，新名字我还没想好。书里很多内容与当前在线版有不伤害本质的区别与删</description>
+    </item>
+    
+    <item>
+      <title>漫谈 base R 与 ggplot2 </title>
+      <link>https://yufree.cn/cn/2021/12/18/base-r-ggplot2/</link>
+      <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/12/18/base-r-ggplot2/</guid>
+      <description>这几天心里颇不宁静。纽约的单日新冠确诊数又出了新纪录，工作邮箱里好几封通知群聚感染的邮件，很多还是完全免疫甚至打了加强针的。感觉新变种可以自</description>
+    </item>
+    
+    <item>
+      <title>因果结构提取</title>
+      <link>https://yufree.cn/cn/2021/03/15/pc-algorithm/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/03/15/pc-algorithm/</guid>
+      <description>因果关系能否直接从数据中获取这个问题对很多人而言答案是否定的，相关不代表因果都成了说烂了的老梗。根源上人认识世界只能通过可感知的现象，背后的</description>
+    </item>
+    
+    <item>
+      <title>MS/MS annotation by paired mass distances analysis</title>
+      <link>https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/</link>
+      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/</guid>
+      <description>Last year I make a poster presentation for MS/MS annotation by paired mass distance(PMD) analysis. It’s already been included as pmdanno function in pmd package. Here I will explain the principle of PMD annotation.
+Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as an example. Then you will get a list with each compound as element. The list should have a element of spectra with mz and ins, an element of name, an element of prec for precursor ions.</description>
+    </item>
+    
+    <item>
+      <title>R语言中的网络可视化</title>
+      <link>https://yufree.cn/cn/2020/06/24/r-network-analysis/</link>
+      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/06/24/r-network-analysis/</guid>
+      <description>这个问题反复掉坑，在这总结下，省的记吃不记打。 所谓网络可视化，一定是有节点与节点间连线组成，节点一般指代一个样品或特性，连线则代表了样品间或</description>
+    </item>
+    
+    <item>
+      <title>Daily check for coronavirus data</title>
+      <link>https://yufree.cn/en/2020/04/17/daily-check-for-coronavirus-data/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2020/04/17/daily-check-for-coronavirus-data/</guid>
+      <description>As employee of health system, every week I will check our lab for leaks or instrumental issues. Meanwhile, I am using the following code to check daily increasing cases in US state-county level every morning.
+I think three signals are crucial for community level data and every community and people should decide their own timeline for normal live to survive in this pandemic and potential recession in the following months or years:</description>
+    </item>
+    
+    <item>
+      <title>3D立体图</title>
+      <link>https://yufree.cn/cn/2020/04/15/magic-eye/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/04/15/magic-eye/</guid>
+      <description>小学时突然有一阵流行3D立体图，很多人拿着花花绿绿的铅笔盒到处显摆，然后一伙人聚到一起讨论看到了什么。我那时不知道怎么看，听别人描绘的神奇图</description>
+    </item>
+    
+    <item>
+      <title>新冠传播中的机会平等</title>
+      <link>https://yufree.cn/cn/2020/04/07/covid-19-community/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2020/04/07/covid-19-community/</guid>
+      <description>首先，虽然纽约是目前的重灾区，但生活其中也就那样。现在已经对各类甩锅与追责没了一丝兴趣，只是些憋在家里郁闷情绪的释放途径而已，这对个人认知失</description>
+    </item>
+    
+    <item>
+      <title>R语言会议幻灯片读后感</title>
+      <link>https://yufree.cn/cn/2019/06/28/r-conf-19/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2019/06/28/r-conf-19/</guid>
+      <description>今年的R会议幻灯片我直到这周才看，而且幻灯片体积着实不小，我这边下载好久才搞下来。先声明，读后感纯属个人感受，不代表统计之都主编意见，而且因</description>
+    </item>
+    
+    <item>
+      <title>R语言会议幻灯片读后感</title>
+      <link>https://yufree.cn/cn/2018/06/07/r-conf-18/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/06/07/r-conf-18/</guid>
+      <description>这两天抽空看了11届R语言会议的公开幻灯片，信息量还是比较大的，在技术这块那些放在我待办事项里的东西还没来得及看，下一代技术就已经出来了。有</description>
+    </item>
+    
+  </channel>
+</rss>

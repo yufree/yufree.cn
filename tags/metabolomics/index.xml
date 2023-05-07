@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>metabolomics on Miao Yu | 于淼 </title>
+    <link>https://yufree.cn/tags/metabolomics/</link>
+    <description>Recent content in metabolomics on Miao Yu | 于淼 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/metabolomics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>反应组学答疑</title>
+      <link>https://yufree.cn/cn/2023/04/15/reactomics-qa/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2023/04/15/reactomics-qa/</guid>
+      <description>写这个是因为我有个计数器，当同一个问题被问到一定次数后，我就会直接集中回答。 问：反应组学的一般分析流程是什么？ 答：这个我在2021年匹斯堡会</description>
+    </item>
+    
+    <item>
+      <title>竭泽而渔式非目的分析</title>
+      <link>https://yufree.cn/cn/2022/02/17/exhaustive-nontargeted-analysis/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2022/02/17/exhaustive-nontargeted-analysis/</guid>
+      <description>在高分辨质谱分析领域，偏生物样本的代谢组学与偏环境样本的非目的分析都是近期比较火的研究方向。这里关注的待测物一般是分子量1500Da或200</description>
+    </item>
+    
+    <item>
+      <title>Correlation coefficients cutoff to generate network in metabolomics</title>
+      <link>https://yufree.cn/en/2021/07/28/correlation-coefficients-cutoff-to-generate-network-in-metabolomics/</link>
+      <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/07/28/correlation-coefficients-cutoff-to-generate-network-in-metabolomics/</guid>
+      <description>One common research purpose in metabolomics is to check the relations among the metabolites. Correlation network is one of the most popular way to show such relations. However, such network will change with different selection of the cutoff of correlation coefficients.
+Let’s check some real world data.
+library(pmd) library(enviGCMS) data(spmeinvivo) # remove redundant peaks newmet &amp;lt;- globalstd(spmeinvivo) ## 75 retention time cluster found. ## 369 paired masses found ## 5 unique within RT clusters high frequency PMD(s) used for further investigation.</description>
+    </item>
+    
+    <item>
+      <title>机器学习在代谢组学中的应用演示</title>
+      <link>https://yufree.cn/cn/2021/03/07/demo-ml-metabolomics/</link>
+      <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2021/03/07/demo-ml-metabolomics/</guid>
+      <description>这是我给和鲸社区做的一期教案，主要讲了机器学习在代谢组学中的应用，这个 workshop 是免费的，我给他们做的教案也是免费的，算是交个朋友，这个模版用的是公</description>
+    </item>
+    
+    <item>
+      <title>reactomics data analysis template within rmwf package</title>
+      <link>https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/</link>
+      <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/</guid>
+      <description>To make reactomics data analysis more transparent and reproducible, I included one template in rmwf package. You could install the package from Github.
+install.packages(&amp;#39;remotes&amp;#39;) remotes::install_github(&amp;quot;yufree/rmwf&amp;quot;) If you use RStudio, you could try:
+File-New file-R Markdown-from template
+Then select ‘reactomics’ to use template for reactomics analysis. Here is a preview for data analysis of this study:
+Demo data path &amp;lt;- system.file(&amp;quot;demodata/untarget&amp;quot;, package = &amp;quot;rmwf&amp;quot;) files &amp;lt;- list.files(path,recursive = T,full.names = T) ST000560pos &amp;lt;- enviGCMS::getmzrtcsv(files[grepl(&amp;#39;ST000560mzrt&amp;#39;,files)])  Remove the redundant peaks # check the paired mass distance relationship pmd &amp;lt;- pmd::getpaired(ST000560pos) ## 56 retention time cluster found.</description>
+    </item>
+    
+    <item>
+      <title>Use msconvert in Linux or Mac</title>
+      <link>https://yufree.cn/en/2019/10/15/use-msconvert-in-linux-or-mac/</link>
+      <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2019/10/15/use-msconvert-in-linux-or-mac/</guid>
+      <description>One of the major issue for metabolomics data analysis is that user have to use Window to convert vendor data into open source format like mzML or mzXML. Though msConvert could be run under Linux or Mac, it will not support vendor format. It&amp;rsquo;s really annoying to set up virtual machine for data format issue. Another software supporting vendor format is Abf Converter, which also only support Windows and their output is for MS-DIAL.</description>
+    </item>
+    
+    <item>
+      <title>Quantum effect for chemical reaction</title>
+      <link>https://yufree.cn/en/2019/03/10/quantum-effect-for-paired-mass-distances/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2019/03/10/quantum-effect-for-paired-mass-distances/</guid>
+      <description>Due to mass defect, the high resolution mass spectrum could be used for qualitative analysis. However, I am curious about the distribution of the decimal part of real compounds&#39; exact mass. If compounds are generated randomly, the decimal part of exact mass should be uniform distributed between 0 and 1. However, we all know compounds should follow chemical property to form new compounds. In this case, let&amp;rsquo;s see what happened for certain compounds database.</description>
+    </item>
+    
+    <item>
+      <title>Metabolomics data analysis workshop slides @ UWaterloo</title>
+      <link>https://yufree.cn/en/2018/07/13/metabolomics-data-analysis-workshop-slides-uwaterloo/</link>
+      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2018/07/13/metabolomics-data-analysis-workshop-slides-uwaterloo/</guid>
+      <description>I am leaving Prof. Pawliszyn&amp;rsquo;s research group for Icahn School of Medicine at Mount Sinai(ISMMS) in September. During the past two week, I made 171 slides for a workshop about metabolomics data analsysis for our group in University of Waterloo. One target is training new group member and another target is to set up a reproducible data analysis system to facilitate further data analysis.
+I divided this workshop into five different parts: the first part is about a general introduction about metabolomics; the second part is related to statistical analysis in metabolomics; the third part is focused on batch effects; the fourth part is annotation and the last part is a demo for the whole workflow.</description>
+    </item>
+    
+    <item>
+      <title>Play with HMDB datasets: Part II</title>
+      <link>https://yufree.cn/en/2018/04/22/play-with-hmdb-datasets-part-ii/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2018/04/22/play-with-hmdb-datasets-part-ii/</guid>
+      <description>Our HMDB data have 114066 metabolites with 13 properties such as hmdb ID, monisotopic_molecular_weight, iupac_name, name, chemical_formula, cas_registry_number, smiles, kingdom, direct_parent, super_class, class, sub_class, molecular_framework. Let&amp;rsquo;s make some explore analysis:
+Ratio between monisotopic molecular weight and smiles library(tidyverse) hmdb %&amp;gt;% summarise_all(funs(n_distinct(.))) ## # A tibble: 1 x 13 ## accession monisotopic_molecular_weig… iupac_name name chemical_formula ## &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; ## 1 114066 13429 113720 114066 11762 ## # ... with 8 more variables: cas_registry_number &amp;lt;int&amp;gt;, smiles &amp;lt;int&amp;gt;, ## # kingdom &amp;lt;int&amp;gt;, direct_parent &amp;lt;int&amp;gt;, super_class &amp;lt;int&amp;gt;, class &amp;lt;int&amp;gt;, ## # sub_class &amp;lt;int&amp;gt;, molecular_framework &amp;lt;int&amp;gt; We have 13429 monisotopic molecular weight, 11762 chemical formula, 113900 smiles among the 114066 metabolites, which means for each monisotopic molecular weight, you could find ~8.</description>
+    </item>
+    
+    <item>
+      <title>Play with HMDB datasets: Part I</title>
+      <link>https://yufree.cn/en/2018/04/11/play-with-hmdb-datasets/</link>
+      <pubDate>Wed, 11 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2018/04/11/play-with-hmdb-datasets/</guid>
+      <description>The Human Metabolome Database is always used to make annotation for metabolomics studies. However, I am not sure which version of hmdb used in some packages like xMSannotator or MAIT. Then I suddenly realized I could directly grab the most updated version from their website and make annotation with those data. When you have a hammer, you always want to hit a nail.
+The most updated version is from 2018-04-10 in xml formats.</description>
+    </item>
+    
+  </channel>
+</rss>

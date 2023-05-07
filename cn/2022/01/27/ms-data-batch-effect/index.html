@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>质谱组学数据的批次效应 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="质谱组学数据的批次效应 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3109 字</span>
+    
+    <h1 class="article-title">质谱组学数据的批次效应
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2022/01/27</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E8%B4%A8%E8%B0%B1%E7%BB%84%E5%AD%A6%E6%95%B0%E6%8D%AE%E7%9A%84%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2022%2F01%2F27%2Fms-data-batch-effect%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E8%B4%A8%E8%B0%B1%E7%BB%84%E5%AD%A6%E6%95%B0%E6%8D%AE%E7%9A%84%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2022%2F01%2F27%2Fms-data-batch-effect%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2022-01-27-ms-data-batch-effect/index.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>组学数据的一个显著特征就是需要同时测定一个样本里成千上万的信号，这个信号可以是基因、蛋白或代谢物。但这是说给外行听的，真实数据对于基因组来说一个基因对应测定的可能是十几个碱基序列片段或测序信号，对蛋白组来说一个蛋白的数据需要从众多肽段重组出来（也可以直接topdown测定，勿杠），对代谢组而说一个代谢物能产生十几个包括同位素、加合物、寡聚体在内的质谱峰。但凡分析化学背景出身的研究人员都会特别关心测量上的质量问题，因为如果本来就测得不对，后面的统计方法或可视化方法再怎么天花乱坠都属于空中楼阁。</p>
+<p>不过，真实情况要复杂很多。就算一个样品只需要20分钟分析，50个样品需要加上空白与混合样进行质量控制，一般每10个样品就需要进一针空白与混合样，这样实际要进样60个，考虑上每次进样前后都需要一些混合样来稳定柱效，这一批样品大概要跑24小时。每天50个样品连续跑一周也就能跑三百多个真实样品，但凡用过色谱的都知道一根柱子跑上几千个样品后基本也就该换了，连轴转的实验室基本半年一换。而且，做过分析的都知道，连轴转要比断断续续做对仪器稳定性来说更好，但即使再好，同一个样品隔一周测一次也能看到明显的变化，有时候是信号逐渐减弱，有时候则是响应突然断崖式跌一个数量级。从我个人经验而言，即使连续进样的数据也会出现类似状况，更不用说应对那些队列数据。</p>
+<p>队列数据收集起来不是一次成型的，所以样品天然就存在不同批次。今天采血的大哥拔针偏慢，下次采血的大姐喜欢快速收针，很容易造成样品天然背景就不一样。这时候即便你把样品混到一起随机进样，看到的也是基线高高低低的总离子流。不过这都不算事，因为队列数据经常不是同一时间收集的，所以要么攒到最后一起测，要么凑一波几十个样先测，前者需要保证样品储存不能产生影响，后者需要保证不同时间分析的仪器出信号要稳定。巧了，这两个保证现实中一个都做不到，即使零下八十摄氏度保存代谢物也会出现差异（我在实验室验证过），而仪器前面说了，隔一周都不够稳就不用说隔几个月甚至几年了。在论文里大家都会说是稳定的或者换个方式说“尽最大可能保证稳定”，至于不稳定的部分，学术界目前都是回避讨论。所以，用流行病学样本里的分子证据来证实某种疾病的机理是很困难的，一般都需要实验室条件下用老鼠或细胞实验来反复验证。我称之为测不准原理，不懂测量分析的研究人员容易沉浸于理论的逻辑自洽中，真实数据里的因果要比假设的复杂得多。</p>
+<p>好了，既然提到批次效应，我们就要想办法去掉这个影响。做目的性分析出身的人往往很不屑，因为他们有内标法。内标法一般是用稳定同位素标记过的物质在样品进样前加入，所有测到的目标物的响应都要去除内标的响应，这样如果分析上的波动是来自于仪器的不稳定，那么内标控制后的响应就可以排除掉这部分影响。不过内标法有一个前提，那就是标记物质与待测物在仪器上响应因子要一样，原汤化原食。但到了非目的分析，开全扫描模式，你根本不知道待测物是什么，此时加入内标并用内标矫正所有峰响应就属于胡闹了。不同物质的离子化过程是有差异的，在同一样品基质下，有些是信号增强，有些则是信号减弱，你要是用信号减弱的校准信号增强的，那么增强的信号就更强了。我到现在也不是很明白为啥有些非目的分析的研究中还在用内标，不是说内标没用，而是内标能校准的东西太少了。</p>
+<p>真正有用的混合样，也就是每一批次的样品都取出10微升来混成一个样，这样的样品应该会包含所有样品里的物质。那么，我们只要隔10个样品进一针混合样，然后就可以得到混合样里每一个物质的变化趋势了，然后只需要将这个变化趋势去除掉，剩下的就是样品物质的真实生物学变化了。这里需要注意的是这个变化趋势要是明显的才有矫正的意义，举例来说A物质在整个进样序列里的混合样中一直下降，那么对多个混合样里A物质的响应与其进样顺序做回归分析就会看到一条斜率为负的回归线，此时代入样品的进样顺序就会给出在这个回归线上的响应。所谓去除批次效应，就是用样品的真实响应去扣除掉进样顺序回归产生的响应。因为每个物质的质谱响应行为不同，所以回归线也不一样，有线性的，也有非线性的，但这个回归线的物理意义就是来自于进样顺序或批次的影响。因此，如果你进样序列里有混合样，那么后面发现批次效应就可以用这种方式进行原汤化原食的矫正。</p>
+<p>不过，有些实验数据过于莽撞，根本就没加入空白或混合样，这样有没有办法进行矫正呢？也有，但不全有。如果我们知道样本分组的话，那么数据还有救。所谓的样品，不过是一堆存在异质性的数据，如果我们的目标是寻找样品分组差异，那么所有不同于分组差异的显著性趋势都可以归类为某种批次效应。这样对多个物质而言，我们就先构建一个模型：</p>
+<p><code>$$响应 = 分组差异 + 其他差异$$</code></p>
+<p>这样我们就得到一个其他差异的初始值矩阵，然后我们对这个其他差异的矩阵进行主成分分析或svd分解，这样就可以提取出其他差异中的主要趋势，然后我们构建下面的模型：</p>
+<p><code>$$响应 = 其他差异主成分+分组差异+剩下的其他差异$$</code></p>
+<p>拟合这个模型，然后继续在剩下的其他差异中找主要趋势，这里需要设计一个显著性的统计量，当统计量不再显著后就停止寻找，此时的模型就成了：</p>
+<p><code>$$响应 = 分组差异+其他差异所有主成分$$</code></p>
+<p>此时，我们只提取分组差异就可以了，这个迭代过程就是替代变量的构建过程，这个方法可以在没有混合样但知道样品分组的条件下进行批次效应控制，效果非常好。那有朋友就会问了，如果我不知道分组差异呢？那我反问一个问题，你怎么知道存在批次效应呢？此时样品的波动究竟是来自于批次效应还是样品本来的差异根本就没法知道。如果你确定来自于批次效应，那么其实直接构建下面的模型：</p>
+<p><code>$$响应 = 生物学差异+批次$$</code></p>
+<p>就可以了，但你至少也要知道批次或进样顺序，如果都不知道，我甚至都不知道你有什么理由认为存在批次效应。对于非目的分析，批次效应的难点在于不同物质的效应不一样，没办法用单一方法进行矫正，但这不代表盲目矫正就是对的。通常而言，如果你已经看到了批次效应，那么这个趋势就应该是可建模识别的，否则你根本说不清楚究竟是批次效应还是样本异质性导致出的现象。现在出现了很多自动化的批次效应检测矫正工具，且不论其中大部分都是重复造轮子，很多工具设计者本身就没有理解批次效应的复杂性简单进行函数套用来自动化决策过程，这种工程思维对软件开发是没问题的，但对科研是很不负责的。话虽这么说，这样的事其实我也没少干，这也是最近我在反思的问题，工具永远不能替代思考，否则人会陷到机械流程中无法自拔。</p>
+<p>此外，现在很多研究人员会只做目的性分析的代谢组学，也就是只去测定已知代谢物的数据并进行讨论。其实这是个聪明的选择，因为非目的分析通常会被物质鉴定卡住，做到最后其实也只能给出已知的在谱库里的数据，这只是另一种形式的目的性分析。不过，组学数据如果最后只能用已知信息来给出结论，那么额外测定的信息其实毫无价值。这可以部分解释为什么基因组或测序总能发现新东西而做蛋白的都喜欢光源冷冻电镜，代谢组学则始终在方法学层面打转，不是小分子里没有生物信息，也不是提取不出来，而是提取出来数据库里没有就给扔了。而且数据库匹配现在也是玄学，很多化合物标准品的谱图长一个样，放到生物样品里加上基质效应加上不同仪器状态就变另一个样了，考虑到代谢组学样品前处理跟没有差不多，就算你测到了已知物可能都无法匹配出来。</p>
+<p>这些现实存在的问题都需要解决，只进行“聪明的选择”永远也回答不了最难的科学问题，只是现在的我有点怀疑：是不是有些东西就是永远也测不准呢？如果是的话，那科研就一定要想办法与这种永恒的不确定性共存并寻求发展，这也是过去两三百年科学家们一直在做的。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2022/01/22/hypnosis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 催眠</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2022/02/05/education-investment/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">投资式教育 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2022\/01\/22\/hypnosis\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2022\/02\/05\/education-investment\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

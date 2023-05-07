@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>无尺度网络 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="无尺度网络 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4000 字</span>
+    
+    <h1 class="article-title">无尺度网络
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2020/03/14</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E6%97%A0%E5%B0%BA%E5%BA%A6%E7%BD%91%E7%BB%9C&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2020%2F03%2F14%2Fscale-free-network%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E6%97%A0%E5%B0%BA%E5%BA%A6%E7%BD%91%E7%BB%9C&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2020%2F03%2F14%2Fscale-free-network%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2020-03-14-scale-free-network.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>无尺度网络是巴拉巴西在二十多年前提出的一个描述真实世界网络的概念，他目前也被认为是网络科学研究的领军人物，我第一次听到这个概念是懵圈的，啥叫无尺度网络？为啥无尺度？后来陆续读过他写的《连接》与《爆发》，大概明白了无尺度网络的度分布符合幂律，但依旧不清楚这个无尺度的来源。最近读了他放在网上的一本网络科学<a href="https://networksciencebook.com/">教材</a>才算是搞明白，他写文章讲故事能力绝对高于一般研究人员一个数量级，不过因为读过他之前的书，所以你会发现他来来回回讲的都是一组故事，畅销书与教材的区别在于去掉了数学推导。霍金在他的科普书里说每增加一个公式就会流失一部分读者，但我倒是感觉如果一个公式就能讲明白就完全可以写上，因为数理推导的缺失反而会让读者因为缺失环节而迷惑，当然掏钱买书跟让读者看明白是两件事。下面我就顺着巴拉巴西教授的思路捋一下一个新学科的构建过程，顺道把无尺度这个问题解决掉。</p>
+<p>在解释无尺度网络之前，我们先来看看数学里的一个分支，也就是图论。图论很好的把现实世界中网络抽象为了节点与连接两个基本元素，巴拉巴西的网络里的基本概念也是对着图论来构建的。不同于图论对路径、子图及染色问题的关注，网络科学关注于网络的统计特性，这里指的是节点的度的统计特性。所谓度，指的是节点对内对外的连接数，而度的矩就是网络科学研究的统计特性。</p>
+<p><code>$$x^n = \frac{x_1^n+x_2^n+...+x_N^n}{N} = \frac{1}{N}\sum_{i=1}^N x_i^n$$</code></p>
+<p>这里比较直观，一阶矩就是网络里的平均度，二阶矩就是网络里度的方差，这些都是对着统计学里的矩估计构建的。有了矩就得讨论其概率分布，这里我们先看度的概率分布。</p>
+<p>$$\sum_ip_x = 1$$</p>
+<p>也就是描述一个网络，我们可以先通过节点度的统计量与概率分布来入手。</p>
+<p>度或者平均度都是很宏观的单一数值描述，如果想依赖度重建网络是不行的，你也不知道谁连接谁。这时候需要的就是连接矩阵，你把所有节点横着排一排然后再竖着排一列就形成了一个网格。两个节点如果有连接网点就是1，反之就是0。打个比方，节点1连接了节点5，那么坐标1，5 与5，1的网点就都是1，如果你的连接有方向性，例如1到5，那就只有坐标1，5的网点是1。在网络科学里，一般<code>$A$</code> 来表示连接矩阵，用<code>$A_{ij}$</code>与<code>$A_{ji}$</code>来表示具体的<code>$i$</code>到<code>$j$</code>或<code>$j$</code>到<code>$i$</code>的连接，也就是连接矩阵的右上左下各一半。</p>
+<p>度与链接矩阵的关系很简单，在无方向网络里，平均度就是<code>$A_{ij}$</code>或<code>$A_{ji}$</code> 的均值，有方向就单算。通常来说，这个矩阵非常稀疏，毕竟一般连接数都远小于节点数。另外，连接有强弱，所以<code>$A_{ij}$</code>与<code>$A_{ji}$</code> 的取值范围可以在0到1之间，这也就是所谓的加权网络。当然了，如果你把网络可视化了，也可以计算两个节点的最短通路与聚集行为，这些数学上是可以有基于度与连接矩阵的清晰定义，但也已经跟实际问题更相关了，基本上就是你有什么目的就去定义对应的统计量或性质。</p>
+<p>有了这些基本概念，我们可以研究下最简单的网络模型，也就是随机网络模型。在一个随机网络里，任意两点连接的概率是已知的，度的概率符合二项分布（要么连，要么不连），那么网络的平均度就仅仅取决于概率与节点数的乘积。如果网络连接比较稀疏（例如数据收集不全时），那么度就会符合泊松分布，其概率的数学表述就一个平均度。那么在一个平均度不高的随机网络里，几乎就不太可能出现很高的度。事实上，数学与物理出身的科学家的模型几乎都是从随机网络起步的，我也相信其中一大部分并不看好巴拉巴西的工作，数学家的模型严丝合缝，物理学家的模型预测能力对现实世界简化太多，巴拉巴西则是声称自己找到了复杂世界网络的简单数学描述，而在数学物理学家看来，巴拉巴西只做了几种随机网络的特例，而且跟实际对应也不好。不过有一点不可否认，真实世界中的网络确实不符合随机网络模型而最早发表的随机网络的论文在40年里平均每年被引用10次，但自从巴拉巴西发表了他的网络科学论文后，这篇论文才被学术界重视，每年引用超过100次。学术界也需要会讲故事的人。</p>
+<p>随机网络有个重要特性就是小世界或者六度分割理论，也就是说在随机网络里任意节点间的平均距离很小。这个不难推导，我们认为总节点数为N，平均度为k，平均距离跟度是有关系的，举个极端的例子，度为1时平均距离也是1，所有节点实际都会形成互相隔离的节点对；同理可以推测，当平均度超过1时，多节点网络才可能出现；当平均度约等于节点数时，所有节点会与所有节点直接连接。这里注意，平均度为1的时候，随机网络里两个节点连接的概率大概是节点数的倒数。那么这里就可以对随机网络进行分类了，当平均度小于1时不会出现大的集群，大于1时开始出现集群，而平均度大于<code>$lnN$</code>后，所有节点就应该都连接在一起了，而真实世界的网络平均度介于1与<code>$lnN$</code>之间。就单个节点而言，其距离为1的节点数为平均度，距离为2的节点数为平均度的平方，所有节点距离的和为一个等比数列的和，这个距离最大不超过所有节点数，而因为真实网络平均度大于1，其距离决定于平均度的最高次幂，而这个最高次幂就是单一节点的最远距离：</p>
+<p>$$d_{max} \approx \frac{lnN}{lnk}$$</p>
+<p>这就是小世界网络特性的起源，真实世界数据代入后会发现这个最远距离通常非常小，这里注意我们依旧讨论的是随机网络模型的一种扩展，或者说是 Watts-Strogatz 小世界网络模型，这个模型的特点是度分布依旧符合泊松分布，但存在高连接度节点来降低平均距离。不过巴拉巴西认为，小世界网络模型不是最真实网络的反应，他给出的模型就是无尺度网络。</p>
+<p>巴拉巴西的起点是网页分析，在90年代末他发现网页间的网络节点度的分布不符合泊松分布，而是更像幂律分布。翻译成人话就是低度数或者连接很少的节点占大多数，而连接数很多的节点很少，而柏松分布里大多数节点的度差不多。也就是说，真实世界存在少数的高连接度的枢纽（hub），随机形成的网络则不会出现，但巴拉巴西不管这个叫幂律分布网络而起名无尺度网络。所谓无尺度（Scale-Free），其实也是从统计物理学里的相转移理论来的。前面说了，网络一阶矩是平均度，二阶矩是度的方差，对于随机网络而言，平均度与方差都是可以估计的，标准差是平均度的开方，因此，随机网络的度的范围就在平均度加减两倍标准差之内，这就是所谓“有尺度”。但在幂律分布的网络里，平均度是可以计算的而标准差无法计算，从很小到很大都有可能，跨了几个数量级，这就是所谓的“无尺度”网络。巴拉巴西测了一下从互联网到演员到大肠杆菌的代谢网络，发现这些真实网络都更接近无尺度网络，有一个很小的平均度，但方差非常大。</p>
+<p>既然是幂律分布那就涉及那个幂次（这里指的是绝对值），巴拉巴西发现网络平均距离跟节点数在不同的幂律下会形成不同的特性。例如，当幂是2时，平均距离就是常数，在2到3之间时，平均距离为<code>$lnlnN$</code>，在等于3时，平均距离为<code>$\frac{lnN}{lnlnN}$</code>，而当幂律高于3时，平均距离为 <code>$lnN$</code>。也就是幂律高于3时，无尺度网络基本等同于平均度为1的随机网络了。从这里我们可以看出在无尺度网络模型里，平均距离通常比小世界网络还要小，巴拉巴西称之为超小世界特性，而当幂律高于3时，小世界特性就出现了但此时就不再有无尺度特性。经过真实世界网络对比，巴拉巴西发现超小世界特性更符合多数现实数据而现实世界中也确实存在符合只符合小世界模型的网络。同时要注意的是，幂律低于2的网络图论上无法生成。</p>
+<p>说到这里基本就涵盖了《连接》这本书的内容，在后面的篇章里或者说《爆发》这本书里，巴拉巴西讨论了这种无尺度网络是如何生成的，也就是 Barabási-Albert 模型。他认为无尺度特性的产生主要来自于网络生成过程中的选择依附，新的节点会优先找已经有很多连接的节点进行连接，类似光环效应。不过他很快发现，很多无尺度网络的生成不需要选择依附且老的高连接度节点也会被新的节点取代，因此他又提出了 Bianconi-Barabási 模型，这个模型考虑了节点寿命问题并引入了 Bose-Einstein 凝聚态模型，将节点的进化过程于轨道能级来对应，新的节点会优先加入跟自己能级接近的轨道，因为网络的进化，具备更好适应性的新节点会逐渐淘汰掉低进化度的旧节点，这就模拟出了网络的动态进化。</p>
+<p>有了相对完备的网络模型之后，巴拉巴西后续考察了这些模型在不同场景里的应用，例如网络集群现象、突发事件的流行现象、网络的稳健性还有度相关问题。所以他的整体学科构建思路是很清晰的，从实际现象出发，构建网络模型的数学表达，然后不断修正模型符合事实，然后利用模型预测真实事件或进行解释。任何一个学科都需要这样的过程才能独立，不过接受度目前不好说，做复杂系统的会觉得太简单，做应用的会觉得太麻烦。但他这个无尺度网络其实对于当前全球流行的疫情是很有启发的，因为疾病流行的模型基本也是一个无尺度网络的生成过程，这里面会有超级传染者，但更多人实际上社会关系并不复杂，当防控资源紧张时，应优先把节点人物或者喜欢到处乱跑的控制住，例如防疫初期应优先断掉跨国交通、国内公共交通、宗教集会与学校这些被动人群聚集节点，此时传播网就会打断变成家庭聚集的低度网络，此时医疗资源如果充足，基本过了一波就会消散。然而，如果出现漏网之鱼，哪怕只有一个高度数节点，前面都白做。同样的道理，如果有了疫苗也得优先给这些人打而不是易感人群，例如服务业从业人员要优先于工业农业进行免疫，更好的方法则是基于个人历史行为自动判断后强制免疫或隔离，不过如何识别这些人在保护隐私的今天怕也不是件容易事。这又让我想起了《心理测量者》里那个西比拉先知系统，我们是否可以同意将自己的行为数据上传给一个超级计算系统来汇总判断，在出现特定问题时被预防式控制以求多数人的安全？</p>
+<p>虽然有很多批评，我认为无尺度网络的理论体系与应用整体还是很强大的，也很清楚显示了应用学科对数理基础学科理论借鉴的重要性，里面虽然我忽略了公式推导但有高数背景的应该很容易自己推理出来。诚然，无尺度网络不是万金油，但这个视角下确实要比看表面数字更深入。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2020/03/08/nyc-exposome-symposium/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 纽约暴露组学研讨会纪要</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2020/03/23/nyc-coronavirus-ten-days/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">纽约十日谈 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2020\/03\/08\/nyc-exposome-symposium\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2020\/03\/23\/nyc-coronavirus-ten-days\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

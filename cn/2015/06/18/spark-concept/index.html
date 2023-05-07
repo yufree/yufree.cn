@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Spark中关键概念的理解 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Spark中关键概念的理解 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2638 字</span>
+    
+    <h1 class="article-title">Spark中关键概念的理解
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2015/06/18</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Spark%E4%B8%AD%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5%E7%9A%84%E7%90%86%E8%A7%A3&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2015%2F06%2F18%2Fspark-concept%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Spark%E4%B8%AD%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5%E7%9A%84%E7%90%86%E8%A7%A3&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2015%2F06%2F18%2Fspark-concept%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2015-06-18-spark-concept.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>其实我自己对spark的应用场景是没什么需求的，但几个月前不知道怎么想的在edx上选了一门伯克利的<a href="https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info">spark课</a>，所以就入了坑。一共五周，现在开到第三周，因为对python不熟加上记性也不好，先把其中比较干货的东西捡出来，此外剩下两周的课可能由于外出开会耽误。我没有计算机科学背景，所以仅按照自己理解与讲义来写，疏漏之处见谅。</p>
+<h2 id="spark简介">Spark简介</h2>
+<p>Spark是用来解决大量数据处理问题的一个工具。由于现在数据产生非常快，单机在收集、储存与处理数据上是性能不足的。如果我们用集群的话收集与存储是没问题了，但如何快速处理数据让数据变成知识也是需要工具的。此外，集群出于成本考虑多采用分布式的结构，所以这个工具要做的就是从这些分布式集群中快速准确的提取信息，而这也是spark的设计初衷。</p>
+<p>我们来理解一个分布计算场景：这里有一大段文本，我们把它们分成N份去储存，现在我打算计算词频，该如何做？</p>
+<ul>
+<li>
+<p>方案一：每个储存单元作为一个处理单元，进行分词后各自计算自己分到文本的词频，然后汇总发送到另一个独立处理单元单独作汇总。这个方案是分层的，高层汇总单元（比较贵）挂了也就挂了，而同时响应并发数据很容易把这个单元搞宕机。</p>
+</li>
+<li>
+<p>方案二：既然两层会挂掉，那我就在中间继续添加独立汇总层，例如在进行最终汇总前面加两个处理单元，每个处理单元只处理下层有限个储存单元的数据然后汇总。这样由于存在缓冲层甚至多个缓冲层，我们的处理单元成本可以相对一致，整体处理的稳定性会好一些。但这仍然是分层逻辑，高层挂了还是全挂。</p>
+</li>
+<li>
+<p>方案三：还是分层，但是这次是逻辑分层，在词频问题上就是我们的处理层不是一台中枢而是多个处理单元。每个处理单元只收集处理逻辑上的一部分，例如处理中心A只响应词频高于100的，B只响应50～100的…这样出现宕机只会损失一部分运算。</p>
+</li>
+</ul>
+<p>在这里前面负责分词那一部分可理解为数据的map，也就是映射成可独自处理的小部分，而后面根据词频分别汇总可理解为reduce，也就是处理为想要的部分。整个流程就是先map到想要处理的东西，然后reduce为处理后的东西，不断循环。类似R里面从原始数据中提取想要的数据后进行处理，只是应用场景换成比较高大上的集群，而规模一大就需要有工具来把底层分发处理工作高效化，这样看spark实际提供了一个处理对象，底层的黑活（例如某个处理单元挂了重启）通过spark完成，我们只管用熟悉的数据处理方式来处理spark对象就可以了。</p>
+<p>其实这个问题不是spark首先发现解决的，Hadoop也是来处理这个问题的，但由于Hadoop都是硬盘读写操作，大量的I/O会降低处理速度，spark的一大高明之处在于把硬盘读写省了，都在内存里玩，如果中间处理品需要，可以另外cache。</p>
+<h2 id="resilient-distributed-datasetsrdd">Resilient Distributed Datasets(RDD)</h2>
+<p>RDD是spark的核心概念，所有要处理的数据都以RDD形式存储或使用。RDD可以直接生成或通过其他格式转化，这个处理对象从硬盘数据生成后运行在内存里，然后你就可以用熟悉的编程语言来处理这个对象了，目前支持Scala，Java，R与Python，同时Spark也提供了不少自带的函数来进行数据分析，前提是你得学下Scala。</p>
+<h2 id="driver-and-workers">Driver and Workers</h2>
+<p>Spark里一个程序是由两部分组成：Driver与Workers。Workers工作在集群节点或线程中，而上面说的RDD是分布在这些Workers中。Driver就是你的应用需求了，把需求提给Workers就完成编程了。</p>
+<h2 id="rdd的创建与操作">RDD的创建与操作</h2>
+<p>以下讨论我使用的是PySpark中的术语，也就是使用Spark的Python接口包。</p>
+<p>首先是RDD的创建，RDD可以来自python的list对象，也可以来自RDD的转化与直接从硬盘读取。在RDD创建时，你可以指定RDD的分区，例如指定为5就是说会分发到5个集群节点去处理。这里是可以精细化配置的，当然你得对集群有概念，反正我没概念。</p>
+<p>然后是RDD的操作，有两种类型，一种是transformations，另一种是actions。当你指定transformations时操作不会立即执行，属于lazy loading，当指派了actions后，操作才会执行。此外如前所述，RDD可以缓存到内存或硬盘上，对于使用者而言只要缓存了就ok，底层工作让spark来做就够了。</p>
+<p>filter及与Hadoop类似的map功能是属于transformations的，也就是说我可以先写一大段transformations，但只要没有actions的功能例如计数（count）或收集（collect），这些语句是不被执行的。举个例子，我打算从集群的数据里map某个条目，然后filter其中符合某些特征的条目，最后计数。只有最后这个是actions，如果没有这个命令，前面那一套都不执行。</p>
+<h2 id="spark程序生命周期">Spark程序生命周期</h2>
+<ul>
+<li>从外部数据中建立RDD</li>
+<li>通过transform变成新的RDD</li>
+<li>cache()一些关键RDD为了复用</li>
+<li>执行actions来进行计算并输出结果</li>
+</ul>
+<h2 id="broadcast-variables">Broadcast Variables</h2>
+<p>当某些变量需要只读的分发给所有workers，spark可以通过广播这些变量到所有workers。举例而言，当你需要反复利用同一个数据表做查询，如果每个workers都计算一遍就不如把这个表先生成广播到所有workers里来的高效。</p>
+<h2 id="accumulators">Accumulators</h2>
+<p>聚合所有workers结果回driver而workers之间不需要传送时，spark提供accumulators来汇总，提高性能。举例而言，当我做求和时需要汇总各个workers的数值到driver，我并不需要workers去读取driver上的数值，这时accumulators就可以在全局上进行汇总。</p>
+<h2 id="pyspark实例">PySpark实例</h2>
+<h3 id="rdd的建立">RDD的建立</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 从python list里构建</span>
+data <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>]
+<span style="color:#75715e"># 这个构建行为不是actions，只是指定构建方式，包括分发数</span>
+RDD <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>parallelize(data,<span style="color:#ae81ff">4</span>)
+<span style="color:#75715e"># 从Hadoop输入格式建立</span>
+distFile <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>textFile(<span style="color:#e6db74">&#34;README.md&#34;</span>, <span style="color:#ae81ff">4</span>)
+</code></pre></div><h3 id="rdd的transformation与lambda函数">RDD的transformation与lambda函数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 构建RDD</span>
+rdd <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>parallelize([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>])
+<span style="color:#75715e"># 用python的lambda函数来构建映射</span>
+rdd<span style="color:#f92672">.</span>map(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+<span style="color:#75715e"># RDD:	[1,2,2,4] → [2,4,4,8]	</span>
+rdd<span style="color:#f92672">.</span>filter(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+<span style="color:#75715e"># RDD: [1,2,2,4] → [2,2,4]</span>
+rdd<span style="color:#f92672">.</span>distinct()	
+<span style="color:#75715e"># RDD: [1,2,2,4] → [1,2,4]</span>
+</code></pre></div><p>从这里我们可以看出这个操作非常类似R中对数据框的操作，但因为是lazy的，没有action命令它们不会实际被执行。</p>
+<h3 id="rdd的action与lambda函数">RDD的action与lambda函数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rdd <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>parallelize([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])
+rdd<span style="color:#f92672">.</span>reduce(<span style="color:#66d9ef">lambda</span> a,b: a<span style="color:#f92672">*</span>b)	
+<span style="color:#75715e"># Value: 6</span>
+rdd<span style="color:#f92672">.</span>take(<span style="color:#ae81ff">2</span>)
+<span style="color:#75715e"># Value: [1,2]	</span>
+rdd<span style="color:#f92672">.</span>collect()	
+<span style="color:#75715e"># Value: [1,2,3]	</span>
+</code></pre></div><p>Spark的一大优点在于比Hadoop提供了更多的操作，这一点需要详查文档体会。</p>
+<h3 id="broadcast-variables-1">Broadcast Variables</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># driver端	</span>
+broadcastVar <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>broadcast([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])	
+<span style="color:#75715e"># worker端</span>
+broadcastVar<span style="color:#f92672">.</span>value
+<span style="color:#75715e"># [1,2,3]</span>
+</code></pre></div><h3 id="accumulators-1">Accumulators</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">accum <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>accumulator(<span style="color:#ae81ff">0</span>)	
+rdd <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>parallelize([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>])	
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x):	
+ <span style="color:#66d9ef">global</span> accum
+ accum <span style="color:#f92672">+=</span> x			
+rdd<span style="color:#f92672">.</span>foreach(f)	
+accum<span style="color:#f92672">.</span>value
+<span style="color:#75715e"># Value: 10	</span>
+</code></pre></div>
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2015/06/07/fishing-chocolate/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 科研钓鱼-巧克力减肥事件</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2015/07/02/shalom/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">以色列游记 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2015\/06\/07\/fishing-chocolate\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2015\/07\/02\/shalom\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

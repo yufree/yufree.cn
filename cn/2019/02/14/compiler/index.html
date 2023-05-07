@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>编译器漫谈 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="编译器漫谈 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1296 字</span>
+    
+    <h1 class="article-title">编译器漫谈
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2019/02/14</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E7%BC%96%E8%AF%91%E5%99%A8%E6%BC%AB%E8%B0%88&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2019%2F02%2F14%2Fcompiler%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E7%BC%96%E8%AF%91%E5%99%A8%E6%BC%AB%E8%B0%88&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2019%2F02%2F14%2Fcompiler%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2019-02-14-compiler.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>最近借由一次R包安装失败，我又重新收集了下关于编译的概念与知识，为了让下一次失忆的我不至于再折腾半天，就归纳到这里。</p>
+<p>C语言源码编译运行过程是这样的：先预处理源码，调入模块，然后转换成汇编语言文件，汇编语言文件可以被汇编器转为机器码，然后通过连接器合并为可执行文件，最后加载到内存里运行。因为C语言是多数操作系统的基础，所以多数操作系统也自带对应的C编译器。更重要的是，C语言的库很丰富，也就是工具函数比较多，换别的就得自己写。这是很有意思的路径依赖案例，事实上任何语言都应该可以拿来写操作系统，不过C是在开发Unix时候设计出来的，现在流行的开发级操作系统都是unix/类unix操作系统，加上C在内存管理与CPU交互上的先天优势，历史机遇下成为了主流。</p>
+<p>C的核心地位还体现在很多高级语言的编译器是构建在C之上的，或者是C++之上，多数高级语言都通过限制自由度（例如不让操作内存、功能模块化等）来实现上手容易与较高的开发效率，但只要关注程序性能，肯定回去学C或C++的。GNU的GCC编译器是一个相对通用的编译器合集，可以用来编译包括C在内的多种语言。然而，GCC也是有历史包袱的，所有有人就另起炉灶单独针对C或C++重写了效率更高的编译器及其后台，这就是苹果的LLVM项目与clang编译器。但要注意的是LLVM支持的语言不如GCC多，所以如果你还要用到fortain或java编译器，那就还是老老实实用GCC吧，或者cmake的时候分别指定编译器，只要你不嫌麻烦。一般而言，效率与性能往往不能兼得。</p>
+<p>高级语言的编译过程跟相对底层的C或C++是不一样的，Java就是自己定义了一套运行环境JVM，编译出的文件也是JVM可读的，这就提高了Java的可移植性，降低了跨平台开发的难度，当然你得保证这些平台上可以运行JVM。其实很多高级语言是解释型的，REPL里可直接运行代码，但同样会有人为高级语言写编译器来提高运行性能，这个是按需求来。我个人感觉是用REPL的人一般是应用层的，关心有没有满足自己需求的函数；用编译语言的人一般是开发层的，关心软件工程及性能。然而，高级语言里如果打算提高运行效率，也会提供C或C++的接口让程序员可以通过外力来提高自由度。过度的功能封装实际也限制了高级语言的应用场景。</p>
+<p>说到效率，自然少不了并行计算，openmp就是一种并行化方案，可以支撑C与C++。很多R包会通过使用 openmp 来底层加速算法，但这样的包一般都需要单独编译。目前GCC与Clang在编译器层其实都实现了对 openmp 的支持，编译时加上 <code>-fopenmp</code> 就可以。不过 mac os 自带的编译器是没有这个功能的，所以你需要 homebrew 来自己安装这些支持 openmp 的编译器然后在 <code>.R/Makevars</code> 里把默认编译器换成新的就可以了。</p>
+<p>例如你装了llvm/Clang，可以写上：</p>
+<pre><code>CC=/usr/local/opt/llvm/bin/clang
+CXX=/usr/local/opt/llvm/bin/clang++
+CXX11=/usr/local/opt/llvm/bin/clang++
+</code></pre><p>或者GCC版（注意版本要对应）：</p>
+<pre><code>CC=/usr/local/bin/gcc-8
+CXX=/usr/local/bin/gcc-8
+CXX11=/usr/local/bin/gcc-8
+</code></pre><p>或者更简单的方法就是不用并行计算，直接在<code>.R/Makevars</code> 里参数留空强制跳过对openmp的编译要求：</p>
+<pre><code>SHLIB_OPENMP_CFLAGS=
+SHLIB_OPENMP_CXXFLAGS=
+</code></pre><p>同样的道理可以用在开发上，如果你编写R包涉及了相关并行计算功能，需要在<code>src</code>目录下创建Makevars文件来帮助用户提前配置编译参数，不过这方面我就没经验了。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2019/02/05/doe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 试验设计与分析</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2019/02/17/comic-dialogue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何欣赏相声 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2019\/02\/05\/doe\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2019\/02\/17\/comic-dialogue\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Retention time alignment for peaks list - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Retention time alignment for peaks list - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+    <h1 class="article-title">Retention time alignment for peaks list
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2020/12/16</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Retention&#43;time&#43;alignment&#43;for&#43;peaks&#43;list&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2020%2F12%2F16%2Fretention-time-alignment-for-peaks-list%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Retention&#43;time&#43;alignment&#43;for&#43;peaks&#43;list&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2020%2F12%2F16%2Fretention-time-alignment-for-peaks-list%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2020-12-16-retention-time-alignment-for-peaks-list/index.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>A regular open source metabolomics workflow could start from the open source format of RAW data. For xcms or other software, algorithm like obiwarp could be used to align the peaks into features. However, some workflows will start from the exported csv files from the instruments. The major issue is that peaks list is not features table and multiple samples should be aligned. Here I will show a native method to align peaks across samples in R considering the mass accuracy and pre-defined retention time shift.</p>
+<p>Firstly, the input object should be a list with elements as peaks list from single samples. It should be a data.frame with retention time, mass to charge ratio and intensities.</p>
+<p>Then we need to assign a sample as the template for alignment. The output of the alignment function should use m/z and rt data from this sample as the features property.</p>
+<p>Now we could align the peaks across samples.  All the samples' peaks list should be aligned with the peaks list of template sample one by one. Here the alignment should consider the ppm of m/z and delta retention time. Each alignment will decrease the numbers of featuers when no peaks could be aligned to certain peaks in the template samples. This is a recursive process considering the aligned features' intensities would be saved and reduced for the next paired alignment.</p>
+<p>When one peak from template sample could be aligned to multiple peaks in other peaks list, you need to define a function to deal with the intensity of feature in other samples. For example, you could use mean/median/sum to generate the features' intensities for the other samples. Since our inputs are peaks lists, no peaks properties such as peak width, peak shape could be checked. It&rsquo;s better to control this when you output the peaks list for single samples.</p>
+<p>If you are familiar with minifrac in xcms, you might find such alignment will actually set the minifrac as 1. In this case, you should perform this alignment on samples from the same group and you should not use this alignment for samples without group information.</p>
+<p>The final output should show the feature' m/z, retention time and intensity across samples. However, this is alignment instead of correction. Such alignment will not correct the shift of retention time larger than certain cutoff, for example, 5s. The advantage of this alignment is that the concept is clear and easy to explain. The aligned peaks should be of high quality. This method could also be used to find the common ions across samples for quality control puporse.</p>
+<p>Here is the code (I will put this function in enviGCMS package later):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># check input to make sure the each peaks list contain &#39;mz&#39;, &#39;rt&#39; and &#39;ins&#39; as m/z, retetion time in seconds and intensity of certain peaks.</span>
+data1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#39;sample1.csv&#39;</span>)
+data2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#39;sample2.csv&#39;</span>)
+data3 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#39;sample3.csv&#39;</span>)
+<span style="color:#75715e"># generate the list as input</span>
+li <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(data1,data2,data3)
+<span style="color:#75715e"># define the function to align peaks list</span>
+getretcor <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(list,cs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,ppm<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,deltart<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, FUN){
+  nli <span style="color:#f92672">&lt;-</span> list[<span style="color:#f92672">-</span>cs]
+  csd <span style="color:#f92672">&lt;-</span> list[[cs]]
+  i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+  df1 <span style="color:#f92672">&lt;-</span> csd
+  ins <span style="color:#f92672">&lt;-</span> df1<span style="color:#f92672">$</span>ins
+  <span style="color:#a6e22e">while</span>(i<span style="color:#f92672">&lt;=</span><span style="color:#a6e22e">length</span>(nli)){
+    df2 <span style="color:#f92672">&lt;-</span> list[[i]]
+    df <span style="color:#f92672">&lt;-</span> enviGCMS<span style="color:#f92672">::</span><span style="color:#a6e22e">getalign</span>(df1<span style="color:#f92672">$</span>mz,df2<span style="color:#f92672">$</span>mz,df1<span style="color:#f92672">$</span>rt,df2<span style="color:#f92672">$</span>rt,ppm<span style="color:#f92672">=</span>ppm,deltart<span style="color:#f92672">=</span>deltart)
+  mr2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste0</span>(df2<span style="color:#f92672">$</span>mz,<span style="color:#e6db74">&#39;@&#39;</span>,df2<span style="color:#f92672">$</span>rt)
+  mrx <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste0</span>(df<span style="color:#f92672">$</span>mz2,<span style="color:#e6db74">&#39;@&#39;</span>,df<span style="color:#f92672">$</span>rt2)
+  
+  df<span style="color:#f92672">$</span>ins2 <span style="color:#f92672">&lt;-</span> df2<span style="color:#f92672">$</span>ins<span style="color:#a6e22e">[match</span>(mrx,mr2)]
+  dfx <span style="color:#f92672">&lt;-</span> df[<span style="color:#f92672">!</span><span style="color:#a6e22e">duplicated</span>(df<span style="color:#f92672">$</span>xid),]
+  dfx<span style="color:#f92672">$</span>ins2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">aggregate</span>(df<span style="color:#f92672">$</span>ins2,by<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(df<span style="color:#f92672">$</span>xid),FUN)[,<span style="color:#ae81ff">2</span>]
+  df1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind.data.frame</span>(mz<span style="color:#f92672">=</span>dfx<span style="color:#f92672">$</span>mz1,rt<span style="color:#f92672">=</span>dfx<span style="color:#f92672">$</span>rt1)
+  <span style="color:#a6e22e">if</span>(<span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">dim</span>(ins))<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>){
+    insn <span style="color:#f92672">&lt;-</span> ins[df<span style="color:#f92672">$</span>xid,]
+    ins <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind.data.frame</span>(insn[<span style="color:#f92672">!</span><span style="color:#a6e22e">duplicated</span>(df<span style="color:#f92672">$</span>xid),],dfx<span style="color:#f92672">$</span>ins2)
+  }else{
+    insn <span style="color:#f92672">&lt;-</span> ins[df<span style="color:#f92672">$</span>xid]
+    ins <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind.data.frame</span>(ins1<span style="color:#f92672">=</span>insn[<span style="color:#f92672">!</span><span style="color:#a6e22e">duplicated</span>(df<span style="color:#f92672">$</span>xid)],dfx<span style="color:#f92672">$</span>ins2)
+  }
+  i<span style="color:#f92672">=</span>i<span style="color:#ae81ff">+1</span>
+  }
+  re <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind.data.frame</span>(df1,ins)
+  <span style="color:#a6e22e">colnames</span>(re) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;mz&#39;</span>,<span style="color:#e6db74">&#39;rt&#39;</span>,<span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#39;ins&#39;</span>,<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">length</span>(list)))
+  <span style="color:#a6e22e">return</span>(re)
+}
+<span style="color:#75715e"># usage</span>
+re <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getretcor</span>(list,FUN<span style="color:#f92672">=</span>mean)
+</code></pre></div>
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2020/12/01/metabolites-diseases-database-based-on-hmdb/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Local Metabolites-diseases database based on HMDB</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">MS/MS annotation by paired mass distances analysis <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2020\/12\/01\/metabolites-diseases-database-based-on-hmdb\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2021\/01\/17\/ms-ms-annotation-by-paired-mass-distances\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>鸢尾花数据集背后的故事 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="鸢尾花数据集背后的故事 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1526 字</span>
+    
+    <h1 class="article-title">鸢尾花数据集背后的故事
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2017/01/15</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E9%B8%A2%E5%B0%BE%E8%8A%B1%E6%95%B0%E6%8D%AE%E9%9B%86%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%85%E4%BA%8B&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F01%2F15%2Firis-dataset%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E9%B8%A2%E5%B0%BE%E8%8A%B1%E6%95%B0%E6%8D%AE%E9%9B%86%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%85%E4%BA%8B&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F01%2F15%2Firis-dataset%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2017-01-15-iris-dataset.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>如果说对机器学习或统计学习里最常见的示例数据集进行排序，那么鸢尾花数据集一定排的上号，而且不同于事后诸葛的泰坦尼克生还者数据，这个数据集理论上是可以拿来做预测的。设想某个清晨，你漫步花园并驻足于一朵鸢尾花前，然后你掏出尺子，测量了花萼长度、花萼宽度、花瓣长度跟花瓣宽度后静默片刻，淡淡的说到：“果然又是个维吉尼亚鸢尾。”留下一堆路人甲风中凌乱。</p>
+<p>但其实你是做不到的，新西兰统计学家Thomas Lumley最近发表了一篇<a href="http://notstatschat.tumblr.com/post/155194690691/the-iris-data">文章</a>认为，这个数据集其实是Fisher或Anderson拿来想让读者做线性判别或无监督聚类的，而在真实的野外环境中，花从来都不是一个良好的种属判断条件而是探索一个假设的论据。。</p>
+<p>现在我们来看看当年究竟是为什么发布这个数据集。Anderson于1936年在《Annals of the Missouri Botanical Garden》上
+发表了一篇题为《The Species Problem in Iris》的论文，不得不说我很少读到80年陈酿的论文，特别是这种用52页长篇大论讨论一个种属分类的，还没有摘要。</p>
+<p>文章第二章开头就给出了野外判断鸢尾花种属的判据：</p>
+<p><img src="https://yufree.github.io/blogcn/figure/iris1.png" alt="plot of chunk null"></p>
+<p>从里面我们可以看到，三种鸢尾花的基本判据其实是种子，至于花瓣也可以用。但作者也明确提出，由于非常容易枯萎，对花的测量数据用在分类上并不可靠，甚至良好的保存手段都没有。</p>
+<p><img src="https://yufree.github.io/blogcn/figure/iris2.png" alt="plot of chunk null"></p>
+<p>然而，作者通过5年的观察研究认为Iris versicolor 跟 Iris virginica 各自种类内部其实变化很大，但本质上还是不一样，作者就用两个英格兰小村庄作为对比，一个在砂石地上，另一个在石灰岩上，其建筑风格也许差不多，但建材不一样，所以无论如何都不一样。但随后作者提出，导致这一现象的原因很有可能是因为其中有一种是二倍体，所以形态上虽然像，但就不是一个种，“A simple hypothesis immediately sugguested itself”。为了说明这一点，Iris setosa登场了，因为这一类分布比较靠北，个头比较小，所以很有可能Iris versicolor是Iris setosa跟Iris virginica的杂合体。为了验证这个假设，作者依赖染色体个数的测量与花瓣花萼等数据，推测Iris versicolor与Iris virginica的亲缘关系要近于其与Iris setosa的距离，两者距离大概1:2。也就是说，在原始文献中，花的测量数据并不是用来分类而是用来计算三个物种间亲缘关系的。</p>
+<p>其实Fisher在<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1469-1809.1936.tb02137.x/full">公布这个数据集</a>时也说的很明确，这些测量数据就是来说明Iris versicolor是Iris virginica与Iris setosa的中间类型，拿来实际分类不靠谱。虽然Fisher自己就是拿这些数据搞了一个线性判别分析。而线性判别分析的实质是认为花的测量数据是来自于不同的分布，通过计算分布参数来进行区别。说的更像人话一点就是我对四个测量值进行一种线性变换，目的是让这种线性变化可以很好的区别三个分类。既然是线性变换最终还是会得到一个预测值，衡量三个分类这个预测值之间的距离就可以进行其关系的推测。结果自然是确认了1:2这个比例，而且后续的研究也在16sRNA上确认了这个发现。</p>
+<p><img src="https://yufree.github.io/blogcn/figure/iris3.png" alt="plot of chunk null"></p>
+<p>其实从这个数据集的故事是我们可以清晰感觉到的不是一个统计学过程而是科研过程。从观察到提出假说，然后通过数据分析给出证据，最后通过后续的研究不断证明结论，从已知走向未知。而当今的很多研究，你很难找到假设检验的影子，更多偏重的是流程化科研，用更尖端的技术得到更准确的测量，然后甩给统计学家处理，缺少了最初的&quot;insight&quot;。或者说，相对专业的领域分工让科学家自己也变得工具化，缺少研究方法，特别是数据处理方法与实际问题的原理层互动从而将数据分析黑箱化与实用化，这不妨碍实际问题的解决，但会少很多发现的乐趣。</p>
+<p>当然，寻找insight可能是未来人工智能可以做的，但愿这一天晚点到来。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2017/01/04/mutiple-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 高通量数据的多重检验问题</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2017/01/22/modern-scientist/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">现代科研的兴起 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2017\/01\/04\/mutiple-test\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2017\/01\/22\/modern-scientist\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

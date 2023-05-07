@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>R语言会议幻灯片读后感 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="R语言会议幻灯片读后感 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2013 字</span>
+    
+    <h1 class="article-title">R语言会议幻灯片读后感
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2019/06/28</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=R%E8%AF%AD%E8%A8%80%E4%BC%9A%E8%AE%AE%E5%B9%BB%E7%81%AF%E7%89%87%E8%AF%BB%E5%90%8E%E6%84%9F&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2019%2F06%2F28%2Fr-conf-19%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=R%E8%AF%AD%E8%A8%80%E4%BC%9A%E8%AE%AE%E5%B9%BB%E7%81%AF%E7%89%87%E8%AF%BB%E5%90%8E%E6%84%9F&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2019%2F06%2F28%2Fr-conf-19%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2019-06-28-r-conf-19.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>今年的R会议幻灯片我直到这周才看，而且幻灯片体积着实不小，我这边下载好久才搞下来。先声明，读后感纯属个人感受，不代表统计之都主编意见，而且因为有些分会场报告没有上传，所以感受是有偏的。</p>
+<p>相比去年，今年计算机与统计方面的内容进一步弱化，强调应用场景的数据分析越来越多，R语言会议里出现了更多语言的应用与主题，感觉成了整体数据科学爱好者的会议而不仅仅局限于R或学术界，大概就像是分析化学里的匹斯堡会议，学术届工业届都会参与。今年有本科生与研究生的会场，也符合会议一贯传帮带的模式，给年轻人更多机会。</p>
+<p>今年的大会报告很精彩，印象最深的是吴喜之老师的报告，有大局观，看到了当前统计学教育里的很多问题，例如统计显著性问题及对一些统计知识的误用，特别是对回归模型可解释性，吴老师认为线性模型好解释的看法是皇帝的新衣，浪费了大把老师学生的精力。我们确实是通过在线性模型里增加协变量来控制他们的影响，不过如同吴老师所言，这不代表控制了变量就独立了，相反，如果变量本来是独立的根本无需把他们放到一个多元模型里，创建多元模型就是因为变量之间不独立，如果不独立你去费力解释其中一个模型的系数就显得只见树木不见森林，用单变量思维解释多变量共同作用结论很难说多么靠谱。</p>
+<p>这个问题我也想过，不过是从另一个角度。对于一个模型，如果是预测特征特别多的话，本质上是把信号淹没在随机性的海洋里了，所以考虑了正则化过程的模型才会在实际应用中表现出色。实际科研中我见到很多人把相关性很强的变量或无关变量共同加入到模型里，且不论模型要不要被解释，这种单纯想通过提高变量数目来提高模型预测效能的思路就是错的。大量的检验其实是无关检验，用上FDR反而把信号给压没了，共相关的变量在模型构建时应该给予更小的自由度。然而这些思考我在很多号称搞数据的人那边完全看不到，很多时候他们只是在尝试算法与调参，并不关心实际问题内部的逻辑，用算法的抽象掩盖对实际数据的无知。这个问题对于有实际问题背景的人而言不算严重，但对于只接受过统计学或计算机科学教育的人而言是非常严重的
+，他们通常高估算法的通用性沉浸于精巧模型的调试，正如易丹辉老师的报告所言，很多时候描述性统计就能发现问题而没有背景知识是看不出来的。</p>
+<p>如吴老师所言，统计思维其实就是科学思维。统计学是最接近实证科研的学科，统计量的构建、模型的假设还有推断的标准都是构建在数学物理原理之上的，你不会对蚂蚁与大象取平均体重是因为这个量没有实际意义而不是不能算出来，每一个统计量背后都有数理背景。如果不了解这个，天天关心模型调参或强制让数据符合模型是没意义的，做过水处理的同学应该知道污染物吸附上有个弗里德里希吸附公式，你如果强制拟合是一定能拟出来的，即便你的机理是其他的。重要的不是算法而是问题，这一点在这次R会议很多报告中都提到了，但有些报告也确实不太注意这点。</p>
+<p>热点主题中最突出的可能就是数据伦理方法的讨论。这个去年讨论的还不多，今年已经有相关大会报告与分会场了，律师、工程师、科研工作者都提出了自己视角下的观点，例如软件协议应该提供不同意条款时的浏览模式，个人数据收益权应该可以自主控制而不是让渡给服务商，可信计算环境及向个人付费获得数据收益权等等。这些问题不是今天才有的，但技术的发展让这些问题已经很现实地关联到个人权益了，以后影响可能更深，我觉得数据伦理相关的博弈规则设计会是有识之士未来能大展身手的地方，这不是一个单向优化问题而是在生活的便利与个人隐私取得平衡的一个权衡问题，如果规则合适会双赢，不当就会出现封闭与双输。</p>
+<p>今年覃文锋总结了下R社区的现状与趋势，值得关注。另外由于科研背景的报告不少，关于开放科学及OSF也有介绍，开放科学可以看作可重复性危机的一个解决方案，做科研的应该去了解这些趋势。今年依旧有关于热门技术主题例如物联网、区块链的报告，虽然其实跟R语言关系不大了，但只要跟数据分析相关其实都适合讨论。我看到的比较有闪光点的报告其实是金融主题的，有些概念挺有意思，例如凯利公式还有金融对话机器人等。心理学与生物信息学的专场感觉运作上挺成熟了，报告也照顾了外学科人士。从幻灯片制作角度看，大都是一本正经的，其实可以学习谢大那样加些动图调节气氛的，开会应该是很轻松的交流场合，公式太多其实演示过程中没有人会仔细看的。</p>
+<p>今年有个趋势是英文幻灯片很多，报告英文用中文讲这个一般是为了方便有外籍人士参会的场景，但对于本土化的R语言会议其实最好不要设置语言门槛。虽然科研口对英文没什么障碍，但业界或爱好者水平其实中文更方便理解，R会议应该是为了交流而来，希望不要搞成分会场之间存在术语墙而互相无法交流的状况。我个人外出参会经常是瞎转，经常可以从其他学科中发现有意思的理论或想法，但对于存在术语墙的小学科圈子我个人并不喜欢，一伙人互捧是没啥意思的，抢蛋糕从来都是外来户。</p>
+<p>如果说所有报告里你只有时间看一篇，那就读下吴喜之老师的吧，绝对不亏。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2019/06/24/ouroboros/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 来自未来</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2019/07/01/2019-reseach-paper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019上半年研究速递 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2019\/06\/24\/ouroboros\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2019\/07\/01\/2019-reseach-paper\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

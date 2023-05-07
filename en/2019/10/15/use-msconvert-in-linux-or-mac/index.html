@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Use msconvert in Linux or Mac - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Use msconvert in Linux or Mac - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+    <h1 class="article-title">Use msconvert in Linux or Mac
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2019/10/15</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Use&#43;msconvert&#43;in&#43;Linux&#43;or&#43;Mac&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2019%2F10%2F15%2Fuse-msconvert-in-linux-or-mac%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Use&#43;msconvert&#43;in&#43;Linux&#43;or&#43;Mac&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2019%2F10%2F15%2Fuse-msconvert-in-linux-or-mac%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2019-10-15-use-msconvert-in-linux-or-mac.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>One of the major issue for metabolomics data analysis is that user have to use Window to convert vendor data into open source format like mzML or mzXML. Though msConvert could be run under Linux or Mac, it will not support vendor format. It&rsquo;s really annoying to set up virtual machine for data format issue. Another software supporting vendor format is <a href="https://www.reifycs.com/AbfConverter/index.html">Abf Converter</a>, which also only support Windows and their output is for MS-DIAL.</p>
+<p>Recently I noticed that a docker <a href="https://hub.docker.com/r/chambm/pwiz-skyline-i-agree-to-the-vendor-licenses">image</a> is created to covert vendor data by <a href="http://proteowizard.sourceforge.net/download.html">ProteoWizard</a>. It only has 3.9GB, which is much easier to use under Linux. Just pull it from DockerHub:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+</code></pre></div><p>The usage is quite clear  You could use the following code to convert all the files in a folder:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -it --rm -e WINEDEBUG<span style="color:#f92672">=</span>-all -v /your/data/path/:/data chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine msconvert /data/*.RAW
+</code></pre></div><p>There is small problem for Agilent files: <code>.d</code> format is actually a folder. If you use previous code, you will get Then a <code>for</code> trick could solve this issue:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> f in <span style="color:#66d9ef">$(</span>basename /your/path/*.*<span style="color:#66d9ef">)</span>
+<span style="color:#66d9ef">do</span>
+  docker run -it --rm -e WINEDEBUG<span style="color:#f92672">=</span>-all -v /your/path:/data chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine msconvert /data/$f
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>Then you will see the converted mzML in the same directory of your raw data folder.</p>
+<p>There are three vendor formats not supporting by this image: ABI T2D, Bruker FID/YEP and Waters UNIFI.</p>
+<hr>
+<p>Updates on 2023-04-23</p>
+<ul>
+<li>Errors for Thermos Fisher Raw files</li>
+</ul>
+<p>Try <a href="https://github.com/compomics/ThermoRawFileParser">ThermoRawFileParser</a> and they also shared a docker image:</p>
+<pre><code>docker run -i -t -v /home/user/raw:/data_input quay.io/biocontainers/thermorawfileparser:&lt;tag&gt; ThermoRawFileParser.sh --help
+</code></pre><p>The <tag> could be <em>1.4.2&ndash;ha8f3691_0</em> and you could check here for <a href="https://quay.io/repository/biocontainers/thermorawfileparser?tab=tags">details</a>.</p>
+<ul>
+<li>Singularity</li>
+</ul>
+<p>For msconvert, you need to build the singularity image through Dockerhub:</p>
+<pre><code>singularity pull docker://chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+</code></pre><p>Then use the following code to convert the file:</p>
+<pre><code>singularity exec --cleanenv -B ~:/mywineprefix --writable-tmpfs pwiz-skyline-i-agree-to-the-vendor-licenses_latest.sif mywine msconvert --32 --zlib --filter &quot;peakPicking true 1-&quot; --filter &quot;zeroSamples removeExtra&quot; 'test.RAW'
+</code></pre><p>Or you might choose ThermoRawFileParser:</p>
+<pre><code>singularity pull docker://globusgenomics/thermorawfileparser
+</code></pre><p>Then use the following code to convert files in certain folder:</p>
+<pre><code>singularity exec --cleanenv thermorawfileparser_latest.sif ThermoRawFileParser.sh -d PATH_OF_RAW_FILES
+</code></pre>
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2019/07/26/metabolites-network-by-pmd-analysis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Metabolites network by PMD analysis</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2019/11/27/run-order-effect-for-metabolomics-studies/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Run order effect for metabolomics studies <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2019\/07\/26\/metabolites-network-by-pmd-analysis\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2019\/11\/27\/run-order-effect-for-metabolomics-studies\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

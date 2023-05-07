@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>reactomics data analysis template within rmwf package - Miao Yu | 于淼 </title>
+<meta property="og:title" content="reactomics data analysis template within rmwf package - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">9 min read</span>
+    
+    <h1 class="article-title">reactomics data analysis template within rmwf package
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2021/02/09</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=reactomics&#43;data&#43;analysis&#43;template&#43;within&#43;rmwf&#43;package&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2021%2F02%2F09%2Freactomics-workflow-template-within-rmwf-package%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=reactomics&#43;data&#43;analysis&#43;template&#43;within&#43;rmwf&#43;package&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2021%2F02%2F09%2Freactomics-workflow-template-within-rmwf-package%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2021-02-09-reactomics-workflow-template-within-rmwf-package/index.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+<script src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>To make reactomics data analysis more transparent and reproducible, I included one template in rmwf package. You could install the package from Github.</p>
+<pre class="r"><code>install.packages(&#39;remotes&#39;)
+remotes::install_github(&quot;yufree/rmwf&quot;)</code></pre>
+<p>If you use RStudio, you could try:</p>
+<p>File-New file-R Markdown-from template</p>
+<p>Then select ‘reactomics’ to use template for reactomics analysis. Here is a preview for data analysis of this <a href="https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Study&amp;StudyID=ST000560">study</a>:</p>
+<div id="demo-data" class="section level1">
+<h1>Demo data</h1>
+<pre class="r"><code>path &lt;- system.file(&quot;demodata/untarget&quot;, package = &quot;rmwf&quot;)
+files &lt;- list.files(path,recursive = T,full.names = T)
+ST000560pos &lt;- enviGCMS::getmzrtcsv(files[grepl(&#39;ST000560mzrt&#39;,files)])</code></pre>
+</div>
+<div id="remove-the-redundant-peaks" class="section level1">
+<h1>Remove the redundant peaks</h1>
+<pre class="r"><code># check the paired mass distance relationship
+pmd &lt;- pmd::getpaired(ST000560pos)</code></pre>
+<pre><code>## 56 retention time cluster found.</code></pre>
+<pre><code>## 826 paired masses found</code></pre>
+<pre><code>## 23 unique within RT clusters high frequency PMD(s) used for further investigation.</code></pre>
+<pre><code>## The unique within RT clusters high frequency PMD(s) is(are)  12 2.02 26.02 28.03 14.02 26.01 54.05 24 9.99 40.03 44.04 2.01 15.01 30.01 27.02 44.03 14.01 21.98 30.05 42.05 29.02 4.03 66.02.</code></pre>
+<pre><code>## 182 isotopologue(s) related paired mass found.</code></pre>
+<pre><code>## 1145 multi-charger(s) related paired mass found.</code></pre>
+<pre class="r"><code>pmd::plotpaired(pmd)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Here we could see some common PMDs within the same retention time bins like 21.98Da for the mass differences between [M+Na] and [M+H]. Other PMDs might refer to in-source reaction such as PMD 2.02Da for opening or forming of double bond. Another common kinds of PMDs should the homologous series compounds which could not be separated by the column such as PMD 14.02Da for CH2, PMD 28.03Da for C2H4, PMD 44.03Da for C3H6, and 56.05Da for C4H8, as well as 58.04Da for C3H6O. There are also some PMDs which highly depended on the the samples’ matrix. Anyway, we will check those high frequency PMD considering isotopes, as well as multiple chargers to extract one peak for one potential compound. Such algorithm is called GlobalStd. The advantage of GlobalStd is that no pre-defined paired mass distances list is needed to remove redundant peaks. When a PMD appeared with high frequency in certain samples, it will be treated as potential adducts to be removed.</p>
+<pre class="r"><code>std &lt;- pmd::getstd(pmd)</code></pre>
+<pre><code>## 4 retention group(s) have single peaks. 52 54 55 56</code></pre>
+<pre><code>## 10 group(s) with multiple peaks while no isotope/paired relationship 26 30 33 35 45 47 48 49 51 53</code></pre>
+<pre><code>## 2 group(s) with multiple peaks with isotope without paired relationship 29 32</code></pre>
+<pre><code>## 20 group(s) with paired relationship without isotope 10 11 13 14 15 16 18 20 23 27 28 31 36 38 40 42 43 44 46 50</code></pre>
+<pre><code>## 20 group(s) with paired relationship and isotope 1 2 3 4 5 6 7 8 9 12 17 19 21 22 24 25 34 37 39 41</code></pre>
+<pre><code>## 196 std mass found.</code></pre>
+<pre class="r"><code>pmd::plotstd(std)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>In this case, we get 205 peaks for 205 potential compounds. Now we could retain those peaks for reactomics analysis.</p>
+<pre class="r"><code># generate new peak list and matrix sample
+peakstd &lt;- enviGCMS::getfilter(std,rowindex = std$stdmassindex)</code></pre>
+<p>GlobalStd algorithm was originally designed to retrieve independent peaks by the paired mass distances relationship among features without a predefined adducts or neutral loss list. However, the peaks from the same compounds should also be correlated with each other. Meanwhile, the independent peaks selection might still have peaks from the same compounds when the peaks’ high frequency PMDs are not independent. In this case, the GlobalStd algorithm could set a cutoff to re-check the independent peaks by their relationship with potential PMDs groups and select the base peaks for the clusters of peaks.</p>
+<p>Meanwhile, network analysis could be used for PMDDA workflow to select precursor ion for MS/MS annotation. Such precursor ions was selected by checking the peak with highest intensity of each independent peaks’ high frequency PMD network cluster, which could be treated as pseudo spectra.</p>
+</div>
+<div id="extract-high-frequency-pmds" class="section level1">
+<h1>Extract high frequency PMDs</h1>
+<p>To retrieve the general chemical relationship, we will focus on high frequency PMDs within a certain metabolic profile. If one PMD occur multiple times among peaks from a snapshot of samples, certain reactions or bio-process should be important or occur multiple times compared with rarely PMD, which could be a random differences among compounds. In this case, extraction of high frequency PMDs will refine the investigation on a few active reactions instead of treating each peak individually, which is almost impossible for untargeted analysis.</p>
+<p>Such PMDs frequency analysis should be performed on the data set with the redundant peaks removal. Otherwise, the high frequency PMD among compounds will be immersed by PMD with from isotopes, adducts or other common PMDs from the backgrounds.</p>
+<p>You could define the cutoff of frequency while the default setting using the largest PMD network cluster numbers to determine the cutoff, which try to capture more information. Here we will retrieve high frequency PMDs from the demo data using a larger cutoff to reduce the complexity:</p>
+<pre class="r"><code>hfp &lt;- pmd::getsda(std,freqcutoff = 8)</code></pre>
+<pre><code>## 8 groups were found as high frequency PMD group.</code></pre>
+<pre><code>## 0 was found as high frequency PMD. 
+## 2.02 was found as high frequency PMD. 
+## 12 was found as high frequency PMD. 
+## 14.02 was found as high frequency PMD. 
+## 24 was found as high frequency PMD. 
+## 26.02 was found as high frequency PMD. 
+## 28.03 was found as high frequency PMD. 
+## 50.01 was found as high frequency PMD.</code></pre>
+<pre class="r"><code>pmd::plotstdsda(hfp)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Here we could find 8 PMDs were selected as high frequency PMDs. PMD 0 Da could be some isomers, PMD 2.02 Da could be reduction reactions, etc. Some PMDs can be the combination of other PMDs, which could be a chain reactions. From the plot you might also identify the homologous series by the retention times relations.</p>
+<p>When you have the lists of high frequency PMDs, you could check the PMDs changes among groups. Here we will quantitatively analysis certain PMD to show the reaction level changes.</p>
+<pre class="r"><code># remove QC sample
+hfp2 &lt;- enviGCMS::getfilter(hfp,colindex = !grepl(&#39;QC&#39;,hfp$group$sample_group))
+# check pmd 14.02
+qreact &lt;- pmd::getreact(hfp2,pmd = 14.02)
+qreactsum &lt;- apply(qreact$data,2,sum)
+t.test(qreactsum~qreact$group$sample_group)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  qreactsum by qreact$group$sample_group
+## t = 2.2, df = 17, p-value = 0.04
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##   2939 95129
+## sample estimates:
+## mean in group control    mean in group IgAN 
+##               1247817               1198783</code></pre>
+<pre class="r"><code>par(mfrow=c(1,1))
+boxplot(qreactsum~qreact$group$sample_group,xlab=&#39;&#39;,ylab = &#39;intensity&#39;, main=&#39;PMD 14.02Da&#39;)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Here we could find PMD 14.02Da could be a biomarker reaction for case and control. Meanwhile, paired relationship could be connected into network to show the overall relationship within the samples.</p>
+</div>
+<div id="reactomics-network-analysis" class="section level1">
+<h1>Reactomics network analysis</h1>
+<p>The relation among those high frequency PMDs peaks could be further checked in two ways by network analysis: one from the correlation analysis and another from the PMD analysis. If we combined them together, reactomics network could be generated to capture the major reaction network within the samples. We will check them step by step.</p>
+<div id="build-the-correlation-network" class="section level2">
+<h2>Build the correlation network</h2>
+<pre class="r"><code>library(igraph)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;igraph&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     decompose, spectrum</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     union</code></pre>
+<pre class="r"><code>cutoff &lt;- 0.9
+metacor &lt;- stats::cor(t(peakstd$data))
+metacor[abs(metacor)&lt;cutoff] &lt;- 0
+df &lt;- data.frame(from=rownames(peakstd$data)[which(lower.tri(metacor), arr.ind = T)[, 1]],to=rownames(peakstd$data)[which(lower.tri(metacor), arr.ind = T)[, 2]],cor=metacor[lower.tri(metacor)])
+df &lt;- df[abs(df$cor)&gt;0,]
+df$direction &lt;- ifelse(df$cor&gt;0,&#39;positive&#39;,&#39;negative&#39;)
+net &lt;- igraph::graph_from_data_frame(df,directed = F)
+netc &lt;- igraph::components(net)
+message(paste(netc$no, &#39;metabolites correlation network clusters found&#39;))</code></pre>
+<pre><code>## 16 metabolites correlation network clusters found</code></pre>
+<pre class="r"><code>index &lt;- rep(NA,length(rownames(peakstd$data)))
+index[match(names(netc$membership),rownames(peakstd$data))] &lt;- netc$membership
+message(paste(sum(is.na(index)), &#39;out of&#39;, length(rownames(peakstd$data)), &#39;metabolites have no correlation with other metabolites&#39;))</code></pre>
+<pre><code>## 88 out of 197 metabolites have no correlation with other metabolites</code></pre>
+<pre class="r"><code>plot(net,vertex.label=NA,vertex.size =5,edge.width = 3, main = &#39;Correlation network&#39;)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Here we could see the correlation among those peaks as network. 109 peaks have relations with each others and 88 peaks were single.</p>
+</div>
+<div id="build-the-pmd-network" class="section level2">
+<h2>Build the PMD network</h2>
+<pre class="r"><code>peaksda &lt;- pmd::getsda(std,freqcutoff = 8)</code></pre>
+<pre><code>## 8 groups were found as high frequency PMD group.</code></pre>
+<pre><code>## 0 was found as high frequency PMD. 
+## 2.02 was found as high frequency PMD. 
+## 12 was found as high frequency PMD. 
+## 14.02 was found as high frequency PMD. 
+## 24 was found as high frequency PMD. 
+## 26.02 was found as high frequency PMD. 
+## 28.03 was found as high frequency PMD. 
+## 50.01 was found as high frequency PMD.</code></pre>
+<pre class="r"><code>df &lt;- peaksda$sda
+df$from &lt;- paste0(&#39;M&#39;,round(df$ms1,4),&#39;T&#39;,round(df$rt1,1))
+df$to &lt;- paste0(&#39;M&#39;,round(df$ms2,4),&#39;T&#39;,round(df$rt2,1))
+net &lt;- graph_from_data_frame(df[,c(&#39;from&#39;,&#39;to&#39;,&#39;diff2&#39;)],directed = F)
+netc &lt;- igraph::components(net)
+message(paste(netc$no, &#39;metabolites PMD network clusters found&#39;))</code></pre>
+<pre><code>## 15 metabolites PMD network clusters found</code></pre>
+<pre class="r"><code>index &lt;- rep(NA,length(rownames(peakstd$data)))
+index[match(names(netc$membership),rownames(peakstd$data))] &lt;- netc$membership
+message(paste(sum(is.na(index)), &#39;out of&#39;, length(rownames(peakstd$data)), &#39;metabolites have no PMD relations with other metabolites&#39;))</code></pre>
+<pre><code>## 143 out of 197 metabolites have no PMD relations with other metabolites</code></pre>
+<pre class="r"><code>pal &lt;- grDevices::rainbow(8)
+plot(net,vertex.label=NA,vertex.size =5,edge.width = 3,edge.color = pal[as.numeric(as.factor(E(net)$diff2))], main = &#39;PMD network&#39;)
+legend(&quot;topright&quot;,bty = &quot;n&quot;,
+       legend=unique(E(net)$diff2),
+       fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>unique(E(net)$diff2)</code></pre>
+<pre><code>## [1] 24.00  0.00 50.01  2.02 12.00 28.03 26.02 14.02</code></pre>
+<p>By checking the high frequency PMD relation, we see a similar while different results. Those high frequency PMDs could also be linked to potential reactions such as 0Da for isomers, 2.02Da for double bonds breaking/forming. Such PMDs could reveal the major reactions found among the metabolites. 54 peaks have PMDs relations with each others and 143 peaks were single.</p>
+<p>Here we need to define a frequency cutoff. With the increasing number of high frequency PMDs cutoff, the ions cluster numbers would firstly increase then decrease. At the very beginning, the increasing numbers will include more information because high frequency PMDs always capture real reactions or structures relationships among compounds. Low frequency PMDs will introduce limited information as they might be generated by random differences among ions. In terms of network analysis, when the high frequency PMD cutoff is small, the network clusters will be small. However, when the numbers of network clusters are not increasing any more with more PMDs included, the relationship information among ions will not increase and the cutoff could be automated detected by GlobalStd algorithm. In detail, the algorithm will try to include PMDs one by one starting from the highest frequency PMDs. Meanwhile, the ions cluster numbers were recorded for the generated network among independent peaks and the cutoff will be the PMDs list with the largest number of independent peaks’ network cluster.</p>
+</div>
+<div id="build-the-pmd-network-with-correlation" class="section level2">
+<h2>Build the PMD network with correlation</h2>
+<p>We could combine the PMD relation with correlation together to show the quantitative reactomics networks within the samples. Those metabolites could be quantitatively checked among different samples.</p>
+<pre class="r"><code>peaksda &lt;- pmd::getsda(std,freqcutoff = 8,corcutoff = 0.6)</code></pre>
+<pre><code>## 8 groups were found as high frequency PMD group.</code></pre>
+<pre><code>## 0 was found as high frequency PMD. 
+## 2.02 was found as high frequency PMD. 
+## 12 was found as high frequency PMD. 
+## 14.02 was found as high frequency PMD. 
+## 24 was found as high frequency PMD. 
+## 26.02 was found as high frequency PMD. 
+## 28.03 was found as high frequency PMD. 
+## 50.01 was found as high frequency PMD.</code></pre>
+<pre class="r"><code>df &lt;- peaksda$sda
+df$from &lt;- paste0(&#39;M&#39;,round(df$ms1,4),&#39;T&#39;,round(df$rt1,1))
+df$to &lt;- paste0(&#39;M&#39;,round(df$ms2,4),&#39;T&#39;,round(df$rt2,1))
+net &lt;- graph_from_data_frame(df[,c(&#39;from&#39;,&#39;to&#39;,&#39;diff2&#39;)],directed = F)
+netc &lt;- igraph::components(net)
+message(paste(netc$no, &#39;metabolites quantitative reactomics network clusters found&#39;))</code></pre>
+<pre><code>## 10 metabolites quantitative reactomics network clusters found</code></pre>
+<pre class="r"><code>index &lt;- rep(NA,length(rownames(peakstd$data)))
+index[match(names(netc$membership),rownames(peakstd$data))] &lt;- netc$membership
+message(paste(sum(is.na(index)), &#39;out of&#39;, length(rownames(peakstd$data)), &#39;metabolites have no PMD&amp;correlation relations with other metabolites&#39;))</code></pre>
+<pre><code>## 162 out of 197 metabolites have no PMD&amp;correlation relations with other metabolites</code></pre>
+<pre class="r"><code>net &lt;- graph_from_data_frame(peaksda$sda,directed = F)
+pal &lt;- grDevices::rainbow(21)
+plot(net,vertex.label=NA,vertex.size =5,edge.width = 3,edge.color = pal[as.numeric(as.factor(E(net)$diff2))], main = &#39;Quantitative reactomics network&#39;)
+legend(&quot;topright&quot;,bty = &quot;n&quot;,
+       legend=unique(E(net)$diff2),
+       fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)</code></pre>
+<p><img src="https://yufree.cn/en/2021/02/09/reactomics-workflow-template-within-rmwf-package/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> MS/MS annotation by paired mass distances analysis</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2021/07/28/correlation-coefficients-cutoff-to-generate-network-in-metabolomics/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Correlation coefficients cutoff to generate network in metabolomics <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2021\/01\/17\/ms-ms-annotation-by-paired-mass-distances\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2021\/07\/28\/correlation-coefficients-cutoff-to-generate-network-in-metabolomics\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

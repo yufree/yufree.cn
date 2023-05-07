@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>最小一乘法的解为什么是中位数？ - Miao Yu | 于淼 </title>
+<meta property="og:title" content="最小一乘法的解为什么是中位数？ - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2170 字</span>
+    
+    <h1 class="article-title">最小一乘法的解为什么是中位数？
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2013/03/31</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E6%9C%80%E5%B0%8F%E4%B8%80%E4%B9%98%E6%B3%95%E7%9A%84%E8%A7%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E4%BD%8D%E6%95%B0%EF%BC%9F&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2013%2F03%2F31%2Fmedian%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E6%9C%80%E5%B0%8F%E4%B8%80%E4%B9%98%E6%B3%95%E7%9A%84%E8%A7%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E4%BD%8D%E6%95%B0%EF%BC%9F&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2013%2F03%2F31%2Fmedian%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2013-03-31-median.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>之前写过一篇最小二乘法，为神马不是差的绝对值，当时讨论时对最小一乘的基本思想不太了解，只知道不好寻优。后来想想，数值分析里没有解析解的方程多如牛毛也能用一些方法逼近最优值，想来求解也不困难，本来这一页也就翻过去了。However，最近在统计之都上看到了一篇介绍统计学思想的<a href="http://www.johnmyleswhite.com/notebook/2013/03/22/modes-medians-and-means-an-unifying-perspective/">文章</a>，顿时感觉醍醐灌顶，对回归问题也有了新的认识，摘要如下：</p>
+<ul>
+<li>
+<p>统计是一种总结的学问，也就是用少量信息反应大量信息的知识</p>
+</li>
+<li>
+<p>给定一组数让你用一个数描述，最大的矛盾就在于这个数如何处理与原有数据不一致的矛盾，毕竟会丢失信息</p>
+</li>
+<li>
+<p>这个过程可以分解为选定描述差异算法与最小化这个差异两步，最后给出的数要具有这两重代表含义</p>
+</li>
+<li>
+<p>选用众数（modes）描述事实上是一个最小零乘问题，也就是二元描述，要么对，要么错</p>
+</li>
+<li>
+<p>选用中位数（medians）描述事实上是一个最小一乘问题</p>
+</li>
+<li>
+<p>选用平均值（means）描述事实上是一个最小二乘问题</p>
+</li>
+</ul>
+<p>详细的内容不再赘述，文章通俗易懂，这里要处理的是问题时为什么最小一乘的解是中位数？这一点在文中一笔带过并没有解释，不知道是不是因为这个问题弱爆了，反正我想了半天才搞明白，本文就是对这个思考过程的整理：</p>
+<h1 id="从最小二乘入手">从最小二乘入手</h1>
+<p>因为我对最小二乘比较熟，那么我首先要考虑为什么平均值是最小二乘的解，答案呼之欲出。最小二乘法的表示方式可直接求导，结果就是平均值，换句话讲，最小二乘法得到的回归线是要经过均值点的，下面我用一个例子来说明这个问题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(UsingR)
+<span style="color:#a6e22e">data</span>(galton)
+lm1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(galton<span style="color:#f92672">$</span>child <span style="color:#f92672">~</span> galton<span style="color:#f92672">$</span>parent)
+newGalton <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#66d9ef">NA</span>, <span style="color:#ae81ff">1e+06</span>), child <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#66d9ef">NA</span>, <span style="color:#ae81ff">1e+06</span>))
+newGalton<span style="color:#f92672">$</span>parent <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">1e+06</span>, mean <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(galton<span style="color:#f92672">$</span>parent), sd <span style="color:#f92672">=</span> <span style="color:#a6e22e">sd</span>(galton<span style="color:#f92672">$</span>parent))
+newGalton<span style="color:#f92672">$</span>child <span style="color:#f92672">&lt;-</span> lm1<span style="color:#f92672">$</span>coeff[1] <span style="color:#f92672">+</span> lm1<span style="color:#f92672">$</span>coeff[2] <span style="color:#f92672">*</span> newGalton<span style="color:#f92672">$</span>parent <span style="color:#f92672">+</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">1e+06</span>, sd <span style="color:#f92672">=</span> <span style="color:#a6e22e">sd</span>(lm1<span style="color:#f92672">$</span>residuals))
+<span style="color:#a6e22e">smoothScatter</span>(newGalton<span style="color:#f92672">$</span>parent, newGalton<span style="color:#f92672">$</span>child)
+sampleLm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">vector</span>(<span style="color:#ae81ff">100</span>, mode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;list&#34;</span>)
+<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">100</span>) {
+sampleGalton <span style="color:#f92672">&lt;-</span> newGalton<span style="color:#a6e22e">[sample</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1e+06</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>, replace <span style="color:#f92672">=</span> F), ]
+sampleLm[[i]] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(sampleGalton<span style="color:#f92672">$</span>child <span style="color:#f92672">~</span> sampleGalton<span style="color:#f92672">$</span>parent)
+}
+<span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">100</span>) {
+    <span style="color:#a6e22e">abline</span>(sampleLm[[i]], lwd <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, lty <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)    
+}
+<span style="color:#a6e22e">abline</span>(lm1, col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>, lwd <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><p><img src="https://yufree.github.io/blogcn/figure/demo.png" alt="plot of chunk demo"></p>
+<p>注释我就不写了，这是C站数据分析课讲解最小二乘的一个例子，当我们用预先回归出的模型随机生成一组数据，然后从里面反复重采样100次，每一次得到一个线性模型，把所有的模型叠加，最后我们看到的图形最为稳健的部分就是平均值所在地。也就是说，最小二乘法的内在含义就是平均值回归，用均值代表整体。同时你会发现，这个解是唯一不变的，因为均值的求法不会得到两个答案。那么从这里出发能不能解决最小一乘的问题呢？先别急，先看一个答案不唯一的表示法。</p>
+<h1 id="回顾最小零乘">回顾最小零乘</h1>
+<p>最小零乘的本质就是找一个数，跟数据中一致就是0，不一致就是1。从数据集的角度看就是找到一个数，使一致的1累计最少，那答案脱口而出：众数。但你应该很快就反应过来了，众数可能不唯一，所以最小零乘给出的答案不唯一，这对回归而言是灾难性的，因为不唯一的描述是不确定不可重复的。OK，在这个基础上，我们可以讨论最小一乘了。</p>
+<h1 id="最小一乘与中位数">最小一乘与中位数</h1>
+<p>从刚才的论述中，我希望读者可以明白两件事</p>
+<ul>
+<li>
+<p>回归事实上就是一种简化版的总结，算法是用来支持总结的，不必须唯一</p>
+</li>
+<li>
+<p>为了求解方便，我们倾向于使用表述上分歧小且求解方法稳定的算法，平均值或者说最小二乘很符合这一点</p>
+</li>
+</ul>
+<p>那么为什么要提最小一乘呢？都用最小二乘不就完了吗？注意第一点，最小二乘仅仅是一种算法，他没有太多的特殊性，也并不完美，一个异常值就足以毁掉一组看似不错的数据，想想统计学里著名的安斯库姆四重奏,这个算法算不上稳健的。而反观中位数却往往可以规避异常值问题，那么这又是如何实现的呢？</p>
+<p>我们从最基础的问题开始构建，考虑5个点1,2,3,4,10, 如果找一个数代表这三个数你会选择什么？众数的话哪个都可以，均值的话是4，中位数是3。其实哪个都可以，但如果有个实际背景的话我想更多人会觉得3差不多，有点代表性，毕竟对于10有点信心不足。先不管这些，让我们想想最小一乘算法是如何实现的，如果这5个数分布在一个数轴上，找一个数使其绝对值最小怎么找？很简单分下组，最大值与最小值一组，第二大与第二小一组，以此类推。如果存在一个数满足到所有数的距离绝对值最小，那么它一定位于每一组之间，因为只有这样才能保证其到两端距离最短，这样到了最中间的那个数就直接考虑去中间那个数，这样距离为零，差的绝对值的和自然最小了。同时我们会发现如果我们两个两个的加入数，这个算法也是稳定的，也就是可以推广，这样异常值不过是其中的一组数，求解的结果对特定一组数据并不敏感，这就保证了稳健性。OK，那这个数是什么呢？没错，中位数。</p>
+<p>说到这里你会觉得少点什么，没错，这好像只对奇数管用，偶数个数怎么办？其实在处理偶数时，我们最早学到的中位数概念是一种误导，没必要取均值。放到数轴上看，在最中央的两个数之前的任何一个数都可以最为最小一乘的解，那么这就是开始我说到的问题了，寻优结果不唯一。目前可以使用的最小一乘算法应该都无法规避这个问题，但相比众数，起码可以给出一个范围了，同时我们也看到，这个解法具备一定的可编程性，所以也可以拿来用。不过正如谢益辉在其硕士论文中所提到的，对中位数敏感一样可以造成回归上信息的缺失，所以也请把最小一乘看成一个普通青年的算法，最小二乘也是，至于众数……最好别用。而这些在建模上都是要反复考虑才能去选择的，不要盲目追新。</p>
+<p>OK，如果你能理解数轴，最小一乘的算法及其与中位数的关系对你已经不陌生了，如何实现的问题就交给学统计的来做吧，我们只需要知道调用相关函数就可以了。如果你觉得最小一乘是不是只是一个求解特例，那恭喜你，直觉不错，最小一乘是分位数回归的特例，后面还有很多新知识。</p>
+<p>从特殊到一般，从一般到很一般，这个过程的乐趣不是一般的特殊。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2013/03/09/rumor/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 谣言动力学</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2013/04/30/toxicology/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">八卦一下“超标” <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2013\/03\/09\/rumor\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2013\/04\/30\/toxicology\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>定向流量的背后 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="定向流量的背后 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1651 字</span>
+    
+    <h1 class="article-title">定向流量的背后
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2017/12/17</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E5%AE%9A%E5%90%91%E6%B5%81%E9%87%8F%E7%9A%84%E8%83%8C%E5%90%8E&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F12%2F17%2Fhacker%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E5%AE%9A%E5%90%91%E6%B5%81%E9%87%8F%E7%9A%84%E8%83%8C%E5%90%8E&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F12%2F17%2Fhacker%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2017-12-17-hacker.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+
+<p>前些日子，美国联邦通讯委员会最近投票废除了网络公平条令，这条新闻看似平淡，但引发了很多<a href="https://www.vox.com/2017/12/14/16774148/net-neutrality-repeal-explained">讨论</a>，关注点集中在定向流量的差异化定价上。其实，国内很多电信运营商也早就开始提供定向流量的网络服务，例如腾讯大王卡可以对访问腾讯旗下网站的流量免费。这看上去是一种不错的商业模式，那么为什么引发了讨论？</p>
+<div id="公平网络" class="section level2">
+<h2>公平网络</h2>
+<p>如果我们把互联网看作如高速公路、航线、铁路一样的基础设施，就会发现互联网信息供应商（ISP）的收费逻辑：都是运输业，传统交通输运的是物质，互联网传递的是信息，都是按流量收费。但互联网的特殊性在于目前很多人的社会生活关系也挂在上面了，或者说挂在特殊的几个寡头网站上了，我们可以随机找几个网关滤包，不出意外微信、淘宝还有百度几乎可以占掉所有流量的一多半，这就是所谓的入口争夺。这是一个市场自由竞争的结果，但是这个竞争的基础在于所有的流量在ISP那边是等价的，即使某个网站占据了总流量的一大半，别的网站也可以通过创新翻盘，因为用户访问两个网站付出流量费都是一样的，这个事实就是公平网络的体现，那么如果流量区别定价呢？</p>
+</div>
+<div id="价格歧视" class="section level2">
+<h2>价格歧视</h2>
+<p>区别定价是博弈论中很重要的一个研究领域，但如果放到网络环境里就会存在一个很严重的问题，那就是机会不公平。举个例子，原来包月1G流量是40刀，现在ISP通过监控你的流量使用，发现80%的流量都在看视频，那么针对你它可以发一个定向offer：1G视频流量只要30刀，但其他流量200M收10刀，这样看上去似乎流量还多了，或者说便宜了（如果只用视频流量）。但事实上，这个服务限制了你的可能性，因为如果你接受这个定价，那么在浏览视频时你会更不在乎而刷别的网页时会在意是否超出，这属于额外的心理负担。</p>
+<p>也许你会说，如果这个分配是基于过往数据提供的，那么我不会有心理负担，因为按计算我不会超流量啊。没错，过往数据，这里隐含的另一个限制就是你的行为要保持稳定，但稳定就意味着你不会轻易改变上网习惯，但几乎所有新网站都是为了改变你上网某方面习惯提出的，接受offer相当于拒绝了这个可能性。ISP是为了盈利存在的，他们的定价模型会保证收益率，给你的优惠一定可以被你的偶然消费行为所弥补，最终的结果就是你的开支不见得减少，但未来的自由度却被固化到ISP的收益率里去了。</p>
+<p>更有意思的是，ISP跟互联网寡头在利益上是一致的，所以网络服务的价格歧视一旦开启，消费者除了花更多的钱来维持自由度外可以说没有任何其他选择，而小创业公司也基本很难拿到流量，因为他们的网站流量天然比寡头贵，成本高，很难开展竞争。如果开此先河，基本相当于默认当前的寡头会长期稳定存在，变相压抑竞争。</p>
+</div>
+<div id="弱势群体" class="section level2">
+<h2>弱势群体</h2>
+<p>近些年讨论很热的阶层固化中的一个关键论点就在于目前底层向上层流动的通道越来越少，其实上层向下层流动的通道也越来越少，从机会公平上看，处于资源劣势的人想实现跨越仅仅依赖能力已经不太现实，更多时候是 unknown unknown 的弱势。很多弱势群体遇到的问题根源在于制度上就没有留机会，而这个机会需要发言人来代表争取而不是等待施舍，多数弱势群体不知道争取，也不知道问题出在哪里，然后就沉寂在统计数字中了。</p>
+<p>去年有个关于快手的帖子感慨了一下很多人发声渠道的特殊与被“主流”忽略，如果ISP此时搞一个便宜的定向流量套餐，可以想像还是可以赚到钱的，但事实上割裂了互联网的人群共识。如果流量可以自由流动，那么达成共识也许会容易；但如果存在价格割裂，那么共识可以说很难了。在知识共享上设置价格壁垒其实也是如此，优质内容天然会被吸引到付费服务商那边，剩下的无法付费的人又如何接触这些内容？“消费升级”不过是一个商业模式，无论是否存在都不影响那些真正追求升级的人，但会切实影响那些模棱两可的人群，这个人群基数非常大。</p>
+<p>只要你构建一堵墙，就会有人站队，但站队所形成的隔阂一旦形成基本就无法逆转，很多人的宿命论就根源于此。但互联网本来就是为了打破隔阂而存在的，如果其成为制造隔阂的工具，那么这个信息时代最伟大的发明不过是历史大循环的一个小波浪。</p>
+<p>互联网最终走向何处，或许我们的脚就是最好的选票。</p>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2017/10/28/nhst/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 假设检验的乌云</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2017/12/31/30/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">三十而立 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2017\/10\/28\/nhst\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2017\/12\/31\/30\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

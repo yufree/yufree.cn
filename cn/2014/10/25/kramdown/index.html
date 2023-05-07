@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>kramdown 语法简介 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="kramdown 语法简介 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1227 字</span>
+    
+    <h1 class="article-title">kramdown 语法简介
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2014/10/25</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=kramdown&#43;%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F10%2F25%2Fkramdown%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=kramdown&#43;%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F10%2F25%2Fkramdown%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2014-10-25-kramdown.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+
+<p>偶然发现之前文章的<code>markdown</code>输出有问题，追根溯源发现是<code>Github Pages</code>的解释器有问题。当年建站是东拼西凑的代码，其实对<code>jeklly</code>没仔细学习，当时就觉得拿<code>markdown</code>语法写就没问题了，其实这货也是有方言的。不同的人按自己的需要对标准语法缝缝补补以适应新的要求，<a href="http://commonmark.org">据说</a>有些大牛开始着手<code>markdown</code>的标准化问题了。不过<code>Github Pages</code>目前只支持包括Maruku（默认），Redcarpet 和Kramdown在内为数不多的解释器。换言之，像我这种本地不装<code>jeklly</code>而纯依赖推送原始<code>md</code>文件的做法想要得到数学公式表格啥的支持就需要从这些解释器中找个最合适的用。如果你足够寂寞，装个<code>jeklly</code>然后使用<code>pandoc</code>的插件来本地生成<code>html</code>文档去推送也没关系。但我足够懒，所以我选择找一个最接近<code>pandoc</code>功能的解释器，也就是kramdown来凑合。本文旨在总结其与标准<code>markdown</code>的区别，方便以后写作。</p>
+<div id="SS" class="section level2">
+<h2>Setext Style</h2>
+<p><code>setext</code> 样式算得上轻量级标记语言的始祖，在<code>kramdown</code>中，这种样式可能与水平分割线冲突：</p>
+<pre><code>para A
+---
+para B</code></pre>
+<p>这种情况你不太好分辨<code>para A</code>是标题还是两段为水平线所分离，这样<code>kramdown</code>规定优先为标题，也就是<code>setext</code> 样式优先级高于水平分割线，但不允许内容与分割线间有空行，<code>atx</code>的井号模式也是如此，标准<code>markdown</code>对此没有要求，允许多个空行。</p>
+</div>
+<div id="header-id" class="section level2">
+<h2>Header ID</h2>
+<p>扩展功能，使用ID为你的标题提供页面内引用地址，可以像超链接一样跳转，不信你点<a href="#SS">这里</a>。</p>
+<pre><code># Hello      {#id}
+
+Say [hello](#id)</code></pre>
+</div>
+<div id="代码块" class="section level2">
+<h2>代码块</h2>
+<p>扩展功能，可折叠代码块直接段落开头使用<code>tab</code>键就可以了，默认不折叠。</p>
+<pre><code>  a &lt;- c(1:100) #宇宙最高司令教导我们说可以把一行代码写的尽量长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长一些
+  b &lt;- c(2:101)
+^
+  c &lt;- b-a</code></pre>
+<p>相连代码块用<code>^</code>分割</p>
+</div>
+<div id="围栏代码块" class="section level2">
+<h2>围栏代码块</h2>
+<p>扩展功能，用<code>~~~</code>跟<code>~~~</code>围起来就可以了。</p>
+</div>
+<div id="列表" class="section level2">
+<h2>列表</h2>
+<p>不允许混合无序列表与数字列表，标准版两个不同列表容易产生一个无序列表：</p>
+<pre><code>* kram
++ down
+- now
+
+1. kram
+2. down
+3. now</code></pre>
+<p>同级别列表不允许有不同缩进。</p>
+</div>
+<div id="定义列表" class="section level2">
+<h2>定义列表</h2>
+<p>扩展功能。</p>
+<pre><code>kramdown
+: A Markdown-superset converter
+
+Maruku
+:     Another Markdown-superset converter</code></pre>
+<dl>
+<dt>kramdown</dt>
+<dd>
+A Markdown-superset converter
+</dd>
+<dt>Maruku</dt>
+<dd>
+Another Markdown-superset converter
+</dd>
+</dl>
+</div>
+<div id="表格" class="section level2">
+<h2>表格</h2>
+<p>扩展功能。</p>
+<pre><code>|-----------------+------------+-----------------+----------------|
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            |
+|-----------------+------------+-----------------+----------------|
+| Second body     |            |                 |                |
+| 2 line          |            |                 |                |
+|=================+============+=================+================|
+| Footer row      |            |                 |                |
+|-----------------+------------+-----------------+----------------|</code></pre>
+</div>
+<div id="数学公式支持" class="section level2">
+<h2>数学公式支持</h2>
+<p>扩展功能。</p>
+<pre><code>$$
+\begin{align*}
+  &amp; \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  &amp; (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) &amp; \cdots &amp; \phi(e_1, e_n) \\
+      \vdots &amp; \ddots &amp; \vdots \\
+      \phi(e_n, e_1) &amp; \cdots &amp; \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*}
+$$</code></pre>
+<p><span class="math display">\[
+\begin{align*}
+  &amp; \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  &amp; (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) &amp; \cdots &amp; \phi(e_1, e_n) \\
+      \vdots &amp; \ddots &amp; \vdots \\
+      \phi(e_n, e_1) &amp; \cdots &amp; \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*}
+\]</span></p>
+</div>
+<div id="html支持" class="section level2">
+<h2>HTML支持</h2>
+<p>比标准更宽泛，支持任意位置插入<code>html</code>代码并允许嵌套<code>markdown</code>语句</p>
+</div>
+<div id="脚注" class="section level2">
+<h2>脚注</h2>
+<p>扩展功能，其实就是加了上标的链接。</p>
+<pre><code>That&#39;s some text with a footnote.[^1]
+
+[^1]: And that&#39;s the footnote.
+
+That&#39;s the second paragraph.</code></pre>
+<p>That’s some text with a footnote.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>That’s the second paragraph.</p>
+<p>以上为常见功能的支持，有了这些写一篇带点公式代码的文章就不难了。</p>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>And that’s the footnote.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2014/10/17/history-of-clean-air-act/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 清洁空气法案的故事</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2014/11/22/bt-source/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">风向就是风吹来的方向 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2014\/10\/17\/history-of-clean-air-act\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2014\/11\/22\/bt-source\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

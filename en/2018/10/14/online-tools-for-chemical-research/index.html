@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Online tools for chemical research - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Online tools for chemical research - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Online tools for chemical research
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2018/10/14</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Online&#43;tools&#43;for&#43;chemical&#43;research&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F10%2F14%2Fonline-tools-for-chemical-research%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Online&#43;tools&#43;for&#43;chemical&#43;research&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F10%2F14%2Fonline-tools-for-chemical-research%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2018-10-14-online-tools-for-chemical-research.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>I am tired of searching compounds online. So far, more than 140 Millons substances have been registered for CAS registry number. However, it doesn&rsquo;t mean CAS has covered all the compounds. In fact, at least three identifiers have been used to let someone find the compounds' information online.</p>
+<p>The first one is CAS registry number. This number is quiet useful to buy standards. However, it&rsquo;s not free to get access to the full list of CAS registry number. Furthormore, this number is for substance, which is different from compounds. For example,  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4702940/">PubChem</a> show the SID and CID for the same compounds. Since substances' names or numbers have been used for a long time, some mistakes might happen when we could not tell apart different compounds from the same substances.</p>
+<p>The second identifier is Simplified Molecular-Input Line-Entry System (SMILES). This identifier could contain the structure information. However, since the standards are not well established, one compound could be linked to multiple SMILES. Such property has been improved by so-called canonical SMILES. However, this identifier still could not be trusted when you want to use them to get other identifier. SMILES is good to generate the molecular structure. However, we all knew 2D structure could not reflact the 3D structure and some software like MOPAC could be used to find the best structure if you want to do some Quantitative structure–activity relationship based prediction.</p>
+<p>The third one is from IUPAC. Of course, it&rsquo;s not IUPAC name because the name has same issue like SMILES. However, IUPAC has trying to generate InChI for compounds with structure information. They also developed InChIKey by hashes on InChI. InChIKey didn&rsquo;t cover all of the chemical substances and user could generate the InChIKey themselves when they have InChI. So the problem is that if such key could be generated locally, some mistakes or missing of layers in InChI would still give different keys to the same compounds.</p>
+<p>Those three indentifers are not perfect. This is the major issue when you use convertor for them such as <a href="http://cts.fiehnlab.ucdavis.edu/batch">Chemical Translation Services from UCDavis</a>. You could always find multiple hits from single entry. I know there are lots of indentifers such as PubChem CID and ChemSpider ID. However, they all have own coverages. Some conversions have no U turn.</p>
+<p>Anyway this post is not about those issues. I just want to list some databases which might be helpful for researchers doing non-targeted annotation analysis.</p>
+<h2 id="compounds-database">Compounds database</h2>
+<ul>
+<li>
+<p><a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> is an open chemistry database at the National Institutes of Health (NIH).</p>
+</li>
+<li>
+<p><a href="http://www.chemspider.com/">Chemspider</a> is a free chemical structure database providing fast text and structure search access to over 67 million structures from hundreds of data sources.</p>
+</li>
+<li>
+<p><a href="https://www.ebi.ac.uk/chebi/">ChEBI</a> is a freely available dictionary of molecular entities focused on ‘small’ chemical compounds.</p>
+</li>
+<li>
+<p><a href="https://www.cas.org/support/documentation/chemical-substances/faqs">CAS numbers</a></p>
+</li>
+<li>
+<p><a href="https://www.echemportal.org/echemportal/substancesearch/substancesearchlink.action">eChemPortal</a>  provides free public access to information on properties of chemicals. You could find physical chemical Properties, ecotoxicity, environmental fate and behaviour
+toxicity for certain compounds</p>
+</li>
+</ul>
+<h2 id="compounds-database-on-certain-topic">Compounds database on certain topic</h2>
+<ul>
+<li>
+<p><a href="http://www.metabolomicsworkbench.org/databases/refmet/index.php">RefMet</a> A Reference list of Metabolite names.</p>
+</li>
+<li>
+<p><a href="https://comptox.epa.gov/dashboard">CompTox</a> compounds, exposure and toxicity database. <a href="https://www.epa.gov/chemical-research/downloadable-computational-toxicology-data">Here</a> is related data. This is for environmental study.</p>
+</li>
+<li>
+<p><a href="http://www.t3db.ca/">T3DB</a> is a unique bioinformatics resource that combines detailed toxin data with comprehensive toxin target information.</p>
+</li>
+<li>
+<p><a href="http://www.hmdb.ca/">HMDB</a> is a freely available electronic database containing detailed information about small molecule metabolites found in the human body.</p>
+</li>
+<li>
+<p><a href="http://www.lipidmaps.org/">Lipid Maps</a></p>
+</li>
+<li>
+<p><a href="https://jcggdb.jp/rcmg/glycodb/Ms_ResultSearch">GMDB</a> a multistage tandem mass spectral database using a variety of structurally defined glycans.</p>
+</li>
+<li>
+<p><a href="https://www.genome.jp/kegg/compound/">KEGG</a> is a collection of small molecules, biopolymers, and other chemical substances that are relevant to biological systems.</p>
+</li>
+<li>
+<p><a href="https://www.drugbank.ca/releases/latest">Drugbank</a> is a unique bioinformatics and cheminformatics resource that combines detailed drug data with comprehensive drug target information.</p>
+</li>
+<li>
+<p><a href="http://foodb.ca/">FooDB</a> is the world’s largest and most comprehensive resource on food constituents, chemistry and biology.</p>
+</li>
+<li>
+<p><a href="http://lmdb.ca">LMDB</a> is a freely available electronic database containing detailed information about small molecule metabolites found in different livestock species.</p>
+</li>
+<li>
+<p><a href="http://zinc15.docking.org/">Zinc</a> is a free database of commercially-available compounds for virtual screening. You could use this database to search commercial information for certain compound&rsquo;s standards.</p>
+</li>
+<li>
+<p><a href="http://mastersearch.chemexper.com/">chemexper</a> is a commercial website for commercially-available compounds.</p>
+</li>
+</ul>
+<h2 id="ms-database-with-annotation">MS Database with annotation</h2>
+<h3 id="msms">MS/MS</h3>
+<ul>
+<li>
+<p><a href="http://mona.fiehnlab.ucdavis.edu/">MoNA</a> Platform to collect all other open source database</p>
+</li>
+<li>
+<p><a href="http://www.massbank.jp/?lang=en">MassBank</a></p>
+</li>
+<li>
+<p><a href="https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp">GNPS</a></p>
+</li>
+<li>
+<p><a href="http://spectra.psc.riken.jp/">ReSpect</a>: phytochemicals</p>
+</li>
+<li>
+<p><a href="https://metlin.scripps.edu/">Metlin</a></p>
+</li>
+<li>
+<p><a href="http://fiehnlab.ucdavis.edu/projects/LipidBlast">LipidBlast</a>: in silico prediction</p>
+</li>
+<li>
+<p><a href="https://www.mzcloud.org/">MZcloud</a></p>
+</li>
+<li>
+<p><a href="https://www.nist.gov/srd/nist-standard-reference-database-1a-v17">NIST</a>: Not free</p>
+</li>
+</ul>
+<h3 id="ms">MS</h3>
+<ul>
+<li>
+<p><a href="http://fiehnlab.ucdavis.edu/projects/binbase-setup">Fiehn Lab</a></p>
+</li>
+<li>
+<p><a href="https://www.nist.gov/srd/nist-standard-reference-database-1a-v17">NIST</a>: No free</p>
+</li>
+</ul>
+<h2 id="online-tools">Online tools</h2>
+<ul>
+<li>
+<p><a href="http://molview.org">Molview</a> to show a 3D structure from 2D structure. The 3D structure source is from <a href="https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-3-4">PubChem</a> or <a href="https://www.mn-am.com/products/corina">Corina</a>.</p>
+</li>
+<li>
+<p><a href="http://chimpsky.uwaterloo.ca/mol2chemfig/">mol2chemfig</a> could convert the smiles string into a figure using in LaTeX.</p>
+</li>
+<li>
+<p><a href="http://molgen.de">molgen</a> generating all structures (connectivity isomers, constitutions) that correspond to a given molecular formula, with optional further restrictions, e.g. presence or absence of particular substructures.</p>
+</li>
+<li>
+<p><a href="http://www.moleculardescriptors.eu/resources/resources.htm">QSPR MD tools list</a></p>
+</li>
+<li>
+<p><a href="https://www.envipat.eawag.ch/index.php">Isotope</a> pattern prediction</p>
+</li>
+<li>
+<p><a href="http://www.chemcalc.org/mf_finder/mfFinder_em_new">mfFinder</a> predict formula based on accurate mass</p>
+</li>
+</ul>
+<p>I will appreciate it if you could comment with other useful while available online tools related to non-targeted analysis in this post.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2018/07/13/metabolomics-data-analysis-workshop-slides-uwaterloo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Metabolomics data analysis workshop slides @ UWaterloo</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2018/12/11/biomarker-compounds-reactions/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Biomarker compounds? reactions! <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2018\/07\/13\/metabolomics-data-analysis-workshop-slides-uwaterloo\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2018\/12\/11\/biomarker-compounds-reactions\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Fountain 标记语言 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Fountain 标记语言 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2892 字</span>
+    
+    <h1 class="article-title">Fountain 标记语言
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2021/10/25</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Fountain&#43;%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2021%2F10%2F25%2Ffountain%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Fountain&#43;%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2021%2F10%2F25%2Ffountain%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2021-10-25-fountain/index.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>这是去年留的一个坑，眼看着挖土填是来不及了，就灌水来填了。</p>
+<p>标记语言里最经典的是 HTML，但最出圈的应该是 Markdown。所谓标记语言，可近似理解为纯文本+标记，而标记是用来定义文本的结构、格式或属性。一款标记语言要有自己的标记环境，例如 HTML 喜欢用一对尖括号来进行标记，尖括号里的内容则指示了特定的结构、格式或属性。例如 <code>&lt;p&gt;段落&lt;/p&gt;</code> 就对纯文本&quot;段落&quot;进行了标记，标记内容为<code>p</code>，也就是段落的意思。</p>
+<p>绝大多数现代浏览器能识别 HTML ，把标记内容按一定样式可视化出来，当然样式也是可以自己定义的。但HTML或CSS对习惯读纯文本的人而言写起来还是比较繁琐的，所有就有了 Markdown 这种简化版标记语言，把成对尖括号这种反人类设计改成更直观的井号、星号还有方括号这些标记，然后开发了一个引擎，把这些标记翻译成 HTML 这类已经有固定标准的标记语言，最后被浏览器渲染成网页。</p>
+<p>我猜测最初 Markdown 的开发者只想提供一个极简的标记语言，因此只转译了例如标题、加粗、斜体、引用、列表、链接等很少的 HTML 标记，用20%的努力解决了80%的场景。因为最终展示的也是 HTML ，所以如果写文档的人想要更多的功能，可以在 Markdown 直接混写 HTML 标记语言，反正最后也都能展示出来。</p>
+<p>不过 Markdown 后来因为其简单易用出圈了，原来只有前端工程师才涉及的标记语言现在几乎各行各业的人都在用。学习 Markdown 可能几分钟就能搞定，但用起来感觉神清气爽。如果一个文字工作者被 Word 与各种在线编辑器折磨一段时间后，那么他不是已经用上了Markdown，就是在寻找这类工具的路上。例如我学Markdown完全是因为早就习惯了另一种标记语言：Emacs 内置的 Org-mode，我曾经用这玩意写过一段时间的日记，当然叫它日记算是抬举它了，一年也没几篇，后来因为电脑硬盘挂了就彻底没了。印象中 Org-mode 写维基特别好用，但后来转到 Markdown 也无外乎发现了我其实能用到的功能并不多，先写起来比纠结学哪个工具更重要。另一原因则是不管 Vim 还是 Emacs，我都因为用得少记不住快捷键，此时找个不依赖编辑器又简单易用的标记语言就成了自然需求。</p>
+<p>当然，但凡提标记语言就不能不提另一个山头：TeX。这个可以理解为排版用的标记语言，不同于转换为网页，TeX的终点是排版好的dvi文档，当然现在更流行的是PDF文档。这里就不多说 TeX 那一坨发展史了，反正本来就是某研究人员不爽传统排版而自己搞出来的标记语言，其发展初期长期被学术鄙视链顶端率先接触计算机的物理与数学研究人员采纳，而其他学科普通研究人员喝到计算机技术外溢到学术投稿系统的汤时，满大街都已经是微软 Office 的天下了。</p>
+<p>我接触 TeX 应该是读了王垠的一篇博文，不得不说这是个超级大坑，但也得承认 TeX 标记语言如果搞明白了，软件编译流程基本也就能想明白了。不过 TeX 终究也没火起来，它对标的是所见即所得的全功能编辑器，学习门槛比 Markdown 高太多。现在就算是研究人员大概也就还是搞数学跟计算机相关的学科出于对公式编辑器的喜爱还在用，再有就是对排版要求极高的个人，而出版社则反而不用，他们早就被 Word 给驯化了。</p>
+<p>不过，自从谢大的 knitr 包横空出世，编程语言与标记语言的混搭却意外得到了很多关注。早期 R 语言社区存在 Sweave 文档，此时混搭的是 R 与 LaTeX 文档，但前面说了，LaTeX 这个坑一般人是不愿意跳的，谢大的 knitr 包则选择了 Markdown 作为标记语言，这样一下就把门槛放平了。这里要说明的是 knitr 包很多人认为就是实现 RMarkdown 文档的编译，其实不全面，knitr 包也支持 Rnw 这种用 LaTeX 做标记语言的文档的编译，而且 knitr 包也不仅仅支持 R，其他编程语言配置好了也能进行文档编译，反而是针对 R 与 Markdown 的部分单独被 rmarkdown 包承包了。而 Python 社区现在则基本都是 Jupyter notebook 的天下了，当然 Jupyter 也支持 R、Julia等编程语言与 Markdown 作为标记语言。</p>
+<p>当然，有编程语言与标记语言的混排需求的人还是少数，更多人直接选了Markdown 编辑器来作为日常写作工具。例如我现在想记一些不涉及编程的东西最先开的是 Typora 这个编辑器，很多人也喜欢用支持 Markdown 的笔记软件。好了，终于要到 Fountain 标记语言了。</p>
+<p>我第一次知道 Fountain 标记语言是在Joplin这个笔记软件的选项里看到了其对这种标记语言的支持，当时就出于好奇查了一下，发现这是专门给编剧写剧本的。但我显然不是编剧，毕竟生活这出戏不用编就已经足够荒唐魔幻了，用不着虚构。但仔细了解了 Fountain 标记语言后，我发现这个格式对一个场景非常有用，而恰好这个场景也可能会是很多人可能用到的。</p>
+<p>首先允许我来个现炒现卖，剧本其实是个很神奇的排版方式：一页典型剧本开头要有场号，然后要有这场戏的梗概，之后就是内容，例如两个人的对白或转场。每一页英文标准剧本会严格限制字体与纸张大小，大概对应一分钟的戏。好了，知道这些就够了，毕竟我们也不是这个专业的。</p>
+<p>这里神奇的地方在于一页纸对应一分钟的戏，那么对于研究人员来说就可以用来准备讲稿，特别是学术会议。其实写还是按原来的写，Fountain 标记语言跟Markdown几乎一致，只不过是限制的更多，这样你导出的PDF文档每页大概就是一分钟的量，15分钟的报告也就需要15页稿子，有点像高中语文的1000字稿纸，方便练习。</p>
+<p>其实我去年开会就尝试过，稿子写了一上午，结果练习一次就发现自己实在是不习惯念稿，我更习惯看着幻灯片讲，一看稿子就分神。不过这可能是我个人问题，练习十遍能讲出十个版本，加上讲稿就成了十一个，我个人做报告会进入一种精神高度集中状态，经常临时给出新的想法或者故事线，练的多后反而对熟悉的东西没有兴致去讲好，影响报告效果。所以我这里推荐 Fountain 标记语言但实话说我自己反而用不好。</p>
+<p>另一个适合Fountain标记语言的场景是现在视频制作时的文案，固定字体与纸张大小后就会固定视频长度，而且可以利用剧本的转场或场景转换来让视频内容的丰富些，也就是把叙事从文字陈述改为文字陈述加上场景转换加上现场布置加上动作，这样文案就会更立体些，我称之为立体叙事或镜头叙事。这样的镜头叙事对于传达信息会更生动些，对于老师备课也有启发。这些东西落实到剧本上，体验感与互动感会比单纯的文案有所增强。只要保证好一页纸对应一分钟的内容，创作也会更好把握节奏。同样，我也尝试过，但也发现我根本不适合准备文案，更适合临场发挥。这里只是分享给有需要的朋友。</p>
+<p>这里需要说明的是你需要专门的软件来支持Fountain标记语言的实时预览来控制创作节奏，可以考虑用joplin，毕竟专业的剧本软件都是收费的。另一个问题就是Fountain标记语言的节奏控制是针对英文的，切到中文每一页不一定对应一分钟，但只要你固定了字号与格式，基本也可以用。</p>
+<p>另外，我也推荐去读下剧本，这样可以更好体会编剧对于镜头语言的控制，中文的有个花生剧本可以免费用但不支持Fountain标记语言，好处是有不少经典电影剧本可以看。我不是搞编剧的，但很明显编剧的镜头语言与场景控制能力在其他行业里也可以用得上，至于如何用或者用好，自己去体验下就知道了。</p>
+<p>其实我到最后也没具体去聊Fountain标记语言的语法，这不重要，都是给个关键词10分钟就能搜索掌握到的。但要是掌握了剧本这种创作形式，可能打开一个新世界。</p>
+<p>ONE PIECE 就在新世界的尽头。淡出～</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2021/10/18/risk-again/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 金融风险</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2021/11/06/spit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">吐痰 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2021\/10\/18\/risk-again\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2021\/11\/06\/spit\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

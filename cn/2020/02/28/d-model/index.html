@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>疾病模型 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="疾病模型 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1598 字</span>
+    
+    <h1 class="article-title">疾病模型
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2020/02/28</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E7%96%BE%E7%97%85%E6%A8%A1%E5%9E%8B&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2020%2F02%2F28%2Fd-model%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E7%96%BE%E7%97%85%E6%A8%A1%E5%9E%8B&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2020%2F02%2F28%2Fd-model%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2020-02-28-d-model.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>我经常跟别人吹用<code>caret</code>包可以做到几百个模型的验证，做疾病模型很轻松，但实际没实操过。最近实际做了一批样品发现想跟做还真不是一回事，这里记录一下。</p>
+<p>这里我们遇到的问题是测了血样里的几千个代谢物峰，当然我也不知道具体是哪些物质。因为把无关变量加到模型里会提高模型整体方差，所以第一步我做了个自下而上的筛选。也就是说，不同于将疾病作为响应，把代谢物作为预测变量，我首先做的是把代谢物作为响应，把疾病状态作为预测响应的一个变量，同时对那些可能造成代谢物响应的协变量进行控制。也就是如下模型：</p>
+<p>代谢物响应 = f(疾病状态, BMI, 年龄, 家族病史)</p>
+<p>这一步是找出跟疾病状态有关系的代谢物，就是说对几千个物质逐一构建模型并进行错误发现率控制，结果发现一共也就十几个代谢物跟疾病相关。需要注意的是这里我默认预测或解释疾病只用这些代谢物就够了，但真实情况却可能是有些代谢物之间会有相互作用而在单一代谢物水平的建模是忽略了这种相互作用的。不过我这么操作主要是为了把不相关的代谢物去掉，由于我样本量有限，而过多代谢物几乎一定会在模型训练阶段过拟合，这一步操作是为了保证后面疾病模型的统计功效。</p>
+<p>得到十几个代谢物就去解释疾病对于一个暴露组学研究所来说属于严重失误，所以我从合作方那边拿到了被试的问卷调查数据，寻找并筛查了不超过十个与疾病相关的暴露变量。也就是说，目前我手里的变量都是在各自水平上与疾病有关系的，那么很大可能这些变量间也会有相关，例如有些营养指标会与代谢物相关，此时就可以用非监督学习方法对这些变量进行聚类来构建代谢物与暴露指标的关系。不过，我的数据里似乎代谢物跟暴露指标没啥关系，距离都挺远。那我们就可以走下一步来讨论疾病的影响因素了，这个自上而下的模型如下：</p>
+<p>疾病状态 = f(代谢物响应,暴露指标)</p>
+<p>这里我想需要知道代谢物与暴露指标那个对疾病状态影响更大，这就是个比较经典的机器学习问题了。由于前面自下而上的单变量筛选，虽然我的样品不到100个，但预测变量不到20个，勉强跳过了组学的高维诅咒。不过选啥模型就是另一个问题了，随机森林是生物新手的首选，支持向量机似乎有点过时，深度学习有点类似大炮打蚊子，要不要正则化…其实这里我的问题就是要有个衡量变量重要程度的模型，而且这个模型的预测效能要好。</p>
+<p>其实虽然我大概了解每个模型的假设与需要优化的参数，但我不认为存在一个完美模型，每一种模型都是从一个角度来审视数据中的信息。如果这个假设靠谱，那么对我而言最简单的探索方法就是尽可能多选择原理不同的模型进行训练，然后把训练好的单一模型组装为一个宏模型再次进行训练，得到不同模型的预测权重，然后在验证集上检验这个宏模型的组合预测。</p>
+<p>这里用了 <code>caretEnsemble</code>包，我同时尝试了六种模型，从预测结果上看大概都在70-80%的预测准确率，然而当我组装出宏模型后，预测准确率就会稳定在80%左右，验证集上准确率甚至更高。这其实是一种非技术驱动的性能提升方法，我并没有去依赖某一个模型的精细打磨，而是暴力组合后训练出不同模型权重来进行非技术性性能提升，这实际就是一个神经元为不同统计模型的人工神经网络。虽然从预测结果上并不完美但组合后性能确实提升了，但当我检查这非常六加一的变量重要性时，我发现有一种代谢物的重要性总是排第一。很遗憾，这个代谢物数据库里没有，属于未知物，但无论如何，整个流程走通了。</p>
+<p>总结一下，要对疾病进行解释，可以先在单一分子水平上去除掉无关变量，然后耦合不同组学及流行病学的相关变量并用无监督学习来探索这些疾病相关变量间的关系，最后用多个原理不同的模型组合出一个预测效能好的模型，然后检查变量重要性来区别不同组学或流行病学变量的相对重要程度。这个流程最大的优势在于不依赖单一模型优化而是利用宏模型来整合结果，这对于疾病研究应该已经足够了，因为疾病就想知道两个问题的答案：那些因素可以导致疾病？这些因素间的关系是怎样的？</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2020/02/12/intj/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 八字、星座与MBTI</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2020/03/05/exp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">实验 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2020\/02\/12\/intj\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2020\/03\/05\/exp\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

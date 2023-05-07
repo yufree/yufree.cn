@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>网速与树莓派 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="网速与树莓派 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3308 字</span>
+    
+    <h1 class="article-title">网速与树莓派
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2019/12/16</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E7%BD%91%E9%80%9F%E4%B8%8E%E6%A0%91%E8%8E%93%E6%B4%BE&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2019%2F12%2F16%2Frpi%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E7%BD%91%E9%80%9F%E4%B8%8E%E6%A0%91%E8%8E%93%E6%B4%BE&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2019%2F12%2F16%2Frpi%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2019-12-16-rpi.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>从大概五年前开始，4G网络开始普及，到今天5G报道满天飞，其实改变了很多人的生活方式。有时我在想，如果我们的网速停在3G时代，智能手机可能不会像今天这样流行。我大概看了下手机里装的应用，很多在网速低了后体验会变化很多，从可有可无变成日常打卡，特别是视频应用与游戏。而互联网开始流行短视频与vlog，很大程度上也是因为从制作到观看中没了网速瓶颈：制作视频不用桌面级软件的后期渲染，很多运动相机或云台相机甚至手机直出就很不错，高清直播配合降低的制作成本让视频内容大爆炸；看视频等信息量大的行为也不用先缓存或降低画质了，4k流媒体其实在4G网速下就可以实现，而4k的信息量跟你到电影院看电影的35mm胶片差不多了。也就是说，如果你同样有10美元，去电影院如果不是图个氛围或者去看IMAX，不如直接订阅4k流媒体服务一个月在家里搞个4k投影仪观看来的值，观看体验是差不多的。同样的问题存在于蓝光影碟，一张4k蓝光影碟几十G的容量只要你有网也属于可有可无了，当然蓝光版跟流媒体版的内容区别可能是其价值所在。现在的父母可以拖出一箱子硬盘告诉孩子这是你成长的点点滴滴，未来的父母可能只需要对孩子的数据读取进行授权就可以，很多数码实体可能要消失。我家里的有我几岁时说话的录音带实体还在，但能出声的录音机确实不好找了，今天的日常操作过二十年看可能就是不可思议了。不过，眼下的问题不在于生产，我看了下自己拍了几万张照片了，但留有印象的寥寥无几，有了直播看回放就几乎绝迹了，反正总有新的东西看，高网速下的持续输入与输出正在塑造新的认知趋势并压缩思考的空间。你如果每时每刻都在记录，那就不会有时间与精力回顾，那么记录本身的意义也就不大了，但也许你就是在享受记录这件事本身，这种事直到上个世纪都不常见：自古人们从来都是选择性高成本记录那些值得回忆的瞬间并反复回顾，没了回顾的低成本记录在信息高速传递的今天其实很是异类。</p>
+<p>伴随网速提高，我们会看到更多东西的消逝或数字化。本地数据存储除了隐私需要外其实必要性在减弱，我们需要的展示结果的终端，至于说数据的处理负担，可以交给云服务器来做。通过生物识别，我们的个人数据可以在网上高速调取，虚拟化会成为生活方式的一部分。很多曾经的习惯会从面向个体信息获取与娱乐变成社交或场合价值优先，例如现在的网吧没有完全在个人电脑普及浪潮后消失，反而成了电子竞技爱好者的自留地或社交场所。同样的，这类生活方式会从服务个体变到服务场合气氛，看重场景下的情感需求对于信息载体的脱实向虚是很重要的趋势。很多人去实体店或买实体看重的其实不是信息本身，而是其附带的情感与价值认同，这也决定了很多事物会衰落，但不会完全消失。等VR与AR技术更进一步，可能人真的会搞不清楚什么是真实存在，什么是虚构，社交可能通过虚拟场景远程实现，而网速或者说信息传递速度是这个趋势的关键，当足够快与平滑时，生理感知无法区分，那么真假在某种意义上就可操纵了。</p>
+<p>网速与本地运算是互相矛盾的，网速足够快，本地运算要求就相应降低，这样本来我们网上向本地传数据然后本机运算，当网速够快我们只需要提需求让服务器或云端进行计算，然后传递结果，本地终端只需要具备提供网速支持与结果展示所需要的计算能力。运算能力也许面对需求永远是不够用的，但在哪里算就是另一个问题了，例如现在云输入法的备选词就是在服务器端计算通过网络返回结果而不是调用本地训练好的模型，这样做有两个优点，一个是更新快，另一个是本地运算要求不高。现在很多电子产品都自带一个电脑或单片机，但在信息传递的支持下可以远程做很多事，美其名曰智能家电。很多在线应用也完全可以替代当年的装机必备软件，办公、图片处理、数据报表等软件纷纷云端化与订阅化，网速足够时一套完整办公环境可以随时随地搭建，效率自然会提高很多。我不必为了加个水印去学ps的图层，只要在要搜的关键词后面加上 online 就可以了，屡试不爽。原来我外出都要带个优盘，现在记住密码或带着有指纹的手或刷脸就可以快速重现工作所需的工具场景，做报告的话我甚至不用带电脑，因为幻灯片在线就可以公开查看，我只需要关键词与能联网的搜索引擎就够了，我需要的是带输入输出的终端而不是处理器，真需要处理笔记本的性能面对台式机或服务器反而很尴尬。</p>
+<p>今年回国我本来想把家里电脑升级下，回去后才知道电脑已经半年多没开机了，爸妈所有的查询现在都是通过智能音箱与手机来做，键盘都不用了。我甚至在想如果下次升级电脑，是否需要去搞个高性能笔记本，还是换成树莓派与几年的云计算服务，价格上区别不大甚至更便宜，我个人娱乐手机配合树莓派就搞定了，而买的正版游戏都从未下载到本地过，办公几乎全部走云端主机，多出来的钱升级下网速换个好点的屏幕就挺好。现在来看有点魔幻，对我而言，学生时代笔记本电脑就是我的全部，娱乐、学习、工作、社交全都通过笔记本电脑来做，现在笔记本电脑更多是工作工具了，或者说能联网的终端都可以是工作工具。本机处理数据一般不大，大的数据我都远程登录办公室一台服务器或干脆扔学校集群上算了，以后可能扔云端上，我也没啥有价值的隐私数据，有需要搞个个人NAS也够了。我猜想很多人觉得还是手边有高性能设备好，但希望他们去尝试下树莓派之类的产品，计算能力日常使用生理上感觉不出差异多大了。真有那计算量大的活，早点拥抱集群计算或超算才是正解，按时付费可以瞬间有一台高性能电脑，处理完了下线也不耽误。</p>
+<p>说到树莓派，我最近尝试了一下，做大型数据处理比较吃力，但锅不在树莓派而在写某些算法的人设计理念有问题。日常办公是完全没压力的，100刀基于树莓派的商品化小型终端计算机可以应对80%的生活自用场景。但用了几天，特别是买了一大堆传感器尝试了GPIO后，我发现甚至树莓派的计算能力在很多场景下都是多余的，很多需求一块开发版就能完成，也并不是要去学汇编与C，我这种半吊子python使用者看看文档然后知道面包板跟子母线咋用就可以排列组合做很多有意思的应用。R里面目前有个 RpiR 包对基于 C 的 WiringPi 进行了基础功能的封装，可以在树莓派里用，但稍微复杂点的功能就得自己造轮子了，以我之懒直接换 python 了，高级语言还是用户友好的，反正都是调包。不过如果自己打算写，那就是另一个概念了，发光二极管只需要高低电压就行，但随便一个复杂点的传感器或元器件都需要自己写驱动，把数字甚至模拟信号处理成你需要的格式。这种从电路到编程的体验还是很有意思的，不过这可是物联网的基本功。</p>
+<p>通用计算机有可能不如专用芯片在未来有前景，特别是网速足够时，专用芯片的在线集群要比个人本地终端更高效地处理特定类型的数据与任务，非开发目的而仅仅是应用的话这种针对特定任务的数据处理芯片会有前景，当然，如果任务本身的计算量终端完全可以负担，也没必要去在线处理。应该对计算任务评估一个计算当量，如果计算当量超过了日常办公一个数量级，那么就应该在线做或购买特异性的服务器而不要对不需要的功能付费。反之，如果本地可承担，那就使用本地资源，本地计算资源总是稀缺的，网速足够的话计算任务尽量放到云端来提高效率，只是这个事牵扯数据价值的归属问题，个人应可以向使用自己数据的实体发放付费或免费的授权，对应换取更多服务或折扣。好比集中供暖，家家户户烧炉子的社会效益低于集中供暖，开支相应更高，但要做好用户信息加密与反追踪。打个比方，行为数据模式的统计量对与公司是有价值的但不能追踪到个体，那么在数据收集后我们应该引入第三方或者一种算法将用户个体数据在信息不丢失的情况下做类似基因交叉互换的操作，这样公司或政府拿到的数据不会指向某一个真实的人，但其中的信息却可以提供价值与决策参考。</p>
+<p>经济上脱实向虚目前来看是弊大于利的，造成了财富分配不均现象的恶化，但网速提高造成的信息脱实向虚却很难给个简单的好坏判断，但无论如何都会是一种趋势。我们是否还需要一台全能电脑还是符合实际需求的电脑，抑或是特异性的芯片？这也是所有人会用脚投票的趋势。眼下有些技术还缺失，有些比较成熟，有些则属于过剩的泡沫，当然人的需求从来不是一成不变的，但面对改变重新认识自己应该是必要的，否则随波逐流实属对个人选择权的放弃。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2019/12/01/wcub/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> WCUB 见闻录</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2019/12/31/32/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">三十二 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2019\/12\/01\/wcub\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2019\/12\/31\/32\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

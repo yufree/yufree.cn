@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>差异、相似与模式 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="差异、相似与模式 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3118 字</span>
+    
+    <h1 class="article-title">差异、相似与模式
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2017/05/17</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E5%B7%AE%E5%BC%82%E3%80%81%E7%9B%B8%E4%BC%BC%E4%B8%8E%E6%A8%A1%E5%BC%8F&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F05%2F17%2Fpattern%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E5%B7%AE%E5%BC%82%E3%80%81%E7%9B%B8%E4%BC%BC%E4%B8%8E%E6%A8%A1%E5%BC%8F&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2017%2F05%2F17%2Fpattern%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2017-05-17-pattern.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+
+<p>最近审了一份主题是质谱数据分析的稿子，领域是分析化学，很明显的感受就是作者但是很明显是为了用新方法而用，没有从问题出发，所以借机讨论总结下科研数据分析的思考视角。
+差异</p>
+<p>科研数据分析最基础的出发点就是寻找差异，你观察到了两组数据，这个分组是根据实验设计或人为划分的，你想了解两组数据差异。最朴素的思路就是分组聚合，例如选取出现最多的众数，排序中间位置的中位数以及平均值。但是这个思路只是简单的将一组数描述为一个数，并无法表示这组数的离散程度，也就是丢失了一部分可以进行对比的信息。如果你考虑上表示离散程度的方差，结果就成了对比两个数。这样的对比其实只是描述性的，如果你愿意且具备统计与数学功底，你可以构建出无数用来描述一组数据的单一或多个数值进行比较，这些数值在不同领域可能有不同称呼，可以理解为指标，或者称作统计量。统计量的构建至少满足两个条件：包含想要考察的信息与具备可比较的数学性质。前者比较好理解，后者就需要概率论做基础了，在必要时可根据实际问题修改统计量的数学描述方式。万万不可别人让你用什么就去用什么，这样永远是雾里看花。</p>
+<p>有了统计量，我们就可以进行比较了。不论你使用p值还是贝叶斯推断，其核心思路就是将统计量对应到一个分布里去，然后从概率视角看一下这个差异离不离谱（或者跟先验的概率分布比较），如果离谱就认为差异是显著的，跟0差异不大就认为没有明显的差异。但需要知道的是没有明显的差异是对应你假设检验方法而言的，不是说真实是没差异的，用不同的检验方式，结果可能不同。对于严谨的科学发现，主流的检验方式得到的结论应该是相似的，如果结果有差异，那么要么是检验方式无效或不适用，要么就是你的数据对差异判断并不支持。很多时候，如果技术发展不到位，数据的噪音掩盖信号，此时你不能验证结论，需要上更先进的仪器。从这个角度看，数据采集技术是否先进会制约科学发现，这也是很多学者寻求发展时经常要考虑平台是否先进的根本原因，没有技术平台，科学发现只能说模棱两可。好比你想用放大镜研究细胞结构，基本只能拿着鸡蛋看看了。</p>
+<p>差异多数时候是两两间的，但有时候我们的问题是在某个因素不同水平的影响是否显著，例如我想知道某种污染物的自由态浓度是否受高中低不同土壤含水量的影响，这里土壤含水量是因素，高中低是三个水平，此时用方差分析就可以得到土壤含水量是否影响污染物自由态浓度的判断。推而广之，如果水平是连续变量，那么此时的差异分析实质上是相关分析或者说是线性模型的一个特例。你总是要对模型系数进行假设检验来确定这个系数是否影响了你要考察的变量，如果你要进一步进行讨论，参考下面的模式那一部分。</p>
+<p>发现一个差异并从统计角度说明其出现概率比较低或跟先验知识包含不同的信息量是科研数据分析最常见的应用场景。基本思考流程可以归纳为首先构建代表性可比较的统计量，然后进行假设检验的比较，最后根据结果给出判断。这个判断过程有统计学与概率论做支撑，独立于观察过程，因此判断具备相对客观的属性。</p>
+<p>相似</p>
+<p>另一个科研中常见的数据分析场景是寻找数据的共性，但其实基本思路跟找差异比较接近但面对的数据结构会不太一样。在差异分析中，通常考察的是单一属性；相似性分析中，通常你会得到对同一客体的多个描述角度。举例而言，我得到两组河水样品，想知道两组水样是否接近，此时每组样品如果只测定一个指标，那么对比一下就完了；但如果测了很多组指标如何来衡量？两组河水pH值很接近但COD差距很大，可同时溶解氧几乎相同，如何判断？</p>
+<p>一个朴素的想法就是测量可比指标间的标准化差异，然后求绝对值和或平方和，越大表示相似度越小，或者用类似核函数的思想把高维数据映射到低维空间，还可以进行傅立叶变换来通过低维数值保留核心信息量进行比较。此外一个我非常欣赏的思路就是通过打乱分组构建随机统计量来对比实际发生的统计量出现概率，大概就是Fisher精确检验的套路，这个角度是纯统计思路且在计算不那么贵时很好用。</p>
+<p>相似性分析的科研应用场景会越来越多的，首先是数据库比对，目前组学技术发展很快，相关数据库累积也很快，你发现一个功能蛋白，反推出序列可以直接去搜库做进化树，这里面的相似性分析大都用到的动态编程与数据变换，不然速度跟不上。在质谱上就是谱库检索与比对，此时要考虑同位素分布、质量亏损、源内反应加合物等等，不然也很难比对相似性。另一个应用场景是非监督学习里的聚类分析，这里面相似性统计量是进行聚类的基础。其实虽然科学发现里寻找差异更符合探索逻辑，但实际上当前的数据驱动性研究更多是发现共性，当数据累积越来越多，对于共性的新研究方法或新统计量的提出可能更有价值。</p>
+<p>模式</p>
+<p>差异与共性分析都是最基础直观的科研数据分析思路，学科内规律性的东西有时候并不能直接从差异跟共性分析中得到，这时需要识别数据中的模式规律。所谓模式在科研结果中有两种，一种是探索未知，另一种是拟合已知。前者并不需要特别强的理论基础，用来发现模式；后者需要有比较强的理论支撑。</p>
+<p>拟合已知的最常见，例如线性拟合、多项式拟合等，很多时候由本学科的理论来提供基本形式，例如物理里的牛顿三定律、化学里的能斯特方程、生物里的米氏方程。这些方程的数学形式已经在学科内得到了认可，所以当你获取相关数据时，模式是固定的，你所需要求解的是某个参数。参数的稳定性也可以侧面反应理论的真实性，但拟合严格说更像是验证模式而不是发现模式。同时拟合背后的理论基础及来源也是要深入理解的，例如做吸附等温线有两种基本拟合方式：弗里德里希方程与朗缪尔方程，如果你搞不清机理随便用任何一种都会发现拟合效果都说得过去，但一个是纯理论另一个是经验公式，在使用时得考虑你研究目的。有一类研究比较看重预测效果，此时拟合就可以放宽，例如用多项式拟合考虑个自由度就可以了，甚至有时候可以考虑不同数值范围采用不同数学形式，在边界上用样条平滑下就可以了。但不论拟合理论公式还是经验公式，起码这类分析总还是有个数学公式来做骨架的，探索分析则没有这个限制。</p>
+<p>探索未知模式并不是说让你直接把所有科学问题都抽象成 y = f(x) ，然后你收集一大堆y跟相关x，直接扔到多层人工神经网络里去训练，然后搞个验证集看下效果就用，这是工程学思路，到头来也许解决问题，但你可能根本不理解问题。正常的探索过程基本还是有个模型指导的，你可以从最简单的线性模型开始尝试，然后不断提高模型的复杂度，例如引入交互作用或不同x用不同模型的广义加性模型。当然，你可以引入层级模型来探索数据内部结构。当模型复杂到一定程度，就有点人工神经网络的意思了。如果你是为了发现新模式，那么可视化手段是很好的探索起点。但如果是为了预测，其实样条平滑、小波分析等黑魔法就可以随意发挥了，大前提是你真的理解算法，知道自己在干什么。</p>
+<p>从寻找差异开始，我们很多朴素的想法背后其实都有基本模型在起作用，例如t检验就是方差分析的特例、方差分析就是线性模型的特例，线性模式又可以推广到广义线性模型。从最原始的单一统计量构建到多个独立统计量关系探索，再到考虑交互作用，再到层级结构，模型的复杂度可以不断提升。模型的生成过程也要伴随大量的验证与理论支持，并不是随意可以套用，除非你搞机器学习。其实你应该体会到数据分析与科学发展是紧密联系而不是割裂的，很多数据分析方法就是为解决特定科学问题提出来的，没有想象的那么黑箱，反倒是总把新数据分析方法当成黑箱的思路是很危险的。在绝大多数情况下，科学问题的数据分析方法都是针对性的，你也应该能从分析过程体会到背后的抽象与基本假设，否则并不真正理解，虽然这可能不妨碍你发文章。</p>
+<p>从问题视角出发去构建一个方法要比直接套用学科内常见方法更容易体会到《科学研究的艺术》。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2017/05/06/social-sense/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 社会感知、文献解读与棋盘思考</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2017/05/21/omics-power-analysis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">组学实验设计中的功效分析 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2017\/05\/06\/social-sense\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2017\/05\/21\/omics-power-analysis\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

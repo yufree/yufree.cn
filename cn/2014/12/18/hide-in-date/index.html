@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>大隐隐于数 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="大隐隐于数 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1158 字</span>
+    
+    <h1 class="article-title">大隐隐于数
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2014/12/18</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E5%A4%A7%E9%9A%90%E9%9A%90%E4%BA%8E%E6%95%B0&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F12%2F18%2Fhide-in-date%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E5%A4%A7%E9%9A%90%E9%9A%90%E4%BA%8E%E6%95%B0&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F12%2F18%2Fhide-in-date%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2014-12-18-hide-in-data.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+
+<p>最小二乘法有个“基本假设”：残差要符合正态分布。结果最近读《Advanced Data Analysis from an Elementary Point of View》时，作者来了句：</p>
+<blockquote>
+<p>None of these assumptions was needed in deriving the optimal linear predictor.</p>
+</blockquote>
+<p>哭了，这些年我没少拿QQ图忽悠人，结果还忽悠错了。后来想想，如果残差不符合正态分布，那是不是说可以随意分布，或者说，画个图。</p>
+<p>放狗一搜，还真有人做了，这年代有个原创太不易了。<a href="http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/stat_res_plots.html">Leonard A. Stefanski</a>在2007年在《The American Statistician》上发表了一篇搞笑式的<a href="http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/Residual_Surrealism_TAS_2007.pdf">论文</a>介绍如何在回归分析的残差中藏图。大意是生成一个数据集，如果你对这个数据集做回归分析然后对残差作图就可以把隐藏在残差中的信息解出来。相比之下，感觉什么其他解密方法都成浮云了，抗解密指数极高。</p>
+<p>我仔细读了下算法，没读懂；再读，还没懂；我是不会读第三遍的（据说三遍不懂就等于承认自己笨蛋，绝不给机会）。不过仔细看了下，发现作者不懂R，但提供了别人写的R脚本来<a href="http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/000_R_Programs/John_Staudenmayer/residplots.R">实现</a>。</p>
+<p>算法细节不提了（因为没看懂），我们可以把这个脚本看作一个加密算法。这个算法需要你输入一个点阵图，也就是你要加密的信息，横轴看作残差<span class="math inline">\(R\)</span>，纵轴看作拟合的值<span class="math inline">\(Y\)</span>，这两个值实际都要中心化（也就是和为0），这样你会得到一个<span class="math inline">\(R^T Y = 0\)</span>的等式。同时根据残差的定义，有<span class="math inline">\(P_x Y_0 = Y\)</span>与<span class="math inline">\((I - P_x)Y_0 = R\)</span>，这样我们的问题实际转化为了在已知<span class="math inline">\(R\)</span>与<span class="math inline">\(Y\)</span>的条件下求解矩阵<span class="math inline">\(X\)</span>与真实值<span class="math inline">\(Y_0\)</span>的问题。不过仅仅求解一个X是无法隐藏残差中的信息的，我们需要引入另一个矩阵<span class="math inline">\(M\)</span>来扰乱X的计算并给出初始随机值，这样通过数值迭代求解我们可得到一个多变量数据框。乍看就是一组数据，如果对其按照线性回归拟合并对残差作图就可以得到原始信息了。这种情况我会把私钥设为响应值的列号，例如42，这样生成数据后毁掉算法，除了那个列号的持有者谁也无法从一堆随机数中找出关系。当然数据集数目不大可以穷举，但这个算法足够耗时，所以可以用来传递私人信息。</p>
+<p>上面一坨其实可以不用看，因为不懂也可以用。如果你仅仅拿到脚本会发现一个尴尬的问题：从哪去找个这样的点阵图片？必须imagemagick啊，安装后准备一个包含你想传达信息的图片，然后用下面的命令生成ASCII形式的图片：</p>
+<pre><code>convert &#39;fig.jpg&#39;  -resize 100x100 -extent 100x100 -monochrome -compress none &#39;fig.pbm&#39;</code></pre>
+<p>然后记事本打开脚本，把其中</p>
+<pre><code>temp &lt;- scan(&quot;~/logo.txt&quot;)</code></pre>
+<p>改成</p>
+<pre><code>temp &lt;- scan(&quot;fig.pbm&quot;, skip = 1)</code></pre>
+<p>就可以了。这样你在脚本最下面加入下面这句：</p>
+<pre><code>save(data,file = &#39;data.RData&#39;)</code></pre>
+<p>就可以在工作目录下得到一个数据文件，将文件传出去，解密者使用下面命令：</p>
+<pre><code>load(&#39;data.RData&#39;)
+reg &lt;- lm(Y~X,data=data)
+plot(reg$fitted,reg$resid,pch=16,main=&quot;Residual plot from data&quot;)</code></pre>
+<p>就可以看到隐藏的信息了。我修改了这个脚本，放在<a href="https://github.com/yufree/democode/tree/master/Residual%20Sur">这里</a>，一个生成数据，另一个解密，不过你要把你自己的文件名输入进去，另外就是懂一点R。稍加改动就可以写成将Y隐藏于X中的形式，这算得上一个熟人间的暗号系统了，不过对我而言又是个没啥大用的课余小制作。</p>
+<p>附一个logo成品：</p>
+<p><img src="https://yufree.github.io/blogcn/figure/fish.png" /></p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2014/12/09/github-pages/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 基于Github Pages快速建站指南</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2015/02/14/bad-graph/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何用图来折磨读者 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2014\/12\/09\/github-pages\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2015\/02\/14\/bad-graph\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

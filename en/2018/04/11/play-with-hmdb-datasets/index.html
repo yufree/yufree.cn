@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Play with HMDB datasets: Part I - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Play with HMDB datasets: Part I - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Play with HMDB datasets: Part I
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2018/04/11</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Play&#43;with&#43;HMDB&#43;datasets%3A&#43;Part&#43;I&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F04%2F11%2Fplay-with-hmdb-datasets%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Play&#43;with&#43;HMDB&#43;datasets%3A&#43;Part&#43;I&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F04%2F11%2Fplay-with-hmdb-datasets%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2018-04-11-play-with-hmdb-datasets.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>The Human Metabolome Database is always used to make annotation for metabolomics studies. However, I am not sure which version of hmdb used in some packages like xMSannotator or MAIT. Then I suddenly realized I could directly grab the most updated version from their website and make annotation with those data. When you have a hammer, you always want to hit a nail.</p>
+<p>The most updated <a href="http://www.hmdb.ca/downloads">version</a> is from 2018-04-10 in xml formats. Well, since I deal with the rss xml in the text mining <a href="https://yufree.cn/en/2017/07/07/text-mining/">post</a>, I think such file is not a big deal. However, when I de-compressed the file, I found the size of the raw singal xml file is almost 3G, similar to the whole human genomics. However, I checked and found lots of the information for each compounds are references and I think data clean should be down.</p>
+<p>My Macbook Pro is a begger version with 8GB memory and 3G would make it impossible for R to process the data. Actually I try R and the procudure would run forever. Here is the R code:</p>
+<pre class="r"><code>library(tidyverse)
+library(xml2)
+library(stringr)
+hmdb &lt;- read_xml(&#39;hmdb_metabolites.xml&#39;)%&gt;%
+as_list()
+getremove &lt;- function(list){
+  list$synthesis_reference &lt;- NULL
+  list$general_references &lt;- NULL
+  list$version &lt;- NULL
+  list$creation_date &lt;- NULL
+  list$update_date &lt;- NULL
+  list$secondary_accessions &lt;- NULL
+  list$description &lt;- NULL
+  list$synonyms &lt;- NULL
+  list$traditional_iupac &lt;- NULL
+  list$spectra &lt;- NULL
+  list$predicted_properties &lt;- NULL
+  list$taxonomy$alternative_parents &lt;- NULL
+  list$taxonomy$substituents &lt;- NULL
+  list$taxonomy$description&lt;- NULL
+  list$normal_concentrations &lt;- NULL
+  list$abnormal_concentrations &lt;- NULL
+  list$diseases &lt;- NULL
+  list$ontology &lt;- NULL
+  list$direct_parent &lt;- list$taxonomy$direct_parent
+  list$kingdom &lt;- list$taxonomy$kingdom
+  list$super_class &lt;- list$taxonomy$super_class
+  list$class &lt;- list$taxonomy$class
+  list$sub_class &lt;- list$taxonomy$sub_class
+  list$molecular_framework &lt;- list$taxomomy$molecular_framework
+  list$taxonomy &lt;- NULL
+  list$protein_associations &lt;- NULL
+  list$biofluid_locations &lt;- NULL
+  list$pathways &lt;- NULL
+  list$tissue_locations &lt;- NULL
+  list$experimental_properties &lt;- NULL
+  return(list)
+}
+subhmdb &lt;- lapply(hmdb,getremove)
+id = unlist(sapply(subhmdb, &quot;[[&quot;, &quot;accession&quot;))
+name = unlist(sapply(subhmdb, &quot;[[&quot;, &quot;name&quot;))
+hmdbclass = sapply(subhmdb, &quot;[[&quot;, &quot;class&quot;)
+hmdbclass2 = sapply(hmdbclass, unlist)
+class &lt;- as.character(hmdbclass2)
+hmdbsubclass = sapply(subhmdb, &quot;[[&quot;, &quot;sub_class&quot;)
+hmdbsubclass2 = sapply(hmdbsubclass, unlist)
+subclass &lt;- as.character(hmdbsubclass2)
+hmdbMW = sapply(subhmdb, &quot;[[&quot;, &quot;monisotopic_molecular_weight&quot;)
+hmdbMW2 = sapply(hmdbMW, unlist)
+MW &lt;- as.numeric(as.character(hmdbMW2))
+table &lt;- cbind.data.frame(id = id,name = name,class = class,subclass = subclass, MW = MW)
+write.csv(table,file = &#39;hmdb.csv&#39;)</code></pre>
+<p>Then I thought I could use <code>bash</code> to process such xml. Although I finally get the files via <code>xmlstarlet</code>, I think the waiting time is too long.</p>
+<pre class="bash"><code>xmlstarlet sel -N hmdb=http://www.hmdb.ca -T -t -m //hmdb:metabolite -v &quot;concat(//hmdb:metabolite//hmdb:accession,&#39;,&#39;,//hmdb:metabolite//hmdb:monisotopic_molecular_weight,&#39;,&#39;,//hmdb:metabolite//hmdb:iupac_name,&#39;,&#39;,//hmdb:metabolite//hmdb:name,&#39;,&#39;,//hmdb:metabolite//hmdb:chemical_formula,&#39;,&#39;,//hmdb:metabolite//hmdb:cas_registry_number,&#39;,&#39;,//hmdb:metabolite//hmdb:smiles,&#39;,&#39;,//hmdb:metabolite//hmdb:kingdom,&#39;,&#39;,//hmdb:metabolite//hmdb:direct_parent,&#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:super_class,&#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:class,&#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:sub_class, &#39;,&#39;,//hmdb:metabolite//hmdb:taxonomy//hmdb:molecular_framework)&quot; -n hmdb_metabolites.xml &gt; hmdb.csv</code></pre>
+<p>Then I think it’s time for <code>python</code>. I didn’t use python too much. After struglling with some issues between <code>python 2</code> and <code>python 3</code> , finally I make a dirty code as follows:</p>
+<pre class="python"><code># delete the xmlns=&quot;http://www.hmdb.ca&quot; in the second line of xml space
+from lxml import etree
+import csv
+xml = &#39;hmdb.xml&#39;
+
+context = etree.iterparse(xml, tag=&#39;metabolite&#39;)
+
+csvfile = open(&#39;hmdb.csv&#39;, &#39;w&#39;)
+fieldnames = [&#39;accession&#39;, &#39;monisotopic_molecular_weight&#39;, &#39;iupac_name&#39;, &#39;name&#39;, &#39;chemical_formula&#39;, &#39;cas_registry_number&#39;, &#39;smiles&#39;, &#39;kingdom&#39;, &#39;direct_parent&#39;, &#39;super_class&#39;, &#39;class&#39;, &#39;sub_class&#39;, &#39;molecular_framework&#39;]
+writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+writer.writeheader()
+
+for event, elem in context:
+
+    accession = elem.xpath(&#39;accession/text()&#39;)[0]
+    try:
+        monisotopic_molecular_weight = elem.xpath(&#39;monisotopic_molecular_weight/text()&#39;)[0]
+    except:
+        monisotopic_molecular_weight = &#39;NA&#39;
+    try:
+        iupac_name = elem.xpath(&#39;iupac_name/text()&#39;)[0].encode(&#39;utf-8&#39;)
+    except:
+        iupac_name = &#39;NA&#39;
+    name = elem.xpath(&#39;name/text()&#39;)[0].encode(&#39;utf-8&#39;)
+    try:
+        chemical_formula = elem.xpath(&#39;chemical_formula/text()&#39;)[0]
+    except:
+        chemical_formula = &#39;NA&#39;
+
+    try:
+        cas_registry_number = elem.xpath(&#39;cas_registry_number/text()&#39;)[0]
+    except:
+        cas_registry_number = &#39;NA&#39;
+    try:
+        smiles = elem.xpath(&#39;smiles/text()&#39;)[0]
+    except:
+        smiles = &#39;NA&#39;
+    try:
+        kingdom = elem.xpath(&#39;taxonomy/kingdom/text()&#39;)[0]
+    except:
+        kingdom = &#39;NA&#39;
+    try:
+        direct_parent = elem.xpath(&#39;taxonomy/direct_parent/text()&#39;)[0]
+    except:
+        direct_parent = &#39;NA&#39;
+    try:
+        super_class = elem.xpath(&#39;taxonomy/super_class/text()&#39;)[0]
+    except:
+        super_class = &#39;NA&#39;
+    try:
+        classorg = elem.xpath(&#39;taxonomy/class/text()&#39;)[0]
+    except:
+        classorg = &#39;NA&#39;
+    try:
+        sub_class = elem.xpath(&#39;taxonomy/sub_class/text()&#39;)[0]
+    except:
+        sub_class = &#39;NA&#39;
+    try:
+        molecular_framework = elem.xpath(&#39;taxonomy/molecular_framework/text()&#39;)[0]
+    except:
+        molecular_framework = &#39;NA&#39;
+
+    writer.writerow({&#39;accession&#39;: accession, &#39;monisotopic_molecular_weight&#39;: monisotopic_molecular_weight, &#39;iupac_name&#39;: iupac_name, &#39;name&#39;: name, &#39;chemical_formula&#39;: chemical_formula, &#39;cas_registry_number&#39;: cas_registry_number, &#39;smiles&#39;: smiles, &#39;kingdom&#39;: kingdom, &#39;direct_parent&#39;: direct_parent, &#39;super_class&#39;: super_class, &#39;class&#39;: classorg, &#39;sub_class&#39;: sub_class, &#39;molecular_framework&#39;: molecular_framework})
+    # It&#39;s safe to call clear() here because no descendants will be
+    # accessed
+    elem.clear()
+# Also eliminate now-empty references from the root node to elem
+    for ancestor in elem.xpath(&#39;ancestor-or-self::*&#39;):
+        while ancestor.getprevious() is not None:
+            del ancestor.getparent()[0]
+del context</code></pre>
+<p>After 134.2s, it’s done. The size of csv file is around 50.5MB.</p>
+<p>I will not show the csv files because if you really want the results, you’d better to run this code on the furture version of HMDB. If you don’t know how to use python, just learn it! If you already know one programming language, you could learn another high-level language in few minutes to run a script.</p>
+<p>I have to mention that the devolopers of MS-DIAL always released an updated MS/MS spectrum database <a href="http://prime.psc.riken.jp/Metabolomics_Software/MS-DIAL/index.html">online</a>. I wonder how many people spend time on those data. If you could find the source of the raw data, run them from the very beginning and you would know how complex to produce a realiable database.</p>
+<p>OK, part I only cover the data clean part. I might show some data mining for those data in next posts. The take home message is that tools would not change the results while they could change the time to get the results. Learn something new and it would help you someday.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2018/03/13/workflow-for-r-based-research-environment/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Downverse workflow for research</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2018/04/22/play-with-hmdb-datasets-part-ii/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Play with HMDB datasets: Part II <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2018\/03\/13\/workflow-for-r-based-research-environment\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2018\/04\/22\/play-with-hmdb-datasets-part-ii\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Daily check for coronavirus data - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Daily check for coronavirus data - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+    <h1 class="article-title">Daily check for coronavirus data
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2020/04/17</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Daily&#43;check&#43;for&#43;coronavirus&#43;data&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2020%2F04%2F17%2Fdaily-check-for-coronavirus-data%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Daily&#43;check&#43;for&#43;coronavirus&#43;data&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2020%2F04%2F17%2Fdaily-check-for-coronavirus-data%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2020-04-17-daily-check-for-coronavirus-data.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+
+<p>As employee of health system, every week I will check our lab for leaks or instrumental issues. Meanwhile, I am using the following code to check daily increasing cases in US state-county level every morning.</p>
+<p>I think three signals are crucial for community level data and every community and people should decide their own timeline for normal live to survive in this pandemic and potential recession in the following months or years:</p>
+<ul>
+<li><p>Positive rate of testing is decreasing to ~1%. In this case, the testing ability should be enough to screen all the potential infected people.</p></li>
+<li><p>Daily increasing hospitialized number is less than the sum of dischared patients and dead people. In this case, the medical resources should reach the peak.</p></li>
+<li><p>Daily death numbers reached the peak and decrease for two weeks. In this case, the susceptible individuals in the community shoud be either infected or isolated and we could start to consider the cease of lockdown of local community.</p></li>
+</ul>
+<div id="state" class="section level1">
+<h1>STATE</h1>
+<p>Data source is New York Times.</p>
+<pre class="r"><code>library(tidyverse)
+
+file &lt;- read.csv(&#39;https://github.com/nytimes/covid-19-data/raw/master/us-states.csv&#39;,stringsAsFactors = F)
+file$date &lt;- as.Date(file$date)
+
+# Check States with max case larger than 10000 and more than 100 deaths
+df &lt;- file%&gt;%
+    group_by(state)%&gt;%
+    mutate(change=c(0,diff(cases)),change2=c(0,diff(deaths)))%&gt;%
+    filter(max(cases)&gt;10000 &amp; max(deaths)&gt;100)%&gt;%
+    ungroup() 
+
+df %&gt;%
+    ggplot(aes(x=date,y=change,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~state,scales = &#39;free&#39;) </code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>df %&gt;%
+    ggplot(aes(x=date,y=change2,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~state,scales = &#39;free&#39;) </code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+</div>
+<div id="county" class="section level1">
+<h1>COUNTY</h1>
+<p>Data source is New York Times.</p>
+<pre class="r"><code>file &lt;- read.csv(&#39;https://github.com/nytimes/covid-19-data/raw/master/us-counties.csv&#39;,stringsAsFactors = F)
+file$date &lt;- as.Date(file$date)
+
+library(tidyverse)
+# Check Counties with max case larger than 10000 and more than 100 deaths
+df &lt;- file%&gt;%
+    group_by(county,state)%&gt;%
+    mutate(CaseChange=c(0,diff(cases)),DeathChange=c(0,diff(deaths)))%&gt;%
+    filter(max(cases)&gt;10000 &amp; max(deaths)&gt;100)%&gt;%
+    ungroup() 
+
+df %&gt;%
+    ggplot(aes(x=date,y=CaseChange,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~county+state,scales = &#39;free&#39;) </code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>df %&gt;%
+    ggplot(aes(x=date,y=DeathChange,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~county+state,scales = &#39;free&#39;) </code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code>## NYC zipcode
+## covid19nyc &lt;- read.csv(&#39;https://raw.githubusercontent.com/nychealth/coronavirus-data/master/tests-by-zcta.csv&#39;)</code></pre>
+</div>
+<div id="test" class="section level1">
+<h1>Test</h1>
+<p>Data source is <a href="https://covidtracking.com">covidtracking.com</a></p>
+<pre class="r"><code>daily &lt;- read.csv(&#39;https://covidtracking.com/api/v1/states/daily.csv&#39;,stringsAsFactors = T,header = T)
+daily$date &lt;- as.Date(daily$dateChecked)
+
+dd &lt;- daily %&gt;%
+    group_by(state)%&gt;%
+    mutate(posrateChange=positiveIncrease/totalTestResultsIncrease,recin = c(0,-diff(recovered)))%&gt;%
+    ungroup()
+# pos rate changes
+dd %&gt;%
+    filter(state==&#39;NY&#39;)%&gt;%
+    ggplot(aes(x=date,y=posrateChange)) +
+    geom_point() +
+    geom_smooth()</code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code># hospitialized/death/recover daily increase in NY
+dd %&gt;%
+    filter(state==&#39;NY&#39;)%&gt;%
+    tidyr::pivot_longer(col=c(&#39;hospitalizedIncrease&#39;,&#39;deathIncrease&#39;,&#39;recin&#39;),names_to = &#39;condition&#39;,values_to = &#39;count&#39;) %&gt;%
+    ggplot(aes(x=date,y=count,color=condition)) +
+    geom_point() +
+    geom_smooth()</code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre class="r"><code># hospitialized/death/recover daily increase in States with more than 10000 positive cases
+dd %&gt;%
+    group_by(state) %&gt;%
+    filter(positive&gt;10000) %&gt;%
+    ungroup() %&gt;%
+    tidyr::pivot_longer(col=c(&#39;hospitalizedIncrease&#39;,&#39;deathIncrease&#39;,&#39;recin&#39;),names_to = &#39;condition&#39;,values_to = &#39;count&#39;) %&gt;%
+    ggplot(aes(x=date,y=count,fill=condition)) +
+    geom_point(aes(col=condition)) +
+    geom_smooth()+
+    facet_wrap(~state,scales = &#39;free&#39;)</code></pre>
+<p><img src="/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
+<p>Those numbers are real people.</p>
+</div>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2019/11/27/run-order-effect-for-metabolomics-studies/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Run order effect for metabolomics studies</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2020/06/07/si-for-asms-2020-reboot-presentation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">SI for ASMS 2020 Reboot Reactomics Presentation <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2019\/11\/27\/run-order-effect-for-metabolomics-studies\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2020\/06\/07\/si-for-asms-2020-reboot-presentation\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>漫谈统计学习中的 Bias-Variance Trade-Off思想 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="漫谈统计学习中的 Bias-Variance Trade-Off思想 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1721 字</span>
+    
+    <h1 class="article-title">漫谈统计学习中的 Bias-Variance Trade-Off思想
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2014/02/17</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E6%BC%AB%E8%B0%88%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84&#43;Bias-Variance&#43;Trade-Off%E6%80%9D%E6%83%B3&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F02%2F17%2Fbias-variance%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E6%BC%AB%E8%B0%88%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84&#43;Bias-Variance&#43;Trade-Off%E6%80%9D%E6%83%B3&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2014%2F02%2F17%2Fbias-variance%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2014-02-17-bias-variance.html"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      
+
+
+<p>最近在听一门统计学习的公开课，由<a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">ESL</a>的两个作者Trevor Hastie与Robert Tibshirani讲授，不过使用的教材是ESL的简化版——<a href="http://www-bcf.usc.edu/~gareth/ISL/">《An Introduction to Statistical Learning》</a>。虽说是简化版但写作风格明显是面对不同群体的，ISL偏应用，ESL更侧重数学原理解析，更抽象些。但这两本书的核心都是围着统计学习转的，而统计学习的一个核心论题就在Bias-Variance的取舍上，简单说就是偏差与方差的取舍。</p>
+<p>初涉统计学习最直观的图形就是过拟合与欠拟合训练集的模型对测试集残差的倒U型曲线，解释上也会偏重说明过拟合问题，下面就从原理层解释下这个问题：</p>
+<p>首先，我们知道统计学习实际上关注的是模型与现实问题，将现实的数据转化提炼出抽象的模型用来预测或做关系推断。那么先把无监督学习跟关系推断放一边，我们面对的是<span class="math inline">\(Y = f(X) + \epsilon\)</span> 的回归预测问题，这里<span class="math inline">\(f(x)\)</span>是理想模型。那么从公式上看我们可以想像，即使是理想模型，也存在<span class="math inline">\(\epsilon\)</span>，这是由Y背后的分布决定的，即预测值存在于一个范围而不是定值，通过其出现的概率密度函数，我们可以得到取值的变动范围。</p>
+<p>其次，要清楚实际的统计学习过程是借助<span class="math inline">\(\hat f(x)\)</span>来进行的，而<span class="math inline">\(\hat y = \hat f(x)\)</span>,也就是每一种建模方法实际对应了一种对理想<span class="math inline">\(f(x)\)</span>的估计。那么理想<span class="math inline">\(f(x)\)</span>是没有偏差的，但实际的建模过程是存在偏差的，这个偏差是可以有方向的，用bias表示。而在建模过程中模型对理想模型<span class="math inline">\(f(x)\)</span>也存在变动范围，受训练集影响大的模型变动大，Variance就高，这就是过拟合的来源。</p>
+<p>再次，不要忘记我们建模实际关心的不是<span class="math inline">\(\hat y\)</span>而是<span class="math inline">\(y\)</span>，那么在评价建模过程时我们引入一个统计量<span class="math inline">\(MSE\)</span>来衡量预测值与实际值的差异，有<span class="math inline">\(MSE = E(Y - \hat Y)^2 = [f(x) - \hat f(x)]^2 + Var(\epsilon)\)</span>，这个公式的证明很重要，但基本就是一个代数过程。从结果上看，差异的来源由两部分构成，一部份源于模型的偏差，另一部分源于<span class="math inline">\(y\)</span>自身的偏差，前者想想办法可以降低，后者由你响应变量的自身属性决定，基本不可约了。</p>
+<p>最后，关注下<span class="math inline">\([f(x) - \hat f(x)]^2\)</span>，这一部份实际由两部分构成，就是上面提到的variance与bias。这两部分都低的建模方法更接近实际，但统计学习的一些方法是面临一个取舍问题的，那就是 Bias-Variance Trade-Off。</p>
+<p>这里用交叉验证中的留一法与k叠交叉检验来说明下这个问题，留一法的核心在于留下一个作为验证集，用其余的数据建模，建n个模型求验证集的<span class="math inline">\(MSE\)</span>来进行模型评价。k叠交叉检验则将数据分为k份，大部份拿来建模，留一部分拿来验证。从Bias角度，由于留一法实际上使用了近乎所有数据，而k叠交叉检验会有<span class="math inline">\(n/k\)</span>部分不参与建模，所以相同训练集条件下留一法的Bias会很小。但从variance角度，使用的数据基本相同，过于依赖同一套数据，在测试集上会表现模型方差偏大，反观k叠交叉检验，Bias可能由于训练不够偏高，但构建的模型独立性较好，抵消掉了对同一数据集的依赖，得到的模型在variance上会相对小。这样我们会看到一个有意思的现象，伴随模型复杂度的提高，留一法与k叠交叉检验的<span class="math inline">\(MSE\)</span>实际是差不多的，但其中Bias与variance的组成是不一样的，从预测效果上看，可能variance低的模型更具吸引力，因此k叠交叉检验会比留一法更受欢迎。</p>
+<p>另一个解释的角度是从残差相关度上理解的，如果预测值与实际值的差距在训练集上高度相关，这样如果假设建模过程的variance对某一特定模型是固定的，那么训练集上的高度相关就反过来导致测试集变动范围增大。此外，数据生成过程如果存在自变量的相关，其势必造成参数标准误估计的偏低，进而影响模型的稳健性，这一过程还是比较常见的：时间序列分析。</p>
+<p>总之，Bias-Variance Trade-Off 贯穿在近乎每一个建模过程之中，统计学习的一个全局观就体现在其目标针对的是全局最优的理想模型。从这个角度出发，技术上的改进本质上是发现并平衡掉各种实际情况中的不完美或不理想。在这个层面上用好数学工具是可以从根上将问题分析透彻的。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2014/01/08/obesity-paradox/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 胖子的福音 - 肥胖悖论</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2014/02/18/2by2-table/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">列联表分析那点事儿 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2014\/01\/08\/obesity-paradox\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2014\/02\/18\/2by2-table\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

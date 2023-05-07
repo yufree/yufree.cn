@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Downverse workflow for research - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Downverse workflow for research - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Downverse workflow for research
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2018/03/13</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Downverse&#43;workflow&#43;for&#43;research&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F03%2F13%2Fworkflow-for-r-based-research-environment%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Downverse&#43;workflow&#43;for&#43;research&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2018%2F03%2F13%2Fworkflow-for-r-based-research-environment%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2018-03-13-downverse-workflow-for-research.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>Firstly, I really appreciate Yihui&rsquo;s <a href="https://yihui.name/en/2018/03/miao-yu-postdoc/">post</a> about me.</p>
+<p>Today I want to share some tips with people in academia about how to reduce repeated works in research. You might treat this as an extension for <a href="http://jtleek.com/">Jeek Leek</a>&rsquo;s excellent book: <a href="https://leanpub.com/modernscientist">How to be a mordern scientist</a>.</p>
+<h2 id="what">What?</h2>
+<p>Which kind of works could be treated as repeated works in research? A lot! However, unless you experiments are all <em>in silico</em>, I just want to focused on the parts after you finished your experiment. Repeated works in data analysis, writing and presentation should be considered.</p>
+<h2 id="why">Why?</h2>
+<p>Doing the same thing multiple times would waste your time. Also such behavior would introduce variances to reproduce your results. If we could not find a robot, a better choice is using codes. An important principle in research is that what you could do should be totally reproducible by other people, and yourself. When you do something related to research, make sure other people could always repeat your operation from the recipe you left. You should always treat yourself as &lsquo;other people&rsquo; and such codes or text files would help you reduce the future energy.</p>
+<h2 id="how">How?</h2>
+<ul>
+<li>Use Graphical User Interface(GUI)?</li>
+</ul>
+<p>Nooooooooo! No one would remember whether certain buttons have been clicked or not. However, you could also use macro to track your operations if possible. Make sure such macro could be shared without certain requirements about expensive software. If you have to use GUI, try to avoid the interactive operations which could affect your results.</p>
+<ul>
+<li>Version control?</li>
+</ul>
+<p>Yes! Always use version control for your files and add comments about changes. Use words which could be understood by human beings. Otherwise prepare a code book for yourself. Trust me, you need such code book rather than any other people. <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">github</a> would be a good start.</p>
+<ul>
+<li>RSS?</li>
+</ul>
+<p>Yes! Try to create your own rss list and keep track of new papers in passive way. Always start with abstract and end with a note links to original paper. Organize the notes as a book related to your research topic. When a new paper appeared as a note in your knowledge system or books, you could finally use such paper. Avoid guiding by the authors and keep your own system updated as I did for metabolomics <a href="https://bookdown.org/yufree/Metabolomics/">here</a>.</p>
+<ul>
+<li>Plot/Process similar data with the same setting?</li>
+</ul>
+<p>Try to organize scripts in one function and use <a href="https://rmarkdown.rstudio.com/">rmarkdown</a> to make reproducible reports about it. Next time you only need to call that functions as I did <a href="https://github.com/yufree/democode">here</a>.</p>
+<ul>
+<li>Make it clear?</li>
+</ul>
+<p>Use <a href="https://www.tidyverse.org/">tidyverse</a> style or verse with <a href="https://yihui.name/tinytex/">tinytex</a> support. Try to keep style stable and other people with similar style would figure out what you said from your codes in one second.</p>
+<ul>
+<li>Market your ideas?</li>
+</ul>
+<p>Write journal papers with <a href="https://github.com/rstudio/rticles">rticles</a> and show them at conferences with <a href="https://github.com/yihui/xaringan">xaringan</a> and/or <a href="https://shiny.rstudio.com/">shiny</a>. All you need to learn is <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown</a> and you could graduate in five minutes at most.</p>
+<p>Try to share source files about your ideas as a github repo and this would help you spread your ideas as <a href="https://en.wikipedia.org/wiki/Meme">meme</a>. Also you should consider pre-print sever such as <a href="https://arxiv.org/">arxiv</a>, <a href="https://www.biorxiv.org/">bioRxiv</a> and <a href="https://chemrxiv.org/">chemrxiv</a> to share your ideas in Physics, Life science and Chemistry, respectively.</p>
+<ul>
+<li>SNS your ideas?</li>
+</ul>
+<p>Write blog posts with <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> in plain text and share them on twitter/linkedin/researchgate. Actually, one of the purposes of my <a href="https://yufree.cn">website</a> is share my ideas.</p>
+<ul>
+<li>Similar topic of a bunch of functions?</li>
+</ul>
+<p>Pack the functions into a package and make detailed documents and publish with <a href="https://github.com/r-lib/pkgdown">pkgdown</a> as I did in <a href="https://cran.rstudio.com/web/packages/enviGCMS/index.html">enviGCMS</a> package.</p>
+<ul>
+<li>Similar topic of your ideas?</li>
+</ul>
+<p>Write a book online with <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> as I did for metabolomics <a href="https://bookdown.org/yufree/Metabolomics/">here</a></p>
+<ul>
+<li>Reproduce the whole environment for data analysis?</li>
+</ul>
+<p>Use <a href="https://www.docker.com/">docker</a> or <a href="https://hub.docker.com/u/rocker/">rocker</a> image to pack all but least dependence or software in a Linux image and share them on <a href="https://hub.docker.com">dockerhub</a>. You could also distribute your raw data and scripts with your docker image and show the links on your publications. In this case, anyone could validate your results with the same setting. I also did <a href="https://hub.docker.com/r/yufree/xcmsrocker/">one</a> for metabolomics study.</p>
+<ul>
+<li>Share the data?</li>
+</ul>
+<p>Try <a href="https://figshare.com/">figshare</a> or <a href="https://osf.io">Open Science Framework</a> to share your data or projects. I still suggested to use docker image to avoid potential issues.</p>
+<ul>
+<li>Literature management?</li>
+</ul>
+<p><a href="https://www.zotero.org/">Zotero</a> or <a href="https://github.com/ropensci/fulltext">fulltext</a>. However, as I shown <a href="https://yufree.cn/en/2018/01/12/get-rid-of-bibliography/">here</a>, all you need for literature management is <a href="https://www.doi.org/">DOI</a>. Just build your own knowledge system and organize literature according to your topic. You would benefit from such system by reducing a lot of time to align literature into the sections of your papers since you have already done this at the very beginning.</p>
+<ul>
+<li>I can&rsquo;t remember those tips</li>
+</ul>
+<p>Well, I prepare a <code>downverse</code> rocker <a href="https://hub.docker.com/r/yufree/downverse/">image</a> with those software installed and you could try. Other websites where you could always find excellent tools for research is <a href="https://ropensci.org/">rOpenSci</a> and <a href="https://www.rstudio.com/">Rstudio</a>.</p>
+<p>Thanks again, Yihui! Actually you developed most of the packages.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2018/02/27/see-you-pittcon-2018/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Pittcon 2018</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2018/04/11/play-with-hmdb-datasets/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Play with HMDB datasets: Part I <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2018\/02\/27\/see-you-pittcon-2018\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2018\/04\/11\/play-with-hmdb-datasets\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Display Chinese/Japanese/Korean in PDF from Rmd in RStudio - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Display Chinese/Japanese/Korean in PDF from Rmd in RStudio - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+    <h1 class="article-title">Display Chinese/Japanese/Korean in PDF from Rmd in RStudio
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2014/07/21</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Display&#43;Chinese%2FJapanese%2FKorean&#43;in&#43;PDF&#43;from&#43;Rmd&#43;in&#43;RStudio&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2014%2F07%2F21%2Frmd-to-pdf%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Display&#43;Chinese%2FJapanese%2FKorean&#43;in&#43;PDF&#43;from&#43;Rmd&#43;in&#43;RStudio&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2014%2F07%2F21%2Frmd-to-pdf%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2014-07-21-rmd-to-pdf.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature <code>fig.showtext</code> which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts and find the only way might be using the Rnw to write plain tex document. But I just want to use Rmd!</p>
+<p>Then I review the PDF generation process and find the key is the md to tex. Rmarkdown use pandoc as the converter and pandoc just use some template. If we want to show Chinese, we need to hack the template and add the support of Chinese. Just go the &ldquo;R/i686-pc-linux-gnu-library/3.1/rmarkdown/rmd/latex&rdquo; where is the template located and add \usepackage{xeCJK}  and \setCJKmainfont{youfont}  before \begin{document}. Youfont stand for the character font installed in your computer which is used to show in the PDF. Remember to use xetex to process the tex or you may try CJK solution. OK, save the hack and now we could use Chinese both in the main text and the plot. More information could be found <a href="https://github.com/yihui/knitr/issues/799">here</a>.</p>
+<p>The same way could be applied for Japanese and Korean. Just add the package support for your language.</p>
+<h1 id="update-20140722">update 20140722</h1>
+<p>@Yixuan write a <a href="http://statr.me/2014/07/showtext-with-knitr/">post</a> on the usage of showtext package in knitr. Also @Yihui showed adding the packages in the header.tex and modified the yaml of the Rmd as the following:</p>
+<pre><code>---
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+---
+</code></pre><p>will also solve the font problems. You may also use the tex code in the Rmd and pandoc will complie the code like in the Rnw. Thanks a lot, @Yihui and @Yixuan!</p>
+<h1 id="update-20150119">update 20150119</h1>
+<p>Chinese issue has been solved by the ctex templete in rticles package(on CRAN now). You might just use the following code to install the package.</p>
+<pre><code># install pandoc first
+install.packages(c('rmarkdown','rticles'))
+rmarkdown::draft(&quot;MyCtexArticle.Rmd&quot;, template = &quot;ctex&quot;, package = &quot;rticles&quot;)
+</code></pre><h1 id="updata-20160919">updata 20160919</h1>
+<p>Aftet the update of ctex, use yaml as shown in this <a href="http://yufree.cn/blog/2016/09/19/beamer-in-chinese.html">post</a> would directly show the Chinese/Japanese/Korean:</p>
+<pre><code>---
+title: &quot;中文／にほんご／韓國語&quot;
+author: &quot;Yufree&quot;
+date: &quot;2016年9月19日&quot;
+header-includes:
+  - \usepackage{ctex}
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+</code></pre><p>if you preferred xeCJK package to handle this issue, use CJKmainfont: [fontname] in yaml at the top level to set your font.</p>
+<p>You might find Rmd templates for Chinese/Janpanese/Korean <a href="https://github.com/yufree/democode/tree/master/cjk">here</a>.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2014/05/30/qspr-rcdk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Using rcdk package for QSPR</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2014/11/26/recommender-system/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Using recommender systems to fill the missing data <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2014\/05\/30\/qspr-rcdk\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2014\/11\/26\/recommender-system\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

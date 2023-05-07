@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homepage on Miao Yu | 于淼 </title>
@@ -6,95 +5,867 @@
     <description>Recent content in Homepage on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yufree.cn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
-      <title>过敏、烧烤和日料指数</title>
-      <link>https://yufree.cn/cn/2023/05/02/zibo-barbecue/</link>
-      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
+      <title>Posts</title>
+      <link>https://yufree.cn/post/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/05/02/zibo-barbecue/</guid>
-      <description>最近我一直龟缩宿舍，既不是怕新冠，也不是怕枪战，而是从前年开始，我一到春天就开始有过敏症状。症状就是打喷嚏流鼻涕不止，前几年情况好一些因为我</description>
+      <guid>https://yufree.cn/post/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>南极谋杀案（四）- 导游词</title>
-      <link>https://yufree.cn/cn/2023/04/28/anterctic-murder/</link>
-      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      <title>blog</title>
+      <link>https://yufree.cn/en/</link>
+      <pubDate>Wed, 22 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/04/28/anterctic-murder/</guid>
-      <description>尊敬的游客，欢迎来到现代战争博物馆。 本馆收藏丰富，展示了现代战争的发展沿革。现在，请一同来关注下其中几个重要展览。 首先，我们来到以世界大战为</description>
+      <guid>https://yufree.cn/en/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>南极谋杀案（三）- AGO测试</title>
-      <link>https://yufree.cn/cn/2023/04/20/anterctic-murder/</link>
-      <pubDate>Thu, 20 Apr 2023 00:00:00 +0000</pubDate>
+      <title>博客</title>
+      <link>https://yufree.cn/cn/</link>
+      <pubDate>Wed, 22 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/04/20/anterctic-murder/</guid>
-      <description>“各位考生大家好，欢迎来到2087年11月份全球AGO测试。本测试是为了纪念诞生于本世纪初的人工智能AlphaGo而设立的用来遴选提高元人工</description>
+      <guid>https://yufree.cn/cn/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>反应组学答疑</title>
-      <link>https://yufree.cn/cn/2023/04/15/reactomics-qa/</link>
-      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      <title>About Me</title>
+      <link>https://yufree.cn/en/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/04/15/reactomics-qa/</guid>
-      <description>写这个是因为我有个计数器，当同一个问题被问到一定次数后，我就会直接集中回答。 问：反应组学的一般分析流程是什么？ 答：这个我在2021年匹斯堡会</description>
+      <guid>https://yufree.cn/en/about/</guid>
+      <description>&lt;p&gt;Hi, My name is YU Miao and I am currently a scientist at the Jackson Laboratory.&lt;/p&gt;
+&lt;p&gt;My major is Environmental Science and I have to learn lots of knowledge to investigate a specific environmental question. In this case, I have to be a dabbler in many science topics. I also like cooking, photography, programming, solving puzzles, reading,&amp;hellip; However, I am good at none of them. In this cas, I am a dabbler in life, too.&lt;/p&gt;
+&lt;p&gt;I am lazy, so I just modified &lt;a href=&#34;http://yihui.name&#34;&gt;Yihui&amp;rsquo;s pages&lt;/a&gt; to show this blog(in fact, I just got the parts which I could figure out the meanings and thanks a lot, Yihui). But I am always willing to learn something new and this blog will be focused on something interesting in my life.&lt;/p&gt;
+&lt;p&gt;Since English is not my mother tongue, you have to bear my tongue to read my articles.&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t panic!&lt;/p&gt;
+&lt;p&gt;Here is some links related to this website:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://yihui.name&#34;&gt;Yihui&amp;rsquo;s blog&lt;/a&gt;: Codes where I got my blog&amp;rsquo;s style&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.r-bloggers.com&#34;&gt;R-bloggers&lt;/a&gt;: All blog posts related to R, feed &lt;a href=&#34;http://feeds.feedburner.com/RBloggers&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://yufree.cn/cn&#34;&gt;Yufree&lt;/a&gt;: My Chinese pages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://cn.linkedin.com/pub/yufree&#34;&gt;Linkedin&lt;/a&gt;: I am looking for a post-doc position&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/yufree&#34;&gt;Github&lt;/a&gt;: I am not a coder, but I need code&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://yufree.lofter.com/&#34;&gt;Photo&lt;/a&gt;: I am not a photographer, but I like it&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/yu_free&#34;&gt;Twitter&lt;/a&gt;: My twitter&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/yufreecas&#34;&gt;Facebook&lt;/a&gt;: My Facebook&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
-      <title>南极谋杀案（二）- 肢解快递</title>
-      <link>https://yufree.cn/cn/2023/04/12/antarctic-murder/</link>
-      <pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate>
+      <title>Curriculum Vitae</title>
+      <link>https://yufree.cn/en/vitae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/04/12/antarctic-murder/</guid>
-      <description>他拔下接口，对着空气问到： “就是说我要重回南极？” “是的，请履行您的地球公民义务。此外，请选择您的旅行方式，因为要求24小时内到，您可以选择</description>
+      <guid>https://yufree.cn/en/vitae/</guid>
+      <description>&lt;h1 id=&#34;miao-yu&#34;&gt;Miao YU&lt;/h1&gt;
+&lt;h1 id=&#34;contact-information&#34;&gt;Contact Information&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Address: 10 Discovery Dr, Farmington, CT, 06032&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:yufreecas@gmail.com&#34;&gt;yufreecas@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Pages: &lt;a href=&#34;http://yufree.cn/&#34;&gt;Yufree&amp;rsquo;s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://orcid.org/0000-0002-2804-6014&#34;&gt;ORCID&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;research-interest&#34;&gt;Research Interest&lt;/h1&gt;
+&lt;p&gt;POPs, Environmental Processes, Non-targeted Analysis, Data Science,
+Exposomics&lt;/p&gt;
+&lt;h1 id=&#34;education-background&#34;&gt;Education Background&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;2010.08 ~ 2016.06, PhD in Environmental Sciences, Research Center
+for Eco-Environmental Sciences(RCEES), Chinese Academy of Sciences&lt;/li&gt;
+&lt;li&gt;2006.08 ~ 2010.06, Bachelor of Science, School of Environmental
+Science and Technology, Shandong University&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;professional-experience&#34;&gt;Professional Experience&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;2022.04 ~ now, Scientist, The Jackson Laboratory, USA&lt;/li&gt;
+&lt;li&gt;2018.09 ~ 2022.04, Postdoctoral Fellow, Icahn School of Medicine at
+Mount Sinai, USA&lt;/li&gt;
+&lt;li&gt;2016.08 ~ 2018.08, Postdoctoral Fellow, University of Waterloo,
+Canada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;honors--awards&#34;&gt;Honors &amp;amp; Awards&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;First-class scholarship, RCEES, CAS, 2015&lt;/li&gt;
+&lt;li&gt;Merit Student, University of Chinese Academy of Sciences, 2014&lt;/li&gt;
+&lt;li&gt;First-class scholarship, RCEES, CAS, 2014&lt;/li&gt;
+&lt;li&gt;First-class scholarship, RCEES, CAS, 2013&lt;/li&gt;
+&lt;li&gt;Second-class scholarship, RCEES, CAS, 2012&lt;/li&gt;
+&lt;li&gt;Second-class scholarship, RCEES, CAS, 2011&lt;/li&gt;
+&lt;li&gt;The first prize in the group competition in science and technology
+innovation fund project, Shandong University, 2008&lt;/li&gt;
+&lt;li&gt;Advanced staff in scientific and technical research, Shandong
+University, 2007&lt;/li&gt;
+&lt;li&gt;Second-class scholarship, Shandong University, 2007&lt;/li&gt;
+&lt;li&gt;Outstanding Minister of Students Union in School of Environmental
+Science and Technology, Shandong University, 2007-2008&lt;/li&gt;
+&lt;li&gt;Outstanding Member of Students Union in School of Environmental
+Science and Technology, Shandong University, 2006-2007&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;presentations&#34;&gt;Presentations&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Miao Yu, 2021, Molecular gatekeeper discovery to link exposome with
+health outcomes through metabolomics, 69th ASMS Conference,
+Pennsylvania, USA.
+(&lt;a href=&#34;http://yufree.github.io/presentation/gatekeeper/gatekeeper-asms.html&#34;&gt;slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2021, Molecular gatekeeper discovery for multiple exposure
+groups in adolescent girls, ACS Spring 2021, USA.
+(&lt;a href=&#34;http://yufree.github.io/presentation/gatekeeper/gatekeeper-acs.html&#34;&gt;slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2021, General reactomics data analysis framework for
+retrieving chemical relationship from untargeted mass-spectrometry
+data, Pittcon 2021, USA.
+(&lt;a href=&#34;http://yufree.github.io/presentation/reactomics/pres-pittcon.html&#34;&gt;slides&lt;/a&gt;
+and &lt;a href=&#34;https://youtu.be/xYHW5Z5q_A8&#34;&gt;video&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2020, reactomics: using mass sepctrometry as chemical
+reaction detector ASMS 2020 Reboot, USA.
+(&lt;a href=&#34;http://yufree.github.io/presentation/reactomics/pres-asms.html&#34;&gt;slides&lt;/a&gt;
+and &lt;a href=&#34;https://youtu.be/-mT3HcVygHE&#34;&gt;video&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2019, Reactomics: possibility of using mass spectrometry as
+reaction detector, Materials Energy EnvironmenT Seminar, University
+at Buffalo, Buffalo, NY, USA.
+(&lt;a href=&#34;http://yufree.github.io/presentation/reactomics/pres-UB.html&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2019, Structure/reaction directed analysis for
+environmental metabolites, ACS Fall 2019 National Meeting &amp;amp; Expo,
+San Diego, CA, USA.
+(&lt;a href=&#34;http://yufree.github.io/presentation/srda/acs-MiaoYu.html&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2018, Online batch correction and interactive data
+visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA.
+(&lt;a href=&#34;https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2017, Text Mining for Academic Journals: Science Café @
+UWaterloo, ON, Canada.
+(&lt;a href=&#34;https://yufree.github.io/presentation/textmining/textmining.html&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2015, Analysis method for unknown Mono-MeO-PBDEs based on
+GC-qMS, Chinese Chemical Society: The 18th National Conference on
+Organic Analysis and Bioanalysis, Shanghai,
+China.(&lt;a href=&#34;http://yufree.github.io/presentation/fishingnet/fishingnet&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs
+in a molecular view, Isotopes 2015, Jerusalem,
+Israel.(&lt;a href=&#34;https://github.com/yufree/presentation/blob/gh-pages/isotope/isotope2015.pdf&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2015, Data visualization of GC-MS and its application in
+environmental analysis, The 8th National Conference on Environmental
+Chemistry, Guangzhou,
+China(&lt;a href=&#34;http://yufree.github.io/presentation/GCMS/GCMS&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao YU,2014,Model selection and prediction of retention time of
+PBDEs on DB-5ms column, 10th conference of bio-medicine
+chromatograph(China), Weihai,
+China.(&lt;a href=&#34;https://github.com/yufree/presentation/blob/gh-pages/BDEprediction/20140420weihai.pdf&#34;&gt;slides&lt;/a&gt;,&lt;a href=&#34;https://github.com/yufree/shinyBDE&#34;&gt;shinyBDE&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao YU, 2014, Digging the thresholds in environmental data, 2nd
+Environmental pollution and health forum for Graduate students,
+Beijing,
+China.(&lt;a href=&#34;http://yufree.github.io/presentation/threshold/threshold&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;publication&#34;&gt;Publication&lt;/h1&gt;
+&lt;h2 id=&#34;papers&#34;&gt;Papers&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Yu, M., Teitelbaum, S.L., Dolios, G., Dang, L.-H.T., Tu, P., Wolff,
+M.S., Petrick, L.M., 2022. Molecular Gatekeeper Discovery: Workflow
+for Linking Multiple Exposure Biomarkers to Metabolomics. Environ.
+Sci. Technol. &lt;a href=&#34;https://doi.org/10.1021/acs.est.1c04039&#34;&gt;https://doi.org/10.1021/acs.est.1c04039&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted
+metabolomics workflow for exhaustive MS2 data acquisition of MS1
+features. Journal of Cheminformatics 14, 6.
+&lt;a href=&#34;https://doi.org/10.1186/s13321-022-00586-8&#34;&gt;https://doi.org/10.1186/s13321-022-00586-8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Roszkowska, A., Pawliszyn, J., 2022. In Vivo Solid-Phase
+Microextraction and Applications in Environmental Sciences. ACS
+Environ. Au 2, 30&amp;ndash;41.
+&lt;a href=&#34;https://doi.org/10.1021/acsenvironau.1c00024&#34;&gt;https://doi.org/10.1021/acsenvironau.1c00024&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Tu, P., Dolios, G., Dassanayake, P.S., Volk, H.,
+Newschaffer, C., Fallin, M.D., Croen, L., Lyall, K., Schmidt, R.,
+Hertz-Piccioto, I., Austin, C., Arora, M., Petrick, L.M., 2021.
+Tooth biomarkers to characterize the temporal dynamics of the fetal
+and early-life exposome. Environment International 157, 106849.
+&lt;a href=&#34;https://doi.org/10.1016/j.envint.2021.106849&#34;&gt;https://doi.org/10.1016/j.envint.2021.106849&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Petrick, L., 2020. Untargeted high-resolution paired mass
+distance data mining for retrieving general chemical relationships.
+Communications Chemistry 3, 1&amp;ndash;6.
+&lt;a href=&#34;https://doi.org/10.1038/s42004-020-00403-z&#34;&gt;https://doi.org/10.1038/s42004-020-00403-z&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Dolios, G., Yong-Gonzalez, V., Björkqvist, O., Colicino, E.,
+Halfvarson, J., Petrick, L., 2020. Untargeted metabolomics profiling
+and hemoglobin normalization for archived newborn dried blood spots
+from a refrigerated biorepository. Journal of Pharmaceutical and
+Biomedical Analysis 191, 113574.
+&lt;a href=&#34;https://doi.org/10.1016/j.jpba.2020.113574&#34;&gt;https://doi.org/10.1016/j.jpba.2020.113574&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Lendor, S., Roszkowska, A., Olkowicz, M., Bragg, L., Servos,
+M., Pawliszyn, J., 2020. Metabolic profile of fish muscle tissue
+changes with sampling method, storage strategy and time. Analytica
+Chimica Acta 1136, 42&amp;ndash;50.
+&lt;a href=&#34;https://doi.org/10.1016/j.aca.2020.08.050&#34;&gt;https://doi.org/10.1016/j.aca.2020.08.050&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Olkowicz, M., Pawliszyn, J., 2019. Structure/reaction
+directed analysis for LC-MS based untargeted analysis. Analytica
+Chimica Acta 1050, 16&amp;ndash;24.
+&lt;a href=&#34;https://doi.org/10.1016/j.aca.2018.10.062&#34;&gt;https://doi.org/10.1016/j.aca.2018.10.062&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M.,
+Pawliszyn, J., 2018. Metabolome Profiling of Fish Muscle Tissue
+Exposed to Benzo[a] pyrene Using in Vivo Solid-Phase Microextraction.
+Environ. Sci. Technol. Lett. 5, 431&amp;ndash;435.
+&lt;a href=&#34;https://doi.org/10.1021/acs.estlett.8b00272&#34;&gt;https://doi.org/10.1021/acs.estlett.8b00272&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Hou, X., Liu, Q., Wang, Y., Liu, J., Jiang, G., 2017.
+Evaluation and reduction of the analytical uncertainties in GC-MS
+analysis using a boundary regression model. Talanta 164, 141&amp;ndash;147.
+&lt;a href=&#34;doi:10.1016/j.talanta.2016.11.046&#34;&gt;doi:10.1016/j.talanta.2016.11.046&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang,
+G., 2016. Structure prediction of methyoxy-polybrominated diphenyl
+ethers (MeO-PBDEs) through GC&amp;ndash;MS analysis of their corresponding
+PBDEs. Talanta 152, 9&amp;ndash;14. &lt;a href=&#34;doi:10.1016/j.talanta.2016.01.047&#34;&gt;doi:10.1016/j.talanta.2016.01.047&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Liu, J., Wang, T., Sun, J., Liu, R., Jiang, G., 2013.
+Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in
+Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol.
+47, 13494&amp;ndash;13501. &lt;a href=&#34;doi:10.1021/es404144p&#34;&gt;doi:10.1021/es404144p&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Olkowicz, M., Ribeiro, R.V.P., Yu, F., Alvarez, J.S., Xin, L., Yu,
+M., Rosales, R., Adamson, M.B., Bissoondath, V., Smolenski, R.T.,
+Billia, F., Badiwala, M.V., Pawliszyn, J., 2022. Dynamic Metabolic
+Changes During Prolonged Ex Situ Heart Perfusion Are Associated With
+Myocardial Functional Decline. Front Immunol 13, 859506.
+&lt;a href=&#34;https://doi.org/10.3389/fimmu.2022.859506&#34;&gt;https://doi.org/10.3389/fimmu.2022.859506&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Looby, N., Roszkowska, A., Yu, M., Rios-Gomez, G., Pipkin, M.,
+Bojko, B., Cypel, M., Pawliszyn, J., 2023. In vivo solid phase
+microextraction for therapeutic monitoring and pharmacometabolomic
+fingerprinting of lung during in vivo lung perfusion of FOLFOX.
+Journal of Pharmaceutical Analysis.
+&lt;a href=&#34;https://doi.org/10.1016/j.jpha.2023.04.005&#34;&gt;https://doi.org/10.1016/j.jpha.2023.04.005&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, Y., Huang, J., Jin, L., Yu, M., Yu, X., Zhu, X., Sun, J., Zhu,
+L., 2023a. Translocation and metabolism of tricresyl phosphate in
+rice and microbiome system: Isomer-specific processes and overlooked
+metabolites. Environment International 172, 107793.
+&lt;a href=&#34;https://doi.org/10.1016/j.envint.2023.107793&#34;&gt;https://doi.org/10.1016/j.envint.2023.107793&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, Y., Yu, X., Zhang, D., Jin, L., Huang, J., Zhu, X., Sun, J., Yu,
+M., Zhu, L., 2023b. Biotransformation of Organophosphate Esters by
+Rice and Rhizosphere Microbiome: Multiple Metabolic Pathways,
+Mechanism, and Toxicity Assessment. Environ. Sci. Technol. 57,
+1776&amp;ndash;1787. &lt;a href=&#34;https://doi.org/10.1021/acs.est.2c07796&#34;&gt;https://doi.org/10.1021/acs.est.2c07796&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Peng, Z., Shao, M., Yu, M., Lu, B., Zhao, X., Li, P., Song, S., Liu,
+Q., Zhou, T., Zhang, Q., 2021. Calculation and Experimental
+Validation of a Novel Approach Using Solubility Parameters as
+Indicators for the Extraction of Additives in Plastics. Anal. Chem.
+93, 14837&amp;ndash;14843. &lt;a href=&#34;https://doi.org/10.1021/acs.analchem.1c03731&#34;&gt;https://doi.org/10.1021/acs.analchem.1c03731&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Looby, N., Roszkowska, A., Reyes-Garcés, N., Yu, M., Bączek, T.,
+Kulasingam, V., Pawliszyn, J., Chandran, V., 2021. Serum metabolic
+fingerprinting of psoriasis and psoriatic arthritis patients using
+solid-phase microextraction&amp;mdash;liquid
+chromatography&amp;mdash;high-resolution mass spectrometry. Metabolomics
+17, 59. &lt;a href=&#34;https://doi.org/10.1007/s11306-021-01805-3&#34;&gt;https://doi.org/10.1007/s11306-021-01805-3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hu, J., Lesseur, C., Yu, M., Manservisi, F., Panzacchi, S.,
+Mandrioli, D., Belpoggi, F., Chen, J., Petrick, L., 2021. Low-dose
+exposure of glyphosate-based herbicides disrupt the urine metabolome
+and its interaction with gut microbiota. Scientific Reports
+11, 3265. &lt;a href=&#34;https://doi.org/10.1038/s41598-021-82552-2&#34;&gt;https://doi.org/10.1038/s41598-021-82552-2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chen, W., Yu, M., Zhang, Q., Hou, X., Kong, W., Wei, L., Mao, X.,
+Liu, J., Schnoor, J.L., Jiang, G., 2020. Metabolism of SCCPs and
+MCCPs in Suspension Rice Cells Based on Paired Mass Distance (PMD)
+Analysis. Environ. Sci. Technol. 54, 9990&amp;ndash;9999.
+&lt;a href=&#34;https://doi.org/10.1021/acs.est.0c01830&#34;&gt;https://doi.org/10.1021/acs.est.0c01830&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lendor, S., Olkowicz, M., Boyaci, E., Yu, M., Diwan, M., Hamani, C.,
+Palmer, M., Reyes-Garcés, N., Gómez-Ríos, G.A., Pawliszyn, J., 2020.
+Investigation of Early Death-Induced Changes in Rat Brain by Solid
+Phase Microextraction via Untargeted High Resolution Mass
+Spectrometry: In Vivo versus Postmortem Comparative Study. ACS Chem.
+Neurosci. 11, 1827&amp;ndash;1840.
+&lt;a href=&#34;https://doi.org/10.1021/acschemneuro.0c00270&#34;&gt;https://doi.org/10.1021/acschemneuro.0c00270&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L.,
+Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin.
+Environ. Sci. Technol. &lt;a href=&#34;https://doi.org/10.1021/acs.est.9b02122&#34;&gt;https://doi.org/10.1021/acs.est.9b02122&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Bessonneau, V., Ings, J., McMaster, M.,
+Smith, R., Bragg, L., Servos, M., Pawliszyn, J., 2019. In vivo
+solid-phase microextraction sampling combined with metabolomics and
+toxicological studies for the non-lethal monitoring of the exposome
+in fish tissue. Environmental Pollution 249, 109&amp;ndash;115.
+&lt;a href=&#34;https://doi.org/10.1016/j.envpol.2019.03.024&#34;&gt;https://doi.org/10.1016/j.envpol.2019.03.024&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M.,
+Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in
+comparison to in vivo microsampling approach. Sci. Rep. 8, 6980.
+&lt;a href=&#34;https://doi.org/10.1038/s41598-018-25428-2&#34;&gt;https://doi.org/10.1038/s41598-018-25428-2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hou, X., Yu, M., Liu, A., Li, Y., Ruan, T., Liu, J., Schnoor, J.L.,
+Jiang, G., 2018. Biotransformation of tetrabromobisphenol A dimethyl
+ether back to tetrabromobisphenol A in whole pumpkin plants.
+Environmental Pollution 241, 331&amp;ndash;338.
+&lt;a href=&#34;https://doi.org/10.1016/j.envpol.2018.05.075&#34;&gt;https://doi.org/10.1016/j.envpol.2018.05.075&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tian, Z., Vila, J., Yu, M., Bodnar, W., Aitken, M.D., 2018. Tracing
+the Biotransformation of Polycyclic Aromatic Hydrocarbons in
+Contaminated Soil Using Stable Isotope-Assisted Metabolomics.
+Environ. Sci. Technol. Lett.
+&lt;a href=&#34;https://doi.org/10.1021/acs.estlett.7b00554&#34;&gt;https://doi.org/10.1021/acs.estlett.7b00554&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, Y., Liu, J., Yu, M., Zhou, Q., Jiang, G., 2018. Hydroxylated
+and methoxylated polybrominated diphenyl ethers in a marine food web
+of Chinese Bohai Sea and their human dietary exposure. Environmental
+Pollution 233, 604&amp;ndash;611. &lt;a href=&#34;doi:10.1016/j.envpol.2017.10.105&#34;&gt;doi:10.1016/j.envpol.2017.10.105&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lu, D., Liu, Q., Yu, M., Yang, X., Fu, Q., Zhang, X., Mu, Y., Jiang,
+G., 2017. Natural Silicon Isotopic Signatures Reveal the Sources of
+Airborne Fine Particulate Matter. Environ. Sci. Technol.
+&lt;a href=&#34;https://doi.org/10.1021/acs.est.7b06317&#34;&gt;https://doi.org/10.1021/acs.est.7b06317&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017.
+Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after
+waterborne exposure. Environmental Science: Processes &amp;amp; Impacts 19,
+1327&amp;ndash;1335. &lt;a href=&#34;doi:10.1039/C7EM00304H&#34;&gt;doi:10.1039/C7EM00304H&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M.,
+Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by
+solid-phase microextraction-transmission mode coupled to a portable
+mass spectrometer via direct analysis in real time. Analyst.
+&lt;a href=&#34;doi:10.1039/C7AN00718C&#34;&gt;doi:10.1039/C7AN00718C&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chi, X., Liu, J., Yu, M., Xie, Z., Jiang, G., 2017. Analysis of
+bromophenols in various aqueous samples using solid phase extraction
+followed by HPLC-MS/MS. Talanta 164, 57&amp;ndash;63.
+&lt;a href=&#34;doi:10.1016/j.talanta.2016.11.010&#34;&gt;doi:10.1016/j.talanta.2016.11.010&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Li, Y., Hou, X., Yu, M., Zhou, Q., Liu, J., Schnoor, J.L., Jiang,
+G., 2017. Dechlorination and chlorine rearrangement of
+1,2,5,5,6,9,10-heptachlorodecane mediated by the whole pumpkin
+seedlings. Environmental Pollution 224, 524&amp;ndash;531.
+&lt;a href=&#34;doi:10.1016/j.envpol.2017.02.035&#34;&gt;doi:10.1016/j.envpol.2017.02.035&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, A., Qu, G., Yu, M., Liu, Y., Shi, J., Jiang, G., 2016.
+Tetrabromobisphenol-A/S and Nine Novel Analogs in Biological Samples
+from the Chinese Bohai Sea: Implications for Trophic Transfer.
+Environ. Sci. Technol. 50, 4203&amp;ndash;4211. &lt;a href=&#34;doi:10.1021/acs.est.5b06378&#34;&gt;doi:10.1021/acs.est.5b06378&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, A., Tian, Y., Yin, N., Yu, M., Qu, G., Shi, J., Du, Y., Jiang,
+G., 2015. Characterization of Three Tetrabromobisphenol-S
+Derivatives in Mollusks from Chinese Bohai Sea: A Strategy for Novel
+Brominated Contaminants Identification. Scientific Reports 5,
+srep11741. &lt;a href=&#34;doi:10.1038/srep11741&#34;&gt;doi:10.1038/srep11741&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, Q., Cheng, M., Long, Y., Yu, M., Wang, T., Jiang, G., 2014.
+Graphenized pencil lead fiber: Facile preparation and application in
+solid-phase microextraction. Journal of Chromatography A 1325, 1&amp;ndash;7.
+&lt;a href=&#34;doi:10.1016/j.chroma.2013.11.051&#34;&gt;doi:10.1016/j.chroma.2013.11.051&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, R., Ruan, T., Wang, T., Song, S., Yu, M., Gao, Y., Shao, J.,
+Jiang, G., 2013. Trace analysis of mono-, di-, tri-substituted
+polyfluoroalkyl phosphates and perfluorinated phosphonic acids in
+sewage sludge by high performance liquid chromatography tandem mass
+spectrometry. Talanta 111, 170&amp;ndash;177.
+&lt;a href=&#34;doi:10.1016/j.talanta.2013.02.063&#34;&gt;doi:10.1016/j.talanta.2013.02.063&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, Y., Ruan, T., Lin, Y., Liu, A., Yu, M., Liu, R., Meng, M.,
+Wang, Y., Liu, J., Jiang, G., 2017. Chlorinated Polyfluoroalkyl
+Ether Sulfonic Acids in Marine Organisms from Bohai Sea, China:
+Occurrence, Temporal Variations, and Trophic Transfer Behavior.
+Environ. Sci. Technol. 51, 4407&amp;ndash;4414. &lt;a href=&#34;doi:10.1021/acs.est.6b06593&#34;&gt;doi:10.1021/acs.est.6b06593&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Poole, J.J., Grandy, J.J., Yu, M., Boyaci, E., Gómez-Ríos, G.A.,
+Reyes-Garcés, N., Bojko, B., Heide, H.V., Pawliszyn, J., 2017.
+Deposition of a Sorbent into a Recession on a Solid Support To
+Provide a New, Mechanically Robust Solid-Phase Microextraction
+Device. Anal. Chem. &lt;a href=&#34;doi:10.1021/acs.analchem.7b01382&#34;&gt;doi:10.1021/acs.analchem.7b01382&lt;/a&gt; (&lt;strong&gt;Cover
+paper&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Qu, G., Liu, A., Wang, T., Zhang, C., Fu, J., Yu, M., Sun, J., Zhu,
+N., Li, Z., Wei, G., Du, Y., Shi, J., Liu, S., Jiang, G., 2013.
+Identification of Tetrabromobisphenol A Allyl Ether and
+Tetrabromobisphenol A 2,3-Dibromopropyl Ether in the Ambient
+Environment near a Manufacturing Site and in Mollusks at a Coastal
+Region. Environ. Sci. Technol. 47, 4760&amp;ndash;4767.
+&lt;a href=&#34;doi:10.1021/es3049916&#34;&gt;doi:10.1021/es3049916&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sun, J., Liu, J., Liu, Q., Ruan, T., Yu, M., Wang, Y., Wang, T.,
+Jiang, G., 2013a. Hydroxylated polybrominated diphenyl ethers
+(OH-PBDEs) in biosolids from municipal wastewater treatment plants
+in China. Chemosphere 90, 2388&amp;ndash;2395.
+&lt;a href=&#34;doi:10.1016/j.chemosphere.2012.10.034&#34;&gt;doi:10.1016/j.chemosphere.2012.10.034&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sun, J., Liu, J., Liu, Y., Yu, M., Jiang, G., 2014. Reciprocal
+Transformation between Hydroxylated and Methoxylated Polybrominated
+Diphenyl Ethers in Young Whole Pumpkin Plants. Environ. Sci.
+Technol. Lett. 1, 236&amp;ndash;241. &lt;a href=&#34;doi:10.1021/ez500068q&#34;&gt;doi:10.1021/ez500068q&lt;/a&gt; (&lt;strong&gt;Cover
+paper&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Sun, J., Liu, J., Yu, M., Wang, C., Sun, Y., Zhang, A., Wang, T.,
+Lei, Z., Jiang, G., 2013b. In Vivo Metabolism of
+2,2′,4,4′-Tetrabromodiphenyl Ether (BDE-47) in Young Whole Pumpkin
+Plant. Environ. Sci. Technol. 47, 3701&amp;ndash;3707.
+&lt;a href=&#34;doi:10.1021/es4003263&#34;&gt;doi:10.1021/es4003263&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tian, Y., Yu, M., Chen, J., Liu, C., Shi, J., Chen, H., Jiang,
+G., 2015. Real Time Online Correction of Mass Shifts and Intensity
+Fluctuations in Extractive Electrospray Ionization Mass
+Spectrometry. Anal. Chem. 87, 11962&amp;ndash;11966.
+&lt;a href=&#34;doi:10.1021/acs.analchem.5b04372&#34;&gt;doi:10.1021/acs.analchem.5b04372&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Zhang, H., Wang, Y., Sun, C., Yu, M., Gao, Y., Wang, T., Liu, J.,
+Jiang, G., 2014. Levels and Distributions of Hexachlorobutadiene and
+Three Chlorobenzenes in Biosolids from Wastewater Treatment Plants
+and in Soils within and Surrounding a Chemical Plant in China.
+Environ. Sci. Technol. 48, 1525&amp;ndash;1531. &lt;a href=&#34;doi:10.1021/es405171t&#34;&gt;doi:10.1021/es405171t&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Zhao, X., Yu, M., Xu, D., Liu, A., Hou, X., Hao, F., Long, Y., Zhou,
+Q., Jiang, G., 2017. Distribution, Bioaccumulation, Trophic
+Transfer, and Influences of CeO2 Nanoparticles in a Constructed
+Aquatic Food Web. Environ. Sci. Technol. 51, 5205&amp;ndash;5214.
+&lt;a href=&#34;doi:10.1021/acs.est.6b05875&#34;&gt;doi:10.1021/acs.est.6b05875&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;book-chapter&#34;&gt;Book chapter&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Pawliszyn, J., 2020. In Vivo SPME for
+Bioanalysis in Environmental Monitoring and Toxicology, in: Jiang,
+G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and
+Toxicology: From Concepts to Insights. Springer Singapore,
+Singapore, pp. 23&amp;ndash;31. &lt;a href=&#34;https://doi.org/10.1007/978-981-13-9447-8_3&#34;&gt;https://doi.org/10.1007/978-981-13-9447-8_3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;software-package&#34;&gt;Software Package&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/rgabriel/index.html&#34;&gt;R package -
+rgabriel&lt;/a&gt;
+Gabriel Multiple Comparison Test and Plot the Confidence Interval on
+Barplot&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/enviGCMS/index.html&#34;&gt;R package -
+enviGCMS&lt;/a&gt;
+LC/GC-MS Data Analysis for Environmental Science&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/pmd/index.html&#34;&gt;R package -
+pmd&lt;/a&gt; Paired
+Mass Distance Analysis for GC/LC-MS Based Non-Targeted Analysis&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yufree.shinyapps.io/nlpshiny/&#34;&gt;Shiny app - Simple SwiftKey&lt;/a&gt;
+This application is used to predict next words based on your input
+words.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/JournalTone/&#34;&gt;Shiny app - JournalTone&lt;/a&gt; This
+application is used to explore new trend for certain keywords and
+journal by text mining for the title and abstract via data from
+PubMed.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yufreecas.shinyapps.io/xcmsplus&#34;&gt;Shiny app - XcmsPlus&lt;/a&gt; This
+application is used for visualization, DART, and Batch correction &amp;amp;
+simulation of metabolomics data.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/msccpol/&#34;&gt;Shiny app - MSCCP&lt;/a&gt; This application is
+used to quantitative analysis of Short Chain Chlorinated Paraffins
+(SCCPs).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/MIR/&#34;&gt;Shiny app - Molecular isotope ratio tools&lt;/a&gt;
+This application is used to get molecular isotope ratio and related
+information.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/spicpms/&#34;&gt;Shiny app - SP-ICP-MS&lt;/a&gt; This
+application is used to get the distribution of nano-particles when
+you perform the analysis on ICP-MS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/shinyBDE&#34;&gt;Shiny app - ShinyBDE&lt;/a&gt; This application
+is used to show the database of PBDEs&#39; RRTs on DB-5ms and prediction
+values by various machine learning algorithms.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;granted-patents&#34;&gt;Granted Patents&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/patents/CN201004609Y&#34;&gt;Efficient solar power supply
+device&lt;/a&gt; Utility model&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/patents/CN101559353B&#34;&gt;Preparation method of zinc chloride modified red
+mud&lt;/a&gt; Invention&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/patents/CN101456602B&#34;&gt;Spiral suspended type red mud membrane bag adsorption and
+dephosphorization
+apparatus&lt;/a&gt; Invention&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;metabolomics-data-analysis-workshop&#34;&gt;Metabolomics Data Analysis Workshop&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Slides
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/introduction#1&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1&#34;&gt;Statistical
+Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/BatchCorrection#1&#34;&gt;Batch
+Correction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/Annotation#1&#34;&gt;Annotation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/demo#1&#34;&gt;Demo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/presentation/tree/gh-pages/metabolomics&#34;&gt;Source code for
+slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;University of Waterloo, Waterloo, ON, Canada, 2018.7&lt;/li&gt;
+&lt;li&gt;University of California, Irvine, Irvine, CA, USA, 2018.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;recommendation&#34;&gt;Recommendation&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sourcedb.cas.cn/sourcedb_rcees_cas/yw/cm/200906/t20090612_1038265.html&#34;&gt;Prof. Guibin
+Jiang&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Address: 18 Shuangqing Road, Haidian District, Beijing, China,
+100085&lt;/li&gt;
+&lt;li&gt;Phone: +86-10-62840129&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:gbjiang@rcees.ac.cn&#34;&gt;gbjiang@rcees.ac.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recommendation: &lt;a href=&#34;https://github.com/yufree/blog/blob/gh-pages/vitae/ProfJiang.pdf&#34;&gt;Click
+Here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uwaterloo.ca/pawliszyn-group/&#34;&gt;Prof. Janusz Pawliszyn&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Address: Department of Chemistry, University of Waterloo, 200
+University Avenue West, Waterloo, Ontario, Canada N2L 3G1&lt;/li&gt;
+&lt;li&gt;Phone: +1 519-888-4641&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:janusz@uwaterloo.ca&#34;&gt;janusz@uwaterloo.ca&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recommendation: &lt;a href=&#34;https://github.com/yufree/yufree.cn/raw/master/static/data/JanuszPawliszynMiao.pdf&#34;&gt;Click
+Here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://scholar.google.ca/citations?user=cKlGcv0AAAAJ&amp;amp;hl=en&#34;&gt;Prof. Chengbin
+Zheng&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Address: No.24 South Section 1, Yihuan Road, Chengdu, China,
+610014&lt;/li&gt;
+&lt;li&gt;Phone: +86-028-85415810&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:abinscu@scu.edu.cn&#34;&gt;abinscu@scu.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recommendation: &lt;a href=&#34;https://github.com/yufree/blog/blob/gh-pages/vitae/ProfZheng.pdf&#34;&gt;Click
+Here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.oru.se/english/employee/thanh_wang&#34;&gt;Prof. Thanh Wang&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Address: Örebro University, Sweden&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:thanh.wang@oru.se&#34;&gt;thanh.wang@oru.se&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recommendation: &lt;a href=&#34;https://github.com/yufree/yufree.cn/raw/master/static/data/ThanhWangMiao.pdf&#34;&gt;Click
+Here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.bcaffo.com/&#34;&gt;Prof. Brain Caffo&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Address: Department of Biostatistics, Bloomberg School of Public
+Health, Johns Hopkins University 615 N Wolfe Street, Baltimore,
+MD 212105&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:bcaffoweb@jhu.edu&#34;&gt;bcaffoweb@jhu.edu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recommendation: &lt;a href=&#34;https://github.com/yufree/blog/blob/gh-pages/vitae/ProfCaffo.pdf&#34;&gt;Click
+Here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yihui.org&#34;&gt;Dr. Yihui Xie&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:xieyihui@gmail.com&#34;&gt;xie@yihui.name&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recommendation: &lt;a href=&#34;https://yihui.org/en/2018/03/miao-yu-postdoc/&#34;&gt;Click
+Here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;computer-skills&#34;&gt;Computer Skills&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;I use RMarkdown to layout my papers but sometimes I have to use
+Google Doc/TeX/Word and I am skilled at all of them;&lt;/li&gt;
+&lt;li&gt;Most of my data analysis is done under RStudio with RMarkdown and I
+think repeatability studies are important for every scientist and I
+know how to use Excel, origin, SPSS, Octave&amp;hellip; but I just prefer R;&lt;/li&gt;
+&lt;li&gt;Beamer is simple and Powerpoint is beautiful but recently I found
+html5 could be a better option;&lt;/li&gt;
+&lt;li&gt;I use Zotero to manage my literature;&lt;/li&gt;
+&lt;li&gt;I learned C when I was a freshman then I also learned S, python and
+Matlab for simple programming in my research but I think shell is
+more powerful;&lt;/li&gt;
+&lt;li&gt;I could read structured codes and guess the usages of some functions
+by their names. 90% of the time, it works;&lt;/li&gt;
+&lt;li&gt;&lt;s&gt;I am also skilled to get across the great firewall so never
+worried about it.&lt;/s&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;I love open source software!&lt;/em&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>隐形眼镜</title>
-      <link>https://yufree.cn/cn/2023/04/07/contacts/</link>
-      <pubDate>Fri, 07 Apr 2023 00:00:00 +0000</pubDate>
+      <title>Web Application</title>
+      <link>https://yufree.cn/app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/04/07/contacts/</guid>
-      <description>愚人节那天去配了副隐形眼镜，初衷是把保险给用了，不过……听我慢慢讲下这个故事。 八岁那年过后，我就不是一个完整的男人了，一场手术去掉了我身上两</description>
+      <guid>https://yufree.cn/app/</guid>
+      <description>&lt;h2 id=&#34;simple-swiftkey&#34;&gt;Simple SwiftKey&lt;/h2&gt;
+&lt;p&gt;This application is used to predict next words based on your imput words. This is a capstone project for Data Science Specialization(DSS) from John Hopkins University. I removed some data in the source code due to plagiarism from DSS.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/nlpshiny&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;journaltone&#34;&gt;JournalTone&lt;/h2&gt;
+&lt;p&gt;This application is used to explore new trend for certain keywords and journal by text mining for the title and abstract via data from PubMed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/journaltone&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;xcmsplus&#34;&gt;XcmsPlus&lt;/h2&gt;
+&lt;p&gt;This application is used for visulization, DART, and Batch correction &amp;amp; simulation of metabolomics data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/xcmsplus&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;msccp&#34;&gt;MSCCP&lt;/h2&gt;
+&lt;p&gt;This application is used to quantitative analysis of Short Chain Chlorinated Paraffins (SCCPs).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/msccp&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;molecular-isotope-ratio-tools&#34;&gt;Molecular isotope ratio tools&lt;/h2&gt;
+&lt;p&gt;This application is used to get molecular isotope ratio and related information.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/MIR&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sp-icp-ms&#34;&gt;SP-ICP-MS&lt;/h2&gt;
+&lt;p&gt;This application is used to get the distribution of nano-particles when you perform the analysis on ICP-MS.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/spicpms&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pbdes-retention-time&#34;&gt;PBDEs&#39; Retention time&lt;/h2&gt;
+&lt;p&gt;This application is used to show the database of PBDEs&#39; RRTs on DB-5ms and prediction values by various machine learning algorithms.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/shinyBDE&#34;&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Contact &lt;a href=&#34;mailto://yufree@live.cn&#34;&gt;me&lt;/a&gt; if your need more information.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>如何发表高水平学术论文</title>
-      <link>https://yufree.cn/cn/2023/04/01/april-fool/</link>
-      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      <title>关于我</title>
+      <link>https://yufree.cn/cn/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/04/01/april-fool/</guid>
-      <description>我一直没有仔细整理写学术论文的方法，现在有了ChatGPT，我终于下定决心把这个整理出来，毕竟看起来以后也不用我整理了。而且这次绝对是精华，</description>
+      <guid>https://yufree.cn/cn/about/</guid>
+      <description>&lt;p&gt;灯塔国杰克逊实验室科学家，路盲，脸盲并伴有间歇性健忘，各方面都在建设中……&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yihui.name&#34;&gt;谢益辉&lt;/a&gt;: 之前博客风格从这里抄的&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;: 当前博客风格从这里选的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文章分类&#34;&gt;文章分类&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/idea&#34;&gt;自选&lt;/a&gt;：我觉得有可读性的文章&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/sci&#34;&gt;科研&lt;/a&gt;：科研相关主题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/data&#34;&gt;数据&lt;/a&gt;：数据分析主题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/popsci&#34;&gt;科普&lt;/a&gt;：科普文章&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/tech&#34;&gt;技术&lt;/a&gt;：技术文档&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/fiction&#34;&gt;虚构&lt;/a&gt;：胡编乱造&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/edu&#34;&gt;教育&lt;/a&gt;：教育主题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/paper&#34;&gt;论文&lt;/a&gt;：论文解读&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/reading&#34;&gt;读书&lt;/a&gt;：读书笔记&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/life&#34;&gt;生活&lt;/a&gt;：个人成长经历&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/covid&#34;&gt;疫情&lt;/a&gt;：新冠回忆&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://yufree.cn/tags/writing&#34;&gt;随笔&lt;/a&gt;：其他&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;学术相关&#34;&gt;学术相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://scholar.google.com/citations?user=SPNX8oUAAAAJ&amp;amp;hl=en&#34;&gt;Google Schoolar&lt;/a&gt;: 发表论文&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://orcid.org/0000-0002-2804-6014&#34;&gt;ORCID&lt;/a&gt;: 学术名片&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://publons.com/a/1209691/&#34;&gt;Publons&lt;/a&gt;: 审稿记录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.researchgate.net/profile/Miao_Yu21&#34;&gt;ResearchGate&lt;/a&gt;: 项目管理&amp;amp;追随导师的脚步&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/yufree&#34;&gt;linkedin&lt;/a&gt;: 找工作时会更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;兴趣爱好&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/yufree/MOOC&#34;&gt;刷公开课&lt;/a&gt;: 42门目标完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/yufree&#34;&gt;Github&lt;/a&gt;: 伪码农是我另一个身份&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/users/3083491/yufree&#34;&gt;Stackoverflow&lt;/a&gt;: 因为伪，所以要问&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://zhuanlan.zhihu.com/yufree&#34;&gt;知乎专栏&lt;/a&gt;: 土鳖的论文修养&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://instagram.com/yufree/&#34;&gt;摄影&lt;/a&gt;: 半瓶醋水平 从点点转乐乎最后落脚Instagram&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;吐槽&#34;&gt;吐槽&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://weibo.com/yufreecas&#34;&gt;微博&lt;/a&gt;: 私人圈子 都是熟人&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://yufree.cn/en/&#34;&gt;英文版&lt;/a&gt;: 跟中文版区别很大&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.sciencenet.cn/u/yufree&#34;&gt;气宇轩&lt;/a&gt;: 科学网博客&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
-      <title>开放科学课程笔记</title>
-      <link>https://yufree.cn/cn/2023/03/26/open-sci/</link>
-      <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
+      <title>简历</title>
+      <link>https://yufree.cn/cn/vitae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yufree.cn/cn/2023/03/26/open-sci/</guid>
-      <description>开放科学这个主题我在《现代科研指北》里做过总结，最近研究所例行培训里又推送了个一天的开放科学课程，但我那天已经报名了另外一个课，所以就去查了</description>
-    </item>
-    
-    <item>
-      <title>南极谋杀案 - 无人战争</title>
-      <link>https://yufree.cn/cn/2023/03/24/antarctic-murder/</link>
-      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/cn/2023/03/24/antarctic-murder/</guid>
-      <description>“情况就是这么个情况，咋办？” “额，按说那边不应该有活人啊？” “现实情况也没出现活人啊，只是出现了个死人而已。” “确认身份了吗？” “嗯，是个</description>
-    </item>
-    
-    <item>
-      <title>无趾鸽</title>
-      <link>https://yufree.cn/cn/2023/03/20/toeless-pigeon/</link>
-      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/cn/2023/03/20/toeless-pigeon/</guid>
-      <description>上周末又回纽约，先去找馆子打牙祭，然后又去唐人街地下室理发，之后又买各种中式调料，天色一暗就去福建味中味拎了两笼包子，在港务局车站吃包子等大</description>
+      <guid>https://yufree.cn/cn/vitae/</guid>
+      <description>&lt;h2 id=&#34;联系信息&#34;&gt;联系信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址: 10 Discovery Dr, Farmington, CT&lt;/li&gt;
+&lt;li&gt;邮编: 06032&lt;/li&gt;
+&lt;li&gt;Email: yufreecas at gmail.com&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://orcid.org/0000-0002-2804-6014&#34;&gt;ORCID&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;工作信息&#34;&gt;工作信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2022.04至今 美国杰克逊实验室 科学家&lt;/li&gt;
+&lt;li&gt;2018.09-2022.04 美国西奈山医学院 博士后&lt;/li&gt;
+&lt;li&gt;2016.08-2018.08 加拿大滑铁卢大学 博士后&lt;/li&gt;
+&lt;li&gt;2014.09-2016.07 美国化学会 初级网络分析师（兼职）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;教育背景&#34;&gt;教育背景&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2010.08 ~ 2016.06, 环境科学专业，理学博士, 中国科学院生态环境研究中心&lt;/li&gt;
+&lt;li&gt;2006.08 ~ 2010.06, 环境科学专业，理学学士, 山东大学环境科学与工程学院&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;研究兴趣&#34;&gt;研究兴趣&lt;/h2&gt;
+&lt;p&gt;持久性有机污染物, 环境过程, 非目的检测, 数据科学，环境暴露组学&lt;/p&gt;
+&lt;h2 id=&#34;口头报告&#34;&gt;口头报告&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;于淼,2014,多溴联苯醚气相色谱保留时间的模型预测与选择, 第十届全国生物医药色谱及相关技术学术交流会(威海).(&lt;a href=&#34;https://github.com/yufree/presentation/blob/master/20140420weihai.pdf&#34;&gt;幻灯片&lt;/a&gt;,&lt;a href=&#34;https://github.com/yufree/shinyBDE&#34;&gt;shinyBDE&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;于淼,2014,环境数据的阈值探索, 第二届环境污染与健康研究生论坛(北京). (&lt;a href=&#34;http://yufree.github.io/presentation/threshold/threshold&#34;&gt;幻灯片&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;于淼,2015,单甲氧基取代多溴联苯醚定性分析方法,中国化学会第十八届全国有机分析及生物分析学术研讨会(上海).&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2015, Organic Stable Isotope Analysis with GC-qMS for PBDEs in a molecular view, Isotopes 2015(Jerusalem, Israel).&lt;/li&gt;
+&lt;li&gt;于淼,2015,GC-MS数据可视化在环境分析中的应用,第八届全国环境化学大会(广州).&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2017, Text Mining for Academic Journals: Science Café @ UWaterloo, ON, Canada. (&lt;a href=&#34;https://yufree.github.io/presentation/textmining/textmining.html&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. (&lt;a href=&#34;https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2019, Structure/reaction directed analysis for environmental metabolites, ACS Fall 2019 National Meeting &amp;amp; Expo, San Diego, CA, USA. (&lt;a href=&#34;http://yufree.github.io/presentation/srda/acs-MiaoYu.html&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2019, Reactomics: possibility of using mass spectrometry as reaction detector, Materials Energy EnvironmenT Seminar, University at Buffalo, Buffalo, NY, USA. (&lt;a href=&#34;http://yufree.github.io/presentation/reactomics/pres-UB.html&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2020, reactomics: using mass sepctrometry as chemical reaction detector, ASMS 2020 Reboot, USA. (&lt;a href=&#34;http://yufree.github.io/presentation/reactomics/pres-asms.html&#34;&gt;slides&lt;/a&gt; and &lt;a href=&#34;https://youtu.be/-mT3HcVygHE&#34;&gt;video&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. (&lt;a href=&#34;http://yufree.github.io/presentation/reactomics/pres-pittcon.html&#34;&gt;slides&lt;/a&gt; and &lt;a href=&#34;https://youtu.be/xYHW5Z5q_A8&#34;&gt;video&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2021, Molecular gatekeeper discovery for multiple exposure groups in adolescent girls, ACS Spring 2021, USA. (&lt;a href=&#34;http://yufree.github.io/presentation/gatekeeper/gatekeeper-acs.html&#34;&gt;slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2021, Molecular gatekeeper discovery to link exposome with health outcomes through metabolomics, 69th ASMS Conference, Pennsylvania, USA. (&lt;a href=&#34;http://yufree.github.io/presentation/gatekeeper/gatekeeper-asms.html&#34;&gt;slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;计算机水平&#34;&gt;计算机水平&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;语言(业余)：R &amp;gt; Tex &amp;gt; python &amp;gt; Octave &amp;gt;&amp;gt; C&lt;/li&gt;
+&lt;li&gt;软件：RStudio, Docker, 终端&lt;/li&gt;
+&lt;li&gt;操作系统：早年 windows 后来 ubuntu 近期Mac OS X&lt;/li&gt;
+&lt;li&gt;认证(已忘)：三级网络技术&lt;/li&gt;
+&lt;li&gt;维护：常年义务排除亲友大量软硬件故障 后顿悟 重装了事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;英语水平&#34;&gt;英语水平&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;阅读写作无碍 听力口语凑合 满足研究需要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;论文&#34;&gt;论文&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Yu, M., Teitelbaum, S.L., Dolios, G., Dang, L.-H.T., Tu, P., Wolff, M.S., Petrick, L.M., 2022. Molecular Gatekeeper Discovery: Workflow for Linking Multiple Exposure Biomarkers to Metabolomics. Environ. Sci. Technol. &lt;a href=&#34;https://doi.org/10.1021/acs.est.1c04039&#34;&gt;https://doi.org/10.1021/acs.est.1c04039&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. &lt;a href=&#34;https://doi.org/10.1186/s13321-022-00586-8&#34;&gt;https://doi.org/10.1186/s13321-022-00586-8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Roszkowska, A., Pawliszyn, J., 2022. In Vivo Solid-Phase Microextraction and Applications in Environmental Sciences. ACS Environ. Au 2, 30&amp;ndash;41. &lt;a href=&#34;https://doi.org/10.1021/acsenvironau.1c00024&#34;&gt;https://doi.org/10.1021/acsenvironau.1c00024&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Tu, P., Dolios, G., Dassanayake, P.S., Volk, H., Newschaffer, C., Fallin, M.D., Croen, L., Lyall, K., Schmidt, R., Hertz-Piccioto, I., Austin, C., Arora, M., Petrick, L.M., 2021. Tooth biomarkers to characterize the temporal dynamics of the fetal and early-life exposome. Environment International 157, 106849. &lt;a href=&#34;https://doi.org/10.1016/j.envint.2021.106849&#34;&gt;https://doi.org/10.1016/j.envint.2021.106849&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Petrick, L., 2020. Untargeted high-resolution paired mass distance data mining for retrieving general chemical relationships. Communications Chemistry 3, 1&amp;ndash;6. &lt;a href=&#34;https://doi.org/10.1038/s42004-020-00403-z&#34;&gt;https://doi.org/10.1038/s42004-020-00403-z&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Dolios, G., Yong-Gonzalez, V., Björkqvist, O., Colicino, E., Halfvarson, J., Petrick, L., 2020. Untargeted metabolomics profiling and hemoglobin normalization for archived newborn dried blood spots from a refrigerated biorepository. Journal of Pharmaceutical and Biomedical Analysis 191, 113574. &lt;a href=&#34;https://doi.org/10.1016/j.jpba.2020.113574&#34;&gt;https://doi.org/10.1016/j.jpba.2020.113574&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Lendor, S., Roszkowska, A., Olkowicz, M., Bragg, L., Servos, M., Pawliszyn, J., 2020. Metabolic profile of fish muscle tissue changes with sampling method, storage strategy and time. Analytica Chimica Acta 1136, 42&amp;ndash;50. &lt;a href=&#34;https://doi.org/10.1016/j.aca.2020.08.050&#34;&gt;https://doi.org/10.1016/j.aca.2020.08.050&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Olkowicz, M., Pawliszyn, J., 2019. Structure/reaction directed analysis for LC-MS based untargeted analysis. Analytica Chimica Acta 1050, 16&amp;ndash;24. &lt;a href=&#34;https://doi.org/10.1016/j.aca.2018.10.062&#34;&gt;https://doi.org/10.1016/j.aca.2018.10.062&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[a]pyrene Using in Vivo Solid-Phase Microextraction. Environ. Sci. Technol. Lett. 5, 431&amp;ndash;435. &lt;a href=&#34;https://doi.org/10.1021/acs.estlett.8b00272&#34;&gt;https://doi.org/10.1021/acs.estlett.8b00272&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Hou, X., Liu, Q., Wang, Y., Liu, J., Jiang, G., 2017. Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model. Talanta 164, 141&amp;ndash;147. &lt;a href=&#34;doi:10.1016/j.talanta.2016.11.046&#34;&gt;doi:10.1016/j.talanta.2016.11.046&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC&amp;ndash;MS analysis of their corresponding PBDEs. Talanta 152, 9&amp;ndash;14. &lt;a href=&#34;doi:10.1016/j.talanta.2016.01.047&#34;&gt;doi:10.1016/j.talanta.2016.01.047&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, M., Liu, J., Wang, T., Sun, J., Liu, R., Jiang, G., 2013. Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol. 47, 13494&amp;ndash;13501. &lt;a href=&#34;doi:10.1021/es404144p&#34;&gt;doi:10.1021/es404144p&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Looby, N., Roszkowska, A., Yu, M., Rios-Gomez, G., Pipkin, M., Bojko, B., Cypel, M., Pawliszyn, J., 2023. In vivo solid phase microextraction for therapeutic monitoring and pharmacometabolomic fingerprinting of lung during in vivo lung perfusion of FOLFOX. Journal of Pharmaceutical Analysis. &lt;a href=&#34;https://doi.org/10.1016/j.jpha.2023.04.005&#34;&gt;https://doi.org/10.1016/j.jpha.2023.04.005&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, Y., Huang, J., Jin, L., Yu, M., Yu, X., Zhu, X., Sun, J., Zhu, L., 2023a. Translocation and metabolism of tricresyl phosphate in rice and microbiome system: Isomer-specific processes and overlooked metabolites. Environment International 172, 107793. &lt;a href=&#34;https://doi.org/10.1016/j.envint.2023.107793&#34;&gt;https://doi.org/10.1016/j.envint.2023.107793&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yu, Y., Yu, X., Zhang, D., Jin, L., Huang, J., Zhu, X., Sun, J., Yu, M., Zhu, L., 2023b. Biotransformation of Organophosphate Esters by Rice and Rhizosphere Microbiome: Multiple Metabolic Pathways, Mechanism, and Toxicity Assessment. Environ. Sci. Technol. 57, 1776&amp;ndash;1787. &lt;a href=&#34;https://doi.org/10.1021/acs.est.2c07796&#34;&gt;https://doi.org/10.1021/acs.est.2c07796&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Olkowicz, M., Ribeiro, R.V.P., Yu, F., Alvarez, J.S., Xin, L., Yu, M., Rosales, R., Adamson, M.B., Bissoondath, V., Smolenski, R.T., Billia, F., Badiwala, M.V., Pawliszyn, J., 2022. Dynamic Metabolic Changes During Prolonged Ex Situ Heart Perfusion Are Associated With Myocardial Functional Decline. Front Immunol 13, 859506. &lt;a href=&#34;https://doi.org/10.3389/fimmu.2022.859506&#34;&gt;https://doi.org/10.3389/fimmu.2022.859506&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Peng, Z., Shao, M., Yu, M., Lu, B., Zhao, X., Li, P., Song, S., Liu, Q., Zhou, T., Zhang, Q., 2021. Calculation and Experimental Validation of a Novel Approach Using Solubility Parameters as Indicators for the Extraction of Additives in Plastics. Anal. Chem. 93, 14837&amp;ndash;14843. &lt;a href=&#34;https://doi.org/10.1021/acs.analchem.1c03731&#34;&gt;https://doi.org/10.1021/acs.analchem.1c03731&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Looby, N., Roszkowska, A., Reyes-Garcés, N., Yu, M., Bączek, T., Kulasingam, V., Pawliszyn, J., Chandran, V., 2021. Serum metabolic fingerprinting of psoriasis and psoriatic arthritis patients using solid-phase microextraction&amp;mdash;liquid chromatography&amp;mdash;high-resolution mass spectrometry. Metabolomics 17, 59. &lt;a href=&#34;https://doi.org/10.1007/s11306-021-01805-3&#34;&gt;https://doi.org/10.1007/s11306-021-01805-3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hu, J., Lesseur, C., Yu, M., Manservisi, F., Panzacchi, S., Mandrioli, D., Belpoggi, F., Chen, J., Petrick, L., 2021. Low-dose exposure of glyphosate-based herbicides disrupt the urine metabolome and its interaction with gut microbiota. Scientific Reports 11, 3265. &lt;a href=&#34;https://doi.org/10.1038/s41598-021-82552-2&#34;&gt;https://doi.org/10.1038/s41598-021-82552-2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chen, W., Yu, M., Zhang, Q., Hou, X., Kong, W., Wei, L., Mao, X., Liu, J., Schnoor, J.L., Jiang, G., 2020. Metabolism of SCCPs and MCCPs in Suspension Rice Cells Based on Paired Mass Distance (PMD) Analysis. Environ. Sci. Technol. 54, 9990&amp;ndash;9999. &lt;a href=&#34;https://doi.org/10.1021/acs.est.0c01830&#34;&gt;https://doi.org/10.1021/acs.est.0c01830&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lendor, S., Olkowicz, M., Boyaci, E., Yu, M., Diwan, M., Hamani, C., Palmer, M., Reyes-Garcés, N., Gómez-Ríos, G.A., Pawliszyn, J., 2020. Investigation of Early Death-Induced Changes in Rat Brain by Solid Phase Microextraction via Untargeted High Resolution Mass Spectrometry: In Vivo versus Postmortem Comparative Study. ACS Chem. Neurosci. 11, 1827&amp;ndash;1840. &lt;a href=&#34;https://doi.org/10.1021/acschemneuro.0c00270&#34;&gt;https://doi.org/10.1021/acschemneuro.0c00270&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hou, X., Yu, M., Liu, A., Wang, X., Li, Y., Liu, J., Schnoor, J.L., Jiang, G., 2019. Glycosylation of Tetrabromobisphenol A in Pumpkin. Environ. Sci. Technol. &lt;a href=&#34;https://doi.org/10.1021/acs.est.9b02122&#34;&gt;https://doi.org/10.1021/acs.est.9b02122&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Bessonneau, V., Bragg, L., Servos, M., Pawliszyn, J., 2018. Tissue storage affects lipidome profiling in comparison to in vivo microsampling approach. Sci. Rep. 8, 6980. &lt;a href=&#34;https://doi.org/10.1038/s41598-018-25428-2&#34;&gt;https://doi.org/10.1038/s41598-018-25428-2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Bessonneau, V., Ings, J., McMaster, M., Smith, R., Bragg, L., Servos, M., Pawliszyn, J., 2019. In vivo solid-phase microextraction sampling combined with metabolomics and toxicological studies for the non-lethal monitoring of the exposome in fish tissue. Environmental Pollution 249, 109&amp;ndash;115. &lt;a href=&#34;https://doi.org/10.1016/j.envpol.2019.03.024&#34;&gt;https://doi.org/10.1016/j.envpol.2019.03.024&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hou, X., Yu, M., Liu, A., Li, Y., Ruan, T., Liu, J., Schnoor, J.L., Jiang, G., 2018. Biotransformation of tetrabromobisphenol A dimethyl ether back to tetrabromobisphenol A in whole pumpkin plants. Environmental Pollution 241, 331&amp;ndash;338. &lt;a href=&#34;https://doi.org/10.1016/j.envpol.2018.05.075&#34;&gt;https://doi.org/10.1016/j.envpol.2018.05.075&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tian, Z., Vila, J., Yu, M., Bodnar, W., Aitken, M.D., 2018. Tracing the Biotransformation of Polycyclic Aromatic Hydrocarbons in Contaminated Soil Using Stable Isotope-Assisted Metabolomics. Environ. Sci. Technol. Lett. &lt;a href=&#34;https://doi.org/10.1021/acs.estlett.7b00554&#34;&gt;https://doi.org/10.1021/acs.estlett.7b00554&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, Y., Liu, J., Yu, M., Zhou, Q., Jiang, G., 2018. Hydroxylated and methoxylated polybrominated diphenyl ethers in a marine food web of Chinese Bohai Sea and their human dietary exposure. Environmental Pollution 233, 604&amp;ndash;611. &lt;a href=&#34;doi:10.1016/j.envpol.2017.10.105&#34;&gt;doi:10.1016/j.envpol.2017.10.105&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lu, D., Liu, Q., Yu, M., Yang, X., Fu, Q., Zhang, X., Mu, Y., Jiang, G., 2017. Natural Silicon Isotopic Signatures Reveal the Sources of Airborne Fine Particulate Matter. Environ. Sci. Technol. &lt;a href=&#34;https://doi.org/10.1021/acs.est.7b06317&#34;&gt;https://doi.org/10.1021/acs.est.7b06317&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hou, X., Zhang, H., Li, Y., Yu, M., Liu, J., Jiang, G., 2017. Bioaccumulation of hexachlorobutadiene in pumpkin seedlings after waterborne exposure. Environmental Science: Processes &amp;amp; Impacts 19, 1327&amp;ndash;1335. &lt;a href=&#34;doi:10.1039/C7EM00304H&#34;&gt;doi:10.1039/C7EM00304H&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Augusto Gomez-Rios, G., Vasiljevic, T., Gionfriddo, E., Yu, M., Pawliszyn, J., 2017. Towards on-site analysis of complex matrices by solid-phase microextraction-transmission mode coupled to a portable mass spectrometer via direct analysis in real time. Analyst. &lt;a href=&#34;doi:10.1039/C7AN00718C&#34;&gt;doi:10.1039/C7AN00718C&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chi, X., Liu, J., Yu, M., Xie, Z., Jiang, G., 2017. Analysis of bromophenols in various aqueous samples using solid phase extraction followed by HPLC-MS/MS. Talanta 164, 57&amp;ndash;63. &lt;a href=&#34;doi:10.1016/j.talanta.2016.11.010&#34;&gt;doi:10.1016/j.talanta.2016.11.010&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Li, Y., Hou, X., Yu, M., Zhou, Q., Liu, J., Schnoor, J.L., Jiang, G., 2017. Dechlorination and chlorine rearrangement of 1,2,5,5,6,9,10-heptachlorodecane mediated by the whole pumpkin seedlings. Environmental Pollution 224, 524&amp;ndash;531. &lt;a href=&#34;doi:10.1016/j.envpol.2017.02.035&#34;&gt;doi:10.1016/j.envpol.2017.02.035&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, A., Qu, G., Yu, M., Liu, Y., Shi, J., Jiang, G., 2016. Tetrabromobisphenol-A/S and Nine Novel Analogs in Biological Samples from the Chinese Bohai Sea: Implications for Trophic Transfer. Environ. Sci. Technol. 50, 4203&amp;ndash;4211. &lt;a href=&#34;doi:10.1021/acs.est.5b06378&#34;&gt;doi:10.1021/acs.est.5b06378&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, A., Tian, Y., Yin, N., Yu, M., Qu, G., Shi, J., Du, Y., Jiang, G., 2015. Characterization of Three Tetrabromobisphenol-S Derivatives in Mollusks from Chinese Bohai Sea: A Strategy for Novel Brominated Contaminants Identification. Scientific Reports 5, srep11741. &lt;a href=&#34;doi:10.1038/srep11741&#34;&gt;doi:10.1038/srep11741&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, Q., Cheng, M., Long, Y., Yu, M., Wang, T., Jiang, G., 2014. Graphenized pencil lead fiber: Facile preparation and application in solid-phase microextraction. Journal of Chromatography A 1325, 1&amp;ndash;7. &lt;a href=&#34;doi:10.1016/j.chroma.2013.11.051&#34;&gt;doi:10.1016/j.chroma.2013.11.051&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, R., Ruan, T., Wang, T., Song, S., Yu, M., Gao, Y., Shao, J., Jiang, G., 2013. Trace analysis of mono-, di-, tri-substituted polyfluoroalkyl phosphates and perfluorinated phosphonic acids in sewage sludge by high performance liquid chromatography tandem mass spectrometry. Talanta 111, 170&amp;ndash;177. &lt;a href=&#34;doi:10.1016/j.talanta.2013.02.063&#34;&gt;doi:10.1016/j.talanta.2013.02.063&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu, Y., Ruan, T., Lin, Y., Liu, A., Yu, M., Liu, R., Meng, M., Wang, Y., Liu, J., Jiang, G., 2017. Chlorinated Polyfluoroalkyl Ether Sulfonic Acids in Marine Organisms from Bohai Sea, China: Occurrence, Temporal Variations, and Trophic Transfer Behavior. Environ. Sci. Technol. 51, 4407&amp;ndash;4414. &lt;a href=&#34;doi:10.1021/acs.est.6b06593&#34;&gt;doi:10.1021/acs.est.6b06593&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Poole, J.J., Grandy, J.J., Yu, M., Boyaci, E., Gómez-Ríos, G.A., Reyes-Garcés, N., Bojko, B., Heide, H.V., Pawliszyn, J., 2017. Deposition of a Sorbent into a Recession on a Solid Support To Provide a New, Mechanically Robust Solid-Phase Microextraction Device. Anal. Chem. &lt;a href=&#34;doi:10.1021/acs.analchem.7b01382&#34;&gt;doi:10.1021/acs.analchem.7b01382&lt;/a&gt; (Cover paper)&lt;/li&gt;
+&lt;li&gt;Qu, G., Liu, A., Wang, T., Zhang, C., Fu, J., Yu, M., Sun, J., Zhu, N., Li, Z., Wei, G., Du, Y., Shi, J., Liu, S., Jiang, G., 2013. Identification of Tetrabromobisphenol A Allyl Ether and Tetrabromobisphenol A 2,3-Dibromopropyl Ether in the Ambient Environment near a Manufacturing Site and in Mollusks at a Coastal Region. Environ. Sci. Technol. 47, 4760&amp;ndash;4767. &lt;a href=&#34;doi:10.1021/es3049916&#34;&gt;doi:10.1021/es3049916&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sun, J., Liu, J., Liu, Q., Ruan, T., Yu, M., Wang, Y., Wang, T., Jiang, G., 2013a. Hydroxylated polybrominated diphenyl ethers (OH-PBDEs) in biosolids from municipal wastewater treatment plants in China. Chemosphere 90, 2388&amp;ndash;2395. &lt;a href=&#34;doi:10.1016/j.chemosphere.2012.10.034&#34;&gt;doi:10.1016/j.chemosphere.2012.10.034&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sun, J., Liu, J., Liu, Y., Yu, M., Jiang, G., 2014. Reciprocal Transformation between Hydroxylated and Methoxylated Polybrominated Diphenyl Ethers in Young Whole Pumpkin Plants. Environ. Sci. Technol. Lett. 1, 236&amp;ndash;241. &lt;a href=&#34;doi:10.1021/ez500068q&#34;&gt;doi:10.1021/ez500068q&lt;/a&gt; (Cover paper)&lt;/li&gt;
+&lt;li&gt;Sun, J., Liu, J., Yu, M., Wang, C., Sun, Y., Zhang, A., Wang, T., Lei, Z., Jiang, G., 2013b. In Vivo Metabolism of 2,2′,4,4′-Tetrabromodiphenyl Ether (BDE-47) in Young Whole Pumpkin Plant. Environ. Sci. Technol. 47, 3701&amp;ndash;3707. &lt;a href=&#34;doi:10.1021/es4003263&#34;&gt;doi:10.1021/es4003263&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tian, Y., Yu, M., Chen, J., Liu, C., Shi, J., Chen, H., Jiang, G., 2015. Real Time Online Correction of Mass Shifts and Intensity Fluctuations in Extractive Electrospray Ionization Mass Spectrometry. Anal. Chem. 87, 11962&amp;ndash;11966. &lt;a href=&#34;doi:10.1021/acs.analchem.5b04372&#34;&gt;doi:10.1021/acs.analchem.5b04372&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Zhang, H., Wang, Y., Sun, C., Yu, M., Gao, Y., Wang, T., Liu, J., Jiang, G., 2014. Levels and Distributions of Hexachlorobutadiene and Three Chlorobenzenes in Biosolids from Wastewater Treatment Plants and in Soils within and Surrounding a Chemical Plant in China. Environ. Sci. Technol. 48, 1525&amp;ndash;1531. &lt;a href=&#34;doi:10.1021/es405171t&#34;&gt;doi:10.1021/es405171t&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Zhao, X., Yu, M., Xu, D., Liu, A., Hou, X., Hao, F., Long, Y., Zhou, Q., Jiang, G., 2017. Distribution, Bioaccumulation, Trophic Transfer, and Influences of CeO2 Nanoparticles in a Constructed Aquatic Food Web. Environ. Sci. Technol. 51, 5205&amp;ndash;5214. &lt;a href=&#34;doi:10.1021/acs.est.6b05875&#34;&gt;doi:10.1021/acs.est.6b05875&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;软件开发&#34;&gt;软件开发&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/rgabriel/index.html&#34;&gt;R包 - rgabriel&lt;/a&gt;: Gabriel多重比较及其可视化&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/enviGCMS/index.html&#34;&gt;R包 - enviGCMS&lt;/a&gt;: GC/LC-MS数据在环境科学中的应用&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/pmd/index.html&#34;&gt;R包 - pmd&lt;/a&gt;：基于GC/LC-MS数据的非目的质量差分析&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yufree.shinyapps.io/nlpshiny&#34;&gt;Shiny在线应用 - Simple SwiftKey&lt;/a&gt;：极简在线输入法&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/JournalTone/&#34;&gt;Shiny在线应用 - JournalTone&lt;/a&gt;：基于PubMed关键词或期刊的文本趋势挖掘&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yufreecas.shinyapps.io/xcmsplus&#34;&gt;Shiny在线应用 - XcmsPlus&lt;/a&gt;：代谢组学数据分析与可视化&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/msccpol/&#34;&gt;Shiny在线应用 - MSCCP&lt;/a&gt;：短链氯化石蜡定量&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/MIR/&#34;&gt;Shiny在线应用 - Molecular isotope ratio tools&lt;/a&gt;：分子同位素分析&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/spicpms/&#34;&gt;Shiny在线应用 - SP-ICP-MS&lt;/a&gt;：基于ICP-MS的纳米粒子颗粒分布分析&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://r.yufree.cn/shinyBDE&#34;&gt;Shiny app - ShinyBDE&lt;/a&gt;：多溴联苯醚保留时间预测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;书&#34;&gt;书&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Roszkowska, A., Yu, M., Pawliszyn, J., 2020. In Vivo SPME for Bioanalysis in Environmental Monitoring and Toxicology, in: Jiang, G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and Toxicology: From Concepts to Insights. Springer Singapore, Singapore, pp. 23&amp;ndash;31. &lt;a href=&#34;https://doi.org/10.1007/978-981-13-9447-8_3&#34;&gt;https://doi.org/10.1007/978-981-13-9447-8_3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;代谢组学数据分析培训&#34;&gt;代谢组学数据分析培训&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;幻灯片&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/introduction#1&#34;&gt;导论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/StatisticalAnalysis#1&#34;&gt;统计分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/BatchCorrection#1&#34;&gt;批次效应&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/Annotation#1&#34;&gt;注释&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yufree.github.io/presentation/metabolomics/demo#1&#34;&gt;演示&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yufree/presentation/tree/gh-pages/metabolomics&#34;&gt;幻灯片源码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;University of Waterloo, Waterloo, ON, Canada, 2018.7&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;University of California, Irvine, Irvine, CA, USA, 2018.8&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;会议论文除口头报告外&#34;&gt;会议论文（除口头报告外）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Jiyan Liu*, Jianteng Sun, Miao Yu, Guibin Jiang. Uptake, translocation and transformation of polybrominated diphenyl ethers in whole pumpkin seedlings. 32nd International Symposium on Halogenated Persistent Organic Pollutants, Cairns, Australia, 2012.8.26-31, G8.103&lt;/li&gt;
+&lt;li&gt;于淼, 刘稷燕, BDE-28在南瓜中的富集行为研究, 第九届全国生物医药色谱会议, 2012, 重庆, 中国&lt;/li&gt;
+&lt;li&gt;于淼, 刘稷燕, 多溴联苯醚植物代谢产物分析方法的建立及应用, 第七届环境化学大会, 2013, 贵阳, 中国&lt;/li&gt;
+&lt;li&gt;Miao Yu, Aifeng Liu, Jiyan Liu, Guibin Jiang. 2015, Kow Directed Analysis For Brominated Containment in Environmental Samples, the 43rd Symposium of HPLC and related techniques, Beijing, China&lt;/li&gt;
+&lt;li&gt;Miao Yu, 2018, Online batch correction and interactive data visualization for GC/LC-MS data, Pittcon 2018, Orlando, FL, USA. (&lt;a href=&#34;https://docs.google.com/presentation/d/11nEtnaYR5KGE2uufv5sgw0Qw70G7ZAYd7AnCdMUKZa4/edit?usp=sharing&#34;&gt;slides&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, Anna Roszkowska, Janusz Pawliszyn, 2018, Tissue Storage Affects Global Metabolic Profiling in Comparison to in vivo Microsampling Approach, Pittcon 2018, Orlando, FL, USA. (&lt;a href=&#34;https://docs.google.com/presentation/d/1cziiGcQb60GLyBce8hEQy3Y02MqQk0-9Kih1nl-BCPE/edit?usp=sharing&#34;&gt;poster&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, Sofia Lendor, Mariola Olkowicz, Leslie Bragg, Anna Roszkowska1, Mark Servos, Janusz Pawliszyn, 2019, Reacomics for LC-MS based untargeted analysis, ASMS 2019, Atlanta, GA, USA. (&lt;a href=&#34;https://docs.google.com/presentation/d/1dMXnE-KLVlTWXXuhQzZzWKXImYV6DvjxuYsLGNW7QaQ/edit?usp=sharing&#34;&gt;poster&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, Georgia Dolios, Lauren Petrick, 2020, Global non-targeted metabolomics data analysis workflow for Paired Mass Distance Dependent Analysis (PMDDA), 2020 Exposome Symposium, New York, NY, USA. (&lt;a href=&#34;https://docs.google.com/presentation/d/13iCu1UnQVIAgylT6MkMoTJBPAmNejf5x0N_Yjakno1E/edit?usp=sharing&#34;&gt;poster&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Miao Yu, Georgia Dolios, Lauren Petrick, 2020,Paired mass distance dependent analysis (PMDDA) for robust untargeted compound identification, ASMS 2020 Reboot, USA. (&lt;a href=&#34;https://docs.google.com/presentation/d/18qDbjy1PYuLZgOOlbSgzkpFBQnc3k-H5XhQPHjszfHA/edit?usp=sharing&#34;&gt;poster&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;授权专利&#34;&gt;授权专利&lt;/h2&gt;
+&lt;h3 id=&#34;实用新型&#34;&gt;实用新型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com.hk/patents/CN201004609Y&#34;&gt;高效率太阳能供电器&lt;/a&gt; 第一发明人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;发明&#34;&gt;发明&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.google.com.hk/patents/CN101559353B&#34;&gt;氯化锌改性赤泥的制备方法&lt;/a&gt; 第三发明人&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com.hk/patents/CN101456602B&#34;&gt;螺旋悬挂式赤泥膜袋吸附除磷装置&lt;/a&gt; 第六发明人&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

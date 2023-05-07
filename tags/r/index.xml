@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Miao Yu | 于淼 </title>
@@ -6,14 +5,169 @@
     <description>Recent content in R on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yufree.cn/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>1997-2020中国研究生数据分析</title>
       <link>https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/</link>
       <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/</guid>
-      <description>最近还在处理《现代科研指北》的书稿，可以确定的是正式出版应该不会用这个名字，新名字我还没想好。书里很多内容与当前在线版有不伤害本质的区别与删</description>
+      <description>
+&lt;script src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;最近还在处理《现代科研指北》的书稿，可以确定的是正式出版应该不会用这个名字，新名字我还没想好。书里很多内容与当前在线版有不伤害本质的区别与删节，主要是为了照顾读者情绪与国内出版要求。目前可以认为在线版是开源项目而出版版是基于在线版的二次创作。书稿中原有一段是分析1997-2017年教育部研究生数据的，眼下要拖稿到2022年了，所以我把数据更新到了2020年（因为21年数据还没出），然后就发现很多结论已经验证了，很多新问题又出来了。因为书稿本身内容已经很多了，很多分析就放在这里，前一版我用的是Excel，这版我就全换成R了。&lt;/p&gt;
+&lt;div id=&#34;数据来源&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;数据来源&lt;/h2&gt;
+&lt;p&gt;原始数据是教育部放在自己&lt;a href=&#34;http://www.moe.gov.cn/jyb_sjzl/moe_560/2020/&#34;&gt;网站&lt;/a&gt;上的，我这里只用了很小一部分。因为教育部按年发布，不同年代间报表有差异，很多统计方法也换掉了，这里我尽量洗了一下。有差异部分会在后面提及。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## 研究生数据
+graduate &amp;lt;- read.csv(&amp;#39;https://raw.githubusercontent.com/yufree/sciguide/master/data/graduate.csv&amp;#39;, check.names = F)
+## 教职数据
+faculty &amp;lt;- read.csv(&amp;#39;https://raw.githubusercontent.com/yufree/sciguide/master/data/faculty.csv&amp;#39;, check.names = F)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;研究生规模&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;研究生规模&lt;/h2&gt;
+&lt;p&gt;研究生扩招是继高考扩招后另一个“知识改变命运”的国民级叙事，高考现在已经扩不动了，而且因为现在国家对中等职业教育有了硬性规定，适龄人口里大概一半人可能要读职业教育类学校，而剩下的一半多基本都被普通高中吸收了，高等教育入学率已经基本平稳，真考不上的那可能确实就是不适合读书了。然而，选拔性考试压力只会推迟而不会消失，在高考的选拔作用有限后，研究生入学考试就成了下一个战场。&lt;/p&gt;
+&lt;p&gt;首先，自然是讨论下研究生规模，这个群体一直是在增长的，而且最近几年增长的更快了。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;graduate2 &amp;lt;- graduate[graduate$category == &amp;#39;Total&amp;#39;,]
+# 人数
+library(showtext)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: sysfonts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: showtextdb&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;showtext::showtext_auto()
+par(mfrow=c(1,2))
+plot(graduate2$year,graduate2$`Enrolment(Master)`,xlab = &amp;#39;年份&amp;#39;,ylab = &amp;#39;人数&amp;#39;,pch=19,col=&amp;#39;black&amp;#39;,ylim=c(min(graduate2$`Admitted(Master)`),max(graduate2$`Enrolment(Master)`)),main=&amp;#39;硕士研究生&amp;#39;)
+points(graduate2$year,graduate2$`Graduates(Master)`,pch=19,col = &amp;#39;red&amp;#39;)
+points(graduate2$year,graduate2$`Admitted(Master)`,pch=19,col=&amp;#39;blue&amp;#39;)
+segments(graduate2$year[-c(22:24)],graduate2$`Admitted(Master)`[-c(22:24)],graduate2$year[-c(22:24)]+3,graduate2$`Graduates(Master)`[-c(1:3)])
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;在校生&amp;#39;,&amp;#39;录取人数&amp;#39;,&amp;#39;毕业人数&amp;#39;), col = c(&amp;#39;black&amp;#39;,&amp;#39;blue&amp;#39;,&amp;#39;red&amp;#39;),pch=19)
+
+plot(graduate2$year,graduate2$`Enrolment(Doctor)`,xlab = &amp;#39;年份&amp;#39;,ylab = &amp;#39;人数&amp;#39;,pch=19,col=&amp;#39;black&amp;#39;,ylim=c(min(graduate2$`Entrants(Doctor)`),max(graduate2$`Enrolment(Doctor)`)),main=&amp;#39;博士研究生&amp;#39;)
+points(graduate2$year,graduate2$`Graduates(Doctor)`,pch=19,col = &amp;#39;red&amp;#39;)
+points(graduate2$year,graduate2$`Entrants(Doctor)`,pch=19,col=&amp;#39;blue&amp;#39;)
+segments(graduate2$year[-c(20:24)],graduate2$`Entrants(Doctor)`[-c(20:24)],graduate2$year[-c(20:24)]+5,graduate2$`Graduates(Doctor)`[-c(1:5)])
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;在校生&amp;#39;,&amp;#39;录取人数&amp;#39;,&amp;#39;毕业人数&amp;#39;), col = c(&amp;#39;black&amp;#39;,&amp;#39;blue&amp;#39;,&amp;#39;red&amp;#39;),pch=19)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里很多人会立即注意到2017年开始硕士研究生突然出现了扩张，这是个统计问题，教育部2017年换了统计方法，研究生招生、在校生指标内涵发生变化。招生包含全日制和非全日制研究生；在校生、授予学位数包含全日制、非全日制研究生和在职人员攻读硕士学位学生在校生的方法。&lt;/p&gt;
+&lt;p&gt;目前，我们已经有250万在校硕士生与接近50万的在校博士生，每年录取人数已经达到接近100万的硕士与10万的博士，硕博比基本稳定在10:1。然后我们看下延期现象，我把录取人数与硕士三年后毕业人数跟五年后博士人数做了连接，可以看出硕士毕业基本不怎么延期，但博士那边连线斜率最近几年都是负的，也就是说延期现象很普遍。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;graduate3 &amp;lt;- graduate2[!is.na(graduate2$`Estimated Graduates for Next Year (master)`),]
+par(mfrow=c(1,2))
+plot(graduate3$year[-1],graduate3$`Estimated Graduates for Next Year (master)`[-5],xlab = &amp;#39;年份&amp;#39;,ylab = &amp;#39;人数&amp;#39;,pch=19,col=&amp;#39;black&amp;#39;,xlim = c(2017,2020), ylim=c(min(graduate3$`Graduates(Master)`),max(graduate3$`Estimated Graduates for Next Year (master)`)),main=&amp;#39;硕士研究生&amp;#39;)
+points(graduate3$year[-1],graduate3$`Graduates(Master)`[-1],pch=19,col = &amp;#39;red&amp;#39;)
+segments(graduate3$year[-1],graduate3$`Estimated Graduates for Next Year (master)`[-5],graduate3$year[-1],graduate3$`Graduates(Master)`[-1],pch=19)
+plot(graduate3$year[-1],graduate3$`Estimated Graduates for Next Year (Doctor)`[-5],xlab = &amp;#39;年份&amp;#39;,ylab = &amp;#39;人数&amp;#39;,pch=19,col=&amp;#39;black&amp;#39;,xlim = c(2017,2020), ylim=c(min(graduate3$`Graduates(Doctor)`),max(graduate3$`Estimated Graduates for Next Year (Doctor)`)),main=&amp;#39;博士研究生&amp;#39;)
+points(graduate3$year[-1],graduate3$`Graduates(Doctor)`[-1],pch=19,col = &amp;#39;red&amp;#39;)
+segments(graduate3$year[-1],graduate3$`Estimated Graduates for Next Year (Doctor)`[-5],graduate3$year[-1],graduate3$`Graduates(Doctor)`[-1],pch=19)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 平均延期概率
+mean(graduate3$`Graduates(Master)`[-1]/graduate3$`Estimated Graduates for Next Year (master)`[-5])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.8885&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(graduate3$`Graduates(Doctor)`[-1]/graduate3$`Estimated Graduates for Next Year (Doctor)`[-5])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.363&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;不过，很多学科硕士实际上是两年，而博士因为存在硕博连读很难直接说多少年毕业。然而，教育部最近五年也给出了下一年预计毕业人数，这样我们就可以直接对比毕业人数。上图可以看出最近四年的预计毕业人数与实际毕业人数状况，对于硕士而言11%学生不能按期毕业而博士则是64%，也就是说现在不论读硕士还是读博士都有超过1/10的概率无法按期毕业，每年延期毕业的硕士差不多等于当年读博士的人数，也算是一种讽刺。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;分学科状况&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;分学科状况&lt;/h2&gt;
+&lt;p&gt;下面我们看一下不同学科间的差异，这里可以明显看出，扩招在不同学科间是不一样的，硕士的扩招里专业学位、管理学、医学与工学学位的增长是很快的，但文科学位增长不大，军事学哲学甚至在下降，理学增长其实有限。然而，在博士的扩招趋势里，理学、工学与医学是最大的学科，增长也快，其余的学科在过去十年里没怎么扩招。&lt;/p&gt;
+&lt;p&gt;对比硕士博士学科差异，可以看出硕士里的管理学经济学硕士多但管理学经济学博士却不多，这说明这些学科硕士大概就挺容易就业的。硕士增长不多博士增长多，例如理学则属于基础学科，需要博士学位才能就业。但如果两者增长都很快，例如农学、艺术，可能是国家需求高，更可能是都不好找工作。另外，硕士专业学位的快速增长可以说明目前国家已经识别到硕士学位的应用方向需求，同时，专业博士学位也出现了，这说明应用方向对知识需求也越来越高。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;graduate2 &amp;lt;- graduate[graduate$category != &amp;quot;Total&amp;quot;&amp;amp;graduate$category !=&amp;quot;Of Which: Female&amp;quot;,]
+graduate2 &amp;lt;- graduate2[complete.cases(graduate2[,c(1:11)]),]
+library(ggplot2)
+ggplot(graduate2,aes(year,`Graduates(Master)`,color = category)) + 
+        geom_point()+
+        facet_wrap(facets = vars(category),scales = &amp;#39;free&amp;#39;)+
+        ggtitle(&amp;#39;硕士&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(graduate2,aes(year,`Graduates(Doctor)`,color = category)) + 
+        geom_point()+
+        facet_wrap(facets = vars(category),scales = &amp;#39;free&amp;#39;)+
+        ggtitle(&amp;#39;博士&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;教职规模&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;教职规模&lt;/h2&gt;
+&lt;p&gt;看完了研究生状况，自然就该看下国内教职的状况，这里我主要用了教育部的研究生导师数据集。不过，当前国内教职没有博士学位已经基本不可能了，所以就不讨论硕士毕业后就业状况了，大概率是无法留在学术圈的。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
+plot(faculty$year[faculty$category == &amp;#39;Total&amp;#39;],faculty$total[faculty$category == &amp;#39;Total&amp;#39;],pch=19, main=&amp;#39;教职数&amp;#39;,ylim=c(0,max(faculty$total)),xlab = &amp;#39;年份&amp;#39;, ylab = &amp;#39;人数&amp;#39;, type = &amp;#39;o&amp;#39;)
+points(faculty$year[faculty$category == &amp;#39;Professors&amp;#39;], faculty$total[faculty$category == &amp;#39;Professors&amp;#39;],pch=19,col=&amp;#39;blue&amp;#39;, type = &amp;#39;o&amp;#39;)
+points(faculty$year[faculty$category == &amp;#39;Asso. Professors&amp;#39;],faculty$total[faculty$category == &amp;#39;Asso. Professors&amp;#39;],pch=19,col=&amp;#39;red&amp;#39;, type = &amp;#39;o&amp;#39;)
+points(faculty$year[faculty$category == &amp;#39;middle&amp;#39;],faculty$total[faculty$category == &amp;#39;middle&amp;#39;],pch=19,col=&amp;#39;orange&amp;#39;, type = &amp;#39;o&amp;#39;)
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;总数&amp;#39;,&amp;#39;教授&amp;#39;,&amp;#39;副教授&amp;#39;,&amp;#39;中级职称&amp;#39;), col = c(&amp;#39;black&amp;#39;,&amp;#39;blue&amp;#39;,&amp;#39;red&amp;#39;,&amp;#39;orange&amp;#39;),pch=19)
+plot(faculty$year[faculty$category == &amp;quot;Supervisors of master&amp;#39;s degree prog.&amp;quot;],faculty$total[faculty$category == &amp;quot;Supervisors of master&amp;#39;s degree prog.&amp;quot;],pch=19, main=&amp;#39;教职数&amp;#39;,ylim=c(0,400000),xlab = &amp;#39;年份&amp;#39;, ylab = &amp;#39;人数&amp;#39;, type = &amp;#39;o&amp;#39;)
+points(faculty$year[faculty$category == &amp;#39;Supervisors of doctoral programmes&amp;#39;], faculty$total[faculty$category == &amp;#39;Supervisors of doctoral programmes&amp;#39;],pch=19,col=&amp;#39;blue&amp;#39;, type = &amp;#39;o&amp;#39;)
+points(faculty$year[faculty$category == &amp;#39;Supervisors of doc. &amp;amp; mas. Degree programmes&amp;#39;],faculty$total[faculty$category == &amp;#39;Supervisors of doc. &amp;amp; mas. Degree programmes&amp;#39;],pch=19,col=&amp;#39;red&amp;#39;, type = &amp;#39;o&amp;#39;)
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;硕士导师&amp;#39;,&amp;#39;博士导师&amp;#39;,&amp;#39;硕士博士导师&amp;#39;), col = c(&amp;#39;black&amp;#39;,&amp;#39;blue&amp;#39;,&amp;#39;red&amp;#39;),pch=19)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;由于本科生从1999年开始扩招，教职数也一直增加。不过，高级职称的增加速度明显低于教职总数的增加速度而中级职称教职在快速增加。教授与副教授都在增长，甚至教授人数比副教授还要多。如果我们看下导师资格，会发现硕士导师增长飞快而博士导师数目基本是不变的，大概在2万左右。需要注意的是最近国内教职正在改革，改为预聘长聘的方法，所以以后硕士博士导师可能区别不大了。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;faculty2 &amp;lt;- faculty[faculty$category == &amp;#39;Total&amp;#39;, ]
+par(mfrow=c(1,1))
+col = RColorBrewer::brewer.pal(8,&amp;#39;Set2&amp;#39;)
+plot(faculty2$year,faculty2$`30 Years &amp;amp; Under`,pch=19, main=&amp;#39;教职数&amp;#39;,ylim=c(0,110000),xlab = &amp;#39;年份&amp;#39;, ylab = &amp;#39;人数&amp;#39;,col=col[1], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`31-35years`,pch=19,col=col[2], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`36-40years`,pch=19,col=col[3], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`41-45years`,pch=19,col=col[4], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`46-50years`,pch=19,col=col[5], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`51-55years`,pch=19,col=col[6], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`56-60years`,pch=19,col=col[7], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`61 Years &amp;amp; Over`,pch=19,col=col[8], type = &amp;#39;o&amp;#39;)
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;30岁以下&amp;#39;,&amp;#39;30-34&amp;#39;,&amp;#39;35-39&amp;#39;,&amp;#39;40-44&amp;#39;,&amp;#39;45-49&amp;#39;,&amp;#39;50-54&amp;#39;,&amp;#39;55-59&amp;#39;,&amp;#39;60岁以上&amp;#39;), col = col,pch=19)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;下面就是教职年龄分布图了，这里需要注意，1997-2013年的教职年龄分布数据分段为30岁（含）以下，31-35，36-40，41-45，46-50，51-55，56-60，60岁以上。&lt;/p&gt;
+&lt;p&gt;这里我们可以看到1999年大学扩招后35-39岁段出了个教职高峰，也就是那个年代基本博士毕业就能拿到教职，后面每隔五年我们会看到这个教职高峰的平移，现在已经移到55-59岁了。如果退休年龄不延长的话，大概未来五到十年我们会看到一个退休导致的教职空窗期，现在一年高级教职大概会有两三万，遇到这个高峰会翻倍。不过大概率退休年龄会延长，所以真正能遇到这个空窗期的人大概现在还在读中学或者说现在就要至少是个中级职称去排队。再晚上几年，中国教职就会一个萝卜一个坑了。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,3))
+faculty2 &amp;lt;- faculty[faculty$category == &amp;#39;Professors&amp;#39;, ]
+plot(faculty2$year,faculty2$`30 Years &amp;amp; Under`,pch=19, main=&amp;#39;教授&amp;#39;,ylim=c(0,80000),xlab = &amp;#39;年份&amp;#39;, ylab = &amp;#39;人数&amp;#39;,col=col[1], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`31-35years`,pch=19,col=col[2], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`36-40years`,pch=19,col=col[3], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`41-45years`,pch=19,col=col[4], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`46-50years`,pch=19,col=col[5], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`51-55years`,pch=19,col=col[6], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`56-60years`,pch=19,col=col[7], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`61 Years &amp;amp; Over`,pch=19,col=col[8], type = &amp;#39;o&amp;#39;)
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;30岁以下&amp;#39;,&amp;#39;30-34&amp;#39;,&amp;#39;35-39&amp;#39;,&amp;#39;40-44&amp;#39;,&amp;#39;45-49&amp;#39;,&amp;#39;50-54&amp;#39;,&amp;#39;55-59&amp;#39;,&amp;#39;60岁以上&amp;#39;), col = col,pch=19)
+
+faculty2 &amp;lt;- faculty[faculty$category == &amp;#39;Asso. Professors&amp;#39;, ]
+plot(faculty2$year,faculty2$`30 Years &amp;amp; Under`,pch=19, main=&amp;#39;副教授&amp;#39;,ylim=c(0,80000),xlab = &amp;#39;年份&amp;#39;, ylab = &amp;#39;人数&amp;#39;,col=col[1], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`31-35years`,pch=19,col=col[2], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`36-40years`,pch=19,col=col[3], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`41-45years`,pch=19,col=col[4], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`46-50years`,pch=19,col=col[5], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`51-55years`,pch=19,col=col[6], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`56-60years`,pch=19,col=col[7], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`61 Years &amp;amp; Over`,pch=19,col=col[8], type = &amp;#39;o&amp;#39;)
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;30岁以下&amp;#39;,&amp;#39;30-34&amp;#39;,&amp;#39;35-39&amp;#39;,&amp;#39;40-44&amp;#39;,&amp;#39;45-49&amp;#39;,&amp;#39;50-54&amp;#39;,&amp;#39;55-59&amp;#39;,&amp;#39;60岁以上&amp;#39;), col = col,pch=19)
+
+faculty2 &amp;lt;- faculty[faculty$category == &amp;#39;middle&amp;#39;, ]
+plot(faculty2$year,faculty2$`30 Years &amp;amp; Under`,pch=19, main=&amp;#39;中级职称&amp;#39;,ylim=c(0,30000),xlab = &amp;#39;年份&amp;#39;, ylab = &amp;#39;人数&amp;#39;,col=col[1], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`31-35years`,pch=19,col=col[2], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`36-40years`,pch=19,col=col[3], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`41-45years`,pch=19,col=col[4], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`46-50years`,pch=19,col=col[5], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`51-55years`,pch=19,col=col[6], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`56-60years`,pch=19,col=col[7], type = &amp;#39;o&amp;#39;)
+points(faculty2$year,faculty2$`61 Years &amp;amp; Over`,pch=19,col=col[8], type = &amp;#39;o&amp;#39;)
+legend(&amp;#39;topleft&amp;#39;,legend = c(&amp;#39;30岁以下&amp;#39;,&amp;#39;30-34&amp;#39;,&amp;#39;35-39&amp;#39;,&amp;#39;40-44&amp;#39;,&amp;#39;45-49&amp;#39;,&amp;#39;50-54&amp;#39;,&amp;#39;55-59&amp;#39;,&amp;#39;60岁以上&amp;#39;), col = col,pch=19)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/26/1997-2020-graduate-edu-data/index_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如果我们仔细分析这个1999年扩招造成的特殊年龄分布，会发现处于这个年龄段的基本都是教授，也就是20年前还是可以熬年限的。但现在显然都堵在副教授上了，副教授教授里的年轻人这些年都在增加，而中级职称的人还在快速增长。数据上看40-44岁如果不能上教授或副教授，后面基本也上不去了，目前国家的人才项目基本也是卡在40或45左右的。&lt;/p&gt;
+&lt;p&gt;从就业上看，每年博士毕业生10万，但中级职称每年增加两万左右，高级职称刚毕业（包含博士后）现在也有可能拿到，大概每年也是两三万的量级。也就是说，目前教职市场最多可以吸收一半的博士毕业生。因为大学不扩招了，所以教职市场很难出现大扩充，又因为博士还在扩招，往后应该会看到更多的博士毕业生直接输送到社会。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;小结&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;小结&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;扩招依然进行中，研究生群体在300万左右，每年还要增加百万量级&lt;/li&gt;
+&lt;li&gt;硕士会有十分之一延期，博士则超过六成，读博要做好年龄规划&lt;/li&gt;
+&lt;li&gt;不同学科间硕士博士扩招情况不同，硕士偏重职业化与应用，博士扩招侧重理工科&lt;/li&gt;
+&lt;li&gt;教职方面存在1999年大学扩招后出现的一个人口红利，未来会有个每年四五万的教职空窗期&lt;/li&gt;
+&lt;li&gt;目前教职扩充吸收的主要是中级职称，大概吸收当年五分之一的博士毕业生&lt;/li&gt;
+&lt;li&gt;40-44岁拿到的职称基本就是退休职称了&lt;/li&gt;
+&lt;li&gt;现在会有一半博士不做教职，未来会有更多，早做职业化打算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -22,7 +176,27 @@
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2021/12/18/base-r-ggplot2/</guid>
-      <description>这几天心里颇不宁静。纽约的单日新冠确诊数又出了新纪录，工作邮箱里好几封通知群聚感染的邮件，很多还是完全免疫甚至打了加强针的。感觉新变种可以自</description>
+      <description>
+
+
+&lt;p&gt;这几天心里颇不宁静。纽约的单日新冠确诊数又出了新纪录，工作邮箱里好几封通知群聚感染的邮件，很多还是完全免疫甚至打了加强针的。感觉新变种可以自立山头看作新病毒了，而面世仅一年的疫苗似乎特异性已经不那么乐观了。不过更强的传染性倒不见得有更强的症状，但大概率这病毒是打算跟人类长期共存了，这就有点抗生素与致病菌的剧本了。我理解国内清零政策很大程度是因为放开后医疗系统会崩溃，不过长期清零对于一种不断变异增强传染性的病毒而言是否具有可持续性我想已经在被论证了，同样完全躺平现在看也不是什么好的应对策略，解决问题不能非此即彼，总是要根据实际情况动脑子的。说到这我就来填一个很早就想填的坑，是关于R绘图系统的。&lt;/p&gt;
+&lt;p&gt;不知道从什么时候开始，tidyverse 跟六角贴纸开始满天飞了，在我看来工具是用来解决问题而不是创造问题的，围绕工具形成的文化现象或类似价值观的东西属于副产品，但推广价值观这类副产品显然要比推广软件容易，因此到一定程度总会出现一些反客为主的声音。我对此不置可否，只是想说工具一定要能解决问题才有意义，在解决问题上，将问题清楚描述出来要比直接问某某工具咋做某某图更重要。&lt;/p&gt;
+&lt;p&gt;我接触 R 是在十年前，那个时候提到 R 的绘图系统，更多指的是 base R 与 grid/Lattice 这两套系统，前者强调的是最高程度的自定义自由度而后者侧重的则是一个函数给出想要的图形。显然，前者更适合原始意义的绘图比较适合开发者而后者更适合具体应用场景的用户，后者的一个显著优势是默认出图就足够漂亮而显著缺点则是自定义比较费劲。用户从来都是最难伺候的，总有用户既想要最大程度的默认好看又需要一定程度的自定义（说的就是科研狗），此时 ggplot 就出现了。&lt;/p&gt;
+&lt;p&gt;ggplot 里面的 gg 代表的是图形语法，本来 ggplot 就是 Hadley 理论转实践的尝试，原始的包在08年就不更新了，现在 CRAN 上也没有了，后面 ggplot2 里的那个2就是致敬最原始的版本 ggplot 。ggplot2 最显著的优点就是用图形语法结合了 base R 与 grid 系统的理念，默认足够好看，自定义掌握了一套通用层层叠加语法后也很容易上手。不过，我也得替 grid/Lattice 说句话，他们也是支持自定义的，Lattice 到今天也处于活跃开发状态，并且跟 R 一起发布。不过他们的自定义显然没有上升到价值观层面，跟 base R 的逻辑更像，支持公式化的数据表达，支持对象化操作，也可以通过 &lt;code&gt;update&lt;/code&gt; 这个函数来有限调节自定义的细节。不过有句老话说“革命不彻底就是彻底不革命”，用户从来不会过多理会开发历史，基本都是颜狗。ggplot2 也是依赖 grid 包来构建的，包括了所有 Lattice 的优点但学起来更容易，所以很快用户就倒向了这套绘图系统。不过，我们现在常看到的 base R 与 ggplot 的对比很大程度是从可视化结果上来的，但别忘了 ggolot 也是 R 语言的产物，理论上研究清楚了 grid 包也可以搞出类似的东西，真正的区别是用户的使用逻辑。&lt;/p&gt;
+&lt;p&gt;base R 的使用逻辑更像是白纸画图，从坐标轴到图像都是可以随意自定义的，与之对应的就是需要用户了解一大堆底层命令。base R需要用户对可视化有很具体的了解，例如先用纸笔草图画出雏形，然后通过排列组合基本的作图元素重现在绘图区里。举个最简单的例子，想在条形图上加个误差线，就需要分解为具体的两部分：1）误差线长度与起点坐标，2）然后从起点坐标平行y轴画一条线段，线段末端可以把原有箭头末端里箭头的角度从锐角改成90度垂直。然后我们就能看到误差线了。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;iris&amp;quot;)
+mean &amp;lt;- by(iris$Sepal.Length,iris$Species,mean)
+sd &amp;lt;- by(iris$Sepal.Length,iris$Species,sd)
+temp &amp;lt;- barplot(mean,ylim=c(0,max(mean)+2*max(sd)))
+arrows(temp,mean+sd, temp, mean-sd, angle=90, code=3, length=0.1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/12/18/base-r-ggplot2/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个简单到不能再简单的功能偏巧默认的条形图 &lt;code&gt;barplot&lt;/code&gt; 里没有，函数文档里那个误差线又不是平头的，所以很多用户马上认为 base R 做不了。单就这个例子而言，其实条形图本来就不应该有误差线，真正需要表示不确定性范围应该用箱形图或提琴图来展示真实分布，但你要是去读学术论文会发现时至今日还是有大量图用条形图加误差线，有的还要加星号表示显著差异。这些从作图角度而言完全就是缝合怪，但始作俑者后人不断。很多用户只知道最终要看到什么样的图，但完全不关心图背后的统计学意义，然后就到处问哪个函数能做这样的图，追求形似。这是我认为现在还需要学 base R 作图的一个重要原因，那就是用户一定要有把图形元素拆解回原始数据的能力，知道自己再干什么而不是盲目追求炫酷，这太浮躁。&lt;/p&gt;
+&lt;p&gt;在 ggplot 这套系统里，图片实际被拆解成了三个部分：数据、映射与可视化方式。数据最好是一个数据框，映射解决变量对应在图片上的维度例如哪个是x？哪个是y？哪个分组用颜色/大小/形状来表示，可视化方式就是指定出图的具体形式。其实这个逻辑在 base R 里也是成立的，只不过最后这个不同可视化方式会对应不同函数，然后里面参数一大堆名字还不一样。ggplot则是把这些都规范到一种形式里去了，而且可以通过加号这个函数层层叠加可视化方式，而各自可视化方式内部也可以重新进行坐标映射。此外，ggplot事实上也支持在作图过程中执行一定的计算，例如平滑或者汇总，这类计算都归到&lt;code&gt;stat_&lt;/code&gt;系列的函数里了。如果打算自定义某个维度，可以统一用 &lt;code&gt;scale_XXX_manual&lt;/code&gt; 来进行修改，这里&lt;code&gt;XXX&lt;/code&gt;对应的是你映射的维度，例如 &lt;code&gt;scale_fill_manual&lt;/code&gt; 对应的就是自定义填充颜色。注意，这里是映射后的图片里的维度，而映射则一般都是在可视化方式的 &lt;code&gt;aes&lt;/code&gt; 里定义的，用来把数据中的某个维度指定到图片里的维度里。此外，ggplot 自然也支持根据分组信息的多图可视化，这里就是&lt;code&gt;facet_grid&lt;/code&gt;函数来统一管理，这里 ggplot 的价值观是每一张图都要尽可能清楚展示数据，且一幅图讲一个故事，然后通过坐标对其进行比较。也就是说，ggplot里画双坐标轴这种图就不太推荐，虽然也可以自定义后来个形似，但其实双坐标轴图在可视化方式里面的地位大概跟饼图或3D柱形图差不多，属于人厌狗嫌那个组的。所有的双坐标轴图理论上都可以并应该拆成两幅图来描述两件不同的事，如果两件事相同，那么双坐标轴总可以转为单坐标轴。&lt;/p&gt;
+&lt;p&gt;从我个人经验而言，如果你掌握了 base R 作图，转到 ggplot 作图非常轻松，会省掉一大堆需要自定义的东西，统一用他们的函数体系来画就行。反之，如果掌握了 ggplot 的语法，学 base R 应该也很轻松，因为base R绘图函数里的映射与可视化方式也都有现成的包或函数，只是可能参数名字乱一些。说 ggplot 对新手友好，一大部分指的是默认美观，还有一部分原因就是从设计上就阻止了很多类似3D柱形图或双坐标轴的存在。但搞笑的是在爆栈网上从来不缺人去问这类图如何在ggplot体系里实现，也不缺大神给出解决方法。因此，我一度认为限制一定的自由度其实也对培养良好的可视化习惯有帮助，但现实却是很多用户既没学到ggplot里的可视化原则，又产生了对 base R 莫名其妙的优越感，一抬手就是管道化教条式的层层叠加代码，一行代码能做到的非学习牛津大学贝利学院优秀毕业生、大英帝国爵级司令勋章获得者、大不列颠及北爱尔兰联合王国内阁常任秘书汉弗莱·阿普比的语言风格去卡形式，这就距离解决问题比较遥远了。&lt;/p&gt;
+&lt;p&gt;其实 base R 与 ggplot 之争的背后存在一个代码风格统一的问题，如果选 ggplot ，确实代码更容易读，但问题是很多初学者的水平大概就在复制代码改变量名的水平，完全不知道代码的意义，这样层层堆出来的代码甚至会重复定义，也没啥可读性。究其原因，代码风格应该是初学者到了中级水平才应该考虑的问题，初学者最应该了解的是可视化的逻辑，然后结合自己具体的问题去练习并累积经验。不过，很多初学者都是excel打底的，脑子里全是哪个对话框画什么样的图这种思维，这种情况不论是转 base R 还是 ggplot ，他们脑子里的预期都是一个函数出图解决问题，根本不关心图是如何画出来的，这就很容易变成教条化的用户，记住步骤但不知道原因。实话说很多基于ggplot体系的作图包本质上就是把需要用户自定义的部分自己强制定义一遍然后就上线了，这种包完全迎合了某些领域的独特可视化品味，后面跟了一批教条化的用户，这样的默认可用的软件包我觉得并不利于数据分析人员理解自己的数据。&lt;/p&gt;
+&lt;p&gt;但凡学用编程语言进行可视化，起码是要知道自己在做什么的。看到一张漂亮的图，可以尝试分析图片元素，然后尝试自己将其组合起来。有这种想法后，base R 也好，ggplot 也好，学明白一个就基本也会另一个了，甚至说迁移到 python 的 matplotlib 或其他交互式作图系统都不困难。但如果搞不清楚原理，那么换一个软件就只能继续到网上复制现成的代码。我倒不是鄙视从网上复制现成的代码，毕竟这事我也没少做，但总要有个学习的过程才能掌握。&lt;/p&gt;
+&lt;p&gt;软件优劣之争在我看来很多都是鸡同鸭讲，很多比较都是在特殊应用场景下才有明显区别。但每个人的最终应用场景毕竟是不同的，解决问题的意义显著大于跟工具分高下的意义。显然编程语言绘图的能力范围更多受限于使用者的能力而非工具本身，因此这样的工具优劣争论还是少一些吧，争到最后大概率都成了人身攻击。&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -31,7 +205,170 @@
       <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2021/03/15/pc-algorithm/</guid>
-      <description>因果关系能否直接从数据中获取这个问题对很多人而言答案是否定的，相关不代表因果都成了说烂了的老梗。根源上人认识世界只能通过可感知的现象，背后的</description>
+      <description>
+&lt;script src=&#34;https://yufree.cn/cn/2021/03/15/pc-algorithm/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;因果关系能否直接从数据中获取这个问题对很多人而言答案是否定的，相关不代表因果都成了说烂了的老梗。根源上人认识世界只能通过可感知的现象，背后的规律都是在抽象意义上自洽但现实表现都含有噪音。说夸张点普朗克尺度已经界定了测量手段的极限，有些理论可能就是永远无法实证但数学上自洽的。过去的一个世纪是实验与测量技术大突破的100年，无数现代仪器或仅仅就是传感器为各类科学研究提供了大量的现象数据，也营造了数据无所不能的幻象。说是幻象是因为数据背后不仅仅有规律，也有内生的噪音，很多研究痴迷于换用不同的数据模型来提高预测性，但却忽略数据信噪比，当信噪比很低时任何结论都会不靠谱，不同模型有矛盾的预测结果无法说明模型的优劣而仅仅就是现象本身方差太大，所谓的信号或者规律其实是内生噪音的随机性导致的。&lt;/p&gt;
+&lt;p&gt;不过因果推断就是尝试解决这个问题的。最近有一个暴露组学的数据&lt;a href=&#34;https://github.com/isglobal-exposomeHub/ExposomeDataChallenge2021/blob/main/README.md&#34;&gt;挑战&lt;/a&gt;，里面给出了一组人群数据，涵盖了暴露组、基因组、表观基因组、代谢组的数据，用来寻找包括哮喘在内的多种表型差异。第一眼看上去就像是系统生物学的研究，但因为有暴露组跟基因组数据，就又像是想解决一个历史性的科学问题，那就是健康究竟是基因还是外界暴露说了算。不过表观基因组跟代谢组的数据则成了这个模型的关键问题，因为这两组数据都受基因跟外界暴露的调控，而最终的结果可能就是疾病发病率。简单说就是下面这样一个模型：&lt;/p&gt;
+&lt;p&gt;外界环境 -&amp;gt; 暴露组 -&amp;gt; 表观遗传组/代谢组 -&amp;gt; 健康状态&lt;/p&gt;
+&lt;p&gt;遗传 -&amp;gt; 基因组 -&amp;gt;&lt;/p&gt;
+&lt;p&gt;这就是因果关系图了，因果分析有两个应用场景，一个是效应估计，就是找出各自的贡献；另一个则更关键，就是提取因果关系。像上面这个数据挑战需要解决的就是前者，因为背后的模型基本是固定的。但这里要明确这个模型逻辑上通但测量上不一定测的准，基因组也可能被环境调控，同时很多暴露影响也有遗传上的共同因素例如住在祖屋里，这就是前面说的内生噪音，因此不论是模型推断还是拟合，不确定性是一定存在的，很小的效应就是会看不出来或者不同模型给不同答案，Gelman 一直强调的 Type M 错误是科研中一定要注意的，效应太小就是实际意义不大，甚至科学上都会因为重现性差而没意义。&lt;/p&gt;
+&lt;p&gt;但其实我更好奇的是，假如没有这个模型，我们能不能从一堆数据中提炼出一个因果结构。我找来找去发现了PC算法，用来发现数据中存在的因果关系，这里记录一下。&lt;/p&gt;
+&lt;p&gt;首先，我们先仿真一组因果数据：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;E &amp;lt;- 6*rnorm(1000,10,1)+rnorm(1000)
+G &amp;lt;- rnorm(1000,50,2)+rnorm(1000)
+M &amp;lt;- E*0.7+G*0.3+rnorm(1000)
+Epi &amp;lt;- E*0.1+G*0.9+rnorm(1000)
+Asthma &amp;lt;- 0.6*M+0.4*Epi+rnorm(1000)
+data &amp;lt;- cbind.data.frame(E,G,M,Epi,Asthma)
+cor(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##               E        G      M    Epi Asthma
+## E       1.00000 -0.02042 0.9647 0.2565 0.8551
+## G      -0.02042  1.00000 0.1314 0.8550 0.3549
+## M       0.96474  0.13144 1.0000 0.3733 0.9159
+## Epi     0.25647  0.85500 0.3733 1.0000 0.5888
+## Asthma  0.85509  0.35488 0.9159 0.5888 1.0000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pairs(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/03/15/pc-algorithm/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor.test(Asthma,E)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Pearson&amp;#39;s product-moment correlation
+## 
+## data:  Asthma and E
+## t = 52, df = 998, p-value &amp;lt;2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.8375 0.8709
+## sample estimates:
+##    cor 
+## 0.8551&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor.test(Asthma,G)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Pearson&amp;#39;s product-moment correlation
+## 
+## data:  Asthma and G
+## t = 12, df = 998, p-value &amp;lt;2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.2995 0.4079
+## sample estimates:
+##    cor 
+## 0.3549&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里E代表暴露组、G代表基因组、M代表代谢组、Epi代表表观组、Asthma代表疾病，仿真中设定疾病六成可以被代谢组解释而四成可以用表观组解释，然而代谢组里七成是环境影响而三成是基因影响，表观组则是一成环境影响而九成基因影响。这里我们可以看到如果进行简单回归，基本就是一团乱码。&lt;/p&gt;
+&lt;p&gt;下面我们用PC算法拟合一下试试：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(pcalg)
+suffStat &amp;lt;- list(C=cor(data), n = nrow(data))
+pc.fit &amp;lt;- pc(suffStat, gaussCItest, p = ncol(data), alpha = 0.01, verbose = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Order=0; remaining edges:20
+## x= 1  y= 2  S=  : pval = 0.519 
+## x= 1  y= 3  S=  : pval = 0 
+## x= 1  y= 4  S=  : pval = 1.2e-16 
+## x= 1  y= 5  S=  : pval = 0 
+## x= 2  y= 3  S=  : pval = 2.987e-05 
+## x= 2  y= 4  S=  : pval = 0 
+## x= 2  y= 5  S=  : pval = 1.067e-31 
+## x= 3  y= 1  S=  : pval = 0 
+## x= 3  y= 2  S=  : pval = 2.987e-05 
+## x= 3  y= 4  S=  : pval = 3.173e-35 
+## x= 3  y= 5  S=  : pval = 0 
+## x= 4  y= 1  S=  : pval = 1.2e-16 
+## x= 4  y= 2  S=  : pval = 0 
+## x= 4  y= 3  S=  : pval = 3.173e-35 
+## x= 4  y= 5  S=  : pval = 4.855e-101 
+## x= 5  y= 1  S=  : pval = 0 
+## x= 5  y= 2  S=  : pval = 1.067e-31 
+## x= 5  y= 3  S=  : pval = 0 
+## x= 5  y= 4  S=  : pval = 4.855e-101 
+## Order=1; remaining edges:18
+## x= 1  y= 3  S= 4 : pval = 0 
+## x= 1  y= 3  S= 5 : pval = 0 
+## x= 1  y= 4  S= 3 : pval = 2.175e-46 
+## x= 1  y= 4  S= 5 : pval = 3.191e-101 
+## x= 1  y= 5  S= 3 : pval = 2.84e-18 
+## x= 1  y= 5  S= 4 : pval = 0 
+## x= 2  y= 3  S= 4 : pval = 1.207e-38 
+## x= 2  y= 3  S= 5 : pval = 1.84e-72 
+## x= 2  y= 4  S= 3 : pval = 0 
+## x= 2  y= 4  S= 5 : pval = 0 
+## x= 2  y= 5  S= 3 : pval = 4.245e-101 
+## x= 2  y= 5  S= 4 : pval = 1.425e-31 
+## x= 3  y= 1  S= 2 : pval = 0 
+## x= 3  y= 1  S= 4 : pval = 0 
+## x= 3  y= 1  S= 5 : pval = 0 
+## x= 3  y= 2  S= 1 : pval = 1.174e-94 
+## x= 3  y= 2  S= 4 : pval = 1.207e-38 
+## x= 3  y= 2  S= 5 : pval = 1.84e-72 
+## x= 3  y= 4  S= 1 : pval = 1.184e-65 
+## x= 3  y= 4  S= 2 : pval = 1.006e-69 
+## x= 3  y= 4  S= 5 : pval = 4.762e-71 
+## x= 3  y= 5  S= 1 : pval = 5.469e-142 
+## x= 3  y= 5  S= 2 : pval = 0 
+## x= 3  y= 5  S= 4 : pval = 0 
+## x= 4  y= 1  S= 2 : pval = 8.164e-77 
+## x= 4  y= 1  S= 3 : pval = 2.175e-46 
+## x= 4  y= 1  S= 5 : pval = 3.191e-101 
+## x= 4  y= 2  S= 1 : pval = 0 
+## x= 4  y= 2  S= 3 : pval = 0 
+## x= 4  y= 2  S= 5 : pval = 0 
+## x= 4  y= 3  S= 1 : pval = 1.184e-65 
+## x= 4  y= 3  S= 2 : pval = 1.006e-69 
+## x= 4  y= 3  S= 5 : pval = 4.762e-71 
+## x= 4  y= 5  S= 1 : pval = 2.8e-195 
+## x= 4  y= 5  S= 2 : pval = 7.757e-101 
+## x= 4  y= 5  S= 3 : pval = 5.666e-140 
+## x= 5  y= 1  S= 2 : pval = 0 
+## x= 5  y= 1  S= 3 : pval = 2.84e-18 
+## x= 5  y= 1  S= 4 : pval = 0 
+## x= 5  y= 2  S= 1 : pval = 4.455e-179 
+## x= 5  y= 2  S= 3 : pval = 4.245e-101 
+## x= 5  y= 2  S= 4 : pval = 1.425e-31 
+## x= 5  y= 3  S= 1 : pval = 5.469e-142 
+## x= 5  y= 3  S= 2 : pval = 0 
+## x= 5  y= 3  S= 4 : pval = 0 
+## x= 5  y= 4  S= 1 : pval = 2.8e-195 
+## x= 5  y= 4  S= 2 : pval = 7.757e-101 
+## x= 5  y= 4  S= 3 : pval = 5.666e-140 
+## Order=2; remaining edges:18
+## x= 1  y= 3  S= 4 5 : pval = 2.984e-295 
+## x= 1  y= 4  S= 3 5 : pval = 3.844e-29 
+## x= 1  y= 5  S= 3 4 : pval = 0.577 
+## x= 2  y= 3  S= 4 5 : pval = 2.05e-08 
+## x= 2  y= 4  S= 3 5 : pval = 4.093e-267 
+## x= 2  y= 5  S= 3 4 : pval = 0.4735 
+## x= 3  y= 1  S= 2 4 : pval = 0 
+## x= 3  y= 1  S= 2 5 : pval = 4.25e-304 
+## x= 3  y= 1  S= 4 5 : pval = 2.984e-295 
+## x= 3  y= 2  S= 1 4 : pval = 1.062e-28 
+## x= 3  y= 2  S= 1 5 : pval = 3.746e-09 
+## x= 3  y= 2  S= 4 5 : pval = 2.05e-08 
+## x= 3  y= 4  S= 1 2 : pval = 0.1595 
+## x= 3  y= 5  S= 1 2 : pval = 1.519e-51 
+## x= 3  y= 5  S= 1 4 : pval = 1.218e-71 
+## x= 3  y= 5  S= 2 4 : pval = 0 
+## x= 4  y= 1  S= 2 3 : pval = 1.981e-08 
+## x= 4  y= 1  S= 2 5 : pval = 0.1367 
+## x= 4  y= 2  S= 1 3 : pval = 0 
+## x= 4  y= 2  S= 1 5 : pval = 3.064e-224 
+## x= 4  y= 2  S= 3 5 : pval = 4.093e-267 
+## x= 4  y= 5  S= 1 2 : pval = 7.358e-24 
+## x= 4  y= 5  S= 1 3 : pval = 1.651e-120 
+## x= 4  y= 5  S= 2 3 : pval = 7.409e-36 
+## x= 5  y= 3  S= 1 2 : pval = 1.519e-51 
+## x= 5  y= 3  S= 1 4 : pval = 1.218e-71 
+## x= 5  y= 3  S= 2 4 : pval = 0 
+## x= 5  y= 4  S= 1 2 : pval = 7.358e-24 
+## x= 5  y= 4  S= 1 3 : pval = 1.651e-120 
+## x= 5  y= 4  S= 2 3 : pval = 7.409e-36 
+## Order=3; remaining edges:10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(pc.fit,main=&amp;#39;Demo&amp;#39;,labels=c(&amp;quot;E&amp;quot;,&amp;quot;G&amp;quot;,&amp;quot;M&amp;quot;,&amp;quot;Epi&amp;quot;,&amp;quot;Asthma&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required namespace: Rgraphviz&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2021/03/15/pc-algorithm/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;怎么说呢，结果还算满意，虽然细节上还有点问题（例如E跟Epi间效应比较弱就没被算法发现），基本符合我们仿真的设定，这也算是一种内生噪音的后果吧，就算是仿真也可能搞出随机相关来。&lt;/p&gt;
+&lt;p&gt;现在我们来说下PC算法究竟啥原理。本质上PC算法一直在反复做条件独立性假设检验，这里我们指定的就是 Gaussian 检验，算的其实就是多变量间的偏相关性然后通过假设检验决定连接。至于方向性，越是结果其内生噪音应该越大。&lt;/p&gt;
+&lt;p&gt;不过这种直接依赖数据的因果结构发现适用范围非常有限，前面这个例子我用了线性模拟与检验才会有个说得过去的结果，要是本来不是这种分布，结果意义就不大了。什么？你问真实数据？，真实数据E跟G加起来上万维，M跟Epi的维度也是这个量级，信噪比不高的话根本啥都找不出来，找出来的因果结构说不定还是Epi在G上面，所以我一直以来就认为组学数据分析的出路在于提高信噪比而不是盲目往里送维度。但降维就要丢信息，如何权衡有效信息量很重要，而这个有效的判定则是根据实际问题来，不同问题的降维策略应该是不一样的，这就需要研究人员根据实际情况决策了。&lt;/p&gt;
+&lt;p&gt;科学问题不等同因果问题或相关问题，因果律也只是研究工具的一种，噪音才是科学求证的公敌。&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -40,8 +377,433 @@
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/</guid>
-      <description>Last year I make a poster presentation for MS/MS annotation by paired mass distance(PMD) analysis. It’s already been included as pmdanno function in pmd package. Here I will explain the principle of PMD annotation.
-Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as an example. Then you will get a list with each compound as element. The list should have a element of spectra with mz and ins, an element of name, an element of prec for precursor ions.</description>
+      <description>
+&lt;script src=&#34;https://yufree.cn/en/2021/01/17/ms-ms-annotation-by-paired-mass-distances/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Last year I make a poster presentation for MS/MS annotation by paired mass distance(PMD) analysis. It’s already been included as &lt;code&gt;pmdanno&lt;/code&gt; function in pmd package. Here I will explain the principle of PMD annotation.&lt;/p&gt;
+&lt;p&gt;Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as an example. Then you will get a list with each compound as element. The list should have a element of spectra with mz and ins, an element of name, an element of prec for precursor ions. I have included this database in rmwf package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# remotes::install_github(&amp;#39;yufree/rmwf&amp;#39;)
+# remotes::install_github(&amp;#39;yufree/pmd&amp;#39;)
+library(rmwf)
+data(&amp;quot;qtof&amp;quot;)
+str(qtof)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## List of 4
+##  $ name   : chr [1:5062] &amp;quot;HMDB0000014&amp;quot; &amp;quot;HMDB0000014&amp;quot; &amp;quot;HMDB0000014&amp;quot; &amp;quot;HMDB0000014&amp;quot; ...
+##  $ mz     : num [1:5062] 227 227 227 227 227 ...
+##  $ msms   :List of 5062
+##   ..$ : num 116
+##   ..$ : num [1:3] 5 111 116
+##   ..$ : num [1:15] 0.07 16.03 16.1 27.01 42.01 ...
+##   ..$ : num [1:15] 0.07 16.03 16.1 27.01 42.01 ...
+##   ..$ : num 116
+##   ..$ : num [1:3] 5 111 116
+##   ..$ : num [1:136] 1.98 2.01 2.01 2.02 2.02 2.02 3.99 3.99 4.03 4.03 ...
+##   ..$ : num [1:36] 1 3.99 3.99 5 8.01 ...
+##   ..$ : num [1:3] 30 44 74
+##   ..$ : num [1:6] 18 18 36 83 101 ...
+##   ..$ : num [1:15] 1.98 9.98 11.96 18.01 26.02 ...
+##   ..$ : num [1:6] 18 18 36 83 101 ...
+##   ..$ : num [1:15] 1.98 9.98 11.96 18.01 26.02 ...
+##   ..$ : num [1:3] 30 44 74
+##   ..$ : num 1
+##   ..$ : num [1:10] 1 10 34 43 44 ...
+##   ..$ : num [1:3] 1 18 19
+##   ..$ : num [1:45] 0.98 1 9.98 15.01 16.03 ...
+##   ..$ : num [1:190] 0.93 0.98 1 1 1.06 2.02 2.02 2.04 2.95 2.95 ...
+##   ..$ : num [1:105] 1 1 1.01 1.06 2 2.01 2.02 2.95 2.98 3.01 ...
+##   ..$ : num [1:703] 0.03 0.04 0.62 0.93 0.93 0.97 0.99 1 1 1 ...
+##   ..$ : num [1:3] 46 71 117
+##   ..$ : num [1:36] 2.02 8.01 9.98 12 12 ...
+##   ..$ : num [1:21] 0.08 9.04 12 17.03 29.03 ...
+##   ..$ : num [1:21] 0.08 9.04 12 17.03 29.03 ...
+##   ..$ : num [1:3] 46 71 117
+##   ..$ : num [1:36] 2.02 8.01 9.98 12 12 ...
+##   ..$ : num 17
+##   ..$ : num 27
+##   ..$ : num [1:6] 15 27 27 42 42 ...
+##   ..$ : num 27
+##   ..$ : num [1:6] 15 27 27 42 42 ...
+##   ..$ : num 17
+##   ..$ : num [1:3] 1.01 59.01 60.02
+##   ..$ : num [1:3] 1.01 59.01 60.02
+##   ..$ : num [1:6] 18 37.1 55.1 212 249.1 ...
+##   ..$ : num 212
+##   ..$ : num 212
+##   ..$ : num 212
+##   ..$ : num 212
+##   ..$ : num [1:6] 18 37.1 55.1 212 249.1 ...
+##   ..$ : num 132
+##   ..$ : num 132
+##   ..$ : num [1:3] 27 132 159
+##   ..$ : num 132
+##   ..$ : num [1:3] 27 132 159
+##   ..$ : num 132
+##   ..$ : num 17
+##   ..$ : num 132
+##   ..$ : num 132
+##   ..$ : num 132
+##   ..$ : num 132
+##   ..$ : num [1:3] 1 17 18
+##   ..$ : num 9.45
+##   ..$ : num 9.45
+##   ..$ : num 194
+##   ..$ : num [1:3] 55.1 194 249.1
+##   ..$ : num [1:3] 55.1 194 249.1
+##   ..$ : num 194
+##   ..$ : num [1:10] 0.95 17.06 18.01 24.95 42.01 ...
+##   ..$ : num [1:15] 0.95 1.01 1.01 2.02 17.06 ...
+##   ..$ : num [1:10] 0.95 17.06 18.01 24.95 42.01 ...
+##   ..$ : num [1:3] 1 36 37
+##   ..$ : num [1:2485] 0.03 0.03 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 ...
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num [1:3] 18 26 44
+##   ..$ : num [1:3] 18 26 44
+##   ..$ : num 17
+##   ..$ : num [1:3] 18 28 46
+##   ..$ : num [1:3] 18 28 46
+##   ..$ : num 26
+##   ..$ : num 26
+##   ..$ : num [1:6] 2.02 17.03 25.98 27.99 43.01 ...
+##   ..$ : num [1:6] 2.02 17.03 25.98 27.99 43.01 ...
+##   ..$ : num [1:3] 1 180 181
+##   ..$ : num [1:16836] 0.02 0.03 0.03 0.03 0.04 0.04 0.05 0.05 0.05 0.06 ...
+##   ..$ : num [1:15] 6.09 18.01 19.12 20.88 21.91 ...
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num 46
+##   ..$ : num [1:28] 1.01 1.98 8.06 15.94 15.99 ...
+##   ..$ : num [1:28] 1.01 1.98 8.06 15.94 15.99 ...
+##   ..$ : num 212
+##   ..$ : num 212
+##   ..$ : num [1:3] 18 225 243
+##   ..$ : num [1:3] 18 225 243
+##   ..$ : num [1:3] 18 225 243
+##   ..$ : num [1:3] 18 225 243
+##   ..$ : num 212
+##   ..$ : num 212
+##   ..$ : num [1:3] 2.02 44.03 46.04
+##   ..$ : num [1:3] 2.02 44.03 46.04
+##   ..$ : num 16
+##   .. [list output truncated]
+##  $ msmsraw:List of 5062
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 112 228
+##   .. ..$ intensity : num [1:2] 70 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 112 117 228
+##   .. ..$ intensity : num [1:3] 100 25.8 50.5
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 66 93 135 210 226 ...
+##   .. ..$ intensity : num [1:6] 15.5 100 15.2 12 14.2 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 66 93 135 210 226 ...
+##   .. ..$ intensity : num [1:6] 15.5 100 15.2 12 14.3 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 112 228
+##   .. ..$ intensity : num [1:2] 70 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 112 117 228
+##   .. ..$ intensity : num [1:3] 100 25.8 50.5
+##   ..$ :&amp;#39;data.frame&amp;#39;: 814 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:814] 45.2 45.4 45.4 45.8 46 ...
+##   .. ..$ intensity : num [1:814] 2.75 2.38 1.81 2.23 2.07 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 890 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:890] 44.9 44.9 44.9 45.7 45.7 ...
+##   .. ..$ intensity : num [1:890] 0.927 1.514 1.947 0.402 0.34 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 108 138 182
+##   .. ..$ intensity : num [1:3] 72.5 100 48.7
+##   ..$ :&amp;#39;data.frame&amp;#39;: 7 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:7] 65 92.1 120 138.1 148 ...
+##   .. ..$ intensity : num [1:7] 12.29 8.8 6.49 7.67 100 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 65 92 110 120 122 ...
+##   .. ..$ intensity : num [1:6] 88.3 42.8 11.8 24.6 13.5 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 7 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:7] 65 92.1 120 138.1 148 ...
+##   .. ..$ intensity : num [1:7] 12.31 8.81 6.51 7.71 100 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 65 92 110 120 122 ...
+##   .. ..$ intensity : num [1:6] 88.3 42.8 11.8 24.6 13.5 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 108 138 182
+##   .. ..$ intensity : num [1:3] 72.6 100 48.6
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 166 200 209 243 244 ...
+##   .. ..$ intensity : num [1:6] 1.05 3.46 1.31 100 12.76 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 14 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:14] 122 156 165 166 167 ...
+##   .. ..$ intensity : num [1:14] 7.75 10.08 4.93 30.33 3.05 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 227 228 229 245 246 ...
+##   .. ..$ intensity : num [1:6] 59.52 5.77 2.16 100 10.01 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 53 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:53] 97 98.1 100 101 105.1 ...
+##   .. ..$ intensity : num [1:53] 13.87 1.2 1.36 1.07 8.73 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 72 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:72] 79.1 81.1 82 85 91.1 ...
+##   .. ..$ intensity : num [1:72] 2.94 2.13 3.41 3.7 6.6 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 26 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:26] 91.1 93.1 94.1 97 99 ...
+##   .. ..$ intensity : num [1:26] 18.02 8.07 8.51 81.98 9.6 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 228 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:228] 95.1 95.1 95.3 96.2 96.9 ...
+##   .. ..$ intensity : num [1:228] 11.61 7.12 2.62 8.8 1.87 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 110 156 210 227
+##   .. ..$ intensity : num [1:4] 25.43 43.54 9.51 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 10 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:10] 83.1 93 95.1 110.1 122.1 ...
+##   .. ..$ intensity : num [1:10] 12.8 10.7 11 100 13.1 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 7 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:7] 81 93 110 154 163 ...
+##   .. ..$ intensity : num [1:7] 14.4 11.1 100 79.3 11 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 7 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:7] 81 93 110 154 163 ...
+##   .. ..$ intensity : num [1:7] 14.4 11.1 100 79.3 11 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 110 156 210 227
+##   .. ..$ intensity : num [1:4] 25.46 43.52 9.52 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 10 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:10] 83.1 93 95.1 110.1 122.1 ...
+##   .. ..$ intensity : num [1:10] 12.8 10.7 11 100 13.1 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 119 136
+##   .. ..$ intensity : num [1:2] 37.4 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 92 107 134
+##   .. ..$ intensity : num [1:3] 6.71 26.83 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 8 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:8] 64 65 68 90 92 ...
+##   .. ..$ intensity : num [1:8] 6.91 37.74 8.31 8.91 74.77 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 92 107 134
+##   .. ..$ intensity : num [1:3] 6.69 26.8 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 8 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:8] 64 65 68 90 92 ...
+##   .. ..$ intensity : num [1:8] 6.91 37.73 8.33 8.95 74.78 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 119 136
+##   .. ..$ intensity : num [1:2] 37.4 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 58.1 59.1 118.1
+##   .. ..$ intensity : num [1:3] 100 30.7 83
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 58.1 59.1 118.1
+##   .. ..$ intensity : num [1:3] 100 30.7 82.9
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 97 134 346
+##   .. ..$ intensity : num [1:4] 100 37.9 29.9 66.8
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 348
+##   .. ..$ intensity : num [1:2] 20.5 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 348
+##   .. ..$ intensity : num [1:2] 83.8 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 348
+##   .. ..$ intensity : num [1:2] 20.4 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 348
+##   .. ..$ intensity : num [1:2] 83.8 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 97 134 346
+##   .. ..$ intensity : num [1:4] 100 37.9 29.8 66.8
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 268
+##   .. ..$ intensity : num [1:2] 31.2 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 268
+##   .. ..$ intensity : num [1:2] 100 57.1
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 107 134 266
+##   .. ..$ intensity : num [1:3] 12.8 100 15.9
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 119 136 268
+##   .. ..$ intensity : num [1:3] 7.81 100 10.61
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 107 134 266
+##   .. ..$ intensity : num [1:3] 12.8 100 15.9
+##   ..$ :&amp;#39;data.frame&amp;#39;: 5 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:5] 136 137 268 269 270
+##   .. ..$ intensity : num [1:5] 47.69 2.16 100 9.67 1.29
+##   ..$ :&amp;#39;data.frame&amp;#39;: 5 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:5] 94 119 120 136 137
+##   .. ..$ intensity : num [1:5] 1.52 17.18 1.37 100 5.09
+##   ..$ :&amp;#39;data.frame&amp;#39;: 6 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:6] 119 136 137 268 269 ...
+##   .. ..$ intensity : num [1:6] 0.3 100 5.31 68.77 6.91 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 268
+##   .. ..$ intensity : num [1:2] 31.2 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 136 268
+##   .. ..$ intensity : num [1:2] 100 57
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 119 136 268
+##   .. ..$ intensity : num [1:3] 7.77 100 10.65
+##   ..$ :&amp;#39;data.frame&amp;#39;: 242 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:242] 46.8 47 47.9 48.7 48.7 ...
+##   .. ..$ intensity : num [1:242] 1.127 0.999 0.384 0.973 1.434 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 90.1 99.5 111
+##   .. ..$ intensity : num [1:3] 100 14.41 9.51
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 90.1 99.5 111
+##   .. ..$ intensity : num [1:3] 100 14.42 9.54
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 136 330 330 330
+##   .. ..$ intensity : num [1:4] 33.33 5.51 9.21 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 107 134 328
+##   .. ..$ intensity : num [1:4] 26.43 9.91 100 53.85
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 107 134 328
+##   .. ..$ intensity : num [1:4] 26.41 9.89 100 53.89
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 136 330 330 330
+##   .. ..$ intensity : num [1:4] 33.32 5.47 9.22 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 5 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:5] 60.1 85 102.1 103 162.1
+##   .. ..$ intensity : num [1:5] 12.9 25.8 20.4 47.1 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 9 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:9] 57 58.1 59.1 60.1 61 ...
+##   .. ..$ intensity : num [1:9] 5.23 42.66 14.31 39.56 2.91 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 5 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:5] 60.1 85 102.1 103 162.1
+##   .. ..$ intensity : num [1:5] 13.3 26.1 19.8 47.4 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 485 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:485] 46.3 46.5 47.5 47.7 48.8 ...
+##   .. ..$ intensity : num [1:485] 0.3 0.343 0.314 0.279 0.414 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 1000 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:1000] 45.1 45.2 45.2 45.3 45.6 ...
+##   .. ..$ intensity : num [1:1000] 1.61 1.78 4.23 1.78 1.01 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 84.1 130.1
+##   .. ..$ intensity : num [1:2] 100 38.1
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 84.1 130.1
+##   .. ..$ intensity : num [1:2] 100 38.1
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 85 111 129 173
+##   .. ..$ intensity : num [1:4] 100 10.71 26.83 8.71
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 85 111 129 173
+##   .. ..$ intensity : num [1:4] 100 10.71 26.79 8.71
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 137 154
+##   .. ..$ intensity : num [1:2] 100 95.4
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 91.1 109.1 119 137.1
+##   .. ..$ intensity : num [1:4] 14.92 1.38 16.93 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 8 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:8] 65 79.1 81.1 91.1 94 ...
+##   .. ..$ intensity : num [1:8] 6.071 1.277 2.066 100 0.501 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 11 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:11] 41 53 63 65 77 ...
+##   .. ..$ intensity : num [1:11] 0.67 0.579 1.187 49.753 0.563 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 16 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:16] 39 41 51 53 55 ...
+##   .. ..$ intensity : num [1:16] 3.35 2.27 3.34 1.22 0.634 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 9 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:9] 55 70 72 73 73.9 ...
+##   .. ..$ intensity : num [1:9] 4.8 10.91 11.81 3.3 6.31 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 9 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:9] 55 70 72 73 73.9 ...
+##   .. ..$ intensity : num [1:9] 4.83 10.89 11.76 3.3 6.26 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 447 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:447] 45.3 45.9 46.1 46.6 47 ...
+##   .. ..$ intensity : num [1:447] 0.144 0.126 0.12 0.117 0.111 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 286 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:286] 45.3 45.8 48.5 48.6 49.4 ...
+##   .. ..$ intensity : num [1:286] 11.93 13.92 8.81 10.23 12.22 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 8 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:8] 59 76 96.9 116 137.9 ...
+##   .. ..$ intensity : num [1:8] 9.45 100 16.33 21.13 29.02 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 67.1 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 100 14.4
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 60.9 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 100 25.5
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 67.1 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 100 14.4
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 60.8 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 58.1 104.1
+##   .. ..$ intensity : num [1:2] 100 25.5
+##   ..$ :&amp;#39;data.frame&amp;#39;: 14 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:14] 85 86.1 87 102.9 111 ...
+##   .. ..$ intensity : num [1:14] 30 4.2 40.2 11.7 100 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 14 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:14] 85 86.1 87 102.9 111 ...
+##   .. ..$ intensity : num [1:14] 30.06 4.24 40.25 11.67 100 ...
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 112 324
+##   .. ..$ intensity : num [1:2] 50.7 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 112 324
+##   .. ..$ intensity : num [1:2] 100 33.2
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 97 139 322
+##   .. ..$ intensity : num [1:4] 100 52.45 7.51 60.36
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 97 139 322
+##   .. ..$ intensity : num [1:4] 100 51.85 6.81 58.96
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 97 139 322
+##   .. ..$ intensity : num [1:4] 100 52.48 7.46 60.4
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 79 97 139 322
+##   .. ..$ intensity : num [1:4] 100 51.86 6.83 58.94
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 112 324
+##   .. ..$ intensity : num [1:2] 50.6 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 2 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:2] 112 324
+##   .. ..$ intensity : num [1:2] 100 33.3
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 58.1 60.1 104.1
+##   .. ..$ intensity : num [1:3] 19.1 38.1 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 3 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:3] 58.1 60.1 104.1
+##   .. ..$ intensity : num [1:3] 19.1 38.1 100
+##   ..$ :&amp;#39;data.frame&amp;#39;: 4 obs. of  2 variables:
+##   .. ..$ masscharge: num [1:4] 134 207 223 223
+##   .. ..$ intensity : num [1:4] 4.2 13 3 100
+##   .. [list output truncated]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This database has included all of the 5062 Q-ToF spectra from 1259 compounds in HMDB. We only considered the peaks larger than 10% of the base peak and calculated all of the paired mass distances within the spectra. For example, for compound HMDB0000014, the MS/MS spectra should be (112.1, 228.1) with intensity (69.97, 100). Then the PMD spectra for annotation should be 116 for this compounds.&lt;/p&gt;
+&lt;p&gt;For the PMD annotation, we will also compute the PMDs of input spectra. Then we compare the input PMDs with the database. Here we need three parameters to refine the candidates. The first parameter is ppm for mass accuracy of precursor ions. The second parameter is the range of precursor ions, the default setting should be 1.1 to include M+H or M-H. The third parameter is the pmd length percentage cutoff for annotation. 0.6(default) means 60 percentage of the pmds in your sample could be found in certain compound pmd database. The fourth parameter is the relative intensity cutoff for input spectra for pmd analysis, default 0.1 for 10 % of the base peak.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this is the sepctra of HMDB0034004
+file &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, &amp;quot;challenge-msms.mgf&amp;quot;, package = &amp;quot;rmwf&amp;quot;)
+# pmd msms annotation
+anno &amp;lt;- pmd::pmdanno(file,db=qtof)
+unique(anno$name)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;HMDB0034004&amp;quot; &amp;quot;HMDB0003217&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;enviGCMS::plotanno(anno)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The score rule for pmd annotation is that the candidates will be ordered according to the overlapped pmd numbers. In this case, if two candidates have 3 and 4 pmd overlapped with the input spectra, the latter one will be the first candidate.&lt;/p&gt;
+&lt;p&gt;Such annotation could be used for MS1 annotation. However, without precursor ion to refine the candidates. It’s better to find the M+H or M-H in advance. In this case, the input spectra should be processed by isotope, adducts or neutral loss detection by pmd of 1.006Da, 22.98Da, etc. Then the following step should be the same as MS2 pmd annotation.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -50,7 +812,92 @@ Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as 
       <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2020/06/24/r-network-analysis/</guid>
-      <description>这个问题反复掉坑，在这总结下，省的记吃不记打。 所谓网络可视化，一定是有节点与节点间连线组成，节点一般指代一个样品或特性，连线则代表了样品间或</description>
+      <description>
+
+
+&lt;p&gt;这个问题反复掉坑，在这总结下，省的记吃不记打。&lt;/p&gt;
+&lt;p&gt;所谓网络可视化，一定是有节点与节点间连线组成，节点一般指代一个样品或特性，连线则代表了样品间或特性间的关系。也就是说，网络的最小单元就是一个两点连线，也就是起点与终点，虽然描述一个网络很直观，但具体到数据结构上就存在一些问题。常规样本数据一般是每一行代表一个样品，每一列代表一个描述样品的维度，样品或维度间的关系并不能展示在原始数据结构里，所以我们需要将样品-维度的数据框转成描述网络的起点-终点数据结构才好可视化。但事实上，你更应该需要一种描述网络的数据类型，然后根据类型定义可视化方法，也就是将原始数据转为网络数据类型，这种类型定义也方便了除可视化外其他针对网络的分析方法开发与使用。&lt;/p&gt;
+&lt;p&gt;在 R 中，有两个包提供了描述网络的基础类型定义，一个是 &lt;code&gt;network&lt;/code&gt;包，另一个是&lt;code&gt;igraph&lt;/code&gt;包。这两个包允许用户生成一个专门描述网络的对象，也定义了该对象类型的绘图方法，也就是说，如果你可以直接 &lt;code&gt;plot&lt;/code&gt; 一个网络对象，实现快速可视化。很多网络可视化的工具，例如 &lt;code&gt;ggnetwork&lt;/code&gt;包或&lt;code&gt;ggraph&lt;/code&gt;包或&lt;code&gt;GGally&lt;/code&gt;包的&lt;code&gt;ggnet2&lt;/code&gt;函数，都支持输入的对象为 &lt;code&gt;network&lt;/code&gt;包或&lt;code&gt;igraph&lt;/code&gt;包里定义的网络类型。不过，这里面&lt;code&gt;ggraph&lt;/code&gt;包还可以基于&lt;code&gt;tidygraph&lt;/code&gt;包使用&lt;code&gt;tbl_graph&lt;/code&gt;对象来描述网络关系，几乎完全覆盖了&lt;code&gt;igraph&lt;/code&gt;包的内容，当然，装这个就得装 &lt;code&gt;tidyverse&lt;/code&gt;全家桶。&lt;/p&gt;
+&lt;p&gt;不论哪一种对象类型，网络对象一定可以抽象出两张表，一张表保存节点的属性，另一张表保存节点间连线的属性。而对于可视化而言，节点属性表其实就是原始数据框，而连线属性表则要保存我们计算出的节点间关系，例如节点间相关性、距离等。然后很自然每一种对象类型都设计了独立的针对节点与边的赋值方法，有了这些方法就可以自定义一些节点或边的属性方便可视化。不过，这里很多人手头只有数据框，也就是只有节点那张表，关系的表还是要自己生成的，在图论里这叫做邻接矩阵（adjacency network）。最简单就是一个相关矩阵或距离矩阵，不过也不一定就是方阵或三角阵，这里面坑多我就不展开说了，多数可视化包都支持你导入一个邻接矩阵或者更原始的起点终点数据框来生成网络对象，然后你可以对节点与边进行属性定义，在可视化时指定需要可视化的属性就可以了。很多人（其实就是我）卡在第一步数据导入就放弃了，但过了第一步能生成网络对象后后面就特别容易进行后续分析。当然，至于说网络可视化的具体布局，其实是存在一些预先设定好的美观布局的，你可以根据需求进行调整，但不要误导读者，做好图例。&lt;/p&gt;
+&lt;p&gt;这里特别提一下&lt;code&gt;qgraph&lt;/code&gt;包，这个包几乎依赖了上面所有提过的包，但这在应用学科中并不少见，例如这个包主要是为心理测量学设计的。但很有意思的是，如果你去搜索 R 语言的网络可视化教程，基本都会找到心理测量学或社会科学背景的人写的东西，而且质量很高，例如&lt;a href=&#34;https://kateto.net&#34;&gt;Katya Ognyanova&lt;/a&gt;的博客，&lt;a href=&#34;http://sachaepskamp.com/&#34;&gt;Sacha Epskamp&lt;/a&gt; 的博客，&lt;a href=&#34;https://cvborkulo.com&#34;&gt;Claudia van Borkulo&lt;/a&gt; 的博客还有&lt;a href=&#34;https://psych-networks.com/&#34;&gt;这里&lt;/a&gt;，特别最后一个总结并追踪相当多近些年网络科学的主题。打个比方，通常我们说节点间的关系，一般就是想到相关性，但两个节点间也可以用是否独立来构建联系而相关只是独立与否的一种，偏相关行不行？或者如果计算二元而非连续特征值（社会科学里定量研究常用）间的独立性就需要用到 Ising 模型。同时构建出的网络是不是稳定也需要正则化例如 lasso 或重采样来对变量间关系进行调整，去掉不稳定的联系。另外，如何检测一个网络中的社群？有哪些算法？其实背后也是潜在变量分析的影子，这些主题在心理学领域被挖得很深。&lt;/p&gt;
+&lt;p&gt;如果跳到生物信息学领域，有一个 &lt;code&gt;WGCNA&lt;/code&gt;包用的特别多，但据我观察很多写教程的人都没搞清楚原理与模型假设。&lt;code&gt;WGCNA&lt;/code&gt;包是基于巴拉巴西的无尺度网络构建的，基本原理就是先对所有基因构建两两相关性矩阵，然后从相关性矩阵中探索出共表达的基因模块，相当于把几千维的基因降维到不到十个且最好能联系上生物学意义例如某个通路啥的，具体计算则是每个模块进行主成分分析（其实是SVD分解），然后用第一个主成分作为这个模块的代表对你的研究分组进行差异分析，找出哪个模块有影响然后解释。这里面核心步骤里有两个坑，第一个在相关性矩阵到基因模块这里，第二个在主成分分析那边。第一个坑是因为其探索模块用了无尺度网络的假设，首先得去选一个幂级数来计算邻接矩阵，这个幂级数是拟合无尺度网络的度分布搞出来的，很多数据本身不符合无尺度网络的度分布，所以硬套这个假设是不合适的。第二个坑跟第一个有关系，只有模块内部第一个主成分可解释方差很高才能这么用，但由于第一个坑很多人用了默认值，第二个坑也就只用了第一个主成分，很多时候方差解释连三分之一都不到，虽然能讲故事，但明显是有偏的。当然这个包里也是涵盖了很多对于用户而言天书级的概念，很多人不求甚解套默认值也把文章给发了，完全就当神奇降维盒子在用了。其实说白了网络分析是另一层意义上的因子分析，起一个降维作用，只是降维方式不是简单的线性组合而是引入了图论的一些统计量罢了，但我看到很多人用起来套代码，解释上完全就是胡说八道，特别是代谢组学里会出现套基因组学的分析方法而不验证假设盲目追求自动化。不过我也看到了很多基于图论的生物信息学文章，很多想法非常超前但引用非常少且真正生产数据的人基本看不懂或不看，这就还不如心理测量学那边研究人员的学科内科普做得好。&lt;/p&gt;
+&lt;p&gt;说个题外话，其实我能知道很多包的问题不是跟开发者打过交道，而是我查过很多包的源码，非统计与计算机科学背景开发者写的包其实是沉默的大多数，他们一般只会用基础R包函数来实现自己想要的功能，如果没有就会去依赖其他包，很少用 &lt;code&gt;Rcpp&lt;/code&gt;，不开并行计算，基本不关心速度，用S3 对象而不是S4，这倒是科研编程的日常状态。有时候读他们的源码有种见字如面的感觉：有的人明显是其他语言转过来的，有次读一个包的代码怎么看怎么别扭，后来发现这个开发者的母语是 java，很多定义方式都是那边传过来的。有的人注释掉的代码其实有另一重意思，源码里保留了很多进化遗迹，类似化石。有的人严谨，每个函数都写测试，文档明显打磨过语言。有的人飘逸，通篇找不到注释，很多编码风格都不一致，感觉是爆栈网复制过来的。有的人很明显是&lt;code&gt;tidyverse&lt;/code&gt; 风格出现后才开始学的 R ，对基础函数用法非常不熟。非统计与计算机科学开发者的代码通常存在很多不严谨的地方，没有经过软件工程的训练，更多是为了解决特定目的而快速实现的，不过很多代码展示的想象力非常丰富多彩。&lt;/p&gt;
+&lt;p&gt;好了，说这么多还是要给点最直观的例子。下面我就手工生成几个网络并做下基础可视化，这里我不会用最常见的那种起点终点数据结构，因为这个东西是需要从原始数据生成的，很少有原始数据本身就是这种关系结构，而且此处我也不涉及 &lt;code&gt;ggplot2&lt;/code&gt; 风格的绘图包，用基础绘图系统来做，函数统一为&lt;code&gt;plot&lt;/code&gt;，当然不同的对象类型会有不同的绘图参数。&lt;/p&gt;
+&lt;div id=&#34;network-版&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;network&lt;/code&gt; 版&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(110)
+library(network)
+# 生成一个3节点网络
+net &amp;lt;- network.initialize(3)
+# 画出来
+plot(net,vertex.cex=10)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 添加一条边
+add.edge(net,2,3) 
+# 画出来
+plot(net,vertex.cex=10, displaylabels=T)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 添加两个点
+add.vertices(net,2)
+# 画出来
+plot(net,vertex.cex=10, displaylabels=T)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 模拟一个5*12的数据框
+df &amp;lt;- matrix(rnorm(60),5)
+# 用邻接矩阵直接生成网络
+dfcor &amp;lt;- cor(df)
+# 去掉低相关性边
+dfcor[dfcor&amp;lt;0.5] &amp;lt;- 0
+netcor &amp;lt;- as.network(dfcor,matrix.type = &amp;#39;adjacency&amp;#39;)
+plot(netcor)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 增加节点/边属性
+set.vertex.attribute(netcor, &amp;quot;class&amp;quot;, length(netcor$val):1)
+set.edge.attribute(netcor,&amp;quot;color&amp;quot;,length(netcor$mel):1)
+# 可视化属性
+plot(netcor,vertex.cex=5,vertex.col=get.vertex.attribute(netcor,&amp;quot;class&amp;quot;),edge.col=get.edge.attribute(netcor,&amp;#39;color&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-1-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;igraph-版&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;igraph&lt;/code&gt; 版&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(110)
+library(igraph)
+# 生成一个3节点网络
+net &amp;lt;- graph.empty(n=3, directed=TRUE)
+# 画出来
+plot(net)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 添加两条边
+new_edges &amp;lt;- c(1,3, 2,3)
+net &amp;lt;- add.edges(net, new_edges)
+# 画出来
+plot(net)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 添加两个点
+net &amp;lt;- add.vertices(net, 2)
+# 画出来
+plot(net)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 模拟一个5*12的数据框
+df &amp;lt;- matrix(rnorm(60),5)
+# 用邻接矩阵直接生成网络
+dfcor &amp;lt;- cor(df)
+# 去掉低相关性边
+dfcor[dfcor&amp;lt;0.5] &amp;lt;- 0
+net &amp;lt;- graph.adjacency(dfcor,weighted=TRUE,diag=FALSE)
+plot(net)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-2-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 增加节点/边属性
+V(net)$name &amp;lt;- letters[1:vcount(net)]
+E(net)$color &amp;lt;- &amp;quot;red&amp;quot;
+E(net)[ weight &amp;lt; 0.7 ]$width &amp;lt;- 2
+E(net)[ weight &amp;lt; 0.7 ]$color &amp;lt;- &amp;quot;green&amp;quot;
+# 可视化属性
+plot(net)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-06-24-r-network-analysis_files/figure-html/unnamed-chunk-2-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;网络可视化只是网络分析的基础，很多基于网络稳定性分析还有网络群组分析都是可以基于更基础的概率图模型来进行，这些分析都有明确的背景问题来源，但涉及的知识点非常多，从统计物理到图论到随机过程，不过如果你带着自己的问题去探索，总会有新的发现。&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -59,8 +906,112 @@ Firstly, you need a spectra database. Here I use HMDB MS/MS spectra database as 
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/en/2020/04/17/daily-check-for-coronavirus-data/</guid>
-      <description>As employee of health system, every week I will check our lab for leaks or instrumental issues. Meanwhile, I am using the following code to check daily increasing cases in US state-county level every morning.
-I think three signals are crucial for community level data and every community and people should decide their own timeline for normal live to survive in this pandemic and potential recession in the following months or years:</description>
+      <description>
+
+
+&lt;p&gt;As employee of health system, every week I will check our lab for leaks or instrumental issues. Meanwhile, I am using the following code to check daily increasing cases in US state-county level every morning.&lt;/p&gt;
+&lt;p&gt;I think three signals are crucial for community level data and every community and people should decide their own timeline for normal live to survive in this pandemic and potential recession in the following months or years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Positive rate of testing is decreasing to ~1%. In this case, the testing ability should be enough to screen all the potential infected people.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Daily increasing hospitialized number is less than the sum of dischared patients and dead people. In this case, the medical resources should reach the peak.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Daily death numbers reached the peak and decrease for two weeks. In this case, the susceptible individuals in the community shoud be either infected or isolated and we could start to consider the cease of lockdown of local community.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;state&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;STATE&lt;/h1&gt;
+&lt;p&gt;Data source is New York Times.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+file &amp;lt;- read.csv(&amp;#39;https://github.com/nytimes/covid-19-data/raw/master/us-states.csv&amp;#39;,stringsAsFactors = F)
+file$date &amp;lt;- as.Date(file$date)
+
+# Check States with max case larger than 10000 and more than 100 deaths
+df &amp;lt;- file%&amp;gt;%
+    group_by(state)%&amp;gt;%
+    mutate(change=c(0,diff(cases)),change2=c(0,diff(deaths)))%&amp;gt;%
+    filter(max(cases)&amp;gt;10000 &amp;amp; max(deaths)&amp;gt;100)%&amp;gt;%
+    ungroup() 
+
+df %&amp;gt;%
+    ggplot(aes(x=date,y=change,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~state,scales = &amp;#39;free&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df %&amp;gt;%
+    ggplot(aes(x=date,y=change2,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~state,scales = &amp;#39;free&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;county&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;COUNTY&lt;/h1&gt;
+&lt;p&gt;Data source is New York Times.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;file &amp;lt;- read.csv(&amp;#39;https://github.com/nytimes/covid-19-data/raw/master/us-counties.csv&amp;#39;,stringsAsFactors = F)
+file$date &amp;lt;- as.Date(file$date)
+
+library(tidyverse)
+# Check Counties with max case larger than 10000 and more than 100 deaths
+df &amp;lt;- file%&amp;gt;%
+    group_by(county,state)%&amp;gt;%
+    mutate(CaseChange=c(0,diff(cases)),DeathChange=c(0,diff(deaths)))%&amp;gt;%
+    filter(max(cases)&amp;gt;10000 &amp;amp; max(deaths)&amp;gt;100)%&amp;gt;%
+    ungroup() 
+
+df %&amp;gt;%
+    ggplot(aes(x=date,y=CaseChange,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~county+state,scales = &amp;#39;free&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df %&amp;gt;%
+    ggplot(aes(x=date,y=DeathChange,fill=state)) +
+    geom_point() +
+    geom_smooth() +
+    facet_wrap(~county+state,scales = &amp;#39;free&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## NYC zipcode
+## covid19nyc &amp;lt;- read.csv(&amp;#39;https://raw.githubusercontent.com/nychealth/coronavirus-data/master/tests-by-zcta.csv&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;test&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Test&lt;/h1&gt;
+&lt;p&gt;Data source is &lt;a href=&#34;https://covidtracking.com&#34;&gt;covidtracking.com&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;daily &amp;lt;- read.csv(&amp;#39;https://covidtracking.com/api/v1/states/daily.csv&amp;#39;,stringsAsFactors = T,header = T)
+daily$date &amp;lt;- as.Date(daily$dateChecked)
+
+dd &amp;lt;- daily %&amp;gt;%
+    group_by(state)%&amp;gt;%
+    mutate(posrateChange=positiveIncrease/totalTestResultsIncrease,recin = c(0,-diff(recovered)))%&amp;gt;%
+    ungroup()
+# pos rate changes
+dd %&amp;gt;%
+    filter(state==&amp;#39;NY&amp;#39;)%&amp;gt;%
+    ggplot(aes(x=date,y=posrateChange)) +
+    geom_point() +
+    geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# hospitialized/death/recover daily increase in NY
+dd %&amp;gt;%
+    filter(state==&amp;#39;NY&amp;#39;)%&amp;gt;%
+    tidyr::pivot_longer(col=c(&amp;#39;hospitalizedIncrease&amp;#39;,&amp;#39;deathIncrease&amp;#39;,&amp;#39;recin&amp;#39;),names_to = &amp;#39;condition&amp;#39;,values_to = &amp;#39;count&amp;#39;) %&amp;gt;%
+    ggplot(aes(x=date,y=count,color=condition)) +
+    geom_point() +
+    geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# hospitialized/death/recover daily increase in States with more than 10000 positive cases
+dd %&amp;gt;%
+    group_by(state) %&amp;gt;%
+    filter(positive&amp;gt;10000) %&amp;gt;%
+    ungroup() %&amp;gt;%
+    tidyr::pivot_longer(col=c(&amp;#39;hospitalizedIncrease&amp;#39;,&amp;#39;deathIncrease&amp;#39;,&amp;#39;recin&amp;#39;),names_to = &amp;#39;condition&amp;#39;,values_to = &amp;#39;count&amp;#39;) %&amp;gt;%
+    ggplot(aes(x=date,y=count,fill=condition)) +
+    geom_point(aes(col=condition)) +
+    geom_smooth()+
+    facet_wrap(~state,scales = &amp;#39;free&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2020-04-17-daily-check-for-coronavirus-data_files/figure-html/unnamed-chunk-3-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Those numbers are real people.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -69,7 +1020,19 @@ I think three signals are crucial for community level data and every community a
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2020/04/15/magic-eye/</guid>
-      <description>小学时突然有一阵流行3D立体图，很多人拿着花花绿绿的铅笔盒到处显摆，然后一伙人聚到一起讨论看到了什么。我那时不知道怎么看，听别人描绘的神奇图</description>
+      <description>&lt;p&gt;小学时突然有一阵流行3D立体图，很多人拿着花花绿绿的铅笔盒到处显摆，然后一伙人聚到一起讨论看到了什么。我那时不知道怎么看，听别人描绘的神奇图景十分沮丧，小伙伴还把能看出来跟超能力啥的挂了钩。所以，我，AKA热血日漫业余爱好者，从小学起，就觉得自己不是拯救地球的料了，就算被人画到漫画里，也是个连专属招式都没有的战五渣。当然现在更不是，甚至都不认为地球需要拯救了，人类说到底只是在自救。&lt;/p&gt;
+&lt;p&gt;虽然我记性差，但这个从未看到3D立体图的心结时不时会炸个尸，毕竟童年的遗憾才叫遗憾，现在的遗憾我都已经学会自欺欺人了。中学时期读过一本《趣味物理学》，里面也提到了裸眼3D立体图，当时我费了半天劲也还是没看出来。我第一次真正看到3D立体图是一个读研究生时期的晚上，偶然看到网上有人贴了一张标着刘红石作品的3D立体图，其实本来还是没希望看到但突然在某个距离上我看到了其中的一个大茶壶。这个图很神奇，你要是能看到，就一直能看到了，然后眨眨眼同样视角又消失了。刘红石是一位中学老师，自己凭兴趣制作了大量3D立体图，如果有人为中国3D立体图立传，那他一定占据重要&lt;a href=&#34;http://www.liuhs.com/&#34;&gt;篇章&lt;/a&gt;。我后来来回尝试几次，总结出了看到的方法：打比方你的屏幕离你20厘米，要聚焦去看23到25厘米的距离，你当然不能透视屏幕，但通过欺骗大脑，你就能看到3D图像出现在23到25厘米的地方，好像屏幕陷了进去成了一个舞台。童年的心愿通过一种类似自欺欺人的方法实现了，不得不说也是一种成长。&lt;/p&gt;
+&lt;p&gt;其实原理上3D立体图并不难，就是人的视觉会自动识别景深，这些图的产生原理就是找一个基础模块反复重叠组成一张大图，然而景深的出现则是依赖在基础模块对应的像素点进行偏移，当你眼睛聚焦在屏幕后面时，其实本质上是让你的大脑重叠两个基础模块，因为基础模块在景深上有偏移，重叠后你会感觉图片凹或凸了一块，因为大脑还是认为两个点没有偏移而增加了深度差异。同理，因为聚焦点在图片后面，所以你看到图就像是窗子里往外看，会因为有景深而显得更广阔些。当然，如果你理解了原理还是看不到也没关系，我当年也这样的，安心等待你的惊喜一刻。&lt;/p&gt;
+&lt;p&gt;其实这玩意也是个&lt;a href=&#34;https://eyeondesign.aiga.org/the-hidden-history-of-magic-eye-the-optical-illusion-that-briefly-took-over-the-world/&#34;&gt;舶来品&lt;/a&gt;，上世纪60年代，研究人员就首先提出随机点立体图来研究视觉，特别是立体视觉形成的过程。但这个研究是用两张图来进行的，到了70年代才出现单张图的立体视觉，由神经科学家 Christopher Tyler 提出。不过这种图首次出现在大众视野是在上世纪90年代，当时在美国一家出售调试计算机模拟器的英国公司雇员 Baccei 苦于宣传手段来推销新产品，这时他见到了摄影师 Ron Labbe 工作室里出现的立体图，这种新颖的设计马上就吸引了他的注意力。 Baccei 马上就去买了《Stereo World》的杂志潜心研究，很快他就把自己需要推广产品型号“M700”制作成了立体图并投放了广告，很快就形成了一股流行趋势。&lt;/p&gt;
+&lt;p&gt;刚开始 Baccei 是为了卖公司产品，结果很快他就发现卖这种3D立体图比卖产品要赚的多。例如他们将这种图卖给了美国航空飞机杂志 《American Way》，然后美国航空就说如果能首先看出来的乘客就可以获得香槟一瓶，当然也是大获成功。之后他们与一家日本公司合作，而日本人为了发音方便就给这种图起了个英文名：magic eye，魔眼，时至今日这个词依旧很流行，也成为Baccei与设计师 Cheri Smith 后来公司的名字。1993年， Baccei 在麻省开办设计公司专门出售这种图，第一本相关书籍的初版30000本马上售罄，出版商加印了50万份来满足市场需求。但这个潮流到了1995年就开始降温了，最初一张图要25刀，然后逐渐降价到5刀。此时市面上有了芭比娃娃、毛绒玩具以及电子宠物，这种费力还不一定能看到的图自然也会退潮。同时，也出现了光栅立体画这种变个角度就可以看到不同图像的技术玩具，更低的娱乐门槛且可以彩色显示（魔眼无法还原色彩），魔眼消退几乎也是必然。&lt;/p&gt;
+&lt;p&gt;后来互联网崛起，娱乐走向了虚拟化，魔眼这种图再也没有重新崛起而是很稳定地成为了一种小众兴趣。然而，裸眼3D技术并未就此停止，任天堂的3DS掌上游戏机就采用了这种技术，我曾经尝试玩过恶魔城，观感跟魔眼其实类似，也是找一个距离，在距离范围内欺骗大脑，然后你就一直可以看到3D效果的游戏场景了。不过，似乎玩家对此并不买账，反而是阉割后的2DS卖的不错。其他裸眼3D技术还有一些，例如全息投影之类，不过现在裸眼3D的竞争对手可能是增强现实，特别是跟智能眼镜或手机摄像头结合的那种。&lt;/p&gt;
+&lt;p&gt;但我还是对魔眼耿耿于怀，因为我想自己做出来，毕竟也是个科研向伪程序员。最简单就是找包，但这次我发现这类小众应用会有C++版、JavaScript版、Java版、python版、甚至Matlab版都有，甚至都有反解原图的程序，但就是木有R版生成的软件。其实早在2017年我就动了念头写个R版的魔眼，但里面那个位移部分的算法当时没搞清楚，然后因为这个图的生成存在图片逐行扫描的问题，把图片向量化完了找位移像素然后重新组合的算法我想想脑袋就大，最后索性就引入了 Rcpp 写 for 循环，但无奈功力太弱，生成的图能感觉是魔眼，但里面的图像怎么看都不对，所以这事就扔一边了，一扔三年。&lt;/p&gt;
+&lt;p&gt;前两天我重新整理了诺谟图，那篇的初版是2011年写的，好容易填了个九年的坑，这个三年的坑就想也顺道解决。不同于三年前的是我这几年对 python 的使用经验在增长，虽然没到熟练运用的程度但能看懂代码，所以这次就直接尝试把python版的&lt;a href=&#34;https://flothesof.github.io/making-stereograms-Python.html&#34;&gt;魔眼&lt;/a&gt;翻译到 Rcpp 里去，而且我先在 python 里进行了调试，搞清楚了每一步到底在干什么，创造轮子或许费事但照虎画猫的事我常干。不过这次我终于搞清楚了三年前似是而非的魔眼图是怎么回事，其实就是行与列搞反了，把三年前的代码输入矩阵做个转制其实就可以了。不过这次也是踩了不少 Rcpp 的坑，什么编译完了没输出啥的，但做完了回头看其实我需要的函数特别简单，只是基础太差来回绕弯了。这个包就叫做 &lt;code&gt;magiceyer&lt;/code&gt;，我先扔到 &lt;a href=&#34;https://github.com/yufree/magiceyer&#34;&gt;Github&lt;/a&gt; 上，有个很简单的&lt;a href=&#34;https://yufree.github.io/magiceyer/articles/MagicEye.html&#34;&gt;使用说明&lt;/a&gt;。其实可以认真扩展下成为一个更完整的包，不过我心愿已了，就这样吧。&lt;/p&gt;
+&lt;p&gt;在我看来，这种图具备一种延迟特性，无论是谁不用程序反解突然给一张魔眼图都得停一下集中注意力才能看出来，这个特性有一定的加密前景，且可以藏到二维码里。技术不论好坏就看使用场景，但可以作为一种抽签方法，因为其实能否看出来比较随机，除了极少数爱好者估计不会有人专门训练这个。如果配合我之前搞的回归残差藏信息的方法，估计会是一个不错的谜题，如果有人在无背景知识条件下全部逐层解开，想来也是很有成就感的事。&lt;/p&gt;
+&lt;p&gt;我一直有种感觉，现在网络时代人们的生活少了些类似魔眼图的东西，也许我们可以获得更优质的信息，但乐趣却更多与感官刺激或情绪释放相联系，有些探索的乐趣正被一种“网上都有”的想法抹杀，网上的确都有，但探索的乐趣跟答案有没有不是一个概念。如果远离了键盘鼠标跟视网膜屏幕，还有没有什么小玩意或兴趣可以让你不在乎外面的风雨压力呢？或者说除了自己情绪的释放与让别人知道你很不错，还有没有眼前一亮？可能是锤炼一道拿手菜，可能是手抄一段杂志里有意思的话，可能是对着一套古腾堡机械装置发呆，可能是打一套太极拳，如果你从未看出来立体效果或许可以去看看魔眼图，重要的不是别人期望你去做或该做什么或你期望做什么去迎合自己的人设，仅仅就是想去做而已。&lt;/p&gt;
+&lt;p&gt;那就去做，留给人类享受生活的时间可能不多了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-15-magic-eye_files/magiceye.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -78,7 +1041,73 @@ I think three signals are crucial for community level data and every community a
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2020/04/07/covid-19-community/</guid>
-      <description>首先，虽然纽约是目前的重灾区，但生活其中也就那样。现在已经对各类甩锅与追责没了一丝兴趣，只是些憋在家里郁闷情绪的释放途径而已，这对个人认知失</description>
+      <description>
+
+
+&lt;p&gt;首先，虽然纽约是目前的重灾区，但生活其中也就那样。现在已经对各类甩锅与追责没了一丝兴趣，只是些憋在家里郁闷情绪的释放途径而已，这对个人认知失调的恢复是有用的，对疫情控制毫无价值。取笑、傲慢、愤怒、仇恨、谄媚、悲痛…你不能用人际交往中的情绪去跟病毒讨价还价，病毒不会因为个人、市场或群体情绪的波动而变弱或变强，那种一切尽在掌握的虚拟掌控感只是过去两百年科技发展的一个有毒的副产品，这个时间借鸡下蛋的行为值得钉在人类发展的耻辱柱上促人反思。瘟疫流行是一种短板效应，任何的疏忽与大意都会让前面的努力白费，那种觉着自己暂时没事就真没事的人值得拥有一次自然选择的机会。&lt;/p&gt;
+&lt;p&gt;我比较关心病毒传播中社区差异，而这个问题平时由于较大的人口流动几乎不能研究。但居家令出了后就不一样了，在居家令的背景下，你当然还是无法保证所有人不流动，但风险意识会让多数人留在家里。在纽约市，人口流动减弱后我们就可以看到社区间交流的程度了，纽约是存在明显社区隔离的，特别是种族间隔离，不同社区间相隔也就是一条街，但区间可能几乎没有交流。那么，理论上纽约的社区间新冠病毒也会存在斑块化，相邻街区也许人口密度接近，但因为社交隔离病毒的传播力也应该有明显差异。那么如何找人口基数差不多的街区呢？这里我用邮编来替代，因为过去设计邮编就是按人数来的，不过时过境迁现在邮编已经不能反映当前居住人口了，但似乎也没有别的方法（其实有，通信商与大型互联网公司可以做到，但我搞不到这些数据）。好，我们来攒一下数据。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidycensus)
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ────────────────────────────────── tidyverse 1.3.0 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.0     ✓ purrr   0.3.3
+## ✓ tibble  3.0.0     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_api_key(&amp;quot;USE YOUR KEY&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## To install your API key for use in future sessions, run this function with `install = TRUE`.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 纽约市各邮编确诊数据
+covid19nyc &amp;lt;- read.csv(&amp;#39;https://raw.githubusercontent.com/nychealth/coronavirus-data/master/tests-by-zcta.csv&amp;#39;)
+# 提取2018年人口普查数据
+zip &amp;lt;- get_acs(geography = &amp;quot;zcta&amp;quot;,
+variables = c(medincome = &amp;quot;B19013_001&amp;quot;, 
+              population = &amp;quot;B01003_001&amp;quot;,
+              asian = &amp;quot;B02001_005&amp;quot;,
+              black=&amp;quot;B02001_003&amp;quot;,
+              white=&amp;quot;B02001_002&amp;quot;),
+year = 2018)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Getting data from the 2014-2018 5-year ACS&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;zipnyc &amp;lt;- merge(covid19nyc,zip,by.x = &amp;#39;MODZCTA&amp;#39;,by.y=&amp;#39;GEOID&amp;#39;)
+# reshape
+zipnyc2 &amp;lt;- tidyr::pivot_wider(zipnyc[,-c(3,4,5,8)],names_from = variable, values_from = estimate) %&amp;gt;%
+        mutate(rate=Positive/population,arate=asian/population,brate=black/population,wrate=white/population)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里我收集了纽约市不同邮编的发病人数，除以2018年人口调查的人数就是发病率。然后我计算了亚裔、非裔与白人的人口比例。下面我们就先看一下图。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 社区发病率与收入
+ggplot(zipnyc2,mapping = aes(medincome,rate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 社区发病率与亚裔比例
+ggplot(zipnyc2,mapping = aes(arate,rate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 社区发病率与非裔比例
+ggplot(zipnyc2,mapping = aes(brate,rate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 社区发病率与白人比例
+ggplot(zipnyc2,mapping = aes(wrate,rate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-2-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;看起来收入超过9万美金，其社区发病率就会逐渐下降。非裔人口比例高，发病率会有所提高，白人则有个比例越高发病率越低的趋势。亚裔不明显，因为比例其实一直都不高。图上看你会感觉这个趋势很弱，但如果单纯线性回归其系数都是显著差异于0的，这里我就不去纠结p值的问题了。我们进一步看一下收入与族裔差异。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 白人比例与收入
+ggplot(zipnyc2,mapping = aes(medincome,wrate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 黑人比例与收入
+ggplot(zipnyc2,mapping = aes(medincome,brate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 亚裔比例与收入
+ggplot(zipnyc2,mapping = aes(medincome,arate))+geom_point()+geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2020-04-07-covid-19-community_files/figure-html/unnamed-chunk-3-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里我们就有了个三角关系：族裔比例-收入-发病率。别的我就不说了，白人比例越高，收入越高，发病率越低。也就是说，虽然病毒传播是平等的，但经济收入差异会影响发病率，那么什么原因导致的呢？&lt;/p&gt;
+&lt;p&gt;个人防护用品其实全纽约都买不到，图上这个社区范围算不上能吃特供的人群，所以差异不应该在防护。非裔相比白人也许更喜欢互动，但保守的亚裔却没有出现白人那样的明显趋势。那么剩下的就是隔离了，也就是说，高收入的人隔离做得好。不对，应该这么说，高收入的人有条件隔离。要知道纽约的封城不是说完全封，而是非必要工种封，那么什么是必要工种？医护当然是，但更多的是那些 paycheck by paycheck 的工作，例如公交司机、环卫还有维修工等，这些人时薪很高但其实工时不长，结果就是他们的活动可能并未减少甚至更加繁忙，其得病风险也会比那些在家的人高。但这些人从来都没在媒体里出现过，你去采访个医生，他可以告诉你他们有多苦，你去采访个环卫工人，他们说话的逻辑都可能不是很通。媒体从来都只关心能发声的群体。他们从事最危险但必要的工作，而最后的赞誉与他们无关。这里有篇&lt;a href=&#34;https://graphics.reuters.com/HEALTH-CORONAVIRUS/USA/qmypmkmwpra/&#34;&gt;报道&lt;/a&gt;发现，中低收入者在居家令发出后其实并未减少活动，相比3%左右的病死率，吃不上饭风险可能更大。&lt;/p&gt;
+&lt;p&gt;当然，我不是说医护不该称赞，只是想说贫穷是更大的流行病，不解决贫穷，瘟疫就一直有藏身之处，他们不会出现在台面上的数据表里，但他们会存在。危险的工作总要有人做或被机器取代，但在那一天到来之前，不能忽视隔离背后的机会平等问题，在这个问题里我们可以看到族裔可能有机会不平等，收入也可能有机会不平等，甚至职业也会造成机会不平等。这里的平等是被传染的机会而不是其他，有人说病毒对所有人是公平的，其实真相可能更露骨与残酷。&lt;/p&gt;
+&lt;p&gt;我很清楚这里面有很多逻辑漏洞，数据支持也不完整，但至少这个基于网络开放数据的探索是可重复的。这个时代，虽然突发瘟疫的特效药可能短期不存在，但如果你有一个问题，就应该有开放数据可以正面或侧面回答，不要总是等答案。&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -87,7 +1116,17 @@ I think three signals are crucial for community level data and every community a
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2019/06/28/r-conf-19/</guid>
-      <description>今年的R会议幻灯片我直到这周才看，而且幻灯片体积着实不小，我这边下载好久才搞下来。先声明，读后感纯属个人感受，不代表统计之都主编意见，而且因</description>
+      <description>&lt;p&gt;今年的R会议幻灯片我直到这周才看，而且幻灯片体积着实不小，我这边下载好久才搞下来。先声明，读后感纯属个人感受，不代表统计之都主编意见，而且因为有些分会场报告没有上传，所以感受是有偏的。&lt;/p&gt;
+&lt;p&gt;相比去年，今年计算机与统计方面的内容进一步弱化，强调应用场景的数据分析越来越多，R语言会议里出现了更多语言的应用与主题，感觉成了整体数据科学爱好者的会议而不仅仅局限于R或学术界，大概就像是分析化学里的匹斯堡会议，学术届工业届都会参与。今年有本科生与研究生的会场，也符合会议一贯传帮带的模式，给年轻人更多机会。&lt;/p&gt;
+&lt;p&gt;今年的大会报告很精彩，印象最深的是吴喜之老师的报告，有大局观，看到了当前统计学教育里的很多问题，例如统计显著性问题及对一些统计知识的误用，特别是对回归模型可解释性，吴老师认为线性模型好解释的看法是皇帝的新衣，浪费了大把老师学生的精力。我们确实是通过在线性模型里增加协变量来控制他们的影响，不过如同吴老师所言，这不代表控制了变量就独立了，相反，如果变量本来是独立的根本无需把他们放到一个多元模型里，创建多元模型就是因为变量之间不独立，如果不独立你去费力解释其中一个模型的系数就显得只见树木不见森林，用单变量思维解释多变量共同作用结论很难说多么靠谱。&lt;/p&gt;
+&lt;p&gt;这个问题我也想过，不过是从另一个角度。对于一个模型，如果是预测特征特别多的话，本质上是把信号淹没在随机性的海洋里了，所以考虑了正则化过程的模型才会在实际应用中表现出色。实际科研中我见到很多人把相关性很强的变量或无关变量共同加入到模型里，且不论模型要不要被解释，这种单纯想通过提高变量数目来提高模型预测效能的思路就是错的。大量的检验其实是无关检验，用上FDR反而把信号给压没了，共相关的变量在模型构建时应该给予更小的自由度。然而这些思考我在很多号称搞数据的人那边完全看不到，很多时候他们只是在尝试算法与调参，并不关心实际问题内部的逻辑，用算法的抽象掩盖对实际数据的无知。这个问题对于有实际问题背景的人而言不算严重，但对于只接受过统计学或计算机科学教育的人而言是非常严重的
+，他们通常高估算法的通用性沉浸于精巧模型的调试，正如易丹辉老师的报告所言，很多时候描述性统计就能发现问题而没有背景知识是看不出来的。&lt;/p&gt;
+&lt;p&gt;如吴老师所言，统计思维其实就是科学思维。统计学是最接近实证科研的学科，统计量的构建、模型的假设还有推断的标准都是构建在数学物理原理之上的，你不会对蚂蚁与大象取平均体重是因为这个量没有实际意义而不是不能算出来，每一个统计量背后都有数理背景。如果不了解这个，天天关心模型调参或强制让数据符合模型是没意义的，做过水处理的同学应该知道污染物吸附上有个弗里德里希吸附公式，你如果强制拟合是一定能拟出来的，即便你的机理是其他的。重要的不是算法而是问题，这一点在这次R会议很多报告中都提到了，但有些报告也确实不太注意这点。&lt;/p&gt;
+&lt;p&gt;热点主题中最突出的可能就是数据伦理方法的讨论。这个去年讨论的还不多，今年已经有相关大会报告与分会场了，律师、工程师、科研工作者都提出了自己视角下的观点，例如软件协议应该提供不同意条款时的浏览模式，个人数据收益权应该可以自主控制而不是让渡给服务商，可信计算环境及向个人付费获得数据收益权等等。这些问题不是今天才有的，但技术的发展让这些问题已经很现实地关联到个人权益了，以后影响可能更深，我觉得数据伦理相关的博弈规则设计会是有识之士未来能大展身手的地方，这不是一个单向优化问题而是在生活的便利与个人隐私取得平衡的一个权衡问题，如果规则合适会双赢，不当就会出现封闭与双输。&lt;/p&gt;
+&lt;p&gt;今年覃文锋总结了下R社区的现状与趋势，值得关注。另外由于科研背景的报告不少，关于开放科学及OSF也有介绍，开放科学可以看作可重复性危机的一个解决方案，做科研的应该去了解这些趋势。今年依旧有关于热门技术主题例如物联网、区块链的报告，虽然其实跟R语言关系不大了，但只要跟数据分析相关其实都适合讨论。我看到的比较有闪光点的报告其实是金融主题的，有些概念挺有意思，例如凯利公式还有金融对话机器人等。心理学与生物信息学的专场感觉运作上挺成熟了，报告也照顾了外学科人士。从幻灯片制作角度看，大都是一本正经的，其实可以学习谢大那样加些动图调节气氛的，开会应该是很轻松的交流场合，公式太多其实演示过程中没有人会仔细看的。&lt;/p&gt;
+&lt;p&gt;今年有个趋势是英文幻灯片很多，报告英文用中文讲这个一般是为了方便有外籍人士参会的场景，但对于本土化的R语言会议其实最好不要设置语言门槛。虽然科研口对英文没什么障碍，但业界或爱好者水平其实中文更方便理解，R会议应该是为了交流而来，希望不要搞成分会场之间存在术语墙而互相无法交流的状况。我个人外出参会经常是瞎转，经常可以从其他学科中发现有意思的理论或想法，但对于存在术语墙的小学科圈子我个人并不喜欢，一伙人互捧是没啥意思的，抢蛋糕从来都是外来户。&lt;/p&gt;
+&lt;p&gt;如果说所有报告里你只有时间看一篇，那就读下吴喜之老师的吧，绝对不亏。&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -96,7 +1135,863 @@ I think three signals are crucial for community level data and every community a
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/cn/2018/06/07/r-conf-18/</guid>
-      <description>这两天抽空看了11届R语言会议的公开幻灯片，信息量还是比较大的，在技术这块那些放在我待办事项里的东西还没来得及看，下一代技术就已经出来了。有</description>
+      <description>&lt;p&gt;这两天抽空看了11届R语言会议的公开幻灯片，信息量还是比较大的，在技术这块那些放在我待办事项里的东西还没来得及看，下一代技术就已经出来了。有张幻灯片说13年的 opencpu 是老古董了，但这才5年啊，这技术估计还没进到大学讲义里就有人说已经凉了。不过实话说，现在的软件文档比5年前友好太多了，现在入门的痛苦比当年小了一大截。&lt;/p&gt;
+&lt;p&gt;只说 R 社区，knitr 与 Rmarkdown 的出现切实降低了开发者与学习者之间的认知鸿沟。现在我如果发现一个新包，都直接看小品文，这在5年前是可遇不可求的。而这些小品文多半都是 Rmarkdown 直接生成的网页。同时，现在开发一个新包，用 pkgdown 可以一键生成介绍网站。也许很多人觉得这都是一些连接转换工作，很多事 pandoc 之前就做了，但我觉得这些工作意义很大，因为给你土豆、青椒与茄子你没吃过是做不出地三鲜的。&lt;/p&gt;
+&lt;p&gt;这个时代不缺新技术，我每次觉得自己想法很好时上网搜总能翻出类似想法的上世纪文献，但我奇怪的是为啥都提出了二十多年后面人没接着做？问了一些人得到的答案要么是压根不知道，要么是知道了也没能力复制出来，要么就直接看不懂。很显然，技术或想法也是需要营销手段来推广的，没人用的想法跟不存在在今天是同义词。&lt;/p&gt;
+&lt;p&gt;但营销想法是个异常痛苦的事，你会写软件远远不够，想出现在网上要学建站，前端、后端、数据库是座山。建好了框架还得填内容，你得学会说“人话”，也就是懂点配色跟教育心理，起码得知道同理心才能用初学者的眼光来写内容。文字内容显然不够，你最好有幻灯片、案例文档与不超过5分钟的讲座视频。这些东西全学下来不是不现实，而是不经济。好在现在我们有大量说“人话”的生产工具，基本默认配置就够用了，只有站在别人肩上才能看得远，现和水泥砌墩子太耽误事。&lt;/p&gt;
+&lt;p&gt;不过也正是这些技术让后发优势越来越明显，坑都被填了就可以更关注要解决的问题了。当年ghost还原没出来时，重装个系统得沐浴更衣拿出半天时间来折腾各种意外与软件配置，后来小学生都知道小事重启大事重装了，因为可以一键还原了。我知道很多技术出身的人对这个很不屑，好比我当年翻烂了《纽摄》深知一定要开手动对焦来拍照，但问题后来发现还不如手机全自动模式来的漂亮。这种不屑跟清末留辫子的遗老遗少在情感上没啥区别，技术高的人的高更多在于他们把技术带给了所有人而不是少数人，正因为后生可畏才更不能倚老卖老，老老实实当后生多好，用那个被废弃的校训说就是：气有浩然、学无止境。&lt;/p&gt;
+&lt;p&gt;技术与概念都可能过时也最终一定会过时，这个倒没什么可担心的，新技术框架一定是会比上一代更说“人话”的，所以其实迁移成本并不大。我看了下，谷歌的tensorflow 算是把深度学习这块统一了半边天，配个说“人话”的 keras ，以后构建深度学习模型可能会非常快。在机器学习方面，涉及数据量大需要分布式计算的就考虑 spark 体系，如果数据量上不了10G，老老实实学 caret 的框架也够了。前端方面，shiny 已经足够简单了，新工具例如 plumber 或者 fiery 适用于需要 API 调用或大规模并发调用等场景，按需求来。大炮打蚊子的事我经常干，干多了就会觉得自己特别傻，明明我选工具，结果让工具选我算怎么回事。&lt;/p&gt;
+&lt;p&gt;曾经我也为了逻辑上完备性去学一些工具，受挫最大的是个名为结构方程模型的鬼玩意，一共六个字，三个名词，颇有“古道西风瘦马”的意味。但问题是不论怎么看都觉得不靠谱，假设太多，输出完全不知道是什么意思。我印象中模型都是现实的简化并帮助理解现实，这玩意不简化也就算了，输出还不一定符合现实，还得再找个理由去解释模型的输出，这种鸡生蛋蛋生鸡的玩具我是无福消受。不过我也知道很多人用也是按套路来，并不真的理解，这时候就真害人害己了，遇到个看不见皇帝新衣的孩子是要闹笑话的。&lt;/p&gt;
+&lt;p&gt;又扯远了，上面是对幻灯片里软件这块的总结。另一个感受就是这个R语言会议其实更像数据科学会议了，因为很多报告是与R无关而与数据分析有关的。这是个很有意思的现象，我不清楚国内这个学科有没有自己的会议，但有没有都无所谓了，R语言会议似乎已经占领这个生态位了。我记得第一次参加R语言时，谢大准备了一个报告，第一个教室讲完了跑到第二个教室重讲一遍，那时候规模很小。等我16年去的时候人数就过千了，而且真的是涉及到方方面面了。现在这个会议每年还会在全国各地轮转，学科发展潜力巨大。更可贵的是这个会并不挂靠协会，更多是学生在传承，从参会规模跟覆盖学科来看，R语言会议很有可能在中国成为数据科学最重要的会议。&lt;/p&gt;
+&lt;p&gt;同时，我发现很多报告最后都有招人或留微信的情况，所以这个会会类似匹斯堡会议一样是个业界也会非常关注的招人场合。匹斯堡会议对于分析化学的学生是个找工作的神会，很多公司都是当场收简历面试发录取一条龙，R语言会议既然学生主办，就可以办招聘专场，培养下一代的数据人才。&lt;/p&gt;
+&lt;p&gt;另外，我也看到了些同行，这次生物信息学似乎没有专场但又几个跟环境健康的专场，发的期刊跟讲的内容我都很熟。但比较遗憾的是感觉他们是按照自己学科会议报告准备的，并没有特别强调数据分析的作用。结论固然是吸引人的，但展示过程与思路也很重要，不仅要站在别人的肩上，也要让别人能放心站到你的肩上。&lt;/p&gt;
+&lt;p&gt;从内容上看，很多报告因为注意到了听众面比较广而更多是展示结果，讲的比较浅显。但同会场其他报告人却可能讲的很深，这种状况对于学术会议一般不会出现，因为有同行评议与分会主席来控制报告水平相对一致，但R语言会议这样也挺好，会有利于听众现场学习。我之前去也碰到过这种情况，水平差距有时比较可观，但我相信参会者都是因为兴趣来参加并认真准备的，这里面的差距不是个人决定的，而是学科决定的。&lt;/p&gt;
+&lt;p&gt;我很明显感觉到有米的行业水平会高一些，例如量化金融、机器学习与人工智能，几乎是在讲最前沿的东西，很多来自业界的一手信息与案例。但到了技术辐射学科，例如公共卫生、医疗等行业，更多的就是新方法的R语言应用。很明确学科的技术水平也是个经济学问题，哪行平均工资高，哪行概率上就能吸引更聪明的人，学科就会领先。当学科内竞争激烈后会自然流向技术辐射或应用学科来进行降维打击，最终整体提高所有学科的平均水平。这可以说学术界内先富带动后富的实证。&lt;/p&gt;
+&lt;p&gt;技术辐射学科之内，来自学术界的并不如来自业界的水平高。起码从展示效果上，业界明显有优势但明显术语用的不对，不过也可能是很多学科用术语构建了隔离墙来抱团取暖。不得不承认很多公司在做的东西不仅有用而且如果发文章可能也不错，理工科学生其实都可以去看看，肯定能开拓眼界。这个会有很多创业公司，活力很高，按我去年的估算，国内学术界因为扩招要分流一半到三分之二的博士到业界，如果真有本事，可能业界在以后会解决更多的实际问题。说到底，留在学术界做博后等机会是把命运交给别人来选择，对于不喜欢出头的国人而言也算正常，只是浪费掉自己的选择权始终是件很奢侈的事。&lt;/p&gt;
+&lt;p&gt;其实，幻灯片公开并不是今年才有的，我一般都会过一遍。也不只是R语言会议，RStudio的会议不仅有幻灯片还有视频，公开会议幻灯片与视频在R这块一直都是很好的传统。国内原来只有精品课程网站可以看课件，很多会议报告报告人都不会留底，这算是不同学科的风格吧。技术类学科公开有利于推广，基础学科公开会被说不严谨，没有同行评议什么的。但我从内心是希望大家都公开的，用公开审稿替代匿名审稿，我们要解决的是问题，这都什么年代了还担心优先权，还是那句话，没人用的想法跟不存在在今天是同义词。如果每天的交流促进科学问题的解决，那么为什么要把这种交流搞得一年一次呢？&lt;/p&gt;
+&lt;p&gt;这个时代有很多红利，对于国内而已，R语言会议的组织形式与内容都是一种很特殊的存在，也是一种清流红利，能用到什么程度全看参与者个人了，我估计组织方都不一定想得到，顺势而为就可以了。（这次是公众号体）&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>基于blogdown的在线rss阅读器</title>
+      <link>https://yufree.cn/cn/2018/03/24/blogdown-rss/</link>
+      <pubDate>Sat, 24 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/03/24/blogdown-rss/</guid>
+      <description>
+
+
+&lt;p&gt;我们这批活着的地球人在有一点上是相对平等的，那就是网龄。2007年大二时我在网吧启用了 google reader，但相当长的一段时间里我都没有看。直到2010年初，去向定下来后我陷入一种无聊状态，此时开始使用 rss 阅读器，等刚搞明白怎么回事并感觉打开新世界后，谷歌就退出中国了。假如我开窍晚一个周，可能后面很多事就不可能发生了，有时想来真的是无因无果的随机扰动改变了一切。&lt;/p&gt;
+&lt;p&gt;为了能正常使用GR，我很快开启了个人翻篱笆工程，而在GR上也逐渐积累了很多优质资源，顺藤摸瓜关注了很多能提供优质资源的用户，因为我兴趣比较分散，很快就发现了不同领域里对同一问题的对立观点并在评论区见识到了更多不同意见。应该说那时我才搞明白“和而不同”是啥意思，而篱笆的存在事实上分割了两种认知水平。&lt;/p&gt;
+&lt;p&gt;我一度沉迷 GR 到每天有四五个小时都在上面吸收新知识，而过度的使用也让我意识到知识管理的重要性，不到半年时间，我就把 GR 每日使用时间锁定到了1个小时并严格执行，这样其实给了更多大脑自由整合知识的时间。同时，伴随 RSS 源的不断积累，我也逐渐克服阅读英文文章的障碍（其实大学英语水平完全够用，就看你想不想用），并纳入了科技论文查新体系。&lt;/p&gt;
+&lt;p&gt;跟很多这个年龄段的毛头小子一样，毫无来由的见识优越感让我重启了另一个2006年起就不断重复的“从入门到放弃”工程：写作，或者更具体些，博客。我06年才把上网列入刚需，当时就开了百度空间，而qq空间印象中是需要邀请的，我懒得求人也对其较慢的加载速度不满，但大学学业还是比较重的，所以空间到最后关闭都没写几篇。08年买了笔记本后我很虚伪地限定自己只做跟学习有关的事，但其实当时还是沉迷技术论坛，那时看到自己的帖子被放在首页推荐我是肯定会跑食堂吃点好的的，那时没有现在对知识产权搞得这么功利化，就觉得分享是美德。但论坛归属感很快就因为社区里出现的一些事情而烟消云散，写的东西也不愿再看。但在接触 GR 后，我重新觉得可以写点东西了，然后就有了科学网博客，当时我可是等了好几天才实名通过认证的。而10年8月份我就写了&lt;a href=&#34;http://blog.sciencenet.cn/blog-430956-355369.html&#34;&gt;一篇&lt;/a&gt;专门介绍 GR 的，现在看里面很多不懂装懂的成分，不过有了输出后整合型思考开始出现，我更多从学他人变成了整合入自己的知识体系，这点其实很重要。&lt;/p&gt;
+&lt;p&gt;好景不长，GR 退出大陆我是可接受的，因为有无数种办法可以重新连上。但谷歌放弃掉 GR 的内部分享时我意识到这个产品最大的特色已经丢掉了，很多分享者还没来得及说声谢谢就失联了。到2013年谷歌放弃 GR 时，我就开始考虑使用本地阅读器了。 feedly 等替代品在功能上是没问题的，但用户聚不到一起了，这就没多大意义了。随之而来的自媒体浪潮更是把很多博主改造成了公众号运营者或投向知识付费的大浪潮里，很现实的情况就是阵地还在，人没了，大家都进入黑暗森林了。就我个人的 rss 来源而言，原来每季度我都要找半天来整理，现在一年都不整理一次了，每次整理都会看到大量的源年输出量小于1，成了纪念馆。现在每天更新的大都是新闻跟有专人运营的博客，个体户少了，分享搬运工就更少了。内容产生的源头动力不足，分享者则根本找不到基于 rss 的在线评论分享平台，只能跑到朋友圈或微博里活动，而那里面你控制不了的东西太多。&lt;/p&gt;
+&lt;p&gt;但凡事都有转机，谢大的 &lt;a href=&#34;https://github.com/rstudio/blogdown&#34;&gt;blogdown&lt;/a&gt; 可以说是我见过的最简单易用的内容生产工具，而静态网站也符合绝大多数内容生产者的实际需求。你可能说背后还不就是 &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;？类似的工具很多，github pages 背后的&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt;也挺简单。甚至谢大&lt;a href=&#34;https://yihui.name/cn/2018/03/netlify-cms/&#34;&gt;最近&lt;/a&gt;提到的&lt;a href=&#34;https://www.netlifycms.org/&#34;&gt;netlify&lt;/a&gt; 也提供了技术平台。如果你的需求就是文字，那确实够了，但稍微跟技术沾边的都需要点代码支持，特别是我相信文学化编程会是一个小众但不可忽视的趋势，让别人知道你如何实现一件事更真诚，也更符合我心中互联网应有的样子，所以支持 rmarkdown 这个&lt;a href=&#34;https://zh.wikipedia.org/zh-hans/%E6%9D%80%E6%89%8B%E7%BA%A7%E5%BA%94%E7%94%A8&#34;&gt;杀手级应用&lt;/a&gt;的 blogdown 自然是我的首选。没错，这仅是个人喜好，我当然知道大风气跟现状是什么，但每个人都有不顺应潮流的自由。&lt;/p&gt;
+&lt;p&gt;但就算不断有人加入内容生产，另一个问题也很致命，那就是共享平台，特别是 rss 内容的共享平台。现在各个互联网公司都把能让用户留下作为重要目标，rss 这种上古工具自然不太受待见，广告不好发不说用户基本是匿名的，商业价值有限。GR 当初的优势在于用 google 账户可以进行用户区分与关注，眼下这样的平台是绝不会轻易提供类似 rss 阅读器这种大流量低附加值的服务的。不过 &lt;a href=&#34;https://disqus.com/&#34;&gt;Disqus&lt;/a&gt; 倒是个例外，因为其可以跨平台支持评论，而且也通过评论广告的模式可以运营下去，国内的类似平台多说则直接关闭了。当然还是老问题，需要科学上网。另一个类似的服务是 &lt;a href=&#34;https://github.com/imsun/gitment&#34;&gt;gitment&lt;/a&gt;，利用 github 的issue功能来提供评论服务，唯一的缺点就是第一条评论需要用户开启才能用。&lt;/p&gt;
+&lt;p&gt;我个人的强项不是开发，但功能整合是可以做的，在跟谢大年初交流后，他提出了一个取代某广告横行网站的思路，后续我发现其实可以更进一步直接用 blogdown 做在线的 rss 阅读器，解析 rss 需要点 xml 或 json 基础，把解析的 rss 转成文本则只需要在 yaml 头文件里做点文章，利用 github 的命令行 PR 功能与 cron 的每日任务功能，我们可以构思出这样一个处理流程：&lt;/p&gt;
+&lt;p&gt;每天固定时间启动一个脚本，首先检查一个 rss 地址列表，然后去爬源文件回来，看看跟之前一天有没有变化，如果有就写一个 yaml 文件，然后 hugo 会把这个文件解析成网页，当然只有摘要，因为作为一个在线阅读器，如果抓全文就有不必要的麻烦，但有原文链接。&lt;/p&gt;
+&lt;p&gt;在网站的首页设计上，我套用了谢大的 xmag 模版，但做了&lt;a href=&#34;https://github.com/yufree/hugo-xmag&#34;&gt;修改&lt;/a&gt;：点击标题跳转原文，点击摘要则跳转一个摘要页面，这个页面是支持 gitment 或 Disqus 的，这样如果你想跟人交流就可以在这里讨论分享。当然为了让网站有点区别度，我又设计了一个日报机制，也就是说，你如果每天固定时间来看这个网站，都只能看到当天更新的内容，之前的内容是没有入口的，错过了就错过了，这样你大概永远不会看到 1000+。但我的恶趣味在于保留了页面数，虽然你能看到前面很多页，但对不起，首页里只有当天更新的入口。如果真的想看，这个 rss 阅读器本身也提供 rss 输出，你可用其他 rss 阅读器来看到过往文章。&lt;/p&gt;
+&lt;p&gt;这个&lt;a href=&#34;http://dailyr.netlify.com/&#34;&gt;在线阅读器&lt;/a&gt;的一个优势在于完全自动且基于 GitHub，你如果想增加 rss 来源，只需要对这个&lt;a href=&#34;https://github.com/yufree/daily/blob/master/R/list.txt&#34;&gt;rss源文件&lt;/a&gt;PR就可以了，作为一个懒汉，我已经把个人干预降到了最低。同时，这也是个&lt;a href=&#34;https://github.com/yufree/daily&#34;&gt;模版网站&lt;/a&gt;，你完全可以自己建一个放到 netlify 上，例如我就为环境期刊搞了&lt;a href=&#34;https://envirss.netlify.com/&#34;&gt;一个&lt;/a&gt;，用来督促师弟师妹看文献。&lt;/p&gt;
+&lt;p&gt;当然，这个也是有原型的，谢大的 &lt;a href=&#34;https://t.yihui.name/&#34;&gt;twitter-blogdown&lt;/a&gt;。这个网站已经悄悄运行了两个月了，目前的问题在于我并没有完全开放 gitment 的评论，而&lt;a href=&#34;https://github.com/yufree/hugo-xmag&#34;&gt;修改&lt;/a&gt;版的主题默认支持的是Disqus。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Downverse workflow for research</title>
+      <link>https://yufree.cn/en/2018/03/13/workflow-for-r-based-research-environment/</link>
+      <pubDate>Tue, 13 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2018/03/13/workflow-for-r-based-research-environment/</guid>
+      <description>&lt;p&gt;Firstly, I really appreciate Yihui&amp;rsquo;s &lt;a href=&#34;https://yihui.name/en/2018/03/miao-yu-postdoc/&#34;&gt;post&lt;/a&gt; about me.&lt;/p&gt;
+&lt;p&gt;Today I want to share some tips with people in academia about how to reduce repeated works in research. You might treat this as an extension for &lt;a href=&#34;http://jtleek.com/&#34;&gt;Jeek Leek&lt;/a&gt;&amp;rsquo;s excellent book: &lt;a href=&#34;https://leanpub.com/modernscientist&#34;&gt;How to be a mordern scientist&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
+&lt;p&gt;Which kind of works could be treated as repeated works in research? A lot! However, unless you experiments are all &lt;em&gt;in silico&lt;/em&gt;, I just want to focused on the parts after you finished your experiment. Repeated works in data analysis, writing and presentation should be considered.&lt;/p&gt;
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+&lt;p&gt;Doing the same thing multiple times would waste your time. Also such behavior would introduce variances to reproduce your results. If we could not find a robot, a better choice is using codes. An important principle in research is that what you could do should be totally reproducible by other people, and yourself. When you do something related to research, make sure other people could always repeat your operation from the recipe you left. You should always treat yourself as &amp;lsquo;other people&amp;rsquo; and such codes or text files would help you reduce the future energy.&lt;/p&gt;
+&lt;h2 id=&#34;how&#34;&gt;How?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Graphical User Interface(GUI)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nooooooooo! No one would remember whether certain buttons have been clicked or not. However, you could also use macro to track your operations if possible. Make sure such macro could be shared without certain requirements about expensive software. If you have to use GUI, try to avoid the interactive operations which could affect your results.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Version control?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yes! Always use version control for your files and add comments about changes. Use words which could be understood by human beings. Otherwise prepare a code book for yourself. Trust me, you need such code book rather than any other people. &lt;a href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt; and &lt;a href=&#34;https://github.com/&#34;&gt;github&lt;/a&gt; would be a good start.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RSS?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yes! Try to create your own rss list and keep track of new papers in passive way. Always start with abstract and end with a note links to original paper. Organize the notes as a book related to your research topic. When a new paper appeared as a note in your knowledge system or books, you could finally use such paper. Avoid guiding by the authors and keep your own system updated as I did for metabolomics &lt;a href=&#34;https://bookdown.org/yufree/Metabolomics/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot/Process similar data with the same setting?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Try to organize scripts in one function and use &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;rmarkdown&lt;/a&gt; to make reproducible reports about it. Next time you only need to call that functions as I did &lt;a href=&#34;https://github.com/yufree/democode&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make it clear?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use &lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;tidyverse&lt;/a&gt; style or verse with &lt;a href=&#34;https://yihui.name/tinytex/&#34;&gt;tinytex&lt;/a&gt; support. Try to keep style stable and other people with similar style would figure out what you said from your codes in one second.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Market your ideas?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Write journal papers with &lt;a href=&#34;https://github.com/rstudio/rticles&#34;&gt;rticles&lt;/a&gt; and show them at conferences with &lt;a href=&#34;https://github.com/yihui/xaringan&#34;&gt;xaringan&lt;/a&gt; and/or &lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;shiny&lt;/a&gt;. All you need to learn is &lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;markdown&lt;/a&gt; and you could graduate in five minutes at most.&lt;/p&gt;
+&lt;p&gt;Try to share source files about your ideas as a github repo and this would help you spread your ideas as &lt;a href=&#34;https://en.wikipedia.org/wiki/Meme&#34;&gt;meme&lt;/a&gt;. Also you should consider pre-print sever such as &lt;a href=&#34;https://arxiv.org/&#34;&gt;arxiv&lt;/a&gt;, &lt;a href=&#34;https://www.biorxiv.org/&#34;&gt;bioRxiv&lt;/a&gt; and &lt;a href=&#34;https://chemrxiv.org/&#34;&gt;chemrxiv&lt;/a&gt; to share your ideas in Physics, Life science and Chemistry, respectively.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SNS your ideas?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Write blog posts with &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; in plain text and share them on twitter/linkedin/researchgate. Actually, one of the purposes of my &lt;a href=&#34;https://yufree.cn&#34;&gt;website&lt;/a&gt; is share my ideas.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Similar topic of a bunch of functions?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pack the functions into a package and make detailed documents and publish with &lt;a href=&#34;https://github.com/r-lib/pkgdown&#34;&gt;pkgdown&lt;/a&gt; as I did in &lt;a href=&#34;https://cran.rstudio.com/web/packages/enviGCMS/index.html&#34;&gt;enviGCMS&lt;/a&gt; package.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Similar topic of your ideas?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Write a book online with &lt;a href=&#34;https://bookdown.org/yihui/bookdown/&#34;&gt;bookdown&lt;/a&gt; as I did for metabolomics &lt;a href=&#34;https://bookdown.org/yufree/Metabolomics/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reproduce the whole environment for data analysis?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use &lt;a href=&#34;https://www.docker.com/&#34;&gt;docker&lt;/a&gt; or &lt;a href=&#34;https://hub.docker.com/u/rocker/&#34;&gt;rocker&lt;/a&gt; image to pack all but least dependence or software in a Linux image and share them on &lt;a href=&#34;https://hub.docker.com&#34;&gt;dockerhub&lt;/a&gt;. You could also distribute your raw data and scripts with your docker image and show the links on your publications. In this case, anyone could validate your results with the same setting. I also did &lt;a href=&#34;https://hub.docker.com/r/yufree/xcmsrocker/&#34;&gt;one&lt;/a&gt; for metabolomics study.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Share the data?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Try &lt;a href=&#34;https://figshare.com/&#34;&gt;figshare&lt;/a&gt; or &lt;a href=&#34;https://osf.io&#34;&gt;Open Science Framework&lt;/a&gt; to share your data or projects. I still suggested to use docker image to avoid potential issues.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Literature management?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zotero.org/&#34;&gt;Zotero&lt;/a&gt; or &lt;a href=&#34;https://github.com/ropensci/fulltext&#34;&gt;fulltext&lt;/a&gt;. However, as I shown &lt;a href=&#34;https://yufree.cn/en/2018/01/12/get-rid-of-bibliography/&#34;&gt;here&lt;/a&gt;, all you need for literature management is &lt;a href=&#34;https://www.doi.org/&#34;&gt;DOI&lt;/a&gt;. Just build your own knowledge system and organize literature according to your topic. You would benefit from such system by reducing a lot of time to align literature into the sections of your papers since you have already done this at the very beginning.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I can&amp;rsquo;t remember those tips&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Well, I prepare a &lt;code&gt;downverse&lt;/code&gt; rocker &lt;a href=&#34;https://hub.docker.com/r/yufree/downverse/&#34;&gt;image&lt;/a&gt; with those software installed and you could try. Other websites where you could always find excellent tools for research is &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt; and &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;Rstudio&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks again, Yihui! Actually you developed most of the packages.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Use docker to package your metabolomics study</title>
+      <link>https://yufree.cn/en/2018/01/17/use-docker-to-package-your-metabolomics-study/</link>
+      <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2018/01/17/use-docker-to-package-your-metabolomics-study/</guid>
+      <description>
+&lt;script src=&#34;https://yufree.cn/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;One of the most annoying thing during data analysis is that the technique barrier between the authors and the users. For example, you could share your raw data, script and reports online while other people just can’t reproduce your results. Actually, the development environment matters.&lt;/p&gt;
+&lt;p&gt;If you have developed some software, you must know that we just can’t build an application from the very beginning and dependencies are always needed. Some of them could be distributed with the system software, while the others must be installed yourself. In Windows, you should see some dll files missing in some cases. In UNIX-like system, some missing packages are always handled by &lt;code&gt;apt-get&lt;/code&gt; or &lt;code&gt;yum&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When you use high level languish like R, the R packages could be handled by &lt;code&gt;install.packages&lt;/code&gt;. For R packages, &lt;a href=&#34;http://rstudio.github.io/packrat/?version=1.1.383&amp;amp;mode=desktop&#34;&gt;packrat&lt;/a&gt; package could be used to build a isolated dependency management system. However, some R packages need other system level packages to run. For example, &lt;code&gt;netcdf&lt;/code&gt; is needed to import cdf files for &lt;code&gt;mzR&lt;/code&gt; packages in metabolomics studies. However, if you don’t know this package should be installed outside R, you might blame the package and turn to GUI software, which is hard to be reproduced by other people.&lt;/p&gt;
+&lt;p&gt;In fact, when you want to reproduce others’ data analysis, such development environment should be kept constant. Otherwise, it’s hard to know the origin of reproducible issues: the analysis itself or other hidden technique differences. Also, by comparing the differences in the results among different developed environment, we could know the influences of developed environments.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; could make such analysis work. They could pack all the developed environments in a minimized size and make the analysis shaerable as a whole. If you are familiar with online consistent integration tools like &lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis-CI&lt;/a&gt; or &lt;a href=&#34;https://circleci.com/&#34;&gt;CircleCI&lt;/a&gt; to test your software, you might find they actually install a mini OS to trigger the test.&lt;/p&gt;
+&lt;p&gt;In Docker, you could get such environmental directly and distribute them as a image. Such image could be installed in any computer and furthermore on cloud. You could just rent a cloud server to make data analysis and the annoying OS installation could be replaced by a docker image with everything done. The major difference between docker container and virtual machine image is that docker image do not rely on a guest OS, which reduce the resources for extra useless software. More technique details could be found on their official websites.&lt;/p&gt;
+&lt;p&gt;I am always not the first one to find the potential of such tools. Biocuductor has built such Docker for certain types of the data analysis &lt;a href=&#34;https://www.bioconductor.org/help/docker/&#34;&gt;here&lt;/a&gt;. Carl Boettiger and Dirk Eddelbuettel wrote a nice &lt;a href=&#34;https://arxiv.org/abs/1710.03675&#34;&gt;piece&lt;/a&gt; on arXiv to introduce Rocker for R developer. My way is that the combination of those ideas.&lt;/p&gt;
+&lt;p&gt;For the metabolomics images on Bioconductor, only packages hosted on Bioconductor were contained. Some packages for metabolomics data analysis are not released on CRAN or Bioconductor while got published as part of the papers. I actually collected them on github. Another trends is that tidyverse data analysis is really popular and the metabolomics images should start in a tidyverse way. Thus I started to build my docker images for metabolomics studies &lt;a href=&#34;https://github.com/yufree/xcmsrocker&#34;&gt;here&lt;/a&gt;. Now you could use the following command to get my data analysis environment after you &lt;a href=&#34;https://www.docker.com/docker-mac&#34;&gt;install&lt;/a&gt; the docker:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker pull yufree/xcmsrocker:latest&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then all you need to do is run this command:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker run –rm -p 8787:8787 yufree/xcmsrocker&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And open your favourite browser open &lt;a href=&#34;http://localhost:8787&#34; class=&#34;uri&#34;&gt;http://localhost:8787&lt;/a&gt; to start your data analysis. The default user and password are both rstudio.&lt;/p&gt;
+&lt;p&gt;Three major reasons to use docker for metabolomics are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Everyone could reproduce your results in exactly the same development environment you find the reported results&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You could write your papers in Rtsudio with the help of &lt;code&gt;rticles&lt;/code&gt; packages. The journal templates for American Chemistry Society are added by me (you could always send me the feedback when you are in trouble) and you could write your paper in Rmarkdown way which could also be associated with the data. Such docker with your paper manuscripts and raw data is much easy for reviewers or readers to follow your idea&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The total size of the Docker is merely 1G including a tiny LaTex distribution TinyTex provided by &lt;a href=&#34;https://yihui.name&#34;&gt;Yihui Xie&lt;/a&gt;. You could make it portable on Dropbox or directly pull the image from the &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker Hub&lt;/a&gt; anytime you wanted. In fact, they also support &lt;a href=&#34;https://docs.docker.com/engine/swarm/&#34;&gt;swarm mode&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the most updated image, you could find the packages powered by xcms or apLCMS workflow or metaboanalystR which behind the metaboanalyst server. Such image might help you to get the data analysis tools I used in half an hour and deploy it on your computer. Then you might only need to copy and paste to run your metabolomics data in a Rstudio server.&lt;/p&gt;
+&lt;p&gt;Hopefully, we could share such image for research to reduce the time and pain on reproduce the same data analysis environment in the near future.&lt;/p&gt;
+&lt;p&gt;If you want to learn more about R based docker, check this &lt;a href=&#34;http://ropenscilabs.github.io/r-docker-tutorial/&#34;&gt;tutorial&lt;/a&gt; from &lt;a href=&#34;https://ropensci.org&#34;&gt;rOpenSci&lt;/a&gt;. For extra packages, you could check &lt;a href=&#34;https://bookdown.org/yufree/Metabolomics/&#34;&gt;Meta-Workflow&lt;/a&gt; and/or report an issue to this github &lt;a href=&#34;https://github.com/yufree/xcmsrocker/issues&#34;&gt;repo&lt;/a&gt;, then I will add new features for this image.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Get rid of bibliography with R</title>
+      <link>https://yufree.cn/en/2018/01/12/get-rid-of-bibliography/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2018/01/12/get-rid-of-bibliography/</guid>
+      <description>
+
+
+&lt;p&gt;Change citation and bibliography format for papers are somewhat waste of time when we are not really care about the contents about how to order the authors, journal and issues. To be honest, with the popularity of HTML support on most of the journal, citation in the paper could always be linked to the original webpage via DOI. In those cases, extra bibliography just make the papers longer and require extra efforts to covert the items of interests into the original paper webpages.&lt;/p&gt;
+&lt;p&gt;Another issue is the authors might need to learn zotero, endnote or mendeley to format the papers. For Tex user, BibTeX should be learned. We need to learn the differences between citation key, citation format and bibliography to make it work. Yes, make those concepts clear would help us to collaborate with the journal easier. However, we actually make such thing much simpler.&lt;/p&gt;
+&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Goal&lt;/h2&gt;
+&lt;p&gt;When you write the paper, JUST need to know the DOI of the paper needed to be cited. Put the DOI in the right place and that’s it. All the other things should be handled by a small script.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;method&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Method&lt;/h2&gt;
+&lt;p&gt;Firstly, I need a fast copy support for literature management software such as Zotero. All I need to do is the creation of a &lt;a href=&#34;http://citationstyles.org/&#34;&gt;CSL files&lt;/a&gt; with citation format as DOI. Furthermore, make the DOI into a HTTP link. Here is &lt;a href=&#34;https://github.com/yufree/democode/blob/master/doi/doi.csl&#34;&gt;it&lt;/a&gt;. Such CSL could output a bibliography with DOI links only and you could always use the links to find the original papers.&lt;/p&gt;
+&lt;p&gt;For zotero, download or copy&amp;amp;save this CSL file and then install this file according to the following two screenshot:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;\images\doi1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;\images\doi2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then you could directly drag your items( hold the shift to use citation instead of bibliography) in the local library to any text editor. Of course you need to ensure your literature information contain a DOI. In this step, your manuscript would contain the DOI links to the cited papers. I think we could stop here while you might not like it since the bibliography are still needed for the print version of your paper.&lt;/p&gt;
+&lt;p&gt;OK. The following step is to process the text file with DOI and output a text file with bibliography. Here is the script:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;#39;stringr&amp;#39;)
+library(&amp;#39;readr&amp;#39;)
+library(&amp;#39;rcrossref&amp;#39;)
+
+doiref &amp;lt;- function(path, style = &amp;#39;apa&amp;#39;){
+  mystring &amp;lt;- readr::read_file(path)
+  doi &amp;lt;- unlist(stringr::str_extract_all(mystring, , &amp;quot;\\b10\\.(\\d+\\.*)+[\\/](([^\\s\\.])+\\.*)+\\b&amp;quot;))
+  doi &amp;lt;- unique(doi)
+  ref &amp;lt;- vector()
+  for (i in 1:length(doi)){
+        temp &amp;lt;- try(rcrossref::cr_cn(dois = doi[i], format = &amp;quot;text&amp;quot;, style = style), T)
+        ref &amp;lt;- c(ref,temp)
+  }
+  readr::write_lines(ref, path = &amp;#39;bibliography.txt&amp;#39;)
+  return(ref)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;p&gt;Also I prepared a test files &lt;a href=&#34;https://github.com/yufree/democode/blob/master/doi/test.txt&#34;&gt;here&lt;/a&gt; and the output should be &lt;a href=&#34;https://github.com/yufree/democode/blob/master/doi/bibliography.txt&#34;&gt;this&lt;/a&gt;. The usage is:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;#39;stringr&amp;#39;)
+library(&amp;#39;readr&amp;#39;)
+library(&amp;#39;rcrossref&amp;#39;)
+doiref(path = &amp;#39;you/text/file/path&amp;#39;, style = &amp;#39;journal/you/like&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You might find a file with name ‘bibliography.txt’ under your workdir. Just change the style for specific journal you like anytime you REALLY need such bibliography. Here is the name &lt;a href=&#34;https://www.zotero.org/styles&#34;&gt;list&lt;/a&gt; you might need to search.&lt;/p&gt;
+&lt;p&gt;In general, such script should work under any kind of pure text file format such as md, Rmd, tex, and so on. DOI would relax you from different markup languages and focused on the contents only no matter which software you used. Hopefully, such feature could be finally accepted by the journals. We might reduce quite a lot of efforts on bibliography and enjoy a green life.&lt;/p&gt;
+&lt;p&gt;When we have the links online, why we still need that shortcut references lines in a modern WWW world?&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DOI 年代的参考文献</title>
+      <link>https://yufree.cn/cn/2018/01/11/doi/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2018/01/11/doi/</guid>
+      <description>
+
+
+&lt;p&gt;现在的研究人员其实大部分时间都浪费在了研究完全不沾边的事，例如论文排版，而论文排版中的大部分时间其实是花费在了按照期刊要求改格式。我个人有个判断审稿人水平的小诀窍，如果他一直纠结格式不对，那么要么是水平太低看不出论文的缺陷，要么就是故意放水。实际上，现在大多数期刊都有专门的编辑最后去帮助排版校稿，完全没必要在这上面浪费时间，市面上任意一款文献管理工具都能生成那个长长的文献清单。&lt;/p&gt;
+&lt;p&gt;等等，文献清单？为什么我们还要文献清单？一个直观的答案是要用文献清单去追溯原始文献。嗯，让我回想一下我是怎么追溯的：复制到搜索框，点击搜索… 且不说这样准确率有时候低，更重要的是我其实根本不关心清单里的内容，既然不关心，为什么不直接把文章中引用参考文献的地方设定一个超链接到其网络全文或文摘数据库？反正如果要查还要搜，直接溯源不就完了。要知道，每一次谷歌搜索会产生约 1kJ 的能量&lt;a href=&#34;https://googleblog.blogspot.ca/2009/01/powering-google-search.html&#34;&gt;消耗&lt;/a&gt;，而如果用出版商的搜索引擎，能耗只会更高，我估计全世界科研人员每年浪费在搜索文献清单上的资源是足够让二氧化碳减排任务减轻一些的。&lt;/p&gt;
+&lt;p&gt;实现这个功能需要 DOI ，也就是&lt;a href=&#34;https://zh.wikipedia.org/zh-hans/DOI&#34;&gt;数字对象识别符&lt;/a&gt;，DOI码由前缀和后缀两部分组成，之间用 “/” 分开，并且前缀以 “.” 再分为两部分。前缀当中的 “10” 为DOI目前唯一的特定代码（显然这个格式可以被正则表达式匹配）。其实很多论文校稿也是用 DOI 来确认引用文献是否正确，然后放入数据库，便于引文分析。有了 DOI ，其实我们并不需要文献清单，只要在论文写作时引用 DOI 就可以了，后期只要把 DOI 转为超链接就OK了。&lt;/p&gt;
+&lt;p&gt;不过这么做期刊可能不太高兴，因为很多期刊最大的特色就是你要投他的稿，就要接受他的霸王条款：引用格式。如果都用 DOI ，虽然其校稿负担会大大减轻，但论文手稿的迁移度会大大提高，期刊留不住投稿的人，那又臭又长的作者指南谁还当回事，尊严何在？&lt;/p&gt;
+&lt;p&gt;其实期刊本来就不应该有什么尊严。从历史渊源上，期刊只算是学术交流的一个时代产物，最早的学术交流是见面或书信，因为点对点，所以很多信息沟通不畅，这样学术共同体例如学会就会定期发行面向同行的手册，这也就是期刊的起源。从源头上说，期刊的终极目的就是方便学术交流，任何与之无关的门槛或障碍都理应清除，目前的期刊运作都太中心化了，各自制定各自的标准，不利于学术交流。&lt;/p&gt;
+&lt;p&gt;《脚注趣史》里曾提到最开始别人在进行引用时都是要附带批注来表明自己不是胡说八道的，有理有据，是对逻辑推理的有效补充。发展到现在其实学术论文整篇大都是对前人研究与观点的批注，然后写上自己研究实验的结果与讨论，知识也是这样一点一点累计出来的。从这个视角看，文献清单曾经在历史上帮助学术人员整理学科知识，但或许不久的将来就会退出历史舞台。新的形式是什么样的眼下没出来谁都不知道，但拭目以待吧，肯定是一种让研究人员交流更高效的模式。&lt;/p&gt;
+&lt;p&gt;预印本服务器的出现其实很好的解决了交流问题，但当预印本上的论文想要发表，除了同行评议外还得遭受格式修改的难题，关于同行评议的吐槽以后再说，单看格式问题还是少不了文献清单的老路子。我理解很多期刊除了网络版还有印刷版发行，但目前科研人员绝大多数都是看网络版，特别是有超链接的 PDF 版，我本人就参与过美国化学会 iPDF 的测试工作，后来听说这个功能推出后非常受欢迎，只是国内因为众所周知的原因速度总是很慢，后来美国化学会干脆在国内架设了镜像服务器。&lt;/p&gt;
+&lt;p&gt;但说归说，如果我现在写论文在引用的地方只写 DOI ，那么最痛苦的事可能就是无法跟实际投稿过程整合，只能各玩各的。想来想去，这个功能其实非常容易实现，跟大象装冰箱一样有三步：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读取文本为字符串&lt;/li&gt;
+&lt;li&gt;正则表达式提取出 DOI 并去重&lt;/li&gt;
+&lt;li&gt;用 crossref 的 API 把 DOI 按预想格式输出并打印&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;既然都写出步骤了，就用 R 来实现吧：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;#39;stringr&amp;#39;)
+library(&amp;#39;readr&amp;#39;)
+library(&amp;#39;rcrossref&amp;#39;)
+
+doiref &amp;lt;- function(path, style = &amp;#39;apa&amp;#39;){
+  mystring &amp;lt;- readr::read_file(path)
+  doi &amp;lt;- unlist(stringr::str_extract_all(mystring, &amp;quot;\\b10\\.(\\d+\\.*)+[\\/](([^\\s\\.])+\\.*)+\\b&amp;quot;))
+  doi &amp;lt;- unique(doi)
+  ref &amp;lt;- vector()
+  for (i in 1:length(doi)){
+        temp &amp;lt;- try(rcrossref::cr_cn(dois = doi[i], format = &amp;quot;text&amp;quot;, style = style), T)
+        ref &amp;lt;- c(ref,temp)
+  }
+  return(ref)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;测试了一下，基本符合预期，这样只用关心样式名称就可以输出任意格式的文献清单了。不过我还是觉得这个功能只是作为一种对当前投稿体制的妥协且很不环境友好，互联网时代如果关心的是目的地，何必要人为给它加个壳，横竖也不会有人去读内容，只会被复制粘贴。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>joyplot的前世今生</title>
+      <link>https://yufree.cn/cn/2017/10/23/joyplot/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2017/10/23/joyplot/</guid>
+      <description>
+
+
+&lt;p&gt;1979年，英国乐队快乐小分队（Joy Division）发行了自己的首张唱片《Unknown Pleasuers》，这张专辑发行两周内就卖了5000份，但问题是……印了10000份。然而，当乐队的单曲《Transmission》发布后，这张后朋克唱片很快销售一空。作为一个乐盲，我是没搞懂这歌的意思（好像对收音机很不满）。整个70年代不断衰落的英国社会催生了朋克运动，青少年们对现实极度不满，采取了一些很极端的表现形式来抒发感情。有意思的是这个专辑在2017年又重新流行了，倒不是因为社会衰落，而是那个设计极为特殊的封面。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/images/up.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里说的封面流行是指在数据可视化领域里，其实它本就很流行……在流行文化里。很多人用这个类似波谱的图来指征一种波动、起伏的感受，恰恰应和《Unknown Pleasuers》中那种迷茫而强烈的情感，同时封面设计师又开放了版权，所以我们可以看到其在很多场景中的再现。例如 &lt;a href=&#34;http://i.document.m05.de/2013/05/23/joy-divisions-unknown-pleasures-printed-in-3d/&#34;&gt;3D 打印版&lt;/a&gt;、&lt;a href=&#34;http://www.virgula.com.br/musica/no-aniversario-de-ian-curtis-relembramos-as-mil-e-uma-faces-da-capa-de-unknown-pleasures/#img=3&amp;amp;galleryId=995918&#34;&gt;服装版&lt;/a&gt;、&lt;a href=&#34;https://thetab.com/uk/bristol/2016/02/13/survive-waking-strangers-bed-valentines-day-23604&#34;&gt;电影版&lt;/a&gt;等。甚至有人制作了一个&lt;a href=&#34;https://garrettdreyfus.github.io/unknownpleasures/&#34;&gt;网站&lt;/a&gt;来用鼠标生成类似风格的图。不过当我看这个图时是觉得很有问题的：坐标轴是啥？线的间隔是固定的吗？有什么意义？这图怎么做出来的？&lt;/p&gt;
+&lt;p&gt;冤有头债有主，《科学美国人》曾经对这张封面的源头进行过&lt;a href=&#34;https://blogs.scientificamerican.com/sa-visual/pop-culture-pulsar-origin-story-of-joy-division-s-unknown-pleasures-album-cover-video/&#34;&gt;探索&lt;/a&gt;，封面设计师 Peter Saville 是从 1977 年出版的《The Cambridge Encyclopaedia of Astronomy》上面一副关于脉冲星 CP1919 所发出的脉冲波叠加图（不是山峰，也不是波浪）上获取灵感的，但这灵感实质上就是把颜色做了反转还去掉了坐标轴。不过这就说明源头是这本书吗？不，顺着这本书，&lt;a href=&#34;https://adamcap.com/2011/05/19/history-of-joy-division-unknown-pleasures-album-art/&#34;&gt;有人&lt;/a&gt;可以追溯到1971年1月刊的《科学美国人》，而1974年&lt;a href=&#34;https://www.amazon.com/gp/product/3857094109/ref=as_li_ss_tl?ie=UTF8&amp;amp;tag=adamcapr-20&amp;amp;linkCode=as2&amp;amp;camp=217145&amp;amp;creative=399349&amp;amp;creativeASIN=3857094109&#34;&gt;《Graphis diagrams: The graphic visualization of abstract data》&lt;/a&gt; 上也出现了这幅图。&lt;/p&gt;
+&lt;p&gt;那么《科学美国人》又是哪里搞到这幅图的呢？事实上1971年的文章之所以要用这幅图，是因为要介绍脉冲星这个上世纪60年代的重大发现，而这个发现的确切时间是1967年，也就是说这个图的出生日期就在1967年与1971年之间。然后我们就找到了 Harold D. Craft, Jr. 在康奈尔大学的博士论文&lt;a href=&#34;https://catalog.library.cornell.edu/cgi-bin/Pwebrecon.cgi?BBID=37866&amp;amp;DB=local&#34;&gt;《Radio Observations of the Pulse Profiles and Dispersion Measures of Twelve Pulsars》&lt;/a&gt;，到这个时候真正的源头才出现。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/images/or.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;当《科学美国人》联系到 Harold D. Craft, Jr. 时，他顺道也说了下这幅图背后的&lt;a href=&#34;https://blogs.scientificamerican.com/sa-visual/pop-culture-pulsar-origin-story-of-joy-division-s-unknown-pleasures-album-cover-video/&#34;&gt;故事&lt;/a&gt;。刚开始在脉冲星在剑桥被发现后，他所在的团队就意识到自己其实拥有当时世界上最好的测量脉冲星的设备，也就是电子设备。然后，从测量结果上他们很快就发现脉冲星的脉冲存在一些漂移，也就是大脉冲里有小脉冲，这个结果发表在《自然》上。但他们觉得需要一个更直观的方式来观察这些脉冲的模式，然后就做了一些叠加图，很快就发现这种图并不满意，前后的遮挡太过严重。作为一个程序员，遮挡问题其实就是一个漂移问题，所以他操起键盘做出了一个漂移版，这样当峰强度足够时才会出现遮挡，而这类峰正是我们想看的模式。不过不要高估那个年代的技术，他还得再找人用&lt;a href=&#34;https://en.wikipedia.org/wiki/India_ink&#34;&gt;印度墨水&lt;/a&gt;（其实就是中国墨汁）重新勾描一遍才能清晰的放到博士论文里。不过他显然不是流行文化爱好者，因为直到他同事有天闲逛时发现后高速他他才发现自己的图这么流行，然后他毫不犹豫的买了下来这个专辑与海报：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;it’s my image, and I ought to have a copy of it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我能想象很多人要考虑版权问题了，说实话我也没搞清楚，不过看起来创作者并不在意，而封面设计者也不在意，也许正是不在意促进了某些文化的流行。好了，前世就这样了，那么今生呢？&lt;/p&gt;
+&lt;p&gt;这事要从7月份说起，twitter 上突然出了这么一张图&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;zh-cn&#34;&gt;
+&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
+Peak time for sports and leisure &lt;a href=&#34;https://twitter.com/hashtag/dataviz?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#dataviz&lt;/a&gt;. About time for a joyplot; might do a write-up on them. &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; code at &lt;a href=&#34;https://t.co/Q2AgW068Wa&#34;&gt;https://t.co/Q2AgW068Wa&lt;/a&gt; &lt;a href=&#34;https://t.co/SVT6pkB2hB&#34;&gt;pic.twitter.com/SVT6pkB2hB&lt;/a&gt;
+&lt;/p&gt;
+— Henrik Lindberg (&lt;span class=&#34;citation&#34;&gt;@hnrklndbrg&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/hnrklndbrg/status/883675698300420098?ref_src=twsrc%5Etfw&#34;&gt;2017年7月8日&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;由于 &lt;span class=&#34;citation&#34;&gt;@hnrklndbrg&lt;/span&gt; 给出了 R &lt;a href=&#34;https://github.com/halhen/viz-pub/blob/master/sports-time-of-day/2_gen_chart.R&#34;&gt;源码&lt;/a&gt;，一时间大家都开始纷纷回复转发，做出了自己的版本。当然 joyplot 的名字也伴随这条推文开始走红。&lt;a href=&#34;http://blog.revolutionanalytics.com/2017/07/joyplots.html&#34;&gt;据说&lt;/a&gt; 是 Jenny Bryan 首先提出的这个名字并联系到了上面所说的快乐小分队的专辑封面。&lt;/p&gt;
+&lt;p&gt;跟专辑还有脉冲星就没关，这个图在增加了坐标轴后的突然流行其实跟最近在可视化里要求展示大量原始数据的需求不谋而合。我们现在考虑这样一个场景，有十组数据，每组1000个数值，如果进行比较，用什么来可视化？&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;group1 &amp;lt;- cbind(rnorm(1000),1)
+group2 &amp;lt;- cbind(rbeta(1000,2,8),2)
+group3 &amp;lt;- cbind(runif(1000,min = -1,max = 1),3)
+group4 &amp;lt;- cbind(c(rep(1,500),rep(-1,500)),4)
+group5 &amp;lt;- cbind(c(rnorm(500,1),rnorm(500,-1)),5)
+data &amp;lt;- rbind.data.frame(group1,group2,group3,group4,group5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可能最简单的就是条形图了吧，用条形长度表示均值，然后用标准误或标准差表示变异程度。这里需要说明的是这种作图方法如果倒退到快乐小分队那个年代是很有必要的，因为那个年代作图不能太过复杂，毕竟有时还要描边，属于纯体力活。在这种大环境下你是可以用统计量例如均值来表示数据整体的，甚至 Edward Tufte 都提出了类似奥卡姆剃刀原则的&lt;a href=&#34;http://www.infovis-wiki.net/index.php/Data-Ink_Ratio&#34;&gt;数据墨水比&lt;/a&gt;来表示数据的展示要尽量简洁。&lt;/p&gt;
+&lt;p&gt;但是抽象程度越高，细节信息丢失就越严重，如果我们仅用均值来展示上面的数据会是下面这样：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+data %&amp;gt;%
+        group_by(V2) %&amp;gt;%
+        summarise(mean = mean(V1)) %&amp;gt;%
+        ungroup() %&amp;gt;%
+        ggplot(aes(x=V2, y=mean)) +
+  geom_bar(stat = &amp;#39;identity&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;简洁是有了，数据细节几乎完全丢失。当前的趋势是尽可能少对数据做假设，所以要尽可能多的展示细节。那么有人可能就说我用盒式图行不行？&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+        ggplot(aes(x=factor(V2), y=V1)) +
+  geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;只能说好了一点，因为虽然我们现在有了分位数，但其分布还是看不出来。那么此时有人就说我用提琴图怎么样？毕竟前两天 xkcd 还画了这个&lt;a href=&#34;https://xkcd.com/1967/&#34;&gt;图&lt;/a&gt;。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+        ggplot(aes(x=factor(V2), y=V1)) +
+  geom_violin()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;我只能说已经有点意思了，因为数据本身的特点正在展示出来。其实我们也可以直接用抖动散点图来展示。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+        ggplot(aes(x=factor(V2), y=V1)) +
+  geom_jitter()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;不过这里的问题是点在1000这个量级还好，如果多了就只能通过设置颜色透明度来展示了。但 joyplot 却十分适合这个场景：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggridges)
+data %&amp;gt;%
+        ggplot(aes(y=factor(V2), x=V1)) +
+  geom_density_ridges()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;你可以把 joyplot 看成提琴图砍掉一半的样子，但因为有共同基线，所以视觉上比较起来特别方便。你甚至可以用类似直方图的模式来展示分布：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+        ggplot(aes(y=factor(V2), x=V1),height = ..density..) +
+  geom_density_ridges(stat = &amp;#39;binline&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;也就是说 joyplot 在展示原始数据状态时属于比较直观的，犹如重山叠嶂，不论是对比峰值还是对比特定数值上概率密度都很简单。&lt;/p&gt;
+&lt;p&gt;故事还没完，你也注意到了，现在 joyplot 又改名了。新的英文名叫做 ridgeline，中文名暂时就叫叠嶂图吧。&lt;a href=&#34;http://serialmentor.com/blog/2017/9/15/goodbye-joyplots&#34;&gt;原因&lt;/a&gt;还是出在快乐小分队上，快乐小分队其实是纳粹集中营里提供性服务的犹太妇女团体，而这个乐队起名的时候就是用的这个典故，这样的黑历史在西方世界乃至全世界都是不愿意提及的，所以很快可以画叠嶂图的 ggjoy 包退休，功能完全一致的 ggridges 闪亮登场。&lt;/p&gt;
+&lt;p&gt;这就是叠嶂图的前世今生了，前前世比较黑暗，前世是流行文化，今生则是可视化领域的新贵。可能还是有人觉得这个图没啥特殊的，我这里用真实数据来展示下其作用：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidypvals)
+aj1 = anti_join(head2015,chavalarias2016)
+aj2 = anti_join(chavalarias2016,head2015)
+sj1 = semi_join(head2015,chavalarias2016)
+allp = rbind(aj1,aj2,sj1)
+
+allp = rbind(allp,brodeur2016)
+
+allp %&amp;gt;% 
+        filter(!is.na(field)) %&amp;gt;%
+        ggplot(aes(y=field, x=pvalue)) +
+  geom_density_ridges() + xlim(0,0.25)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/cn/2017-10-23-joyplot_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这组数据收集了348414份期刊论文里的3623355个p值，横跨28个学科，现在我问你：哪个学科最有可能在p值上造假或者有发表歧视？你又有没有更好的可视化方法呢？我写这篇文章的目的又是什么呢？&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text mining for top academic journals</title>
+      <link>https://yufree.cn/en/2017/07/07/text-mining/</link>
+      <pubDate>Fri, 07 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2017/07/07/text-mining/</guid>
+      <description>
+
+
+&lt;p&gt;Text mining is often used to find spatiotemporal trends in news, government report and user generated contents in SNS websites. We could make sentiment analysis to find the real opinions of netizens. Also we could track the popularity of certain phases and find the connections among them. Such technique might also be useful for scientists or researchers to read papers.&lt;/p&gt;
+&lt;p&gt;Scientists or researchers’ daily life is immersed by a lot of literature. Most of the them are only focused on limited area in certain subjects. However, a modern scientist should always know what had happened in all of the other subjects. Some techniques used in other research might inspire your research. The only problem is that you need a lot time reading top general journals like Science, Nature and PNAS. Wait, we actually do not need to know the technique details and all we want to know is the patterns in those journals. Well, text mining would help.&lt;/p&gt;
+&lt;p&gt;The main advantage for text mining in academic journals is that academic papers always share same structures in one journals. Public academic databases such as PubMed or Google scholar could always show you the structured records for papers such as journal, authors, title, published dates and even abstracts. We could directly fetch those data and save in database. I developed scifetch package to get those data from PubMed. This package would support Google scholar, bing academic and baidu xueshu in the future. Actually I support PubMed in the first version because they have a user-friendly API and I could connect such pipe with xml2 package in a tidyverse way. Besides, easyPubMed package is also a good package to extract such data from PubMed.&lt;/p&gt;
+&lt;div id=&#34;data-collection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data collection&lt;/h2&gt;
+&lt;p&gt;Here I collected the information from all the papers published in SNP i.e. science, nature and PNAS in the past three years as xml format and clean them into a dataframe for further text mining. The search grammar could be find from &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/books/NBK3827/&#34;&gt;NCBI websites&lt;/a&gt; and a cheat sheet here.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/images/cheatsheetpubmed.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There are 26559 papers and I will use such data for text mining. PubMed has a limitation for 10000 records per query. So we need to fetch the data multiple times.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 26,557 x 7
+##                          journal
+##                            &amp;lt;chr&amp;gt;
+##  1                        Nature
+##  2                        Nature
+##  3 Proc. Natl. Acad. Sci. U.S.A.
+##  4 Proc. Natl. Acad. Sci. U.S.A.
+##  5                       Science
+##  6                       Science
+##  7                       Science
+##  8                       Science
+##  9                       Science
+## 10                       Science
+## # ... with 26,547 more rows, and 6 more variables: title &amp;lt;chr&amp;gt;,
+## #   date &amp;lt;date&amp;gt;, abstract &amp;lt;chr&amp;gt;, line &amp;lt;int&amp;gt;, time &amp;lt;dttm&amp;gt;, month &amp;lt;date&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;description-statistics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Description statistics&lt;/h2&gt;
+&lt;p&gt;Firstly, let’s see the papers by journal:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/sum-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then we could check the high frequency terms in the title and abstract of these papers.&lt;/p&gt;
+&lt;div id=&#34;title&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Title&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordtitle-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As top journals, one of the most obvious features is that they all need correction and reply. With high influences, those journals would be the best place to discuss the leading edge techniques and findings. However, Science likes U.S., glance and paleoanthropology more while Nature and PNAS like tumor to be used in the titles.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;abstract&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/wordabs-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Well, when we focused on the abstracts, something interesting happens:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;They all focused on tumor while Nature use ‘tumour’ as a journal from U.K.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Nature’s title and abstracts look similar while Science’s title always use different terms compared with their abstracts. Maybe Science’s authors like to be clickbaits.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;PNAS’s authors use a lot of abbreviation in their abstracts.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Those top journals all like tumor, behavior and modeling and now you know how to pick up a topic to be published.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;temporal-trends&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Temporal trends&lt;/h2&gt;
+&lt;p&gt;Here we use logistic regression to examine whether the frequency of each word is increasing or decreasing over time. Every term will then have a growth rate associated with it.&lt;/p&gt;
+&lt;div id=&#34;title-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Title&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/titletemp-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here we could find some trending terms like CRISPR, gut, and corrigendum are ‘promising’. However, some topics like Ebola, Hiv and cell differentiation would leave us. Another interesting trending is that the names of certain subjects is disappearing in those top journals like biology, chemistry, neuroscience, ecology and policy. Maybe most titles would like to focus on specific topics or certain problems.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;abstract-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;Now let’s review the temporal trends of terms in abstracts during the past three years by months.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/abstemp-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It’s hard to find a clear pattern in growing words in abstracts. Maybe the abstracts focused more on technique details. However, shrinking words like viral, gene expression and pathway showed clear trends. Meanwhile, we could find some words like suggests, previously and production are discarded by the top scientist.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;relationship-among-words&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Relationship among words&lt;/h2&gt;
+&lt;p&gt;N-gram analysis could be used to find a meaningful terms in those papers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/bigramt-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/images/biabs.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Well, climate change, transcription factor, stem cell and cancer would always be the favorite bigrams in the titles of top journals. For the abstracts, cell related topics such as function, protein and expression are always preferred. Anyway, life science is always the center of trending sciences.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;topic-modeling&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Topic modeling&lt;/h2&gt;
+&lt;p&gt;Relationships among words could show us some trending. However, we could employ topic modeling to explore the topics as a bunch of words in the abstracts of those top journals.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/images/tm.png&#34; /&gt;
+This topic model showed topics like climate change, virus infection, brain science and social science are other important research topics other than life science.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentiment-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sentiment analysis&lt;/h2&gt;
+&lt;p&gt;Text mining could also be used to find the sentiment behind those journal papers or the customs using certain words.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yufree.cn/en/2017-07-07-text-mining-for-trends-in-top-journal_files/figure-html/SA-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Well, I think the afinn word list for sentiment analysis is not suitable for scientific literature. Some words is actually neutral in academic journals. If someone could develop a specific word list for scientists, we might find something ignored by the writing lessons on campus.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Here, I demo some basic text mining results for top academic journals. Just like Google trends might predict the popularity of flu, text mining for academic journal might be a good tool to reveal unknown patterns or trends in certain subjects or top journals. Besides, we could also find unique usages of some words and some tones behind the journal. Besides, such methods might work better than impact factor or H index as the evaluation tools for certain researcher, journal or institute in a dynamic view. The most attractive thing is that every scientist could use this tools through open databases and find their own answers. This is the best benefits from information era.&lt;/p&gt;
+&lt;p&gt;You might read this excellent on-line &lt;a href=&#34;http://tidytextmining.com/&#34;&gt;book&lt;/a&gt; and David Robinson’s &lt;a href=&#34;http://varianceexplained.org/&#34;&gt;blog&lt;/a&gt; to make more findings.&lt;/p&gt;
+&lt;p&gt;All the R code for this post could be found &lt;a href=&#34;https://github.com/yufree/yufree.cn/blob/master/content/en/2017-07-07-text-mining-for-trends-in-top-journal.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kaggle 入门：泰坦尼克号幸存者项目</title>
+      <link>https://yufree.cn/cn/2014/12/07/kaggle-titanic/</link>
+      <pubDate>Sun, 07 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2014/12/07/kaggle-titanic/</guid>
+      <description>
+
+
+&lt;div id=&#34;背景&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;背景&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com&#34;&gt;Kaggle&lt;/a&gt;是一个线上数据科学竞赛类网站。简单说，上面会提供数据与需求，目的是构建一个&lt;span class=&#34;math inline&#34;&gt;\(f(x) = y\)&lt;/span&gt;的模型。参赛者会得到一个有&lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;与&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;的训练集与只有&lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;的测试集，你需要在训练集上构建模型，输入测试集的&lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;得到你预测的&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;。之后你需要提交你的&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;到Kaggle，它会计算一个正确率作为竞赛的评判标准，分数高的会有奖金或仅仅是个荣誉。对于入门者，Kaggle提供了一个泰坦尼克号幸存者项目作为入手项目，项目提供的数据就是泰坦尼克号上乘客的信息与其幸存状况数据，以上为背景。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;数据准备&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;数据准备&lt;/h2&gt;
+&lt;p&gt;名为train.csv的训练集数据与test.csv的测试集数据可从网站上下载，请将其移动到工作目录并读取。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 读取数据
+train &amp;lt;- read.csv(&amp;#39;train.csv&amp;#39;)
+test &amp;lt;- read.csv(&amp;#39;test.csv&amp;#39;)
+# 观察数据结构
+str(train)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:	891 obs. of  12 variables:
+##  $ PassengerId: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Survived   : int  0 1 1 1 0 0 0 0 1 1 ...
+##  $ Pclass     : int  3 1 3 1 3 3 1 3 3 2 ...
+##  $ Name       : Factor w/ 891 levels &amp;quot;Abbing, Mr. Anthony&amp;quot;,..: 109 191 358 277 16 559 520 629 417 581 ...
+##  $ Sex        : Factor w/ 2 levels &amp;quot;female&amp;quot;,&amp;quot;male&amp;quot;: 2 1 1 1 2 2 2 2 1 1 ...
+##  $ Age        : num  22 38 26 35 35 NA 54 2 27 14 ...
+##  $ SibSp      : int  1 1 0 1 0 0 0 3 0 1 ...
+##  $ Parch      : int  0 0 0 0 0 0 0 1 2 0 ...
+##  $ Ticket     : Factor w/ 681 levels &amp;quot;110152&amp;quot;,&amp;quot;110413&amp;quot;,..: 524 597 670 50 473 276 86 396 345 133 ...
+##  $ Fare       : num  7.25 71.28 7.92 53.1 8.05 ...
+##  $ Cabin      : Factor w/ 148 levels &amp;quot;&amp;quot;,&amp;quot;A10&amp;quot;,&amp;quot;A14&amp;quot;,..: 1 83 1 57 1 1 131 1 1 1 ...
+##  $ Embarked   : Factor w/ 4 levels &amp;quot;&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;Q&amp;quot;,&amp;quot;S&amp;quot;: 4 2 4 4 4 3 4 4 4 2 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;str(test)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:	418 obs. of  11 variables:
+##  $ PassengerId: int  892 893 894 895 896 897 898 899 900 901 ...
+##  $ Pclass     : int  3 3 2 3 3 3 3 2 3 3 ...
+##  $ Name       : Factor w/ 418 levels &amp;quot;Abbott, Master. Eugene Joseph&amp;quot;,..: 210 409 273 414 182 370 85 58 5 104 ...
+##  $ Sex        : Factor w/ 2 levels &amp;quot;female&amp;quot;,&amp;quot;male&amp;quot;: 2 1 2 2 1 2 1 2 1 2 ...
+##  $ Age        : num  34.5 47 62 27 22 14 30 26 18 21 ...
+##  $ SibSp      : int  0 1 0 0 1 0 0 1 0 2 ...
+##  $ Parch      : int  0 0 0 0 1 0 0 1 0 0 ...
+##  $ Ticket     : Factor w/ 363 levels &amp;quot;110469&amp;quot;,&amp;quot;110489&amp;quot;,..: 153 222 74 148 139 262 159 85 101 270 ...
+##  $ Fare       : num  7.83 7 9.69 8.66 12.29 ...
+##  $ Cabin      : Factor w/ 77 levels &amp;quot;&amp;quot;,&amp;quot;A11&amp;quot;,&amp;quot;A18&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Embarked   : Factor w/ 3 levels &amp;quot;C&amp;quot;,&amp;quot;Q&amp;quot;,&amp;quot;S&amp;quot;: 2 3 2 3 3 3 2 3 1 3 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;# 观察输出
+table(train$Survived)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##   0   1 
+## 549 342&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;根据输出的预测&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;根据输出的预测&lt;/h2&gt;
+&lt;p&gt;初步探索可知，我们的自变量有11个，因变量为二元输出。因为活下来的要多过幸存的，我们最保守的模型是基于输出的，也就是预测测试集上的乘客都没幸存。提交，正确率63%，目前估计要排到2000+。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;test$Survived &amp;lt;- rep(0, 418)
+# 按照Kaggle要求构建数据框
+submit &amp;lt;- data.frame(PassengerId = test$PassengerId, Survived = test$Survived)
+# 写为csv文件
+write.csv(submit, file = &amp;quot;alldie.csv&amp;quot;, row.names = F)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;考虑单一分类变量&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;考虑单一分类变量&lt;/h2&gt;
+&lt;p&gt;OK，现在我们开始考虑使用自变量来进行预测，先考虑分类变量性别。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 构建分类列连表
+prop.table(table(train$Sex, train$Survived))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         
+##                   0          1
+##   female 0.09090909 0.26150393
+##   male   0.52525253 0.12233446&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第一个模型预测了全部死亡，现在我们看到如果性别为女性，幸存概率要高很多，那么考虑这个变量后我们就在第一个模型基础上预测如果性别为女就能活下来。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 第一个模型
+test$Survived &amp;lt;- 0
+# 考虑性别变量
+test$Survived[test$Sex == &amp;#39;female&amp;#39;] &amp;lt;- 1
+# 按照Kaggle要求构建数据框
+submit &amp;lt;- data.frame(PassengerId = test$PassengerId, Survived = test$Survived)
+# 写为csv文件
+write.csv(submit, file = &amp;quot;alldiebutfemale.csv&amp;quot;, row.names = F)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;OK，目前正确率77%，大概排1800+。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;考虑连续变量&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;考虑连续变量&lt;/h2&gt;
+&lt;p&gt;我们现在考虑下连续变量年龄，看看分布。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 绘制直方图
+hist(train$Age)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://yufree.github.io/blogcn/figure/titanichist.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;plot&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;按照当年看过的电影，妇女，老人，小孩应该是优先上救生船的，因此我们认为小于20岁跟大于60岁的乘客更容易幸存，探索下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;train$oldchild &amp;lt;- 0
+# 提取老弱
+train$oldchild[train$Age &amp;lt; 20 | train$Age &amp;gt; 60] &amp;lt;- 1
+# 看看女性部分
+aggregate(Survived ~ oldchild + Sex, data=train, FUN=sum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   oldchild    Sex Survived
+## 1        0 female      177
+## 2        1 female       56
+## 3        0   male       81
+## 4        1   male       28&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;额，似乎不太对，好像老幼女性死的更多，看来电影与事实有出入，那么我们反着预测试试。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 第一个模型
+test$Survived &amp;lt;- 0
+# 考虑性别变量
+test$Survived[test$Sex == &amp;#39;female&amp;#39;] &amp;lt;- 1
+# 老弱可能要挂
+test$Survived[test$Sex == &amp;#39;female&amp;#39; &amp;amp; (test$Age &amp;lt; 20 | test$Age &amp;gt; 60)] &amp;lt;- 0
+# 按照Kaggle要求构建数据框
+submit &amp;lt;- data.frame(PassengerId = test$PassengerId, Survived = test$Survived)
+# 写为csv文件
+write.csv(submit, file = &amp;quot;alldiebutfemalemiddleage.csv&amp;quot;, row.names = F)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;额，正确率73%，比刚才低了。回想一下，我刚才做的不过就是不断的分组，甚至是连续变量分组，这样到一定程度就会数据稀疏到欠拟合。同时因为分组中另一组简单认为幸存或不幸存也造成了较大偏差，所以整个模型都不好了。如果我们深入回想，现在需要的是一点过拟合，通过不断分类来确定最终分类其实就是种了一颗决策树，那么我们应该试试决策树。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;决策树&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;决策树&lt;/h2&gt;
+&lt;p&gt;决策树的原理很简单，就是不断寻找能将数据分成区别最大的两块的阈值，然后再到下一层去迭代寻找，直到你的子分类中全是一样的输出。具体到这个例子，我们需要考虑用那些变量：PassengerId没啥意义；Name也看不出跟输出有什么显性联系；Ticket上的编码长得像密码，不要；Cabin数据残缺严重，不要；Embarked是上船位置，似乎跟沉船也没啥关系，不要。上面是一个主观变量的筛选，其实如果依赖专业知识会更快，当然也有基于统计学的变量筛选，暂时不提。决策树你就看作&lt;span class=&#34;math inline&#34;&gt;\(f\)&lt;/span&gt;就可以了，算法别人都写好了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# rpart包里的函数要比tree好些
+library(rpart)
+fit &amp;lt;- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare, data=train, method=&amp;quot;class&amp;quot;)
+plot(fit)
+text(fit)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://yufree.github.io/blogcn/figure/titanictree.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;plot&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;从结果上看，第一变量是性别：对男性而言，年龄是第二分割点；对女性而言，仓位则成了第二分割点，所以决策树的分割相对还是比较精细的。我们用预测函数得到结果看看：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Prediction &amp;lt;- predict(fit, test, type = &amp;quot;class&amp;quot;)
+submit &amp;lt;- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+write.csv(submit, file = &amp;quot;tree.csv&amp;quot;, row.names = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这次正确率达到了79%，光荣挺进前1000。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;交叉检验&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;交叉检验&lt;/h2&gt;
+&lt;p&gt;前面我已经隐约提到了过拟合与欠拟合的问题，当你模型过分依赖训练集数据时，数据会过拟合；反之模型太不依赖训练集，例如最初我们用输出变量预测的状况，数据就会欠拟合。过拟合会导致模型捕捉了原始数据中的细节噪声，模型整体变异度也就是方差大，输出不稳；欠拟合则会导致模型没有识别到数据中的结构，不管你怎么变换自变量输出都不变，也就是偏差大。说到这里你也就清楚了，这不就是bias－variance tradeoff吗！这样说来，我们就可以使用一些统计学习的方法来构建更稳健的模型，例如交叉检验。你可以将交叉检验理解为降低过拟合风险的方法，实际上有些机器学习算法例如人工神经网络几乎可以完全拟合训练集，这时我们需要加点正则项或者叫惩罚函数来模拟过拟合的状态，进而生成预测性能良好的模型或者就直接用交叉检验。&lt;/p&gt;
+&lt;p&gt;交叉检验一般把训练集分个5到10份，每次训练留一份作为检测集，根据检测集结果调整模型参数，迭代直到参数不变化。这样我们模型虽然没有惩罚函数，但不断的调试可以保证参数不会过拟合到一类数据上。不过也不用演示了，在&lt;code&gt;rpart&lt;/code&gt;包里默认就有交叉检验了，刚才你用默认的算法去做就已经包含交叉检验了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;其他算法&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;其他算法&lt;/h2&gt;
+&lt;p&gt;基于决策树的算法中有种叫做随机森林的算法效能不错，其逻辑在于随机抓一把变量来生成决策树，重复多次，然后对结果取均值或投票。这样就相当于加了一个惩罚函数，要知道决策树是没有惩罚而只能通过交叉检验来提高效能。这里面age的缺失比较重，为了去除缺失值，我们可以考虑用其他变量建个决策树补一下空白。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# tree 补下age的缺失值
+Agefit &amp;lt;- rpart(Age ~ Pclass + Sex + SibSp + Parch + Fare,
+                data=train[!is.na(train$Age),], method=&amp;quot;anova&amp;quot;)
+train$Age[is.na(train$Age)] &amp;lt;- predict(Agefit, train[is.na(train$Age),])
+library(randomForest)
+fit &amp;lt;- randomForest(as.factor(Survived) ~ Pclass + Age + Sex + SibSp + Parch + Fare, data=train, ntree = 2000)
+Prediction &amp;lt;- as.numeric(predict(fit, test))-1
+submit0 &amp;lt;- data.frame(PassengerId = test$PassengerId, Survived = Prediction)
+# 预测出的缺失值用决策树结果充数 这可看作模型嵌套
+submit0[is.na(submit0$Survived),2] &amp;lt;- submit[is.na(submit0$Survived),2]
+write.csv(submit, file = &amp;quot;randomforest.csv&amp;quot;, row.names = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;结果跟决策树差不多，不过这种01输出的数据结构其实也可以用广义线性模型中的logistic回归来做。或者你也可以尝试人工神经网络，支持向量机，岭回归，lasso什么的，等你都尝试一遍后基本该遇到的情况就都遇到了，那个时候就该尝试进军其他挑战了。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Display Chinese/Japanese/Korean in PDF from Rmd in RStudio</title>
+      <link>https://yufree.cn/en/2014/07/21/rmd-to-pdf/</link>
+      <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2014/07/21/rmd-to-pdf/</guid>
+      <description>&lt;p&gt;New RStudio shows many useful features to make dynamic documents. We could write Rmd and output word document and PDF. However, when I try to write Chinese in Rmd and convert it into PDF, the Chinese characters is missing. @Yihui added a new feature &lt;code&gt;fig.showtext&lt;/code&gt; which allow us to show Chinese in the plot. Still, the Chinese words in the content are missing. I refer to a lot of posts and find the only way might be using the Rnw to write plain tex document. But I just want to use Rmd!&lt;/p&gt;
+&lt;p&gt;Then I review the PDF generation process and find the key is the md to tex. Rmarkdown use pandoc as the converter and pandoc just use some template. If we want to show Chinese, we need to hack the template and add the support of Chinese. Just go the &amp;ldquo;R/i686-pc-linux-gnu-library/3.1/rmarkdown/rmd/latex&amp;rdquo; where is the template located and add \usepackage{xeCJK}  and \setCJKmainfont{youfont}  before \begin{document}. Youfont stand for the character font installed in your computer which is used to show in the PDF. Remember to use xetex to process the tex or you may try CJK solution. OK, save the hack and now we could use Chinese both in the main text and the plot. More information could be found &lt;a href=&#34;https://github.com/yihui/knitr/issues/799&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The same way could be applied for Japanese and Korean. Just add the package support for your language.&lt;/p&gt;
+&lt;h1 id=&#34;update-20140722&#34;&gt;update 20140722&lt;/h1&gt;
+&lt;p&gt;@Yixuan write a &lt;a href=&#34;http://statr.me/2014/07/showtext-with-knitr/&#34;&gt;post&lt;/a&gt; on the usage of showtext package in knitr. Also @Yihui showed adding the packages in the header.tex and modified the yaml of the Rmd as the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;will also solve the font problems. You may also use the tex code in the Rmd and pandoc will complie the code like in the Rnw. Thanks a lot, @Yihui and @Yixuan!&lt;/p&gt;
+&lt;h1 id=&#34;update-20150119&#34;&gt;update 20150119&lt;/h1&gt;
+&lt;p&gt;Chinese issue has been solved by the ctex templete in rticles package(on CRAN now). You might just use the following code to install the package.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# install pandoc first
+install.packages(c(&#39;rmarkdown&#39;,&#39;rticles&#39;))
+rmarkdown::draft(&amp;quot;MyCtexArticle.Rmd&amp;quot;, template = &amp;quot;ctex&amp;quot;, package = &amp;quot;rticles&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;updata-20160919&#34;&gt;updata 20160919&lt;/h1&gt;
+&lt;p&gt;Aftet the update of ctex, use yaml as shown in this &lt;a href=&#34;http://yufree.cn/blog/2016/09/19/beamer-in-chinese.html&#34;&gt;post&lt;/a&gt; would directly show the Chinese/Japanese/Korean:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: &amp;quot;中文／にほんご／韓國語&amp;quot;
+author: &amp;quot;Yufree&amp;quot;
+date: &amp;quot;2016年9月19日&amp;quot;
+header-includes:
+  - \usepackage{ctex}
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;if you preferred xeCJK package to handle this issue, use CJKmainfont: [fontname] in yaml at the top level to set your font.&lt;/p&gt;
+&lt;p&gt;You might find Rmd templates for Chinese/Janpanese/Korean &lt;a href=&#34;https://github.com/yufree/democode/tree/master/cjk&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using rcdk package for QSPR</title>
+      <link>https://yufree.cn/en/2014/05/30/qspr-rcdk/</link>
+      <pubDate>Fri, 30 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2014/05/30/qspr-rcdk/</guid>
+      <description>
+&lt;script src=&#34;https://yufree.cn/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; is a handy tool for modeling, so there must be some packages for Quantitative structure–activity relationship(QSPR) in Chemistry. Recently I wanted to summarize some papers for a presentation, then I found rcdk package, which is a useful tool for QSPR. However, little posts about this topic for beginner. As an absolutely beginner, I make this post as a note for the whole process and add comments for someone else to reproduce a QSPR model by their own.&lt;/p&gt;
+&lt;p&gt;First,you need the following knowledge:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Chemistry Development Kit(CDK) is powerful, we will use their function to read in the molecular and calculate some descriptor via &lt;code&gt;rcdk&lt;/code&gt; package and no need to install CDK and their function has been included in the package&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Just &lt;code&gt;install.packages(c(&#39;rJava&#39;,&#39;rcdk&#39;))&lt;/code&gt; is enough for a R user&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Copy the smiles files or the sdf files to your work directory or just use a demo data &lt;code&gt;bpdata&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Then we begin&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;library(rcdk)
+data(bpdata)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first column is the SMILES vector of the molecular structures so we use parse.smiles to read it&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mols &amp;lt;- parse.smiles(bpdata[, 1])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So rcdk will convert the smiles into a java object this object could be used to get the milecular descriptor. Also you need to know the class of mols is a list. rcdk has five ctegories of descriptor we think the topological descriptor may relate to the Boiling Point in this tests.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;desc.names &amp;lt;- get.desc.names(&amp;quot;topological&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we get the names of those topological descriptors.Up to now, we know the structures and the descriptors’ name. Then we will get the descriptors.&lt;/p&gt;
+&lt;p&gt;For the list we need to use lapply or sapply to apply the descriptors caculator function with the descriptors’ name in the desc.names.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;data &amp;lt;- lapply(mols, eval.desc, desc.names)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is also a list so we need to unlist and make a dataframe for QSPR model. Also we need to give the column a name.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df &amp;lt;- data.frame(matrix(unlist(data), nrow = 277, byrow = T))
+colnames(df) &amp;lt;- colnames(data[[1]])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We need to remove some desciptors unchanged&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df2 &amp;lt;- df[, which(!apply(df, 2, sd) == 0)]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;OK, here we get a data frame contained the descriptors we needed. Then we will use those &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; to make a &lt;span class=&#34;math inline&#34;&gt;\(f(X) = Y\)&lt;/span&gt;, which is a QSPR model.&lt;/p&gt;
+&lt;p&gt;Define the response&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Y &amp;lt;- bpdata[, 2]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Get a train set and a test set&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;train &amp;lt;- sample(1:277, 200)
+traindataX &amp;lt;- df2[train, ]
+traindataY &amp;lt;- Y[train]
+testdataX &amp;lt;- df2[-train, ]
+testdataY &amp;lt;- Y[-train]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Build a regression model with the leaps packages&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(&amp;quot;leaps&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Define a function to predict the test data&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;predict.regsubsets = function(object, newdata, id, ...) {
+form = as.formula(~.)
+mat = model.matrix(form, newdata)
+coefi = coef(object, id)
+xvars = names(coefi)
+mat[, xvars] %*% coefi}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A 5-fold cross-validation&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;k = 5
+folds = sample(1:k, nrow(traindataX), replace = TRUE)
+cv.errors = matrix(NA, k, 50, dimnames = list(NULL, paste(1:50)))
+
+for (j in 1:k) {
+best.fit = regsubsets(y = traindataY[folds != j],
+                      x = traindataX[folds != j, ],
+                      nvmax = 50, 
+                      really.big = T, 
+                      method = &amp;quot;forward&amp;quot;)
+                      for (i in 1:50) {pred = predict.regsubsets(best.fit, traindataX[folds == j, ], id = i);
+                                      cv.errors[j, i] = mean((traindataY[folds == j] - pred)^2)
+                                      }
+                }
+mean.cv.errors = apply(cv.errors, 2, mean)
+which.min(mean.cv.errors)
+
+#38
+
+reg.fwd = regsubsets(x = traindataX,
+                     y = traindataY,
+                     nvmax = 44, 
+                     really.big = T, 
+                     method = &amp;quot;forward&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We got a model with many variables on the train dataset, and now we could see the results on the test dataset.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;val.errors &amp;lt;- rep(NA, 50)
+for (i in 1:50) {
+        pred = predict.regsubsets(reg.fwd, testdataX, id = i)
+        val.errors[i] = mean((testdataY - pred)^2)
+        }
+which.min(val.errors)
+#41&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So if you want to see the names of selected variables for prediction the selected QSPR model, you may use &lt;code&gt;coef&lt;/code&gt; to get what you want. For example, we show the coef of the selected 15 variables models by the following code.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;coef(reg.fwd, 15)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(Intercept) khs.dCH2 khs.sOH khs.dO HybRatio VP.2&lt;/p&gt;
+&lt;p&gt;310.981 -69.776 70.007 38.068 -61.738 58.648&lt;/p&gt;
+&lt;p&gt;SPC.4 SPC.6 SC.4 VC.3 ATSm5 ATSc2&lt;/p&gt;
+&lt;p&gt;-4.957 -3.223 -75.819 -42.528 1.890 35.852&lt;/p&gt;
+&lt;p&gt;ATSc4 khs.aaS khs.sI C4SP3&lt;/p&gt;
+&lt;p&gt;31.831 0.000 -8.693 10.937&lt;/p&gt;
+&lt;p&gt;From the results I find the topological descriptors might be not good for the prediction for that no clear overfit were found in train and test dataset.&lt;/p&gt;
+&lt;p&gt;OK, this is the whole process for using rcdk package for QSPR. Just modify the input, you will get what you want.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A very brief intro of shiny</title>
+      <link>https://yufree.cn/en/2014/03/23/intro-of-shiny/</link>
+      <pubDate>Sun, 23 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2014/03/23/intro-of-shiny/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;If you are a starter of shiny as me, this post may help your know some principle of shiny.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;what-is-shiny&#34;&gt;What is shiny?&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;R based&lt;/li&gt;
+&lt;li&gt;View as webpage hosted on servers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;give a request, show the result&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;backgroud-needed&#34;&gt;Backgroud needed&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Almost R only&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;why-shiny&#34;&gt;Why shiny?&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Entirely extensible&lt;/li&gt;
+&lt;li&gt;Display your data in an interactive way&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;how-shiny-works&#34;&gt;How shiny works?&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reactive Programming&lt;/p&gt;
+&lt;p&gt;When the input changes, the R code will run again to get a refresh. Shiny makes the connections among R, input and the the output on your screen by some communication tags. So you can just focused on R code and let shiny do the other things.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;server.R&lt;/p&gt;
+&lt;p&gt;You need write your R code here to tell shiny run what when the inputs change. The R code need a input and output values.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ui.R&lt;/p&gt;
+&lt;p&gt;You need tell the app user where is the input/output box, which values of the input should be transfer to R code and which values of the output should be display on the webpage. You can also custome your UI of app here if you have writen some basic html pages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Render function in server.R&lt;/p&gt;
+&lt;p&gt;Tell shiny the output values used in the app&amp;rsquo;s webpage. This function need to be re-ran when the input changes, so the render function must be assighed to a output values while contains the input values.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RUN&lt;/p&gt;
+&lt;p&gt;When you finish your server.R and ui.R, just &lt;code&gt;runApp()&lt;/code&gt; and you will get the great webpage.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;how-to-share-your-apps&#34;&gt;How to share your apps?&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Push your shiny code on the github or make a zip file, the user can run it locally use the &lt;code&gt;runUrl&lt;/code&gt;,&lt;code&gt;runGitHub&lt;/code&gt; or &lt;code&gt;runGist&lt;/code&gt; in the shiny package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can also build up a server with www connection and put your app there.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;learn-more&#34;&gt;Learn more?&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.rstudio.com/shiny/lessons/Intro/&#34;&gt;Lessons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rstudio.github.io/shiny/tutorial/&#34;&gt;Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>小议非二元响应变量的EC50</title>
+      <link>https://yufree.cn/cn/2013/10/22/r-ec50/</link>
+      <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/cn/2013/10/22/r-ec50/</guid>
+      <description>&lt;p&gt;其实解决这个问题的R包还是很多的，MASS里就有一个&lt;code&gt;dose.p&lt;/code&gt;来计算LD50，我们来仔细看看其中的代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;dose.p &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;function&lt;/span&gt;(obj, cf &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;) {
+    eta &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;family&lt;/span&gt;(obj)&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;link&lt;/span&gt;(p)
+    b &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;coef&lt;/span&gt;(obj)[cf]
+    x.p &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; (eta &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; b[1])&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;b[2]
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;names&lt;/span&gt;(x.p) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;paste&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;p = &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;format&lt;/span&gt;(p), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;, sep &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+    pd &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cbind&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, x.p)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;b[2]
+    SE &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt&lt;/span&gt;(((pd &lt;span style=&#34;color:#f92672&#34;&gt;%*%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;vcov&lt;/span&gt;(obj)[cf, cf]) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; pd) &lt;span style=&#34;color:#f92672&#34;&gt;%*%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;structure&lt;/span&gt;(x.p, SE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SE, p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p, class &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;glm.dose&amp;#34;&lt;/span&gt;)
+}
+print.glm.dose &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;function&lt;/span&gt;(x, &lt;span style=&#34;color:#66d9ef&#34;&gt;...&lt;/span&gt;) {
+    M &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cbind&lt;/span&gt;(x, &lt;span style=&#34;color:#a6e22e&#34;&gt;attr&lt;/span&gt;(x, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SE&amp;#34;&lt;/span&gt;))
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;dimnames&lt;/span&gt;(M) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;names&lt;/span&gt;(x), &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dose&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SE&amp;#34;&lt;/span&gt;))
+    x &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; M
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;NextMethod&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;print&amp;#34;&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;前面一个eta求解的是广义线性模型在生存概率p下的响应值，b取的是模型参数，说白了就是给定响应求浓度。回想一下EC50的定义，其实就是先建模后预测一个数值。至于说SE，也是通过模型参数来计算的。所以看来看去整个问题的核心就在于广义线性模型的建立。一般而言LD50因为响应变量为二元的，所以要进行logistic变换，之后如果自变量浓度跨度较大，要进行log变换。&lt;/p&gt;
+&lt;p&gt;但在EC50的计算过程中，响应变量通常不是二元的，如果检测器给出的是连续变量，那实际上这个问题就略复杂一点，也就是把响应变量缩小到[0,1]范围内,直接应用线性模型对剂量进行线性回归，而EC50就是线性模型截距跟剂量参数比值的负数，但要是求SE就还得是MASS里面的方法，也就是通过模型参数的SE去做估计。这里用的变换其实就是常见的四参数求解EC50的方法，实际情况中用这个的较多，但本质上就是一个广义线性模型中的logistic回归或probit回归。&lt;/p&gt;
+&lt;p&gt;说到底，在ligistic回归中对响应变量是有明确要求为二元服从二项分布的，但实际应用中的响应值却是转化（多为极值范围限定到[0,1]空间）过去的，这就是很多疑惑的起源。其实对于S型曲线还有其他种类的子模型，有的更有针对性，如Hill equation。另外需要注意的是该模型的适用范围，最好先做图看看，如果混合了其他过程如生长，胁迫，模型就需要修改一下。此外，也可以尝试局部回归与非参的方法，这对于估计EC50这一推断值的标准误或方差非常有效，而这却是经验所不能达的。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Box Plot v.s. Violin Plot</title>
+      <link>https://yufree.cn/en/2013/08/15/boxplot-vs-violinplot/</link>
+      <pubDate>Thu, 15 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://yufree.cn/en/2013/08/15/boxplot-vs-violinplot/</guid>
+      <description>&lt;p&gt;In a seminar I introduced the violin plot and showed the following figure(this example comes from the help document):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(vioplot)
+library(sm)
+par(mfrow = c(1, 2))
+mu &amp;lt;- 2
+si &amp;lt;- 0.6
+bimodal &amp;lt;- c(rnorm(1000, -mu, si), rnorm(1000, mu, si))
+uniform &amp;lt;- runif(1000, -4, 4)
+normal &amp;lt;- rnorm(2000, 0, 3)
+vioplot(bimodal, uniform, normal)
+boxplot(bimodal, uniform, normal)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://yufree.github.io/blogcn/figure/vs.png&#34; alt=&#34;plot of chunk vs&#34;&gt;&lt;/p&gt;
+&lt;p&gt;So obviously, the violin plot can show more information than box plot. When we perform an exploratory analysis, nothing about the samples could be known. So the distribution of the samples can not be assumed to a normal distribution and usually when you get a big data, the normal distribution will show some out liars in box plot. Referring to the paper by Hintze, J. L. and R. D. Nelson (1998), the violin plot combines the box plot and the density trace, so it seems that the box plot may give the place to the violin plot and I said this in the seminar from a viewpoint of environmental science. But after the seminar, I really doubt that no environmental scientists use this plot. Of course, the violin plot is young comparing with the box plot introduced by Tukey(1977), but there also exist some reasons which stop the spread of violin plot. Here I list it as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the violin plot can&amp;rsquo;t show a better curve with small samples. In Hintze&amp;rsquo;s paper, he thought a smooth curve with at least 30 observations. But the box plot may stand for a smaller observations. Also the bandwidth need to be chosed carefully.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the modification box plot could show the number of observations in the groups using the var width while the violin plot couldn&amp;rsquo;t. When we make some comparison between different groups, the violin plot will hide this information.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Another problem is the notch in the box plot to compare the median. In the violin plot, we get a better understanding of distribution of violin plot but less with comparisone with &amp;lsquo;strong evidence&amp;rsquo;(Chambers et al., 1983, p. 62).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Those were nitpick reasons but I think if someone just want to show the violin plot instead of box plot, he need to know the details. Nowadays, it is easy to use new concepts to confusing the readers, we need more thoughts about the nature. Here is a example: there are numbers people who thought the box plot show the mean&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Further Reading&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Violin_plot&#34;&gt;Wiki pedia&lt;/a&gt;: you need to read the further readings and the references to know more details about violin plot. I recommend ggplot2 to show the violin plot, it is beautiful anyway.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

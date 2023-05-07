@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>从因子分析到垃圾邮件 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="从因子分析到垃圾邮件 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1441 字</span>
+    
+    <h1 class="article-title">从因子分析到垃圾邮件
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2013/08/29</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E4%BB%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E5%88%B0%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2013%2F08%2F29%2Ffromctod%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E4%BB%8E%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E5%88%B0%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2013%2F08%2F29%2Ffromctod%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2013-08-29-fromCtoD.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>想不到真的拖了1年才续写这个系列，因子分析的要义其实就是挖掘背后的信息。例如我给你些综合性经济指标，让你把其中出口的跟内需的部分挖出来你该如何去做？指标都是综合性的，不会说你想抽出一部分就可以。在主成分分析中，其实想得到的是综合性指标去降维而因子分析是想挖掘现有数据中的一部分。例如GDP中出口占多少？但GDP还有其他的组成部分，甚至还有自己独特的一部分，而其他指标也是这样，都有符合意图的一部分的同时也有自己独特的一组，所以算法上就会要求因子分析去分离每个变量中的这两种因素：公共因素与独立因素。而且前面也过于理想化了，你拿到的分离出的新因子可能不代表出口，换言之你可能找不到实际意义，这就悲剧了。但如果你新分出来的因子在解释问题上表现优异，那你可以根据实际问题给他起个名字。所以说因子分析可以用来建立假设，这也是探索分析的一种。但是，也有从假设出发的因子分析，它隶属于结构方程模型（SEM），可以拿来做很复杂的分析，所以社科的人比较喜欢这货。</p>
+<p>假设我能通过统计学的知识得到强有力的背后特征且也是我需要的，这个描述就一定合理吗？不一定，有时候好用的东西讲不出道理，不好用的直观模型反而更受欢迎。这里引一段<a href="http://cos.name/2012/04/causality4-observational-study-ignorability-and-propensity-score/">丁鹏</a>对统计学的描述:</p>
+<blockquote>
+<p>……统计中所谓的“因果”是“某种”意义的“因果”，即统计学只讨论“原因的结果”，而不讨论“结果的原因”。前者是可以用数据证明或者证伪的；后者是属于科学研究所探索的。用科学哲学家卡尔·波普的话来说，科学知识的积累是“猜想与反驳”的过程：“猜想”结果的原因，再“证伪”原因的结果；如此循环即科学。</p>
+</blockquote>
+<p>所以看起来原因的结果似乎都是通过数据探索来完成的，而这个原因并不一定是真的。或者说将假设中结果的原因与数据反映的原因的结果去对应，很有可能是对不上号的，特别是观测而不是实验数据。不过如果从问题出发，简化的问题可能更容易求解，这一系列前面关于降维的讨论核心也在这里：没有物理意义的降维却可能解决实际的计算问题。那么这跟垃圾邮件有什么关系？</p>
+<p>我们描述一个世界跟描述一个问题是不同的，如果使用同一套交流体系，世界要有实体指代，而问题却可能只是信息层面上的。一段描述感受的文字有信息量，但不一定有对应实体，而垃圾邮件就是这一类描述的代表，对我们没用的信息。处理这个问题你不能用铁锨或垃圾桶，你需要对信息进行筛选，而这里就会用到很多统计学上的方法。首先，我们要能够识别出垃圾邮件，但说实话等你识别出来就已经因垃圾邮件耽误时间了，所以这时候就需要把这种活交给程序去做。但你是无法告诉程序那是对那是错的，因为垃圾邮件本就不是一个特定名词，定义不清的事就只能交给经验了。所谓机器学习就是人类偷懒的一个表现。那面对这个问题如何下手呢？</p>
+<p>既然是机器学习，那就告诉他特征吧，例如有促销或办证字样的就是垃圾邮件。这样我们建立一个关键词数据库就OK了，但发送邮件的也不傻，我对关键字加盐或发图片你就没招了吧？这样我们从内容上就不好判断了，那就靠来源，建个黑名单。但垃圾邮件发送者也知道你这招，每次换个邮箱就可以了，反正现在搭或租一个邮箱服务器也不难。那我用白名单，但这样有些重要信件就丢失了。而且每个人对垃圾邮件的定义也不一样，有些人对某些邮件还是感兴趣的，这时就需要在客户端部署个性化邮件筛选器，而这里就用到了<a href="http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_two.html">贝叶斯方法</a>。然而，这场战斗不会这么容易结束，而当垃圾邮件被再抽象为是与否的二元响应变量后，自变量从哪里来，它们又真的跟垃圾与否相关吗？下篇将从垃圾邮件出发，经过一番忽悠，讲到回归诊断。</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2013/08/26/brife-philosophy-of-science/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 闲话科学哲学</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2013/10/10/photograph-start/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">摄影初学入门小结 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2013\/08\/26\/brife-philosophy-of-science\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2013\/10\/10\/photograph-start\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

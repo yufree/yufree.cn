@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>中介分析 - Miao Yu | 于淼 </title>
+<meta property="og:title" content="中介分析 - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> 首页 </a></li>
+    
+    <li class=""><a href="/cn/about/"> 关于 </a></li>
+    
+    <li class=""><a href="/cn/"> 博客 </a></li>
+    
+    <li class=""><a href="/cn/vitae/"> 简历 </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/sciguide/"> 《现代科研指北》 </a></li>
+    
+    <li class=""><a href="/en/"> English </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2103 字</span>
+    
+    <h1 class="article-title">中介分析
+
+</h1>
+
+
+<div class="article-date">
+  <span> 于淼 ·   2020/12/25</span>
+  <span class="article-toolbar">
+    
+    <a href="/cn/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=%E4%B8%AD%E4%BB%8B%E5%88%86%E6%9E%90&#43;https%3A%2F%2Fyufree.cn%2Fcn%2F2020%2F12%2F25%2Fmediation%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=%E4%B8%AD%E4%BB%8B%E5%88%86%E6%9E%90&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fcn%2F2020%2F12%2F25%2Fmediation%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/cn/2020-12-25-mediation/index.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="编辑本页"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>最近看到有研究开始把中介分析引入到环境健康分析里来了，考虑到实验学科的数据分析能力长期落后统计分析，我这里也做个中介，把这种方法通过问题导向方式解释下。</p>
+<p>首先说下中介分析的背景，中介分析现在可以划分到因果分析中，但历史比因果分析要长，其解决的基本问题就是回归的解释问题。打个比方，一个人的身高影响因素可能来自于遗传，也可以来自后天营养水平，如果我仅仅研究遗传那部分，那么可以列一个公式：</p>
+<p>$$Y(身高) = X（遗传）+\epsilon$$</p>
+<p>遗传最简单的就是用父母平均身高，这个回归公式可以说是线性回归的起点。然而，父母身高虽然可以作为一个综合指标可以用来做预测，但我们并不知道机理，也就是究竟是什么样的遗传机制决定了身高。今天我们组学技术泛滥，可以在分子水平去定量身高的遗传影响机制，假设我们关注的是基因，也就有了下面这两个公式：</p>
+<p>$$Y(身高) = M_1（基因1）+ M_2(基因2)+&hellip;+M_n(基因n)+\epsilon$$</p>
+<p>$$X(遗传) = M_1（基因1）+ M_2(基因2)+&hellip;+M_m(基因m)+\epsilon$$</p>
+<p>这里基因就成了解释遗传影响身高的中介，要知道这个中介身份不是任意找的，是学科知识引导的，你只有认可基因决定遗传这个生物学遗传学的说法，才能构成这个身高-基因-遗传这个中介关系。也正是因为这一步依赖理论逻辑，所以可以纳入因果分析之中考量，用来回答因果机制问题。这里果就是身高，因的笼统指标就是父母身高，机制指标就是各种基因。这个结构范式很容易用到其他领域，用来解释两个综合指标间发生联系的具体机制，例如在暴露组学中，发现某种污染物与某种疾病间的联系是比较容易的，但解释污染物导致疾病的分子机制就需要毒理学研究。但一个很可能出现的情况就是污染物A影响了代谢物甲，代谢物甲会影响疾病1，但我们却不能直接观察到污染物A与疾病1的关系，这里的盲点在于代谢物甲的调节机制可能是非线性的，但如果不发现这个调节机制我们对污染的评价就是不全面的，这里就需要中介分析。</p>
+<p>在中介分析的语境下，我们听到更多的是直接效应与间接效应，此时有可能同时存在X对Y的直接影响与X通过M影响Y的间接效应。当然你也可以理解为X是一个综合因素，我们提出的M只能解释X的一部分，剩下解释不了的都成了X的直接效应。但无论如何，这个中介物一定要是比X解释性更强的因素而不能是更综合的，否则你没法分析机理，打比方身高你可以用牛奶饮用量作为X，用牛奶里某种维生素作为M，但要是你打算解释维生素如何影响身高，就不能把牛奶饮用量当中介物，统计模型上是没问题的，但因果逻辑上属于胡说八道，除非你打算提出一个新理论说维生素通过改变牛奶成分影响身高，不出意外会被审稿人花式玄学调侃。</p>
+<p>那么中介分析怎么做，其实你问题想明白了解决思路也就比较清晰了，首先做直接的回归：</p>
+<p>$$Y = X+\epsilon$$</p>
+<p>然后，用你的M去解释下X：</p>
+<p>$X = M+\epsilon$</p>
+<p>之后，把M跟X结合起来去解释下Y：</p>
+<p>$Y=X+M+\epsilon$</p>
+<p>从第一个公式，你可以知道X是否影响Y；从第二个公式，你可以知道中介M有没有找对；第三个公式，你可以知道控制了M后X是否还有直接影响。这里所谓的是否有影响就是看回归系数是否与0有显著差异。在最后一个回归上，如果加入M后，X没直接影响了，那么这个中介就能完全解释Y了，也就不用考虑X了。然而，如果存在直接影响，那么就可以进一步评价直接与间接影响大小了。这三个回归做完，基本就清楚中介效应是否存在了。当然，这个框架没法处理我前面说的非线性问题或交互作用，不过基本就能厘清传统中介分析怎么做了。你可以得到中介效应（ME）与直接效应（DE），总效应自然就是第一个回归给出的结果，其实也就是前面两个效应的加和。不过真实实验数据，M与X可能同时被其他因素影响，X与Y也可能被其他因素影响，这些因素可能已知，可能未知。数据的收集也很难符合X跟M都随机的要求。</p>
+<p>此时就要引入因果分析了，其实就是对传统模型泛化，把直接效应与间接效应再各分为控制的（controlled）与自然的（natural）来将交互作用纳入到效应考察之中。这里需要额外做四个假设：</p>
+<ul>
+<li>对控制效应与自然效应，要保证X与Y之间没有混杂因素，也就是共果</li>
+<li>对控制效应与自然效应，要保证M与Y之间没有混杂因素</li>
+<li>对自然效应，要保证X与M之间没有混杂因素</li>
+<li>对自然效应，要保证M与Y间没有由X引发的混杂因素</li>
+</ul>
+<p>这个数据要求就比较高了，特别是最后两个，但如果假设没问题，可以用 Pearl’s mediation formulas 去估计总直接效应与纯间接效应或总间接效应与纯直接效应，此时X与M的交互作用会被总效应吸收。不过这些计算交给软件去做就可以了，你只需告诉模型是否要考虑交互作用，或者可以都试试。另外，中介效应需要做敏感性分析，一般用bootstrap来做。</p>
+<p>如果你真打算用中介分析，一定要搞清楚你的模型假设是啥，要对数据结构有充分理解，这也是所有因果分析都需要注意的。对数据假设越多，模型系统偏差可能就越多或越少，不要为了用中介分析去用中介分析，有时候很简单的模型或许粗糙，但结论却更可靠，只要你清楚你在干什么。</p>
+<p>参考资料</p>
+<ul>
+<li><a href="https://www.publichealth.columbia.edu/research/population-health-methods/causal-mediation">因果中介分析的介绍</a></li>
+<li><a href="https://cran.r-project.org/web/packages/mediation/index.html">R的中介分析包：mediation 包</a></li>
+<li><a href="https://towardsdatascience.com/doing-and-reporting-your-first-mediation-analysis-in-r-2fe423b92171">基于鸢尾花数据做的中介分析案例</a></li>
+</ul>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/cn/2020/12/13/preppy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> 预科生</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/cn/2020/12/31/33/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">三十三 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2020\/12\/13\/preppy\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/cn\/2020\/12\/31\/33\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

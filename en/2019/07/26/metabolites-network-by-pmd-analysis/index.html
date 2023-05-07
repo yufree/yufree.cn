@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>Metabolites network by PMD analysis - Miao Yu | 于淼 </title>
+<meta property="og:title" content="Metabolites network by PMD analysis - Miao Yu | 于淼 ">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.9.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<script async src="https://use.fontawesome.com/32c3d13def.js"></script>
+
+
+		    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S0CPNLV6R');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S0CPNLV6R"></script>
+<script src="https://ipmeta.io/plugin.js"></script>
+<script>
+   provideGtagPlugin({
+      serviceProvider: 'dimension1',
+      networkDomain: 'dimension2',
+      networkType: 'dimension3',
+   });
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://yufree.cn/" class="nav-logo">
+    <img src="https://yufree.cn/images/fish.png"
+         width="50"
+         height="50"
+         alt="Yufree">
+  </a>
+
+  <ul class="nav-links">
+    
+    
+    
+    <li class=""><a href="/"> Home </a></li>
+    
+    <li class=""><a href="/en/about/"> About </a></li>
+    
+    <li class=""><a href="/en/"> Blog </a></li>
+    
+    <li class=""><a href="/en/vitae/"> Vitae </a></li>
+    
+    <li class=""><a href="https://bookdown.org/yufree/Metabolomics/"> MetaWorkflow </a></li>
+    
+    <li class=""><a href="/cn/"> 中文 </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+    <h1 class="article-title">Metabolites network by PMD analysis
+
+</h1>
+
+
+<div class="article-date">
+  <span> Miao Yu ·   2019/07/26</span>
+  <span class="article-toolbar">
+    
+    <a href="/en/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+    
+    <a href="https://twitter.com/home?status=Metabolites&#43;network&#43;by&#43;PMD&#43;analysis&#43;https%3A%2F%2Fyufree.cn%2Fen%2F2019%2F07%2F26%2Fmetabolites-network-by-pmd-analysis%2F&#43;via&#43;%40yu_free" target="_blank"><i class="fa fa-twitter" aria-hidden="true" title="Share via Twitter"></i></a>
+    <a href="http://service.weibo.com/share/share.php?content=utf-8&amp;title=Metabolites&#43;network&#43;by&#43;PMD&#43;analysis&#43;%40%E8%B4%AB%E9%81%93yufree&amp;url=https%3A%2F%2Fyufree.cn%2Fen%2F2019%2F07%2F26%2Fmetabolites-network-by-pmd-analysis%2F" target="_blank"><i class="fa fa-weibo" aria-hidden="true" title="分享到新浪微博"></i></a>
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a>
+    
+    
+    
+    <a href="https://github.com/yufree/yufree.cn/edit/master/content/en/2019-07-26-metabolites-network-by-pmd-analysis.md"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Suggest an edit of this page"></i></a>
+    
+    </span>
+</div>
+
+
+
+    
+    <div class="article-content">
+      <p>Recently, my colleagues from Chinese Academy of Sciences published a <a href="https://pubs.acs.org/doi/10.1021/acs.est.9b02122">paper</a> about pumpkin TBBPA metabolites. I am one of the co-authors since I wrote the code to screen bronimated compounds. Later I wrote a formal function <a href="http://yufree.github.io/enviGCMS/reference/findohc.html">findohc</a> in enviGCMS package to screen those compounds. The code design is slightly different with the original <a href="https://pubs.acs.org/doi/abs/10.1021/acs.est.6b03294">paper</a> while it works fine. However, today my topic will not be about screen metabolites by mass defect clusters. I want to show you how to build a metabolites network by known PMDs.</p>
+<p>The original question is simple and straightforward: it&rsquo;s much easier to find metabolites for parent compounds while it&rsquo;s not easy to find the metabolites of metabolites. In the recently published paper, my colleague showed the following figure:</p>
+<p><img src="https://yufree.github.io/presentation/figure/TBBPAmet.jpeg" alt="TBBPA metabolites"></p>
+<p>I agree with this plot while it obviously that some metabolites are from other metabolites instead of parent compounds. For example, TBBPA MG could be the parent compound of TBBPA MMG. It&rsquo;s biologically meaningful to have those connected reactions. Then I suddenly realized my PMD analysis should also worked.</p>
+<p>For pollution metabolism, Phase I and Phase II reactions are always there since both drug and pollution are treated equally as xenobiotic for living system. In this case, we actually know the corresponding PMDs. Here I selected five PMDs: &ldquo;+Br/-H&rdquo; for debromination process, &ldquo;+6C10H5O&rdquo; for Glycosylation, &ldquo;+3C2H3O&rdquo; for Malonylation, &ldquo;+C2H&rdquo; for Methylation and &ldquo;+O&rdquo; for Hydroxylation. I put atom number in front of atom character to make a difference with chemical formula. By writing a function called <a href="http://yufree.github.io/pmd/reference/getchain.html">getchain</a> to recursive search ions with those PMDs relationships in pmd package and filtered by pair-wise correlation coefficients larger than 0.6, I get this figure:</p>
+<p><img src="https://yufree.github.io/presentation/figure/TBBPA.png" alt="TBBPA"></p>
+<p>Here we could see metabolites network for TBBPA. It actually found lots of intermediate compounds from the raw data. Assuming those five reactions could stand for the major metabolism pathway in pumpkin, they could already produce a network structure. We could find TBBPA is not the center of the metabolism and Glycosylation build a bridge for more metabolites. The red dash line parts included some compounds we missed in the published paper. It&rsquo;s surprising to find some Phase II reaction happened again and again. Since this work is already published, I didn&rsquo;t expect another publication for this work. However, I believe this script would be useful for community. In this case, I included peaks list data from this study in enviGCMS package. Here is the code to reproduce the network analysis for TBBPA metabolites and please cite the papers for <a href="https://www.sciencedirect.com/science/article/pii/S0003267018313047?via%3Dihub">pmd</a> and <a href="https://www.sciencedirect.com/science/article/pii/S0039914016309298">enviGCMS</a> package, as well as the <a href="https://pubs.acs.org/doi/10.1021/acs.est.9b02122">TBBPA</a> study if you use those functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#39;yufree/enviGCMS&#39;</span>)
+remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#39;yufree/pmd&#39;</span>)
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;igraph&#39;</span>,<span style="color:#e6db74">&#39;RColorBrewer&#39;</span>))
+<span style="color:#a6e22e">library</span>(enviGCMS)
+<span style="color:#a6e22e">library</span>(pmd)
+<span style="color:#75715e"># load the data</span>
+<span style="color:#a6e22e">data</span>(TBBPA)
+<span style="color:#75715e"># extract brominated compounds</span>
+x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">findohc</span>(TBBPA)
+brcomp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getfilter</span>(x,rowindex <span style="color:#f92672">=</span> x<span style="color:#f92672">$</span>mz <span style="color:#f92672">%in%</span> x<span style="color:#f92672">$</span>ohc<span style="color:#f92672">$</span>mz)
+pmd <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(data <span style="color:#f92672">=</span> brcomp<span style="color:#f92672">$</span>data,mz <span style="color:#f92672">=</span> brcomp<span style="color:#f92672">$</span>mz, rt <span style="color:#f92672">=</span> brcomp<span style="color:#f92672">$</span>rt, group <span style="color:#f92672">=</span> brcomp<span style="color:#f92672">$</span>group)
+<span style="color:#75715e"># build the network</span>
+df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getchain</span>(pmd,diff <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">77.91</span>,<span style="color:#ae81ff">162.05</span>,<span style="color:#ae81ff">86</span>,<span style="color:#ae81ff">14.02</span>,<span style="color:#ae81ff">15.99</span>),<span style="color:#ae81ff">542.7446</span>)
+df<span style="color:#f92672">$</span>sdac<span style="color:#f92672">$</span>ms1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(df<span style="color:#f92672">$</span>sdac<span style="color:#f92672">$</span>ms1,<span style="color:#ae81ff">4</span>)
+df<span style="color:#f92672">$</span>sdac<span style="color:#f92672">$</span>ms2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(df<span style="color:#f92672">$</span>sdac<span style="color:#f92672">$</span>ms2,<span style="color:#ae81ff">4</span>)
+<span style="color:#a6e22e">library</span>(igraph)
+<span style="color:#a6e22e">library</span>(RColorBrewer)
+pal <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.pal</span>(<span style="color:#ae81ff">5</span>,<span style="color:#e6db74">&#34;Accent&#34;</span>)
+<span style="color:#75715e"># only use pairs with correlation coefficience larger than 0.6</span>
+net <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">graph_from_data_frame</span>(df<span style="color:#f92672">$</span>sdac<span style="color:#a6e22e">[abs</span>(df<span style="color:#f92672">$</span>sdac<span style="color:#f92672">$</span>cor)<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0.6</span>,],directed <span style="color:#f92672">=</span> F)
+<span style="color:#75715e"># show the network</span>
+<span style="color:#a6e22e">plot</span>(net,vertex.size <span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>,edge.color <span style="color:#f92672">=</span> pal<span style="color:#a6e22e">[as.numeric</span>(<span style="color:#a6e22e">as.factor</span>(<span style="color:#a6e22e">E</span>(net)<span style="color:#f92672">$</span>diff2))],edge.width <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
+<span style="color:#a6e22e">legend</span>(<span style="color:#e6db74">&#34;topright&#34;</span>,bty <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n&#34;</span>, 
+       legend<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;+Br/-H&#39;</span>,<span style="color:#e6db74">&#39;+6C10H5O(Glycosylation)&#39;</span>,<span style="color:#e6db74">&#39;+3C2H3O(Malonylation)&#39;</span>,<span style="color:#e6db74">&#39;+C2H(Methylation)&#39;</span>,<span style="color:#e6db74">&#39;+O(Hydroxylation)&#39;</span>),
+       fill<span style="color:#f92672">=</span><span style="color:#a6e22e">unique</span>(pal<span style="color:#a6e22e">[as.numeric</span>(<span style="color:#a6e22e">as.factor</span>(<span style="color:#a6e22e">E</span>(net)<span style="color:#f92672">$</span>diff2))]), border<span style="color:#f92672">=</span><span style="color:#66d9ef">NA</span>)
+</code></pre></div><p>Besides, I will attend American Chemical Society Fall 2019 National Meeting &amp; Expo in San Diego, CA next month and give a oral presentation about structure/reaction directed analysis for environmental studies. If you will be there and want to do some <del>stupid</del> cool things for untarget analysis, feel free to contact me.</p>
+
+    </div>
+    
+
+<nav id="article-nav">
+    
+    <a href="https://yufree.cn/en/2019/03/10/quantum-effect-for-paired-mass-distances/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Quantum effect for chemical reaction</div>
+    </a>
+    
+
+    
+    <a href="https://yufree.cn/en/2019/10/15/use-msconvert-in-linux-or-mac/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">Use msconvert in Linux or Mac <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+    </a>
+    
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2019\/03\/10\/quantum-effect-for-paired-mass-distances\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = 'https:\/\/yufree.cn\/en\/2019\/10\/15\/use-msconvert-in-linux-or-mac\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+  </article>
+
+  
+<section id="comments">
+  <script>
+  
+  var runningOnBrowser = typeof window !== "undefined";
+  
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  
+  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+  
+  var disqus_config = function () {
+    this.page.url = "https:\/\/yufree.cn" + location.pathname;
+  };
+  
+  setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    
+    var disqus_observer = new IntersectionObserver(function(entries) {
+      
+      if (entries[0].isIntersecting) {
+        
+        var d = document, s = d.createElement('script');
+        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        
+        disqus_observer.disconnect();
+      }
+    }, { threshold: [0] });
+    
+    disqus_observer.observe(document.getElementById('disqus_thread'));
+  } else {
+    
+    
+    var d = document, s = d.createElement('script');
+    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+}, 1);
+  </script>
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          
+          <li><a href="https://github.com/yufree"><i class="fa fa-github" aria-hidden="true" title="Github"></i><span class="sr-only">Github</span></a></li>
+          <li><a href="https://twitter.com/yu_free"><i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i><span class="sr-only">Twitter</span></a></li>
+          <li><a href="http://weibo.com/yufreecas"><i class="fa fa-weibo" aria-hidden="true" title="新浪微博"></i><span class="sr-only">新浪微博</span></a></li>
+          
+          <li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fa fa-cc" aria-hidden="true" title="Attribution-NonCommercial-ShareAlike 4.0 International"></i><span class="sr-only">Attribution-NonCommercial-ShareAlike 4.0 International</span></a></li>
+          <li><a href="/"><i class="fa fa-copyright" aria-hidden="true" title="Copyright"></i> 2023</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script async src="https://yufree.cn/js/center-img.js"></script>
+    
+    <script async src="https://yufree.cn/js/fix-footnote.js"></script>
+    
+    
+
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.9.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-6S0CPNLV6R', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

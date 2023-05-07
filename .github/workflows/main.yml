@@ -15,6 +15,8 @@ jobs:
         run: Rscript -e 'install.packages(c("blogdown"))'
       - name: Install Hugo
         run: Rscript -e 'blogdown::install_hugo(extended = TRUE, version = "0.79.1")'
+      - name: Install Hugo theme
+        run: Rscript -e 'blogdown::install_theme("yufree/hugo-lithium-theme")'
       - name: Build site
         run: blogdown:::build_site(TRUE)
         shell: Rscript {0} 

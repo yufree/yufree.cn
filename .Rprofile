@@ -1,3 +1,4 @@
+source("renv/activate.R")
 if (file.exists('~/.Rprofile')) sys.source('~/.Rprofile', envir = environment())
 options(
         digits = 4, formatR.indent = 2,

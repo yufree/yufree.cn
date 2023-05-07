@@ -8,13 +8,141 @@
       }
     ]
   },
+  "Bioconductor": {
+    "Version": "3.17"
+  },
   "Packages": {
+    "AnnotationDbi": {
+      "Package": "AnnotationDbi",
+      "Version": "1.62.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/AnnotationDbi",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "21f8479",
+      "git_last_commit_date": "2023-05-01",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "DBI",
+        "IRanges",
+        "KEGGREST",
+        "R",
+        "RSQLite",
+        "S4Vectors",
+        "methods",
+        "stats",
+        "stats4"
+      ],
+      "Hash": "23a8bf8b555ec9e4d20c8a0bec495786"
+    },
     "BH": {
       "Package": "BH",
       "Version": "1.81.0-1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "68122010f01c4dcfbe58ce7112f2433d"
+    },
+    "Biobase": {
+      "Package": "Biobase",
+      "Version": "2.60.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/Biobase",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "8dc10d2",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "R",
+        "methods",
+        "utils"
+      ],
+      "Hash": "ed269b250f5844d54dfdc7e749f901aa"
+    },
+    "BiocGenerics": {
+      "Package": "BiocGenerics",
+      "Version": "0.46.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/BiocGenerics",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "a90f0c5",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "R",
+        "graphics",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "c179ae59955c36f5d0068ed29ce832f7"
+    },
+    "BiocManager": {
+      "Package": "BiocManager",
+      "Version": "1.30.20",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "a7fca16a50b6ef7771b49d636dd54b57"
+    },
+    "BiocParallel": {
+      "Package": "BiocParallel",
+      "Version": "1.33.11",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/BiocParallel",
+      "git_branch": "devel",
+      "git_last_commit": "b309acd",
+      "git_last_commit_date": "2023-03-23",
+      "Requirements": [
+        "BH",
+        "R",
+        "codetools",
+        "cpp11",
+        "futile.logger",
+        "methods",
+        "parallel",
+        "snow",
+        "stats",
+        "utils"
+      ],
+      "Hash": "86c5e4a3689f83526cc5405408bff3bd"
+    },
+    "BiocVersion": {
+      "Package": "BiocVersion",
+      "Version": "3.17.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/BiocVersion",
+      "git_branch": "master",
+      "git_last_commit": "a2d0c4c",
+      "git_last_commit_date": "2022-11-02",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "f7c0d5521799b7b0d0a211143ed0bfcb"
+    },
+    "Biostrings": {
+      "Package": "Biostrings",
+      "Version": "2.68.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/Biostrings",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "f28b783",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "GenomeInfoDb",
+        "IRanges",
+        "R",
+        "S4Vectors",
+        "XVector",
+        "crayon",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "7699769946b577c3a2664c39eecd3abd"
     },
     "DBI": {
       "Package": "DBI",
@@ -26,6 +154,16 @@
         "methods"
       ],
       "Hash": "b2866e62bab9378c3cc9476a1954226b"
+    },
+    "DEoptimR": {
+      "Package": "DEoptimR",
+      "Version": "1.0-13",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "stats"
+      ],
+      "Hash": "8f5c81679eea074e7152f16b78d7de81"
     },
     "DT": {
       "Package": "DT",
@@ -42,6 +180,28 @@
         "promises"
       ],
       "Hash": "3444e6ed78763f9f13aaa39f2481eb34"
+    },
+    "DelayedArray": {
+      "Package": "DelayedArray",
+      "Version": "0.26.2",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/DelayedArray",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "9836b18",
+      "git_last_commit_date": "2023-05-05",
+      "Requirements": [
+        "BiocGenerics",
+        "IRanges",
+        "Matrix",
+        "MatrixGenerics",
+        "R",
+        "S4Arrays",
+        "S4Vectors",
+        "methods",
+        "stats",
+        "stats4"
+      ],
+      "Hash": "65d87f0cf7b1fca7ecfb0201c1427cd4"
     },
     "DoE.base": {
       "Package": "DoE.base",
@@ -81,6 +241,95 @@
       ],
       "Hash": "fc189e5c89128a9d9bac0e51caa990cd"
     },
+    "GenomeInfoDb": {
+      "Package": "GenomeInfoDb",
+      "Version": "1.36.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/GenomeInfoDb",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "c380bb9",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "GenomeInfoDbData",
+        "IRanges",
+        "R",
+        "RCurl",
+        "S4Vectors",
+        "methods",
+        "stats",
+        "stats4",
+        "utils"
+      ],
+      "Hash": "97c524e262f664c987d66ceccd48bcad"
+    },
+    "GenomeInfoDbData": {
+      "Package": "GenomeInfoDbData",
+      "Version": "1.2.10",
+      "Source": "Bioconductor",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "56294b21068b8cb5db1c47d0a42f307b"
+    },
+    "GenomicRanges": {
+      "Package": "GenomicRanges",
+      "Version": "1.52.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/GenomicRanges",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "883f125",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "GenomeInfoDb",
+        "IRanges",
+        "R",
+        "S4Vectors",
+        "XVector",
+        "methods",
+        "stats",
+        "stats4",
+        "utils"
+      ],
+      "Hash": "dc2970e434666341650a7983435597bf"
+    },
+    "IRanges": {
+      "Package": "IRanges",
+      "Version": "2.34.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/IRanges",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "dcddf93",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "R",
+        "S4Vectors",
+        "methods",
+        "stats",
+        "stats4",
+        "utils"
+      ],
+      "Hash": "71c1620f45c7d30cb83f260b0f58fa3d"
+    },
+    "KEGGREST": {
+      "Package": "KEGGREST",
+      "Version": "1.40.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/KEGGREST",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "1bdb0b5",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biostrings",
+        "R",
+        "httr",
+        "methods",
+        "png"
+      ],
+      "Hash": "b5a4bf06281c694bc38412812c70b011"
+    },
     "KernSmooth": {
       "Package": "KernSmooth",
       "Version": "2.23-21",
@@ -91,6 +340,18 @@
         "stats"
       ],
       "Hash": "6314fc110e09548ba889491db6ae67fb"
+    },
+    "MALDIquant": {
+      "Package": "MALDIquant",
+      "Version": "1.22.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods",
+        "parallel"
+      ],
+      "Hash": "49d887aead86e8a4096282ea0e8fa591"
     },
     "MASS": {
       "Package": "MASS",
@@ -107,6 +368,84 @@
       ],
       "Hash": "a56a6365b3fa73293ea8d084be0d9bb0"
     },
+    "MSnbase": {
+      "Package": "MSnbase",
+      "Version": "2.26.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/MSnbase",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "3e6268a",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "BiocParallel",
+        "IRanges",
+        "MALDIquant",
+        "MASS",
+        "MsCoreUtils",
+        "ProtGenerics",
+        "R",
+        "Rcpp",
+        "S4Vectors",
+        "XML",
+        "affy",
+        "digest",
+        "ggplot2",
+        "grid",
+        "impute",
+        "lattice",
+        "methods",
+        "mzID",
+        "mzR",
+        "pcaMethods",
+        "plyr",
+        "scales",
+        "stats4",
+        "vsn"
+      ],
+      "Hash": "60e172fc36ac53a2a8202b49b264e4da"
+    },
+    "MassSpecWavelet": {
+      "Package": "MassSpecWavelet",
+      "Version": "1.66.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/MassSpecWavelet",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "be1c4b2",
+      "git_last_commit_date": "2023-04-25",
+      "Hash": "be290390bf99f8dc0b79c327721bd5e6"
+    },
+    "Matrix": {
+      "Package": "Matrix",
+      "Version": "1.5-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "grid",
+        "lattice",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "e779c7d9f35cc364438578f334cffee2"
+    },
+    "MatrixGenerics": {
+      "Package": "MatrixGenerics",
+      "Version": "1.12.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/MatrixGenerics",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "442fde2",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "matrixStats",
+        "methods"
+      ],
+      "Hash": "9f9813ce7b2adab14337f5516e337b65"
+    },
     "ModelMetrics": {
       "Package": "ModelMetrics",
       "Version": "1.2.2.2",
@@ -119,6 +458,43 @@
       ],
       "Hash": "40a55bd0b44719941d103291ac5e9d74"
     },
+    "MsCoreUtils": {
+      "Package": "MsCoreUtils",
+      "Version": "1.12.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/MsCoreUtils",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "14a3fdb",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "MASS",
+        "R",
+        "Rcpp",
+        "S4Vectors",
+        "clue",
+        "methods",
+        "stats"
+      ],
+      "Hash": "0139dd7ddc950fee4026c99be79e70c1"
+    },
+    "MsFeatures": {
+      "Package": "MsFeatures",
+      "Version": "1.8.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/MsFeatures",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "b4b415e",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "MsCoreUtils",
+        "ProtGenerics",
+        "R",
+        "SummarizedExperiment",
+        "methods",
+        "stats"
+      ],
+      "Hash": "2b4ab6d74458364786c3dd128e87ea5b"
+    },
     "NLP": {
       "Package": "NLP",
       "Version": "0.2-1",
@@ -130,6 +506,19 @@
       ],
       "Hash": "94b0a21c13933f61cf6272a192964624"
     },
+    "ProtGenerics": {
+      "Package": "ProtGenerics",
+      "Version": "1.32.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/ProtGenerics",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "30c6458",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "methods"
+      ],
+      "Hash": "6c853f577f1f8878d9fae988a0b542cc"
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.5.1",
@@ -139,6 +528,28 @@
         "R"
       ],
       "Hash": "470851b6d5d0ac559e9d01bb352b4021"
+    },
+    "RANN": {
+      "Package": "RANN",
+      "Version": "2.6.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d128ea05a972d3e67c6f39de52c72bd7"
+    },
+    "RBGL": {
+      "Package": "RBGL",
+      "Version": "1.76.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/RBGL",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "18b7cc5",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BH",
+        "graph",
+        "methods"
+      ],
+      "Hash": "86cc3457977ef5350e0788c6c96846ee"
     },
     "RColorBrewer": {
       "Package": "RColorBrewer",
@@ -161,6 +572,24 @@
         "methods"
       ],
       "Hash": "1d6ed2d006d483f31c6d5531f3a39923"
+    },
+    "RSQLite": {
+      "Package": "RSQLite",
+      "Version": "2.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "bit64",
+        "blob",
+        "cpp11",
+        "memoise",
+        "methods",
+        "pkgconfig",
+        "plogr"
+      ],
+      "Hash": "207c90cd5438a1f596da2cd54c606fee"
     },
     "Rcpp": {
       "Package": "Rcpp",
@@ -201,6 +630,20 @@
       ],
       "Hash": "1e035db628cefb315c571202d70202fe"
     },
+    "Rdisop": {
+      "Package": "Rdisop",
+      "Version": "1.59.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/Rdisop",
+      "git_branch": "master",
+      "git_last_commit": "e87e53e",
+      "git_last_commit_date": "2023-02-12",
+      "Requirements": [
+        "R",
+        "Rcpp"
+      ],
+      "Hash": "1dbeac90cac51e039d1d261ca340ea46"
+    },
     "Rdpack": {
       "Package": "Rdpack",
       "Version": "2.4",
@@ -214,6 +657,57 @@
         "utils"
       ],
       "Hash": "0ddbe51591ab1d3e7362e0da3727c837"
+    },
+    "Rhdf5lib": {
+      "Package": "Rhdf5lib",
+      "Version": "1.22.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/Rhdf5lib",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "2bf06b3",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "e7076cf88b7dbc0bc4ab9804afadf3ae"
+    },
+    "S4Arrays": {
+      "Package": "S4Arrays",
+      "Version": "1.0.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/S4Arrays",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "5b00735",
+      "git_last_commit_date": "2023-04-30",
+      "Requirements": [
+        "BiocGenerics",
+        "IRanges",
+        "Matrix",
+        "R",
+        "S4Vectors",
+        "crayon",
+        "methods",
+        "stats"
+      ],
+      "Hash": "fa74606b85dbbbafd5d645f7a3c51504"
+    },
+    "S4Vectors": {
+      "Package": "S4Vectors",
+      "Version": "0.38.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/S4Vectors",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "17a9d8c",
+      "git_last_commit_date": "2023-05-01",
+      "Requirements": [
+        "BiocGenerics",
+        "R",
+        "methods",
+        "stats",
+        "stats4",
+        "utils"
+      ],
+      "Hash": "f0a46e23a2a7d6aa27e945faf7f242c7"
     },
     "SQUAREM": {
       "Package": "SQUAREM",
@@ -231,6 +725,151 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "46da3912f69e3e6258a033802c4af32e"
+    },
+    "SummarizedExperiment": {
+      "Package": "SummarizedExperiment",
+      "Version": "1.30.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/SummarizedExperiment",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "d7b3ada",
+      "git_last_commit_date": "2023-04-30",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "DelayedArray",
+        "GenomeInfoDb",
+        "GenomicRanges",
+        "IRanges",
+        "Matrix",
+        "MatrixGenerics",
+        "R",
+        "S4Arrays",
+        "S4Vectors",
+        "methods",
+        "stats",
+        "tools",
+        "utils"
+      ],
+      "Hash": "3c5f6bad810c9950abee035fabaa0fdc"
+    },
+    "XML": {
+      "Package": "XML",
+      "Version": "3.99-0.14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods",
+        "utils"
+      ],
+      "Hash": "e5c8af79df616c135b21eaeb1dc6bc5c"
+    },
+    "XVector": {
+      "Package": "XVector",
+      "Version": "0.40.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/XVector",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "875b4b4",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "IRanges",
+        "R",
+        "S4Vectors",
+        "methods",
+        "tools",
+        "utils",
+        "zlibbioc"
+      ],
+      "Hash": "cc3048ef590a16ff55a5e3149d5e060b"
+    },
+    "abind": {
+      "Package": "abind",
+      "Version": "1.4-5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods",
+        "utils"
+      ],
+      "Hash": "4f57884290cc75ab22f4af9e9d4ca862"
+    },
+    "affy": {
+      "Package": "affy",
+      "Version": "1.78.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/affy",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "cc7eac3",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "BiocManager",
+        "R",
+        "affyio",
+        "grDevices",
+        "graphics",
+        "methods",
+        "preprocessCore",
+        "stats",
+        "utils",
+        "zlibbioc"
+      ],
+      "Hash": "9fd6d425bffe512f423071022e2df98c"
+    },
+    "affyio": {
+      "Package": "affyio",
+      "Version": "1.70.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/affyio",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "9556056",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "R",
+        "methods",
+        "zlibbioc"
+      ],
+      "Hash": "283c9a759c6592e2fdac1f7b83ab9442"
+    },
+    "animation": {
+      "Package": "animation",
+      "Version": "2.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "magick"
+      ],
+      "Hash": "b44dfd6eca87dd78c1b8acc67887c615"
+    },
+    "annotate": {
+      "Package": "annotate",
+      "Version": "1.78.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/annotate",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "ca6415a",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "AnnotationDbi",
+        "Biobase",
+        "BiocGenerics",
+        "DBI",
+        "R",
+        "XML",
+        "graphics",
+        "httr",
+        "methods",
+        "stats",
+        "utils",
+        "xtable"
+      ],
+      "Hash": "40b2618966a1bdfbcd48ea4b8ac03a39"
     },
     "askpass": {
       "Package": "askpass",
@@ -261,6 +900,17 @@
         "R"
       ],
       "Hash": "543776ae6848fde2f48ff3816d0628bc"
+    },
+    "bdsmatrix": {
+      "Package": "bdsmatrix",
+      "Version": "1.3-6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "b55d57db210e5af3f097ae228aadaf50"
     },
     "bit": {
       "Package": "bit",
@@ -456,6 +1106,34 @@
       ],
       "Hash": "db6b0e88fa092982ecf56322b47be0fe"
     },
+    "clue": {
+      "Package": "clue",
+      "Version": "0.3-64",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "cluster",
+        "graphics",
+        "methods",
+        "stats"
+      ],
+      "Hash": "f013e45eb656a4bb17b39cb24827a51f"
+    },
+    "cluster": {
+      "Package": "cluster",
+      "Version": "2.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "stats",
+        "utils"
+      ],
+      "Hash": "5edbbabab6ce0bf7900a74fd4358628e"
+    },
     "coda": {
       "Package": "coda",
       "Version": "0.19-4",
@@ -466,6 +1144,16 @@
         "lattice"
       ],
       "Hash": "24b6d006b8b2343876cf230687546932"
+    },
+    "codetools": {
+      "Package": "codetools",
+      "Version": "0.2-19",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "c089a619a7fae175d149d89164f8c7d8"
     },
     "colorspace": {
       "Package": "colorspace",
@@ -514,6 +1202,17 @@
         "rlang"
       ],
       "Hash": "bb097fccb22d156624fd07cd2894ddb6"
+    },
+    "corpcor": {
+      "Package": "corpcor",
+      "Version": "1.6.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats"
+      ],
+      "Hash": "17ebe3b6d75d09c5bab3891880b34237"
     },
     "cpp11": {
       "Package": "cpp11",
@@ -648,6 +1347,20 @@
       ],
       "Hash": "8b708f296afd9ae69f450f9640be8990"
     },
+    "doParallel": {
+      "Package": "doParallel",
+      "Version": "1.0.17",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "foreach",
+        "iterators",
+        "parallel",
+        "utils"
+      ],
+      "Hash": "451e5edf411987991ab6a5410c45011f"
+    },
     "dplyr": {
       "Package": "dplyr",
       "Version": "1.1.2",
@@ -728,6 +1441,33 @@
       ],
       "Hash": "bb0eec2fe32e88d9e2836c2f73ea2077"
     },
+    "enviGCMS": {
+      "Package": "enviGCMS",
+      "Version": "0.7.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "enviGCMS",
+      "RemoteUsername": "yufree",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "c8d810578c6afc6b4b75d9132dff5f584625e99a",
+      "Requirements": [
+        "BiocParallel",
+        "R",
+        "RColorBrewer",
+        "Rdisop",
+        "animation",
+        "data.table",
+        "grDevices",
+        "graphics",
+        "igraph",
+        "methods",
+        "mixtools",
+        "stats",
+        "utils"
+      ],
+      "Hash": "95417fa2ac320b55c09d7871d7b9ae05"
+    },
     "evaluate": {
       "Package": "evaluate",
       "Version": "0.21",
@@ -757,6 +1497,16 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "8106d78941f34855c440ddb946b8f7a5"
+    },
+    "fastICA": {
+      "Package": "fastICA",
+      "Version": "1.2-3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "03a96bfe9f820e3d4e049cc0a11017e1"
     },
     "fastmap": {
       "Package": "fastmap",
@@ -806,6 +1556,16 @@
       ],
       "Hash": "618609b42c9406731ead03adf5379850"
     },
+    "formatR": {
+      "Package": "formatR",
+      "Version": "1.14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "63cb26d12517c7863f5abb006c5e0f25"
+    },
     "fs": {
       "Package": "fs",
       "Version": "1.6.2",
@@ -816,6 +1576,29 @@
         "methods"
       ],
       "Hash": "94af08e0aa9675a16fadbb3aaaa90d2a"
+    },
+    "futile.logger": {
+      "Package": "futile.logger",
+      "Version": "1.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "futile.options",
+        "lambda.r",
+        "utils"
+      ],
+      "Hash": "99f0ace8c05ec7d3683d27083c4f1e7e"
+    },
+    "futile.options": {
+      "Package": "futile.options",
+      "Version": "1.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "0d9bf02413ddc2bbe8da9ce369dcdd2b"
     },
     "future": {
       "Package": "future",
@@ -868,6 +1651,41 @@
       ],
       "Hash": "8c72a723822dc317613da5ff8e8da6ee"
     },
+    "gdata": {
+      "Package": "gdata",
+      "Version": "2.19.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "gtools",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "c62b8cf5c03602e852c66ad623d385fa"
+    },
+    "genefilter": {
+      "Package": "genefilter",
+      "Version": "1.82.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/genefilter",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "f4dadae",
+      "git_last_commit_date": "2023-05-01",
+      "Requirements": [
+        "AnnotationDbi",
+        "Biobase",
+        "MatrixGenerics",
+        "annotate",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats",
+        "survival"
+      ],
+      "Hash": "c5fe790c45d3e9f6dd308ff07fe66184"
+    },
     "generics": {
       "Package": "generics",
       "Version": "0.1.3",
@@ -907,6 +1725,19 @@
         "withr"
       ],
       "Hash": "a06503f54e227f79b45a72df2946a2d2"
+    },
+    "ggm": {
+      "Package": "ggm",
+      "Version": "2.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graph",
+        "igraph",
+        "methods"
+      ],
+      "Hash": "028aeecfb67995948925e73b484cbdf7"
     },
     "ggplot2": {
       "Package": "ggplot2",
@@ -1087,6 +1918,24 @@
       "Repository": "CRAN",
       "Hash": "7a0051eef852c301b5efe2f7913dd45f"
     },
+    "graph": {
+      "Package": "graph",
+      "Version": "1.78.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/graph",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "9df68e8",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "BiocGenerics",
+        "R",
+        "methods",
+        "stats",
+        "stats4",
+        "utils"
+      ],
+      "Hash": "1cf0ccf889cb4325011e1ad92e222ab1"
+    },
     "graphlayouts": {
       "Package": "graphlayouts",
       "Version": "1.0.0",
@@ -1128,6 +1977,18 @@
         "rlang"
       ],
       "Hash": "b44addadb528a0d227794121c00572a0"
+    },
+    "gtools": {
+      "Package": "gtools",
+      "Version": "3.9.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "88bb96eaf7140cdf29e374ef74182220"
     },
     "h2o": {
       "Package": "h2o",
@@ -1307,6 +2168,19 @@
       ],
       "Hash": "3e476b375c746d899fd53a7281d78191"
     },
+    "impute": {
+      "Package": "impute",
+      "Version": "1.74.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/impute",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "ab62dc0",
+      "git_last_commit_date": "2023-05-01",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "668ff08a658c10b0c2fdc6c98c8b7aa1"
+    },
     "ipred": {
       "Package": "ipred",
       "Version": "0.9-14",
@@ -1375,6 +2249,20 @@
       ],
       "Hash": "a4269a09a9b865579b2635c77e572374"
     },
+    "kernlab": {
+      "Package": "kernlab",
+      "Version": "0.9-32",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats"
+      ],
+      "Hash": "d7d6a7cb690ac73eeced99e1ed9d6cdb"
+    },
     "knitr": {
       "Package": "knitr",
       "Version": "1.42",
@@ -1402,16 +2290,42 @@
       ],
       "Hash": "3d5108641f47470611a32d0bdf357a72"
     },
+    "lambda.r": {
+      "Package": "lambda.r",
+      "Version": "1.2.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "formatR"
+      ],
+      "Hash": "b1e925c4b9ffeb901bacf812cbe9a6ad"
+    },
     "later": {
       "Package": "later",
-      "Version": "1.3.0",
+      "Version": "1.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "Rcpp",
         "rlang"
       ],
-      "Hash": "7e7b457d7766bc47f2a5f21cc2984f8e"
+      "Hash": "40401c9cf2bc2259dfe83311c9384710"
+    },
+    "lattice": {
+      "Package": "lattice",
+      "Version": "0.21-8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "grid",
+        "stats",
+        "utils"
+      ],
+      "Hash": "0b8a6d63c8770f02a8b5635f3c431e6b"
     },
     "lava": {
       "Package": "lava",
@@ -1456,6 +2370,24 @@
       ],
       "Hash": "001cecbeac1cff9301bdc3775ee46a86"
     },
+    "limma": {
+      "Package": "limma",
+      "Version": "3.56.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/limma",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "efe8578",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "55fcaf30936a01c995bec8a59276bf3f"
+    },
     "listenv": {
       "Package": "listenv",
       "Version": "0.9.0",
@@ -1492,6 +2424,18 @@
       ],
       "Hash": "e25f18436e3efd42c7c590a1c4c15390"
     },
+    "magick": {
+      "Package": "magick",
+      "Version": "2.7.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Rcpp",
+        "curl",
+        "magrittr"
+      ],
+      "Hash": "92dd08195d2270e188dcac8d4b219e84"
+    },
     "magrittr": {
       "Package": "magrittr",
       "Version": "2.0.3",
@@ -1509,6 +2453,16 @@
       "Repository": "CRAN",
       "Hash": "87da6ccdcee6077a7d5719406bf3ae45"
     },
+    "matrixStats": {
+      "Package": "matrixStats",
+      "Version": "0.63.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "57af0c3da1f1a50680b186591c3359af"
+    },
     "memoise": {
       "Package": "memoise",
       "Version": "2.0.1",
@@ -1519,6 +2473,23 @@
         "rlang"
       ],
       "Hash": "e2817ccf4a065c5d9d7f2cfbe7c1d78c"
+    },
+    "mgcv": {
+      "Package": "mgcv",
+      "Version": "1.8-42",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Matrix",
+        "R",
+        "graphics",
+        "methods",
+        "nlme",
+        "splines",
+        "stats",
+        "utils"
+      ],
+      "Hash": "3460beba7ccc8946249ba35327ba902a"
     },
     "mime": {
       "Package": "mime",
@@ -1541,6 +2512,23 @@
         "utils"
       ],
       "Hash": "fec5f52652d60615fdb3957b3d74324a"
+    },
+    "mixtools": {
+      "Package": "mixtools",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "MASS",
+        "R",
+        "kernlab",
+        "plotly",
+        "scales",
+        "segmented",
+        "stats",
+        "survival"
+      ],
+      "Hash": "2b9414057d7f3725130e2f743ea05a2f"
     },
     "modelr": {
       "Package": "modelr",
@@ -1572,6 +2560,25 @@
       ],
       "Hash": "f5a957c02222589bdf625a67be68b2a9"
     },
+    "multtest": {
+      "Package": "multtest",
+      "Version": "2.56.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/multtest",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "6199757",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "MASS",
+        "R",
+        "methods",
+        "stats4",
+        "survival"
+      ],
+      "Hash": "f49d336c6a4ba425d58ba47a9a6d742d"
+    },
     "munsell": {
       "Package": "munsell",
       "Version": "0.5.0",
@@ -1582,6 +2589,54 @@
         "methods"
       ],
       "Hash": "6dfe8bf774944bd5595785e3229d8771"
+    },
+    "mzID": {
+      "Package": "mzID",
+      "Version": "1.38.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/mzID",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "d87d8b8",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "ProtGenerics",
+        "XML",
+        "doParallel",
+        "foreach",
+        "iterators",
+        "methods",
+        "parallel",
+        "plyr"
+      ],
+      "Hash": "b874d5c93d74303d43e8fce35a6e777c"
+    },
+    "mzR": {
+      "Package": "mzR",
+      "Version": "2.34.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/mzR",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "14ccc37",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "ProtGenerics",
+        "R",
+        "Rcpp",
+        "Rhdf5lib",
+        "methods",
+        "ncdf4",
+        "utils"
+      ],
+      "Hash": "356c82e1ad1f5697ef3eacd22008c808"
+    },
+    "ncdf4": {
+      "Package": "ncdf4",
+      "Version": "1.21",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a7b262641ef4659767d415c6bb78413f"
     },
     "network": {
       "Package": "network",
@@ -1597,6 +2652,20 @@
         "utils"
       ],
       "Hash": "ff269769a617e85fa28016a0240d6307"
+    },
+    "nlme": {
+      "Package": "nlme",
+      "Version": "3.1-162",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "lattice",
+        "stats",
+        "utils"
+      ],
+      "Hash": "0984ce8da8da9ead8643c5cbbb60f83e"
     },
     "nnet": {
       "Package": "nnet",
@@ -1680,6 +2749,52 @@
       ],
       "Hash": "bc1dc076b0640525c330f28672d3b5b3"
     },
+    "pcaMethods": {
+      "Package": "pcaMethods",
+      "Version": "1.92.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/pcaMethods",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "ecbbc5b",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "MASS",
+        "Rcpp",
+        "methods"
+      ],
+      "Hash": "94f04bbc920fbee5a2966ac2de85822f"
+    },
+    "pcalg": {
+      "Package": "pcalg",
+      "Version": "2.7-8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "BH",
+        "R",
+        "RBGL",
+        "Rcpp",
+        "RcppArmadillo",
+        "abind",
+        "bdsmatrix",
+        "clue",
+        "corpcor",
+        "fastICA",
+        "ggm",
+        "graph",
+        "graphics",
+        "igraph",
+        "methods",
+        "robustbase",
+        "sfsmisc",
+        "stats",
+        "utils",
+        "vcd"
+      ],
+      "Hash": "be74e9c24b79b172cf5d27a0c664f630"
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.9.0",
@@ -1706,6 +2821,45 @@
         "utils"
       ],
       "Hash": "01f28d4278f15c76cddbea05899c5d6f"
+    },
+    "plogr": {
+      "Package": "plogr",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "09eb987710984fc2905c7129c7d85e65"
+    },
+    "plotly": {
+      "Package": "plotly",
+      "Version": "4.10.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "RColorBrewer",
+        "base64enc",
+        "crosstalk",
+        "data.table",
+        "digest",
+        "dplyr",
+        "ggplot2",
+        "htmltools",
+        "htmlwidgets",
+        "httr",
+        "jsonlite",
+        "lazyeval",
+        "magrittr",
+        "promises",
+        "purrr",
+        "rlang",
+        "scales",
+        "tibble",
+        "tidyr",
+        "tools",
+        "vctrs",
+        "viridisLite"
+      ],
+      "Hash": "3781cf6971c6467fa842a63725bbee9e"
     },
     "plyr": {
       "Package": "plyr",
@@ -1735,6 +2889,16 @@
       ],
       "Hash": "732d5900775bfb93a938c3b02e70a480"
     },
+    "png": {
+      "Package": "png",
+      "Version": "0.1-8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "bd54ba8a0a5faded999a7aab6e46b374"
+    },
     "polyclip": {
       "Package": "polyclip",
       "Version": "1.10-4",
@@ -1755,6 +2919,19 @@
         "stats"
       ],
       "Hash": "ceb5c2a59ba33d42d051285a3e8a5118"
+    },
+    "preprocessCore": {
+      "Package": "preprocessCore",
+      "Version": "1.62.1",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/preprocessCore",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "a1aecdf",
+      "git_last_commit_date": "2023-05-01",
+      "Requirements": [
+        "stats"
+      ],
+      "Hash": "b730f86674105ef376e99152aa5226ae"
     },
     "prettyunits": {
       "Package": "prettyunits",
@@ -1872,6 +3049,23 @@
         "vctrs"
       ],
       "Hash": "d71c815267c640f17ddbf7f16144b4bb"
+    },
+    "qvalue": {
+      "Package": "qvalue",
+      "Version": "2.32.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/qvalue",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "a6272dc",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "grid",
+        "reshape2",
+        "splines"
+      ],
+      "Hash": "d07f7cf42c6415334ebc6867b6eed588"
     },
     "ragg": {
       "Package": "ragg",
@@ -2097,6 +3291,50 @@
       ],
       "Hash": "493df4ae51e2e984952ea4d5c75786a3"
     },
+    "rmwf": {
+      "Package": "rmwf",
+      "Version": "0.1.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "rmwf",
+      "RemoteUsername": "yufree",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "4306be624f36c2d7ee1e4295ec899a320866257c",
+      "Requirements": [
+        "R",
+        "jsonlite"
+      ],
+      "Hash": "50cc0d9a5967a979aba1df271db78249"
+    },
+    "robustbase": {
+      "Package": "robustbase",
+      "Version": "0.95-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DEoptimR",
+        "R",
+        "graphics",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "50e6b6ad7801416766716d9fa853e23d"
+    },
+    "rpart": {
+      "Package": "rpart",
+      "Version": "4.1.19",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "stats"
+      ],
+      "Hash": "b3c892a81783376cc2204af0f5805a80"
+    },
     "rstudioapi": {
       "Package": "rstudioapi",
       "Version": "0.14",
@@ -2168,6 +3406,17 @@
         "stats"
       ],
       "Hash": "10ee4b91ec812690bd55d9bf51edccee"
+    },
+    "segmented": {
+      "Package": "segmented",
+      "Version": "1.6-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "MASS",
+        "nlme"
+      ],
+      "Hash": "afd0d39d61c3e80ef254b7d3162fdfee"
     },
     "selectr": {
       "Package": "selectr",
@@ -2291,6 +3540,17 @@
       ],
       "Hash": "e25793551cbdb843154152e5ee88cbd6"
     },
+    "snow": {
+      "Package": "snow",
+      "Version": "0.4-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "40b74690debd20c57d93d8c246b305d4"
+    },
     "sourcetools": {
       "Package": "sourcetools",
       "Version": "0.1.7-1",
@@ -2300,6 +3560,20 @@
         "R"
       ],
       "Hash": "5f5a7629f956619d519205ec475fe647"
+    },
+    "ssize": {
+      "Package": "ssize",
+      "Version": "1.74.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/ssize",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "caa487b",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "gdata",
+        "xtable"
+      ],
+      "Hash": "4480a24767fb5b550a32f370bf709deb"
     },
     "statnet.common": {
       "Package": "statnet.common",
@@ -2345,6 +3619,22 @@
         "vctrs"
       ],
       "Hash": "671a4d384ae9d32fc47a14e98bfa3dc8"
+    },
+    "survival": {
+      "Package": "survival",
+      "Version": "3.5-5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Matrix",
+        "R",
+        "graphics",
+        "methods",
+        "splines",
+        "stats",
+        "utils"
+      ],
+      "Hash": "d683341b1fa2e8d817efde27d6e6d35b"
     },
     "sys": {
       "Package": "sys",
@@ -2423,6 +3713,21 @@
         "utils"
       ],
       "Hash": "0fc97a52b4b32a0b4a3de4c5241348e2"
+    },
+    "tidypvals": {
+      "Package": "tidypvals",
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "tidypvals",
+      "RemoteUsername": "jtleek",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "b042f653a4ec07d07c331974d9c63853e91a79db",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "604f4259ac5d21392941b624c69dadb9"
     },
     "tidyr": {
       "Package": "tidyr",
@@ -2758,6 +4063,25 @@
       ],
       "Hash": "8318e64ffb3a70e652494017ec455561"
     },
+    "vsn": {
+      "Package": "vsn",
+      "Version": "3.68.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/vsn",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "b8c9cef",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "R",
+        "affy",
+        "ggplot2",
+        "lattice",
+        "limma",
+        "methods"
+      ],
+      "Hash": "dc93221cb7cf860a86e60c28ef9db2ca"
+    },
     "webchem": {
       "Package": "webchem",
       "Version": "1.2.0",
@@ -2812,6 +4136,38 @@
       ],
       "Hash": "c0e49a9760983e81e55cdd9be92e7182"
     },
+    "xcms": {
+      "Package": "xcms",
+      "Version": "3.22.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/xcms",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "75010ce",
+      "git_last_commit_date": "2023-04-25",
+      "Requirements": [
+        "Biobase",
+        "BiocGenerics",
+        "BiocParallel",
+        "IRanges",
+        "MSnbase",
+        "MassSpecWavelet",
+        "MsCoreUtils",
+        "MsFeatures",
+        "ProtGenerics",
+        "R",
+        "RANN",
+        "RColorBrewer",
+        "S4Vectors",
+        "SummarizedExperiment",
+        "lattice",
+        "methods",
+        "multtest",
+        "mzR",
+        "plyr",
+        "robustbase"
+      ],
+      "Hash": "cf417a6ef03c3943764d776e19bd5604"
+    },
     "xfun": {
       "Package": "xfun",
       "Version": "0.39",
@@ -2852,6 +4208,16 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
+    },
+    "zlibbioc": {
+      "Package": "zlibbioc",
+      "Version": "1.46.0",
+      "Source": "Bioconductor",
+      "git_url": "https://git.bioconductor.org/packages/zlibbioc",
+      "git_branch": "RELEASE_3_17",
+      "git_last_commit": "f475457",
+      "git_last_commit_date": "2023-04-25",
+      "Hash": "20158ef5adb641f0b4e8d63136f0e870"
     },
     "zoo": {
       "Package": "zoo",

@@ -192,52 +192,22 @@ document.addEventListener('keyup', function(e) {
 
   </article>
 
-  
-<section id="comments">
-  <script>
-  
-  var runningOnBrowser = typeof window !== "undefined";
-  
-  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-  
-  var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-
-  
-  var disqus_config = function () {
-    this.page.url = "https:\/\/yufree.cn" + location.pathname;
-  };
-  
-  setTimeout(function () {
-  if (!isBot && supportsIntersectionObserver) {
-    
-    var disqus_observer = new IntersectionObserver(function(entries) {
-      
-      if (entries[0].isIntersecting) {
-        
-        var d = document, s = d.createElement('script');
-        s.src = '//yufree.disqus.com/embed.js'; s.async = true;
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        
-        disqus_observer.disconnect();
-      }
-    }, { threshold: [0] });
-    
-    disqus_observer.observe(document.getElementById('disqus_thread'));
-  } else {
-    
-    
-    var d = document, s = d.createElement('script');
-    s.src = '//yufree.disqus.com/embed.js'; s.async = true;
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-}, 1);
-  </script>
-  <div id="disqus_thread"></div>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
+  <script src="https://giscus.app/client.js"
+        data-repo="yufree/yufree.cn"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk4NzE0Njc0OA=="
+        data-category="General"
+        data-category-id="DIC_kwDOBTHA_M4CWUuJ"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
 </main>

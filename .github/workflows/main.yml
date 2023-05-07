@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [main, master]
+    branches: [master]
 name: blogdown
 jobs:
   blogdown:
@@ -20,9 +20,10 @@ jobs:
       - name: Build site
         run: blogdown:::build_site(TRUE)
         shell: Rscript {0} 
-      - name: Deploy to GitHub pages 🚀
+      - name: Deploy to GitHub pages
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
           folder: public
+          

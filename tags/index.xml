@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Miao Yu | 于淼 </title>
@@ -5,11 +6,7 @@
     <description>Recent content in Tags on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 May 2023 00:00:00 +0000</lastBuildDate>
-    
-        <atom:link href="https://yufree.cn/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 11 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>reading</title>
       <link>https://yufree.cn/tags/reading/</link>
@@ -97,51 +94,6 @@
       <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://yufree.cn/tags/data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper</title>
-      <link>https://yufree.cn/tags/paper/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/tags/paper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>covid</title>
-      <link>https://yufree.cn/tags/covid/</link>
-      <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/tags/covid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>conf</title>
-      <link>https://yufree.cn/tags/conf/</link>
-      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/tags/conf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>https://yufree.cn/tags/tech/</link>
-      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://yufree.cn/tags/r/</link>
-      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yufree.cn/tags/r/</guid>
       <description></description>
     </item>
     

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Miao Yu | 于淼 </title>
@@ -5,11 +6,7 @@
     <description>Recent content in Posts on Miao Yu | 于淼 </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Nov 2017 00:00:00 +0000</lastBuildDate>
-    
-        <atom:link href="https://yufree.cn/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 09 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://yufree.cn/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>混沌的冬日</title>
       <link>https://yufree.cn/post/chaos-winter/</link>

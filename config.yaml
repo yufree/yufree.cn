@@ -9,6 +9,12 @@ hasCJKLanguage: true
 enableEmoji: true
 footnotereturnlinkcontents: "↩"
 rssLimit: 10
+enableRobotsTXT: true
+
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
 
 permalinks:
   cn: "/cn/:year/:month/:day/:slug/"

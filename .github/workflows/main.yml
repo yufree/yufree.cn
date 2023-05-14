@@ -1,6 +1,4 @@
-on:
-  push:
-    branches: [master]
+on: workflow_dispatch
 name: blogdown
 jobs:
   blogdown:

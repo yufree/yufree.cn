@@ -47,7 +47,7 @@ I know you still confuse about the algorithm. I will give an example. Compound A
 - Step 3: Align both the original and shifted spectra A with spectra B. We got aligned m/z[100,200,265.995] with intensity[100,200,300] for A and [10,20,30] for B
 - Step 4: the cosine similarity of between A and B is 1, which means A and B are structure similar to each other
 
-In the above example, compound B is the oxidized metabolite of compound A. One fragment ions show the mass shift of oxidation while the smaller ions will not contain the fragment with oxidized parts. Such scenario is highly true for real world compounds. Now we can infer compound B should be a metabolite of compound by modified cosine similarity.
+In the above example, compound B is the oxidized metabolite of compound A. One fragment ions show the mass shift of oxidation while the smaller ions will not contain the fragment with oxidized parts. In our example, m/z 250 from A is aligned to m/z 265.995 from B considering mass shift of precursors while the other two ions(m/z 100 and 200) are still aligned with raw spectra of A and B. All those three fragment ions are aligned for those modified cosine similarity calculation. Such scenario is highly true for real world compounds and smart to link compounds with similar MS2 spectra. Now we can infer compound B should be a metabolite of compound A by checking and interpret the mass shift of precursors.
 
 ## Different between molecular networking and PMD network
 

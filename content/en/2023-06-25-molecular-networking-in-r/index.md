@@ -23,7 +23,7 @@ If you are familiar with MS2 spectra matching, you might realize the precursors 
 Before we discuss the modified cosine similarity, let's review cosine similarity. Cosine similarity is very straightforward. If we have two vectors like [1,10,1] and [10,100,10], the cosine similarity is to calculate the normalized dot product, which can also be interpreted as the cosine of the angle between two vector. For vector [1,10,1] and [10,100,10], the value should be:
 
 `$$
-cos(\theta) = \frac{(1*10 + 10*100 + 1*10}/{\sqrt(1*1+10*10+1*1) * \sqrt(10*10+100*100+10*10)} = 1
+cos(\theta) = \frac{(1*10 + 10*100 + 1*10)}{\sqrt{1*1+10*10+1*1} * \sqrt{10*10+100*100+10*10}} = 1
 $$`
 
 In this case, the cosine value is 1 and angle should be 0. Those two vectors are similar in terms of cosine similarity.

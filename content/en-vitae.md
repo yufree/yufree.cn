@@ -11,15 +11,14 @@ editor_options:
 
 # Contact Information
 
--   Address: 10 Discovery Dr, Farmington, CT, 06032
+-   Address: 10 Discovery Dr., Farmington, CT, 06032
 -   Email: [yufreecas\@gmail.com](mailto:yufreecas@gmail.com)
 -   Pages: [Yufree's blog](http://yufree.cn/)
 -   [ORCID](http://orcid.org/0000-0002-2804-6014)
 
 # Research Interest
 
-POPs, Environmental Processes, Non-targeted Analysis, Data Science,
-Exposomics
+POPs, Environmental Processes, Non-targeted Analysis, SPME, Mass Spectrometry, Exposomics, Computational Metabolomics
 
 # Education Background
 

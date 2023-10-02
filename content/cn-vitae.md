@@ -69,6 +69,8 @@ disable_comments: true
 -   Yu, M., Hou, X., Liu, Q., Wang, Y., Liu, J., Jiang, G., 2017. Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model. Talanta 164, 141--147. <doi:10.1016/j.talanta.2016.11.046>
 -   Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC--MS analysis of their corresponding PBDEs. Talanta 152, 9--14. <doi:10.1016/j.talanta.2016.01.047>
 -   Yu, M., Liu, J., Wang, T., Sun, J., Liu, R., Jiang, G., 2013. Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol. 47, 13494--13501. <doi:10.1021/es404144p>
+-   Olkowicz, M., Ramadan, K., Rosales-Solano, H., Yu, M., Wang, A., Cypel, M., Pawliszyn, J., 2023. Mapping the metabolic responses to oxaliplatin-based chemotherapy with in vivo spatiotemporal metabolomics. Journal of Pharmaceutical Analysis. <https://doi.org/10.1016/j.jpha.2023.08.001>
+-   Song, S., Cai, L., Liu, Y., Peng, Z., Liu, C., Jiao, H., Li, P., Liu, Q., Yu, M., Zhou, T., Zhang, Q., Hollert, H., Zhao, X., Jiang, G., 2023. Development of a solubility parameter calculation-based method as a complementary tool to traditional techniques for indoor dust microplastic determination and risk assessment. Journal of Hazardous Materials 459, 132189. <https://doi.org/10.1016/j.jhazmat.2023.132189>
 -   Looby, N., Roszkowska, A., Yu, M., Rios-Gomez, G., Pipkin, M., Bojko, B., Cypel, M., Pawliszyn, J., 2023. In vivo solid phase microextraction for therapeutic monitoring and pharmacometabolomic fingerprinting of lung during in vivo lung perfusion of FOLFOX. Journal of Pharmaceutical Analysis. <https://doi.org/10.1016/j.jpha.2023.04.005>
 -   Yu, Y., Huang, J., Jin, L., Yu, M., Yu, X., Zhu, X., Sun, J., Zhu, L., 2023a. Translocation and metabolism of tricresyl phosphate in rice and microbiome system: Isomer-specific processes and overlooked metabolites. Environment International 172, 107793. <https://doi.org/10.1016/j.envint.2023.107793>
 -   Yu, Y., Yu, X., Zhang, D., Jin, L., Huang, J., Zhu, X., Sun, J., Yu, M., Zhu, L., 2023b. Biotransformation of Organophosphate Esters by Rice and Rhizosphere Microbiome: Multiple Metabolic Pathways, Mechanism, and Toxicity Assessment. Environ. Sci. Technol. 57, 1776--1787. <https://doi.org/10.1021/acs.est.2c07796>
@@ -108,6 +110,8 @@ disable_comments: true
 -   [R包 - rgabriel](http://cran.r-project.org/web/packages/rgabriel/index.html): Gabriel多重比较及其可视化
 -   [R包 - enviGCMS](http://cran.r-project.org/web/packages/enviGCMS/index.html): GC/LC-MS数据在环境科学中的应用
 -   [R包 - pmd](http://cran.r-project.org/web/packages/pmd/index.html)：基于GC/LC-MS数据的非目的质量差分析
+-   [R包 - enet](https://github.com/yufree/enet)：暴露组学数据分析
+-   [R包 - mzrtsim](https://github.com/yufree/mzrtsim)：质谱色谱原始数据仿真
 -   [Shiny在线应用 - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)：极简在线输入法
 -   [Shiny在线应用 - JournalTone](http://r.yufree.cn/JournalTone/)：基于PubMed关键词或期刊的文本趋势挖掘
 -   [Shiny在线应用 - XcmsPlus](https://yufreecas.shinyapps.io/xcmsplus)：代谢组学数据分析与可视化

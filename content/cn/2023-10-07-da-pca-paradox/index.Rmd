@@ -62,8 +62,8 @@ sum(re$adj<0.05)
 ```{r}
 z <- c()
 for(i in 1:100){
-  case <- rnorm(100000,mean = np[i],sd=abs(np[i])*0.5+1)
-  control <- rnorm(100000,mean=np[i]*1.2,sd=abs(np[i])*0.5+1)
+  case <- rnorm(100000,mean = np[i],sd=abs(np[i])*1.2+1)
+  control <- rnorm(100000,mean=np[i]*1.2,sd=abs(np[i])*1.2+1)
   zt <- c(case,control)
   z <- cbind(z,zt)
 }

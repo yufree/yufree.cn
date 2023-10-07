@@ -26,14 +26,14 @@ for(i in 1:100){
 <pre class="r"><code>pca &lt;- prcomp(z)
 # 主成分贡献
 summary(pca)$importance[,c(1:10)]</code></pre>
-<pre><code>##                             PC1      PC2     PC3      PC4      PC5      PC6
-## Standard deviation     143.6913 32.46544 28.8205 27.75735 27.16693 26.65109
-## Proportion of Variance   0.4821  0.02461  0.0194  0.01799  0.01723  0.01659
-## Cumulative Proportion    0.4821  0.50672  0.5261  0.54411  0.56134  0.57793
+<pre><code>##                             PC1      PC2      PC3      PC4      PC5      PC6
+## Standard deviation     127.9706 34.74543 30.08979 28.33013 25.78264 25.46286
+## Proportion of Variance   0.4817  0.03551  0.02663  0.02361  0.01955  0.01907
+## Cumulative Proportion    0.4817  0.51719  0.54382  0.56743  0.58698  0.60605
 ##                             PC7      PC8      PC9     PC10
-## Standard deviation     26.29228 25.84211 25.22661 24.53475
-## Proportion of Variance  0.01614  0.01559  0.01486  0.01406
-## Cumulative Proportion   0.59407  0.60966  0.62452  0.63858</code></pre>
+## Standard deviation     24.53831 23.80237 23.11194 22.56009
+## Proportion of Variance  0.01771  0.01666  0.01571  0.01497
+## Cumulative Proportion   0.62376  0.64043  0.65614  0.67111</code></pre>
 <pre class="r"><code>plot(pca$x[,1],pca$x[,2],pch=19,col=c(rep(1,100000),rep(2,100000)))</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>colnames(z) &lt;- 1:ncol(z)
@@ -52,14 +52,14 @@ for(i in 1:100){
 pca &lt;- prcomp(z)
 # 主成分贡献
 summary(pca)$importance[,c(1:10)]</code></pre>
-<pre><code>##                              PC1       PC2       PC3       PC4       PC5
-## Standard deviation     183.27851 155.32810 139.39841 134.50982 131.62684
-## Proportion of Variance   0.06263   0.04499   0.03623   0.03374   0.03231
-## Cumulative Proportion    0.06263   0.10762   0.14386   0.17759   0.20990
-##                             PC6       PC7       PC8       PC9     PC10
-## Standard deviation     129.3622 127.52456 124.78930 121.69614 118.3017
-## Proportion of Variance   0.0312   0.03032   0.02904   0.02762   0.0261
-## Cumulative Proportion    0.2411   0.27143   0.30046   0.32808   0.3542</code></pre>
+<pre><code>##                             PC1       PC2       PC3       PC4      PC5
+## Standard deviation     184.0775 158.44812 144.37309 134.64138 125.6758
+## Proportion of Variance   0.0798   0.05913   0.04909   0.04269   0.0372
+## Cumulative Proportion    0.0798   0.13893   0.18802   0.23071   0.2679
+##                              PC6       PC7       PC8       PC9      PC10
+## Standard deviation     122.32096 117.99105 114.59217 111.63828 108.53031
+## Proportion of Variance   0.03524   0.03279   0.03093   0.02935   0.02774
+## Cumulative Proportion    0.30315   0.33594   0.36687   0.39622   0.42396</code></pre>
 <pre class="r"><code>plot(pca$x[,1],pca$x[,2],pch=19,col=c(rep(1,100000),rep(2,100000)))</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>colnames(z) &lt;- 1:ncol(z)
@@ -70,22 +70,22 @@ sum(re$adj&lt;0.05)</code></pre>
 <p>目前差异已经开始互相融合了，好，进一步加大力度。</p>
 <pre class="r"><code>z &lt;- c()
 for(i in 1:100){
-  case &lt;- rnorm(100000,mean = np[i],sd=abs(np[i])*0.5+1)
-  control &lt;- rnorm(100000,mean=np[i]*1.2,sd=abs(np[i])*0.5+1)
+  case &lt;- rnorm(100000,mean = np[i],sd=abs(np[i])*1.2+1)
+  control &lt;- rnorm(100000,mean=np[i]*1.2,sd=abs(np[i])*1.2+1)
   zt &lt;- c(case,control)
   z &lt;- cbind(z,zt)
 }
 pca &lt;- prcomp(z)
 # 主成分贡献
 summary(pca)$importance[,c(1:10)]</code></pre>
-<pre><code>##                             PC1       PC2       PC3      PC4       PC5
-## Standard deviation     182.9669 155.40621 139.38457 134.3476 131.78184
-## Proportion of Variance   0.0625   0.04509   0.03627   0.0337   0.03242
-## Cumulative Proportion    0.0625   0.10760   0.14387   0.1776   0.21000
+<pre><code>##                              PC1       PC2       PC3       PC4       PC5
+## Standard deviation     418.51939 355.72299 338.84637 303.01048 298.57129
+## Proportion of Variance   0.07504   0.05421   0.04919   0.03933   0.03819
+## Cumulative Proportion    0.07504   0.12925   0.17843   0.21777   0.25596
 ##                              PC6       PC7       PC8       PC9      PC10
-## Standard deviation     128.89627 127.35777 124.58692 120.82573 118.27849
-## Proportion of Variance   0.03102   0.03028   0.02898   0.02726   0.02612
-## Cumulative Proportion    0.24102   0.27130   0.30028   0.32754   0.35366</code></pre>
+## Standard deviation     286.12208 278.05519 270.55114 261.78349 258.70506
+## Proportion of Variance   0.03507   0.03312   0.03136   0.02936   0.02867
+## Cumulative Proportion    0.29103   0.32415   0.35551   0.38487   0.41354</code></pre>
 <pre class="r"><code>plot(pca$x[,1],pca$x[,2],pch=19,col=c(rep(1,100000),rep(2,100000)))</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>colnames(z) &lt;- 1:ncol(z)
@@ -100,8 +100,72 @@ sum(re$adj&lt;0.05)</code></pre>
 pv &lt;- sapply(re, function(x) x$p.value)
 table(pv)</code></pre>
 <pre><code>## pv
-##   0 
-## 100</code></pre>
+##                     0 3.91700237397975e-307 1.51138626356535e-306 
+##                     4                     1                     1 
+## 1.69033357540812e-305 3.69816700489022e-305 7.41041359986221e-304 
+##                     1                     1                     1 
+## 1.19907386314392e-302  1.6979081670706e-302 2.11441218478598e-300 
+##                     1                     1                     1 
+## 1.02923123985138e-299 2.84715946155774e-299 1.13983910431486e-298 
+##                     1                     1                     1 
+## 2.84511424476962e-298 1.36481875863161e-297  2.4138926412321e-297 
+##                     1                     1                     1 
+## 5.01777165508798e-297  6.3740319190573e-296 1.06512806333407e-295 
+##                     1                     1                     1 
+##  2.9684345038554e-295 1.61778936275495e-294 2.60338020017055e-294 
+##                     1                     1                     1 
+## 1.91558533686995e-293 2.10282840972079e-292  8.9660345549283e-291 
+##                     1                     1                     1 
+## 1.23746174866693e-290  9.7772064637835e-290 5.54917392263547e-289 
+##                     1                     1                     1 
+## 1.49892579574228e-288 9.35563548715912e-288 1.08649454476636e-287 
+##                     1                     1                     1 
+## 3.16786218854795e-287 4.69279905849196e-287   1.118282060232e-286 
+##                     1                     1                     1 
+##  1.1962582225918e-286 7.05752716298586e-286 2.42440953972578e-285 
+##                     1                     1                     1 
+## 2.13314214586901e-284 2.47347628881802e-284 5.56306148900296e-284 
+##                     1                     1                     1 
+## 6.48930682676215e-284 1.03069189166261e-283 2.06944343269889e-283 
+##                     1                     1                     1 
+## 2.21015902959185e-283 9.04094542944513e-283  6.8633065287707e-282 
+##                     1                     1                     1 
+## 1.42377796179449e-281 3.12369877273024e-281 4.66807820660733e-281 
+##                     1                     1                     1 
+## 1.09540654209284e-280 5.98881828424942e-280 1.77128558057562e-279 
+##                     1                     1                     1 
+## 1.19605377826797e-278 1.38296886675744e-278 2.38617223132791e-278 
+##                     1                     1                     1 
+## 7.84788712325474e-278 9.53098284619264e-278  1.1170495994422e-277 
+##                     1                     1                     1 
+## 5.91455469655551e-277 6.52415199674643e-276 1.07167093679512e-274 
+##                     1                     1                     1 
+## 1.31256681444049e-274 1.50209913056876e-274 5.65627008544608e-274 
+##                     1                     1                     1 
+## 1.07915989034337e-273 1.41257365167248e-273 6.74115421225619e-273 
+##                     1                     1                     1 
+## 7.37969169980536e-272 7.50240786629847e-272 7.98499354414677e-272 
+##                     1                     1                     1 
+## 4.41356905563368e-271 6.75885482781668e-271 7.56920082447655e-271 
+##                     1                     1                     1 
+## 1.63370604905236e-270 6.11794474873258e-270 1.33732619109681e-269 
+##                     1                     1                     1 
+## 1.04857332193612e-268 2.65251222934155e-268 1.48710002018571e-267 
+##                     1                     1                     1 
+## 9.78882899780169e-267 1.74052952159569e-266 4.73167179342876e-266 
+##                     1                     1                     1 
+## 5.16985694132384e-266 7.13131540530313e-264 1.98256549564857e-263 
+##                     1                     1                     1 
+## 7.05483245806848e-263 1.09357212567035e-262 1.33842846539623e-259 
+##                     1                     1                     1 
+## 2.57013184589882e-254 5.98676375371462e-250 3.13570702579997e-239 
+##                     1                     1                     1 
+## 5.72466365564095e-236 2.46892905766707e-226 5.75155691148484e-223 
+##                     1                     1                     1 
+## 4.95859083943006e-214 2.04379312687636e-160 4.87202652382768e-157 
+##                     1                     1                     1 
+## 1.08969775204526e-129 
+##                     1</code></pre>
 <p>结果很直观，依然全是差异。那么问题在哪里？其实就是差异本身的性质，这个差异太小，同时样品量又太大，结果这个客观存在的差异就会在大样本的情况下被检验出来。那么皮球就踢回来了，这个微弱但存在的差异有没有物理意义或科学意义？</p>
 <p>如果这个差异出现在无关紧要的地方，那么即使有差异可能也没多少意义。打比方我们对比了两个国家的人口拇指指甲宽度，发现其中一个国家的人口拇指指甲平均长度比另一个国家宽0.5毫米。从统计意义上存在显著差异，但实际意义上几乎为零。不过如果这个客观存在的差异有实际意义，那么想用探索式数据分析找到或者发现就不容易了。</p>
 <p>什么时候会出现这个问题呢？就是样本量特别大的时候，或者说现在。我们现在把样品量降下来看看：</p>
@@ -125,59 +189,59 @@ for(t in n){
         re$adj &lt;- p.adjust(re$p.value,&#39;BH&#39;)
         print(sum(re$adj&lt;0.05))
 }</code></pre>
-<pre><code>##                              PC1       PC2      PC3      PC4      PC5       PC6
-## Standard deviation     443.89020 418.81034 407.4017 389.1612 384.0458 371.80732
-## Proportion of Variance   0.06506   0.05791   0.0548   0.0500   0.0487   0.04564
-## Cumulative Proportion    0.06506   0.12297   0.1778   0.2278   0.2765   0.32211
-##                              PC7       PC8       PC9      PC10
-## Standard deviation     347.05778 337.82420 328.59077 322.24252
-## Proportion of Variance   0.03977   0.03768   0.03565   0.03428
-## Cumulative Proportion    0.36188   0.39956   0.43521   0.46949</code></pre>
-<pre><code>## [1] 1
+<pre><code>##                              PC1      PC2       PC3       PC4       PC5
+## Standard deviation     456.07143 424.5170 391.09387 355.43286 336.11953
+## Proportion of Variance   0.08715   0.0755   0.06408   0.05293   0.04733
+## Cumulative Proportion    0.08715   0.1626   0.22674   0.27966   0.32700
+##                              PC6       PC7       PC8       PC9      PC10
+## Standard deviation     311.41814 307.23097 291.02704 282.45216 279.76759
+## Proportion of Variance   0.04063   0.03955   0.03549   0.03343   0.03279
+## Cumulative Proportion    0.36763   0.40718   0.44266   0.47609   0.50888</code></pre>
+<pre><code>## [1] 0
 ##                              PC1       PC2      PC3       PC4       PC5
-## Standard deviation     408.68566 384.14060 361.0594 356.38645 338.64842
-## Proportion of Variance   0.05688   0.05026   0.0444   0.04326   0.03906
-## Cumulative Proportion    0.05688   0.10714   0.1515   0.19479   0.23385
-##                             PC6      PC7       PC8       PC9      PC10
-## Standard deviation     338.4160 321.4941 321.00317 304.24234 297.94794
-## Proportion of Variance   0.0390   0.0352   0.03509   0.03152   0.03023
-## Cumulative Proportion    0.2728   0.3080   0.34315   0.37467   0.40491</code></pre>
-<pre><code>## [1] 2
-##                             PC1       PC2       PC3       PC4       PC5
-## Standard deviation     391.4391 346.68107 335.78486 320.13859 313.30298
-## Proportion of Variance   0.0521   0.04086   0.03834   0.03485   0.03337
-## Cumulative Proportion    0.0521   0.09296   0.13130   0.16614   0.19952
-##                              PC6       PC7       PC8       PC9      PC10
-## Standard deviation     306.14963 297.96900 294.60451 292.39897 285.56836
-## Proportion of Variance   0.03187   0.03019   0.02951   0.02907   0.02773
-## Cumulative Proportion    0.23139   0.26157   0.29108   0.32015   0.34788</code></pre>
-<pre><code>## [1] 90
+## Standard deviation     442.27870 393.34622 370.6548 348.04532 320.82168
+## Proportion of Variance   0.08216   0.06499   0.0577   0.05088   0.04323
+## Cumulative Proportion    0.08216   0.14715   0.2049   0.25573   0.29896
+##                              PC6       PC7      PC8       PC9      PC10
+## Standard deviation     309.48976 305.33719 295.9924 277.85593 267.75739
+## Proportion of Variance   0.04023   0.03916   0.0368   0.03243   0.03011
+## Cumulative Proportion    0.33919   0.37835   0.4152   0.44758   0.47769</code></pre>
+<pre><code>## [1] 4
 ##                              PC1       PC2       PC3       PC4       PC5
-## Standard deviation     385.22172 341.09612 330.20575 322.20941 312.75197
-## Proportion of Variance   0.05025   0.03940   0.03692   0.03516   0.03312
-## Cumulative Proportion    0.05025   0.08965   0.12657   0.16173   0.19485
-##                              PC6       PC7       PC8       PC9      PC10
-## Standard deviation     308.12069 305.08053 294.47988 287.67776 284.18616
-## Proportion of Variance   0.03215   0.03152   0.02937   0.02802   0.02735
-## Cumulative Proportion    0.22700   0.25852   0.28788   0.31591   0.34325</code></pre>
-<pre><code>## [1] 100
-##                             PC1      PC2       PC3       PC4       PC5      PC6
-## Standard deviation     385.7225 336.8093 328.40787 318.55870 312.53291 306.5494
-## Proportion of Variance   0.0505   0.0385   0.03661   0.03444   0.03315   0.0319
-## Cumulative Proportion    0.0505   0.0890   0.12561   0.16006   0.19321   0.2251
+## Standard deviation     422.01184 366.44795 341.67684 304.49015 298.23717
+## Proportion of Variance   0.07616   0.05743   0.04992   0.03965   0.03804
+## Cumulative Proportion    0.07616   0.13359   0.18351   0.22316   0.26120
+##                              PC6       PC7       PC8       PC9     PC10
+## Standard deviation     284.93725 283.75241 273.16411 266.97608 257.2485
+## Proportion of Variance   0.03472   0.03443   0.03191   0.03048   0.0283
+## Cumulative Proportion    0.29592   0.33035   0.36226   0.39274   0.4210</code></pre>
+<pre><code>## [1] 96
+##                              PC1      PC2     PC3       PC4       PC5       PC6
+## Standard deviation     418.54777 357.8062 338.015 300.82293 298.73619 289.19724
+## Proportion of Variance   0.07512   0.0549   0.049   0.03881   0.03827   0.03587
+## Cumulative Proportion    0.07512   0.1300   0.179   0.21783   0.25610   0.29197
 ##                              PC7       PC8       PC9      PC10
-## Standard deviation     302.60637 293.59629 285.12239 281.76564
-## Proportion of Variance   0.03108   0.02926   0.02759   0.02695
-## Cumulative Proportion    0.25619   0.28544   0.31304   0.33998</code></pre>
+## Standard deviation     279.78262 272.06504 262.07130 256.52711
+## Proportion of Variance   0.03357   0.03174   0.02945   0.02822
+## Cumulative Proportion    0.32553   0.35728   0.38673   0.41495</code></pre>
 <pre><code>## [1] 100
 ##                              PC1       PC2       PC3       PC4       PC5
-## Standard deviation     386.53688 339.35660 326.61421 317.43667 310.75599
-## Proportion of Variance   0.05068   0.03906   0.03618   0.03418   0.03275
-## Cumulative Proportion    0.05068   0.08974   0.12592   0.16010   0.19285
+## Standard deviation     415.28187 355.71525 339.53774 300.95094 298.23751
+## Proportion of Variance   0.07398   0.05428   0.04945   0.03885   0.03815
+## Cumulative Proportion    0.07398   0.12825   0.17771   0.21656   0.25471
+##                              PC6       PC7       PC8      PC9      PC10
+## Standard deviation     286.94753 275.76851 271.76577 263.1141 259.25091
+## Proportion of Variance   0.03532   0.03262   0.03168   0.0297   0.02883
+## Cumulative Proportion    0.29003   0.32265   0.35433   0.3840   0.41286</code></pre>
+<pre><code>## [1] 100
+##                              PC1       PC2       PC3       PC4       PC5
+## Standard deviation     416.94971 354.95062 337.60963 303.41448 299.91093
+## Proportion of Variance   0.07452   0.05401   0.04886   0.03946   0.03856
+## Cumulative Proportion    0.07452   0.12853   0.17739   0.21685   0.25541
 ##                              PC6       PC7       PC8       PC9      PC10
-## Standard deviation     307.60965 303.10260 294.97926 286.52059 281.26806
-## Proportion of Variance   0.03209   0.03116   0.02951   0.02784   0.02683
-## Cumulative Proportion    0.22494   0.25610   0.28562   0.31346   0.34029</code></pre>
+## Standard deviation     286.65155 277.67511 270.11921 261.86270 258.63352
+## Proportion of Variance   0.03522   0.03305   0.03128   0.02939   0.02867
+## Cumulative Proportion    0.29063   0.32369   0.35496   0.38436   0.41303</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre><code>## [1] 100</code></pre>
 <p>这里我们可以看到，在样品单一维度有差异但方差比较大的情况下，当样品数超过维度后，差异分析跟主成分分析就已经出现灵敏度差异了。也就是说，当样品数增加后，类似主成分分析这种探索式数据分析已经看不出预设差异了。同时我们又注意到，在样品量少于维度时，差异分析功效又是不足的，也就是根本测不到预设差异。</p>

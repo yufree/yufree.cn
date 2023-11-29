@@ -37,4 +37,4 @@ tags:
 
 是全屏模式。
 
-![](images/Screenshot 2023-11-28 at 8.18.53 PM.png)
+![](images/exit.png)

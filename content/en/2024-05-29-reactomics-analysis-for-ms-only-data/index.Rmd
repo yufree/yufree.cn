@@ -1,0 +1,102 @@
+---
+title: Reactomics analysis for MS-only data
+author: Miao Yu
+date: '2024-05-29'
+slug: reactomics-analysis-for-ms-only-data
+categories: []
+tags: []
+---
+
+Recently, I received multiple requests of reactomics analysis for MS only data such as FT-ICR MS or MS imaging data. In this case, it's better to summary the answer with an example as reference. Here you are!
+
+When retention time is not provided, m/z vector can still be used to check reaction level changes. To apply this analysis, you need to install the devel version(>=0.2.6) of PMD package:
+
+```{r}
+remotes::install_github('yufree/pmd')
+```
+
+You can still use `getrda` to find the high frequency PMDs. 
+
+```{r}
+library(pmd)
+data(spmeinvivo)
+# get the m/z
+mz <- spmeinvivo$mz
+# get the m/z intensity for all m/z, the row order is the same with mz
+insms <- spmeinvivo$data
+# check high frequency pmd
+sda <- getrda(mz)
+colnames(sda)
+# save them as numeric vector
+hfpmd <- as.numeric(colnames(sda))
+```
+
+Then `getpmddf` function can be used to extract all the paired ions for certain PMD.
+
+```{r}
+# get details for certain pmd
+pmddf <- getpmddf(mz,pmd=18.011,digits = 3)
+# add intensity for all the paired ions
+mz1ins <- insms[match(pmddf$ms1,mz),]
+mz2ins <- insms[match(pmddf$ms2,mz),]
+# get the pmd pair intensity
+pmdins <- mz1ins+mz2ins
+# get the pmd total intensity across samples
+pmdinsall <- apply(pmdins,2,sum)
+# show the PMD intensity
+pmdinsall
+```
+
+You can also calculate the static or dynamic PMD intensity for m/z only data.
+
+```{r}
+# get the ratio of larger m/z over smaller m/z
+ratio <- mz2ins/mz1ins
+# filter PMD based on RSD% across samples
+# cutoff 30%
+cutoff <- 0.3
+# get index for static PMD
+rsdidx <- apply(ratio,1,function(x) sd(x)/mean(x)<cutoff)
+# get static PMD
+pmddfstatic <- pmddf[rsdidx,]
+# get static intensity
+pmdinsstatic <- pmdins[rsdidx,]
+# normalize the ions pair intensity to avoid influences from large response factors
+pmdinsstaticscale <- t(scale(t(pmdinsstatic)))
+# get the pmd static intensity across samples
+pmdinsstaticall <- apply(pmdinsstaticscale,2,sum)
+# show the PMD static intensity for each sample
+pmdinsstaticall
+
+# get index for dynamic PMD
+rsdidx <- apply(ratio,1,function(x) sd(x)/mean(x)>=cutoff)
+# get dynamic PMD
+pmddfdynamic <- pmddf[rsdidx,]
+# get dynamic intensity for ms1 and ms2
+pmdinsdynamicms1 <- apply(mz1ins[rsdidx,],1,function(x) sd(x)/mean(x))
+pmdinsdynamicms2 <- apply(mz2ins[rsdidx,],1,function(x) sd(x)/mean(x))
+# find the stable ms and use ratio as intensity
+idx <- pmdinsdynamicms1>pmdinsdynamicms2
+pmdinsdynamic <- ratio[rsdidx,]
+pmdinsdynamic[idx,] <- 1/ratio[rsdidx,][idx,]
+# get the pmd dynamic intensity across samples
+pmdinsdynamicall <- apply(pmdinsdynamic,2,sum)
+# show the PMD dynamic intensity for each sample
+pmdinsdynamicall
+```
+
+You can also use `getpmddf` function extract all the paired ions for multiple PMDs. Then you could generate the network based on the output.
+
+```{r}
+# get details for certain pmd
+pmddf <- getpmddf(mz,pmd=hfpmd,digits = 3)
+# viz by igraph package
+library(igraph)
+net <- graph_from_data_frame(pmddf,directed = F)
+pal <- grDevices::rainbow(length(unique(E(net)$diff2)))
+plot(net,vertex.label=NA,vertex.size = 5,edge.width = 3,edge.color = pal[as.numeric(as.factor(E(net)$diff2))],main = 'PMD network')
+legend("topright",bty = "n",
+       legend=unique(E(net)$diff2),
+       fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)
+```
+

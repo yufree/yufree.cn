@@ -100,3 +100,17 @@ legend("topright",bty = "n",
        fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)
 ```
 
+If you prefer to get a pmd network for a specific mass. You can still use `getchain` function.
+
+```{r}
+data(spmeinvivo)
+spmeinvivo$rt <- NULL
+chain <- getchain(spmeinvivo,diff = c(2.02,14.02,15.99,58.04,13.98),mass = 286.3101,digits = 2,corcutoff = 0)
+# show as network
+net <- graph_from_data_frame(chain$sdac,directed = F)
+pal <- grDevices::rainbow(5)
+plot(net,vertex.label=round(as.numeric(V(net)$name),2),vertex.size =5,edge.width = 3,edge.color = pal[as.numeric(as.factor(E(net)$diff2))],vertex.label.dist=1,vertex.color=ifelse(round(as.numeric(V(net)$name),4) %in% 286.3101,'red','black'), main = 'PMD network')
+legend("topright",bty = "n",
+       legend=unique(E(net)$diff2),
+       fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)
+```

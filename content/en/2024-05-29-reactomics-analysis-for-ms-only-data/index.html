@@ -13,8 +13,15 @@ tags: []
 <p>When retention time is not provided, m/z vector can still be used to check reaction level changes. To apply this analysis, you need to install the devel version(&gt;=0.2.6) of PMD package:</p>
 <pre class="r"><code>remotes::install_github(&#39;yufree/pmd&#39;)</code></pre>
 <pre><code>## Using github PAT from envvar GITHUB_PAT. Use `gitcreds::gitcreds_set()` and unset GITHUB_PAT in .Renviron (or elsewhere) if you want to use the more secure git credential store instead.</code></pre>
-<pre><code>## Skipping install of &#39;pmd&#39; from a github remote, the SHA1 (7ca573c9) has not changed since last install.
-##   Use `force = TRUE` to force installation</code></pre>
+<pre><code>## Downloading GitHub repo yufree/pmd@HEAD</code></pre>
+<pre><code>## 
+## ── R CMD build ─────────────────────────────────────────────────────────────────
+## * checking for file ‘/private/var/folders/nj/68q18qjd2x1cb8my282c58cr0000gn/T/Rtmpx52AfQ/remotes44f5531ee188/yufree-pmd-87e8de1/DESCRIPTION’ ... OK
+## * preparing ‘pmd’:
+## * checking DESCRIPTION meta-information ... OK
+## * checking for LF line-endings in source and make files and shell scripts
+## * checking for empty or unneeded directories
+## * building ‘pmd_0.2.6.tar.gz’</code></pre>
 <p>You can still use <code>getrda</code> to find the high frequency PMDs.</p>
 <pre class="r"><code>library(pmd)
 data(spmeinvivo)
@@ -109,3 +116,15 @@ legend(&quot;topright&quot;,bty = &quot;n&quot;,
        legend=unique(E(net)$diff2),
        fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>If you prefer to get a pmd network for a specific mass. You can still use <code>getchain</code> function.</p>
+<pre class="r"><code>data(spmeinvivo)
+spmeinvivo$rt &lt;- NULL
+chain &lt;- getchain(spmeinvivo,diff = c(2.02,14.02,15.99,58.04,13.98),mass = 286.3101,digits = 2,corcutoff = 0)
+# show as network
+net &lt;- graph_from_data_frame(chain$sdac,directed = F)
+pal &lt;- grDevices::rainbow(5)
+plot(net,vertex.label=round(as.numeric(V(net)$name),2),vertex.size =5,edge.width = 3,edge.color = pal[as.numeric(as.factor(E(net)$diff2))],vertex.label.dist=1,vertex.color=ifelse(round(as.numeric(V(net)$name),4) %in% 286.3101,&#39;red&#39;,&#39;black&#39;), main = &#39;PMD network&#39;)
+legend(&quot;topright&quot;,bty = &quot;n&quot;,
+       legend=unique(E(net)$diff2),
+       fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>

@@ -5,7 +5,6 @@ date: '2019-06-15'
 slug: general-wang
 categories: []
 tags:
-  - writing
   - life
 ---
 

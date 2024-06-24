@@ -5,7 +5,7 @@ date: '2018-08-06'
 slug: sccp
 categories: []
 tags:
-  - sci
+  - data
   - tech
 ---
 

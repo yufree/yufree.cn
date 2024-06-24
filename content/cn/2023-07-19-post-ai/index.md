@@ -5,7 +5,8 @@ date: '2023-07-19'
 slug: post-ai
 categories: []
 tags:
-  - tech
+  - writing
+  - life
 ---
 要想知道某项技术的影响，首先要去观察那些最先采用技术的领域，这个命题对于人工智能而言，就是围棋。
 

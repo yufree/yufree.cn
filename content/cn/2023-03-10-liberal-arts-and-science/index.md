@@ -6,7 +6,7 @@ slug: liberal-arts-and-science
 categories: []
 tags:
   - edu
-  - reading
+  - writing
 ---
 文理科的划分可以说是现代教育体制生造出来的问题，其影响远高于其实际关注度。即使当前大多省份已经取消了文理分科，很多当前社会议题的深层次根源都与之有关。
 

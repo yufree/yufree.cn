@@ -5,7 +5,7 @@ date: '2021-03-27'
 slug: exposome-challenge
 categories: []
 tags:
-  - sci
+  - paper
   - data
 ---
 

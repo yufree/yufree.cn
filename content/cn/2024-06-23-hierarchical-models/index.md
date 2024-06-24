@@ -5,7 +5,6 @@ date: '2024-06-23'
 slug: hierarchical-models
 categories: []
 tags:
-  - tech
   - data
 ---
 

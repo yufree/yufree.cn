@@ -5,7 +5,7 @@ date: '2024-04-16'
 slug: temporary-worker
 categories: []
 tags:
-  - idea
+  - sci
   - edu
 ---
 

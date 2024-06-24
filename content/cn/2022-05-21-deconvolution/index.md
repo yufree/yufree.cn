@@ -4,7 +4,6 @@ author: Miao Yu
 date: '2022-05-21'
 slug: deconvolution
 tags:
-  - popsci
   - data
 ---
 

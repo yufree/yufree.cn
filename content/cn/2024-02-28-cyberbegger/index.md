@@ -6,7 +6,7 @@ slug: cyberbegger
 categories: []
 tags:
   - life
-  - tech
+  - writing
 ---
 许是我后知后觉，国内直播与短视频的渗透与流行是远超预期的。
 

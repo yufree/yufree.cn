@@ -16,7 +16,7 @@ M代表Moral，其反面是Immoral或legal。M人道德感强，喜欢用道德�
 
 C代表Chaos，其反面是Order。C人喜欢没事找事，认为乱世出英雄，O人信仰秩序，宁做太平犬。
 
-D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人生，对别人控制欲强，F人则顺其自然，随波逐流，不喜欢管理与被管理。
+D代表Design，其反面是Freedom。D人喜欢规划控制，设计别人的人生，对别人控制欲强，F人则顺其自然，随波逐流，不喜欢管理与被管理。
 
 **16型人格特质及其适合的职业：**
 
@@ -26,7 +26,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：社会活动家、改革家、企业领导。
 
-​	2.	**YMCO**（Yes, Moral, Chaos, Free）
+​	2.	**YMCO**（Yes, Moral, Chaos, Freedom）
 
 **特质**：有道德感但随和，喜欢肯定别人，认为混乱能带来机会但不喜欢控制他人。
 
@@ -38,7 +38,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：政府官员、律师、项目经理。
 
-​	4.	**YMOF**（Yes, Moral, Order, Free）
+​	4.	**YMOF**（Yes, Moral, Order, Freedom）
 
 **特质**：崇尚秩序，善良而随和，不喜欢控制他人。
 
@@ -50,7 +50,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：创业者、危机管理专家、创意总监。
 
-​	6.	**YICF**（Yes, Immoral, Chaos, Free）
+​	6.	**YICF**（Yes, Immoral, Chaos, Freedom）
 
 **特质**：不受道德约束，喜欢自由并且看到混乱中的机遇，鼓励别人而不干涉。
 
@@ -62,7 +62,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：企业管理者、策略师、工程师。
 
-​	8.	**YIOF**（Yes, Immoral, Order, Free）
+​	8.	**YIOF**（Yes, Immoral, Order, Freedom）
 
 **特质**：崇尚秩序，随和不干涉他人，不受道德规范束缚。
 
@@ -74,7 +74,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：批评家、新闻记者、社会改革者。
 
-​	10.	**NMCF**（No, Moral, Chaos, Free）
+​	10.	**NMCF**（No, Moral, Chaos, Freedom）
 
 **特质**：有道德感，批判性强，接受混乱但不控制他人。
 
@@ -86,7 +86,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：法官、教育家、政策制定者。
 
-​	12.	**NMOF**（No, Moral, Order, Free）
+​	12.	**NMOF**（No, Moral, Order, Freedom）
 
 **特质**：崇尚秩序，批判性强但随和，不喜欢干涉他人。
 
@@ -98,7 +98,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：企业家、黑客、策略家。
 
-​	14.	**NICF**（No, Immoral, Chaos, Free）
+​	14.	**NICF**（No, Immoral, Chaos, Freedom）
 
 **特质**：批判性强，不受道德约束，接受混乱但不试图控制。
 
@@ -110,7 +110,7 @@ D代表Design，其反面是Free。D人喜欢规划控制，设计别人的人�
 
 **职业**：CEO、战略顾问、政策顾问。
 
-​	16.	**NIOF**（No, Immoral, Order, Free）
+​	16.	**NIOF**（No, Immoral, Order, Freedom）
 
 **特质**：崇尚秩序，批判性强，不受道德束缚且随和。
 

@@ -55,7 +55,9 @@ disable_comments: true
 
 -   阅读写作无碍 听力口语凑合 满足研究需要
 
-## 论文
+## 论文 (同行评议)
+
+- Yu, M.; Li, Q.; Dolios, G.; Tu, P.; Teitelbaum, S.; Chen, J.; Petrick, L. Active Molecular Network Discovery Links Lifestyle Variables to Breast Cancer in the Long Island Breast Cancer Study Project. Environ. Health 2024, 2 (6), 401–410. <https://doi.org/10.1021/envhealth.3c00218>.
 
 -   Yu, M., Teitelbaum, S.L., Dolios, G., Dang, L.-H.T., Tu, P., Wolff, M.S., Petrick, L.M., 2022. Molecular Gatekeeper Discovery: Workflow for Linking Multiple Exposure Biomarkers to Metabolomics. Environ. Sci. Technol. <https://doi.org/10.1021/acs.est.1c04039>
 -   Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. <https://doi.org/10.1186/s13321-022-00586-8>
@@ -69,6 +71,7 @@ disable_comments: true
 -   Yu, M., Hou, X., Liu, Q., Wang, Y., Liu, J., Jiang, G., 2017. Evaluation and reduction of the analytical uncertainties in GC-MS analysis using a boundary regression model. Talanta 164, 141--147. <doi:10.1016/j.talanta.2016.11.046>
 -   Yu, M., Liu, J., Wang, T., Zhang, A., Wang, Y., Zhou, Q., Jiang, G., 2016. Structure prediction of methyoxy-polybrominated diphenyl ethers (MeO-PBDEs) through GC--MS analysis of their corresponding PBDEs. Talanta 152, 9--14. <doi:10.1016/j.talanta.2016.01.047>
 -   Yu, M., Liu, J., Wang, T., Sun, J., Liu, R., Jiang, G., 2013. Metabolites of 2,4,4′-Tribrominated Diphenyl Ether (BDE-28) in Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol. 47, 13494--13501. <doi:10.1021/es404144p>
+-   Olkowicz, M.; Yu, F.; Alvarez, J. S.; Ribeiro, R. V. P.; Rosales, R.; Xin, L.; Yu, M.; Jaroch, K.; Adamson, M. B.; Bissoondath, V.; Billia, F.; Badiwala, M. V.; Pawliszyn, J. Spatiotemporal Metabolic Mapping of Ex-Situ Preserved Hearts Subjected to Dialysis by Integration of Bio-SPME Sampling with Non-Targeted Metabolipidomic Profiling. Analytica Chimica Acta 2025, 1340, 343581. <https://doi.org/10.1016/j.aca.2024.343581>.
 -   Olkowicz, M., Ramadan, K., Rosales-Solano, H., Yu, M., Wang, A., Cypel, M., Pawliszyn, J., 2023. Mapping the metabolic responses to oxaliplatin-based chemotherapy with in vivo spatiotemporal metabolomics. Journal of Pharmaceutical Analysis. <https://doi.org/10.1016/j.jpha.2023.08.001>
 -   Song, S., Cai, L., Liu, Y., Peng, Z., Liu, C., Jiao, H., Li, P., Liu, Q., Yu, M., Zhou, T., Zhang, Q., Hollert, H., Zhao, X., Jiang, G., 2023. Development of a solubility parameter calculation-based method as a complementary tool to traditional techniques for indoor dust microplastic determination and risk assessment. Journal of Hazardous Materials 459, 132189. <https://doi.org/10.1016/j.jhazmat.2023.132189>
 -   Looby, N., Roszkowska, A., Yu, M., Rios-Gomez, G., Pipkin, M., Bojko, B., Cypel, M., Pawliszyn, J., 2023. In vivo solid phase microextraction for therapeutic monitoring and pharmacometabolomic fingerprinting of lung during in vivo lung perfusion of FOLFOX. Journal of Pharmaceutical Analysis. <https://doi.org/10.1016/j.jpha.2023.04.005>
@@ -105,6 +108,10 @@ disable_comments: true
 -   Zhang, H., Wang, Y., Sun, C., Yu, M., Gao, Y., Wang, T., Liu, J., Jiang, G., 2014. Levels and Distributions of Hexachlorobutadiene and Three Chlorobenzenes in Biosolids from Wastewater Treatment Plants and in Soils within and Surrounding a Chemical Plant in China. Environ. Sci. Technol. 48, 1525--1531. <doi:10.1021/es405171t>
 -   Zhao, X., Yu, M., Xu, D., Liu, A., Hou, X., Hao, F., Long, Y., Zhou, Q., Jiang, G., 2017. Distribution, Bioaccumulation, Trophic Transfer, and Influences of CeO2 Nanoparticles in a Constructed Aquatic Food Web. Environ. Sci. Technol. 51, 5205--5214. <doi:10.1021/acs.est.6b05875>
 
+## 论文（非同行评议）
+
+- Yu, M.; Fang, M.; Wang, B. Ethical Frameworks for Data-Driven Environmental Health Studies in the AI Era. Environ. Health 2025. <https://doi.org/10.1021/envhealth.4c00273>.
+
 ## 软件开发
 
 -   [R包 - rgabriel](http://cran.r-project.org/web/packages/rgabriel/index.html): Gabriel多重比较及其可视化
@@ -123,6 +130,9 @@ disable_comments: true
 ## 书
 
 -   Roszkowska, A., Yu, M., Pawliszyn, J., 2020. In Vivo SPME for Bioanalysis in Environmental Monitoring and Toxicology, in: Jiang, G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and Toxicology: From Concepts to Insights. Springer Singapore, Singapore, pp. 23--31. <https://doi.org/10.1007/978-981-13-9447-8_3>
+
+-  Woźniczka, K.; Yu, M.; Looby, N.; Roszkowska, A. Fundamentals of in Vivo Sampling. In Reference Module in Chemistry, Molecular Sciences and Chemical Engineering; Elsevier, 2024. <https://doi.org/10.1016/B978-0-443-15978-7.00091-6>.
+
 
 ## 代谢组学数据分析培训
 

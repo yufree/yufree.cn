@@ -110,10 +110,10 @@ Spectrometry, Exposomics, Computational Metabolomics
 
 ## Papers (peer-reviewed)
 
--   Yu, M.; Li, Q.; Dolios, G.; Tu, P.; Teitelbaum, S.; Chen, J.;
-    Petrick, L. Active Molecular Network Discovery Links Lifestyle
-    Variables to Breast Cancer in the Long Island Breast Cancer Study
-    Project. Environ. Health 2024, 2 (6), 401–410.
+-   Yu, M., Li, Q., Dolios, G., Tu, P., Teitelbaum, S., Chen, J.,
+    Petrick, L., 2024. Active Molecular Network Discovery Links
+    Lifestyle Variables to Breast Cancer in the Long Island Breast
+    Cancer Study Project. Environ. Health 2, 401–410.
     <https://doi.org/10.1021/envhealth.3c00218>.
 
 -   Yu, M., Teitelbaum, S.L., Dolios, G., Dang, L.-H.T., Tu, P., Wolff,
@@ -182,12 +182,12 @@ Spectrometry, Exposomics, Computational Metabolomics
     Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol.
     47, 13494--13501. <doi:10.1021/es404144p>
 
--   Olkowicz, M.; Yu, F.; Alvarez, J. S.; Ribeiro, R. V. P.; Rosales,
-    R.; Xin, L.; Yu, M.; Jaroch, K.; Adamson, M. B.; Bissoondath, V.;
-    Billia, F.; Badiwala, M. V.; Pawliszyn, J. Spatiotemporal Metabolic
-    Mapping of Ex-Situ Preserved Hearts Subjected to Dialysis by
-    Integration of Bio-SPME Sampling with Non-Targeted Metabolipidomic
-    Profiling. Analytica Chimica Acta 2025, 1340, 343581.
+-   Olkowicz, M., Yu, F., Alvarez, J.S., Ribeiro, R.V.P., Rosales, R.,
+    Xin, L., Yu, M., Jaroch, K., Adamson, M.B., Bissoondath, V., Billia,
+    F., Badiwala, M.V., Pawliszyn, J., 2025. Spatiotemporal metabolic
+    mapping of ex-situ preserved hearts subjected to dialysis by
+    integration of bio-SPME sampling with non-targeted metabolipidomic
+    profiling. Analytica Chimica Acta 1340, 343581.
     <https://doi.org/10.1016/j.aca.2024.343581>.
 
 -   Olkowicz, M., Ramadan, K., Rosales-Solano, H., Yu, M., Wang, A.,
@@ -405,7 +405,9 @@ Spectrometry, Exposomics, Computational Metabolomics
 
 ## Papers (viewpoint)
 
-- Yu, M.; Fang, M.; Wang, B. Ethical Frameworks for Data-Driven Environmental Health Studies in the AI Era. Environ. Health 2025. <https://doi.org/10.1021/envhealth.4c00273>.
+-   Yu, M., Fang, M., Wang, B., 2025. Ethical Frameworks for Data-Driven
+    Environmental Health Studies in the AI Era. Environ. Health.
+    <https://doi.org/10.1021/envhealth.4c00273>.
 
 ## Book chapter
 
@@ -414,7 +416,10 @@ Spectrometry, Exposomics, Computational Metabolomics
     G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and
     Toxicology: From Concepts to Insights. Springer Singapore,
     Singapore, pp. 23--31. <https://doi.org/10.1007/978-981-13-9447-8_3>
--  Woźniczka, K.; Yu, M.; Looby, N.; Roszkowska, A. Fundamentals of in Vivo Sampling. In Reference Module in Chemistry, Molecular Sciences and Chemical Engineering; Elsevier, 2024. <https://doi.org/10.1016/B978-0-443-15978-7.00091-6>.
+-   Woźniczka, K., Yu, M., Looby, N., Roszkowska, A., 2024. Fundamentals
+    of in vivo sampling, in: Reference Module in Chemistry, Molecular
+    Sciences and Chemical Engineering. Elsevier.
+    <https://doi.org/10.1016/B978-0-443-15978-7.00091-6>.
 
 ## Software Package
 

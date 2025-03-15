@@ -36,24 +36,6 @@ Spectrometry, Exposomics, Computational Metabolomics
 -   2016.08 \~ 2018.08, Postdoctoral Fellow, University of Waterloo,
     Canada.
 
-# Honors & Awards
-
--   First-class scholarship, RCEES, CAS, 2015
--   Merit Student, University of Chinese Academy of Sciences, 2014
--   First-class scholarship, RCEES, CAS, 2014
--   First-class scholarship, RCEES, CAS, 2013
--   Second-class scholarship, RCEES, CAS, 2012
--   Second-class scholarship, RCEES, CAS, 2011
--   The first prize in the group competition in science and technology
-    innovation fund project, Shandong University, 2008
--   Advanced staff in scientific and technical research, Shandong
-    University, 2007
--   Second-class scholarship, Shandong University, 2007
--   Outstanding Minister of Students Union in School of Environmental
-    Science and Technology, Shandong University, 2007-2008
--   Outstanding Member of Students Union in School of Environmental
-    Science and Technology, Shandong University, 2006-2007
-
 # Presentations
 
 -   Miao Yu, 2021, Molecular gatekeeper discovery to link exposome with

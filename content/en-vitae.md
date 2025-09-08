@@ -92,6 +92,11 @@ Spectrometry, Exposomics, Computational Metabolomics
 
 ## Papers (peer-reviewed)
 
+-   Yu, M.; Philip, V. Mzrtsim: Raw Data Simulation for Reproducible
+    Gas/Liquid Chromatography–Mass Spectrometry-Based Nontargeted
+    Metabolomics Data Analysis. Anal. Chem. 2025, 97 (32), 17309–17314.
+    <https://doi.org/10.1021/acs.analchem.5c01213>.
+
 -   Yu, M., Li, Q., Dolios, G., Tu, P., Teitelbaum, S., Chen, J.,
     Petrick, L., 2024. Active Molecular Network Discovery Links
     Lifestyle Variables to Breast Cancer in the Long Island Breast

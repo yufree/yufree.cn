@@ -57,6 +57,7 @@ disable_comments: true
 
 ## 论文 (同行评议)
 
+-   Yu, M.; Philip, V. Mzrtsim: Raw Data Simulation for Reproducible Gas/Liquid Chromatography–Mass Spectrometry-Based Nontargeted Metabolomics Data Analysis. Anal. Chem. 2025, 97 (32), 17309–17314. <https://doi.org/10.1021/acs.analchem.5c01213>.
 -   Yu, M., Li, Q., Dolios, G., Tu, P., Teitelbaum, S., Chen, J., Petrick, L., 2024. Active Molecular Network Discovery Links Lifestyle Variables to Breast Cancer in the Long Island Breast Cancer Study Project. Environ. Health 2, 401–410. <https://doi.org/10.1021/envhealth.3c00218>.
 -   Yu, M., Teitelbaum, S.L., Dolios, G., Dang, L.-H.T., Tu, P., Wolff, M.S., Petrick, L.M., 2022. Molecular Gatekeeper Discovery: Workflow for Linking Multiple Exposure Biomarkers to Metabolomics. Environ. Sci. Technol. <https://doi.org/10.1021/acs.est.1c04039>
 -   Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. <https://doi.org/10.1186/s13321-022-00586-8>
@@ -109,7 +110,7 @@ disable_comments: true
 
 ## 论文（非同行评议）
 
--  Yu, M., Fang, M., Wang, B., 2025. Ethical Frameworks for Data-Driven Environmental Health Studies in the AI Era. Environ. Health.  <https://doi.org/10.1021/envhealth.4c00273>.
+-   Yu, M., Fang, M., Wang, B., 2025. Ethical Frameworks for Data-Driven Environmental Health Studies in the AI Era. Environ. Health. <https://doi.org/10.1021/envhealth.4c00273>.
 
 ## 软件开发
 
@@ -130,7 +131,7 @@ disable_comments: true
 
 -   Roszkowska, A., Yu, M., Pawliszyn, J., 2020. In Vivo SPME for Bioanalysis in Environmental Monitoring and Toxicology, in: Jiang, G., Li, X. (Eds.), A New Paradigm for Environmental Chemistry and Toxicology: From Concepts to Insights. Springer Singapore, Singapore, pp. 23--31. <https://doi.org/10.1007/978-981-13-9447-8_3>
 
--   Woźniczka, K., Yu, M., Looby, N., Roszkowska, A., 2024. Fundamentals of in vivo sampling, in: Reference Module in Chemistry, Molecular Sciences and Chemical Engineering. Elsevier.  <https://doi.org/10.1016/B978-0-443-15978-7.00091-6>.
+-   Woźniczka, K., Yu, M., Looby, N., Roszkowska, A., 2024. Fundamentals of in vivo sampling, in: Reference Module in Chemistry, Molecular Sciences and Chemical Engineering. Elsevier. <https://doi.org/10.1016/B978-0-443-15978-7.00091-6>.
 
 ## 代谢组学数据分析培训
 

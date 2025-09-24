@@ -17,16 +17,6 @@ Here is some links related to this website:
 
 -   [Yihui's blog](http://yihui.name): Codes where I got my blog's style
 
--   [R-bloggers](https://www.r-bloggers.com): All blog posts related to R, feed [here](http://feeds.feedburner.com/RBloggers)
-
--   [Yufree](http://yufree.cn/cn): My Chinese pages
-
--   [Linkedin](http://cn.linkedin.com/pub/yufree): I am looking for a post-doc position
-
 -   [Github](https://github.com/yufree): I am not a coder, but I need code
 
--   [Photo](http://yufree.lofter.com/): I am not a photographer, but I like it
-
 -   [Twitter](https://twitter.com/yu_free): My twitter
-
--   [Facebook](https://www.facebook.com/yufreecas): My Facebook

@@ -169,6 +169,13 @@ Spectrometry, Exposomics, Computational Metabolomics
     Pumpkin after In Vivo and In Vitro Exposure. Environ. Sci. Technol.
     47, 13494--13501. <doi:10.1021/es404144p>
 
+-   Petrick, L. M.; Imani, P.; Yu, M.; Dolios, G.; Dudoit, S.;
+    Morimoto, L. M.; Ma, X.; Wiemels, J. L.; Metayer, C. Molecular
+    Reactivity in Maternal Pregnancy Blood and Neonatal Dried Blood
+    Spots Is Associated with Risk of Pediatric Acute Lymphoblastic
+    Leukemia. *Cancer Epidemiol Biomarkers Prev* **2025**.
+    <https://doi.org/10.1158/1055-9965.EPI-25-0801>.
+
 -   Olkowicz, M., Yu, F., Alvarez, J.S., Ribeiro, R.V.P., Rosales, R.,
     Xin, L., Yu, M., Jaroch, K., Adamson, M.B., Bissoondath, V., Billia,
     F., Badiwala, M.V., Pawliszyn, J., 2025. Spatiotemporal metabolic

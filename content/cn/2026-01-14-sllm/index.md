@@ -32,7 +32,7 @@ tags:
 # 3. 下载 MoE 模型
 !pip install huggingface_hub
 from huggingface_hub import hf_hub_download
-model_path = hf_hub_download(repo_id="Qwen/Qwen2.5-1.5B-Instruct-GGUF", filename="qwen2.5-1.5b-instruct-q4_k_m.gguf")
+model_path = hf_hub_download(repo_id="Qwen/Qwen2.5-1.5B-Instruct-GGUF", filename="qwen2.5-1.5b-instruct-q4_0.gguf")
 
 # 4. 启动 RPC 服务
 import subprocess
@@ -48,8 +48,7 @@ def run_rpc():
     
     try:
         process = subprocess.Popen(
-            ['/content/llama.cpp/build/bin/rpc-server', '-H', '0.0.0.0', '-p', '50052','-c',  
-        '--model-path', '/content/llama.cpp/models'],
+            ['/content/llama.cpp/build/bin/rpc-server', '-H', '0.0.0.0', '-p', '50052','-c'],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -80,8 +79,9 @@ print(f"="*40)
 然后本机也要安装同样版本的 llama.cpp 跟模型，本地编译要加 `-DGGML_RPC=ON` 来保证包含RPC功能，默认的没有，然后设定本机只跑几层就可以，同时要打开 flash-attn 跟 no-mmap 来提高点效率：
 
 ```
-./llama-cli -m ../../models/qwen2.5-1.5b-instruct-q4_k_m.gguf \
+./llama-cli -m ../../models/qwen2.5-1.5b-instruct-q4_0.gguf \
   --rpc NGROK_LINK \
+  --device metal,rpc0 \
   --n-gpu-layers 10 \
   --flash-attn on \
   --no-mmap \

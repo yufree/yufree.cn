@@ -29,12 +29,13 @@ BLOG_DIR    = Path(__file__).parent                        # cn 目录
 SKILL_SRC   = BLOG_DIR / "yufree-skill-src"                # skill 源文件（Mac 可访问）
 DIGEST_FILE = SKILL_SRC / "references" / "worldview_digest.md"
 STATE_FILE  = SKILL_SRC / ".last_update"                   # 记录上次处理时间
+CORPUS_DIR  = BLOG_DIR / "corpus"                       # 语料库目录
 
 OLLAMA_URL  = "http://localhost:11434/api/generate"
 MODEL       = "qwen3.5:latest"                             # 你本机的模型名
 
 # 跳过这些文件夹/文件名中含有以下关键词的文章
-SKIP_PATTERNS = ["research-paper", "精选语料库", "update_skill", "yufree-skill-src"]
+SKIP_PATTERNS = ["research-paper", "corpus", "update_skill", "yufree-skill-src"]
 # ────────────────────────────────────────────────────────────────────────
 
 
@@ -66,6 +67,39 @@ EXTRACT_PROMPT = """\
 可以输出多条（不同主题）。如果这篇文章没有满足条件的内容，只输出：无
 
 注意：宁可少提取也不要输出平庸的总结。"""
+
+
+CORPUS_PROMPT = """\
+你在帮一个科研工作者维护个人博客语料库。下面是他的一篇博客文章：
+
+---
+{content}
+---
+
+任务：
+1. 判断这篇文章主要属于哪个类别（只选一个）：
+   - 观察思考：对社会、科技、人性、制度的原创观察与判断
+   - 生活记录：个人生活事件、旅行见闻、日常经历
+   - 科普：科学知识解释、技术原理介绍
+   - 科研方法：科研流程、数据分析、学术方法论
+   - 其他：不属于以上任何类别
+
+2. 从文章中挑出有阅读价值的段落（可以多段，每段保持完整，直接引用原文，不要改写）。
+   判断标准：有思想密度、有个人视角、读者能从中获得信息或共鸣。
+   纯技术步骤、代码块、论文摘要翻译不要选。
+
+输出格式（严格按此格式）：
+类别: [观察思考/生活记录/科普/科研方法/其他]
+
+段落:
+[第一段原文]
+
+段落:
+[第二段原文（如有）]
+
+如果整篇文章没有值得保留的段落，输出：
+类别: 其他
+段落: 无"""
 
 
 def call_ollama(prompt: str) -> str:
@@ -200,6 +234,62 @@ def update_digest(new_entries: list[dict], dry_run: bool = False) -> int:
     return added
 
 
+CORPUS_FILES = {
+    "观察思考": "观察思考.txt",
+    "生活记录": "生活记录.txt",
+    "科普":     "科普.txt",
+    "科研方法": "科研方法.txt",
+    "其他":     "其他.txt",
+}
+
+
+def update_corpus(content: str, source_name: str, dry_run: bool = False) -> int:
+    """从文章里提取段落，追加到对应语料库文件。返回追加的段落数。"""
+    prompt = CORPUS_PROMPT.format(content=content[:5000])
+    raw = call_ollama(prompt)
+    if not raw:
+        return 0
+
+    # 解析类别
+    category = "其他"
+    for line in raw.splitlines():
+        if line.startswith("类别:"):
+            cat = line.split(":", 1)[1].strip()
+            if cat in CORPUS_FILES:
+                category = cat
+            break
+
+    # 解析段落
+    paragraphs = []
+    for chunk in raw.split("\n段落:"):
+        para = chunk.strip()
+        if para and para != "无" and not para.startswith("类别:"):
+            paragraphs.append(para)
+
+    if not paragraphs or paragraphs == ["无"]:
+        print(f"  语料库: 无值得保留的段落（{category}）")
+        return 0
+
+    if dry_run:
+        print(f"  语料库[{category}]: 会追加 {len(paragraphs)} 段")
+        return len(paragraphs)
+
+    corpus_file = CORPUS_DIR / CORPUS_FILES[category]
+    if not corpus_file.exists():
+        print(f"  ⚠ 语料库文件不存在: {corpus_file}")
+        return 0
+
+    sep = "=" * 80
+    entry = f"\n\n{sep}\n来源：{source_name}\n{sep}\n\n"
+    entry += "\n\n".join(paragraphs)
+
+    with open(corpus_file, "a", encoding="utf-8") as f:
+        f.write(entry)
+
+    print(f"  语料库[{category}]: 追加 {len(paragraphs)} 段 → {CORPUS_FILES[category]}")
+    return len(paragraphs)
+
+
 def repackage_skill():
     """把 yufree-skill-src/ 打包成 cn/yufree-style.skill。
 
@@ -263,13 +353,14 @@ def main():
             print("  跳过（内容太短）")
             continue
 
+        # 更新 skill worldview_digest
         entries = extract_entries(body, meta.get("title", name))
-        if not entries:
-            print("  无值得提取的内容")
-            continue
-
         added = update_digest(entries, dry_run=args.dry_run)
         total_added += added
+
+        # 更新语料库
+        source_name = path.name if path.name != "index.md" else f"{path.parent.name}/index.md"
+        update_corpus(body, source_name, dry_run=args.dry_run)
 
     print(f"\n共新增 {total_added} 条观点到 worldview_digest.md")
 

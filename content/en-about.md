@@ -3,13 +3,13 @@ title: About Me
 slug: "en/about"
 ---
 
-Hi, My name is YU Miao and I am currently a scientist at the Jackson Laboratory.
+Hi, my name is Yu Miao, and I’m currently a scientist at the Jackson Laboratory.
 
-My major is Environmental Science and I have to learn lots of knowledge to investigate a specific environmental question. In this case, I have to be a dabbler in many science topics. I also like cooking, photography, programming, solving puzzles, reading,... However, I am good at none of them. In this cas, I am a dabbler in life, too.
+My major is Environmental Science, which requires me to learn a wide range of knowledge to investigate specific environmental questions.  This means I’m a dabble in many science topics.  I also enjoy cooking, photography, programming, solving puzzles, and reading, though I’m not particularly good at any of them.  In a way, I’m a dabble in life itself.
 
-I am lazy, so I just modified [Yihui's pages](http://yihui.name) to show this blog(in fact, I just got the parts which I could figure out the meanings and thanks a lot, Yihui). But I am always willing to learn something new and this blog will be focused on something interesting in my life.
+I’m also quite lazy, so I’ve modified [Yihui’s pages](http://yihui.org) to include this blog. I just got the parts I could figure out the meanings of, and I really appreciate it, Yihui.  I’m always eager to learn something new, and this blog will focus on interesting aspects of my life.
 
-Since English is not my mother tongue, you have to bear my tongue to read my articles.
+Since English isn’t my first language, you may have to bear with my writing.
 
 Don't panic!
 

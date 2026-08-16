@@ -11,9 +11,7 @@ editor_options:
 
 # Contact Information
 
--   Address: 10 Discovery Dr., Farmington, CT, 06032
 -   Email: [yufreecas\@gmail.com](mailto:yufreecas@gmail.com)
--   Pages: [Yufree's blog](http://yufree.cn/)
 -   [ORCID](http://orcid.org/0000-0002-2804-6014)
 
 # Research Interest
@@ -30,7 +28,9 @@ Spectrometry, Exposomics, Computational Metabolomics
 
 # Professional Experience
 
--   2022.04 \~ now, Scientist, The Jackson Laboratory, USA
+-   2026.08 \~ now, Researcher, Research Center
+    for Eco-Environmental Sciences(RCEES), Chinese Academy of Sciences
+-   2022.04 \~ 2026.08, Scientist, The Jackson Laboratory, USA
 -   2018.09 \~ 2022.04, Postdoctoral Fellow, Icahn School of Medicine at
     Mount Sinai, USA
 -   2016.08 \~ 2018.08, Postdoctoral Fellow, University of Waterloo,
@@ -431,28 +431,6 @@ Spectrometry, Exposomics, Computational Metabolomics
     for exposure study
 -   [R package - mzrtsim](https://github.com/yufree/mzrtsim) Raw data
     and peaks list simulation for GC/LC-MS based data
--   [Shiny app - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny/)
-    This application is used to predict next words based on your input
-    words.
--   [Shiny app - JournalTone](http://r.yufree.cn/JournalTone/) This
-    application is used to explore new trend for certain keywords and
-    journal by text mining for the title and abstract via data from
-    PubMed.
--   [Shiny app - XcmsPlus](https://yufreecas.shinyapps.io/xcmsplus) This
-    application is used for visualization, DART, and Batch correction &
-    simulation of metabolomics data.
--   [Shiny app - MSCCP](http://r.yufree.cn/msccpol/) This application is
-    used to quantitative analysis of Short Chain Chlorinated Paraffins
-    (SCCPs).
--   [Shiny app - Molecular isotope ratio tools](http://r.yufree.cn/MIR/)
-    This application is used to get molecular isotope ratio and related
-    information.
--   [Shiny app - SP-ICP-MS](http://r.yufree.cn/spicpms/) This
-    application is used to get the distribution of nano-particles when
-    you perform the analysis on ICP-MS.
--   [Shiny app - ShinyBDE](http://r.yufree.cn/shinyBDE) This application
-    is used to show the database of PBDEs' RRTs on DB-5ms and prediction
-    values by various machine learning algorithms.
 
 ## Granted Patents
 
@@ -478,63 +456,5 @@ Spectrometry, Exposomics, Computational Metabolomics
         slides](https://github.com/yufree/presentation/tree/gh-pages/metabolomics)
 -   University of Waterloo, Waterloo, ON, Canada, 2018.7
 -   University of California, Irvine, Irvine, CA, USA, 2018.8
-
-# Recommendation
-
--   [Prof. Guibin
-    Jiang](http://sourcedb.cas.cn/sourcedb_rcees_cas/yw/cm/200906/t20090612_1038265.html)
-    -   Address: 18 Shuangqing Road, Haidian District, Beijing, China,
-        100085
-    -   Phone: +86-10-62840129
-    -   Email: [gbjiang\@rcees.ac.cn](mailto:gbjiang@rcees.ac.cn)
-    -   Recommendation: [Click
-        Here](https://github.com/yufree/blog/blob/gh-pages/vitae/ProfJiang.pdf)
--   [Prof. Janusz Pawliszyn](https://uwaterloo.ca/pawliszyn-group/)
-    -   Address: Department of Chemistry, University of Waterloo, 200
-        University Avenue West, Waterloo, Ontario, Canada N2L 3G1
-    -   Phone: +1 519-888-4641
-    -   Email: [janusz\@uwaterloo.ca](mailto:janusz@uwaterloo.ca)
-    -   Recommendation: [Click
-        Here](https://github.com/yufree/yufree.cn/raw/master/static/data/JanuszPawliszynMiao.pdf)
--   [Prof. Chengbin
-    Zheng](https://scholar.google.ca/citations?user=cKlGcv0AAAAJ&hl=en)
-    -   Address: No.24 South Section 1, Yihuan Road, Chengdu, China,
-        610014
-    -   Phone: +86-028-85415810
-    -   Email: [abinscu\@scu.edu.cn](mailto:abinscu@scu.edu.cn)
-    -   Recommendation: [Click
-        Here](https://github.com/yufree/blog/blob/gh-pages/vitae/ProfZheng.pdf)
--   [Prof. Thanh Wang](https://www.oru.se/english/employee/thanh_wang)
-    -   Address: Örebro University, Sweden
-    -   Email: [thanh.wang\@oru.se](mailto:thanh.wang@oru.se)
-    -   Recommendation: [Click
-        Here](https://github.com/yufree/yufree.cn/raw/master/static/data/ThanhWangMiao.pdf)
--   [Prof. Brain Caffo](http://www.bcaffo.com/)
-    -   Address: Department of Biostatistics, Bloomberg School of Public
-        Health, Johns Hopkins University 615 N Wolfe Street, Baltimore,
-        MD 212105
-    -   Email: [bcaffoweb\@jhu.edu](mailto:bcaffoweb@jhu.edu)
-    -   Recommendation: [Click
-        Here](https://github.com/yufree/blog/blob/gh-pages/vitae/ProfCaffo.pdf)
--   [Dr. Yihui Xie](http://yihui.org)
-    -   Email: [xie\@yihui.name](mailto:xieyihui@gmail.com)
-    -   Recommendation: [Click
-        Here](https://yihui.org/en/2018/03/miao-yu-postdoc/)
-
-# Computer Skills
-
--   I use RMarkdown to layout my papers but sometimes I have to use
-    Google Doc/TeX/Word and I am skilled at all of them;
--   Most of my data analysis is done under RStudio with RMarkdown and I
-    think repeatability studies are important for every scientist and I
-    know how to use Excel, origin, SPSS, Octave... but I just prefer R;
--   Beamer is simple and Powerpoint is beautiful but recently I found
-    html5 could be a better option;
--   I use Zotero to manage my literature;
--   I learned C when I was a freshman then I also learned S, python and
-    Matlab for simple programming in my research but I think shell is
-    more powerful;
--   I could read structured codes and guess the usages of some functions
-    by their names. 90% of the time, it works;
 
 *I love open source software!*

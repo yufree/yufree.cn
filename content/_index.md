@@ -5,7 +5,7 @@ disable_mathjax: true
 disable_highlight: true
 ---
 
-I am a scientist at the Jackson Laboratory. My research interests are environmental chemistry, data analysis and exposomics. Contact me via [blog](http://yufree.cn/en) or [Email](mailto:yufreecas@gmail.com) if you have questions about and my cv is [here](https://yufree.cn/en/vitae/). 
+I am a researcher at Research Center for Eco-Environmental Sciences, Chinese Academy of Sciences. My research interests are environmental chemistry, data analysis, and exposomics. Contact me via [blog](http://yufree.cn/en) or [Email](mailto:yufreecas@gmail.com) if you have questions about and my cv is [here](https://yufree.cn/en/vitae/). 
 
 贫道满脑不合时宜，好诙谐吐槽，装理性乱指点，经史子集稀松，琴棋书画不通，就一俗人，浏览[本博](http://yufree.cn/cn)勿认真于字句之间。
 

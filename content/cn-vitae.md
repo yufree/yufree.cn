@@ -6,14 +6,13 @@ disable_comments: true
 
 ## 联系信息
 
--   地址: 10 Discovery Dr, Farmington, CT
--   邮编: 06032
 -   Email: yufreecas at gmail.com
 -   [ORCID](http://orcid.org/0000-0002-2804-6014)
 
 ## 工作信息
 
--   2022.04至今 美国杰克逊实验室 科学家
+-   2026.08至今 中国科学院生态环境研究中心 研究员
+-   2022.04-2026.07 美国杰克逊实验室 科学家
 -   2018.09-2022.04 美国西奈山医学院 博士后
 -   2016.08-2018.08 加拿大滑铁卢大学 博士后
 -   2014.09-2016.07 美国化学会 初级网络分析师（兼职）
@@ -42,18 +41,6 @@ disable_comments: true
 -   Miao Yu, 2021, General reactomics data analysis framework for retrieving chemical relationship from untargeted mass-spectrometry data, Pittcon 2021, USA. ([slides](http://yufree.github.io/presentation/reactomics/pres-pittcon.html) and [video](https://youtu.be/xYHW5Z5q_A8))
 -   Miao Yu, 2021, Molecular gatekeeper discovery for multiple exposure groups in adolescent girls, ACS Spring 2021, USA. ([slides](http://yufree.github.io/presentation/gatekeeper/gatekeeper-acs.html)
 -   Miao Yu, 2021, Molecular gatekeeper discovery to link exposome with health outcomes through metabolomics, 69th ASMS Conference, Pennsylvania, USA. ([slides](http://yufree.github.io/presentation/gatekeeper/gatekeeper-asms.html)
-
-## 计算机水平
-
--   语言(业余)：R \> Tex \> python \> Octave \>\> C
--   软件：RStudio, Docker, 终端
--   操作系统：早年 windows 后来 ubuntu 近期Mac OS X
--   认证(已忘)：三级网络技术
--   维护：常年义务排除亲友大量软硬件故障 后顿悟 重装了事
-
-## 英语水平
-
--   阅读写作无碍 听力口语凑合 满足研究需要
 
 ## 论文 (同行评议)
 
@@ -120,13 +107,6 @@ disable_comments: true
 -   [R包 - pmd](http://cran.r-project.org/web/packages/pmd/index.html)：基于GC/LC-MS数据的非目的质量差分析
 -   [R包 - enet](https://github.com/yufree/enet)：暴露组学数据分析
 -   [R包 - mzrtsim](https://github.com/yufree/mzrtsim)：质谱色谱原始数据仿真
--   [Shiny在线应用 - Simple SwiftKey](https://yufree.shinyapps.io/nlpshiny)：极简在线输入法
--   [Shiny在线应用 - JournalTone](http://r.yufree.cn/JournalTone/)：基于PubMed关键词或期刊的文本趋势挖掘
--   [Shiny在线应用 - XcmsPlus](https://yufreecas.shinyapps.io/xcmsplus)：代谢组学数据分析与可视化
--   [Shiny在线应用 - MSCCP](http://r.yufree.cn/msccpol/)：短链氯化石蜡定量
--   [Shiny在线应用 - Molecular isotope ratio tools](http://r.yufree.cn/MIR/)：分子同位素分析
--   [Shiny在线应用 - SP-ICP-MS](http://r.yufree.cn/spicpms/)：基于ICP-MS的纳米粒子颗粒分布分析
--   [Shiny app - ShinyBDE](http://r.yufree.cn/shinyBDE)：多溴联苯醚保留时间预测
 
 ## 书
 

@@ -3,7 +3,7 @@ title: About Me
 slug: "en/about"
 ---
 
-Hi, my name is Yu Miao, and I’m currently a scientist at the Jackson Laboratory.
+Hi, my name is Yu Miao, and I’m currently a researcher at Research Center for Eco-Environmental Sciences, Chinese Academy of Sciences.
 
 My major is Environmental Science, which requires me to learn a wide range of knowledge to investigate specific environmental questions.  This means I’m a dabble in many science topics.  I also enjoy cooking, photography, programming, solving puzzles, and reading, though I’m not particularly good at any of them.  In a way, I’m a dabble in life itself.
 

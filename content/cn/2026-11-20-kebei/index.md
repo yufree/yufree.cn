@@ -1,7 +1,7 @@
 ---
 title: 名教授柯北之酒精过敏
 author: Miao Yu
-date: '2026-11-19'
+date: '2026-11-20'
 slug: kebei
 categories: []
 tags:

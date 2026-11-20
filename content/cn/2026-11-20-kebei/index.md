@@ -4,7 +4,8 @@ author: Miao Yu
 date: '2026-11-19'
 slug: kebei
 categories: []
-tags: []
+tags:
+  - fiction
 ---
 
 柯北决定当一回侦探。

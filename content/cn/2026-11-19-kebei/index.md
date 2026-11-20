@@ -4,7 +4,8 @@ author: Miao Yu
 date: '2026-11-19'
 slug: kebei
 categories: []
-tags: []
+tags:
+  - fiction
 ---
 
 秦九入组后的第一个月，柯北课题组发生了一场无声的革命。
